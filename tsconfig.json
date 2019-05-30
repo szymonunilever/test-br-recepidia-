@@ -9,7 +9,8 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "rootDirs": ["src", "stories"]
   },
   "exclude": ["node_modules", "public", ".cache"]
 }
