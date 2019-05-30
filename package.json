@@ -1,0 +1,75 @@
+{
+  "name": "gatsby-unilever-theme",
+  "private": true,
+  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "dependencies": {
+    "gatsby": "^2.7.3",
+    "gatsby-image": "^2.1.1",
+    "gatsby-plugin-feed": "^2.2.1",
+    "gatsby-plugin-google-analytics": "^2.0.20",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.1.1",
+    "gatsby-plugin-typescript": "^2.0.15",
+    "gatsby-transformer-sharp": "^2.1.19",
+    "prismjs": "^1.16.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-typography": "^0.16.19",
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.54",
+    "typography": "^0.16.19",
+    "typography-theme-wordpress-2016": "^0.16.19"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.9.3",
+    "@types/jest": "^24.0.13",
+    "@types/react-helmet": "^5.0.8",
+    "@types/react-test-renderer": "^16.8.1",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "babel-jest": "^24.8.0",
+    "babel-preset-gatsby": "^0.1.11",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "husky": "^2.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "react-test-renderer": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby clean && gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "jest",
+    "type-check": "tsc",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
+    "lint:fix": "yarn lint --fix"
+  }
+}
