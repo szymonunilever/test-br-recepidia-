@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import RichText from '../src/components/lib/RichText/RichText';
+import { RichText } from '../src/components/lib/RichText';
 
 const contentHtm = `
 <h1>Header 1</h1>
