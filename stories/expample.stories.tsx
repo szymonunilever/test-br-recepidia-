@@ -1,5 +1,5 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 import Example from '../src/components/lib/Example/Example';
 
 storiesOf('Example', module)
