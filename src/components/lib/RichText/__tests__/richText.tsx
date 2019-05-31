@@ -19,7 +19,7 @@ describe('RichText', () => {
     const testContent = shallow(
       <RichText html={testHtml} className={className} />
     );
-    expect(testContent.find('div.rich-text')).toBeTruthy();
+    expect(testContent.find('div[data-componentname="richText"]')).toBeTruthy();
     expect(testContent.find('h1')).toBeTruthy();
     expect(testContent.find('h2')).toBeTruthy();
     expect(testContent.find('p')).toBeTruthy();
