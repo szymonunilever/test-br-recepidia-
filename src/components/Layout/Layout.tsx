@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
 
 const Layout = ({ title, children }: LayoutProps) => {
   return (
@@ -20,5 +20,5 @@ export default Layout;
 interface LayoutProps {
   location?: Location;
   title: string;
-  children?: any;
+  children?: any; // eslint-disable-line
 }
