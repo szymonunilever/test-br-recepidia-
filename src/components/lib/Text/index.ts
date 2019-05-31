@@ -1,2 +1,2 @@
-export {default as Text} from './Text'
-export * from './models'
+export { default as Text } from './Text';
+export * from './models';
