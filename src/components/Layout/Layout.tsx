@@ -20,5 +20,5 @@ export default Layout;
 interface LayoutProps {
   location?: Location;
   title: string;
-  children?: any;
+  children?: any; // eslint-disable-line
 }
