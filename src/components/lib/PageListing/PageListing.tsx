@@ -23,7 +23,7 @@ const PageListing = ({ data }: PageListingProps) => {
     pagesCount,
   });
 
-  const loadMore = (): void => {
+  const loadMore = () => {
     const { pages, pagesCount } = pagesState;
     const { pagesPerLoad = 4 } = loadMoreButton;
 
