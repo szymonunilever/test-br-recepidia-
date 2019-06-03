@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { FavoriteProps } from './models';
+// @ts-ignore
+import theme from './Favorite.module.scss';
+import cx from 'classnames';
 
 const Favorite = ({
   icon,
@@ -9,6 +12,9 @@ const Favorite = ({
   className = '',
 }: FavoriteProps) => {
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
+  const wrapClasses = cx(theme.favorite, className, {
+    'favorite-selected': selected,
+  });
   const theIcon = selected ? iconSelected : icon;
   const onFavoriteClick = () => {
     const newVal = !selected;
@@ -21,7 +27,7 @@ const Favorite = ({
     <button
       type="button"
       data-componentname="favorite"
-      className={className}
+      className={wrapClasses}
       onClick={onFavoriteClick}
     >
       {theIcon}

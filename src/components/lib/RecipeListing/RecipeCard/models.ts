@@ -3,4 +3,5 @@ export interface RecipeCardProps {
   recipeImgPath: string;
   title: string;
   className?: string;
+  slug: string;
 }

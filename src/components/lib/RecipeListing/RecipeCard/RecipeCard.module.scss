@@ -1,0 +1,30 @@
+.recipeCard{
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+
+:global(.recipeCard-favorite){
+  position: absolute;
+  margin: 10px 0 0 -10px;
+  z-index: 1;
+  align-self: flex-end;
+}
+
+:global(.recipeCard-image){
+  min-width: 100%;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+:global(.recipeCard-title){
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+
