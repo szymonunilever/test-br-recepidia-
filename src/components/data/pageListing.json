@@ -1,0 +1,63 @@
+{
+  "viewType": "default",
+  "componentName": "pageListing",
+  "customClass": "custom-class",
+  "title": "Custom title",
+  "subtitle": "Subtitle text",
+  "pagesCount": 2,
+  "loadMoreButton": {
+    "isEnabled": true,
+    "pagesPerLoad": 2,
+    "text": "Custom button text"
+  },
+  "pages": [
+    {
+      "title": "Our promise",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    },
+    {
+      "title": "Recipes",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    },
+    {
+      "title": "Products",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    },
+    {
+      "title": "gnnjkdkjdgd",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    },
+    {
+      "title": "dsada",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    },
+    {
+      "title": "dsadsads",
+      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "image": {
+        "link": "http://via.placeholder.com/300",
+        "alt": "some title"
+      }
+    }
+  ]
+}
