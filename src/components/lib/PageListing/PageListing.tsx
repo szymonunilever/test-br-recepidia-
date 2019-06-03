@@ -44,7 +44,7 @@ const PageListing = ({ data }: PageListingProps) => {
   }, [pagesState.pagesCount]);
 
   const className = customClass ? customClass : componentName;
-  const shouldAppear = !(pagesState.pagesCount >= pages.length) && isEnabled;
+  const shouldAppear = !(pagesState.pagesCount > pages.length) && isEnabled;
 
   const loadMoreBtn = shouldAppear ? (
     <LoadMoreButton
