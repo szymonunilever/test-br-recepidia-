@@ -13,11 +13,7 @@ describe('<PageListing />', () => {
 
   it('Should recieve data as an object', () => {
     const pageListing = mount(<PageListing data={pageListingData} />);
-    expect(typeof pageListing.props().data).toBe('object');
-  });
 
-  it('Data should be an object', () => {
-    const pageListing = mount(<PageListing data={pageListingData} />);
     expect(typeof pageListing.props().data).toBe('object');
   });
 });

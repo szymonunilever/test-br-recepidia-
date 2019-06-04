@@ -43,35 +43,27 @@ const PageListing = ({ data }: PageListingProps) => {
     });
   }, [pagesState.pagesCount]);
 
-  const className = customClass ? customClass : componentName;
+  const className = customClass
+    ? `page-listing ${customClass}`
+    : `page-listing`;
   const shouldAppear = !(pagesState.pagesCount > pages.length) && isEnabled;
 
   const loadMoreBtn = shouldAppear ? (
-    <LoadMoreButton
-      className={className}
-      loadMore={loadMore}
-      loadMoreButton={loadMoreButton}
-    />
+    <LoadMoreButton loadMore={loadMore} loadMoreButton={loadMoreButton} />
   ) : null;
 
   const subTitle = subtitle ? (
-    <div className={`${className}__subtitle`}>{subtitle}</div>
+    <div className={`page-listing__subtitle`}>{subtitle}</div>
   ) : null;
 
   let view = (
     <div className={className} data-componentname={componentName}>
-      <h3 className={`${className}__title`}>{title}</h3>
+      <h3 className={`page-listing__title`}>{title}</h3>
       {subTitle}
 
-      <ul className={`${className}__list`}>
+      <ul className={`page-listing__list`}>
         {pagesState.pages.map((item: ItemProps) => {
-          return (
-            <PageListingItem
-              key={item.title}
-              page={item}
-              className={className}
-            />
-          );
+          return <PageListingItem key={item.title} page={item} />;
         })}
       </ul>
 
