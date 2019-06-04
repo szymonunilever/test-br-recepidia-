@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { FavoriteProps } from './models';
-// @ts-ignore
 import theme from './Favorite.module.scss';
 import cx from 'classnames';
 
@@ -16,7 +15,8 @@ const Favorite = ({
     'favorite-selected': selected,
   });
   const theIcon = selected ? iconSelected : icon;
-  const onFavoriteClick = () => {
+  const onFavoriteClick = (e: MouseEvent) => {
+    e.preventDefault();
     const newVal = !selected;
     setSelected(newVal);
     if (typeof onChange !== 'undefined') {
