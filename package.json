@@ -84,6 +84,7 @@
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
     "lint:fix": "yarn lint --fix",
     "storybook": "start-storybook -p 6006",
+    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled",
     "build-storybook": "build-storybook"
   }
 }

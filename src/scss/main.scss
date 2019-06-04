@@ -1,8 +1,6 @@
-@import 'vars';
-@import 'utils';
-@import 'mixins';
-
+@import 'base';
 @import 'theme';
+@import 'print';
 
 @import './components/text';
-@import './components/markup';
+@import './components/rich-text';
