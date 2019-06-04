@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo/Seo';
+import '../scss/main.scss';
 
 const IndexPage = ({ data, location }: IndexPageProps) => {
   return (

@@ -18,6 +18,8 @@
     "gatsby-plugin-sharp": "^2.1.1",
     "gatsby-plugin-typescript": "^2.0.15",
     "gatsby-transformer-sharp": "^2.1.19",
+    "gatsby-plugin-sass": "^2.0.11",
+    "node-sass": "^4.12.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -83,6 +85,7 @@
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
     "lint:fix": "yarn lint --fix",
     "storybook": "start-storybook -p 6006",
+    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled",
     "build-storybook": "build-storybook"
   }
 }

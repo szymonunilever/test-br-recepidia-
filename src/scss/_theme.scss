@@ -1,0 +1,38 @@
+@import 'vars';
+@import 'utils';
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:500&display=swap');
+
+h1,h2,h3,h4,h5,.subheading{
+    font-family: $rubik;
+    font-weight: 500;
+}
+h1{
+    font-size: 48px;
+    line-height: 1.19;
+}
+h2{
+    font-size: 34px;
+    line-height: 1.06;
+}
+h3{
+    font-size: 30px;
+    line-height: 1.07;
+}
+h4{
+    font-size: 24px;
+    line-height: 1.17;
+}
+h5{
+    font-size: 21px;
+    line-height: 1.33;
+}
+h5.h6{
+    font-size: 18px;
+    line-height: 1.22;
+}
+.subheading{
+    font-size: 16px;
+    line-height: 1.25;
+}
