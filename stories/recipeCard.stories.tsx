@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { RecipeCard } from '../src/components/lib/RecipeListing/RecipeCard';
+import { RecipeCard } from '../src/components/lib/RecipeListing/partials';
 import imageItem from 'src/components/data/localImage.json';
 
-storiesOf('Components/RecipeCard', module)
+storiesOf('Components/partials', module)
   .add(
     'default with favorite',
     () => (
