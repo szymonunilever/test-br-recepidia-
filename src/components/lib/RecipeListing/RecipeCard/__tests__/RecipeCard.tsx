@@ -3,6 +3,8 @@ import React from 'react';
 import { shallow, mount, ShallowWrapper, ReactWrapper } from 'enzyme';
 
 import { RecipeCard } from '../index';
+import imageItem from 'src/components/data/localImage.json';
+const image = JSON.parse(JSON.stringify(imageItem));
 
 describe('RecipeCard', () => {
   let recipeCardDefault: ReactWrapper;
@@ -10,7 +12,7 @@ describe('RecipeCard', () => {
     recipeCardDefault = mount(
       <RecipeCard
         enableSelectFavorite={true}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={image}
         title="Test recipe"
         slug="/"
       />
@@ -25,7 +27,7 @@ describe('RecipeCard', () => {
     const recipeCard = mount(
       <RecipeCard
         enableSelectFavorite={true}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={image}
         title="Test recipe"
         slug="/"
         inFavorite
@@ -46,7 +48,7 @@ describe('RecipeCard', () => {
     const recipeCard = shallow(
       <RecipeCard
         enableSelectFavorite={false}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={image}
         title="Test recipe"
         slug="/"
       />

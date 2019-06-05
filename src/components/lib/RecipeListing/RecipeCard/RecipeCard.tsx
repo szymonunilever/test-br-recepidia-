@@ -1,16 +1,16 @@
 import cx from 'classnames';
-import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
 import { Favorite } from '../../../common/Favorite';
 import { RecipeCardProps } from './models';
-// @ts-ignore
 import theme from './RecipeCard.module.scss';
 
 const RecipeCard = ({
   title,
-  recipeImgPath,
+  imgObject,
   enableSelectFavorite,
   slug,
   className = '',
@@ -31,22 +31,12 @@ const RecipeCard = ({
         isSelected={inFavorite}
         onChange={onFavoriteToggle}
       />
-      <img
-        className="recipeCard-image"
-        title={title}
-        alt={title}
-        src={recipeImgPath}
-      />
+      <Img className="recipeCard-image" fluid={imgObject} alt={title} />
       <div className="recipeCard-title">{title}</div>
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <img
-        className="recipeCard-image"
-        title={title}
-        alt={title}
-        src={recipeImgPath}
-      />
+      <Img className="recipeCard-image" fluid={imgObject} alt={title} />
       <div className="recipeCard-title">{title}</div>
     </Link>
   );
