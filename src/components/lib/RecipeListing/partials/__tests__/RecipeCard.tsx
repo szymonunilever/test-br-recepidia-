@@ -19,7 +19,7 @@ describe('RecipeCard', () => {
     expect(
       recipeCardDefault.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCardDefault.find('Favorite').exists()).toBeTruthy();
+    expect(recipeCardDefault.find('Button').exists()).toBeTruthy();
   });
 
   it('Render view with favorite button already selected', () => {
@@ -35,11 +35,11 @@ describe('RecipeCard', () => {
     expect(
       recipeCard.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCard.find('Favorite').exists()).toBeTruthy();
+    expect(recipeCard.find('Button').exists()).toBeTruthy();
     expect(
       recipeCard
-        .find('button[data-componentname="favorite"]')
-        .hasClass('favorite-selected')
+        .find('button[data-componentname="button"]')
+        .hasClass('button__selected')
     ).toEqual(true);
   });
 
@@ -55,15 +55,15 @@ describe('RecipeCard', () => {
     expect(
       recipeCard.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCard.find('Favorite').exists()).toBeFalsy();
+    expect(recipeCard.find('Button').exists()).toBeFalsy();
   });
   it('Test add to favorite', () => {
-    expect(recipeCardDefault.find('.favorite-selected').length).toEqual(0);
+    expect(recipeCardDefault.find('.button__selected').length).toEqual(0);
 
     recipeCardDefault
-      .find('button[data-componentname="favorite"]')
+      .find('button[data-componentname="button"]')
       .simulate('click');
 
-    expect(recipeCardDefault.find('.favorite-selected').length).toEqual(1);
+    expect(recipeCardDefault.find('.button__selected').length).toEqual(1);
   });
 });

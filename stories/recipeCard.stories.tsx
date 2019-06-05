@@ -3,7 +3,7 @@ import React from 'react';
 import { RecipeCard } from '../src/components/lib/RecipeListing/partials';
 import imageItem from 'src/components/data/localImage.json';
 
-storiesOf('Components/partials', module)
+storiesOf('Components/Recipe Card', module)
   .add(
     'default with favorite',
     () => (
