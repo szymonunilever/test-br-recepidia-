@@ -2,6 +2,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import { TagName, Text } from 'src/components/lib/Text';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
 import { Button, ButtonViewType } from '../../../common/Button';
@@ -12,11 +13,21 @@ const RecipeCard = ({
   title,
   imgObject,
   enableSelectFavorite,
+  titleLevel = 3,
   slug,
   className = '',
   inFavorite = false,
   onFavoriteChange,
 }: RecipeCardProps) => {
+  const itemTitle = (
+    <Text
+      // @ts-ignore
+      tag={TagName[`h${titleLevel}`]}
+      text={title}
+      className="recipe-card__title"
+    />
+  );
+
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
       onFavoriteChange(val);
@@ -34,12 +45,12 @@ const RecipeCard = ({
         viewType={ButtonViewType.icon}
       />
       <Img className="recipe-card__image" fluid={imgObject} alt={title} />
-      <div className="recipe-card__title">{title}</div>
+      {itemTitle}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Img className="recipe-card__image" fluid={imgObject} alt={title} />
-      <div className="recipe-card__title">{title}</div>
+      {itemTitle}
     </Link>
   );
   return <>{resultView} </>;
