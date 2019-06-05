@@ -29,7 +29,7 @@ const RecipeCard = ({
         className="recipe-card__favorite"
         icon={<Icon />}
         isSelected={inFavorite}
-        onChange={onFavoriteToggle}
+        onClick={onFavoriteToggle}
         isToggle={true}
         viewType={ButtonViewType.icon}
       />

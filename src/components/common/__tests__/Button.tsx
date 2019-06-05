@@ -11,7 +11,7 @@ describe('Button', () => {
     testClick = val;
   };
   const buttonClassic: ReactWrapper = mount(
-    <Button className="button-test" onChange={callbackFunction}>
+    <Button className="button-test" onClick={callbackFunction}>
       Test
     </Button>
   );
@@ -21,7 +21,7 @@ describe('Button', () => {
       viewType={ButtonViewType.icon}
       icon={<Icon />}
       isToggle
-      onChange={callbackFunction}
+      onClick={callbackFunction}
     />
   );
   const buttonIconPreSelected: ReactWrapper = mount(

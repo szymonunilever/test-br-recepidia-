@@ -10,7 +10,7 @@ export interface ButtonProps {
   icon?: JSX.Element;
   iconSelected?: JSX.Element;
   isSelected?: boolean;
-  onChange?: ButtonCallback;
+  onClick?: ButtonCallback;
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;

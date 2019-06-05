@@ -7,7 +7,7 @@ const Button = ({
   icon,
   iconSelected = icon,
   isSelected = false,
-  onChange,
+  onClick,
   className = '',
   children = '',
   isToggle = false,
@@ -28,12 +28,12 @@ const Button = ({
     if (isToggle) {
       const newVal = !selected;
       setSelected(newVal);
-      if (typeof onChange !== 'undefined') {
-        onChange(newVal);
+      if (typeof onClick !== 'undefined') {
+        onClick(newVal);
       }
     } else {
-      if (typeof onChange !== 'undefined') {
-        onChange(false);
+      if (typeof onClick !== 'undefined') {
+        onClick(false);
       }
     }
   };
