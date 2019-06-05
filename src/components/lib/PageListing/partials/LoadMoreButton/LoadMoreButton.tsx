@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoadMoreButtonProps } from './models';
+import { LoadMoreButtonProps } from '../models';
 
 const LoadMoreButton = ({
   loadMore,

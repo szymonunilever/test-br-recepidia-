@@ -15,38 +15,31 @@ const PageListing = ({ data }: PageListingProps) => {
     customClass,
     loadMoreButton,
     subtitle,
-    loadMoreButton: { isEnabled },
+    loadMoreButton: { isEnabled, pagesPerLoad = 4 },
   } = data;
 
   const [pagesState, setPagesState] = useState({
-    pages,
     pagesCount,
+    pages: pages.slice(0, pagesCount),
   });
 
   const loadMore = () => {
-    const { pages, pagesCount } = pagesState;
-    const { pagesPerLoad = 4 } = loadMoreButton;
-
     setPagesState({
-      pages: [...pages],
-      pagesCount: pagesCount + pagesPerLoad,
+      pages: [
+        ...pagesState.pages,
+        ...pages.slice(
+          pagesState.pagesCount,
+          pagesState.pagesCount + pagesPerLoad
+        ),
+      ],
+      pagesCount: pagesState.pagesCount + pagesPerLoad,
     });
   };
-
-  useEffect(() => {
-    const { pagesCount } = pagesState;
-    const newPages = pages.slice(0, pagesCount);
-
-    setPagesState({
-      pages: newPages,
-      pagesCount,
-    });
-  }, [pagesState.pagesCount]);
 
   const className = customClass
     ? `page-listing ${customClass}`
     : `page-listing`;
-  const shouldAppear = !(pagesState.pagesCount > pages.length) && isEnabled;
+  const shouldAppear = pages.length > pagesState.pagesCount && isEnabled;
 
   const loadMoreBtn = shouldAppear ? (
     <LoadMoreButton loadMore={loadMore} loadMoreButton={loadMoreButton} />
