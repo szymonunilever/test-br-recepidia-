@@ -88,19 +88,6 @@ describe('<PageListing />', () => {
     expect(wrapper.find('LoadMoreButton').exists()).toBeFalsy();
   });
 
-  it('Should not render <LoadMoreButton/> if it`s not been enabled', () => {
-    const newData = {
-      ...pageListingData,
-      loadMoreButton: {
-        ...pageListingData.loadMoreButton,
-        isEnabled: false,
-      },
-    };
-    const wrapper = shallow(<PageListing data={newData} />);
-
-    expect(wrapper.find('LoadMoreButton').exists()).toBeFalsy();
-  });
-
   it('Should render <LoadMoreButton/> if it`s been enabled and it has pages to load more', () => {
     const newData = {
       ...pageListingData,
