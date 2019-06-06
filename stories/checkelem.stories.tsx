@@ -56,7 +56,7 @@ storiesOf(
       <Checkelem
         type={checkelemTypes.radio}
         name="radiotest"
-        labelText="Checkbox label with a lot of text: Lorem ipsum dolor sit, amet
+        labelText="Radio button label with a lot of text: Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Doloremque est soluta inventore saepe
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius

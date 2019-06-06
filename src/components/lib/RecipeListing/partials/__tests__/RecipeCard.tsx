@@ -1,8 +1,9 @@
 /* global describe, it, expect */
 import React from 'react';
-import { shallow, mount, ShallowWrapper, ReactWrapper } from 'enzyme';
+import { shallow, mount, ReactWrapper } from 'enzyme';
 
 import { RecipeCard } from '../index';
+import imageItem from 'src/components/data/localImage.json';
 
 describe('RecipeCard', () => {
   let recipeCardDefault: ReactWrapper;
@@ -10,7 +11,7 @@ describe('RecipeCard', () => {
     recipeCardDefault = mount(
       <RecipeCard
         enableSelectFavorite={true}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={imageItem}
         title="Test recipe"
         slug="/"
       />
@@ -18,14 +19,14 @@ describe('RecipeCard', () => {
     expect(
       recipeCardDefault.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCardDefault.find('Favorite').exists()).toBeTruthy();
+    expect(recipeCardDefault.find('Button').exists()).toBeTruthy();
   });
 
   it('Render view with favorite button already selected', () => {
     const recipeCard = mount(
       <RecipeCard
         enableSelectFavorite={true}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={imageItem}
         title="Test recipe"
         slug="/"
         inFavorite
@@ -34,11 +35,11 @@ describe('RecipeCard', () => {
     expect(
       recipeCard.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCard.find('Favorite').exists()).toBeTruthy();
+    expect(recipeCard.find('Button').exists()).toBeTruthy();
     expect(
       recipeCard
-        .find('button[data-componentname="favorite"]')
-        .hasClass('favorite-selected')
+        .find('button[data-componentname="button"]')
+        .hasClass('button__selected')
     ).toEqual(true);
   });
 
@@ -46,7 +47,7 @@ describe('RecipeCard', () => {
     const recipeCard = shallow(
       <RecipeCard
         enableSelectFavorite={false}
-        recipeImgPath="/static/favicon.ico"
+        imgObject={imageItem}
         title="Test recipe"
         slug="/"
       />
@@ -54,15 +55,15 @@ describe('RecipeCard', () => {
     expect(
       recipeCard.find('div[data-componentname="recipeCard"]')
     ).toBeTruthy();
-    expect(recipeCard.find('Favorite').exists()).toBeFalsy();
+    expect(recipeCard.find('Button').exists()).toBeFalsy();
   });
   it('Test add to favorite', () => {
-    expect(recipeCardDefault.find('.favorite-selected').length).toEqual(0);
+    expect(recipeCardDefault.find('.button__selected').length).toEqual(0);
 
     recipeCardDefault
-      .find('button[data-componentname="favorite"]')
+      .find('button[data-componentname="button"]')
       .simulate('click');
 
-    expect(recipeCardDefault.find('.favorite-selected').length).toEqual(1);
+    expect(recipeCardDefault.find('.button__selected').length).toEqual(1);
   });
 });

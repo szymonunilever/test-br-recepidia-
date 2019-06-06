@@ -1,15 +1,16 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { RecipeCard } from '../src/components/lib/RecipeListing/RecipeCard';
+import { RecipeCard } from '../src/components/lib/RecipeListing/partials';
+import imageItem from 'src/components/data/localImage.json';
 
-storiesOf('Components/RecipeCard', module)
+storiesOf('Components/Recipe Card', module)
   .add(
     'default with favorite',
     () => (
       <RecipeCard
         title="Test recipe card"
         enableSelectFavorite={true}
-        recipeImgPath="/favicon.ico"
+        imgObject={imageItem}
         slug="/"
       />
     ),
@@ -23,7 +24,7 @@ storiesOf('Components/RecipeCard', module)
       <RecipeCard
         title="Test recipe card"
         enableSelectFavorite={false}
-        recipeImgPath="/favicon.ico"
+        imgObject={imageItem}
         slug="/"
       />
     ),
@@ -37,7 +38,7 @@ storiesOf('Components/RecipeCard', module)
       <RecipeCard
         title="Test recipe card"
         enableSelectFavorite={true}
-        recipeImgPath="/favicon.ico"
+        imgObject={imageItem}
         slug="/"
         inFavorite
       />

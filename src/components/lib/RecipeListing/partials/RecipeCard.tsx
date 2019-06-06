@@ -1,16 +1,16 @@
 import cx from 'classnames';
-import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
-import { Favorite } from '../../../common/Favorite';
+import { Button, ButtonViewType } from '../../../common/Button';
 import { RecipeCardProps } from './models';
-// @ts-ignore
 import theme from './RecipeCard.module.scss';
 
 const RecipeCard = ({
   title,
-  recipeImgPath,
+  imgObject,
   enableSelectFavorite,
   slug,
   className = '',
@@ -22,32 +22,24 @@ const RecipeCard = ({
       onFavoriteChange(val);
     }
   };
-  const wrapClasses = cx(theme.recipeCard, className);
+  const wrapClasses = cx(theme['recipe-card'], className);
   const resultView = enableSelectFavorite ? (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <Favorite
-        className="recipeCard-favorite"
+      <Button
+        className="recipe-card__favorite"
         icon={<Icon />}
         isSelected={inFavorite}
-        onChange={onFavoriteToggle}
+        onClick={onFavoriteToggle}
+        isToggle={true}
+        viewType={ButtonViewType.icon}
       />
-      <img
-        className="recipeCard-image"
-        title={title}
-        alt={title}
-        src={recipeImgPath}
-      />
-      <div className="recipeCard-title">{title}</div>
+      <Img className="recipe-card__image" fluid={imgObject} alt={title} />
+      <div className="recipe-card__title">{title}</div>
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <img
-        className="recipeCard-image"
-        title={title}
-        alt={title}
-        src={recipeImgPath}
-      />
-      <div className="recipeCard-title">{title}</div>
+      <Img className="recipe-card__image" fluid={imgObject} alt={title} />
+      <div className="recipe-card__title">{title}</div>
     </Link>
   );
   return <>{resultView} </>;
