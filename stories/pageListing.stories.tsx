@@ -9,15 +9,19 @@ storiesOf('Components/PageListing/defaultView', module)
     return <PageListing data={pageListingData} />;
   })
   .add('Without loadmore button', () => {
-    const newpageListingData = JSON.parse(JSON.stringify(pageListingData));
+    const newData = {
+      ...pageListingData,
+      loadMoreButton: { ...pageListingData.loadMoreButton, isEnabled: false },
+    };
 
-    newpageListingData.loadMoreButton.isEnabled = false;
-    return <PageListing data={newpageListingData} />;
+    return <PageListing data={newData} />;
   })
   .add('Without loadmore button & without subtitle', () => {
-    const newpageListingData = JSON.parse(JSON.stringify(pageListingData));
+    const newData = {
+      ...pageListingData,
+      subtitle: undefined,
+      loadMoreButton: { ...pageListingData.loadMoreButton, isEnabled: false },
+    };
 
-    newpageListingData.loadMoreButton.isEnabled = false;
-    newpageListingData.subtitle = null;
-    return <PageListing data={newpageListingData} />;
+    return <PageListing data={newData} />;
   });
