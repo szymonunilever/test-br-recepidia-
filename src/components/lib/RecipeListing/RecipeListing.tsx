@@ -79,7 +79,7 @@ const RecipeListing = ({
           // @ts-ignore
           titleLevel={titleLevel + 1}
         />
-        {recipeCount !== 0 ? (
+        {listState.listItems.length > 0 && recipeCount !== 0 ? (
           <Button className="recipe-list__load-more" onClick={loadMore}>
             {loadMoreButtonContent}
           </Button>

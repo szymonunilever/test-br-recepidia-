@@ -85,6 +85,24 @@ describe('Recipe Listing Component', () => {
     wrapper.find('button.recipe-list__load-more').simulate('click');
     expect(wrapper.find('ul').children()).toHaveLength(8);
   });
+
+  it('Recipe Listing Base no results', () => {
+    const wrapper = mount(
+      <RecipeListing
+        list={[]}
+        viewType={RecipeListViewType.Base}
+        title="Test"
+        titleLevel={1}
+      />
+    );
+
+    expect(wrapper.find('button.recipe-list__load-more')).toHaveLength(0);
+    expect(
+      wrapper
+        .find('p.recipe-list__no-results')
+        .contains('Recipes were not found.')
+    );
+  });
   it('Recipe Listing Base all recipes without loadMore', () => {
     const wrapper = mount(
       <RecipeListing
