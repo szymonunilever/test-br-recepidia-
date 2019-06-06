@@ -1,23 +1,26 @@
 import cx from 'classnames';
+import { findIndex, remove } from 'lodash';
 import React, { useState } from 'react';
-import Button from '../../common/Button/Button';
+import { Button } from '../../common/Button';
 import { TagName, Text } from '../Text';
-import { RecipeListingProps } from './models';
-import { RecipeCard } from './partials';
+import { RecipeListingProps, RecipeListViewType } from './models';
+import { RecipeListingTrivial } from './partials';
 import theme from './RecipeListing.module.scss';
-import { findIndex } from 'lodash';
 
 const RecipeListing = ({
   className,
   title,
-  recipeList,
   titleLevel = 2,
-  isFavoriteEnabled = false,
-  favorites,
-  recipesPerLoad = 4,
-  recipesCount = 4,
+  viewType = RecipeListViewType.Base,
+  withFavorite = false,
+  recipePerLoad = 4,
+  favorites = [],
+  loadMoreButtonContent = 'Load More',
+  list,
+  recipeCount = 4,
+  onFavoriteChange,
 }: RecipeListingProps) => {
-  const wrapClasses = cx(theme['recipe-list'], className);
+  const wrapClasses = cx(theme.recipeList, className);
   const listHeader = title ? (
     <Text
       className="recipe-list__header"
@@ -27,54 +30,67 @@ const RecipeListing = ({
     />
   ) : null;
 
-  const listItems =
-    favorites && favorites.length > 0 && recipeList && recipeList.length > 0
-      ? recipeList.map(item => {
-          const inFavorite = !!findIndex(favorites, item);
+  const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
+    val ? favorites.push(id) : remove(favorites, n => n === id);
+    if (onFavoriteChange) {
+      onFavoriteChange(favorites);
+    }
+  };
+
+  const listModified =
+    withFavorite && favorites.length > 0 && list.length > 0
+      ? list.map(item => {
+          const inFavorite = !!findIndex(favorites, fav => fav === item.id);
           return Object.assign(item, inFavorite);
         })
-      : recipeList;
+      : list;
 
-  const [recipeListItems, setRecipeListItems] = useState({
+  const [listState, setListState] = useState({
     listItems:
-      listItems && recipesCount > 0
-        ? listItems.slice(0, recipesCount)
-        : listItems && listItems.length > 0
-        ? listItems
-        : [],
-    recipesCount,
+      recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
+    recipeCount,
   });
 
   const loadMore = () => {
-    const { listItems, recipesCount } = recipeListItems;
-    setRecipeListItems({
-      listItems,
-      recipesCount: recipesCount + recipesPerLoad,
+    const { recipeCount } = listState;
+    setListState({
+      listItems: [...listModified],
+      recipeCount: recipeCount + recipePerLoad,
     });
   };
+
+  const view: JSX.Element =
+    viewType === RecipeListViewType.Trivial ? (
+      <RecipeListingTrivial
+        list={listState.listItems}
+        recipeCount={listState.recipeCount}
+        withFavorite={withFavorite}
+        onFavoriteChange={changeFavorites}
+        // @ts-ignore
+        titleLevel={titleLevel + 1}
+      />
+    ) : (
+      <>
+        <RecipeListingTrivial
+          list={listState.listItems}
+          recipeCount={listState.recipeCount}
+          withFavorite={withFavorite}
+          onFavoriteChange={changeFavorites}
+          // @ts-ignore
+          titleLevel={titleLevel + 1}
+        />
+        {recipeCount !== 0 ? (
+          <Button className="recipe-list__load-more" onClick={loadMore}>
+            {loadMoreButtonContent}
+          </Button>
+        ) : null}
+      </>
+    );
 
   return (
     <div data-componentname="recipeListing" className={wrapClasses}>
       {listHeader}
-      <ul className="recipe-list__list">
-        {recipeListItems.listItems.map(item => {
-          return (
-            <li key={item.recipeId} className="recipe-list__item">
-              <RecipeCard
-                enableSelectFavorite={isFavoriteEnabled}
-                imgObject={item.localImage.childImageSharp.fluid}
-                title={item.title}
-                slug={item.slug}
-              />
-            </li>
-          );
-        })}
-      </ul>
-      {recipesCount ? (
-        <Button className="recipe-list__button" onClick={loadMore}>
-          Load More
-        </Button>
-      ) : null}
+      {view}
     </div>
   );
 };

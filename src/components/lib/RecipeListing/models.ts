@@ -1,22 +1,24 @@
-export interface RecipeItem {
-  recipeId: string;
-  originalId?: string | null;
-  title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  localImage: any;
-  slug: string;
-}
+import { RecipeItem } from './partials';
 
+export enum RecipeListViewType {
+  Trivial,
+  Base,
+  Advanced,
+}
+export interface OnFavoriteChange {
+  (favorites: string[]): void;
+}
 export interface RecipeListingProps {
   className?: string;
   title?: string;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  favorites?: RecipeItem[];
-  isFavoriteEnabled: boolean;
-  recipeCount: number;
-  currentPage?: number;
-  tagList?: string[] | null;
-  recipeList: RecipeItem[] | null;
-  recipesPerLoad?: number;
-  recipesCount?: number;
+  recipeCount?: number;
+  recipePerLoad?: number;
+  withFavorite?: boolean;
+  favorites?: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  loadMoreButtonContent?: any;
+  list: RecipeItem[];
+  viewType?: RecipeListViewType;
+  onFavoriteChange?: OnFavoriteChange;
 }

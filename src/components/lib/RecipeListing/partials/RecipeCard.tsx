@@ -10,9 +10,10 @@ import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 
 const RecipeCard = ({
+  id,
   title,
   imgObject,
-  enableSelectFavorite,
+  enableSelectFavorite = false,
   titleLevel = 3,
   slug,
   className = '',
@@ -30,7 +31,7 @@ const RecipeCard = ({
 
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
-      onFavoriteChange(val);
+      onFavoriteChange({ id, val });
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
