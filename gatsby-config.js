@@ -33,6 +33,14 @@ module.exports = {
         display: 'minimal-ui',
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /inline/,
+        },
+      },
+    },
     `gatsby-plugin-sass`,
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',

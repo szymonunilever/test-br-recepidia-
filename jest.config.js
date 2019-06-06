@@ -2,11 +2,13 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.jsx?$': './jest/jest-preprocess.js',
+    '^.+\\.svg$': 'jest-svg-transformer',
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$',
   moduleNameMapper: {
+    '^src(.*)$': '<rootDir>/src$1',
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       './jest/__mocks__/file-mock.js',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
