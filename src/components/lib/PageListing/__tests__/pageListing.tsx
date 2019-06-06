@@ -104,7 +104,7 @@ describe('<PageListing />', () => {
     }
   });
 
-  it('Should not render <LoadMoreButton/> if it`s been enabled but but it has no pages to load more', () => {
+  it('Should not render <LoadMoreButton/> if it`s been enabled but it has no pages to load more', () => {
     const newData = {
       ...pageListingData,
       pages: [],

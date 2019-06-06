@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PageListingProps } from './models';
 import { ItemProps } from './partials/models';
 
@@ -25,13 +25,7 @@ const PageListing = ({ data }: PageListingProps) => {
 
   const loadMore = () => {
     setPagesState({
-      pages: [
-        ...pagesState.pages,
-        ...pages.slice(
-          pagesState.pagesCount,
-          pagesState.pagesCount + pagesPerLoad
-        ),
-      ],
+      pages: pages.slice(0, pagesState.pagesCount + pagesPerLoad),
       pagesCount: pagesState.pagesCount + pagesPerLoad,
     });
   };
