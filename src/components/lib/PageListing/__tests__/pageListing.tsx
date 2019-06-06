@@ -5,7 +5,6 @@ import { shallow, mount } from 'enzyme';
 import pageListingData from '../../../data/pageListing.json';
 
 import PageListing from '../PageListing';
-import LoadMoreButton from '../partials/LoadMoreButton';
 
 describe('<PageListing />', () => {
   it('Should render custom class', () => {
@@ -99,9 +98,7 @@ describe('<PageListing />', () => {
     };
 
     const wrapper = shallow(<PageListing data={newData} />);
-    if (newData.pages.length > newData.pagesCount) {
-      expect(wrapper.find('LoadMoreButton').exists()).toBeTruthy();
-    }
+    expect(wrapper.find('LoadMoreButton').exists()).toBeTruthy();
   });
 
   it('Should not render <LoadMoreButton/> if it`s been enabled but it has no pages to load more', () => {
