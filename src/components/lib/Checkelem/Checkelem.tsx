@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckelemProps, checkelemTypes } from './models';
-import theme from './Checkelem.module.scss';
+// import theme from './Checkelem.module.scss';
 import cx from 'classnames';
 
 const Checkelem = ({
@@ -10,8 +10,8 @@ const Checkelem = ({
   className = '',
   isChecked,
 }: CheckelemProps) => {
-  let inputType: string = '';
-  let typeClassName: string = '';
+  let inputType = '';
+  let typeClassName = '';
   if (type === checkelemTypes.checkbox) {
     inputType = 'checkbox';
     typeClassName = 'checkbox';
