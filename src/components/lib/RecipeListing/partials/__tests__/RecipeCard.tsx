@@ -10,6 +10,7 @@ describe('RecipeCard', () => {
   it('Render default view with favorite button', () => {
     recipeCardDefault = mount(
       <RecipeCard
+        id="test1"
         enableSelectFavorite={true}
         imgObject={imageItem}
         title="Test recipe"
@@ -25,6 +26,7 @@ describe('RecipeCard', () => {
   it('Render view with favorite button already selected', () => {
     const recipeCard = mount(
       <RecipeCard
+        id="test2"
         enableSelectFavorite={true}
         imgObject={imageItem}
         title="Test recipe"
@@ -46,6 +48,7 @@ describe('RecipeCard', () => {
   it('Render default view without favorite button', () => {
     const recipeCard = shallow(
       <RecipeCard
+        id="test3"
         enableSelectFavorite={false}
         imgObject={imageItem}
         title="Test recipe"
