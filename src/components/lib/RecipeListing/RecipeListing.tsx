@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { findIndex, remove } from 'lodash';
 import React, { useState } from 'react';
-import { Button } from '../../common/Button';
+import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
 import { RecipeListingTrivial } from './partials';

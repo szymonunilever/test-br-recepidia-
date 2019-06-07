@@ -1,3 +1,4 @@
+import { UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeItem } from './partials';
 
 export enum RecipeListViewType {
@@ -8,8 +9,7 @@ export enum RecipeListViewType {
 export interface OnFavoriteChange {
   (favorites: string[]): void;
 }
-export interface RecipeListingProps {
-  className?: string;
+export interface RecipeListingProps extends UnileverLibraryComponent {
   title?: string;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   recipeCount?: number;

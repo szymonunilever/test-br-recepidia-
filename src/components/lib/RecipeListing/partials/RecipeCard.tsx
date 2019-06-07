@@ -5,7 +5,7 @@ import React from 'react';
 import { TagName, Text } from 'src/components/lib/Text';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
-import { Button, ButtonViewType } from '../../../common/Button';
+import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 
