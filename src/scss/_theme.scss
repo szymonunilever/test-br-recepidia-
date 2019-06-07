@@ -4,6 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:500&display=swap');
 
+html, body{
+    font-family: $arial;
+}
 h1,h2,h3,h4,h5,.subheading{
     font-family: $rubik;
     font-weight: 500;
