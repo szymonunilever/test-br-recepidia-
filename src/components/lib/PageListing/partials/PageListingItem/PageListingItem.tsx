@@ -1,9 +1,9 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { PageProps } from './models';
+import { PageProps } from '../models';
 
-const ListItem = ({ page }: PageProps) => {
+const PageListingItem = ({ page }: PageProps) => {
   const {
     title,
     link: pageLink,
@@ -21,4 +21,4 @@ const ListItem = ({ page }: PageProps) => {
   );
 };
 
-export default ListItem;
+export default PageListingItem;
