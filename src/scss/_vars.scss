@@ -24,7 +24,7 @@ $luminous-yellow: #facc00;
 $black-blue:#363840;
 $white-gray:#f4f7f9;
 $white: #ffffff;
-$blue-overlay-40: #587c94;
+$blue-overlay-40: rgba(88,124,148,.4);
 
 $primary-color: $recepedia-orange;
 $overlay-color: $blue-overlay-40;
@@ -33,5 +33,4 @@ $overlay-color: $blue-overlay-40;
    FONTS
 \* ----------------------------------------------------------------------------- */
 $rubik: 'Rubik', sans-serif;
-$helvetica-new: "Helvetica Neue", Helvetica, Arial, sans-serif; //needs to be requested
 $arial: Arial, Helvetica, sans-serif;
