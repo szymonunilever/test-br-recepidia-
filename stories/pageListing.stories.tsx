@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import pageListingData from '../src/components/data/pageListing.json';
-import PageListing from '../src/components/lib/PageListing/index';
+import PageListing from '../src/components/lib/PageListing';
 
 storiesOf('Components/PageListing/defaultView', module)
   .add('With loadmore button', () => {

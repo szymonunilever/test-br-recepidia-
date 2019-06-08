@@ -24,9 +24,11 @@ const PageListing = ({ data }: PageListingProps) => {
   });
 
   const loadMore = () => {
+    const newCount = pagesState.pagesCount + pagesPerLoad;
+
     setPagesState({
-      pages: pages.slice(0, pagesState.pagesCount + pagesPerLoad),
-      pagesCount: pagesState.pagesCount + pagesPerLoad,
+      pages: pages.slice(0, newCount),
+      pagesCount: newCount,
     });
   };
 
