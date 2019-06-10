@@ -8,9 +8,14 @@ export enum ButtonViewType {
   icon,
 }
 
+export interface ButtonContent {
+  label: string;
+}
+
 export interface ButtonProps extends UnileverLibraryComponent {
   icon?: JSX.Element;
   iconSelected?: JSX.Element;
+  content?: ButtonContent;
   isSelected?: boolean;
   onClick?: ButtonCallback;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

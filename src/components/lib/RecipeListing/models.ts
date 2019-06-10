@@ -6,18 +6,23 @@ export enum RecipeListViewType {
   Base,
   Advanced,
 }
+
 export interface OnFavoriteChange {
   (favorites: string[]): void;
 }
-export interface RecipeListingProps extends UnileverLibraryComponent {
+
+export interface RecipeListingContent {
   title?: string;
+  loadMoreButtonContent?: string;
+}
+
+export interface RecipeListingProps extends UnileverLibraryComponent {
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  recipeCount?: number;
+  initialCount?: number;
   recipePerLoad?: number;
   withFavorite?: boolean;
+  content: RecipeListingContent;
   favorites?: string[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  loadMoreButtonContent?: any;
   list: RecipeItem[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;

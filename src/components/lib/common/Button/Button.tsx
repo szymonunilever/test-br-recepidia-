@@ -13,7 +13,9 @@ const Button = ({
   children = '',
   isToggle = false,
   viewType = ButtonViewType.classic,
+  content,
 }: ButtonProps) => {
+  const { label } = content || { label: '' };
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
   const wrapClasses = cx(className, {
     // eslint-disable-next-line @typescript-eslint/camelcase
@@ -58,7 +60,9 @@ const Button = ({
         onClick={onButtonClick}
         hidden={hidden}
       >
-        {theIcon} {children}
+        {theIcon}
+        {label ? <span className="button__label">{label}</span> : null}
+        {children}
       </button>
     );
 

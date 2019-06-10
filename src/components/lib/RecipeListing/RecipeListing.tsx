@@ -4,22 +4,22 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
-import { RecipeItem, RecipeListingTrivial } from './partials';
+import { RecipeListingTrivial } from './partials';
 import theme from './RecipeListing.module.scss';
 
 const RecipeListing = ({
   className,
-  title,
+  content,
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
   withFavorite = false,
   recipePerLoad = 4,
   favorites = [],
-  loadMoreButtonContent = 'Load More',
   list,
-  recipeCount = 4,
+  initialCount = 4,
   onFavoriteChange,
 }: RecipeListingProps) => {
+  const { title, loadMoreButtonContent = 'Load More' } = content;
   const wrapClasses = cx(theme.recipeList, className);
   const listHeader = title ? (
     <Text
@@ -47,15 +47,14 @@ const RecipeListing = ({
 
   const [listState, setListState] = useState({
     listItems:
-      recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
-    recipeCount,
+      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
   });
 
   const loadMore = () => {
-    const { recipeCount } = listState;
+    const recipeCount = listState.listItems.length + recipePerLoad;
     setListState({
-      listItems: listModified,
-      recipeCount: recipeCount + recipePerLoad,
+      listItems:
+        recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
     });
   };
 
@@ -63,7 +62,7 @@ const RecipeListing = ({
     viewType === RecipeListViewType.Trivial ? (
       <RecipeListingTrivial
         list={listState.listItems}
-        recipeCount={listState.recipeCount}
+        recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
         // @ts-ignore
@@ -73,14 +72,18 @@ const RecipeListing = ({
       <>
         <RecipeListingTrivial
           list={listState.listItems}
-          recipeCount={listState.recipeCount}
+          recipeCount={listState.listItems.length}
           withFavorite={withFavorite}
           onFavoriteChange={changeFavorites}
           // @ts-ignore
           titleLevel={titleLevel + 1}
         />
-        {listState.listItems.length > 0 && recipeCount !== 0 ? (
-          <Button className="recipe-list__load-more" onClick={loadMore}>
+        {listState.listItems.length > 0 && initialCount !== 0 ? (
+          <Button
+            className="recipe-list__load-more"
+            onClick={loadMore}
+            hidden={listState.listItems.length === listModified.length}
+          >
             {loadMoreButtonContent}
           </Button>
         ) : null}
