@@ -1,109 +1,8 @@
 {
   "data": {
     "allRecipe": {
+      "totalCount": 10,
       "edges": [
-        {
-          "node": {
-            "id": "d3ff2b89-9c1f-5ebb-8471-7641bb65e815",
-            "shortTitle": "Fideuá com Molho Branco Vegano",
-            "localImage": {
-              "id": "0bcf6c75-0450-554d-89c7-85316cc28839",
-              "childImageSharp": {
-                "fluid": {
-                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABtaDF46jn/8QAGBABAAMBAAAAAAAAAAAAAAAAAQACIRH/2gAIAQEAAQUCOiJLOisNaT//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQMBAT8Baj//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQIBAT8BjFf/xAAaEAACAgMAAAAAAAAAAAAAAAABEQAQIUFx/9oACAEBAAY/AtKI0Qsij2f/xAAbEAACAwADAAAAAAAAAAAAAAABEQAhMWFx4f/aAAgBAQABPyF8Tbl6ZgBwY00h0xMNR2vyAKEApGZ//9oADAMBAAIAAwAAABBED//EABgRAAIDAAAAAAAAAAAAAAAAAAARASFh/9oACAEDAQE/EJwVSP/EABYRAQEBAAAAAAAAAAAAAAAAABEAIf/aAAgBAgEBPxDRLrf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUGR/9oACAEBAAE/ENEODrpaeRSbBgdhYqZVT4xhxuFRsZdVsebQii6YCKmT/9k=",
-                  "aspectRatio": 1.3639181649101053,
-                  "src": "/static/19d6fa90d8c16a12c22f10dd36139c04/bc3a8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg",
-                  "srcSet": "/static/19d6fa90d8c16a12c22f10dd36139c04/d278e/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/8539d/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/bc3a8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 800w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/81ef8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 1200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/989b1/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 1600w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c82f6/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 2400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/8c25d/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 4400w",
-                  "srcWebp": "/static/19d6fa90d8c16a12c22f10dd36139c04/c6096/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp",
-                  "srcSetWebp": "/static/19d6fa90d8c16a12c22f10dd36139c04/1932c/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/f4957/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c6096/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 800w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/b6424/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 1200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/7a72d/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 1600w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c5845/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 2400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/dc113/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 4400w",
-                  "sizes": "(max-width: 800px) 100vw, 800px"
-                }
-              }
-            },
-            "ingredients": [
-              {
-                "productId": null,
-                "description": "1 pacote de espaguete integral"
-              },
-              {
-                "productId": null,
-                "description": "2 colher de sopa de azeite"
-              },
-              {
-                "productId": null,
-                "description": "8 aspargos cozidos cortados em rodelas"
-              },
-              {
-                "productId": null,
-                "description": "flores e brotos comestíveis"
-              },
-              {
-                "productId": null,
-                "description": "1 xícara de chá de maionese Hellmann's Vegana"
-              },
-              {
-                "productId": null,
-                "description": "1/2 xícara de chá de leite de amêndoas"
-              },
-              {
-                "productId": null,
-                "description": "1 xícara de chá de amêndoas levemente quebradas"
-              }
-            ],
-            "fields": {
-              "slug": "/recipes/fideuá-com-molho-branco-vegano"
-            }
-          }
-        },
-        {
-          "node": {
-            "id": "3e9795f6-f490-59a4-91f7-0d6f287e6a9f",
-            "shortTitle": "Fritas Burger",
-            "localImage": {
-              "id": "c0a5e637-6cff-5612-87e9-ff849f38585d",
-              "childImageSharp": {
-                "fluid": {
-                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAWAQEBAQAAAAAAAAAAAAAAAAADAQL/2gAMAwEAAhADEAAAAYtlYDNFGp//xAAaEAACAgMAAAAAAAAAAAAAAAABAgARAzJB/9oACAEBAAEFAmW21foyGy9EGf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERMx/9oACAEDAQE/AcUlh//EABgRAAIDAAAAAAAAAAAAAAAAAAABERMx/9oACAECAQE/AdcFR//EABsQAAICAwEAAAAAAAAAAAAAAAABESECQWFx/9oACAEBAAY/AsfRDhlC7oqD/8QAGRABAQEBAQEAAAAAAAAAAAAAAREAIWFR/9oACAEBAAE/IQ8yzww7yjZk+Tc4QX3tzcIFMGScA3//2gAMAwEAAgADAAAAED/v/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEhEf/aAAgBAwEBPxC7BQf/xAAZEQACAwEAAAAAAAAAAAAAAAAAEQEhMVH/2gAIAQIBAT8QVCdG6f/EAB4QAQACAgIDAQAAAAAAAAAAAAERMQAhUWFBcZGh/9oACAEBAAE/EBpibJeu82i0AtJ+VhOwoiqMZzrb4nC8dYck+BBBZoHn7noMiTGf/9k=",
-                  "aspectRatio": 1.3806734992679355,
-                  "src": "/static/b0629e94c4deb239b0e7eeeb9cba298b/bc3a8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg",
-                  "srcSet": "/static/b0629e94c4deb239b0e7eeeb9cba298b/d278e/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/8539d/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/bc3a8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 800w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/81ef8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 1200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/989b1/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 1600w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c82f6/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 2400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/bfcda/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 5658w",
-                  "srcWebp": "/static/b0629e94c4deb239b0e7eeeb9cba298b/c6096/68ba325b-7af6-45d6-b9cf-98366d126744.webp",
-                  "srcSetWebp": "/static/b0629e94c4deb239b0e7eeeb9cba298b/1932c/68ba325b-7af6-45d6-b9cf-98366d126744.webp 200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/f4957/68ba325b-7af6-45d6-b9cf-98366d126744.webp 400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c6096/68ba325b-7af6-45d6-b9cf-98366d126744.webp 800w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/b6424/68ba325b-7af6-45d6-b9cf-98366d126744.webp 1200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/7a72d/68ba325b-7af6-45d6-b9cf-98366d126744.webp 1600w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c5845/68ba325b-7af6-45d6-b9cf-98366d126744.webp 2400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/84f6a/68ba325b-7af6-45d6-b9cf-98366d126744.webp 5658w",
-                  "sizes": "(max-width: 800px) 100vw, 800px"
-                }
-              }
-            },
-            "ingredients": [
-              {
-                "productId": null,
-                "description": "2 hambúrgueres"
-              },
-              {
-                "productId": null,
-                "description": "1 pitada de sal"
-              },
-              {
-                "productId": null,
-                "description": "4 fatias de queijo mussarela"
-              },
-              {
-                "productId": null,
-                "description": "2 pães de hambúrguer tipo brioche com gergelim cortadas ao meio"
-              },
-              {
-                "productId": null,
-                "description": "200 gramas de batata frita"
-              },
-              {
-                "productId": "4998",
-                "description": "4 colheres de sopa de Ketchup Hellmann's Picante burger House"
-              }
-            ],
-            "fields": {
-              "slug": "/recipes/fritas-burger"
-            }
-          }
-        },
         {
           "node": {
             "id": "069cee1a-b673-51ae-829a-cfac76de0223",
@@ -156,6 +55,52 @@
                 "description": "filé filé mignon"
               }
             ],
+            "dishes": [],
+            "mainIngredients": [
+              {
+                "id": 1499,
+                "language": "pt-BR",
+                "categoryName": "carne de boi"
+              }
+            ],
+            "cuisines": [],
+            "difficulties": [],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
             "fields": {
               "slug": "/recipes/salada-francesa-do-@caio"
             }
@@ -201,6 +146,52 @@
                 "description": "400 g de filé mignon"
               }
             ],
+            "dishes": [],
+            "mainIngredients": [
+              {
+                "id": 1499,
+                "language": "pt-BR",
+                "categoryName": "carne de boi"
+              }
+            ],
+            "cuisines": [],
+            "difficulties": [],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
             "fields": {
               "slug": "/recipes/strogonoff-com-maionese-do-@brogui"
             }
@@ -270,8 +261,316 @@
                 "description": "2 xícaras de farinha *Panko*"
               }
             ],
+            "dishes": [],
+            "mainIngredients": [],
+            "cuisines": [],
+            "difficulties": [
+              {
+                "id": 1457,
+                "language": "pt-BR",
+                "categoryName": "fácil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
             "fields": {
               "slug": "/recipes/bolinho-de-tapioca,-carne-e-queijo-da-@crispimichele"
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "f941cf66-dfc9-554b-9088-7efb63805757",
+            "shortTitle": "Rosebife de filé mignon do @andremifano",
+            "localImage": {
+              "id": "67165e4b-3d06-5ce6-b997-1fda5be6f85c",
+              "childImageSharp": {
+                "fluid": {
+                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB82+3PnWlnSSctZWmZLCNahN//8QAHRAAAgEFAQEAAAAAAAAAAAAAAAECAwQREiITFP/aAAgBAQABBQJtsVDNKCoawbtzpnnkXbzqa1GNsgoeX1SLSXMVlpH/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAcEQABAwUAAAAAAAAAAAAAAAAAARASIjFRYXH/2gAIAQIBAT8B4R21WBLq3//EABwQAAIDAQADAAAAAAAAAAAAAAABAhEhEhAxMv/aAAgBAQAGPwLEduRsbHFxPbZp1pSMsqJKUnp8on5//8QAHhABAAIBBQEBAAAAAAAAAAAAAQARITFBUWGhkbH/2gAIAQEAAT8hRpl6jvUraBFi5SDCt5uGig8gxYp6gVSOb3lSh8jkAkVgWuCeoyFP6MXKDRekC13zADSf/9oADAMBAAIAAwAAABCnFvx33//EABoRAAICAwAAAAAAAAAAAAAAAAARAVEQITH/2gAIAQMBAT8QT6OCdjiysf/EABkRAQEBAAMAAAAAAAAAAAAAAAEAERAxUf/aAAgBAgEBPxDV8Ene0oW0eL//xAAeEAEAAgIDAAMAAAAAAAAAAAABACERMUFhgVHR8P/aAAgBAQABPxBN8BHMAgwqNGOILtbVrHdR26U5/EVVAIjroqWbHDqWiGt8vZhj3WVZj4tlbM9xKmlWyXJH2PBiEBm7Uz5MXwWVtp+oi2WPbBoAn//Z",
+                  "aspectRatio": 0.5625,
+                  "src": "/static/aba8120f982413b9bfcdad06416830c0/bc3a8/2912f368-3e15-4d40-aea7-7d89cf915993.jpg",
+                  "srcSet": "/static/aba8120f982413b9bfcdad06416830c0/d278e/2912f368-3e15-4d40-aea7-7d89cf915993.jpg 200w,\n/static/aba8120f982413b9bfcdad06416830c0/8539d/2912f368-3e15-4d40-aea7-7d89cf915993.jpg 400w,\n/static/aba8120f982413b9bfcdad06416830c0/bc3a8/2912f368-3e15-4d40-aea7-7d89cf915993.jpg 800w,\n/static/aba8120f982413b9bfcdad06416830c0/90537/2912f368-3e15-4d40-aea7-7d89cf915993.jpg 1080w",
+                  "srcWebp": "/static/aba8120f982413b9bfcdad06416830c0/c6096/2912f368-3e15-4d40-aea7-7d89cf915993.webp",
+                  "srcSetWebp": "/static/aba8120f982413b9bfcdad06416830c0/1932c/2912f368-3e15-4d40-aea7-7d89cf915993.webp 200w,\n/static/aba8120f982413b9bfcdad06416830c0/f4957/2912f368-3e15-4d40-aea7-7d89cf915993.webp 400w,\n/static/aba8120f982413b9bfcdad06416830c0/c6096/2912f368-3e15-4d40-aea7-7d89cf915993.webp 800w,\n/static/aba8120f982413b9bfcdad06416830c0/1508f/2912f368-3e15-4d40-aea7-7d89cf915993.webp 1080w",
+                  "sizes": "(max-width: 800px) 100vw, 800px"
+                }
+              }
+            },
+            "ingredients": [
+              {
+                "productId": null,
+                "description": "1.7kg de filé mignon limpo"
+              },
+              {
+                "productId": "4985",
+                "description": "20 gramas de Mostarda Hellmann's"
+              },
+              {
+                "productId": null,
+                "description": "15 gramas de salsinha"
+              },
+              {
+                "productId": null,
+                "description": "sal a gosto"
+              },
+              {
+                "productId": null,
+                "description": "1 kg de batata cozida"
+              },
+              {
+                "productId": null,
+                "description": "57 gramas de manteiga"
+              },
+              {
+                "productId": null,
+                "description": "2 gemas"
+              },
+              {
+                "productId": null,
+                "description": "1 ovo inteiro"
+              },
+              {
+                "productId": null,
+                "description": "15 gramas de creme de leite"
+              },
+              {
+                "productId": null,
+                "description": "2 gramas de noz-moscada"
+              },
+              {
+                "productId": null,
+                "description": "sal a gosto"
+              },
+              {
+                "productId": null,
+                "description": "750 gramas de cogumelo Paris fresco"
+              },
+              {
+                "productId": null,
+                "description": "85 gramas de cebola"
+              },
+              {
+                "productId": null,
+                "description": "50 gramas de manteiga"
+              },
+              {
+                "productId": null,
+                "description": "10 gramas de alho"
+              },
+              {
+                "productId": null,
+                "description": "10 gramas de salsinha"
+              },
+              {
+                "productId": null,
+                "description": "sal a gosto"
+              }
+            ],
+            "dishes": [],
+            "mainIngredients": [],
+            "cuisines": [],
+            "difficulties": [
+              {
+                "id": 1459,
+                "language": "pt-BR",
+                "categoryName": "difícil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
+            "fields": {
+              "slug": "/recipes/rosebife-de-filé-mignon-do-@andremifano"
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "7d441014-33f5-54d0-93ef-b78d5c2e07ca",
+            "shortTitle": "CARNE LOUCA CREMOSA",
+            "localImage": {
+              "id": "faf15b62-ee3c-5736-98ae-b5dd70c29575",
+              "childImageSharp": {
+                "fluid": {
+                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/9oADAMBAAIQAxAAAAGJsbZ1wWJ//8QAGBABAQEBAQAAAAAAAAAAAAAAAgEAAxL/2gAIAQEAAQUC8G6kZcwbNFZm0l//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEv/aAAgBAwEBPwGUv//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAdEAACAgEFAAAAAAAAAAAAAAABEQAhQQIQIpGx/9oACAEBAAY/AgdKoWpxzkxE3tS6jPk//8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAMUEhYf/aAAgBAQABPyHvAIgegvoqUPNFGEXEuHaRoASdSf/aAAwDAQACAAMAAAAQKP8A/8QAFxEBAAMAAAAAAAAAAAAAAAAAABEhUf/aAAgBAwEBPxCqWv/EABYRAQEBAAAAAAAAAAAAAAAAAAABYf/aAAgBAgEBPxBmH//EAB0QAQEAAgMAAwAAAAAAAAAAAAERACExQaFRcZH/2gAIAQEAAT8QYBSW5LFyxXUoa4A/fMYVgVeQur9+Y4qjYbOsa1KjofnjHBiKtnmf/9k=",
+                  "aspectRatio": 1.778523489932886,
+                  "src": "/static/817b6260d2875794e7128d94aeafa4de/bc3a8/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg",
+                  "srcSet": "/static/817b6260d2875794e7128d94aeafa4de/d278e/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 200w,\n/static/817b6260d2875794e7128d94aeafa4de/8539d/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 400w,\n/static/817b6260d2875794e7128d94aeafa4de/bc3a8/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 800w,\n/static/817b6260d2875794e7128d94aeafa4de/81ef8/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 1200w,\n/static/817b6260d2875794e7128d94aeafa4de/989b1/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 1600w,\n/static/817b6260d2875794e7128d94aeafa4de/c82f6/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 2400w,\n/static/817b6260d2875794e7128d94aeafa4de/f5ffc/ed34195a-a9d3-466c-8b4b-806b47ac687c.jpg 4240w",
+                  "srcWebp": "/static/817b6260d2875794e7128d94aeafa4de/c6096/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp",
+                  "srcSetWebp": "/static/817b6260d2875794e7128d94aeafa4de/1932c/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 200w,\n/static/817b6260d2875794e7128d94aeafa4de/f4957/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 400w,\n/static/817b6260d2875794e7128d94aeafa4de/c6096/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 800w,\n/static/817b6260d2875794e7128d94aeafa4de/b6424/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 1200w,\n/static/817b6260d2875794e7128d94aeafa4de/7a72d/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 1600w,\n/static/817b6260d2875794e7128d94aeafa4de/c5845/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 2400w,\n/static/817b6260d2875794e7128d94aeafa4de/a0d95/ed34195a-a9d3-466c-8b4b-806b47ac687c.webp 4240w",
+                  "sizes": "(max-width: 800px) 100vw, 800px"
+                }
+              }
+            },
+            "ingredients": [
+              {
+                "productId": null,
+                "description": "2 colheres (sopa) de óleo"
+              },
+              {
+                "productId": null,
+                "description": "meia cebola picada"
+              },
+              {
+                "productId": null,
+                "description": "1 dente de alho esmagado"
+              },
+              {
+                "productId": null,
+                "description": "1 xícara (chá) de sobras de pimentões (amarelo, verde, vermelho...)"
+              },
+              {
+                "productId": null,
+                "description": "meia xícara (chá) de sobras de carne cozida"
+              },
+              {
+                "productId": null,
+                "description": "1 pitada de páprica"
+              },
+              {
+                "productId": null,
+                "description": "1 colher (sopa) de molho inglês"
+              },
+              {
+                "productId": "4996",
+                "description": "3 colheres de Ketchup Hellmann's Tradicional"
+              },
+              {
+                "productId": "5553",
+                "description": "1 colher (sopa) de Maionese Hellmann's"
+              },
+              {
+                "productId": null,
+                "description": "1 colher (sopa) de cheiro-verde picado"
+              }
+            ],
+            "dishes": [
+              {
+                "id": 1479,
+                "categoryName": "carne",
+                "language": "pt-BR"
+              }
+            ],
+            "mainIngredients": [],
+            "cuisines": [],
+            "difficulties": [
+              {
+                "id": 1457,
+                "language": "pt-BR",
+                "categoryName": "fácil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [
+              {
+                "id": 1370,
+                "language": "pt-BR",
+                "categoryName": "econômica"
+              }
+            ],
+            "fields": {
+              "slug": "/recipes/carne-louca-cremosa"
             }
           }
         },
@@ -313,6 +612,76 @@
               {
                 "productId": null,
                 "description": "4 colher de sopa de Hellmann's Vegana"
+              }
+            ],
+            "dishes": [
+              {
+                "id": 1487,
+                "categoryName": "salada",
+                "language": "pt-BR"
+              }
+            ],
+            "mainIngredients": [
+              {
+                "id": 1518,
+                "language": "pt-BR",
+                "categoryName": "verduras e legumes"
+              }
+            ],
+            "cuisines": [
+              {
+                "id": 1416,
+                "language": "pt-BR",
+                "categoryName": "grega"
+              }
+            ],
+            "difficulties": [
+              {
+                "id": 1457,
+                "language": "pt-BR",
+                "categoryName": "fácil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "true"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "true"
+              },
+              "eggFree": {
+                "stateValue": "true"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "true"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [
+              {
+                "id": 1370,
+                "language": "pt-BR",
+                "categoryName": "econômica"
               }
             ],
             "fields": {
@@ -380,8 +749,177 @@
                 "description": "1/2 xícara de chá de água"
               }
             ],
+            "dishes": [
+              {
+                "id": 1495,
+                "categoryName": "verduras e legumes",
+                "language": "pt-BR"
+              }
+            ],
+            "mainIngredients": [
+              {
+                "id": 2082,
+                "language": "pt-PT",
+                "categoryName": "cogumelos"
+              }
+            ],
+            "cuisines": [
+              {
+                "id": 1415,
+                "language": "pt-BR",
+                "categoryName": "alemã"
+              }
+            ],
+            "difficulties": [
+              {
+                "id": 1457,
+                "language": "pt-BR",
+                "categoryName": "fácil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "true"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "true"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "true"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [
+              {
+                "id": 1370,
+                "language": "pt-BR",
+                "categoryName": "econômica"
+              }
+            ],
             "fields": {
               "slug": "/recipes/estrogonofe-de-cogumelos-vegano"
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "d3ff2b89-9c1f-5ebb-8471-7641bb65e815",
+            "shortTitle": "Fideuá com Molho Branco Vegano",
+            "localImage": {
+              "id": "0bcf6c75-0450-554d-89c7-85316cc28839",
+              "childImageSharp": {
+                "fluid": {
+                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABtaDF46jn/8QAGBABAAMBAAAAAAAAAAAAAAAAAQACIRH/2gAIAQEAAQUCOiJLOisNaT//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQMBAT8Baj//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQIBAT8BjFf/xAAaEAACAgMAAAAAAAAAAAAAAAABEQAQIUFx/9oACAEBAAY/AtKI0Qsij2f/xAAbEAACAwADAAAAAAAAAAAAAAABEQAhMWFx4f/aAAgBAQABPyF8Tbl6ZgBwY00h0xMNR2vyAKEApGZ//9oADAMBAAIAAwAAABBED//EABgRAAIDAAAAAAAAAAAAAAAAAAARASFh/9oACAEDAQE/EJwVSP/EABYRAQEBAAAAAAAAAAAAAAAAABEAIf/aAAgBAgEBPxDRLrf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUGR/9oACAEBAAE/ENEODrpaeRSbBgdhYqZVT4xhxuFRsZdVsebQii6YCKmT/9k=",
+                  "aspectRatio": 1.3639181649101053,
+                  "src": "/static/19d6fa90d8c16a12c22f10dd36139c04/bc3a8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg",
+                  "srcSet": "/static/19d6fa90d8c16a12c22f10dd36139c04/d278e/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/8539d/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/bc3a8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 800w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/81ef8/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 1200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/989b1/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 1600w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c82f6/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 2400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/8c25d/c2a86e7d-9037-478a-926d-8e2cc27cda69.jpg 4400w",
+                  "srcWebp": "/static/19d6fa90d8c16a12c22f10dd36139c04/c6096/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp",
+                  "srcSetWebp": "/static/19d6fa90d8c16a12c22f10dd36139c04/1932c/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/f4957/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c6096/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 800w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/b6424/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 1200w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/7a72d/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 1600w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/c5845/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 2400w,\n/static/19d6fa90d8c16a12c22f10dd36139c04/dc113/c2a86e7d-9037-478a-926d-8e2cc27cda69.webp 4400w",
+                  "sizes": "(max-width: 800px) 100vw, 800px"
+                }
+              }
+            },
+            "ingredients": [
+              {
+                "productId": null,
+                "description": "1 pacote de espaguete integral"
+              },
+              {
+                "productId": null,
+                "description": "2 colher de sopa de azeite"
+              },
+              {
+                "productId": null,
+                "description": "8 aspargos cozidos cortados em rodelas"
+              },
+              {
+                "productId": null,
+                "description": "flores e brotos comestíveis"
+              },
+              {
+                "productId": null,
+                "description": "1 xícara de chá de maionese Hellmann's Vegana"
+              },
+              {
+                "productId": null,
+                "description": "1/2 xícara de chá de leite de amêndoas"
+              },
+              {
+                "productId": null,
+                "description": "1 xícara de chá de amêndoas levemente quebradas"
+              }
+            ],
+            "dishes": [],
+            "mainIngredients": [
+              {
+                "id": 1518,
+                "language": "pt-BR",
+                "categoryName": "verduras e legumes"
+              }
+            ],
+            "cuisines": [],
+            "difficulties": [],
+            "dietary": {
+              "vegan": {
+                "stateValue": "true"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "true"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "true"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
+            "fields": {
+              "slug": "/recipes/fideuá-com-molho-branco-vegano"
             }
           }
         },
@@ -433,8 +971,155 @@
                 "description": "8 folhas de beterraba"
               }
             ],
+            "dishes": [],
+            "mainIngredients": [],
+            "cuisines": [],
+            "difficulties": [],
+            "dietary": {
+              "vegan": {
+                "stateValue": "true"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "true"
+              },
+              "eggFree": {
+                "stateValue": "true"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "true"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "true"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [],
             "fields": {
               "slug": "/recipes/hambúrguer-vegano"
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "3e9795f6-f490-59a4-91f7-0d6f287e6a9f",
+            "shortTitle": "Fritas Burger",
+            "localImage": {
+              "id": "c0a5e637-6cff-5612-87e9-ff849f38585d",
+              "childImageSharp": {
+                "fluid": {
+                  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAWAQEBAQAAAAAAAAAAAAAAAAADAQL/2gAMAwEAAhADEAAAAYtlYDNFGp//xAAaEAACAgMAAAAAAAAAAAAAAAABAgARAzJB/9oACAEBAAEFAmW21foyGy9EGf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERMx/9oACAEDAQE/AcUlh//EABgRAAIDAAAAAAAAAAAAAAAAAAABERMx/9oACAECAQE/AdcFR//EABsQAAICAwEAAAAAAAAAAAAAAAABESECQWFx/9oACAEBAAY/AsfRDhlC7oqD/8QAGRABAQEBAQEAAAAAAAAAAAAAAREAIWFR/9oACAEBAAE/IQ8yzww7yjZk+Tc4QX3tzcIFMGScA3//2gAMAwEAAgADAAAAED/v/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEhEf/aAAgBAwEBPxC7BQf/xAAZEQACAwEAAAAAAAAAAAAAAAAAEQEhMVH/2gAIAQIBAT8QVCdG6f/EAB4QAQACAgIDAQAAAAAAAAAAAAERMQAhUWFBcZGh/9oACAEBAAE/EBpibJeu82i0AtJ+VhOwoiqMZzrb4nC8dYck+BBBZoHn7noMiTGf/9k=",
+                  "aspectRatio": 1.3806734992679355,
+                  "src": "/static/b0629e94c4deb239b0e7eeeb9cba298b/bc3a8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg",
+                  "srcSet": "/static/b0629e94c4deb239b0e7eeeb9cba298b/d278e/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/8539d/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/bc3a8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 800w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/81ef8/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 1200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/989b1/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 1600w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c82f6/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 2400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/bfcda/68ba325b-7af6-45d6-b9cf-98366d126744.jpg 5658w",
+                  "srcWebp": "/static/b0629e94c4deb239b0e7eeeb9cba298b/c6096/68ba325b-7af6-45d6-b9cf-98366d126744.webp",
+                  "srcSetWebp": "/static/b0629e94c4deb239b0e7eeeb9cba298b/1932c/68ba325b-7af6-45d6-b9cf-98366d126744.webp 200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/f4957/68ba325b-7af6-45d6-b9cf-98366d126744.webp 400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c6096/68ba325b-7af6-45d6-b9cf-98366d126744.webp 800w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/b6424/68ba325b-7af6-45d6-b9cf-98366d126744.webp 1200w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/7a72d/68ba325b-7af6-45d6-b9cf-98366d126744.webp 1600w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/c5845/68ba325b-7af6-45d6-b9cf-98366d126744.webp 2400w,\n/static/b0629e94c4deb239b0e7eeeb9cba298b/84f6a/68ba325b-7af6-45d6-b9cf-98366d126744.webp 5658w",
+                  "sizes": "(max-width: 800px) 100vw, 800px"
+                }
+              }
+            },
+            "ingredients": [
+              {
+                "productId": null,
+                "description": "2 hambúrgueres"
+              },
+              {
+                "productId": null,
+                "description": "1 pitada de sal"
+              },
+              {
+                "productId": null,
+                "description": "4 fatias de queijo mussarela"
+              },
+              {
+                "productId": null,
+                "description": "2 pães de hambúrguer tipo brioche com gergelim cortadas ao meio"
+              },
+              {
+                "productId": null,
+                "description": "200 gramas de batata frita"
+              },
+              {
+                "productId": "4998",
+                "description": "4 colheres de sopa de Ketchup Hellmann's Picante burger House"
+              }
+            ],
+            "dishes": [
+              {
+                "id": 1477,
+                "categoryName": "hambúrguer",
+                "language": "pt-BR"
+              }
+            ],
+            "mainIngredients": [],
+            "cuisines": [],
+            "difficulties": [
+              {
+                "id": 1457,
+                "language": "pt-BR",
+                "categoryName": "fácil"
+              }
+            ],
+            "dietary": {
+              "vegan": {
+                "stateValue": "unknown"
+              },
+              "nutFree": {
+                "stateValue": "unknown"
+              },
+              "dairyProductFree": {
+                "stateValue": "unknown"
+              },
+              "eggFree": {
+                "stateValue": "unknown"
+              },
+              "paleoFree": {
+                "stateValue": "unknown"
+              },
+              "pregnancySafe": {
+                "stateValue": "unknown"
+              },
+              "rawFood": {
+                "stateValue": "unknown"
+              },
+              "lactoseFree": {
+                "stateValue": "unknown"
+              },
+              "glutenFree": {
+                "stateValue": "unknown"
+              },
+              "vegetarian": {
+                "stateValue": "unknown"
+              },
+              "wheatFree": {
+                "stateValue": "unknown"
+              }
+            },
+            "budgets": [
+              {
+                "id": 1370,
+                "language": "pt-BR",
+                "categoryName": "econômica"
+              }
+            ],
+            "fields": {
+              "slug": "/recipes/fritas-burger"
             }
           }
         }
