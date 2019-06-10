@@ -3,18 +3,26 @@ import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import dataSource from 'src/components/data/recipes.json';
 
-import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
+import {
+  RecipeListing,
+  RecipeListViewType,
+  OnFavoriteChange,
+  RecipeListingContent,
+} from '../index';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const countItems = listing.length;
-
+const content: RecipeListingContent = {
+  title: 'Test',
+  cta: { label: 'Load More' },
+};
 describe('Recipe Listing Component', () => {
   it('Recipe Listing Trivial default', () => {
     const trivialRecipeListing: ReactWrapper = mount(
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Test"
+        content={content}
         titleLevel={1}
       />
     );
@@ -26,14 +34,14 @@ describe('Recipe Listing Component', () => {
     expect(trivialRecipeListing.find('ul')).toBeTruthy();
     expect(trivialRecipeListing.find('ul').children()).toHaveLength(4);
   });
-  it('Recipe Listing Trivial allRecipes (recipeCount={0})', () => {
+  it('Recipe Listing Trivial allRecipes (initialCount={0})', () => {
     const trivialRecipeListing: ReactWrapper = mount(
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Test"
+        content={content}
         titleLevel={1}
-        recipeCount={0}
+        initialCount={0}
       />
     );
     expect(trivialRecipeListing.find('ul').children()).toHaveLength(countItems);
@@ -48,7 +56,7 @@ describe('Recipe Listing Component', () => {
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Test"
+        content={content}
         titleLevel={1}
         withFavorite
         onFavoriteChange={changes}
@@ -75,7 +83,7 @@ describe('Recipe Listing Component', () => {
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Base}
-        title="Test"
+        content={content}
         titleLevel={1}
       />
     );
@@ -91,7 +99,7 @@ describe('Recipe Listing Component', () => {
       <RecipeListing
         list={[]}
         viewType={RecipeListViewType.Base}
-        title="Test"
+        content={content}
         titleLevel={1}
       />
     );
@@ -108,9 +116,9 @@ describe('Recipe Listing Component', () => {
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Base}
-        title="Test"
+        content={content}
         titleLevel={1}
-        recipeCount={0}
+        initialCount={0}
       />
     );
 

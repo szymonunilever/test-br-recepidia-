@@ -8,7 +8,17 @@ import {
 import dataSource from 'src/components/data/recipes.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
-
+const contents = [
+  { title: 'Recipe listing Trivial without results' },
+  { title: 'Recipe listing Trivial default 4 results' },
+  { title: 'Recipe listing Trivial all Recipes' },
+  { title: 'Recipe listing Trivial with Favorites' },
+  {
+    title: 'Recipe listing Base with Load More',
+    cta: { label: 'Load More Button' },
+  },
+  { title: 'Recipe listing Base without results' },
+];
 storiesOf('Components/Recipe Listing', module)
   .add(
     'Recipe listing Trivial without results',
@@ -16,7 +26,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={[]}
         viewType={RecipeListViewType.Trivial}
-        title="Recipe listing Trivial without results"
+        content={contents[0]}
         titleLevel={1}
       />
     ),
@@ -30,7 +40,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Recipe listing Trivial default 4 results"
+        content={contents[1]}
         titleLevel={1}
       />
     ),
@@ -44,9 +54,9 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Recipe listing Trivial all Recipes"
+        content={contents[2]}
         titleLevel={1}
-        recipeCount={0}
+        initialCount={0}
       />
     ),
     {
@@ -59,7 +69,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        title="Recipe listing Trivial with Favorites"
+        content={contents[3]}
         withFavorite
         favorites={[]}
         onFavoriteChange={action('favorites were changed')}
@@ -76,7 +86,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={listing}
         viewType={RecipeListViewType.Base}
-        title="Recipe listing Base with Load More"
+        content={contents[4]}
         withFavorite
         favorites={[]}
         onFavoriteChange={action('favorites were changed')}
@@ -93,7 +103,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         list={[]}
         viewType={RecipeListViewType.Base}
-        title="Recipe listing Base without results"
+        content={contents[5]}
         titleLevel={1}
       />
     ),
