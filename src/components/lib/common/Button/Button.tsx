@@ -8,6 +8,7 @@ const Button = ({
   iconSelected = icon,
   isSelected = false,
   onClick,
+  hidden = false,
   className = '',
   children = '',
   isToggle = false,
@@ -45,6 +46,7 @@ const Button = ({
         data-componentname="button"
         className={iconClasses}
         onClick={onButtonClick}
+        hidden={hidden}
       >
         {theIcon}
       </button>
@@ -54,6 +56,7 @@ const Button = ({
         data-componentname="button"
         className={wrapClasses}
         onClick={onButtonClick}
+        hidden={hidden}
       >
         {theIcon} {children}
       </button>
