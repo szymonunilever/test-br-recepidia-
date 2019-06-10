@@ -3,9 +3,9 @@ interface Option {
   label: string;
 }
 export interface CustomSelectProps {
-  // type: checkelemTypes;
-  options: Array<Option>;
+  options: Option[];
   placeholder?: string;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   changeHandler?: (val: any) => void;
 }

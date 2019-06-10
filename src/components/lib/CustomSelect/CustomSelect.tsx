@@ -4,6 +4,7 @@ import { CustomSelectProps } from './models';
 import Select from 'react-select';
 import cx from 'classnames';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Option = (props: any) => {
   const {
     children,

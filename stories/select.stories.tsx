@@ -4,6 +4,9 @@ import { CustomSelect } from '../src/components/lib/CustomSelect';
 import selectOptions from 'src/components/data/customSelect.json';
 
 const options = selectOptions.options;
+const report = (val: any) => {
+  // console.log(val.value);
+};
 
 storiesOf('Components/Form elements/Select', module).add(
   'select with custom options list styles',
@@ -19,7 +22,3 @@ storiesOf('Components/Form elements/Select', module).add(
     info: { inline: false },
   }
 );
-
-const report = (val: any) => {
-  console.log(val.value);
-};
