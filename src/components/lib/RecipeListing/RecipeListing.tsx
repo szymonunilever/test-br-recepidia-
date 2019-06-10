@@ -19,7 +19,7 @@ const RecipeListing = ({
   initialCount = 4,
   onFavoriteChange,
 }: RecipeListingProps) => {
-  const { title, loadMoreButtonContent = 'Load More' } = content;
+  const { title, cta = { label: 'Find More' } } = content;
   const wrapClasses = cx(theme.recipeList, className);
   const listHeader = title ? (
     <Text
@@ -83,9 +83,8 @@ const RecipeListing = ({
             className="recipe-list__load-more"
             onClick={loadMore}
             hidden={listState.listItems.length === listModified.length}
-          >
-            {loadMoreButtonContent}
-          </Button>
+            content={cta}
+          />
         ) : null}
       </>
     );

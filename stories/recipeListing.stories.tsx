@@ -13,7 +13,10 @@ const contents = [
   { title: 'Recipe listing Trivial default 4 results' },
   { title: 'Recipe listing Trivial all Recipes' },
   { title: 'Recipe listing Trivial with Favorites' },
-  { title: 'Recipe listing Base with Load More' },
+  {
+    title: 'Recipe listing Base with Load More',
+    cta: { label: 'Load More Button' },
+  },
   { title: 'Recipe listing Base without results' },
 ];
 storiesOf('Components/Recipe Listing', module)

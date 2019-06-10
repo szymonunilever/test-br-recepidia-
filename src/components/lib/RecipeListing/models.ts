@@ -1,3 +1,4 @@
+import { ButtonContent } from '../common/Button';
 import { UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeItem } from './partials';
 
@@ -13,7 +14,7 @@ export interface OnFavoriteChange {
 
 export interface RecipeListingContent {
   title?: string;
-  loadMoreButtonContent?: string;
+  cta?: ButtonContent;
 }
 
 export interface RecipeListingProps extends UnileverLibraryComponent {

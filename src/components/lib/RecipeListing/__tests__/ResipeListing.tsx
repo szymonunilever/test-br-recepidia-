@@ -14,7 +14,7 @@ const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const countItems = listing.length;
 const content: RecipeListingContent = {
   title: 'Test',
-  loadMoreButtonContent: 'Load More',
+  cta: { label: 'Load More' },
 };
 describe('Recipe Listing Component', () => {
   it('Recipe Listing Trivial default', () => {
