@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 const Checkelem = ({
   type,
-  labelText,
+  label,
   name,
   className = '',
   isChecked,
@@ -33,7 +33,7 @@ const Checkelem = ({
       <span className="checkable_checkelem">
         <span className="checkmark" />
       </span>
-      {labelText}
+      {label}
     </label>
   );
 };

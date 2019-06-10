@@ -4,7 +4,7 @@ export enum checkelemTypes {
 }
 export interface CheckelemProps {
   type: checkelemTypes;
-  labelText?: string;
+  label?: string;
   name: string;
   className?: string;
   isChecked?: boolean;

@@ -12,7 +12,7 @@ storiesOf(
       <Checkelem
         type={checkelemTypes.checkbox}
         name="test"
-        labelText="this is label"
+        label="this is label"
       />
     ),
     {
@@ -25,7 +25,7 @@ storiesOf(
       <Checkelem
         type={checkelemTypes.checkbox}
         name="test"
-        labelText="Checkbox label with a lot of text: Lorem ipsum dolor sit, amet
+        label="Checkbox label with a lot of text: Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Doloremque est soluta inventore saepe
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
@@ -43,7 +43,7 @@ storiesOf(
       <Checkelem
         type={checkelemTypes.radio}
         name="radiotest"
-        labelText="this is label"
+        label="this is label"
       />
     ),
     {
@@ -56,7 +56,7 @@ storiesOf(
       <Checkelem
         type={checkelemTypes.radio}
         name="radiotest"
-        labelText="Radio button label with a lot of text: Lorem ipsum dolor sit, amet
+        label="Radio button label with a lot of text: Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Doloremque est soluta inventore saepe
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
@@ -75,17 +75,17 @@ storiesOf(
         <Checkelem
           type={checkelemTypes.radio}
           name="radiotest"
-          labelText="Option 1"
+          label="Option 1"
         />
         <Checkelem
           type={checkelemTypes.radio}
           name="radiotest"
-          labelText="Option 2"
+          label="Option 2"
         />
         <Checkelem
           type={checkelemTypes.radio}
           name="radiotest"
-          labelText="Option 3"
+          label="Option 3"
         />
       </div>
     ),
