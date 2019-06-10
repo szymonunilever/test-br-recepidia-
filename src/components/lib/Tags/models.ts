@@ -1,13 +1,13 @@
 export interface TagsProps {
-  data: {
-    title: string;
-    componentName: string;
-    tagsCount: number;
-    customClass?: string;
-    isEditable: boolean;
-    loadMoreButton: LoadMoreButton;
-    tagList: ItemProps[];
+  list: ItemProps[];
+  content: {
+    title?: string;
+    cta: LoadMoreButton;
   };
+  isEditable: boolean;
+  tagsPerLoad?: number;
+  initialCount: number;
+  className?: string;
 }
 
 export interface TagProps {
@@ -22,7 +22,5 @@ export interface ItemProps {
 }
 
 export interface LoadMoreButton {
-  text?: string;
-  tagsPerLoad?: number;
-  isEnabled: boolean;
+  label?: string;
 }
