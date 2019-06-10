@@ -9,7 +9,7 @@ export enum ButtonViewType {
 }
 
 export interface ButtonContent {
-  label: string;
+  label?: string;
 }
 
 export interface ButtonProps extends UnileverLibraryComponent {
