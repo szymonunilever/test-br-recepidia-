@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
-import { RecipeListingTrivial } from './partials';
+import { RecipeItem, RecipeListingTrivial } from './partials';
 import theme from './RecipeListing.module.scss';
 
 const RecipeListing = ({
@@ -54,7 +54,7 @@ const RecipeListing = ({
   const loadMore = () => {
     const { recipeCount } = listState;
     setListState({
-      listItems: [...listModified],
+      listItems: listModified,
       recipeCount: recipeCount + recipePerLoad,
     });
   };
