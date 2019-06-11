@@ -1,5 +1,5 @@
 export enum TagViewType {
-  standart,
+  standard,
   filter,
 }
 export interface TagsProps {
@@ -13,13 +13,18 @@ export interface TagsProps {
   initialCount: number;
   className?: string;
   viewType?: TagViewType;
+  handleToggle?: (val: TagToggleHandler) => void;
 }
-
+export interface TagToggleHandler {
+  tagName: string;
+  state: boolean;
+}
 export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
-  handleClick: (tagName: string) => void;
   isToggle?: boolean;
+  handleClick: (tagName: string) => void;
+  handleToggle?: (val: TagToggleHandler) => void;
 }
 
 export interface ItemProps {

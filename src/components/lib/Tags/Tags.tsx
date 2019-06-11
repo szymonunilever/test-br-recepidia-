@@ -10,8 +10,9 @@ const Tags = ({
   isEditable,
   tagsPerLoad = 4,
   initialCount,
+  handleToggle,
   className,
-  viewType = TagViewType.standart,
+  viewType = TagViewType.standard,
 }: TagsProps) => {
   const [tags, setTags] = useState({
     list: list,
@@ -54,6 +55,7 @@ const Tags = ({
               tag={item}
               isEditable={false}
               isToggle
+              handleToggle={handleToggle}
             />
           ))}
         </ul>
