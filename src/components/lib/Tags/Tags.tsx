@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import Tag from './partials/Tag';
 import { TagsProps, ItemProps } from './models';
-import { Button } from 'src/components/common/Button';
+import { Button } from 'src/components/lib/common/Button';
 
 const Tags = ({
   list,
