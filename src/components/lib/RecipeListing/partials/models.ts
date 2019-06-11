@@ -56,31 +56,20 @@ export interface Tag {
   categoryName: string;
 }
 
-export interface Dietary {
-  vegan: { stateValue: boolean };
-  nutFree: { stateValue: boolean };
-  dairyProductFree: { stateValue: boolean };
-  eggFree: { stateValue: boolean };
-  paleoFree: { stateValue: boolean };
-  pregnancySafe: { stateValue: boolean };
-  rawFood: { stateValue: boolean };
-  lactoseFree: { stateValue: boolean };
-  glutenFree: { stateValue: boolean };
-  vegetarian: { stateValue: boolean };
-  wheatFree: { stateValue: boolean };
+export interface TagCategory {
+  categoryName: string;
+  label: string;
+  tags: Tag[];
 }
 
 export interface RecipeFilterOptions {
-  dishes: Tag[];
-  mainIngredients: Tag[];
-  cuisines: Tag[];
-  difficulties: Tag[];
-  dietary: Dietary;
-  budgets: Tag[];
+  categories: TagCategory[];
 }
 
 export interface RecipeFilterProps {
+  allFilters: RecipeFilterOptions;
+  selectedFilters: Tag[];
   onChangeSorting: (sort: RecipeSortingOptions) => void;
-  onChangeFilter: (filter: RecipeFilterOptions) => void;
+  onChangeFilter: (filter: Tag[]) => void;
   onTagRemove: (val: string | number) => void;
 }
