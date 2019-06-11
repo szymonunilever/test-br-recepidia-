@@ -1,57 +1,49 @@
 import React, { useState } from 'react';
+import cx from 'classnames';
 import { PageListingProps } from './models';
 import { ItemProps } from './partials/models';
 
 import PageListingItem from './partials/PageListingItem';
-import LoadMoreButton from './partials/LoadMoreButton';
+import { Button } from 'src/components/common/Button';
 
-const PageListing = ({ data }: PageListingProps) => {
-  const {
-    viewType,
-    title,
-    pages,
-    pagesCount,
-    componentName,
-    customClass,
-    loadMoreButton,
-    subtitle,
-    loadMoreButton: { isEnabled, pagesPerLoad = 4 },
-  } = data;
-
-  const [pagesState, setPagesState] = useState({
-    pagesCount,
-    pages: pages.slice(0, pagesCount),
+const PageListing = ({
+  list,
+  content: { title, subtitle, cta },
+  viewType,
+  initialCount,
+  className,
+  pagesPerLoad = 4,
+}: PageListingProps) => {
+  const [pages, setPages] = useState({
+    list: list.slice(0, initialCount),
   });
 
-  const loadMore = () => {
-    const newCount = pagesState.pagesCount + pagesPerLoad;
-
-    setPagesState({
-      pages: pages.slice(0, newCount),
-      pagesCount: newCount,
+  const loadMore = () =>
+    setPages({
+      list: list.slice(0, pages.list.length + pagesPerLoad),
     });
-  };
 
-  const className = customClass
-    ? `page-listing ${customClass}`
-    : `page-listing`;
-  const shouldAppear = pages.length > pagesState.pagesCount && isEnabled;
+  const shouldAppear = list.length > pages.list.length && cta;
 
   const loadMoreBtn = shouldAppear ? (
-    <LoadMoreButton loadMore={loadMore} loadMoreButton={loadMoreButton} />
+    <Button onClick={loadMore} className="page-listing__button">
+      {cta ? cta.label : null}
+    </Button>
   ) : null;
 
   const subTitle = subtitle ? (
     <div className={`page-listing__subtitle`}>{subtitle}</div>
   ) : null;
 
+  const classNames = cx('page-listing', className);
+
   let view = (
-    <div className={className} data-componentname={componentName}>
+    <div className={classNames} data-componentname="page-listing">
       <h3 className={`page-listing__title`}>{title}</h3>
       {subTitle}
 
       <ul className={`page-listing__list`}>
-        {pagesState.pages.map((item: ItemProps) => {
+        {pages.list.map((item: ItemProps) => {
           return <PageListingItem key={item.title} page={item} />;
         })}
       </ul>
