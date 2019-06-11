@@ -4,20 +4,18 @@ export interface PageProps {
 
 export interface ItemProps {
   title: string;
-  link: string;
+  path: string;
   image: Image;
   localImage: any;
 }
 
 export interface LoadMoreButtonProps {
-  loadMoreButton: LoadMoreButton;
+  cta: LoadMoreButton;
   loadMore: (e: ButtonEvent) => void;
 }
 
 export interface LoadMoreButton {
-  text?: string;
-  pagesPerLoad?: number;
-  isEnabled: boolean;
+  label?: string;
 }
 
 interface Image {

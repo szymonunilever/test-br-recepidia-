@@ -1,0 +1,26 @@
+[
+  {
+    "tagName": "Fish",
+    "path": "/search.html?q=Fish"
+  },
+  {
+    "tagName": "Casserole",
+    "path": "/search.html?q=Casserole"
+  },
+  {
+    "tagName": "Cheese",
+    "path": "/search.html?q=Cheese"
+  },
+  {
+    "tagName": "Curry",
+    "path": "/search.html?q=Curry"
+  },
+  {
+    "tagName": "Dip and spread",
+    "path": "/search.html?q=Dip+and+spread"
+  },
+  {
+    "tagName": "Egg",
+    "path": "/search.html?q=Egg"
+  }
+]
