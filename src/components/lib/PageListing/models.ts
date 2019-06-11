@@ -1,14 +1,14 @@
 import { ItemProps, LoadMoreButton } from './partials/models';
 
 export interface PageListingProps {
-  data: {
-    loadMoreButton: LoadMoreButton;
-    customClass?: string;
-    componentName: string;
+  list: ItemProps[];
+  content: {
     title: string;
     subtitle?: string;
-    viewType: string;
-    pagesCount: number;
-    pages: ItemProps[];
+    cta?: LoadMoreButton;
   };
+  className?: string;
+  viewType: string;
+  initialCount: number;
+  pagesPerLoad?: number;
 }
