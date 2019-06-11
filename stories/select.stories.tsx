@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Select } from '../src/components/lib/common/Select';
-import selectOptions from 'src/components/data/select.json';
+import selectOptions from '../src/components/data/select.json';
 import { action } from '@storybook/addon-actions';
 
 const options = selectOptions.options;
