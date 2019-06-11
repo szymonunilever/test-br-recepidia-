@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import cx from 'classnames';
-import Tag from './partials/Tag';
-import { TagsProps, ItemProps } from './models';
+import React, { useState } from 'react';
 import { Button } from 'src/components/lib/common/Button';
+import { ItemProps, TagsProps, TagViewType } from './models';
+import Tag from './partials/Tag';
 
 const Tags = ({
   list,
@@ -11,6 +11,7 @@ const Tags = ({
   tagsPerLoad = 4,
   initialCount,
   className,
+  viewType = TagViewType.standart,
 }: TagsProps) => {
   const [tags, setTags] = useState({
     list: list,
@@ -42,23 +43,40 @@ const Tags = ({
 
   const classNames = cx('tags', className);
 
-  return (
-    <div className={classNames} data-componentname="tags">
-      <h3 className="tags__title">{title}</h3>
+  const view =
+    viewType === TagViewType.filter ? (
+      <div className={classNames} data-componentname="tags">
+        <ul className="tags__list">
+          {tags.list.map((item: ItemProps) => (
+            <Tag
+              key={item.tagName}
+              handleClick={deleteItem}
+              tag={item}
+              isEditable={false}
+              isToggle
+            />
+          ))}
+        </ul>
+      </div>
+    ) : (
+      <div className={classNames} data-componentname="tags">
+        <h3 className="tags__title">{title}</h3>
 
-      <ul className="tags__list">
-        {tags.displayList.map((item: ItemProps) => (
-          <Tag
-            key={item.tagName}
-            handleClick={deleteItem}
-            tag={item}
-            isEditable={isEditable}
-          />
-        ))}
-      </ul>
-      {loadMoreBtn}
-    </div>
-  );
+        <ul className="tags__list">
+          {tags.displayList.map((item: ItemProps) => (
+            <Tag
+              key={item.tagName}
+              handleClick={deleteItem}
+              tag={item}
+              isEditable={isEditable}
+            />
+          ))}
+        </ul>
+        {loadMoreBtn}
+      </div>
+    );
+
+  return <>{view}</>;
 };
 
 export default Tags;

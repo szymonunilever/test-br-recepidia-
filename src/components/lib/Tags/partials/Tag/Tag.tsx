@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { TagProps } from '../../models';
-import { Button } from 'src/components/common/Button';
+import { Button } from 'src/components/lib/common/Button';
 
 import Icon from 'src/svgs/inline/x-mark.svg';
 

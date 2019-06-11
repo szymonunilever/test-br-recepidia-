@@ -1,3 +1,7 @@
+export enum TagViewType {
+  standart,
+  filter,
+}
 export interface TagsProps {
   list: ItemProps[];
   content: {
@@ -8,12 +12,14 @@ export interface TagsProps {
   tagsPerLoad?: number;
   initialCount: number;
   className?: string;
+  viewType?: TagViewType;
 }
 
 export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
   handleClick: (tagName: string) => void;
+  isToggle?: boolean;
 }
 
 export interface ItemProps {
