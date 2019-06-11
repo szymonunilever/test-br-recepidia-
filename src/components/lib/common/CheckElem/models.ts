@@ -1,9 +1,9 @@
-export enum checkelemTypes {
+export enum checkElemTypes {
   radio,
   checkbox,
 }
-export interface CheckelemProps {
-  type: checkelemTypes;
+export interface CheckElemProps {
+  type: checkElemTypes;
   label?: string;
   name: string;
   className?: string;

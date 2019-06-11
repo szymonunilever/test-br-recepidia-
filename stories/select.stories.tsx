@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { CustomSelect } from '../src/components/lib/CustomSelect';
-import selectOptions from 'src/components/data/customSelect.json';
+import { Select } from '../src/components/lib/common/Select';
+import selectOptions from 'src/components/data/select.json';
 import { action } from '@storybook/addon-actions';
 
 const options = selectOptions.options;
@@ -9,7 +9,7 @@ const options = selectOptions.options;
 storiesOf('Components/Form elements/Select', module).add(
   'select with custom options list styles',
   () => (
-    <CustomSelect
+    <Select
       options={options}
       className="select"
       placeholder="How can we help?"

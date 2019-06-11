@@ -2,7 +2,7 @@ interface Option {
   value: string;
   label: string;
 }
-export interface CustomSelectProps {
+export interface SelectProps {
   options: Option[];
   placeholder?: string;
   className?: string;

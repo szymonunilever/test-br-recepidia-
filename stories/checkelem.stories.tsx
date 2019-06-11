@@ -1,6 +1,9 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Checkelem, checkelemTypes } from '../src/components/lib/Checkelem';
+import {
+  CheckElem,
+  checkElemTypes,
+} from '../src/components/lib/common/CheckElem/index';
 
 storiesOf(
   'Components/Form elements/Checkbox+Radio button combined element',
@@ -9,8 +12,8 @@ storiesOf(
   .add(
     'Unselected checkbox',
     () => (
-      <Checkelem
-        type={checkelemTypes.checkbox}
+      <CheckElem
+        type={checkElemTypes.checkbox}
         name="test"
         label="this is label"
       />
@@ -22,8 +25,8 @@ storiesOf(
   .add(
     'Selected checkbox with a lot of text',
     () => (
-      <Checkelem
-        type={checkelemTypes.checkbox}
+      <CheckElem
+        type={checkElemTypes.checkbox}
         name="test"
         label="Checkbox label with a lot of text: Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Doloremque est soluta inventore saepe
@@ -40,8 +43,8 @@ storiesOf(
   .add(
     'Unselected radio button',
     () => (
-      <Checkelem
-        type={checkelemTypes.radio}
+      <CheckElem
+        type={checkElemTypes.radio}
         name="radiotest"
         label="this is label"
       />
@@ -53,8 +56,8 @@ storiesOf(
   .add(
     'Selected radio button with a lot of text',
     () => (
-      <Checkelem
-        type={checkelemTypes.radio}
+      <CheckElem
+        type={checkElemTypes.radio}
         name="radiotest"
         label="Radio button label with a lot of text: Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Doloremque est soluta inventore saepe
@@ -72,18 +75,18 @@ storiesOf(
     'Group of radio buttons',
     () => (
       <div>
-        <Checkelem
-          type={checkelemTypes.radio}
+        <CheckElem
+          type={checkElemTypes.radio}
           name="radiotest"
           label="Option 1"
         />
-        <Checkelem
-          type={checkelemTypes.radio}
+        <CheckElem
+          type={checkElemTypes.radio}
           name="radiotest"
           label="Option 2"
         />
-        <Checkelem
-          type={checkelemTypes.radio}
+        <CheckElem
+          type={checkElemTypes.radio}
           name="radiotest"
           label="Option 3"
         />

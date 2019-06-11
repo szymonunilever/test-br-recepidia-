@@ -1,7 +1,6 @@
 import React from 'react';
-import { CustomSelectProps } from './models';
-// import theme from './Checkelem.module.scss';
-import Select from 'react-select';
+import { SelectProps } from './models';
+import ReactSelect from 'react-select';
 import cx from 'classnames';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,15 +33,15 @@ const Option = (props: any) => {
   );
 };
 
-const CustomSelect = ({
+const Select = ({
   options,
   changeHandler,
   className = '',
   placeholder = '',
-}: CustomSelectProps) => {
+}: SelectProps) => {
   const resetStyles = {};
   return (
-    <Select
+    <ReactSelect
       styles={resetStyles}
       options={options}
       className={className}
@@ -53,4 +52,4 @@ const CustomSelect = ({
   );
 };
 
-export default CustomSelect;
+export default Select;

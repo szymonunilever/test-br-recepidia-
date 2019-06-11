@@ -1,22 +1,22 @@
 import React from 'react';
-import { CheckelemProps, checkelemTypes } from './models';
-// import theme from './Checkelem.module.scss';
+import { CheckElemProps, checkElemTypes } from './models';
+// import theme from './CheckElem.module.scss';
 import cx from 'classnames';
 
-const Checkelem = ({
+const CheckElem = ({
   type,
   label,
   name,
   className = '',
   isChecked,
-}: CheckelemProps) => {
+}: CheckElemProps) => {
   let inputType = '';
   let typeClassName = '';
-  if (type === checkelemTypes.checkbox) {
+  if (type === checkElemTypes.checkbox) {
     inputType = 'checkbox';
     typeClassName = 'checkbox';
   }
-  if (type === checkelemTypes.radio) {
+  if (type === checkElemTypes.radio) {
     inputType = 'radio';
     typeClassName = 'radiobtn';
   }
@@ -38,4 +38,4 @@ const Checkelem = ({
   );
 };
 
-export default Checkelem;
+export default CheckElem;
