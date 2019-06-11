@@ -4,7 +4,7 @@ export interface PageProps {
 
 export interface ItemProps {
   title: string;
-  link: string;
+  path: string;
   image: Image;
   localImage: any;
 }

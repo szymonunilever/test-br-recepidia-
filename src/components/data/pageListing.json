@@ -10,11 +10,10 @@
     "pagesPerLoad": 2,
     "text": "Custom button text"
   },
-
   "pages": [
     {
       "title": "Our promise",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title1"
       },
@@ -28,7 +27,7 @@
     },
     {
       "title": "Recipes",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title"
       },
@@ -42,7 +41,7 @@
     },
     {
       "title": "Products",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title"
       },
@@ -56,7 +55,7 @@
     },
     {
       "title": "gnnjkdkjdgd",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title"
       },
@@ -70,7 +69,7 @@
     },
     {
       "title": "dsada",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title"
       },
@@ -84,7 +83,7 @@
     },
     {
       "title": "dsadsads",
-      "link": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
+      "path": "https://aals.unileversolutions.com/content/knorrv2/en_gb/home/recipe-ideas/seasonal/spring-delights.html",
       "image": {
         "alt": "some title"
       },
