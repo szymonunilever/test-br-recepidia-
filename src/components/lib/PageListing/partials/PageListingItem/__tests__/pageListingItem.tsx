@@ -7,7 +7,7 @@ describe('<PageListingItem />', () => {
   const props = {
     page: {
       title: 'custom title',
-      link: 'link',
+      path: 'link',
       image: { alt: 'alt' },
       localImage: {
         aspectRatio: 1,
@@ -22,7 +22,7 @@ describe('<PageListingItem />', () => {
   };
 
   it('Should render title', () => {
-    const wrapper = shallow(<PageListingItem {...props} />);
+    const wrapper = shallow(<PageListingItem page={props.page} />);
 
     expect(
       wrapper.find('.page-listing__title').contains(props.page.title)
