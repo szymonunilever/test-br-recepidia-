@@ -1,5 +1,5 @@
 declare namespace UnileverComponents {
-  interface RichTextContent {
+  interface RichTextContent extends BaseContent {
     html: string;
   }
 }

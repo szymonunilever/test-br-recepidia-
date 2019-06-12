@@ -1,5 +1,5 @@
 declare namespace UnileverComponents {
-  interface PageListingContent {
+  interface PageListingContent extends BaseContent {
     title?: string;
     subtitle?: string;
     cta?: UnileverComponents.CTAContent;

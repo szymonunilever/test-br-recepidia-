@@ -1,5 +1,5 @@
 declare namespace UnileverComponents {
-  interface HeroContent {
+  interface HeroContent extends BaseContent {
     header?: string;
     shortSubheader?: string;
     longSubheader?: string;

@@ -1,5 +1,5 @@
 declare namespace UnileverComponents {
-  interface BackToTopContent {
+  interface BackToTopContent extends BaseContent {
     label?: string;
   }
 }
