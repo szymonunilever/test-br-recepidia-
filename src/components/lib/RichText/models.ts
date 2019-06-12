@@ -1,5 +1,5 @@
 import { UnileverLibraryComponent } from '../common/globalModels';
 
-export interface RichTextProps extends UnileverLibraryComponent {
-  html: string;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface RichTextProps
+  extends UnileverLibraryComponent<UnileverComponents.RichTextContent> {}

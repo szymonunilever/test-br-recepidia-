@@ -8,13 +8,18 @@ import { ButtonViewType } from '../src/components/lib/common/Button';
 const page = {
   height: '200vh',
 };
+
+const content: UnileverComponents.BackToTopContent = {
+  label: 'Back to top',
+};
+
 storiesOf('Components/Back To Top', module)
   .add(
     'Back to top with Text button',
     () => (
       <>
         <div style={page}>
-          <BackToTop>Back to top</BackToTop>
+          <BackToTop content={content} />
         </div>
       </>
     ),
@@ -25,7 +30,11 @@ storiesOf('Components/Back To Top', module)
     () => (
       <>
         <div style={page}>
-          <BackToTop viewType={ButtonViewType.icon} icon={<Icon />} />
+          <BackToTop
+            content={content}
+            viewType={ButtonViewType.icon}
+            icon={<Icon />}
+          />
         </div>
       </>
     ),

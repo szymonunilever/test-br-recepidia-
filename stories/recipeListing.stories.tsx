@@ -8,14 +8,17 @@ import {
 import dataSource from 'src/components/data/recipes.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
-const contents = [
+const contents: UnileverComponents.RecipeListingContent[] = [
   { title: 'Recipe listing Trivial without results' },
   { title: 'Recipe listing Trivial default 4 results' },
   { title: 'Recipe listing Trivial all Recipes' },
   { title: 'Recipe listing Trivial with Favorites' },
   {
     title: 'Recipe listing Base with Load More',
-    cta: { label: 'Load More Button' },
+    cta: {
+      label: 'Load More Button',
+      type: 'Button',
+    },
   },
   { title: 'Recipe listing Base without results' },
 ];

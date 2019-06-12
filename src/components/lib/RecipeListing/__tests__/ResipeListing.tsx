@@ -3,19 +3,18 @@ import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import dataSource from 'src/components/data/recipes.json';
 
-import {
-  RecipeListing,
-  RecipeListViewType,
-  OnFavoriteChange,
-  RecipeListingContent,
-} from '../index';
+import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const countItems = listing.length;
-const content: RecipeListingContent = {
+const content: UnileverComponents.RecipeListingContent = {
   title: 'Test',
-  cta: { label: 'Load More' },
+  cta: {
+    label: 'Load More',
+    type: 'Button',
+  },
 };
+
 describe('Recipe Listing Component', () => {
   it('Recipe Listing Trivial default', () => {
     const trivialRecipeListing: ReactWrapper = mount(
