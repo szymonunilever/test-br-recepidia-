@@ -55,9 +55,10 @@ export enum RecipeSortingOptions {
 }
 
 export interface Tag {
-  id: number;
+  id: number | string;
   language: string;
   categoryName: string;
+  path?: string;
 }
 
 export interface TagCategory {
@@ -79,4 +80,10 @@ export interface RecipeFilterProps extends UnileverLibraryComponent {
   resultLabelPlural: string;
   optionLabels: OptionLabels;
   sortSelectPlaceholder: string;
+}
+
+export interface FilterSettingsProps extends UnileverLibraryComponent {
+  allFilters: RecipeFilterOptions;
+  onFilterChange: (filter: Tag[]) => void;
+  hidden?: boolean;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Tags from '../src/components/lib/Tags';
+import { Tags } from '../src/components/lib/Tags';
 import tagsData from '../src/components/data/tags.json';
 import { action } from '@storybook/addon-actions';
 import { TagViewType } from '../src/components/lib/Tags/models';

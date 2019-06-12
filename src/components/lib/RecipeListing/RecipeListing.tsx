@@ -44,6 +44,16 @@ const RecipeListing = ({
     />
   ) : null;
 
+  let listModified = sortBy(
+    RecipeSortingOptions.Newest,
+    applyingFavorites(list, withFavorite, favorites)
+  );
+
+  const [listState, setListState] = useState({
+    listItems:
+      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
+  });
+
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
     if (onFavoriteChange) {
@@ -54,15 +64,6 @@ const RecipeListing = ({
     // eslint-disable-next-line no-console
     console.log(filter);
   };
-  let listModified = sortBy(
-    RecipeSortingOptions.Newest,
-    applyingFavorites(list, withFavorite, favorites)
-  );
-
-  const [listState, setListState] = useState({
-    listItems:
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
-  });
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
     const recipeCount = listState.listItems.length;

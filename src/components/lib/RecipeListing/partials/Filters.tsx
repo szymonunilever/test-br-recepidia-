@@ -1,10 +1,13 @@
 import cx from 'classnames';
 import { map } from 'lodash';
-import React from 'react';
+import React, { useState } from 'react';
 import { Option, Select } from '../../common/Select';
 import { enumToArray } from '../utils';
-import { RecipeFilterProps, RecipeSortingOptions } from './models';
+import { RecipeFilterProps, RecipeSortingOptions, Tag } from './models';
 import theme from './RecipeFilter.module.scss';
+import { Button, ButtonViewType } from '../../common/Button';
+import Icon from 'src/svgs/inline/plus.svg';
+import { FilterSettings } from './index';
 
 const Filter = ({
   className,
@@ -17,6 +20,9 @@ const Filter = ({
   optionLabels,
   sortSelectPlaceholder,
 }: RecipeFilterProps) => {
+  const [state, setState] = useState({
+    showFilterSettings: false,
+  });
   const classWrapper = cx(theme.recipeFilter, className);
 
   const onTagClick = (val: string) => {
@@ -37,6 +43,18 @@ const Filter = ({
     }
   };
 
+  const toggleFilterSettings = () => {
+    setState({
+      ...state,
+      showFilterSettings: !state.showFilterSettings,
+    });
+  };
+
+  const onFilterChange = (val: Tag[]) => {
+    // eslint-disable-next-line no-console
+    console.log(val);
+  };
+
   return (
     <div className={classWrapper}>
       <span>
@@ -47,6 +65,17 @@ const Filter = ({
         className="recipe-filter__sort"
         placeholder={sortSelectPlaceholder}
         changeHandler={sortingChange}
+      />
+      <FilterSettings
+        allFilters={allFilters}
+        onFilterChange={onFilterChange}
+        hidden={!state.showFilterSettings}
+      />
+      <Button
+        className="recipe-filter__button"
+        icon={<Icon />}
+        viewType={ButtonViewType.icon}
+        onClick={toggleFilterSettings}
       />
     </div>
   );

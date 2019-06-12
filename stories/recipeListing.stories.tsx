@@ -6,6 +6,7 @@ import {
   RecipeListViewType,
 } from '../src/components/lib/RecipeListing';
 import dataSource from 'src/components/data/recipes.json';
+import dataTags from 'src/components/data/allTags.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const contents = [
@@ -138,6 +139,7 @@ storiesOf('Components/Recipe Listing', module)
         withFavorite
         content={contents[6]}
         titleLevel={1}
+        tags={dataTags}
       />
     ),
     {

@@ -28,10 +28,10 @@ const Tags = ({
     });
   };
 
-  const deleteItem = (tagName: string) =>
+  const deleteItem = (tag: ItemProps) =>
     setTags({
-      list: tags.list.filter(item => item.tagName !== tagName),
-      displayList: tags.displayList.filter(item => item.tagName !== tagName),
+      list: tags.list.filter(item => item.id !== tag.id),
+      displayList: tags.displayList.filter(item => item.id !== tag.id),
     });
 
   const shouldAppear = tags.list.length > tags.displayList.length && cta;
@@ -50,7 +50,7 @@ const Tags = ({
         <ul className="tags__list">
           {tags.list.map((item: ItemProps) => (
             <Tag
-              key={item.tagName}
+              key={item.id}
               handleClick={deleteItem}
               tag={item}
               isEditable={false}
@@ -67,7 +67,7 @@ const Tags = ({
         <ul className="tags__list">
           {tags.displayList.map((item: ItemProps) => (
             <Tag
-              key={item.tagName}
+              key={item.id}
               handleClick={deleteItem}
               tag={item}
               isEditable={isEditable}

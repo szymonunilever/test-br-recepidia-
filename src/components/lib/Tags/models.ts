@@ -1,3 +1,5 @@
+import { Tag } from '../RecipeListing/partials';
+
 export enum TagViewType {
   standard,
   filter,
@@ -16,20 +18,19 @@ export interface TagsProps {
   handleToggle?: (val: TagToggleHandler) => void;
 }
 export interface TagToggleHandler {
-  tagName: string;
+  tag: ItemProps;
   state: boolean;
 }
 export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
   isToggle?: boolean;
-  handleClick: (tagName: string) => void;
+  handleClick: (tag: Tag) => void;
   handleToggle?: (val: TagToggleHandler) => void;
 }
 
-export interface ItemProps {
-  tagName: string;
-  path: string;
+export interface ItemProps extends Tag {
+  path?: string;
 }
 
 export interface LoadMoreButton {

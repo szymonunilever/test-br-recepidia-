@@ -13,18 +13,18 @@ const Tag = ({
   handleToggle,
   isToggle,
 }: TagProps) => {
-  const { tagName, path } = tag;
+  const { categoryName, path = '' } = tag;
   const classWrapper = cx('tags__item', {
     'for-filter': isToggle,
   });
 
   const onButtonClick = () => {
-    handleClick(tagName);
+    handleClick(tag);
   };
 
   const onTagClick = (selected: boolean) => {
     if (handleToggle) {
-      handleToggle({ tagName, state: selected });
+      handleToggle({ tag, state: selected });
     }
   };
 
@@ -38,18 +38,18 @@ const Tag = ({
 
   const view = isToggle ? (
     <Button className="tags__link" onClick={onTagClick} isToggle>
-      {tagName}
+      {categoryName}
     </Button>
   ) : (
     <>
       <Link className="tags__link" to={path}>
-        {tagName}
+        {categoryName}
       </Link>
       {buttonDelete}
     </>
   );
 
-  return <li className="tags__item">{view}</li>;
+  return <li className={classWrapper}>{view}</li>;
 };
 
 export default Tag;
