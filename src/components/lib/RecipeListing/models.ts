@@ -1,6 +1,6 @@
 import { ButtonContent } from '../common/Button';
 import { UnileverLibraryComponent } from '../common/globalModels';
-import { RecipeItem } from './partials';
+import { RecipeFilterOptions, RecipeItem } from './partials';
 
 export enum RecipeListViewType {
   Trivial,
@@ -12,8 +12,22 @@ export interface OnFavoriteChange {
   (favorites: string[]): void;
 }
 
+export interface OptionLabels {
+  PreparationTime: string;
+  CookingTime: string;
+  AverageRating: string;
+  Newest: string;
+  RecentlyUpdated: string;
+  Title: string;
+  [key: string]: string;
+}
+
 export interface RecipeListingContent {
   title?: string;
+  resultLabel?: string;
+  resultLabelPlural?: string;
+  optionLabels?: OptionLabels;
+  sortSelectPlaceholder?: string;
   cta?: ButtonContent;
 }
 
@@ -27,4 +41,5 @@ export interface RecipeListingProps extends UnileverLibraryComponent {
   list: RecipeItem[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
+  tags?: RecipeFilterOptions;
 }

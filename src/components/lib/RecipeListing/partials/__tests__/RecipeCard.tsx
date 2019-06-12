@@ -3,6 +3,7 @@ import React from 'react';
 import { shallow, mount, ReactWrapper } from 'enzyme';
 
 import { RecipeCard } from '../index';
+// @ts-ignore
 import imageItem from 'src/components/data/localImage.json';
 
 describe('RecipeCard', () => {

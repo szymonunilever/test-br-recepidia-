@@ -1,5 +1,6 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
 import { UnileverLibraryComponent } from '../../common/globalModels';
+import { OptionLabels } from '../models';
 
 export interface LocalImage {
   id: string;
@@ -66,10 +67,13 @@ export interface RecipeFilterOptions {
   categories: TagCategory[];
 }
 
-export interface RecipeFilterProps {
+export interface RecipeFilterProps extends UnileverLibraryComponent {
   allFilters: RecipeFilterOptions;
-  selectedFilters: Tag[];
   onChangeSorting: (sort: RecipeSortingOptions) => void;
   onChangeFilter: (filter: Tag[]) => void;
-  onTagRemove: (val: string | number) => void;
+  results: number;
+  resultLabel: string;
+  resultLabelPlural: string;
+  optionLabels: OptionLabels;
+  sortSelectPlaceholder: string;
 }

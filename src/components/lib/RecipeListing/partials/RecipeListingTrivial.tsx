@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagName, Text } from 'src/components/lib/Text';
+import { Text, TagName } from '../../Text';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 

@@ -1,6 +1,7 @@
 /* global describe, it, expect */
 import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
+// @ts-ignore
 import dataSource from 'src/components/data/recipes.json';
 
 import {
@@ -9,8 +10,11 @@ import {
   OnFavoriteChange,
   RecipeListingContent,
 } from '../index';
+import { RecipeItem } from '../partials';
 
-const listing = dataSource.data.allRecipe.edges.map(item => item.node);
+const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
+  (item: { node: RecipeItem }) => item.node
+);
 const countItems = listing.length;
 const content: RecipeListingContent = {
   title: 'Test',
