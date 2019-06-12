@@ -18,6 +18,18 @@ const contents = [
     cta: { label: 'Load More Button' },
   },
   { title: 'Recipe listing Base without results' },
+  {
+    title: 'Recipe listing Advanced',
+    cta: { label: 'Load More Button' },
+    optionLabels: {
+      PreparationTime: 'Preparation time Test',
+      CookingTime: 'Cooking time',
+      AverageRating: 'Average rating',
+      Newest: 'Newest',
+      RecentlyUpdated: 'Recently updated',
+      Title: 'Title',
+    },
+  },
 ];
 storiesOf('Components/Recipe Listing', module)
   .add(
@@ -38,6 +50,7 @@ storiesOf('Components/Recipe Listing', module)
     'Recipe listing Trivial default 4 results',
     () => (
       <RecipeListing
+        // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Trivial}
         content={contents[1]}
@@ -52,6 +65,7 @@ storiesOf('Components/Recipe Listing', module)
     'Recipe listing Trivial all Recipes',
     () => (
       <RecipeListing
+        // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Trivial}
         content={contents[2]}
@@ -67,6 +81,7 @@ storiesOf('Components/Recipe Listing', module)
     'Recipe listing Trivial with Favorites',
     () => (
       <RecipeListing
+        // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Trivial}
         content={contents[3]}
@@ -84,6 +99,7 @@ storiesOf('Components/Recipe Listing', module)
     'Recipe listing Base with Load More',
     () => (
       <RecipeListing
+        // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Base}
         content={contents[4]}
@@ -104,6 +120,23 @@ storiesOf('Components/Recipe Listing', module)
         list={[]}
         viewType={RecipeListViewType.Base}
         content={contents[5]}
+        titleLevel={1}
+      />
+    ),
+    {
+      info: { inline: false },
+    }
+  )
+  .add(
+    'Recipe listing Advanced',
+    () => (
+      <RecipeListing
+        // @ts-ignore
+        list={listing}
+        viewType={RecipeListViewType.Advanced}
+        favorites={[]}
+        withFavorite
+        content={contents[6]}
         titleLevel={1}
       />
     ),

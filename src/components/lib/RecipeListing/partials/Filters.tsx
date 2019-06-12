@@ -1,10 +1,10 @@
+import cx from 'classnames';
+import { map } from 'lodash';
 import React from 'react';
-import { Select, Option } from '../../common/Select';
+import { Option, Select } from '../../common/Select';
 import { enumToArray } from '../utils';
 import { RecipeFilterProps, RecipeSortingOptions } from './models';
-import cx from 'classnames';
 import theme from './RecipeFilter.module.scss';
-import { map } from 'lodash';
 
 const Filter = ({
   className,
@@ -31,6 +31,12 @@ const Filter = ({
     })
   );
 
+  const sortingChange = (val: Option) => {
+    if (val && onChangeSorting) {
+      onChangeSorting(parseInt(val.value));
+    }
+  };
+
   return (
     <div className={classWrapper}>
       <span>
@@ -40,7 +46,7 @@ const Filter = ({
         options={sortingOptions}
         className="recipe-filter__sort"
         placeholder={sortSelectPlaceholder}
-        changeHandler={onChangeSorting}
+        changeHandler={sortingChange}
       />
     </div>
   );

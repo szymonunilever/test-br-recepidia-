@@ -13,7 +13,8 @@ import {
 import { RecipeItem } from '../partials';
 
 const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
-  (item: { node: RecipeItem }) => item.node
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (item: { node: RecipeItem | any }) => item.node
 );
 const countItems = listing.length;
 const content: RecipeListingContent = {

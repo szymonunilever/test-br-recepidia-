@@ -18,6 +18,9 @@ export interface RecipeItem {
     slug: string;
   };
   inFavorite?: boolean;
+  cookingTime: number;
+  preparationTime: number;
+  creationTime: Date;
 }
 
 export interface RecipeCardFavoriteCallback {

@@ -1,16 +1,17 @@
 import cx from 'classnames';
-import { findIndex, remove } from 'lodash';
+import { remove } from 'lodash';
 import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
 import {
-  RecipeListingTrivial,
   RecipeFilter,
+  RecipeListingTrivial,
   RecipeSortingOptions,
   Tag,
 } from './partials';
 import theme from './RecipeListing.module.scss';
+import { applyContentDefaults, applyingFavorites, sortBy } from './utils';
 
 const RecipeListing = ({
   className,
@@ -27,19 +28,12 @@ const RecipeListing = ({
 }: RecipeListingProps) => {
   const {
     title,
-    cta = { label: 'Find More' },
-    resultLabel = 'recipe',
-    resultLabelPlural = 'recipes',
-    optionLabels = {
-      PreparationTime: 'Preparation time',
-      CookingTime: 'Cooking time',
-      AverageRating: 'Average rating',
-      Newest: 'Newest',
-      RecentlyUpdated: 'Recently updated',
-      Title: 'Title',
-    },
-    sortSelectPlaceholder = 'Sort by',
-  } = content;
+    cta,
+    resultLabel,
+    resultLabelPlural,
+    optionLabels,
+    sortSelectPlaceholder,
+  } = applyContentDefaults(content);
   const wrapClasses = cx(theme.recipeList, className);
   const listHeader = title ? (
     <Text
@@ -60,24 +54,24 @@ const RecipeListing = ({
     // eslint-disable-next-line no-console
     console.log(filter);
   };
-
-  const onChangeSorting = (sorting: RecipeSortingOptions) => {
-    // eslint-disable-next-line no-console
-    console.log(sorting);
-  };
-
-  const listModified =
-    withFavorite && favorites.length > 0 && list.length > 0
-      ? list.map(item => {
-          const inFavorite = !!findIndex(favorites, fav => fav === item.id);
-          return Object.assign(item, inFavorite);
-        })
-      : list;
+  let listModified = sortBy(
+    RecipeSortingOptions.Newest,
+    applyingFavorites(list, withFavorite, favorites)
+  );
 
   const [listState, setListState] = useState({
     listItems:
       initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
   });
+
+  const onChangeSorting = (sorting: RecipeSortingOptions) => {
+    const recipeCount = listState.listItems.length;
+    listModified = sortBy(sorting, listModified);
+    setListState({
+      listItems:
+        recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
+    });
+  };
 
   const loadMore = () => {
     const recipeCount = listState.listItems.length + recipePerLoad;
@@ -125,7 +119,7 @@ const RecipeListing = ({
           onChangeSorting={onChangeSorting}
           resultLabel={resultLabel}
           resultLabelPlural={resultLabelPlural}
-          results={listState.listItems.length}
+          results={listModified.length}
           optionLabels={optionLabels}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />

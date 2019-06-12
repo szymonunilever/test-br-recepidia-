@@ -54,14 +54,15 @@
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",
     "@types/lodash": "^4.14.133",
+    "@types/lodash.sortby": "^4.7.6",
     "@types/node-sass": "^4.11.0",
     "@types/react-helmet": "^5.0.8",
+    "@types/react-select": "^2.0.19",
     "@types/react-test-renderer": "^16.8.1",
     "@types/storybook__addon-actions": "^3.4.3",
     "@types/storybook__react": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "@types/react-select": "^2.0.19",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
@@ -102,8 +103,8 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
     "lint:fix": "yarn lint --fix",
-    "storybook": "start-storybook -p 6006",
-    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled",
+    "storybook": "start-storybook -p 6006 -s ./stories/static",
+    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled -s ./stories/static",
     "build-storybook": "build-storybook"
   }
 }
