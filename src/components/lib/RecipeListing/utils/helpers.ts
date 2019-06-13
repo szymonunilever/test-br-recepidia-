@@ -1,6 +1,11 @@
-import { sortBy as _sortBy, findIndex } from 'lodash';
+import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
 import { RecipeListingContent } from '../models';
-import { RecipeItem, RecipeSortingOptions } from '../partials';
+import {
+  RecipeItem,
+  Tag,
+  RecipeSortingOptions,
+  TagCategory,
+} from '../partials';
 
 const sortByPreparationTime = (list: RecipeItem[]) =>
   _sortBy(list, ['preparationTime', 'creationDate']);
@@ -38,18 +43,18 @@ export function applyingFavorites(
 export function applyContentDefaults(content: RecipeListingContent) {
   const {
     title,
-    cta = { label: 'Find More' },
-    resultLabel = 'recipe',
-    resultLabelPlural = 'recipes',
+    cta = { label: '' },
+    resultLabel = '',
+    resultLabelPlural = '',
     optionLabels = {
-      PreparationTime: 'Preparation time',
-      CookingTime: 'Cooking time',
-      AverageRating: 'Average rating',
-      Newest: 'Newest',
-      RecentlyUpdated: 'Recently updated',
-      Title: 'Title',
+      preparationTime: '',
+      cookingTime: '',
+      averageRating: '',
+      newest: '',
+      recentlyUpdated: '',
+      title: '',
     },
-    sortSelectPlaceholder = 'Sort by',
+    sortSelectPlaceholder = '',
   } = content;
   return {
     title,
@@ -62,19 +67,33 @@ export function applyContentDefaults(content: RecipeListingContent) {
 }
 export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
   switch (sort) {
-    case RecipeSortingOptions.PreparationTime:
+    case RecipeSortingOptions.preparationTime:
       return sortByPreparationTime(list);
-    case RecipeSortingOptions.CookingTime:
+    case RecipeSortingOptions.cookingTime:
       return sortByCookingTime(list);
-    case RecipeSortingOptions.AverageRating:
+    case RecipeSortingOptions.averageRating:
       return sortByAverageRating(list);
-    case RecipeSortingOptions.RecentlyUpdated:
+    case RecipeSortingOptions.recentlyUpdated:
       return sortByRecentlyUpdate(list);
-    case RecipeSortingOptions.Title:
+    case RecipeSortingOptions.title:
       return sortByTitle(list);
-    case RecipeSortingOptions.Newest:
+    case RecipeSortingOptions.newest:
       return sortByNewest(list);
     default:
       return sortByNewest(list);
+  }
+}
+
+export function applyFilters(filters: Tag[], list: RecipeItem[]): RecipeItem[] {
+  if (filters.length > 0) {
+    return filter(list, (item: RecipeItem) => {
+      const { categories } = item;
+      const ingludedTags = filter(categories, (item: TagCategory) => {
+        return intersectionBy(item.tags, filters, 'id').length > 0;
+      });
+      return ingludedTags.length > 0;
+    });
+  } else {
+    return list;
   }
 }

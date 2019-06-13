@@ -6,12 +6,18 @@ import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
 import {
   RecipeFilter,
+  RecipeItem,
   RecipeListingTrivial,
   RecipeSortingOptions,
   Tag,
 } from './partials';
 import theme from './RecipeListing.module.scss';
-import { applyContentDefaults, applyingFavorites, sortBy } from './utils';
+import {
+  applyContentDefaults,
+  applyFilters,
+  applyingFavorites,
+  sortBy,
+} from './utils';
 
 const RecipeListing = ({
   className,
@@ -34,24 +40,24 @@ const RecipeListing = ({
     optionLabels,
     sortSelectPlaceholder,
   } = applyContentDefaults(content);
-  const wrapClasses = cx(theme.recipeList, className);
-  const listHeader = title ? (
-    <Text
-      className="recipe-list__header"
-      // @ts-ignore
-      tag={TagName[`h${titleLevel}`]}
-      text={title}
-    />
-  ) : null;
 
+  const wrapClasses = cx(theme.recipeList, className);
   let listModified = sortBy(
-    RecipeSortingOptions.Newest,
+    RecipeSortingOptions.newest,
     applyingFavorites(list, withFavorite, favorites)
   );
 
-  const [listState, setListState] = useState({
+  const [listState, setListState] = useState<{
+    listItems: RecipeItem[];
+    filterLength: number;
+    filter: Tag[];
+    sorting: RecipeSortingOptions;
+  }>({
     listItems:
       initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
+    filterLength: listModified.length,
+    filter: [],
+    sorting: RecipeSortingOptions.newest,
   });
 
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
@@ -61,26 +67,74 @@ const RecipeListing = ({
     }
   };
   const onFilterChange = (filter: Tag[]) => {
-    // eslint-disable-next-line no-console
-    console.log(filter);
+    const recipeCount = listState.listItems.length;
+    listModified = sortBy(listState.sorting, listModified);
+    setListState({
+      ...listState,
+      listItems:
+        recipeCount > 0
+          ? applyFilters(filter, listModified).slice(0, recipeCount)
+          : applyFilters(filter, listModified),
+      filterLength: applyFilters(filter, listModified).length,
+      filter,
+    });
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
     const recipeCount = listState.listItems.length;
+    const { filter } = listState;
     listModified = sortBy(sorting, listModified);
     setListState({
+      ...listState,
       listItems:
-        recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
+        recipeCount > 0
+          ? applyFilters(filter, listModified).slice(0, recipeCount)
+          : applyFilters(filter, listModified),
+      sorting,
     });
   };
 
   const loadMore = () => {
     const recipeCount = listState.listItems.length + recipePerLoad;
+    const { filter } = listState;
     setListState({
+      ...listState,
       listItems:
-        recipeCount > 0 ? listModified.slice(0, recipeCount) : listModified,
+        recipeCount > 0
+          ? applyFilters(filter, listModified).slice(0, recipeCount)
+          : applyFilters(filter, listModified),
     });
   };
+
+  const listHeader = title ? (
+    <Text
+      className="recipe-list__header"
+      // @ts-ignore
+      tag={TagName[`h${titleLevel}`]}
+      text={title}
+    />
+  ) : null;
+
+  const recipeListBasic = (
+    <>
+      <RecipeListingTrivial
+        list={listState.listItems}
+        recipeCount={listState.listItems.length}
+        withFavorite={withFavorite}
+        onFavoriteChange={changeFavorites}
+        // @ts-ignore
+        titleLevel={titleLevel + 1}
+      />
+      {listState.listItems.length > 0 && initialCount !== 0 ? (
+        <Button
+          className="recipe-list__load-more"
+          onClick={loadMore}
+          hidden={listState.listItems.length === listState.filterLength}
+          content={cta}
+        />
+      ) : null}
+    </>
+  );
 
   const view: JSX.Element =
     viewType === RecipeListViewType.Trivial ? (
@@ -93,24 +147,7 @@ const RecipeListing = ({
         titleLevel={titleLevel + 1}
       />
     ) : viewType === RecipeListViewType.Base ? (
-      <>
-        <RecipeListingTrivial
-          list={listState.listItems}
-          recipeCount={listState.listItems.length}
-          withFavorite={withFavorite}
-          onFavoriteChange={changeFavorites}
-          // @ts-ignore
-          titleLevel={titleLevel + 1}
-        />
-        {listState.listItems.length > 0 && initialCount !== 0 ? (
-          <Button
-            className="recipe-list__load-more"
-            onClick={loadMore}
-            hidden={listState.listItems.length === listModified.length}
-            content={cta}
-          />
-        ) : null}
-      </>
+      <>{recipeListBasic}</>
     ) : (
       <>
         <RecipeFilter
@@ -120,26 +157,11 @@ const RecipeListing = ({
           onChangeSorting={onChangeSorting}
           resultLabel={resultLabel}
           resultLabelPlural={resultLabelPlural}
-          results={listModified.length}
+          results={listState.filterLength}
           optionLabels={optionLabels}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />
-        <RecipeListingTrivial
-          list={listState.listItems}
-          recipeCount={listState.listItems.length}
-          withFavorite={withFavorite}
-          onFavoriteChange={changeFavorites}
-          // @ts-ignore
-          titleLevel={titleLevel + 1}
-        />
-        {listState.listItems.length > 0 && initialCount !== 0 ? (
-          <Button
-            className="recipe-list__load-more"
-            onClick={loadMore}
-            hidden={listState.listItems.length === listModified.length}
-            content={cta}
-          />
-        ) : null}
+        <>{recipeListBasic}</>
       </>
     );
 

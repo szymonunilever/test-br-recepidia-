@@ -9,7 +9,10 @@ export interface LocalImage {
     fixed?: FixedObject;
   };
 }
-
+export interface Ingredient {
+  productId: number | string;
+  description: string;
+}
 export interface RecipeItem {
   id: string;
   shortTitle: string;
@@ -21,6 +24,8 @@ export interface RecipeItem {
   cookingTime: number;
   preparationTime: number;
   creationTime: Date;
+  ingredients: Ingredient[];
+  categories: TagCategory[];
 }
 
 export interface RecipeCardFavoriteCallback {
@@ -46,12 +51,12 @@ export interface RecipeListingTrivialProps {
 }
 
 export enum RecipeSortingOptions {
-  PreparationTime,
-  CookingTime,
-  AverageRating,
-  Newest,
-  RecentlyUpdated,
-  Title,
+  preparationTime,
+  cookingTime,
+  averageRating,
+  newest,
+  recentlyUpdated,
+  title,
 }
 
 export interface Tag {
@@ -85,5 +90,6 @@ export interface RecipeFilterProps extends UnileverLibraryComponent {
 export interface FilterSettingsProps extends UnileverLibraryComponent {
   allFilters: RecipeFilterOptions;
   onFilterChange: (filter: Tag[]) => void;
+  filtersSelected: Tag[];
   hidden?: boolean;
 }

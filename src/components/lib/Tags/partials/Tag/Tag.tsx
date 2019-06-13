@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import { TagProps } from '../../models';
 import { Button } from 'src/components/lib/common/Button';
@@ -10,14 +10,15 @@ const Tag = ({
   tag,
   handleClick,
   isEditable,
+  active = false,
   handleToggle,
   isToggle,
 }: TagProps) => {
+  const [state, setState] = useState(active);
   const { categoryName, path = '' } = tag;
   const classWrapper = cx('tags__item', {
     'for-filter': isToggle,
   });
-
   const onButtonClick = () => {
     handleClick(tag);
   };
@@ -27,6 +28,11 @@ const Tag = ({
       handleToggle({ tag, state: selected });
     }
   };
+  useEffect(() => {
+    if (state !== active) {
+      setState(active);
+    }
+  });
 
   const buttonDelete = isEditable ? (
     <Button
@@ -37,7 +43,13 @@ const Tag = ({
   ) : null;
 
   const view = isToggle ? (
-    <Button className="tags__link" onClick={onTagClick} isToggle>
+    <Button
+      className="tags__link"
+      onClick={onTagClick}
+      toggleExternalManage
+      isSelected={state}
+      isToggle
+    >
       {categoryName}
     </Button>
   ) : (

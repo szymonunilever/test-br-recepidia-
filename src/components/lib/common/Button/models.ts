@@ -18,6 +18,7 @@ export interface ButtonProps extends UnileverLibraryComponent {
   content?: ButtonContent;
   isSelected?: boolean;
   onClick?: ButtonCallback;
+  toggleExternalManage?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;
   viewType?: ButtonViewType;

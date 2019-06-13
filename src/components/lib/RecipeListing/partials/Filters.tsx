@@ -2,12 +2,14 @@ import cx from 'classnames';
 import { map } from 'lodash';
 import React, { useState } from 'react';
 import { Option, Select } from '../../common/Select';
+import { Tags } from '../../Tags';
 import { enumToArray } from '../utils';
 import { RecipeFilterProps, RecipeSortingOptions, Tag } from './models';
 import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../common/Button';
 import Icon from 'src/svgs/inline/plus.svg';
 import { FilterSettings } from './index';
+import { remove } from 'lodash';
 
 const Filter = ({
   className,
@@ -20,15 +22,15 @@ const Filter = ({
   optionLabels,
   sortSelectPlaceholder,
 }: RecipeFilterProps) => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    showFilterSettings: boolean;
+    filterTags: Tag[];
+  }>({
     showFilterSettings: false,
+    filterTags: [],
   });
   const classWrapper = cx(theme.recipeFilter, className);
 
-  const onTagClick = (val: string) => {
-    // eslint-disable-next-line no-console
-    console.log(val);
-  };
   const sortingOptions: Option[] = map(
     enumToArray(RecipeSortingOptions),
     (item, key) => ({
@@ -51,8 +53,20 @@ const Filter = ({
   };
 
   const onFilterChange = (val: Tag[]) => {
-    // eslint-disable-next-line no-console
-    console.log(val);
+    setState({
+      ...state,
+      filterTags: val,
+    });
+    onChangeFilter(val);
+  };
+  const onTagRemoved = (val: Tag) => {
+    const filtered = [...state.filterTags];
+    remove(filtered, (item: Tag) => item.id === val.id);
+    setState({
+      ...state,
+      filterTags: filtered,
+    });
+    onChangeFilter(filtered);
   };
 
   return (
@@ -69,13 +83,20 @@ const Filter = ({
       <FilterSettings
         allFilters={allFilters}
         onFilterChange={onFilterChange}
+        filtersSelected={state.filterTags}
         hidden={!state.showFilterSettings}
       />
       <Button
         className="recipe-filter__button"
         icon={<Icon />}
-        viewType={ButtonViewType.icon}
+        viewType={ButtonViewType.classic}
         onClick={toggleFilterSettings}
+      />
+      <Tags
+        list={state.filterTags}
+        isEditable
+        handleTagRemove={onTagRemoved}
+        initialCount="all"
       />
     </div>
   );

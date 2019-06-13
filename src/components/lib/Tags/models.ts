@@ -6,16 +6,18 @@ export enum TagViewType {
 }
 export interface TagsProps {
   list: ItemProps[];
-  content: {
+  content?: {
     title?: string;
-    cta: LoadMoreButton;
+    cta?: LoadMoreButton;
   };
   isEditable: boolean;
   tagsPerLoad?: number;
-  initialCount: number;
+  selectedTags?: ItemProps[];
+  initialCount?: number | 'all';
   className?: string;
   viewType?: TagViewType;
-  handleToggle?: (val: TagToggleHandler) => void;
+  handleTagToggle?: (val: TagToggleHandler) => void;
+  handleTagRemove?: (val: Tag) => void;
 }
 export interface TagToggleHandler {
   tag: ItemProps;
@@ -25,6 +27,7 @@ export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
   isToggle?: boolean;
+  active?: boolean;
   handleClick: (tag: Tag) => void;
   handleToggle?: (val: TagToggleHandler) => void;
 }

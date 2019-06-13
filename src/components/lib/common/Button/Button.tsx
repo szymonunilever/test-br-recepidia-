@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { MouseEvent, useState } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 import { ButtonProps, ButtonViewType } from './models';
 import theme from './Button.module.scss';
 
@@ -12,12 +12,18 @@ const Button = ({
   className = '',
   children = '',
   isToggle = false,
+  toggleExternalManage = false,
   viewType = ButtonViewType.classic,
   content,
 }: ButtonProps) => {
   const { label } = content || { label: '' };
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
-  const wrapClasses = cx(className, {
+  useEffect(() => {
+    if (toggleExternalManage && selected !== isSelected) {
+      setSelected(isSelected);
+    }
+  });
+  const wrapClasses = cx(theme.button, className, {
     // eslint-disable-next-line @typescript-eslint/camelcase
     button__selected: selected,
   });

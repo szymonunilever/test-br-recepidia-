@@ -13,12 +13,12 @@ export interface OnFavoriteChange {
 }
 
 export interface OptionLabels {
-  PreparationTime: string;
-  CookingTime: string;
-  AverageRating: string;
-  Newest: string;
-  RecentlyUpdated: string;
-  Title: string;
+  preparationTime: string;
+  cookingTime: string;
+  averageRating: string;
+  newest: string;
+  recentlyUpdated: string;
+  title: string;
   [key: string]: string;
 }
 

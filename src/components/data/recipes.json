@@ -57,52 +57,7 @@
                 "description": "filé filé mignon"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [
-              {
-                "id": 1499,
-                "language": "pt-BR",
-                "categoryName": "carne de boi"
-              }
-            ],
-            "cuisines": [],
-            "difficulties": [],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [],
+            "categories": [],
             "fields": {
               "slug": "/recipes/salada-francesa-do-@caio"
             }
@@ -150,52 +105,29 @@
                 "description": "400 g de filé mignon"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [
+            "categories": [
               {
-                "id": 1499,
-                "language": "pt-BR",
-                "categoryName": "carne de boi"
+                "categoryName": "eventos anuais",
+                "label": "Eventos anuais",
+                "tags": [
+                  {
+                    "id": 1347,
+                    "language": "pt-BR",
+                    "categoryName": "New Year's Day"
+                  },
+                  {
+                    "id": 1348,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de São Nicolau"
+                  },
+                  {
+                    "id": 1349,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de Ação de Graças"
+                  }
+                ]
               }
             ],
-            "cuisines": [],
-            "difficulties": [],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [],
             "fields": {
               "slug": "/recipes/strogonoff-com-maionese-do-@brogui"
             }
@@ -267,52 +199,7 @@
                 "description": "2 xícaras de farinha *Panko*"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [],
-            "cuisines": [],
-            "difficulties": [
-              {
-                "id": 1457,
-                "language": "pt-BR",
-                "categoryName": "fácil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [],
+            "categories": [],
             "fields": {
               "slug": "/recipes/bolinho-de-tapioca,-carne-e-queijo-da-@crispimichele"
             }
@@ -408,52 +295,7 @@
                 "description": "sal a gosto"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [],
-            "cuisines": [],
-            "difficulties": [
-              {
-                "id": 1459,
-                "language": "pt-BR",
-                "categoryName": "difícil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [],
+            "categories": [],
             "fields": {
               "slug": "/recipes/rosebife-de-filé-mignon-do-@andremifano"
             }
@@ -521,62 +363,27 @@
                 "description": "1 colher (sopa) de cheiro-verde picado"
               }
             ],
-            "dishes": [
+            "categories": [
               {
-                "id": 1479,
-                "categoryName": "carne",
-                "language": "pt-BR"
-              }
-            ],
-            "mainIngredients": [],
-            "cuisines": [],
-            "difficulties": [
-              {
-                "id": 1457,
-                "language": "pt-BR",
-                "categoryName": "fácil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [
-              {
-                "id": 1370,
-                "language": "pt-BR",
-                "categoryName": "econômica"
+                "categoryName": "eventos anuais",
+                "label": "Eventos anuais",
+                "tags": [
+                  {
+                    "id": 1347,
+                    "language": "pt-BR",
+                    "categoryName": "New Year's Day"
+                  },
+                  {
+                    "id": 1348,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de São Nicolau"
+                  },
+                  {
+                    "id": 1349,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de Ação de Graças"
+                  }
+                ]
               }
             ],
             "fields": {
@@ -626,74 +433,17 @@
                 "description": "4 colher de sopa de Hellmann's Vegana"
               }
             ],
-            "dishes": [
+            "categories": [
               {
-                "id": 1487,
-                "categoryName": "salada",
-                "language": "pt-BR"
-              }
-            ],
-            "mainIngredients": [
-              {
-                "id": 1518,
-                "language": "pt-BR",
-                "categoryName": "verduras e legumes"
-              }
-            ],
-            "cuisines": [
-              {
-                "id": 1416,
-                "language": "pt-BR",
-                "categoryName": "grega"
-              }
-            ],
-            "difficulties": [
-              {
-                "id": 1457,
-                "language": "pt-BR",
-                "categoryName": "fácil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "true"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "true"
-              },
-              "eggFree": {
-                "stateValue": "true"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "true"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [
-              {
-                "id": 1370,
-                "language": "pt-BR",
-                "categoryName": "econômica"
+                "categoryName": "eventos anuais",
+                "label": "Eventos anuais",
+                "tags": [
+                  {
+                    "id": 1349,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de Ação de Graças"
+                  }
+                ]
               }
             ],
             "fields": {
@@ -763,74 +513,22 @@
                 "description": "1/2 xícara de chá de água"
               }
             ],
-            "dishes": [
+            "categories": [
               {
-                "id": 1495,
-                "categoryName": "verduras e legumes",
-                "language": "pt-BR"
-              }
-            ],
-            "mainIngredients": [
-              {
-                "id": 2082,
-                "language": "pt-PT",
-                "categoryName": "cogumelos"
-              }
-            ],
-            "cuisines": [
-              {
-                "id": 1415,
-                "language": "pt-BR",
-                "categoryName": "alemã"
-              }
-            ],
-            "difficulties": [
-              {
-                "id": 1457,
-                "language": "pt-BR",
-                "categoryName": "fácil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "true"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "true"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "true"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [
-              {
-                "id": 1370,
-                "language": "pt-BR",
-                "categoryName": "econômica"
+                "categoryName": "orçamento",
+                "label": "Orçamento",
+                "tags": [
+                  {
+                    "id": 1369,
+                    "language": "pt-BR",
+                    "categoryName": "preço médio"
+                  },
+                  {
+                    "id": 1370,
+                    "language": "pt-BR",
+                    "categoryName": "econômica"
+                  }
+                ]
               }
             ],
             "fields": {
@@ -888,52 +586,19 @@
                 "description": "1 xícara de chá de amêndoas levemente quebradas"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [
+            "categories": [
               {
-                "id": 1518,
-                "language": "pt-BR",
-                "categoryName": "verduras e legumes"
+                "categoryName": "orçamento",
+                "label": "Orçamento",
+                "tags": [
+                  {
+                    "id": 1369,
+                    "language": "pt-BR",
+                    "categoryName": "preço médio"
+                  }
+                ]
               }
             ],
-            "cuisines": [],
-            "difficulties": [],
-            "dietary": {
-              "vegan": {
-                "stateValue": "true"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "true"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "true"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [],
             "fields": {
               "slug": "/recipes/fideuá-com-molho-branco-vegano"
             }
@@ -989,46 +654,19 @@
                 "description": "8 folhas de beterraba"
               }
             ],
-            "dishes": [],
-            "mainIngredients": [],
-            "cuisines": [],
-            "difficulties": [],
-            "dietary": {
-              "vegan": {
-                "stateValue": "true"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "true"
-              },
-              "eggFree": {
-                "stateValue": "true"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "true"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "true"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
+            "categories": [
+              {
+                "categoryName": "eventos anuais",
+                "label": "Eventos anuais",
+                "tags": [
+                  {
+                    "id": 1348,
+                    "language": "pt-BR",
+                    "categoryName": "Dia de São Nicolau"
+                  }
+                ]
               }
-            },
-            "budgets": [],
+            ],
             "fields": {
               "slug": "/recipes/hambúrguer-vegano"
             }
@@ -1054,6 +692,19 @@
                 }
               }
             },
+            "categories": [
+              {
+                "categoryName": "eventos anuais",
+                "label": "Eventos anuais",
+                "tags": [
+                  {
+                    "id": 1347,
+                    "language": "pt-BR",
+                    "categoryName": "New Year's Day"
+                  }
+                ]
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -1078,64 +729,6 @@
               {
                 "productId": "4998",
                 "description": "4 colheres de sopa de Ketchup Hellmann's Picante burger House"
-              }
-            ],
-            "dishes": [
-              {
-                "id": 1477,
-                "categoryName": "hambúrguer",
-                "language": "pt-BR"
-              }
-            ],
-            "mainIngredients": [],
-            "cuisines": [],
-            "difficulties": [
-              {
-                "id": 1457,
-                "language": "pt-BR",
-                "categoryName": "fácil"
-              }
-            ],
-            "dietary": {
-              "vegan": {
-                "stateValue": "unknown"
-              },
-              "nutFree": {
-                "stateValue": "unknown"
-              },
-              "dairyProductFree": {
-                "stateValue": "unknown"
-              },
-              "eggFree": {
-                "stateValue": "unknown"
-              },
-              "paleoFree": {
-                "stateValue": "unknown"
-              },
-              "pregnancySafe": {
-                "stateValue": "unknown"
-              },
-              "rawFood": {
-                "stateValue": "unknown"
-              },
-              "lactoseFree": {
-                "stateValue": "unknown"
-              },
-              "glutenFree": {
-                "stateValue": "unknown"
-              },
-              "vegetarian": {
-                "stateValue": "unknown"
-              },
-              "wheatFree": {
-                "stateValue": "unknown"
-              }
-            },
-            "budgets": [
-              {
-                "id": 1370,
-                "language": "pt-BR",
-                "categoryName": "econômica"
               }
             ],
             "fields": {

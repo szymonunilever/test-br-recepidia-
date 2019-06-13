@@ -21,14 +21,17 @@ const contents = [
   { title: 'Recipe listing Base without results' },
   {
     title: 'Recipe listing Advanced',
+    resultLabel: 'recipe',
+    resultLabelPlural: 'recipes',
+    sortSelectPlaceholder: 'Sort By',
     cta: { label: 'Load More Button' },
     optionLabels: {
-      PreparationTime: 'Preparation time Test',
-      CookingTime: 'Cooking time',
-      AverageRating: 'Average rating',
-      Newest: 'Newest',
-      RecentlyUpdated: 'Recently updated',
-      Title: 'Title',
+      preparationTime: 'Preparation time Test',
+      cookingTime: 'Cooking time',
+      averageRating: 'Average rating',
+      newest: 'newest',
+      recentlyUpdated: 'Recently updated',
+      title: 'title',
     },
   },
 ];
