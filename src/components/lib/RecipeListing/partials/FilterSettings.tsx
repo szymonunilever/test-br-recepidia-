@@ -1,6 +1,8 @@
 import cx from 'classnames';
 import { remove } from 'lodash';
 import React from 'react';
+import { Accordion } from '../../common/Accordion';
+import { Button, ButtonViewType } from '../../common/Button';
 import { Tags } from '../../Tags';
 import { ItemProps, TagToggleHandler, TagViewType } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';
@@ -29,17 +31,19 @@ const FilterSettings = ({
       <ul className="filter-settings__categories">
         {allFilters.categories.map((item: TagCategory, key) => (
           <li key={key} className="filter-settings__category-item">
-            <span className="filter-settings__category-header">
-              {item.categoryName}
-            </span>
-            <Tags
-              isEditable={false}
-              list={item.tags}
-              selectedTags={filtersSelected}
-              viewType={TagViewType.filter}
-              initialCount={0}
-              handleTagToggle={onToggleFilter}
-            />
+            <Accordion
+              className="filter-settings__category-header"
+              title={item.categoryName}
+            >
+              <Tags
+                isEditable={false}
+                list={item.tags}
+                selectedTags={filtersSelected}
+                viewType={TagViewType.filter}
+                initialCount={0}
+                handleTagToggle={onToggleFilter}
+              />
+            </Accordion>
           </li>
         ))}
       </ul>
