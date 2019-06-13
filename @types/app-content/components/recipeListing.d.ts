@@ -1,6 +1,6 @@
-declare namespace UnileverComponents {
+declare namespace AppContent {
   interface RecipeListingContent extends BaseContent {
     title?: string;
-    cta?: UnileverComponents.CTAContent;
+    cta?: AppContent.CTAContent;
   }
 }

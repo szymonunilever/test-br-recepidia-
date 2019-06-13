@@ -1,4 +1,4 @@
-declare namespace UnileverComponents {
+declare namespace AppContent {
   interface HeroContent extends BaseContent {
     header?: string;
     shortSubheader?: string;
@@ -7,13 +7,7 @@ declare namespace UnileverComponents {
       url: string;
       alt: string;
     };
-    primaryCTA?: {
-      text: string;
-      linkTo: string;
-    };
-    secondaryCTA?: {
-      text: string;
-      linkTo: string;
-    };
+    primaryCTA?: AppContent.CTAContent;
+    secondaryCTA?: AppContent.CTAContent;
   }
 }

@@ -7,11 +7,10 @@ import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const countItems = listing.length;
-const content: UnileverComponents.RecipeListingContent = {
+const content: AppContent.RecipeListingContent = {
   title: 'Test',
   cta: {
     label: 'Load More',
-    type: 'Button',
   },
 };
 

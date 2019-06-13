@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { RichText } from '../src/components/lib/RichText';
 
-const content: UnileverComponents.RichTextContent = {
+const content: AppContent.RichTextContent = {
   html: `
     <h1>Header 1</h1>
     <h2>Header 2</h2>

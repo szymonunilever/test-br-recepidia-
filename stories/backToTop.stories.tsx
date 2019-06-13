@@ -9,7 +9,7 @@ const page = {
   height: '200vh',
 };
 
-const content: UnileverComponents.BackToTopContent = {
+const content: AppContent.BackToTopContent = {
   label: 'Back to top',
 };
 

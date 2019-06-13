@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import RichText from '../RichText';
 
-const content: UnileverComponents.RichTextContent = {
+const content: AppContent.RichTextContent = {
   html: `
     <h1>Header 1</h1>
     <h2>Header 2</h2>

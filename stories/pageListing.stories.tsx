@@ -11,7 +11,6 @@ const config: PageListingProps = {
     subtitle: 'Custom subtitle',
     cta: {
       label: 'Custom button text',
-      type: 'Button',
     },
   },
   list: pageListingData,

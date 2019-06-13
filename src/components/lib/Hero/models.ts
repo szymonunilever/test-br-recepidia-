@@ -7,7 +7,7 @@ export enum HeroViewType {
 }
 
 export interface HeroProps
-  extends UnileverLibraryComponent<UnileverComponents.HeroContent> {
+  extends UnileverLibraryComponent<AppContent.HeroContent> {
   viewType: HeroViewType;
   localImage: {
     id: string;

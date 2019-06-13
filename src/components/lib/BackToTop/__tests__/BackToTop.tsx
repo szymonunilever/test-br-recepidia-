@@ -6,7 +6,7 @@ import Icon from 'src/svgs/inline/plus.svg';
 import { ButtonViewType } from '../../common/Button';
 import { BackToTop } from '../index';
 
-const content: UnileverComponents.BackToTopContent = {
+const content: AppContent.BackToTopContent = {
   label: 'Back to top',
 };
 
