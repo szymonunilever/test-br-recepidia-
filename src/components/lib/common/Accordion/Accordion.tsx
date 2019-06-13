@@ -19,9 +19,12 @@ const Accordion = ({
   const classWrapper = cx(theme.accordion, className);
 
   return (
-    <div className={classWrapper} onClick={onToggle}>
-      {title ? <div className="accordion__title">{title}</div> : null}
-      {state ? iconOpened : icon}
+    <div className={classWrapper}>
+      <div className="accordion__title" onClick={onToggle}>
+        {title ? title : null}
+        {state ? iconOpened : icon}
+      </div>
+
       <div className="accordion__body" hidden={!state}>
         {children}
       </div>
