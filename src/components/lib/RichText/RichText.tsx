@@ -1,11 +1,11 @@
 import React from 'react';
 import { RichTextProps } from './models';
 
-const RichText = ({ html, className = '' }: RichTextProps) => (
+const RichText = (props: RichTextProps) => (
   <div
     data-componentname="richText"
-    className={className}
-    dangerouslySetInnerHTML={{ __html: html }}
+    className={props.className}
+    dangerouslySetInnerHTML={{ __html: props.content.html }}
   />
 );
 

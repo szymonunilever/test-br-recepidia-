@@ -1,5 +1,4 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
-import { UnileverLibraryComponent } from '../../common/globalModels';
 
 export interface LocalImage {
   id: string;
@@ -21,7 +20,7 @@ export interface RecipeItem {
 export interface RecipeCardFavoriteCallback {
   (selected: { id: string; val: boolean }): void;
 }
-export interface RecipeCardProps extends UnileverLibraryComponent {
+export interface RecipeCardProps {
   id: string;
   enableSelectFavorite?: boolean;
   imgObject?: FluidObject;
@@ -30,6 +29,7 @@ export interface RecipeCardProps extends UnileverLibraryComponent {
   slug: string;
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  className?: string;
 }
 
 export interface RecipeListingTrivialProps {
