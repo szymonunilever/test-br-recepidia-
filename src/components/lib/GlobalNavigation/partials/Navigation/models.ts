@@ -1,6 +1,7 @@
 import { MenuItem } from '../../models';
 
 export interface NavigationProps {
+  menuAccordionBehavior?: boolean;
   dropDownIcon: JSX.Element;
   buttonCloseIcon: JSX.Element;
   handleToggleNavigationClick: () => void;

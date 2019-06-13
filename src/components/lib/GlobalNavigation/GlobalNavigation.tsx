@@ -6,13 +6,14 @@ import cx from 'classnames';
 import { Button as BurgerButton } from '../common/Button';
 
 const GlobalNavigation = ({
-  list,
+  content: { list },
   logo,
-  searchBar,
   login,
   className,
   dropDownIcon,
   buttonCloseIcon,
+  menuAccordionBehavior,
+  children,
 }: GlobalNavigationProps) => {
   const [burgerButton, setburgerButton] = useState({
     isActive: false,
@@ -23,7 +24,7 @@ const GlobalNavigation = ({
     setburgerButton({ isActive: !burgerButton.isActive });
 
   return (
-    <header className={classNames} component-name="global-navigation">
+    <header className={classNames} data-componentname="global-navigation">
       <BurgerButton
         onClick={handleToggleNavigationClick}
         className="burger-button"
@@ -39,10 +40,11 @@ const GlobalNavigation = ({
         handleToggleNavigationClick={handleToggleNavigationClick}
         dropDownIcon={dropDownIcon}
         isActive={burgerButton.isActive}
+        menuAccordionBehavior={menuAccordionBehavior}
         list={list}
       />
 
-      {searchBar}
+      {children}
       {login}
     </header>
   );

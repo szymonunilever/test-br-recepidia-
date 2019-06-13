@@ -9,6 +9,7 @@ const Navigation = ({
   isActive,
   login,
   dropDownIcon,
+  menuAccordionBehavior,
   buttonCloseIcon,
   handleToggleNavigationClick,
 }: NavigationProps) => {
@@ -17,8 +18,13 @@ const Navigation = ({
   });
 
   return (
-    <nav className={navigationClassNames}>
-      <Menu list={list} className="menu" dropDownIcon={dropDownIcon} />
+    <nav className={navigationClassNames} data-componentname="navigation">
+      <Menu
+        list={list}
+        className="menu"
+        dropDownIcon={dropDownIcon}
+        menuAccordionBehavior={menuAccordionBehavior}
+      />
       {login}
       <ButtonClose
         onClick={handleToggleNavigationClick}

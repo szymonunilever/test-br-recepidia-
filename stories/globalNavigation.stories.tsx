@@ -12,20 +12,22 @@ import Example from '../src/components/lib/Example';
 const config = {
   logo: {
     icon: <LogoIcon style={{ height: '40px' }} className="main-logo__icon" />,
-    path: 'my-path',
+    path: '/',
   },
   login: <Example text="login" />,
   dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
-  searchBar: <Example text="searchBar" />,
   buttonCloseIcon: <ButtonCloseIcon />,
+  menuAccordionBehavior: true,
 };
 
 const content = {
-  logo: {
-    text: 'LOGO ',
-  },
+  list,
 };
 
 storiesOf('Components/GlobalNavigation', module).add('Default view', () => {
-  return <GlobalNavigation list={list} content={content} {...config} />;
+  return (
+    <GlobalNavigation content={content} {...config}>
+      <Example text="searchBar" />
+    </GlobalNavigation>
+  );
 });

@@ -1,14 +1,15 @@
 import { LogoProps } from './partials/Logo/models';
 
 export interface GlobalNavigationProps {
-  list: MenuItem[];
   logo: LogoProps;
   dropDownIcon: JSX.Element;
   buttonCloseIcon: JSX.Element;
   searchBar?: JSX.Element;
   login?: JSX.Element;
+  children?: React.ReactNode;
+  menuAccordionBehavior?: boolean;
   className?: string;
-  content: LogoContent;
+  content: GlobalNavigationContent;
 }
 
 export interface MenuItem {
@@ -17,8 +18,6 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 
-export interface LogoContent {
-  logo: {
-    text: string;
-  };
+export interface GlobalNavigationContent {
+  list: MenuItem[];
 }
