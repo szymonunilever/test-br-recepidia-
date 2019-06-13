@@ -1,5 +1,3 @@
-import { UnileverLibraryComponent } from '../globalModels';
-
 export interface ButtonCallback {
   (selected: boolean): void;
 }
@@ -8,14 +6,9 @@ export enum ButtonViewType {
   icon,
 }
 
-export interface ButtonContent {
-  label?: string;
-}
-
-export interface ButtonProps extends UnileverLibraryComponent {
+export interface ButtonProps {
   icon?: JSX.Element;
   iconSelected?: JSX.Element;
-  content?: ButtonContent;
   isSelected?: boolean;
   onClick?: ButtonCallback;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,4 +16,6 @@ export interface ButtonProps extends UnileverLibraryComponent {
   viewType?: ButtonViewType;
   hidden?: boolean;
   isToggle?: boolean;
+  label?: string;
+  className?: string;
 }
