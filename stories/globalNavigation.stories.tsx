@@ -5,9 +5,9 @@ import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 
 import GlobalNavigation from 'src/components/lib/GlobalNavigation';
-import list from 'src/components/data/menu.json';
+import list from 'src/components/data/globalNavigationMenu.json';
 
-import Example from '../src/components/lib/Example';
+import Example from 'src/components/lib/Example';
 
 const config = {
   logo: {
@@ -17,7 +17,7 @@ const config = {
   login: <Example text="login" />,
   dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
   buttonCloseIcon: <ButtonCloseIcon />,
-  isAccordion: true,
+  isAccordion: false,
 };
 
 const content = {

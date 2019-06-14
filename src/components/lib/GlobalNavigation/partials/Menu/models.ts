@@ -1,7 +1,7 @@
 export interface MenuProps {
   isAccordion?: boolean;
   dropDownIcon: JSX.Element;
-  list: AppContent.MenuItemContent[];
+  list: AppContent.GlobalNavigation.MenuItem[];
   isOpened?: boolean;
   className: string;
 }

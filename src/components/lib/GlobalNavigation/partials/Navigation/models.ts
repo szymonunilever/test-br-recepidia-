@@ -4,6 +4,6 @@ export interface NavigationProps {
   buttonCloseIcon: JSX.Element;
   handleToggleNavigationClick: () => void;
   login?: JSX.Element;
-  list: AppContent.MenuItemContent[];
+  list: AppContent.GlobalNavigation.MenuItem[];
   isActive: boolean;
 }
