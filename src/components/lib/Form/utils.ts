@@ -1,5 +1,9 @@
-export const required = (errorMessage: string) => (value: string) =>
-  value ? false : errorMessage;
+export const required = (errorMessage: string) => (value: any) => {
+  if (typeof value === 'object') {
+    return value.length || Object.keys(value).length ? false : errorMessage;
+  }
+  return value ? false : errorMessage;
+};
 
 export const mustBeNumber = (errorMessage: string) => (value: number) =>
   isNaN(value) ? errorMessage : false;

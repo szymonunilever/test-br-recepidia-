@@ -3,10 +3,10 @@ import React from 'react';
 import { Select } from '../src/components/lib/common/Select';
 import selectOptions from '../src/components/data/select.json';
 // import { action } from '@storybook/addon-actions';
-// import {
-//   CheckElem,
-//   checkElemTypes,
-// } from '../src/components/lib/common/CheckElem/index';
+import {
+  CheckElem,
+  checkElemTypes,
+} from '../src/components/lib/common/CheckElem/index';
 // import { Button } from '../src/components/lib/common/Button';
 import cx from 'classnames';
 
@@ -71,39 +71,27 @@ storiesOf('Components/Form elements/All', module)
                   </span>
                 </legend>
                 <div className="field__wrap field__wrap--inline">
-                  <Field name="specific">
+                  <Field name="specific" type="radio" value="yes">
                     {({ input }) => (
                       <div className="checkable radiobtn">
-                        <label className="checkable__label">
-                          <input
-                            {...input}
-                            type="radio"
-                            className="checkable__input"
-                            value="yes"
-                          />
-                          <span className="checkable__checkelem">
-                            <span className="checkmark" />
-                          </span>
-                          Yes
-                        </label>
+                        <CheckElem
+                          input={input}
+                          type={checkElemTypes.radio}
+                          label="Yes"
+                          value="yes"
+                        />
                       </div>
                     )}
                   </Field>
-                  <Field name="specific">
+                  <Field name="specific" type="radio" value="no">
                     {({ input }) => (
                       <div className="checkable radiobtn">
-                        <label className="checkable__label">
-                          <input
-                            {...input}
-                            type="radio"
-                            className="checkable__input"
-                            value="no"
-                          />
-                          <span className="checkable__checkelem">
-                            <span className="checkmark" />
-                          </span>
-                          No
-                        </label>
+                        <CheckElem
+                          input={input}
+                          type={checkElemTypes.radio}
+                          label="No"
+                          value="no"
+                        />
                       </div>
                     )}
                   </Field>
@@ -113,12 +101,11 @@ storiesOf('Components/Form elements/All', module)
                 {({ input }) => (
                   <div className="field">
                     <label className="field__label">
-                      <span className="field__label-text">First Name</span>
+                      <span className="field__label-text">Recipe Name</span>
                       <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
-                          placeholder="Recipe Name"
                           className="field__input"
                         />
                       </div>
@@ -228,6 +215,7 @@ storiesOf('Components/Form elements/All', module)
                   Submit form
                 </button>
               </div>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
             </form>
           )}
         />
@@ -288,6 +276,8 @@ storiesOf('Components/Form elements/All', module)
                   <Field
                     name="specific"
                     validate={required('Field is required')}
+                    value="yes"
+                    type="radio"
                   >
                     {({ input, meta }) => (
                       <div
@@ -298,24 +288,20 @@ storiesOf('Components/Form elements/All', module)
                             (meta.touched || meta.submitFailed) && meta.invalid,
                         })}
                       >
-                        <label className="checkable__label">
-                          <input
-                            {...input}
-                            type="radio"
-                            className="checkable__input"
-                            value="yes"
-                          />
-                          <span className="checkable__checkelem">
-                            <span className="checkmark" />
-                          </span>
-                          Yes
-                        </label>
+                        <CheckElem
+                          input={input}
+                          type={checkElemTypes.radio}
+                          label="Yes"
+                          value="yes"
+                        />
                       </div>
                     )}
                   </Field>
                   <Field
                     name="specific"
                     validate={required('Field is required')}
+                    value="no"
+                    type="radio"
                   >
                     {({ input, meta }) => (
                       <div
@@ -326,18 +312,12 @@ storiesOf('Components/Form elements/All', module)
                             (meta.touched || meta.submitFailed) && meta.invalid,
                         })}
                       >
-                        <label className="checkable__label">
-                          <input
-                            {...input}
-                            type="radio"
-                            className="checkable__input"
-                            value="no"
-                          />
-                          <span className="checkable__checkelem">
-                            <span className="checkmark" />
-                          </span>
-                          No
-                        </label>
+                        <CheckElem
+                          input={input}
+                          type={checkElemTypes.radio}
+                          label="No"
+                          value="no"
+                        />
                       </div>
                     )}
                   </Field>
@@ -353,12 +333,11 @@ storiesOf('Components/Form elements/All', module)
                     })}
                   >
                     <label className="field__label">
-                      <span className="field__label-text">First Name</span>
+                      <span className="field__label-text">Recipe Name</span>
                       <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
-                          placeholder="Recipe Name"
                           className="field__input"
                         />
                       </div>
@@ -524,6 +503,53 @@ storiesOf('Components/Form elements/All', module)
                   </div>
                 )}
               </Field>
+              <Field
+                name="isagree"
+                validate={required('Field is required')}
+                value="agree"
+                type="checkbox"
+              >
+                {({ input, meta }) => (
+                  <div
+                    className={cx('checkable', 'checkbox', {
+                      valid: (meta.touched || meta.submitFailed) && meta.valid,
+                      invalid:
+                        (meta.touched || meta.submitFailed) && meta.invalid,
+                    })}
+                  >
+                    <CheckElem
+                      input={input}
+                      type={checkElemTypes.checkbox}
+                      label="I agree"
+                      value="agree"
+                    />
+                  </div>
+                )}
+              </Field>
+              <Field
+                name="isready"
+                validate={required('Field is required')}
+                value="ready"
+                type="checkbox"
+              >
+                {({ input, meta }) => (
+                  <div
+                    className={cx('checkable', 'checkbox', {
+                      valid: (meta.touched || meta.submitFailed) && meta.valid,
+                      invalid:
+                        (meta.touched || meta.submitFailed) && meta.invalid,
+                    })}
+                  >
+                    <CheckElem
+                      input={input}
+                      type={checkElemTypes.checkbox}
+                      label="I am ready"
+                      value="ready"
+                    />
+                  </div>
+                )}
+              </Field>
+
               <div className="buttons">
                 {/* <Button type="submit">Submit form</Button> */}
                 <button
@@ -534,7 +560,7 @@ storiesOf('Components/Form elements/All', module)
                   Submit form
                 </button>
               </div>
-              {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
+              <pre>{JSON.stringify(values, null, 2)}</pre>
             </form>
           )}
         />

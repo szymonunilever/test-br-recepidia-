@@ -129,7 +129,7 @@
   cursor: pointer;
   user-select: none;
   &__label{
-      font-size: 1rem;
+    font-size: 1rem;
   }
   &__input{
       position: absolute;
@@ -138,7 +138,7 @@
       height: 0;
       width: 0;
       &:checked {
-          & +.checkable__checkelem .checkmark{
+          & +.checkable__checkelem .checkable__checkmark{
               display: block; 
           }
       }    
@@ -150,7 +150,7 @@
     align-items: center;
     flex-shrink:0;
     margin-right: .5rem;
-    .checkmark{
+    .checkable__checkmark{
         display: none;
         background-color: $black-blue;
     }
@@ -159,7 +159,7 @@
   &.valid{
     .checkable__checkelem{
       border-color: $apple-green;
-      .checkmark{
+      .checkable__checkmark{
         background-color: $apple-green;
       }
     }
@@ -167,7 +167,7 @@
   &.invalid{
     .checkable__checkelem{
       border-color: $alert-color;
-      .checkmark{
+      .checkable__checkmark{
         background-color: $alert-color;
       }
     }
@@ -177,7 +177,7 @@
   .checkable__checkelem{
       height: 1.125rem;
       width: 1.125rem;
-      .checkmark{
+      .checkable__checkmark{
           left: .125rem;
           top: .125rem;
           width: .875rem;
@@ -195,7 +195,7 @@
       height: 1.75rem;
       width: 1.75rem;
       border-radius: 100%;
-      .checkmark{
+      .checkable__checkmark{
           border-radius: 100%;
           left: .25rem;
           top: .25rem;
