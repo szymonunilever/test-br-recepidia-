@@ -34,6 +34,15 @@ const RecipeListingTrivial = ({
                 data-unique-id="124481"
                 title="Recipeeeeeeeeeee"
               />
+              {/* <div
+                className="rr-widget-container rr-container"
+                data-summary-template={rating.viewType}
+                data-entity-type={rating.entityType}
+                data-identifier-value={rating.identifierValue}
+                data-identifier-type={rating.identifierType}
+                data-unique-id={rating.uniqueId}
+                title={recipe.title}
+              /> */}
             </li>
           );
         })

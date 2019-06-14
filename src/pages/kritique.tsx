@@ -4,10 +4,16 @@ import SEO from 'src/components/Seo/Seo';
 import '../scss/main.scss';
 import { RecipeListing } from 'src/components/lib/RecipeListing';
 import dataSource from 'src/components/data/recipes.json';
-
+import keys from '../../integrationsKeys.json';
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 
-const KritiquePage = ({ data, location }: IndexPageProps) => {
+const KritiquePage = ({ location }: IndexPageProps) => {
+  const kritiqueWidjetSrc = `https://eu.kritique.io/widget/resources/js/RR_widget.js?brandid=${
+    keys.kritique.brandId
+  }&localeid=${keys.kritique.localeId}&apikey=${
+    keys.kritique.apiKey
+  }&siteSource=${keys.kritique.siteSource}`;
+
   return (
     <Layout location={location} title={'smth'}>
       <SEO title="Kritique integration">
@@ -20,7 +26,7 @@ const KritiquePage = ({ data, location }: IndexPageProps) => {
           type="text/javascript"
           async
           id="rr-widget"
-          src="https://eu.kritique.io/widget/resources/js/RR_widget.js?brandid=1000000020&amp;localeid=1000000320&amp;apikey=3ff7636f-9fab-4e0c-b521-a1b22eb535de&amp;siteSource=Knorr-nl-nl"
+          src={kritiqueWidjetSrc}
         />
         <script
           type="text/javascript"
