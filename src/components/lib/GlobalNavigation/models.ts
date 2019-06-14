@@ -1,6 +1,8 @@
+import { UnileverLibraryComponent } from '../common/globalModels';
 import { LogoProps } from './partials/Logo/models';
 
-export interface GlobalNavigationProps {
+export interface GlobalNavigationProps
+  extends UnileverLibraryComponent<AppContent.GlobalNavigationContent> {
   logo: LogoProps;
   dropDownIcon: JSX.Element;
   buttonCloseIcon: JSX.Element;
@@ -9,15 +11,4 @@ export interface GlobalNavigationProps {
   children?: React.ReactNode;
   isAccordion?: boolean;
   className?: string;
-  content: GlobalNavigationContent;
-}
-
-export interface MenuItem {
-  name: string;
-  path?: string;
-  children?: MenuItem[];
-}
-
-export interface GlobalNavigationContent {
-  list: MenuItem[];
 }

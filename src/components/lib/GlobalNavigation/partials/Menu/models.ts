@@ -1,9 +1,7 @@
-import { MenuItem } from '../../models';
-
 export interface MenuProps {
   isAccordion?: boolean;
   dropDownIcon: JSX.Element;
-  list: MenuItem[];
+  list: AppContent.MenuItemContent[];
   isOpened?: boolean;
   className: string;
 }
