@@ -1,29 +1,80 @@
-.select{
-  [class*=control]{
-    border-color: $black-blue;
-    border-radius: 5px;
-    font-size: .875rem;
-    min-height: 40px;
-    &:hover{
-      border-color: inherit;
-    }
-  }
-  [class*=indicatorSeparator]{
-    display: none;
-  }
-  [class*=indicatorContainer]{
-    color: inherit;
-  }
-  .option{
-    padding: 6px 8px;
-    font-size: .875rem;
-    font-family: inherit;
-    &:hover{
-      background-color: $blue-overlay-40;
-    }    
-    &.is-selected{
-      background-color: $black-blue;
-      color: $white;
-    }
-  }
-}
+// .select{
+//   position: relative;
+//   display: inline-block;
+//   $base:.3rem;
+//   &-html{
+//       padding-right: $base * 8;
+//       padding-left: $base * 4;
+//       -moz-osx-font-smoothing: grayscale;
+//       -webkit-font-smoothing: antialiased;
+//       font-size: 1rem;
+//       line-height: 2.5rem;
+//       height: 2.5rem;
+//       text-decoration: inherit;
+//       text-transform: inherit;
+//       border-radius: 5px;
+//       border: solid 1px $black-blue;
+//       background-color: transparent;
+//       white-space: nowrap;
+//       cursor: pointer;
+//       -webkit-appearance: none;
+//       -moz-appearance: none;
+//       appearance: none; 
+//       &::-ms-expand {
+//           display: none;
+//       }
+//   }
+//   &-option{
+//       color: inherit;
+//   }
+//   &:after{
+//       content:"";
+//       display: block;
+//       position: absolute;
+//       top: 50%;
+//       right: $base * 4;
+//       width: $base;    
+//       height: $base;  
+//       border-left: 1px solid;
+//       border-bottom: 1px solid;
+//       border-color: $black-blue;
+//       transform: rotate(-45deg) translate(50%,-50%);
+//       pointer-events: none;
+//   }
+// }
+
+// .select{
+//   [class*=control]{
+//     border-color: $black-blue;
+//     border-radius: 5px;
+//     font-size: .875rem;
+//     min-height: 40px;
+//     &:hover{
+//       border-color: inherit;
+//     }
+//   }
+//   [class*=indicatorSeparator]{
+//     display: none;
+//   }
+//   [class*=indicatorContainer]{
+//     color: inherit;
+//   }
+//   input{
+//     height: 0;
+//   }
+//   .option{
+//     padding: 6px 8px;
+//     font-size: .875rem;
+//     font-family: inherit;
+//     &:hover{
+//       background-color: $blue-overlay-40;
+//     }    
+//     &.is-selected{
+//       background-color: $black-blue;
+//       color: $white;
+//     }
+//     &.is-focused{
+//       background-color: $blue-overlay-40
+//     }
+//   }
+// }

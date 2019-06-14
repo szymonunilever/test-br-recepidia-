@@ -9,6 +9,7 @@ const CheckElem = ({
   name,
   className = '',
   isChecked,
+  input,
 }: CheckElemProps) => {
   let inputType = '';
   let typeClassName = '';
@@ -29,6 +30,7 @@ const CheckElem = ({
         className="checkable_input"
         name={name}
         defaultChecked={isChecked}
+        {...input}
       />
       <span className="checkable_checkelem">
         <span className="checkmark" />

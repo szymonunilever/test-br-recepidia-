@@ -1,7 +1,7 @@
 {
   "options": [
-    { "value": "chocolate", "label": "Chocolate" },
-    { "value": "strawberry", "label": "Strawberry" },
-    { "value": "vanilla", "label": "Vanilla" }
+    { "value": "question1", "label": "Question 1" },
+    { "value": "question2", "label": "Question 2" },
+    { "value": "question3", "label": "Question 3" }
   ]
 }

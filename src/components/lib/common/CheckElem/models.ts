@@ -5,7 +5,9 @@ export enum checkElemTypes {
 export interface CheckElemProps {
   type: checkElemTypes;
   label?: string;
-  name: string;
+  name?: string;
   className?: string;
   isChecked?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  input?: any;
 }
