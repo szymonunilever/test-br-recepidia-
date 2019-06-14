@@ -25,6 +25,15 @@ const RecipeListingTrivial = ({
                 slug={item.fields.slug}
                 onFavoriteChange={onFavoriteChange}
               />
+              <div
+                className="rr-widget-container rr-container"
+                data-summary-template="inline01"
+                data-entity-type="recipe"
+                data-identifier-value="124481"
+                data-identifier-type=""
+                data-unique-id="124481"
+                title="Recipeeeeeeeeeee"
+              />
             </li>
           );
         })

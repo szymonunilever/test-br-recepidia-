@@ -9,7 +9,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }: SeoProps) {
+function SEO({ description, lang, meta, title, children }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -67,7 +67,9 @@ function SEO({ description, lang, meta, title }: SeoProps) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      {children}
+    </Helmet>
   );
 }
 
@@ -83,6 +85,7 @@ interface SeoProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta: any;
   title?: string;
+  children?: any;
 }
 
 export default SEO;
