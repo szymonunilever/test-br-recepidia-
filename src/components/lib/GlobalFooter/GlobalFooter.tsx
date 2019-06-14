@@ -1,14 +1,18 @@
 import React from 'react';
 import Menu from './partials/Menu';
+import cx from 'classnames';
 import { GlobalFooterProps } from './models';
 
 const GlobalFooter = ({
   content: { list, copyrightText },
   children,
   logoIcon,
+  className,
 }: GlobalFooterProps) => {
+  const classNames = cx('global-footer', className);
+
   return (
-    <footer className="global-footer" data-componentname="global-footer">
+    <footer className={classNames} data-componentname="global-footer">
       <Menu list={list} />
       {children}
       <a href="//www.unilever.com" target="_blank" rel="noopener noreferrer">
