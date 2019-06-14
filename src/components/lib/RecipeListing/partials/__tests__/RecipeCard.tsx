@@ -3,6 +3,7 @@ import React from 'react';
 import { shallow, mount, ReactWrapper } from 'enzyme';
 
 import { RecipeCard } from '../index';
+// @ts-ignore
 import imageItem from 'src/components/data/localImage.json';
 
 describe('RecipeCard', () => {
@@ -13,7 +14,7 @@ describe('RecipeCard', () => {
         id="test1"
         enableSelectFavorite={true}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
       />
     );
@@ -29,7 +30,7 @@ describe('RecipeCard', () => {
         id="test2"
         enableSelectFavorite={true}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
         inFavorite
       />
@@ -51,7 +52,7 @@ describe('RecipeCard', () => {
         id="test3"
         enableSelectFavorite={false}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
       />
     );

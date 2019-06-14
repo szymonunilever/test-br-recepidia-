@@ -1,26 +1,39 @@
-export interface TagsProps {
+import { UnileverLibraryComponent } from '../common/globalModels';
+
+export enum TagViewType {
+  standard,
+  filter,
+}
+export interface TagsProps
+  extends UnileverLibraryComponent<AppContent.TagsContent> {
   list: ItemProps[];
-  content: {
-    title?: string;
-    cta: LoadMoreButton;
-  };
   isEditable: boolean;
   tagsPerLoad?: number;
-  initialCount: number;
+  enableExternalManage?: boolean;
+  selectedTags?: ItemProps[];
+  initialCount?: number | 'all';
   className?: string;
+  viewType?: TagViewType;
+  handleTagToggle?: (val: TagToggleHandler) => void;
+  handleTagRemove?: (val: ItemProps) => void;
 }
-
+export interface TagToggleHandler {
+  tag: ItemProps;
+  state: boolean;
+}
 export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
-  handleClick: (tagName: string) => void;
+  isToggle?: boolean;
+  active?: boolean;
+  enableExternalManage?: boolean;
+  handleClick: (tag: ItemProps) => void;
+  handleToggle?: (val: TagToggleHandler) => void;
 }
 
 export interface ItemProps {
-  tagName: string;
-  path: string;
-}
-
-export interface LoadMoreButton {
-  label?: string;
+  id: number | string;
+  language: string;
+  name: string;
+  path?: string;
 }

@@ -1,5 +1,5 @@
 import { UnileverLibraryComponent } from '../common/globalModels';
-import { RecipeItem } from './partials';
+import { RecipeFilterOptions, RecipeItem } from './partials';
 
 export enum RecipeListViewType {
   Trivial,
@@ -12,7 +12,7 @@ export interface OnFavoriteChange {
 }
 
 export interface RecipeListingProps
-  extends UnileverLibraryComponent<AppContent.RecipeListingContent> {
+  extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   initialCount?: number;
   recipePerLoad?: number;
@@ -21,4 +21,5 @@ export interface RecipeListingProps
   list: RecipeItem[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
+  tags?: RecipeFilterOptions;
 }

@@ -11,9 +11,11 @@ describe('Button', () => {
     testClick = val;
   };
   const buttonClassic: ReactWrapper = mount(
-    <Button className="button-test" onClick={callbackFunction}>
-      Test
-    </Button>
+    <Button
+      className="button-test"
+      onClick={callbackFunction}
+      content={{ label: 'Test' }}
+    />
   );
 
   const buttonIcon: ReactWrapper = mount(
