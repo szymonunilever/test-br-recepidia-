@@ -85,14 +85,9 @@
   }
 }
 
-
-
 // Select component styles
 .select{
   [class*=control]{
-    // border-color: $black-blue;
-    // border-radius: 5px;
-    // font-size: .875rem;
     @extend %input-general;
     padding: 0;
     min-height: 40px;
