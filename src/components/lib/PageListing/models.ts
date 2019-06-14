@@ -1,12 +1,9 @@
-import { ItemProps, LoadMoreButton } from './partials/models';
+import { ItemProps } from './partials/models';
+import { UnileverLibraryComponent } from '../common/globalModels';
 
-export interface PageListingProps {
+export interface PageListingProps
+  extends UnileverLibraryComponent<AppContent.PageListingContent> {
   list: ItemProps[];
-  content: {
-    title: string;
-    subtitle?: string;
-    cta?: LoadMoreButton;
-  };
   className?: string;
   viewType: string;
   initialCount: number;

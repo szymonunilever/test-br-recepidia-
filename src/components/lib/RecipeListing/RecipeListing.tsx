@@ -83,7 +83,7 @@ const RecipeListing = ({
             className="recipe-list__load-more"
             onClick={loadMore}
             hidden={listState.listItems.length === listModified.length}
-            content={cta}
+            label={cta.label}
           />
         ) : null}
       </>

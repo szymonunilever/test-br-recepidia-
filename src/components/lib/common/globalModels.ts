@@ -1,4 +1,4 @@
-export interface UnileverLibraryComponent {
+export interface UnileverLibraryComponent<T> {
   className?: string;
-  content?: any;
+  content: T;
 }

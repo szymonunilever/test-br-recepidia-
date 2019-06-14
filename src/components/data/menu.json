@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Item1",
+    "path": "/item1"
+  },
+  {
+    "name": "Item2",
+    "path": "/item2"
+  },
+  {
+    "name": "Item3",
+    "children": [
+      {
+        "name": "Child31",
+        "path": "/child31"
+      },
+      {
+        "name": "Child32",
+        "path": "/child32"
+      },
+      {
+        "name": "Child32",
+        "path": "/child32"
+      }
+    ]
+  },
+  {
+    "name": "Item4",
+    "children": [
+      {
+        "name": "Child41",
+        "path": "/child41"
+      },
+      {
+        "name": "Child42",
+        "children": [
+          {
+            "name": "Child431",
+            "path": "/child431"
+          },
+          {
+            "name": "Child432",
+            "path": "/child432,"
+          },
+          {
+            "name": "Child433",
+            "path": "/child433"
+          }
+        ]
+      },
+      {
+        "name": "Child43",
+        "path": "/child42"
+      }
+    ]
+  }
+]
