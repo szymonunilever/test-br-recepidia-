@@ -8,7 +8,7 @@ const Menu = ({
   isOpened,
   className,
   dropDownIcon,
-  menuAccordionBehavior,
+  isAccordion,
 }: MenuProps) => {
   const [menuState, setMenuState] = useState<MenuStateProps>({
     openedItems: [],
@@ -22,9 +22,7 @@ const Menu = ({
 
   const handleClickMenu = (e: React.MouseEvent<HTMLElement>, i: number) => {
     e.stopPropagation();
-    const openedItems = menuAccordionBehavior
-      ? [i]
-      : [...menuState.openedItems, i];
+    const openedItems = isAccordion ? [i] : [...menuState.openedItems, i];
 
     setMenuState({
       openedItems: matchItem(i)
@@ -48,17 +46,18 @@ const Menu = ({
             {menuItem.name}
           </Link>
         ) : (
-          <a className={`${className}__link`}>{menuItem.name}</a>
-        );
-
-        return (
-          <li
-            key={i}
-            className={classNames}
+          <a
+            className={`${className}__link`}
             onClick={e => {
               isSubMenuList && handleClickMenu(e, i);
             }}
           >
+            {menuItem.name}
+          </a>
+        );
+
+        return (
+          <li key={i} className={classNames}>
             {link}
             {menuItem.children && (
               <>

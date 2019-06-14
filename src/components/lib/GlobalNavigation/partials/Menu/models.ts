@@ -1,7 +1,7 @@
 import { MenuItem } from '../../models';
 
 export interface MenuProps {
-  menuAccordionBehavior?: boolean;
+  isAccordion?: boolean;
   dropDownIcon: JSX.Element;
   list: MenuItem[];
   isOpened?: boolean;

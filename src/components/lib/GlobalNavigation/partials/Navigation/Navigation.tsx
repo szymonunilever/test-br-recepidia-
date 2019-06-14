@@ -9,7 +9,7 @@ const Navigation = ({
   isActive,
   login,
   dropDownIcon,
-  menuAccordionBehavior,
+  isAccordion,
   buttonCloseIcon,
   handleToggleNavigationClick,
 }: NavigationProps) => {
@@ -23,7 +23,7 @@ const Navigation = ({
         list={list}
         className="menu"
         dropDownIcon={dropDownIcon}
-        menuAccordionBehavior={menuAccordionBehavior}
+        isAccordion={isAccordion}
       />
       {login}
       <ButtonClose

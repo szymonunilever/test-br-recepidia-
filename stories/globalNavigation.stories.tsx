@@ -17,7 +17,7 @@ const config = {
   login: <Example text="login" />,
   dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
   buttonCloseIcon: <ButtonCloseIcon />,
-  menuAccordionBehavior: true,
+  isAccordion: true,
 };
 
 const content = {

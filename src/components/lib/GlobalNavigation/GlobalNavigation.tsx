@@ -12,7 +12,7 @@ const GlobalNavigation = ({
   className,
   dropDownIcon,
   buttonCloseIcon,
-  menuAccordionBehavior,
+  isAccordion,
   children,
 }: GlobalNavigationProps) => {
   const [burgerButton, setburgerButton] = useState({
@@ -40,7 +40,7 @@ const GlobalNavigation = ({
         handleToggleNavigationClick={handleToggleNavigationClick}
         dropDownIcon={dropDownIcon}
         isActive={burgerButton.isActive}
-        menuAccordionBehavior={menuAccordionBehavior}
+        isAccordion={isAccordion}
         list={list}
       />
 

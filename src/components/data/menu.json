@@ -33,10 +33,6 @@
       },
       {
         "name": "Child42",
-        "path": "/child42"
-      },
-      {
-        "name": "Child43",
         "children": [
           {
             "name": "Child431",
@@ -51,6 +47,10 @@
             "path": "/child433"
           }
         ]
+      },
+      {
+        "name": "Child43",
+        "path": "/child42"
       }
     ]
   }

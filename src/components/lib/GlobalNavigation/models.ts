@@ -7,7 +7,7 @@ export interface GlobalNavigationProps {
   searchBar?: JSX.Element;
   login?: JSX.Element;
   children?: React.ReactNode;
-  menuAccordionBehavior?: boolean;
+  isAccordion?: boolean;
   className?: string;
   content: GlobalNavigationContent;
 }
