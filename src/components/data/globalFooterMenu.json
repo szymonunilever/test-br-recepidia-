@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Item1",
+    "path": "/item1"
+  },
+  {
+    "name": "Item2",
+    "path": "/item2"
+  },
+  {
+    "name": "Item3",
+    "path": "/item3"
+  },
+  {
+    "name": "Item4",
+    "path": "/Item4"
+  },
+  {
+    "name": "Item5",
+    "path": "/Item5"
+  },
+  {
+    "name": "Item6",
+    "path": "/Item6"
+  },
+  {
+    "name": "Item7",
+    "path": "/Item7"
+  }
+]

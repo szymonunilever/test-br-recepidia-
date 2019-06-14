@@ -2,7 +2,7 @@ import { UnileverLibraryComponent } from '../common/globalModels';
 import { LogoProps } from './partials/Logo/models';
 
 export interface GlobalNavigationProps
-  extends UnileverLibraryComponent<AppContent.GlobalNavigationContent> {
+  extends UnileverLibraryComponent<AppContent.GlobalNavigation.Content> {
   logo: LogoProps;
   dropDownIcon: JSX.Element;
   buttonCloseIcon: JSX.Element;
