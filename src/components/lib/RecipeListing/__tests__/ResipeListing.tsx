@@ -12,7 +12,7 @@ const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
   (item: { node: RecipeItem | any }) => item.node
 );
 const countItems = listing.length;
-const content: AppContent.RecipeListingContent = {
+const content: AppContent.RecipeListing.Content = {
   title: 'Recipe listing Advanced',
   resultLabel: 'recipe',
   resultLabelPlural: 'recipes',

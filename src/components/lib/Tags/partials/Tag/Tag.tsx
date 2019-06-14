@@ -11,6 +11,7 @@ const Tag = ({
   handleClick,
   isEditable,
   active = false,
+  enableExternalManage = false,
   handleToggle,
   isToggle,
 }: TagProps) => {
@@ -24,12 +25,13 @@ const Tag = ({
   };
 
   const onTagClick = (selected: boolean) => {
+    setState(selected);
     if (handleToggle) {
       handleToggle({ tag, state: selected });
     }
   };
   useEffect(() => {
-    if (state !== active) {
+    if (enableExternalManage && state !== active) {
       setState(active);
     }
   });

@@ -9,7 +9,7 @@ import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
-const contents: AppContent.RecipeListingContent[] = [
+const contents: AppContent.RecipeListing.Content[] = [
   {
     title: 'Recipe listing Trivial without results',
     nullResult: {

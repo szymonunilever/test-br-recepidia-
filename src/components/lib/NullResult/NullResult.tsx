@@ -1,10 +1,10 @@
 import React from 'react';
 import { RecommendationsProps } from './models';
 import cx from 'classnames';
-import theme from './Recommendations.module.scss';
+import theme from './NullResult.module.scss';
 import { TagName, Text } from '../Text';
 
-const Recommendations = ({
+const NullResult = ({
   className,
   titleLevel = 2,
   content: { title, textList, subtitle },
@@ -42,4 +42,4 @@ const Recommendations = ({
   );
 };
 
-export default Recommendations;
+export default NullResult;

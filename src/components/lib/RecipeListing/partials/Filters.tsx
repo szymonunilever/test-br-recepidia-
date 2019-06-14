@@ -95,7 +95,9 @@ const Filter = ({
       />
       <Tags
         list={state.filterTags}
+        content={{ title: undefined, loadMoreButton: undefined }}
         isEditable
+        enableExternalManage
         handleTagRemove={onTagRemoved}
         initialCount="all"
       />

@@ -39,7 +39,9 @@ export function applyingFavorites(
     : list;
 }
 
-export function applyContentDefaults(content: AppContent.RecipeListingContent) {
+export function applyContentDefaults(
+  content: AppContent.RecipeListing.Content
+) {
   const {
     title,
     cta = { label: '' },

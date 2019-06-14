@@ -12,12 +12,16 @@ const Tags = ({
   tagsPerLoad = 4,
   initialCount = 4,
   handleTagToggle,
+  enableExternalManage = false,
   handleTagRemove,
   selectedTags,
   className,
   viewType = TagViewType.standard,
 }: TagsProps) => {
-  const { title, cta } = content || { title: undefined, cta: undefined };
+  const { title, loadMoreButton } = content || {
+    title: undefined,
+    loadMoreButton: undefined,
+  };
   const [tags, setTags] = useState({
     list: list,
     displayList: initialCount !== 'all' ? list.slice(0, initialCount) : list,
@@ -42,7 +46,7 @@ const Tags = ({
   };
 
   useEffect(() => {
-    if (list !== tags.list) {
+    if (enableExternalManage && list !== tags.list) {
       setTags({
         ...tags,
         list: list,
@@ -52,11 +56,12 @@ const Tags = ({
     }
   });
 
-  const shouldAppear = tags.list.length > tags.displayList.length && cta;
+  const shouldAppear =
+    tags.list.length > tags.displayList.length && loadMoreButton;
 
   const loadMoreBtn = shouldAppear ? (
     <Button onClick={loadMore} className="tags__button">
-      {cta ? cta.label : null}
+      {loadMoreButton ? loadMoreButton.label : null}
     </Button>
   ) : null;
 
@@ -71,6 +76,7 @@ const Tags = ({
               key={item.id}
               handleClick={deleteItem}
               tag={item}
+              enableExternalManage={enableExternalManage}
               active={includes(selectedTags, item)}
               isEditable={false}
               isToggle

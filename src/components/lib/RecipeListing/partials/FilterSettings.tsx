@@ -45,6 +45,8 @@ const FilterSettings = ({
               <Tags
                 isEditable={false}
                 list={item.tags}
+                content={{ title: undefined, loadMoreButton: undefined }}
+                enableExternalManage
                 selectedTags={filtersSelected}
                 viewType={TagViewType.filter}
                 initialCount={0}

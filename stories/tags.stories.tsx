@@ -4,14 +4,14 @@ import { Tags } from '../src/components/lib/Tags';
 import tagsData from '../src/components/data/tags.json';
 import { action } from '@storybook/addon-actions';
 import { TagViewType } from '../src/components/lib/Tags/models';
-
-const config = {
-  content: {
-    title: 'Custom title text',
-    cta: {
-      label: 'Custom button text',
-    },
+const content: AppContent.TagsContent = {
+  title: 'Custom title text',
+  loadMoreButton: {
+    label: 'Custom button text',
   },
+};
+const config = {
+  content,
   isEditable: true,
   tagsPerLoad: 1,
   initialCount: 2,
@@ -20,7 +20,13 @@ const config = {
 
 storiesOf('Components/Tags', module)
   .add('Editable tags', () => {
-    return <Tags list={tagsData} {...config} />;
+    return (
+      <Tags
+        list={tagsData}
+        handleTagRemove={action('tag was removed')}
+        {...config}
+      />
+    );
   })
   .add('Not editable tags', () => {
     const newConfig = {
@@ -34,7 +40,12 @@ storiesOf('Components/Tags', module)
       ...config,
       isEditable: false,
       viewType: TagViewType.filter,
-      handleToggle: action('tag click'),
     };
-    return <Tags list={tagsData} {...newConfig} />;
+    return (
+      <Tags
+        list={tagsData}
+        {...newConfig}
+        handleTagToggle={action('tag click')}
+      />
+    );
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Recommendations } from '../../Recommendations';
+import { Recommendations } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 

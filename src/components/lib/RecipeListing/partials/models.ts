@@ -32,7 +32,7 @@ export interface RecipeCardFavoriteCallback {
 }
 
 export interface RecipeCardProps
-  extends UnileverLibraryComponent<Partial<AppContent.RecipeListingContent>> {
+  extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
   enableSelectFavorite?: boolean;
   imgObject?: FluidObject;
@@ -43,7 +43,7 @@ export interface RecipeCardProps
 }
 
 export interface RecipeListingTrivialProps
-  extends UnileverLibraryComponent<Partial<AppContent.RecipeListingContent>> {
+  extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   list: RecipeItem[];
   withFavorite: boolean;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
@@ -77,7 +77,7 @@ export interface RecipeFilterOptions {
 }
 
 export interface RecipeFilterProps
-  extends UnileverLibraryComponent<Partial<AppContent.RecipeListingContent>> {
+  extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
   onChangeSorting: (sort: RecipeSortingOptions) => void;
   onChangeFilter: (filter: Tag[]) => void;
@@ -86,7 +86,7 @@ export interface RecipeFilterProps
 }
 
 export interface FilterSettingsProps
-  extends UnileverLibraryComponent<Partial<AppContent.RecipeListingContent>> {
+  extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
   onFilterChange: (filter: Tag[]) => void;
   filtersSelected: Tag[];

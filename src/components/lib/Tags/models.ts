@@ -1,15 +1,15 @@
+import { UnileverLibraryComponent } from '../common/globalModels';
+
 export enum TagViewType {
   standard,
   filter,
 }
-export interface TagsProps {
+export interface TagsProps
+  extends UnileverLibraryComponent<AppContent.TagsContent> {
   list: ItemProps[];
-  content?: {
-    title?: string;
-    cta?: LoadMoreButton;
-  };
   isEditable: boolean;
   tagsPerLoad?: number;
+  enableExternalManage?: boolean;
   selectedTags?: ItemProps[];
   initialCount?: number | 'all';
   className?: string;
@@ -26,6 +26,7 @@ export interface TagProps {
   isEditable: boolean;
   isToggle?: boolean;
   active?: boolean;
+  enableExternalManage?: boolean;
   handleClick: (tag: ItemProps) => void;
   handleToggle?: (val: TagToggleHandler) => void;
 }
@@ -35,8 +36,4 @@ export interface ItemProps {
   language: string;
   name: string;
   path?: string;
-}
-
-export interface LoadMoreButton {
-  label?: string;
 }
