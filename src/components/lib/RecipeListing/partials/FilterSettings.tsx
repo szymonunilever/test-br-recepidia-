@@ -15,8 +15,10 @@ const FilterSettings = ({
   className,
   hidden,
   onApply,
-  filterButtonsLabel: { resetLabel, applyLabel },
+  content: { filtersCta },
 }: FilterSettingsProps) => {
+  const resetLabel = filtersCta ? filtersCta.resetLabel : { label: '' };
+  const applyLabel = filtersCta ? filtersCta.applyLabel : { label: '' };
   const classWrapper = cx(theme.filterSettings, className);
   const onToggleFilter = (val: TagToggleHandler) => {
     const filters = [...filtersSelected];
@@ -38,7 +40,7 @@ const FilterSettings = ({
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"
-              title={item.categoryName}
+              title={item.name}
             >
               <Tags
                 isEditable={false}

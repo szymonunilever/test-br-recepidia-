@@ -1,8 +1,15 @@
 import React from 'react';
 import { ExampleProps } from './models';
+import cx from 'classnames';
 
 const Example = ({ className, text }: ExampleProps) => {
-  return <p className={className}>{text}</p>;
+  const classNames = cx('example', className);
+
+  return (
+    <p className={classNames} data-componentname="example">
+      {text}
+    </p>
+  );
 };
 
 Example.defaultProps = {

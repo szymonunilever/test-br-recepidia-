@@ -2,31 +2,31 @@
   {
     "id": 1347,
     "language": "pt-BR",
-    "categoryName": "New Year's Day",
+    "name": "New Year's Day",
     "path": "/search.html?q=New%20Year's%20Day"
   },
   {
     "id": 1348,
     "language": "pt-BR",
-    "categoryName": "Dia de São Nicolau",
+    "name": "Dia de São Nicolau",
     "path": "/search.html?q=Dia%20de%20São%20Nicolau"
   },
   {
     "id": 1349,
     "language": "pt-BR",
-    "categoryName": "Dia de Ação de Graças",
+    "name": "Dia de Ação de Graças",
     "path": "/search.html?q=Dia%20de%20Ação%20de%20Graças"
   },
   {
     "id": 1350,
     "language": "pt-BR",
-    "categoryName": "dia dos namorados",
+    "name": "dia dos namorados",
     "path": "/search.html?q=Ddia%20dos%20namorados"
   },
   {
     "id": 1355,
     "language": "pt-BR",
-    "categoryName": "Dia de Canadá",
+    "name": "Dia de Canadá",
     "path": "/search.html?q=Dia%20de%20Canadá"
   }
 ]

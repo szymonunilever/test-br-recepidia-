@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecomendationsProps } from './models';
+import { RecommendationsProps } from './models';
 import cx from 'classnames';
 import theme from './Recommendations.module.scss';
 import { TagName, Text } from '../Text';
@@ -8,7 +8,7 @@ const Recommendations = ({
   className,
   titleLevel = 2,
   content: { title, textList, subtitle },
-}: RecomendationsProps) => {
+}: RecommendationsProps) => {
   const classWrapper = cx(theme.recommendations, className);
   // @ts-ignore
   const theTitle = title ? (

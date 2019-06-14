@@ -1,5 +1,4 @@
 import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
-import { RecipeListingContent } from '../models';
 import {
   RecipeItem,
   Tag,
@@ -40,7 +39,7 @@ export function applyingFavorites(
     : list;
 }
 
-export function applyContentDefaults(content: RecipeListingContent) {
+export function applyContentDefaults(content: AppContent.RecipeListingContent) {
   const {
     title,
     cta = { label: '' },

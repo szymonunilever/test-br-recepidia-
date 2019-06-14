@@ -1,5 +1,4 @@
-export interface UnileverLibraryComponent {
+export interface UnileverLibraryComponent<T> {
   className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content?: any;
+  content: T;
 }

@@ -1,5 +1,3 @@
-import { Tag } from '../RecipeListing/partials';
-
 export enum TagViewType {
   standard,
   filter,
@@ -17,7 +15,7 @@ export interface TagsProps {
   className?: string;
   viewType?: TagViewType;
   handleTagToggle?: (val: TagToggleHandler) => void;
-  handleTagRemove?: (val: Tag) => void;
+  handleTagRemove?: (val: ItemProps) => void;
 }
 export interface TagToggleHandler {
   tag: ItemProps;
@@ -28,11 +26,14 @@ export interface TagProps {
   isEditable: boolean;
   isToggle?: boolean;
   active?: boolean;
-  handleClick: (tag: Tag) => void;
+  handleClick: (tag: ItemProps) => void;
   handleToggle?: (val: TagToggleHandler) => void;
 }
 
-export interface ItemProps extends Tag {
+export interface ItemProps {
+  id: number | string;
+  language: string;
+  name: string;
   path?: string;
 }
 

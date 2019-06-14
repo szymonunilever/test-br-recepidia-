@@ -4,12 +4,7 @@ import React from 'react';
 // @ts-ignore
 import dataSource from 'src/components/data/recipes.json';
 
-import {
-  RecipeListing,
-  RecipeListViewType,
-  OnFavoriteChange,
-  RecipeListingContent,
-} from '../index';
+import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
 import { RecipeItem } from '../partials';
 
 const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
@@ -17,7 +12,7 @@ const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
   (item: { node: RecipeItem | any }) => item.node
 );
 const countItems = listing.length;
-const content: RecipeListingContent = {
+const content: AppContent.RecipeListingContent = {
   title: 'Recipe listing Advanced',
   resultLabel: 'recipe',
   resultLabelPlural: 'recipes',

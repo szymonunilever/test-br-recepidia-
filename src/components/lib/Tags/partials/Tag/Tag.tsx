@@ -15,7 +15,7 @@ const Tag = ({
   isToggle,
 }: TagProps) => {
   const [state, setState] = useState(active);
-  const { categoryName, path = '' } = tag;
+  const { name, path = '' } = tag;
   const classWrapper = cx('tags__item', {
     'for-filter': isToggle,
   });
@@ -47,15 +47,14 @@ const Tag = ({
       className="tags__link"
       onClick={onTagClick}
       toggleExternalManage
+      content={{ label: name }}
       isSelected={state}
       isToggle
-    >
-      {categoryName}
-    </Button>
+    />
   ) : (
     <>
       <Link className="tags__link" to={path}>
-        {categoryName}
+        {name}
       </Link>
       {buttonDelete}
     </>

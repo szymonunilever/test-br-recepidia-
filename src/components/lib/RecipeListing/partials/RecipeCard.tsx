@@ -11,7 +11,7 @@ import theme from './RecipeCard.module.scss';
 
 const RecipeCard = ({
   id,
-  title,
+  content: { title },
   imgObject,
   enableSelectFavorite = false,
   titleLevel = 3,
@@ -20,14 +20,14 @@ const RecipeCard = ({
   inFavorite = false,
   onFavoriteChange,
 }: RecipeCardProps) => {
-  const itemTitle = (
+  const itemTitle = title ? (
     <Text
       // @ts-ignore
       tag={TagName[`h${titleLevel}`]}
       text={title}
       className="recipe-card__title"
     />
-  );
+  ) : null;
 
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {

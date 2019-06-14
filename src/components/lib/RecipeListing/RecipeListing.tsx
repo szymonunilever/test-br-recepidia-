@@ -32,16 +32,7 @@ const RecipeListing = ({
   onFavoriteChange,
   tags = { categories: [] },
 }: RecipeListingProps) => {
-  const {
-    title,
-    cta,
-    resultLabel,
-    resultLabelPlural,
-    optionLabels,
-    sortSelectPlaceholder,
-    nullResult,
-    filtersCta,
-  } = applyContentDefaults(content);
+  const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
   const wrapClasses = cx(theme.recipeList, className);
   let listModified = sortBy(
@@ -124,7 +115,7 @@ const RecipeListing = ({
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
-        content={nullResult}
+        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
@@ -146,7 +137,7 @@ const RecipeListing = ({
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
-        content={nullResult}
+        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
@@ -159,11 +150,8 @@ const RecipeListing = ({
           allFilters={tags}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
-          resultLabel={resultLabel}
-          resultLabelPlural={resultLabelPlural}
           results={listState.filterLength}
-          optionLabels={optionLabels}
-          content={filtersCta}
+          content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />
         <>{recipeListBasic}</>

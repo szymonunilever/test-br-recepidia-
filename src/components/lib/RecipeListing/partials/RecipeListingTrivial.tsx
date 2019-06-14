@@ -1,6 +1,5 @@
 import React from 'react';
 import { Recommendations } from '../../Recommendations';
-import { Text, TagName } from '../../Text';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 
@@ -9,36 +8,34 @@ const RecipeListingTrivial = ({
   withFavorite,
   titleLevel = 3,
   onFavoriteChange,
-  content,
-}: RecipeListingTrivialProps) => {
-  return (
-    <ul className="recipe-list__list">
-      {list.length > 0 ? (
-        list.map(item => {
-          return (
-            <li key={item.id} className="recipe-list__item">
-              <RecipeCard
-                id={item.id}
-                inFavorite={withFavorite ? item.inFavorite : false}
-                enableSelectFavorite={withFavorite}
-                titleLevel={titleLevel}
-                imgObject={item.localImage.childImageSharp.fluid}
-                title={item.shortTitle}
-                slug={item.fields.slug}
-                onFavoriteChange={onFavoriteChange}
-              />
-            </li>
-          );
-        })
-      ) : (
-        <Recommendations
-          content={content}
-          className="recipe-list__null-results"
-          titleLevel={titleLevel}
-        />
-      )}
-    </ul>
-  );
-};
+  content: { nullResult },
+}: RecipeListingTrivialProps) => (
+  <ul className="recipe-list__list">
+    {list.length > 0 ? (
+      list.map(item => {
+        return (
+          <li key={item.id} className="recipe-list__item">
+            <RecipeCard
+              id={item.id}
+              inFavorite={withFavorite ? item.inFavorite : false}
+              enableSelectFavorite={withFavorite}
+              titleLevel={titleLevel}
+              imgObject={item.localImage.childImageSharp.fluid}
+              content={{ title: item.shortTitle }}
+              slug={item.fields.slug}
+              onFavoriteChange={onFavoriteChange}
+            />
+          </li>
+        );
+      })
+    ) : nullResult ? (
+      <Recommendations
+        content={nullResult}
+        className="recipe-list__null-results"
+        titleLevel={titleLevel}
+      />
+    ) : null}
+  </ul>
+);
 
 export default RecipeListingTrivial;

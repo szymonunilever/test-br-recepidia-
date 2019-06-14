@@ -1,47 +1,47 @@
 {
   "categories":[
     {
-      "categoryName": "eventos anuais",
+      "name": "eventos anuais",
       "label": "Eventos anuais",
       "tags": [
         {
           "id": 1347,
           "language": "pt-BR",
-          "categoryName": "New Year's Day"
+          "name": "New Year's Day"
         },
         {
           "id": 1348,
           "language": "pt-BR",
-          "categoryName": "Dia de São Nicolau"
+          "name": "Dia de São Nicolau"
         },
         {
           "id": 1349,
           "language": "pt-BR",
-          "categoryName": "Dia de Ação de Graças"
+          "name": "Dia de Ação de Graças"
         },
         {
           "id": 1350,
           "language": "pt-BR",
-          "categoryName": "dia dos namorados"
+          "name": "dia dos namorados"
         },
         {
           "id": 1355,
           "language": "pt-BR",
-          "categoryName": "Dia de Canadá"
+          "name": "Dia de Canadá"
         }
       ]
     },
     {
-      "categoryName": "orçamento",
+      "name": "orçamento",
       "label": "Orçamento",
       "tags": [
         { "id": 1369,
           "language": "pt-BR",
-          "categoryName": "preço médio"
+          "name": "preço médio"
         },
         { "id": 1370,
           "language": "pt-BR",
-          "categoryName": "econômica"
+          "name": "econômica"
         }
       ]
     }

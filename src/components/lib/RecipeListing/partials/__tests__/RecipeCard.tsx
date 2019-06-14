@@ -14,7 +14,7 @@ describe('RecipeCard', () => {
         id="test1"
         enableSelectFavorite={true}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
       />
     );
@@ -30,7 +30,7 @@ describe('RecipeCard', () => {
         id="test2"
         enableSelectFavorite={true}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
         inFavorite
       />
@@ -52,7 +52,7 @@ describe('RecipeCard', () => {
         id="test3"
         enableSelectFavorite={false}
         imgObject={imageItem}
-        title="Test recipe"
+        content={{ title: 'Test recipe' }}
         slug="/"
       />
     );

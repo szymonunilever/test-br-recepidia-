@@ -12,7 +12,8 @@ export interface ButtonContent {
   label?: string;
 }
 
-export interface ButtonProps extends UnileverLibraryComponent {
+export interface ButtonProps {
+  className?: string;
   icon?: JSX.Element;
   iconSelected?: JSX.Element;
   content?: ButtonContent;

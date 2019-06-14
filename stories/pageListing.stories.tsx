@@ -3,8 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import pageListingData from '../src/components/data/pageListing.json';
 import PageListing from '../src/components/lib/PageListing';
+import { PageListingProps } from './components/lib/PageListing/models';
 
-const config = {
+const config: PageListingProps = {
   content: {
     title: 'Custom title text',
     subtitle: 'Custom subtitle',
@@ -12,6 +13,7 @@ const config = {
       label: 'Custom button text',
     },
   },
+  list: pageListingData,
   className: 'custom-class',
   viewType: 'default',
   initialCount: 2,
@@ -20,7 +22,7 @@ const config = {
 
 storiesOf('Components/PageListing/defaultView', module)
   .add('With loadmore button', () => {
-    return <PageListing list={pageListingData} {...config} />;
+    return <PageListing {...config} />;
   })
   .add('Without loadmore button', () => {
     const newConfig = {
@@ -31,7 +33,7 @@ storiesOf('Components/PageListing/defaultView', module)
       },
     };
 
-    return <PageListing list={pageListingData} {...newConfig} />;
+    return <PageListing {...newConfig} />;
   })
   .add('Without loadmore button & without subtitle', () => {
     const newConfig = {
@@ -43,5 +45,5 @@ storiesOf('Components/PageListing/defaultView', module)
       },
     };
 
-    return <PageListing list={pageListingData} {...newConfig} />;
+    return <PageListing {...newConfig} />;
   });

@@ -16,12 +16,9 @@ const Filter = ({
   allFilters,
   onChangeSorting,
   onChangeFilter,
-  resultLabel,
-  resultLabelPlural,
   results,
-  optionLabels,
   sortSelectPlaceholder,
-  content,
+  content: { resultLabelPlural, resultLabel, optionLabels, ...content },
 }: RecipeFilterProps) => {
   const [state, setState] = useState<{
     showFilterSettings: boolean;
@@ -32,13 +29,12 @@ const Filter = ({
   });
   const classWrapper = cx(theme.recipeFilter, className);
 
-  const sortingOptions: Option[] = map(
-    enumToArray(RecipeSortingOptions),
-    (item, key) => ({
-      label: optionLabels[item],
-      value: '' + key,
-    })
-  );
+  const sortingOptions: Option[] = optionLabels
+    ? map(enumToArray(RecipeSortingOptions), (item, key) => ({
+        label: optionLabels[item],
+        value: '' + key,
+      }))
+    : [];
 
   const sortingChange = (val: Option) => {
     if (val && onChangeSorting) {
@@ -75,18 +71,20 @@ const Filter = ({
       <span>
         {results} {results > 1 ? resultLabelPlural : resultLabel}
       </span>
-      <Select
-        options={sortingOptions}
-        className="recipe-filter__sort"
-        placeholder={sortSelectPlaceholder}
-        changeHandler={sortingChange}
-      />
+      {optionLabels ? (
+        <Select
+          options={sortingOptions}
+          className="recipe-filter__sort"
+          placeholder={sortSelectPlaceholder}
+          changeHandler={sortingChange}
+        />
+      ) : null}
       <FilterSettings
         allFilters={allFilters}
         onFilterChange={onFilterChange}
         filtersSelected={state.filterTags}
         hidden={!state.showFilterSettings}
-        filterButtonsLabel={content}
+        content={content}
         onApply={toggleFilterSettings}
       />
       <Button
