@@ -1,6 +1,7 @@
 import { ButtonContent } from '../common/Button';
 import { UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeFilterOptions, RecipeItem } from './partials';
+import { RecomendationContent } from '../Recommendations';
 
 export enum RecipeListViewType {
   Trivial,
@@ -29,6 +30,11 @@ export interface RecipeListingContent {
   optionLabels?: OptionLabels;
   sortSelectPlaceholder?: string;
   cta?: ButtonContent;
+  nullResult: RecomendationContent;
+  filtersCta?: {
+    resetLabel?: ButtonContent;
+    applyLabel?: ButtonContent;
+  };
 }
 
 export interface RecipeListingProps extends UnileverLibraryComponent {

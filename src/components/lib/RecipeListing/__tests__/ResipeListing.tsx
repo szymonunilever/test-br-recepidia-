@@ -18,8 +18,28 @@ const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
 );
 const countItems = listing.length;
 const content: RecipeListingContent = {
-  title: 'Test',
-  cta: { label: 'Load More' },
+  title: 'Recipe listing Advanced',
+  resultLabel: 'recipe',
+  resultLabelPlural: 'recipes',
+  sortSelectPlaceholder: 'Sort By',
+  filtersCta: {
+    resetLabel: { label: 'Reset filters' },
+    applyLabel: { label: 'Apply filters' },
+  },
+  cta: { label: 'Load More Button' },
+  nullResult: {
+    title: 'Oops! No results',
+    subtitle: 'Maybe try the following:',
+    textList: [`Don't use too many filters at once`, `Try using only filters`],
+  },
+  optionLabels: {
+    preparationTime: 'Preparation time Test',
+    cookingTime: 'Cooking time',
+    averageRating: 'Average rating',
+    newest: 'newest',
+    recentlyUpdated: 'Recently updated',
+    title: 'title',
+  },
 };
 describe('Recipe Listing Component', () => {
   it('Recipe Listing Trivial default', () => {

@@ -21,6 +21,7 @@ const Filter = ({
   results,
   optionLabels,
   sortSelectPlaceholder,
+  content,
 }: RecipeFilterProps) => {
   const [state, setState] = useState<{
     showFilterSettings: boolean;
@@ -85,6 +86,8 @@ const Filter = ({
         onFilterChange={onFilterChange}
         filtersSelected={state.filterTags}
         hidden={!state.showFilterSettings}
+        filterButtonsLabel={content}
+        onApply={toggleFilterSettings}
       />
       <Button
         className="recipe-filter__button"

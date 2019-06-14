@@ -1,4 +1,5 @@
 import React from 'react';
+import { Recommendations } from '../../Recommendations';
 import { Text, TagName } from '../../Text';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
@@ -8,6 +9,7 @@ const RecipeListingTrivial = ({
   withFavorite,
   titleLevel = 3,
   onFavoriteChange,
+  content,
 }: RecipeListingTrivialProps) => {
   return (
     <ul className="recipe-list__list">
@@ -29,10 +31,10 @@ const RecipeListingTrivial = ({
           );
         })
       ) : (
-        <Text
-          tag={TagName.p}
-          className="recipe-list__no-results"
-          text="Recipes were not found."
+        <Recommendations
+          content={content}
+          className="recipe-list__null-results"
+          titleLevel={titleLevel}
         />
       )}
     </ul>

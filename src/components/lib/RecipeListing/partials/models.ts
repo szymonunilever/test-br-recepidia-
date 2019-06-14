@@ -1,6 +1,8 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
+import { ButtonContent } from '../../common/Button';
 import { UnileverLibraryComponent } from '../../common/globalModels';
-import { OptionLabels } from '../models';
+import { OptionLabels, RecipeListingContent } from '../models';
+import { RecomendationContent } from '../../Recommendations';
 
 export interface LocalImage {
   id: string;
@@ -43,11 +45,12 @@ export interface RecipeCardProps extends UnileverLibraryComponent {
   onFavoriteChange?: RecipeCardFavoriteCallback;
 }
 
-export interface RecipeListingTrivialProps {
+export interface RecipeListingTrivialProps extends UnileverLibraryComponent {
   list: RecipeItem[];
   withFavorite: boolean;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  content: RecomendationContent;
 }
 
 export enum RecipeSortingOptions {
@@ -84,6 +87,7 @@ export interface RecipeFilterProps extends UnileverLibraryComponent {
   resultLabel: string;
   resultLabelPlural: string;
   optionLabels: OptionLabels;
+  content: { resetLabel?: ButtonContent; applyLabel?: ButtonContent };
   sortSelectPlaceholder: string;
 }
 
@@ -92,4 +96,9 @@ export interface FilterSettingsProps extends UnileverLibraryComponent {
   onFilterChange: (filter: Tag[]) => void;
   filtersSelected: Tag[];
   hidden?: boolean;
+  onApply: () => void;
+  filterButtonsLabel: {
+    resetLabel?: ButtonContent;
+    applyLabel?: ButtonContent;
+  };
 }

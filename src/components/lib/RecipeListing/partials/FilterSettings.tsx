@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { remove } from 'lodash';
 import React from 'react';
 import { Accordion } from '../../common/Accordion';
-import { Button, ButtonViewType } from '../../common/Button';
+import { Button } from '../../common/Button';
 import { Tags } from '../../Tags';
 import { ItemProps, TagToggleHandler, TagViewType } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';
@@ -14,6 +14,8 @@ const FilterSettings = ({
   onFilterChange,
   className,
   hidden,
+  onApply,
+  filterButtonsLabel: { resetLabel, applyLabel },
 }: FilterSettingsProps) => {
   const classWrapper = cx(theme.filterSettings, className);
   const onToggleFilter = (val: TagToggleHandler) => {
@@ -24,6 +26,9 @@ const FilterSettings = ({
       remove(filters, (t: ItemProps) => t.id === val.tag.id);
     }
     onFilterChange(filters);
+  };
+  const onReset = () => {
+    onFilterChange([]);
   };
 
   return (
@@ -47,6 +52,16 @@ const FilterSettings = ({
           </li>
         ))}
       </ul>
+      <Button
+        className="filter-settings__reset"
+        onClick={onReset}
+        content={resetLabel}
+      />
+      <Button
+        className="filter-settings__apply"
+        onClick={onApply}
+        content={applyLabel}
+      />
     </div>
   );
 };

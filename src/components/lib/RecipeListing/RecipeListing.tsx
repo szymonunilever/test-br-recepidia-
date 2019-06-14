@@ -39,6 +39,8 @@ const RecipeListing = ({
     resultLabelPlural,
     optionLabels,
     sortSelectPlaceholder,
+    nullResult,
+    filtersCta,
   } = applyContentDefaults(content);
 
   const wrapClasses = cx(theme.recipeList, className);
@@ -122,6 +124,7 @@ const RecipeListing = ({
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
+        content={nullResult}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
@@ -143,6 +146,7 @@ const RecipeListing = ({
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
+        content={nullResult}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
@@ -159,6 +163,7 @@ const RecipeListing = ({
           resultLabelPlural={resultLabelPlural}
           results={listState.filterLength}
           optionLabels={optionLabels}
+          content={filtersCta}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />
         <>{recipeListBasic}</>

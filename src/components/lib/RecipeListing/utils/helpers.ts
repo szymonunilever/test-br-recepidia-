@@ -55,6 +55,10 @@ export function applyContentDefaults(content: RecipeListingContent) {
       title: '',
     },
     sortSelectPlaceholder = '',
+    filtersCta = {
+      resetLabel: { label: '' },
+      applyLabel: { label: '' },
+    },
   } = content;
   return {
     title,
@@ -63,6 +67,8 @@ export function applyContentDefaults(content: RecipeListingContent) {
     resultLabelPlural,
     optionLabels,
     sortSelectPlaceholder,
+    filtersCta,
+    ...content,
   };
 }
 export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
@@ -88,10 +94,12 @@ export function applyFilters(filters: Tag[], list: RecipeItem[]): RecipeItem[] {
   if (filters.length > 0) {
     return filter(list, (item: RecipeItem) => {
       const { categories } = item;
-      const ingludedTags = filter(categories, (item: TagCategory) => {
-        return intersectionBy(item.tags, filters, 'id').length > 0;
+      const includedTags = filter(categories, (item: TagCategory) => {
+        return (
+          intersectionBy(item.tags, filters, 'id').length >= filters.length
+        );
       });
-      return ingludedTags.length > 0;
+      return includedTags.length > 0;
     });
   } else {
     return list;

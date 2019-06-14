@@ -10,21 +10,91 @@ import dataTags from 'src/components/data/allTags.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const contents = [
-  { title: 'Recipe listing Trivial without results' },
-  { title: 'Recipe listing Trivial default 4 results' },
-  { title: 'Recipe listing Trivial all Recipes' },
-  { title: 'Recipe listing Trivial with Favorites' },
+  {
+    title: 'Recipe listing Trivial without results',
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
+  },
+  {
+    title: 'Recipe listing Trivial default 4 results',
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
+  },
+  {
+    title: 'Recipe listing Trivial all Recipes',
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
+  },
+  {
+    title: 'Recipe listing Trivial with Favorites',
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
+  },
   {
     title: 'Recipe listing Base with Load More',
     cta: { label: 'Load More Button' },
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
   },
-  { title: 'Recipe listing Base without results' },
+  {
+    title: 'Recipe listing Base without results',
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
+  },
   {
     title: 'Recipe listing Advanced',
     resultLabel: 'recipe',
     resultLabelPlural: 'recipes',
     sortSelectPlaceholder: 'Sort By',
+    filtersCta: {
+      resetLabel: { label: 'Reset filters' },
+      applyLabel: { label: 'Apply filters' },
+    },
     cta: { label: 'Load More Button' },
+    nullResult: {
+      title: 'Oops! No results',
+      subtitle: 'Maybe try the following:',
+      textList: [
+        `Don't use too many filters at once`,
+        `Try using only filters`,
+      ],
+    },
     optionLabels: {
       preparationTime: 'Preparation time Test',
       cookingTime: 'Cooking time',
