@@ -27,12 +27,12 @@ const CheckElem = ({
     <label className={wrapClasses}>
       <input
         type={inputType}
-        className="checkable_input"
+        className="checkable--input"
         name={name}
         defaultChecked={isChecked}
         {...input}
       />
-      <span className="checkable_checkelem">
+      <span className="checkable--checkelem">
         <span className="checkmark" />
       </span>
       {label}

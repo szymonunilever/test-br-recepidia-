@@ -16,7 +16,7 @@ import {
   required,
   // mustBeNumber,
   // minValue,
-  // composeValidators,
+  composeValidators,
   validEmail,
 } from '../src/components/lib/Form';
 
@@ -47,15 +47,15 @@ storiesOf('Components/Form elements/All', module)
               <Field name="select">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">
+                    <label className="field__label">
+                      <span className="field__label-text">
                         Do you have a question?
                       </span>
-                      <div className="field-wrap">
+                      <div className="field__wrap">
                         <Select
                           input={input}
                           options={options}
-                          className="select field-select"
+                          className="select field__select"
                           placeholder="How can we help?"
                         />
                       </div>
@@ -65,23 +65,23 @@ storiesOf('Components/Form elements/All', module)
               </Field>
               <h2>Recipes details</h2>
               <fieldset className="field">
-                <legend className="field-label">
-                  <span className="field-label--text">
+                <legend className="field__label">
+                  <span className="field__label-text">
                     Is it regarding a specific recipes?
                   </span>
                 </legend>
-                <div className="field-wrap field-wrap--inline">
+                <div className="field__wrap field__wrap--inline">
                   <Field name="specific">
                     {({ input }) => (
                       <div className="checkable radiobtn">
-                        <label className="checkable_label">
+                        <label className="checkable__label">
                           <input
                             {...input}
                             type="radio"
-                            className="checkable_input"
+                            className="checkable__input"
                             value="yes"
                           />
-                          <span className="checkable_checkelem">
+                          <span className="checkable__checkelem">
                             <span className="checkmark" />
                           </span>
                           Yes
@@ -92,14 +92,14 @@ storiesOf('Components/Form elements/All', module)
                   <Field name="specific">
                     {({ input }) => (
                       <div className="checkable radiobtn">
-                        <label className="checkable_label">
+                        <label className="checkable__label">
                           <input
                             {...input}
                             type="radio"
-                            className="checkable_input"
+                            className="checkable__input"
                             value="no"
                           />
-                          <span className="checkable_checkelem">
+                          <span className="checkable__checkelem">
                             <span className="checkmark" />
                           </span>
                           No
@@ -112,14 +112,14 @@ storiesOf('Components/Form elements/All', module)
               <Field name="recipeName">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">First Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">First Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Recipe Name"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                     </label>
@@ -133,16 +133,16 @@ storiesOf('Components/Form elements/All', module)
               <Field name="comment">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">
+                    <label className="field__label">
+                      <span className="field__label-text">
                         What would you like to say?
                       </span>
-                      <div className="field-wrap">
+                      <div className="field__wrap">
                         <textarea
                           rows={4}
                           {...input}
                           placeholder="Type something…"
-                          className="field-textarea"
+                          className="field__textarea"
                         />
                       </div>
                     </label>
@@ -153,14 +153,14 @@ storiesOf('Components/Form elements/All', module)
               <Field name="firstName">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">First Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">First Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. John"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                     </label>
@@ -170,14 +170,14 @@ storiesOf('Components/Form elements/All', module)
               <Field name="lastName">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">Last Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Last Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. Doe"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                     </label>
@@ -187,14 +187,14 @@ storiesOf('Components/Form elements/All', module)
               <Field name="email">
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">Email</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Email</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. johndoe@gmail.com"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                     </label>
@@ -204,14 +204,14 @@ storiesOf('Components/Form elements/All', module)
               <Field name="phone" validate={required('Field is required')}>
                 {({ input }) => (
                   <div className="field">
-                    <label className="field-label">
-                      <span className="field-label--text">Phone number</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Phone number</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="+00 0000 000 000"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                     </label>
@@ -223,7 +223,7 @@ storiesOf('Components/Form elements/All', module)
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="button-primary"
+                  className="button--primary"
                 >
                   Submit form
                 </button>
@@ -255,20 +255,20 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">
+                    <label className="field__label">
+                      <span className="field__label-text">
                         Do you have a question?
                       </span>
-                      <div className="field-wrap">
+                      <div className="field__wrap">
                         <Select
                           input={input}
                           options={options}
-                          className="select field-select"
+                          className="select field__select"
                           placeholder="How can we help?"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -279,12 +279,12 @@ storiesOf('Components/Form elements/All', module)
               </Field>
               <h2>Recipes details</h2>
               <fieldset className="field">
-                <legend className="field-label">
-                  <span className="field-label--text">
+                <legend className="field__label">
+                  <span className="field__label-text">
                     Is it regarding a specific recipes?
                   </span>
                 </legend>
-                <div className="field-wrap field-wrap--inline">
+                <div className="field__wrap field__wrap--inline">
                   <Field
                     name="specific"
                     validate={required('Field is required')}
@@ -298,14 +298,14 @@ storiesOf('Components/Form elements/All', module)
                             (meta.touched || meta.submitFailed) && meta.invalid,
                         })}
                       >
-                        <label className="checkable_label">
+                        <label className="checkable__label">
                           <input
                             {...input}
                             type="radio"
-                            className="checkable_input"
+                            className="checkable__input"
                             value="yes"
                           />
-                          <span className="checkable_checkelem">
+                          <span className="checkable__checkelem">
                             <span className="checkmark" />
                           </span>
                           Yes
@@ -326,14 +326,14 @@ storiesOf('Components/Form elements/All', module)
                             (meta.touched || meta.submitFailed) && meta.invalid,
                         })}
                       >
-                        <label className="checkable_label">
+                        <label className="checkable__label">
                           <input
                             {...input}
                             type="radio"
-                            className="checkable_input"
+                            className="checkable__input"
                             value="no"
                           />
-                          <span className="checkable_checkelem">
+                          <span className="checkable__checkelem">
                             <span className="checkmark" />
                           </span>
                           No
@@ -352,18 +352,18 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">First Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">First Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Recipe Name"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -384,20 +384,20 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">
+                    <label className="field__label">
+                      <span className="field__label-text">
                         What would you like to say?
                       </span>
-                      <div className="field-wrap">
+                      <div className="field__wrap">
                         <textarea
                           rows={4}
                           {...input}
                           placeholder="Type something…"
-                          className="field-textarea"
+                          className="field__textarea"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -415,18 +415,18 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">First Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">First Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. John"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -443,18 +443,18 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">Last Name</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Last Name</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. Doe"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -462,7 +462,13 @@ storiesOf('Components/Form elements/All', module)
                   </div>
                 )}
               </Field>
-              <Field name="email" validate={validEmail('invalid email')}>
+              <Field
+                name="email"
+                validate={composeValidators(
+                  validEmail('invalid email'),
+                  required('Email is required')
+                )}
+              >
                 {({ input, meta }) => (
                   <div
                     className={cx('field', {
@@ -471,18 +477,18 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">Email</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Email</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="Ex. johndoe@gmail.com"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -499,18 +505,18 @@ storiesOf('Components/Form elements/All', module)
                         (meta.touched || meta.submitFailed) && meta.invalid,
                     })}
                   >
-                    <label className="field-label">
-                      <span className="field-label--text">Phone number</span>
-                      <div className="field-wrap">
+                    <label className="field__label">
+                      <span className="field__label-text">Phone number</span>
+                      <div className="field__wrap">
                         <input
                           {...input}
                           type="text"
                           placeholder="+00 0000 000 000"
-                          className="field-input"
+                          className="field__input"
                         />
                       </div>
                       {meta.error && meta.touched && (
-                        <span className="field-error-message">
+                        <span className="field__error-message">
                           {meta.error}
                         </span>
                       )}
@@ -523,7 +529,7 @@ storiesOf('Components/Form elements/All', module)
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="button-primary"
+                  className="button--primary"
                 >
                   Submit form
                 </button>
