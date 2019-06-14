@@ -7,6 +7,10 @@ import list from 'src/components/data/globalFooterMenu.json';
 
 import Example from 'src/components/lib/Example';
 
+const config = {
+  logoIcon: <LogoIcon text="Unilever Logo" />,
+};
+
 const content = {
   list,
   copyrightText: 'Unilever 2019',
@@ -14,10 +18,9 @@ const content = {
 
 storiesOf('Components/GlobalFooter', module).add('Default view', () => {
   return (
-    <GlobalFooter content={content}>
+    <GlobalFooter content={content} {...config}>
       <Example text="language selector" />
       <Example text="social icons" />
-      <LogoIcon text="Unilever Logo" />
     </GlobalFooter>
   );
 });
