@@ -33,7 +33,6 @@ export interface TagProps {
 
 export interface ItemProps {
   id: number | string;
-  language: string;
   name: string;
   path?: string;
 }

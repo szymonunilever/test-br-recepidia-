@@ -10,6 +10,7 @@ export interface LocalImage {
 }
 
 export interface RecipeItem extends RMSData.Recipe {
+  inFavorite?: boolean;
   localImage: LocalImage;
   fields: {
     slug: string;
