@@ -1,17 +1,4 @@
 declare namespace RMSData {
-  export type RecipeDietaryType =
-    | 'vegetarian'
-    | 'vegan'
-    | 'nutFree'
-    | 'pregnancySafe'
-    | 'glutenFree'
-    | 'lactoseFree'
-    | 'rawFood'
-    | 'eggFree'
-    | 'dairyProductFree'
-    | 'paleoFree'
-    | 'wheatFree';
-
   export interface Recipe {
     id: string;
     title: string;
@@ -20,7 +7,6 @@ declare namespace RMSData {
     description: string;
     creationTime: Date;
     recipeDetails: RMSData.RecipeDetails;
-    dietary: RMSData.RecipeDietaryType[];
     assets: RMSData.RecipeAssets;
     ingredients: RMSData.Ingredient[];
     methods: RMSData.CookingMethod[];
@@ -34,7 +20,7 @@ declare namespace RMSData {
      * The property aggregates all tags from the following RMS fields:
      * annualEvents, budgets, cookingMethods, courses, cuisines,
      * difficulties, dishes, mainIngredients, occasions, seasons,
-     * spiciness, suitability, timesOfDay
+     * spiciness, suitability, timesOfDay, dietary
      * */
     categories: TagCategory[];
   }
