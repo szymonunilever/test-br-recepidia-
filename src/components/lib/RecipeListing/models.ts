@@ -1,5 +1,6 @@
 import { UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeItem } from './partials';
+import { RatingProvider } from '../Rating';
 
 export enum RecipeListViewType {
   Trivial,
@@ -21,4 +22,5 @@ export interface RecipeListingProps
   list: RecipeItem[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
+  ratingProvider?: RatingProvider;
 }

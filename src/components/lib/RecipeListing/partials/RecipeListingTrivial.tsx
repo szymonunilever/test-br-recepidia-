@@ -2,47 +2,40 @@ import React from 'react';
 import { TagName, Text } from 'src/components/lib/Text';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
+import Rating from '../../Rating';
+import { RatingProvider } from '../../Rating/models';
 
 const RecipeListingTrivial = ({
   list,
   withFavorite,
   titleLevel = 3,
   onFavoriteChange,
+  ratingProvider = RatingProvider.none,
 }: RecipeListingTrivialProps) => {
   return (
     <ul className="recipe-list__list">
       {list.length > 0 ? (
-        list.map(item => {
+        list.map(recipe => {
           return (
-            <li key={item.id} className="recipe-list__item">
+            <li key={recipe.id} className="recipe-list__item">
               <RecipeCard
-                id={item.id}
-                inFavorite={withFavorite ? item.inFavorite : false}
+                id={recipe.id}
+                inFavorite={withFavorite ? recipe.inFavorite : false}
                 enableSelectFavorite={withFavorite}
                 titleLevel={titleLevel}
-                imgObject={item.localImage.childImageSharp.fluid}
-                title={item.shortTitle}
-                slug={item.fields.slug}
+                imgObject={recipe.localImage.childImageSharp.fluid}
+                title={recipe.shortTitle}
+                slug={recipe.fields.slug}
                 onFavoriteChange={onFavoriteChange}
               />
-              <div
-                className="rr-widget-container rr-container"
-                data-summary-template="inline01"
-                data-entity-type="recipe"
-                data-identifier-value="124481"
-                data-identifier-type=""
-                data-unique-id="124481"
-                title="Recipeeeeeeeeeee"
-              />
-              {/* <div
-                className="rr-widget-container rr-container"
-                data-summary-template={rating.viewType}
-                data-entity-type={rating.entityType}
-                data-identifier-value={rating.identifierValue}
-                data-identifier-type={rating.identifierType}
-                data-unique-id={rating.uniqueId}
-                title={recipe.title}
-              /> */}
+              {recipe.rating && ratingProvider !== RatingProvider.none ? (
+                <Rating
+                  recipeId={recipe.recipeId}
+                  rating={recipe.rating}
+                  provider={ratingProvider}
+                  linkTo={recipe.fields.slug}
+                />
+              ) : null}
             </li>
           );
         })

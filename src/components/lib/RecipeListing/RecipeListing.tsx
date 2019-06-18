@@ -13,6 +13,7 @@ const RecipeListing = ({
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
   withFavorite = false,
+  ratingProvider,
   recipePerLoad = 4,
   favorites = [],
   list,
@@ -64,6 +65,7 @@ const RecipeListing = ({
         list={listState.listItems}
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
+        ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
         // @ts-ignore
         titleLevel={titleLevel + 1}
@@ -74,6 +76,7 @@ const RecipeListing = ({
           list={listState.listItems}
           recipeCount={listState.listItems.length}
           withFavorite={withFavorite}
+          ratingProvider={ratingProvider}
           onFavoriteChange={changeFavorites}
           // @ts-ignore
           titleLevel={titleLevel + 1}

@@ -1,4 +1,5 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
+import { RatingProvider, RecipeRating } from '../../Rating/models';
 
 export interface LocalImage {
   id: string;
@@ -14,7 +15,9 @@ export interface RecipeItem {
   fields: {
     slug: string;
   };
+  recipeId: string;
   inFavorite?: boolean;
+  rating?: RecipeRating;
 }
 
 export interface RecipeCardFavoriteCallback {
@@ -37,4 +40,5 @@ export interface RecipeListingTrivialProps {
   withFavorite: boolean;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  ratingProvider?: RatingProvider;
 }
