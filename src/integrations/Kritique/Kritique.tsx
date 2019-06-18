@@ -3,7 +3,7 @@ import keys from '../keys.json';
 import Helmet from 'react-helmet';
 
 const Kritique = () => {
-  const kritiqueWidjetSrc = `https://eu.kritique.io/widget/resources/js/RR_widget.js?brandid=${
+  const kritiqueWidjetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey

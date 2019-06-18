@@ -1,5 +1,8 @@
 {
+  "comment": "THIS ALL SHOULD BE MOVED TO DEPLOYMENT SCRIPT",
+
   "kritique":{
+    "url": "http://eu-stage.kritique.io/Widget/resources/js/RR_widget.js",
     "brandId":"117",
     "localeId":"532",
     "apiKey":"f4036dfe-9e89-4b03-a2ce-70d552042bd3",
