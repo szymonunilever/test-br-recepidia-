@@ -35,19 +35,19 @@ const Option = (props: any) => {
 
 const Select = ({
   options,
-  changeHandler,
   className = '',
   placeholder = '',
+  input,
 }: SelectProps) => {
   const resetStyles = {};
   return (
     <ReactSelect
+      {...input}
       styles={resetStyles}
       options={options}
       className={className}
       components={{ Option }}
       placeholder={placeholder}
-      onChange={changeHandler}
     />
   );
 };

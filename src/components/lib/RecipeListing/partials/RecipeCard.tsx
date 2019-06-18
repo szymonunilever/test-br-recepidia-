@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
-import { TagName, Text } from 'src/components/lib/Text';
+import { TagName, Text } from '../../Text';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
 import { Button, ButtonViewType } from '../../common/Button';
@@ -11,7 +11,7 @@ import theme from './RecipeCard.module.scss';
 
 const RecipeCard = ({
   id,
-  title,
+  content: { title },
   imgObject,
   enableSelectFavorite = false,
   titleLevel = 3,
@@ -20,14 +20,14 @@ const RecipeCard = ({
   inFavorite = false,
   onFavoriteChange,
 }: RecipeCardProps) => {
-  const itemTitle = (
+  const itemTitle = title ? (
     <Text
       // @ts-ignore
       tag={TagName[`h${titleLevel}`]}
       text={title}
       className="recipe-card__title"
     />
-  );
+  ) : null;
 
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {

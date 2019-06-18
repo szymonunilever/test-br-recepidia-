@@ -1,0 +1,49 @@
+{
+  "categories":[
+    {
+      "name": "eventos anuais",
+      "label": "Eventos anuais",
+      "tags": [
+        {
+          "id": 1347,
+          "language": "pt-BR",
+          "name": "New Year's Day"
+        },
+        {
+          "id": 1348,
+          "language": "pt-BR",
+          "name": "Dia de São Nicolau"
+        },
+        {
+          "id": 1349,
+          "language": "pt-BR",
+          "name": "Dia de Ação de Graças"
+        },
+        {
+          "id": 1350,
+          "language": "pt-BR",
+          "name": "dia dos namorados"
+        },
+        {
+          "id": 1355,
+          "language": "pt-BR",
+          "name": "Dia de Canadá"
+        }
+      ]
+    },
+    {
+      "name": "orçamento",
+      "label": "Orçamento",
+      "tags": [
+        { "id": 1369,
+          "language": "pt-BR",
+          "name": "preço médio"
+        },
+        { "id": 1370,
+          "language": "pt-BR",
+          "name": "econômica"
+        }
+      ]
+    }
+  ]
+}

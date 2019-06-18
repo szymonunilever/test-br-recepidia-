@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagName, Text } from 'src/components/lib/Text';
+import { Recommendations } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 import Rating from '../../Rating';
@@ -10,44 +10,43 @@ const RecipeListingTrivial = ({
   withFavorite,
   titleLevel = 3,
   onFavoriteChange,
+  content: { nullResult },
   ratingProvider = RatingProvider.none,
-}: RecipeListingTrivialProps) => {
-  return (
-    <ul className="recipe-list__list">
-      {list.length > 0 ? (
-        list.map(recipe => {
-          return (
-            <li key={recipe.id} className="recipe-list__item">
-              <RecipeCard
-                id={recipe.id}
-                inFavorite={withFavorite ? recipe.inFavorite : false}
-                enableSelectFavorite={withFavorite}
-                titleLevel={titleLevel}
-                imgObject={recipe.localImage.childImageSharp.fluid}
-                title={recipe.shortTitle}
-                slug={recipe.fields.slug}
-                onFavoriteChange={onFavoriteChange}
+}: RecipeListingTrivialProps) => (
+  <ul className="recipe-list__list">
+    {list.length > 0 ? (
+      list.map(item => {
+        return (
+          <li key={item.id} className="recipe-list__item">
+            <RecipeCard
+              id={item.id}
+              inFavorite={withFavorite ? item.inFavorite : false}
+              enableSelectFavorite={withFavorite}
+              titleLevel={titleLevel}
+              imgObject={item.localImage.childImageSharp.fluid}
+              content={{ title: item.shortTitle }}
+              slug={item.fields.slug}
+              onFavoriteChange={onFavoriteChange}
+            />
+            {ratingProvider !== RatingProvider.none ? (
+              <Rating
+                recipeId={item.recipeId}
+                rating={item.rating}
+                provider={ratingProvider}
+                linkTo={item.fields.slug}
               />
-              {recipe.rating && ratingProvider !== RatingProvider.none ? (
-                <Rating
-                  recipeId={recipe.recipeId}
-                  rating={recipe.rating}
-                  provider={ratingProvider}
-                  linkTo={recipe.fields.slug}
-                />
-              ) : null}
-            </li>
-          );
-        })
-      ) : (
-        <Text
-          tag={TagName.p}
-          className="recipe-list__no-results"
-          text="Recipes were not found."
-        />
-      )}
-    </ul>
-  );
-};
+            ) : null}
+          </li>
+        );
+      })
+    ) : nullResult ? (
+      <Recommendations
+        content={nullResult}
+        className="recipe-list__null-results"
+        titleLevel={titleLevel}
+      />
+    ) : null}
+  </ul>
+);
 
 export default RecipeListingTrivial;

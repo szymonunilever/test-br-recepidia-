@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@types/react-select": "^2.0.19",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "babel-plugin-remove-graphql-queries": "^2.6.3",
     "classnames": "^2.2.6",
+    "final-form": "^4.14.1",
     "gatsby": "^2.7.3",
     "gatsby-image": "^2.1.1",
     "gatsby-plugin-feed": "^2.2.1",
@@ -31,6 +31,7 @@
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-final-form": "^6.1.0",
     "react-helmet": "^5.2.1",
     "react-select": "^3.0.4",
     "react-svg-loader": "^3.0.2",
@@ -55,8 +56,10 @@
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",
     "@types/lodash": "^4.14.133",
+    "@types/lodash.sortby": "^4.7.6",
     "@types/node-sass": "^4.11.0",
     "@types/react-helmet": "^5.0.8",
+    "@types/react-select": "^2.0.19",
     "@types/react-test-renderer": "^16.8.1",
     "@types/storybook__addon-actions": "^3.4.3",
     "@types/storybook__react": "^4.0.1",
@@ -102,8 +105,8 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
     "lint:fix": "yarn lint --fix",
-    "storybook": "start-storybook -p 6006",
-    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled",
+    "storybook": "start-storybook -p 6006 -s ./stories/static",
+    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled -s ./stories/static",
     "build-storybook": "build-storybook"
   }
 }

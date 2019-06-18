@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import { TagProps } from '../../models';
 import { Button } from 'src/components/lib/common/Button';
+import cx from 'classnames';
 
 import Icon from 'src/svgs/inline/x-mark.svg';
 
-const Tag = ({ tag, handleClick, isEditable }: TagProps) => {
-  const { tagName, path } = tag;
-
+const Tag = ({
+  tag,
+  handleClick,
+  isEditable,
+  active = false,
+  enableExternalManage = false,
+  handleToggle,
+  isToggle,
+}: TagProps) => {
+  const [state, setState] = useState(active);
+  const { name, path = '' } = tag;
+  const classWrapper = cx('tags__item', {
+    'for-filter': isToggle,
+  });
   const onButtonClick = () => {
-    handleClick(tagName);
+    handleClick(tag);
   };
+
+  const onTagClick = (selected: boolean) => {
+    setState(selected);
+    if (handleToggle) {
+      handleToggle({ tag, state: selected });
+    }
+  };
+  useEffect(() => {
+    if (enableExternalManage && state !== active) {
+      setState(active);
+    }
+  });
 
   const buttonDelete = isEditable ? (
     <Button
@@ -20,14 +44,25 @@ const Tag = ({ tag, handleClick, isEditable }: TagProps) => {
     />
   ) : null;
 
-  return (
-    <li className="tags__item">
+  const view = isToggle ? (
+    <Button
+      className="tags__link"
+      onClick={onTagClick}
+      toggleExternalManage
+      content={{ label: name }}
+      isSelected={state}
+      isToggle
+    />
+  ) : (
+    <>
       <Link className="tags__link" to={path}>
-        {tagName}
+        {name}
       </Link>
       {buttonDelete}
-    </li>
+    </>
   );
+
+  return <li className={classWrapper}>{view}</li>;
 };
 
 export default Tag;

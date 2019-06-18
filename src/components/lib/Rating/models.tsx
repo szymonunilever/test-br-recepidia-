@@ -5,7 +5,7 @@ export enum RatingProvider {
 }
 
 export interface RatingProps {
-  rating: RecipeRating;
+  rating?: RecipeRating;
   provider: RatingProvider;
   linkTo?: string;
   recipeId: string;

@@ -9,6 +9,8 @@ const CheckElem = ({
   name,
   className = '',
   isChecked,
+  input,
+  value,
 }: CheckElemProps) => {
   let inputType = '';
   let typeClassName = '';
@@ -21,17 +23,19 @@ const CheckElem = ({
     typeClassName = 'radiobtn';
   }
 
-  const wrapClasses = cx('checkable', className, typeClassName);
+  const wrapClasses = cx('checkable__label', className, typeClassName);
   return (
     <label className={wrapClasses}>
       <input
         type={inputType}
-        className="checkable_input"
+        className="checkable__input"
         name={name}
         defaultChecked={isChecked}
+        {...input}
+        value={value}
       />
-      <span className="checkable_checkelem">
-        <span className="checkmark" />
+      <span className="checkable__checkelem">
+        <span className="checkable__checkmark" />
       </span>
       {label}
     </label>
