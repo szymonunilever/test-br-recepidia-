@@ -16,6 +16,7 @@ storiesOf(
         type={checkElemTypes.checkbox}
         name="test"
         label="this is label"
+        value="test"
       />
     ),
     {
@@ -33,6 +34,7 @@ storiesOf(
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
           delectus."
+        value="test2"
         isChecked={true}
       />
     ),
@@ -47,6 +49,7 @@ storiesOf(
         type={checkElemTypes.radio}
         name="radiotest"
         label="this is label"
+        value="test3"
       />
     ),
     {
@@ -64,6 +67,7 @@ storiesOf(
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
           delectus."
+        value="test4"
         isChecked={true}
       />
     ),
@@ -79,16 +83,19 @@ storiesOf(
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 1"
+          value="option1"
         />
         <CheckElem
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 2"
+          value="option2"
         />
         <CheckElem
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 3"
+          value="option3"
         />
       </div>
     ),

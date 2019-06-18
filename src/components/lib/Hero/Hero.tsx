@@ -55,19 +55,17 @@ const Hero = (props: HeroProps) => {
 
         {props.content.primaryCTA && (
           <div className="hero__cta-primary">
-            <Button
-              label={props.content.primaryCTA.label}
-              onClick={goByPrimaryCTA}
-            />
+            <Button onClick={goByPrimaryCTA}>
+              {props.content.primaryCTA.label}
+            </Button>
           </div>
         )}
 
         {props.content.secondaryCTA && (
           <div className="hero__cta-secondary">
-            <Button
-              label={props.content.secondaryCTA.label}
-              onClick={goBySecondaryCTA}
-            />
+            <Button onClick={goBySecondaryCTA}>
+              {props.content.secondaryCTA.label}
+            </Button>
           </div>
         )}
       </div>

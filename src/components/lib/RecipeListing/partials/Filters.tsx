@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Option, Select } from '../../common/Select';
 import { Tags } from '../../Tags';
 import { enumToArray } from '../utils';
-import { RecipeFilterProps, RecipeSortingOptions, Tag } from './models';
+import { RecipeFilterProps, RecipeSortingOptions } from './models';
 import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../common/Button';
 import Icon from 'src/svgs/inline/plus.svg';
@@ -22,11 +22,12 @@ const Filter = ({
 }: RecipeFilterProps) => {
   const [state, setState] = useState<{
     showFilterSettings: boolean;
-    filterTags: Tag[];
+    filterTags: RMSData.Tag[];
   }>({
     showFilterSettings: false,
     filterTags: [],
   });
+
   const classWrapper = cx(theme.recipeFilter, className);
 
   const sortingOptions: Option[] = optionLabels
@@ -49,16 +50,17 @@ const Filter = ({
     });
   };
 
-  const onFilterChange = (val: Tag[]) => {
+  const onFilterChange = (val: RMSData.Tag[]) => {
     setState({
       ...state,
       filterTags: val,
     });
     onChangeFilter(val);
   };
-  const onTagRemoved = (val: Tag) => {
+
+  const onTagRemoved = (val: RMSData.Tag) => {
     const filtered = [...state.filterTags];
-    remove(filtered, (item: Tag) => item.id === val.id);
+    remove(filtered, (item: RMSData.Tag) => item.id === val.id);
     setState({
       ...state,
       filterTags: filtered,

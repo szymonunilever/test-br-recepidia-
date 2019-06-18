@@ -1,10 +1,5 @@
 import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
-import {
-  RecipeItem,
-  Tag,
-  RecipeSortingOptions,
-  TagCategory,
-} from '../partials';
+import { RecipeItem, RecipeSortingOptions } from '../partials';
 
 const sortByPreparationTime = (list: RecipeItem[]) =>
   _sortBy(list, ['preparationTime', 'creationDate']);
@@ -91,11 +86,14 @@ export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
   }
 }
 
-export function applyFilters(filters: Tag[], list: RecipeItem[]): RecipeItem[] {
+export function applyFilters(
+  filters: RMSData.Tag[],
+  list: RecipeItem[]
+): RecipeItem[] {
   if (filters.length > 0) {
     return filter(list, (item: RecipeItem) => {
       const { categories } = item;
-      const includedTags = filter(categories, (item: TagCategory) => {
+      const includedTags = filter(categories, (item: RMSData.TagCategory) => {
         return (
           intersectionBy(item.tags, filters, 'id').length >= filters.length
         );
