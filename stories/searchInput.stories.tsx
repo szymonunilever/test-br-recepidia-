@@ -16,9 +16,6 @@ const config = {
   buttonSubmitIcon: <PlaceholderIcon />,
 };
 
-storiesOf('Components/SearchInput/defaultView', module).add(
-  'With loadmore button',
-  () => {
-    return <SeachInput list={searchData} {...config} />;
-  }
-);
+storiesOf('Components/SearchInput', module).add('defaultView', () => {
+  return <SeachInput list={searchData} {...config} />;
+});
