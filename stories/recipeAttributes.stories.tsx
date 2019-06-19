@@ -5,6 +5,10 @@ import {
   RecipeAttributesKeys,
 } from '../src/components/lib/RecipeAttributes';
 import dataSource from 'src/components/data/recipe.json';
+import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
+import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
+import RecipePeople from 'src/svgs/inline/recipe-people.svg';
+import RecipeKnife from 'src/svgs/inline/recope-chope.svg';
 const content: AppContent.RecipeAttributes.Content = {
   labels: {
     preparationTime: {
