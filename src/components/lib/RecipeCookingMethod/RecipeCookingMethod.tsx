@@ -14,7 +14,7 @@ const RecipeCookingMethod = ({
   const classWrapper = cx(theme.recipeCookingMethod, className);
   const list = sortBy(methodList, ['position']);
 
-  const theTitle = title ? (
+  const Title = title ? (
     <Text
       className="recipe-cooking-method__title"
       // @ts-ignore
@@ -22,7 +22,7 @@ const RecipeCookingMethod = ({
       text={title}
     />
   ) : null;
-  const theSubTitle = subtitle ? (
+  const Subtitle = subtitle ? (
     <Text
       className="recipe-cooking-method__subtitle"
       // @ts-ignore
@@ -32,8 +32,8 @@ const RecipeCookingMethod = ({
   ) : null;
   return (
     <div className={classWrapper}>
-      {theTitle}
-      {theSubTitle}
+      {Title}
+      {Subtitle}
       <ol className="recipe-cooking-method__list">
         {list.map((item: RMSData.CookingMethod) => (
           <li key={item.position} className="recipe-cooking-method__item">
