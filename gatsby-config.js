@@ -7,7 +7,7 @@ module.exports = {
     title: 'Gatsby Unilever Theme',
     author: '',
     description: 'Unilever theme',
-    // siteUrl: 'https://gatsby-unilever-theme-demo.netlify.com/',
+    siteUrl: 'https://themealplanner.netlify.com/',
     social: {
       twitter: 'kylemathews',
     },
@@ -21,7 +21,6 @@ module.exports = {
         //trackingId: 'ADD YOUR TRACKING ID HERE',
       },
     },
-    'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -45,6 +44,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
