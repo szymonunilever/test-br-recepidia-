@@ -38,18 +38,20 @@ const Select = ({
   className = '',
   placeholder = '',
   input,
+  changeHandler,
 }: SelectProps) => {
-  const resetStyles = {};
-  return (
-    <ReactSelect
-      {...input}
-      styles={resetStyles}
-      options={options}
-      className={className}
-      components={{ Option }}
-      placeholder={placeholder}
-    />
-  );
+  const props = {
+    ...input,
+    styles: {},
+    options,
+    className,
+    components: { Option },
+    placeholder,
+  };
+
+  changeHandler ? (props.onChange = changeHandler) : null;
+
+  return <ReactSelect {...props} />;
 };
 
 export default Select;

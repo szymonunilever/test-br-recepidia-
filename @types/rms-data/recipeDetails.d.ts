@@ -13,5 +13,6 @@ declare namespace RMSData {
     freezeTime?: number;
     chillTime?: number;
     brewTime?: number;
+    [key: string]: number | undefined;
   }
 }
