@@ -7,6 +7,7 @@ export interface SearchInputProps
   labelIcon: JSX.Element;
   buttonResetIcon: JSX.Element;
   buttonSubmitIcon: JSX.Element;
+  searchResultsCount?: number;
 }
 
 export interface FilterData {

@@ -6,12 +6,13 @@ import { SearchInputProps, FilterData } from './models';
 
 const SearchInput = ({
   list = [],
-  content: { title, placeholderValue = 'type something...' },
+  content: { title, placeholderText },
   className,
   searchUrl,
   labelIcon,
   buttonResetIcon,
   buttonSubmitIcon,
+  searchResultsCount,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -60,7 +61,7 @@ const SearchInput = ({
   };
   const inputHasValue = !!inputValue.length;
 
-  const buttonClear = inputValue.length ? (
+  const buttonReset = inputValue.length ? (
     <button className="form__button-reset" type="button" onClick={resetForm}>
       {buttonResetIcon}
     </button>
@@ -81,10 +82,10 @@ const SearchInput = ({
             onChange={onChangeHandler}
             value={inputValue}
             id="search-input"
-            placeholder={placeholderValue}
+            placeholder={placeholderText}
             autoComplete="off"
           />
-          {buttonClear}
+          {buttonReset}
           <button
             className="form__button-submit"
             type="submit"
@@ -95,7 +96,11 @@ const SearchInput = ({
         </div>
       </form>
 
-      <SearchResults hasSearchQuery={inputHasValue} list={data} />
+      <SearchResults
+        count={searchResultsCount}
+        hasSearchQuery={inputHasValue}
+        list={data}
+      />
     </div>
   );
 };

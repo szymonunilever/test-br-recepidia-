@@ -9,8 +9,8 @@ import searchData from 'src/components/data/search.json';
 const config = {
   content: {
     title: 'Custom title text',
-    placeholderValue: 'type something...',
   },
+  searchResultsCount: 8,
   labelIcon: <PlaceholderIcon />,
   buttonResetIcon: <PlaceholderIcon />,
   buttonSubmitIcon: <PlaceholderIcon />,
