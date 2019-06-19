@@ -16,6 +16,7 @@ const Modal = ({
       {...props}
       isOpen={isOpen}
       portalClassName={wrapClasses}
+      onRequestClose={close}
       overlayClassName="modal__overlay"
       className="modal__content"
       bodyOpenClassName="modal-is-open"
