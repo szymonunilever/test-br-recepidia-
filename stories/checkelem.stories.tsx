@@ -34,6 +34,7 @@ storiesOf(
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
           delectus."
+        value="test2"
         isChecked={true}
         value="test"
       />
@@ -49,7 +50,11 @@ storiesOf(
         type={checkElemTypes.radio}
         name="radiotest"
         label="this is label"
+<<<<<<< HEAD
         value="test"
+=======
+        value="test3"
+>>>>>>> develop
       />
     ),
     {
@@ -67,6 +72,7 @@ storiesOf(
           perspiciatis sed aperiam reprehenderit suscipit, atque nisi fugit
           eligendi dignissimos quaerat corrupti? Dolorum sapiente dolore eius
           delectus."
+        value="test4"
         isChecked={true}
         value="test"
       />
@@ -83,19 +89,31 @@ storiesOf(
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 1"
+<<<<<<< HEAD
           value="test"
+=======
+          value="option1"
+>>>>>>> develop
         />
         <CheckElem
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 2"
+<<<<<<< HEAD
           value="test"
+=======
+          value="option2"
+>>>>>>> develop
         />
         <CheckElem
           type={checkElemTypes.radio}
           name="radiotest"
           label="Option 3"
+<<<<<<< HEAD
           value="test"
+=======
+          value="option3"
+>>>>>>> develop
         />
       </div>
     ),

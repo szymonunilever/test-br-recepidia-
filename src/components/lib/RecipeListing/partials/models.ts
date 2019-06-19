@@ -8,23 +8,13 @@ export interface LocalImage {
     fixed?: FixedObject;
   };
 }
-export interface Ingredient {
-  productId: number | string;
-  description: string;
-}
-export interface RecipeItem {
-  id: string;
-  shortTitle: string;
+
+export interface RecipeItem extends RMSData.Recipe {
+  inFavorite?: boolean;
   localImage: LocalImage;
   fields: {
     slug: string;
   };
-  inFavorite?: boolean;
-  cookingTime: number;
-  preparationTime: number;
-  creationTime: Date;
-  ingredients: Ingredient[];
-  categories: TagCategory[];
 }
 
 export interface RecipeCardFavoriteCallback {
@@ -59,28 +49,15 @@ export enum RecipeSortingOptions {
   title,
 }
 
-export interface Tag {
-  id: number | string;
-  language: string;
-  name: string;
-  path?: string;
-}
-
-export interface TagCategory {
-  name: string;
-  label: string;
-  tags: Tag[];
-}
-
 export interface RecipeFilterOptions {
-  categories: TagCategory[];
+  categories: RMSData.TagCategory[];
 }
 
 export interface RecipeFilterProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
   onChangeSorting: (sort: RecipeSortingOptions) => void;
-  onChangeFilter: (filter: Tag[]) => void;
+  onChangeFilter: (filter: RMSData.Tag[]) => void;
   results: number;
   sortSelectPlaceholder: string;
 }
@@ -88,8 +65,8 @@ export interface RecipeFilterProps
 export interface FilterSettingsProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
-  onFilterChange: (filter: Tag[]) => void;
-  filtersSelected: Tag[];
+  onFilterChange: (filter: RMSData.Tag[]) => void;
+  filtersSelected: RMSData.Tag[];
   hidden?: boolean;
   onApply: () => void;
 }

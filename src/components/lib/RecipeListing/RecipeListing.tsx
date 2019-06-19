@@ -9,7 +9,6 @@ import {
   RecipeItem,
   RecipeListingTrivial,
   RecipeSortingOptions,
-  Tag,
 } from './partials';
 import theme from './RecipeListing.module.scss';
 import {
@@ -43,7 +42,7 @@ const RecipeListing = ({
   const [listState, setListState] = useState<{
     listItems: RecipeItem[];
     filterLength: number;
-    filter: Tag[];
+    filter: RMSData.Tag[];
     sorting: RecipeSortingOptions;
   }>({
     listItems:
@@ -59,7 +58,7 @@ const RecipeListing = ({
       onFavoriteChange(favorites);
     }
   };
-  const onFilterChange = (filter: Tag[]) => {
+  const onFilterChange = (filter: RMSData.Tag[]) => {
     const recipeCount = listState.listItems.length;
     listModified = sortBy(listState.sorting, listModified);
     setListState({

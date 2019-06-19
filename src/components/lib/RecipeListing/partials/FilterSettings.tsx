@@ -6,7 +6,7 @@ import { Button } from '../../common/Button';
 import { Tags } from '../../Tags';
 import { ItemProps, TagToggleHandler, TagViewType } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';
-import { FilterSettingsProps, TagCategory } from './models';
+import { FilterSettingsProps } from './models';
 
 const FilterSettings = ({
   allFilters,
@@ -36,7 +36,7 @@ const FilterSettings = ({
   return (
     <div className={classWrapper} hidden={hidden}>
       <ul className="filter-settings__categories">
-        {allFilters.categories.map((item: TagCategory, key) => (
+        {allFilters.categories.map((item: RMSData.TagCategory, key) => (
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"
