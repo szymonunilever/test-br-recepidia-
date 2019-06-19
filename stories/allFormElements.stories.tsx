@@ -253,6 +253,7 @@ storiesOf('Components/Form elements/All', module)
                           options={options}
                           className="select field__select"
                           placeholder="How can we help?"
+                          // changeHandler={console.log}
                         />
                       </div>
                       {meta.error && meta.touched && (
