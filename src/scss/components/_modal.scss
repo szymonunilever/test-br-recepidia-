@@ -24,6 +24,6 @@
   }
 }
 //class applied to body when modal is open
-.modal-is-open{
+.modal--open{
   @extend .no-scroll;
 }

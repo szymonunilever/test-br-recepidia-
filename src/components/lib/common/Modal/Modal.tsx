@@ -19,10 +19,10 @@ const Modal = ({
       onRequestClose={close}
       overlayClassName="modal__overlay"
       className="modal__content"
-      bodyOpenClassName="modal-is-open"
+      bodyOpenClassName="modal--open"
     >
       {props.children}
-      <button onClick={close} className="modal__close-btn">
+      <button onClick={close} className="modal__btn-close">
         {closeBtn || 'Close'}
       </button>
     </ReactModal>

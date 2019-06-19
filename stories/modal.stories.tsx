@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Modal } from '../src/components/lib/common/Modal';
-import ReactModal from 'react-modal';
+import Icon from '../src/svgs/inline/logo.svg';
 
 /**react-modal API https://reactcommunity.org/react-modal/#usage */
 
@@ -39,7 +39,7 @@ storiesOf('Components/Modal', module)
   })
   .add('Modal with custom classname and close button', () => {
     return (
-      <Modal isOpen={true} className="modal--fullscreen" closeBtn="X">
+      <Modal isOpen={true} className="modal--fullscreen" closeBtn={<Icon />}>
         <div>Modal content</div>
       </Modal>
     );
