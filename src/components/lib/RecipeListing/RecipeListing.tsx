@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
+import RecipeListingCarousel from '../Carousel/RecipeListingCarousel';
 import {
   RecipeFilter,
   RecipeItem,
@@ -30,6 +31,7 @@ const RecipeListing = ({
   initialCount = 4,
   onFavoriteChange,
   tags = { categories: [] },
+  showThumbnails = false,
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
@@ -130,18 +132,25 @@ const RecipeListing = ({
   );
 
   const view: JSX.Element =
-    viewType === RecipeListViewType.Trivial ? (
+    viewType == RecipeListViewType.Trivial ? (
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
-        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
-    ) : viewType === RecipeListViewType.Base ? (
+    ) : viewType == RecipeListViewType.Base ? (
       <>{recipeListBasic}</>
+    ) : viewType == RecipeListViewType.Carousel ? (
+      <RecipeListingCarousel
+        withFavorite={withFavorite}
+        onFavoriteChange={changeFavorites}
+        list={list}
+        content={content}
+        showThumbnails={showThumbnails}
+      />
     ) : (
       <>
         <RecipeFilter

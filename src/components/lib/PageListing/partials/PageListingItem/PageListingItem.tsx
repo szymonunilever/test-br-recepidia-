@@ -13,12 +13,10 @@ const PageListingItem = ({ page }: PageProps) => {
   } = page;
 
   return (
-    <li className={`page-listing__item`}>
-      <Link to={path} className={`page-listing__link`}>
-        <Img className={`page-listing__image`} fluid={localImage} alt={alt} />
-        <div className={`page-listing__title`}>{title}</div>
-      </Link>
-    </li>
+    <Link to={path} className={`page-listing__link`}>
+      <Img className={`page-listing__image`} fluid={localImage} alt={alt} />
+      <div className={`page-listing__title`}>{title}</div>
+    </Link>
   );
 };
 

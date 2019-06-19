@@ -5,6 +5,7 @@ export enum RecipeListViewType {
   Trivial,
   Base,
   Advanced,
+  Carousel,
 }
 
 export interface OnFavoriteChange {
@@ -22,4 +23,5 @@ export interface RecipeListingProps
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
   tags?: RecipeFilterOptions;
+  showThumbnails?: boolean;
 }

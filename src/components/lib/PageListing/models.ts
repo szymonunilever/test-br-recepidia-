@@ -8,4 +8,5 @@ export interface PageListingProps
   viewType: string;
   initialCount: number;
   pagesPerLoad?: number;
+  showThumbnails?: boolean;
 }

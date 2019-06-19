@@ -1,0 +1,12 @@
+.progress_bar {
+    position: relative;
+    height: 5px;
+    border: transparent;
+}
+
+.progress_bar_content {
+    background: black;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2s ease-in;
+}
