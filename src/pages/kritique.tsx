@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from 'src/components/Layout/Layout';
-import SEO from 'src/components/Seo/Seo';
+import SEO from 'src/components/SEO/Seo';
 import '../scss/main.scss';
 import { RecipeListing } from 'src/components/lib/RecipeListing';
 import Kritique from '../integrations/Kritique';
