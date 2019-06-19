@@ -11,6 +11,10 @@ exports.sourceNodes = async (
 
   const processPage = page => {
     const nodeId = createNodeId(`recipe-${page.type}`);
+    page.components.items = page.components.items.map(component => ({
+      ...component,
+      content: JSON.stringify(component.content),
+    }));
     const nodeContent = JSON.stringify(page);
     const nodeData = Object.assign({}, page, {
       id: nodeId,
