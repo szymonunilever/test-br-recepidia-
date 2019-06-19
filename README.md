@@ -25,14 +25,7 @@
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-2.  **How to develop component to move it to library in future**
-    Place all the reusable components wich will be moved to library later to 'src/components/lib'.
-    Please check 'src/components/lib/Example':
-     1. Example.tsx is the file where the component logic is stored.
-     2. partials folder is for component's partials. Please only add it when any partials are needed.
-     3. utils.ts is for component's utils. Please only add it when any utils are needed.
-     4. models.ts is for components' Typescript models. <Component>Props is mandatory to have. 'className' prop is mandatory, it is needed to be able to style component from outside as soon as there will be no styling in library at all.
-     5. __tests__ folder is for tests.
+2.  **How to develop component to move it to library in future** Please refer to https://confluence.unileversolutions.com/display/EAT/Library+component+development
 
 3. **Run Tests**
     ```sh
