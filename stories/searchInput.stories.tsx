@@ -5,11 +5,11 @@ import PlaceholderIcon from '../src/svgs/inline/placeholder.svg';
 import SeachInput from 'src/components/lib/SearchInput';
 import searchData from 'src/components/data/search.json';
 
-//todo add TS types
+const content: AppContent.SearchInput.Content = {
+  title: 'Custom title text',
+};
+
 const config = {
-  content: {
-    title: 'Custom title text',
-  },
   searchResultsCount: 8,
   labelIcon: <PlaceholderIcon />,
   buttonResetIcon: <PlaceholderIcon />,
@@ -17,5 +17,5 @@ const config = {
 };
 
 storiesOf('Components/SearchInput', module).add('defaultView', () => {
-  return <SeachInput list={searchData} {...config} />;
+  return <SeachInput list={searchData} content={content} {...config} />;
 });
