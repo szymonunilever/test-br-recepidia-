@@ -23,7 +23,7 @@ const Modal = ({
     >
       {props.children}
       <button onClick={close} className="modal__btn-close">
-        {closeBtn || 'Close'}
+        {closeBtn}
       </button>
     </ReactModal>
   );
