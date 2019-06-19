@@ -7,7 +7,7 @@ const Kritique = () => {
     keys.kritique.brandId
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
-  }&siteSource=${keys.kritique.siteSource}`;
+  }&sitesource=${keys.kritique.siteSource}`;
 
   return (
     <Helmet>
