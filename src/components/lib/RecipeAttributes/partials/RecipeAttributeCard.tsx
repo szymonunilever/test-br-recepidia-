@@ -13,21 +13,19 @@ const RecipeAttributeCard = ({
     label && label.title ? (
       <div className="recipe-attribute-card__label">{label.title}</div>
     ) : null;
-  const units =
-    label && typeof label !== 'undefined' ? (
-      typeof value == 'number' &&
-      value > 1 &&
-      (label.unitsPlural || label.units) ? (
-        <span className="recipe-attribute-card__units">
-          {label.unitsPlural || label.units}
-        </span>
-      ) : (
-        <span className="recipe-attribute-card__units">{label.units}</span>
-      )
-    ) : null;
+  const units = label ? (
+    typeof value == 'number' &&
+    value > 1 &&
+    (label.unitsPlural || label.units) ? (
+      <span className="recipe-attribute-card__units">
+        {label.unitsPlural || label.units}
+      </span>
+    ) : (
+      <span className="recipe-attribute-card__units">{label.units}</span>
+    )
+  ) : null;
 
   const IconImg = Icon ? (
-    //@ts-ignore
     <Icon className="recipe-attribute-card__icon" />
   ) : null;
   return (

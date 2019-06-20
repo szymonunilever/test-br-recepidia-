@@ -160,7 +160,7 @@ storiesOf('Components/Recipe Listing', module)
         // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Trivial}
-        favoriteIcon={FavoriteIcon}
+        FavoriteIcon={FavoriteIcon}
         content={contents[3]}
         withFavorite
         favorites={[]}
@@ -179,7 +179,7 @@ storiesOf('Components/Recipe Listing', module)
         // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Base}
-        favoriteIcon={FavoriteIcon}
+        FavoriteIcon={FavoriteIcon}
         content={contents[4]}
         withFavorite
         favorites={[]}
@@ -196,7 +196,7 @@ storiesOf('Components/Recipe Listing', module)
     () => (
       <RecipeListing
         list={[]}
-        favoriteIcon={FavoriteIcon}
+        FavoriteIcon={FavoriteIcon}
         viewType={RecipeListViewType.Base}
         content={contents[5]}
         titleLevel={1}
@@ -212,7 +212,7 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         // @ts-ignore
         list={listing}
-        favoriteIcon={FavoriteIcon}
+        FavoriteIcon={FavoriteIcon}
         OpenIcon={OpenIcon}
         viewType={RecipeListViewType.Advanced}
         RemoveTagIcon={RemoveTagIcon}

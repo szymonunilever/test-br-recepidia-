@@ -37,7 +37,7 @@ export interface RecipeListingTrivialProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   list: RecipeItem[];
   withFavorite: boolean;
-  favoriteIcon?: JSX.Element;
+  FavoriteIcon?: JSX.Element;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   onFavoriteChange?: RecipeCardFavoriteCallback;
 }

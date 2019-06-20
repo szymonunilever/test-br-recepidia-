@@ -76,7 +76,7 @@ describe('Recipe Listing Component', () => {
     const wrapper: ReactWrapper = mount(
       <RecipeListing
         list={listing}
-        favoriteIcon={FavoriteIcon}
+        FavoriteIcon={FavoriteIcon}
         viewType={RecipeListViewType.Trivial}
         content={content}
         titleLevel={1}
