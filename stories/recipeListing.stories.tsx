@@ -9,6 +9,7 @@ import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import OpenIcon from 'src/svgs/inline/arrow-down.svg';
+import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const contents: AppContent.RecipeListing.Content[] = [
   {
@@ -214,6 +215,7 @@ storiesOf('Components/Recipe Listing', module)
         favoriteIcon={FavoriteIcon}
         OpenIcon={OpenIcon}
         viewType={RecipeListViewType.Advanced}
+        RemoveTagIcon={RemoveTagIcon}
         favorites={[]}
         withFavorite
         content={contents[6]}

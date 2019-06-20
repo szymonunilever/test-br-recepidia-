@@ -14,6 +14,7 @@ const Filter = ({
   className,
   allFilters,
   OpenIcon,
+  RemoveTagIcon,
   onChangeSorting,
   onChangeFilter,
   results,
@@ -99,6 +100,7 @@ const Filter = ({
         list={state.filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
         isEditable
+        RemoveIcon={RemoveTagIcon}
         enableExternalManage
         handleTagRemove={onTagRemoved}
         initialCount="all"

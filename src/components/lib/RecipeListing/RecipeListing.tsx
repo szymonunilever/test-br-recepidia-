@@ -23,6 +23,7 @@ const RecipeListing = ({
   content,
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
+                         RemoveTagIcon,
   withFavorite = false,
   favoriteIcon,
   OpenIcon,
@@ -152,6 +153,7 @@ const RecipeListing = ({
           className="recipe-list__filter"
           allFilters={tags}
           OpenIcon={OpenIcon}
+          RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={listState.filterLength}

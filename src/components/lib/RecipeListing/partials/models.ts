@@ -63,6 +63,7 @@ export interface RecipeFilterProps
   results: number;
   sortSelectPlaceholder: string;
   OpenIcon?: JSX.Element;
+  RemoveTagIcon?: JSX.Element;
 }
 
 export interface FilterSettingsProps

@@ -19,6 +19,7 @@ export interface RecipeListingProps
   withFavorite?: boolean;
   favoriteIcon?: JSX.Element;
   OpenIcon?: JSX.Element;
+  RemoveTagIcon?: JSX.Element;
   favorites?: string[];
   list: RecipeItem[];
   viewType?: RecipeListViewType;
