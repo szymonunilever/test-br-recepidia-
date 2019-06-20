@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Arrow from './partials/Arrow';
 import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
+import { CSSTransition } from 'react-transition-group';
+import './Carousel.css';
 
 const Carousel = ({
   list,
@@ -74,10 +76,17 @@ const Carousel = ({
 
   return (
     <div className="carousel">
-      <Arrow direction="left" clickFunction={previousImage} icon="&#9664;" />
-      <div className={'carousel__image'}>{displayElement()}</div>
-      <Arrow direction="right" clickFunction={nextImage} icon="&#9654;" />
       <ProgressBar percentage={percentage} />
+      <Arrow direction="left" clickFunction={previousImage} icon="&#9664;" />
+      <CSSTransition
+        in={true}
+        appear={true}
+        timeout={300}
+        classNames="carousel__transition"
+      >
+        <div className={'carousel__image'}>{displayElement()}</div>
+      </CSSTransition>
+      <Arrow direction="right" clickFunction={nextImage} icon="&#9654;" />
 
       <div className="carousel__items" hidden={!showThumbnails}>
         {list.slice(start, end).map((item: any, index: number) => (
