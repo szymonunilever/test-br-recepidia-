@@ -6,6 +6,7 @@ import dataSource from 'src/components/data/recipes.json';
 
 import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
 import { RecipeItem } from '../partials';
+import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 
 const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -75,6 +76,7 @@ describe('Recipe Listing Component', () => {
     const wrapper: ReactWrapper = mount(
       <RecipeListing
         list={listing}
+        FavoriteIcon={FavoriteIcon}
         viewType={RecipeListViewType.Trivial}
         content={content}
         titleLevel={1}

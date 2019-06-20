@@ -1,0 +1,91 @@
+{
+  "id": "069cee1a-b673-51ae-829a-cfac76de0223",
+  "shortTitle": "Salada Francesa do @caio",
+  "recipeDetails": {
+    "serves": 2,
+    "servingSize": 2,
+    "readyTime": 0,
+    "totalTime": 35,
+    "cookingTime": 25,
+    "preparationTime": 10,
+    "ovenTime": 0,
+    "restTime": 0,
+    "marinateTime":  0,
+    "freezeTime": 0,
+    "chillTime": 0,
+    "brewTime": 0
+  },
+  "description": "",
+  "imageUrls": [],
+  "nutrients": [],
+  "nutrientsPerServing": [],
+  "nutrientsPer100g": [],
+  "calculatedServingWeightg": 0,
+  "creationTime": "2019-05-13T16:06:08Z",
+  "title": "Salada Francesa do @caio",
+  "ingredients": [
+    {
+      "productId": null,
+      "description": "alface lisa"
+    },
+    {
+      "productId": null,
+      "description": "alface roxa"
+    },
+    {
+      "productId": null,
+      "description": "tomate"
+    },
+    {
+      "productId": null,
+      "description": "cenoura"
+    },
+    {
+      "productId": null,
+      "description": "beterraba"
+    },
+    {
+      "productId": null,
+      "description": "Queijo comte (mas pode ser o que quiser)"
+    },
+    {
+      "productId": null,
+      "description": "pão baguette"
+    },
+    {
+      "productId": null,
+      "description": "filé filé mignon"
+    }
+  ],
+  "methods": [
+    {
+      "position": 1,
+      "description": "Assar a carne na frigideira, temperar com manteiga, sal e pimenta do reino"
+    },
+    {
+      "position": 2,
+      "description": "Cortar e lavar as alfaces, cenoura, beterraba e tomate"
+    },
+    {
+      "position": 3,
+      "description": "Assar a baguette no forno pra comer quentinha"
+    },
+    {
+      "position": 4,
+      "description": "Cortar o queijo em tiras"
+    }
+  ],
+  "categories": [
+    {
+      "name": "difficulties",
+      "label": "difficulties",
+      "tags":[
+      {
+        "id": 12231,
+        "name": "Easy"
+      }
+    ]
+
+    }
+  ]
+}

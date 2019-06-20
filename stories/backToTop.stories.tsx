@@ -33,7 +33,7 @@ storiesOf('Components/Back To Top', module)
           <BackToTop
             content={content}
             viewType={ButtonViewType.icon}
-            icon={<Icon />}
+            Icon={Icon}
           />
         </div>
       </>

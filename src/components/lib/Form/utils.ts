@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const required = (errorMessage: string) => (value: any) => {
   if (typeof value === 'object') {
     return value.length || Object.keys(value).length ? false : errorMessage;
@@ -12,6 +13,7 @@ export const minValue = (min: number, errorMessage: string) => (
   value: number
 ) => (isNaN(value) || value >= min ? false : errorMessage);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const composeValidators = (...validators: any[]) => (value: string) =>
   validators.reduce((error, validator) => error || validator(value), false);
 

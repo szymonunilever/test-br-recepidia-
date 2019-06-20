@@ -4,8 +4,8 @@ import { ButtonProps, ButtonViewType } from './models';
 import theme from './Button.module.scss';
 
 const Button = ({
-  icon,
-  iconSelected = icon,
+  Icon,
+  IconSelected = Icon,
   isSelected = false,
   onClick,
   hidden = false,
@@ -31,7 +31,7 @@ const Button = ({
     // eslint-disable-next-line @typescript-eslint/camelcase
     button__selected: selected,
   });
-  const theIcon = selected ? iconSelected : icon;
+  const TheIcon = selected ? IconSelected : Icon;
   const onButtonClick = (e: MouseEvent) => {
     e.preventDefault();
     if (isToggle) {
@@ -56,7 +56,7 @@ const Button = ({
         onClick={onButtonClick}
         hidden={hidden}
       >
-        {theIcon}
+        {TheIcon ? <TheIcon /> : null}
       </button>
     ) : (
       <button
@@ -66,13 +66,13 @@ const Button = ({
         onClick={onButtonClick}
         hidden={hidden}
       >
-        {theIcon}
+        {TheIcon ? <TheIcon /> : null}
         {label ? <span className="button__label">{label}</span> : null}
         {children}
       </button>
     );
 
-  return <>{view}</>;
+  return view;
 };
 
 export default Button;
