@@ -5,8 +5,8 @@ import React from 'react';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
 import { Carousel } from '../index';
-import PageListingItem from '../../PageListing/partials/PageListingItem/PageListingItem';
-import RecipeCard from '../../RecipeListing/partials/RecipeCard';
+import PageListingItem from '../../../PageListing/partials/PageListingItem/PageListingItem';
+import RecipeCard from '../../../RecipeListing/partials/RecipeCard';
 
 const recipeList = recipes.data.allRecipe.edges.map(item => item.node);
 const pageList = pages;

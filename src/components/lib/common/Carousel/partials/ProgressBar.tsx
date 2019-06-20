@@ -4,9 +4,9 @@ import { ProgressBarProps } from './models';
 
 const ProgressBar = ({ percentage = 0 }: ProgressBarProps) => {
   return (
-    <div className={styles.progress_bar}>
+    <div className={styles['progress-bar']}>
       <div
-        className={styles.progress_bar_content}
+        className={styles['progress-bar__content']}
         style={{ width: `${percentage}%` }}
       />
     </div>

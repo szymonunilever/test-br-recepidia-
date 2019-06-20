@@ -1,8 +1,8 @@
 import React from 'react';
-import Carousel from './Carousel';
+import Carousel from '../common/Carousel/Carousel';
 import { PageListingCarouselProps } from './models';
-import { ItemProps } from '../PageListing/partials/models';
-import PageListingItem from '../PageListing/partials/PageListingItem/index';
+import { ItemProps } from './partials/models';
+import PageListingItem from './partials/PageListingItem/index';
 
 const PageListingCarousel = ({
   list,

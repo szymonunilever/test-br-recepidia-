@@ -4,7 +4,7 @@ import { PageListingProps } from './models';
 import { ItemProps } from './partials/models';
 
 import PageListingItem from './partials/PageListingItem';
-import PageListingCarousel from '../Carousel/PageListingCarousel';
+import PageListingCarousel from './PageListingCarousel';
 import { Button } from 'src/components/lib/common/Button';
 
 const PageListing = ({

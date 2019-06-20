@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
-import RecipeListingCarousel from '../Carousel/RecipeListingCarousel';
+import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   RecipeFilter,
   RecipeItem,

@@ -1,5 +1,9 @@
 import { UnileverLibraryComponent } from '../common/globalModels';
-import { RecipeFilterOptions, RecipeItem } from './partials';
+import {
+  RecipeFilterOptions,
+  RecipeItem,
+  RecipeCardFavoriteCallback,
+} from './partials';
 
 export enum RecipeListViewType {
   Trivial,
@@ -23,5 +27,14 @@ export interface RecipeListingProps
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
   tags?: RecipeFilterOptions;
+  showThumbnails?: boolean;
+}
+
+export interface RecipeListingCarouselProps
+  extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
+  withFavorite?: boolean;
+  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  onFavoriteChange: RecipeCardFavoriteCallback;
+  list: RecipeItem[];
   showThumbnails?: boolean;
 }

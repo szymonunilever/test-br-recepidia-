@@ -10,3 +10,9 @@ export interface PageListingProps
   pagesPerLoad?: number;
   showThumbnails?: boolean;
 }
+
+export interface PageListingCarouselProps
+  extends UnileverLibraryComponent<AppContent.PageListingContent> {
+  list: ItemProps[];
+  showThumbnails?: boolean;
+}

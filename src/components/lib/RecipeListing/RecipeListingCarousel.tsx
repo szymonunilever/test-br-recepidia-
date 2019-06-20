@@ -1,8 +1,8 @@
 import React from 'react';
-import Carousel from './Carousel';
+import Carousel from '../common/Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
-import { RecipeItem } from '../RecipeListing/partials/models';
-import RecipeCard from '../RecipeListing/partials/RecipeCard';
+import { RecipeItem } from './partials/models';
+import RecipeCard from './partials/RecipeCard';
 
 const RecipeListingCarousel = ({
   withFavorite = true,

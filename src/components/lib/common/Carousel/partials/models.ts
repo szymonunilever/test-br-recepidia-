@@ -1,6 +1,3 @@
-import { UnileverLibraryComponent } from '../../common/globalModels';
-import { RecipeCardFavoriteCallback } from '../../RecipeListing/partials/models';
-
 export interface OnArrowClick {
   (): void;
 }
