@@ -14,6 +14,17 @@ import dataSource from 'src/components/data/recipes.json';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 
+export const findComponent = (components: any, name: string, view: string) => {
+  return get(
+    find(
+      components,
+      ({ name: compName, content }) =>
+        compName === name && content.view === view
+    ),
+    'content'
+  );
+};
+
 const HomePage = ({ data }: HomePageProps) => {
   const page = { ...data.allPage.edges[0].node };
   page.components.items = page.components.items.map(item => ({
@@ -21,7 +32,6 @@ const HomePage = ({ data }: HomePageProps) => {
     content: JSON.parse(item.content),
   }));
   const components = page.components.items;
-
   return (
     <Layout>
       <SEO title="Recepedia Home" />
@@ -37,17 +47,18 @@ const HomePage = ({ data }: HomePageProps) => {
         content={{ list }}
       />
       <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
-      <RecipeListing
-        content={get(
-          find(
-            components,
-            ({ name, content }) =>
-              name === 'RecipeListing' && content.view === 'LatestAndGreatest'
-          ),
-          'content'
+      {/* <RecipeListing
+        content={findComponent(
+          components,
+          'RecipeListing',
+          'LatestAndGreatest'
         )}
         list={listing}
       />
+      <RecipeListing
+        content={findComponent(components, 'RecipeListing', 'TopRecipes')}
+        list={listing}
+      /> */}
     </Layout>
   );
 };
