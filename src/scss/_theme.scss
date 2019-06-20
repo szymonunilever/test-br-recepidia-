@@ -11,7 +11,7 @@ html, body{
 h1,h2,h3,h4,h5,.subheading{
     font-family: $rubik;
     font-weight: 500;
-    margin: 0 1.6;
+    margin: 0 1.6rem;
 }
 h1{
     font-size: 48px;
@@ -46,6 +46,4 @@ P{
     margin: 0 0 10px;
 }
 
-.no-scroll{
-    overflow:hidden;
-}
+
