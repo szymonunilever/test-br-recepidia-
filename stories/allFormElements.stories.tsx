@@ -232,7 +232,7 @@ storiesOf('Components/Form elements/All', module)
         <h1>Contact form</h1>
         <Form
           onSubmit={onSubmit}
-          render={({ handleSubmit, form, submitting, pristine, values }) => (
+          render={({ handleSubmit, submitting, values }) => (
             <form onSubmit={handleSubmit}>
               <Field name="select" validate={required('Field is required')}>
                 {({ input, meta }) => (

@@ -23,7 +23,7 @@ const RecipeListing = ({
   content,
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
-                         RemoveTagIcon,
+  RemoveTagIcon,
   withFavorite = false,
   favoriteIcon,
   OpenIcon,
