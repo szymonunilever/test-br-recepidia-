@@ -11,6 +11,7 @@ const Tags = ({
   isEditable,
   tagsPerLoad = 4,
   initialCount = 4,
+  RemoveIcon,
   handleTagToggle,
   enableExternalManage = false,
   handleTagRemove,
@@ -92,6 +93,7 @@ const Tags = ({
         <ul className="tags__list">
           {tags.displayList.map((item: ItemProps) => (
             <Tag
+              RemoveIcon={RemoveIcon}
               key={item.id}
               handleClick={deleteItem}
               tag={item}

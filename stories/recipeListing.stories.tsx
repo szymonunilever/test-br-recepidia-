@@ -7,7 +7,8 @@ import {
 } from '../src/components/lib/RecipeListing';
 import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
-
+import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 const contents: AppContent.RecipeListing.Content[] = [
   {
@@ -158,6 +159,7 @@ storiesOf('Components/Recipe Listing', module)
         // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Trivial}
+        favoriteIcon={FavoriteIcon}
         content={contents[3]}
         withFavorite
         favorites={[]}
@@ -176,6 +178,7 @@ storiesOf('Components/Recipe Listing', module)
         // @ts-ignore
         list={listing}
         viewType={RecipeListViewType.Base}
+        favoriteIcon={FavoriteIcon}
         content={contents[4]}
         withFavorite
         favorites={[]}
@@ -192,6 +195,7 @@ storiesOf('Components/Recipe Listing', module)
     () => (
       <RecipeListing
         list={[]}
+        favoriteIcon={FavoriteIcon}
         viewType={RecipeListViewType.Base}
         content={contents[5]}
         titleLevel={1}
@@ -207,6 +211,8 @@ storiesOf('Components/Recipe Listing', module)
       <RecipeListing
         // @ts-ignore
         list={listing}
+        favoriteIcon={FavoriteIcon}
+        OpenIcon={OpenIcon}
         viewType={RecipeListViewType.Advanced}
         favorites={[]}
         withFavorite

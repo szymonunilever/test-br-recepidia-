@@ -7,13 +7,13 @@ import { enumToArray } from '../utils';
 import { RecipeFilterProps, RecipeSortingOptions } from './models';
 import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../common/Button';
-import Icon from 'src/svgs/inline/plus.svg';
 import { FilterSettings } from './index';
 import { remove } from 'lodash';
 
 const Filter = ({
   className,
   allFilters,
+  OpenIcon,
   onChangeSorting,
   onChangeFilter,
   results,
@@ -91,7 +91,7 @@ const Filter = ({
       />
       <Button
         className="recipe-filter__button"
-        icon={<Icon />}
+        Icon={OpenIcon}
         viewType={ButtonViewType.classic}
         onClick={toggleFilterSettings}
       />

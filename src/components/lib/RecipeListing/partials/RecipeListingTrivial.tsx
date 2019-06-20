@@ -6,6 +6,7 @@ import { RecipeListingTrivialProps } from './models';
 const RecipeListingTrivial = ({
   list,
   withFavorite,
+  favoriteIcon,
   titleLevel = 3,
   onFavoriteChange,
   content: { nullResult },
@@ -19,6 +20,7 @@ const RecipeListingTrivial = ({
               id={item.id}
               inFavorite={withFavorite ? item.inFavorite : false}
               enableSelectFavorite={withFavorite}
+              Icon={favoriteIcon}
               titleLevel={titleLevel}
               imgObject={item.localImage.childImageSharp.fluid}
               content={{ title: item.shortTitle }}

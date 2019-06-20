@@ -28,7 +28,7 @@ const Navigation = ({
       {login}
       <ButtonClose
         onClick={handleToggleNavigationClick}
-        icon={buttonCloseIcon}
+        Icon={buttonCloseIcon}
       />
     </nav>
   );

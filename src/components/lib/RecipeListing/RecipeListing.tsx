@@ -24,6 +24,8 @@ const RecipeListing = ({
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
   withFavorite = false,
+  favoriteIcon,
+  OpenIcon,
   recipePerLoad = 4,
   favorites = [],
   list,
@@ -112,6 +114,7 @@ const RecipeListing = ({
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
+        favoriteIcon={favoriteIcon}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
         content={content}
@@ -134,6 +137,7 @@ const RecipeListing = ({
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
+        favoriteIcon={favoriteIcon}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
         content={content}
@@ -147,6 +151,7 @@ const RecipeListing = ({
         <RecipeFilter
           className="recipe-list__filter"
           allFilters={tags}
+          OpenIcon={OpenIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={listState.filterLength}

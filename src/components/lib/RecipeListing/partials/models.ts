@@ -28,6 +28,7 @@ export interface RecipeCardProps
   imgObject?: FluidObject;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   slug: string;
+  Icon?: JSX.Element;
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
 }
@@ -36,6 +37,7 @@ export interface RecipeListingTrivialProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   list: RecipeItem[];
   withFavorite: boolean;
+  favoriteIcon?: JSX.Element;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   onFavoriteChange?: RecipeCardFavoriteCallback;
 }
@@ -60,6 +62,7 @@ export interface RecipeFilterProps
   onChangeFilter: (filter: RMSData.Tag[]) => void;
   results: number;
   sortSelectPlaceholder: string;
+  OpenIcon?: JSX.Element;
 }
 
 export interface FilterSettingsProps

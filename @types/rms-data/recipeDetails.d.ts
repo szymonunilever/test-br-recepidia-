@@ -1,12 +1,12 @@
 declare namespace RMSData {
   export interface RecipeDetails {
-    serves: number;
+    serves?: number;
     makes?: number;
     servingSize?: number;
-    readyTime: number;
-    totalTime: number;
-    cookingTime: number;
-    preparationTime: number;
+    readyTime?: number;
+    totalTime?: number;
+    cookingTime?: number;
+    preparationTime?: number;
     ovenTime?: number;
     restTime?: number;
     marinateTime?: number;

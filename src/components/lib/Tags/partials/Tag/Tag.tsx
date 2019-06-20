@@ -4,11 +4,10 @@ import { TagProps } from '../../models';
 import { Button } from 'src/components/lib/common/Button';
 import cx from 'classnames';
 
-import Icon from 'src/svgs/inline/x-mark.svg';
-
 const Tag = ({
   tag,
   handleClick,
+  RemoveIcon,
   isEditable,
   active = false,
   enableExternalManage = false,
@@ -38,7 +37,7 @@ const Tag = ({
 
   const buttonDelete = isEditable ? (
     <Button
-      icon={<Icon />}
+      Icon={RemoveIcon}
       onClick={onButtonClick}
       className="tags__button-delete"
     />

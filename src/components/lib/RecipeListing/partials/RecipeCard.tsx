@@ -3,8 +3,6 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import { TagName, Text } from '../../Text';
-// @ts-ignore
-import Icon from 'src/svgs/inline/plus.svg';
 import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
@@ -13,6 +11,7 @@ const RecipeCard = ({
   id,
   content: { title },
   imgObject,
+  Icon,
   enableSelectFavorite = false,
   titleLevel = 3,
   slug,
@@ -39,7 +38,7 @@ const RecipeCard = ({
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Button
         className="recipe-card__favorite"
-        icon={<Icon />}
+        Icon={Icon}
         isSelected={inFavorite}
         onClick={onFavoriteToggle}
         isToggle={true}
