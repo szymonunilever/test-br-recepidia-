@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SearchResults from './partials/SearchResults';
-import { navigate } from 'gatsby';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
 
@@ -13,6 +12,9 @@ const SearchInput = ({
   buttonResetIcon,
   buttonSubmitIcon,
   searchResultsCount,
+  debounceTimeout = 300,
+  onSubmit,
+  getFilteredData,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -30,6 +32,8 @@ const SearchInput = ({
         .catch(err => {
           throw new Error(err);
         });
+    } else if (getFilteredData) {
+      setData(getFilteredData(searchInputValue));
     } else {
       setData(filterData(list, searchInputValue));
     }
@@ -49,7 +53,9 @@ const SearchInput = ({
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    navigate(`/search?q=${inputValue}/`);
+    if (onSubmit) {
+      onSubmit(inputValue);
+    }
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +63,9 @@ const SearchInput = ({
 
     clearTimeOut();
     setInputValue(value);
-    setTimerId(() => window.setTimeout(() => getResults(value), 300));
+    setTimerId(() =>
+      window.setTimeout(() => getResults(value), debounceTimeout)
+    );
   };
   const inputHasValue = !!inputValue.length;
 

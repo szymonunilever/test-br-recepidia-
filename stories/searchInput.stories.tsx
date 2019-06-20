@@ -14,6 +14,7 @@ const config = {
   labelIcon: <PlaceholderIcon />,
   buttonResetIcon: <PlaceholderIcon />,
   buttonSubmitIcon: <PlaceholderIcon />,
+  onSubmit: () => {},
 };
 
 storiesOf('Components/SearchInput', module).add('defaultView', () => {
