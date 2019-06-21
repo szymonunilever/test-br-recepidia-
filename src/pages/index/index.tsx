@@ -34,7 +34,7 @@ const HomePage = ({ data }: HomePageProps) => {
           path: '/',
         }}
         dropDownIcon={<ArrowDownIcon className="dropdown-icon" />}
-        buttonCloseIcon={<ButtonCloseIcon />}
+        buttonCloseIcon={ButtonCloseIcon}
         content={{ list }}
       />
       <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
