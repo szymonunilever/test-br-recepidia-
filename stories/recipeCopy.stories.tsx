@@ -65,7 +65,7 @@ storiesOf('Components/Recipe Copy', module)
         recipe={recipe}
         viewType={RecipeCopyViewType.Ingredients}
         content={content}
-        titleLevel={1} // Title level = 2 as default
+        titleLevel={2} // Title level = 2 as default.
       />
     ),
     { inline: false }
