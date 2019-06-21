@@ -4,7 +4,7 @@ import cx from 'classnames';
 import theme from './NullResult.module.scss';
 import { TagName, Text } from '../Text';
 
-const NullResult = ({
+export const NullResult = ({
   className,
   titleLevel = 2,
   content: { title, textList, subtitle },

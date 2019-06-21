@@ -5,7 +5,7 @@ import { TagName, Text } from '../Text';
 import { RecipeCookingMethodProps } from './models';
 import theme from './RecipeCookingMethod.module.scss';
 
-const RecipeCookingMethod = ({
+export const RecipeCookingMethod = ({
   className,
   content: { title = undefined, subtitle = undefined },
   methodList = [],

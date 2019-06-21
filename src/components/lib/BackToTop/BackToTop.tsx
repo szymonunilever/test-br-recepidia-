@@ -6,7 +6,7 @@ import theme from './BackToTop.module.scss';
 import { BackToTopProps, CustomEventTarget } from './models';
 
 smoothScroll.polyfill();
-const BackToTop = ({
+export const BackToTop = ({
   className,
   hideTopPositionPx = window.innerHeight,
   ...props

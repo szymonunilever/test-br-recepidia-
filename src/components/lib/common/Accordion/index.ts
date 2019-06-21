@@ -1,2 +1,3 @@
-export { default as Accordion } from './Accordion';
+export { default } from './Accordion';
+export { Accordion } from './Accordion';
 export * from './models';

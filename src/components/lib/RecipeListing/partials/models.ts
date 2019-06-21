@@ -1,5 +1,8 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
-import { UnileverLibraryComponent } from '../../common/globalModels';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../common/globalModels';
 
 export interface LocalImage {
   id: string;
@@ -26,7 +29,7 @@ export interface RecipeCardProps
   id: string;
   enableSelectFavorite?: boolean;
   imgObject?: FluidObject;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  titleLevel?: titleLevel;
   slug: string;
   Icon?: JSX.Element;
   inFavorite?: boolean;
@@ -38,7 +41,7 @@ export interface RecipeListingTrivialProps
   list: RecipeItem[];
   withFavorite: boolean;
   FavoriteIcon?: JSX.Element;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  titleLevel?: titleLevel;
   onFavoriteChange?: RecipeCardFavoriteCallback;
 }
 

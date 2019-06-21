@@ -1,2 +1,3 @@
-export { default as BackToTop } from './BackToTop';
+export { default } from './BackToTop';
+export { BackToTop } from './BackToTop';
 export * from './models';
