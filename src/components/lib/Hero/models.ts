@@ -5,7 +5,7 @@ export type HeroViewType = 'Text' | 'Image';
 
 export interface HeroProps
   extends UnileverLibraryComponent<AppContent.HeroContent> {
-  viewType: HeroViewType;
+  viewType: string;
   localImage?: {
     id: string;
     childImageSharp: GatsbyImageProps;

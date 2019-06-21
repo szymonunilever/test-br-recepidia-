@@ -20,10 +20,11 @@ exports.sourceNodes = async (
   delete configOptions.plugins;
 
   const processRecipe = recipe => {
-    const nodeId = createNodeId(`recipe-${recipe.recipeId}`);
+    const nodeId = createNodeId(`recipe-${recipe.id}`);
     const nodeContent = JSON.stringify(recipe);
     const nodeData = Object.assign({}, recipe, {
       id: nodeId,
+      recipeId: recipe.id,
       parent: null,
       children: [],
       internal: {
@@ -32,7 +33,6 @@ exports.sourceNodes = async (
         contentDigest: createContentDigest(recipe),
       },
     });
-
     return nodeData;
   };
 

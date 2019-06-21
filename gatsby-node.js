@@ -1,13 +1,21 @@
 const path = require('path');
 const url = require('url');
+const get = require('lodash').get;
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+}) => {
+  const { createNodeField, createNode } = actions;
 
   if (node.internal.type === 'Recipe') {
     const slug = url.resolve(
       '/recipes/',
-      node.shortTitle
+      (node.shortTitle || node.title)
         .toLowerCase()
         .split(' ')
         .join('-')
@@ -18,6 +26,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       value: slug,
     });
+  }
+  // console.log(node.internal.type);
+
+  if (node.internal.type === 'Page') {
+    const componentPromises = node.components.items.map(async component => {
+      let fileNode;
+      try {
+        fileNode = await createRemoteFileNode({
+          url: component.content.image.url,
+          parentNodeId: node.id,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          ext: '.jpg',
+          name: 'image',
+        });
+      } catch (error) {
+        // TODO: error handler
+      }
+
+      if (fileNode) {
+        component.content.image[`localImage___NODE`] = fileNode.id;
+      }
+    });
+
+    await Promise.all(componentPromises);
   }
 };
 
@@ -48,5 +83,25 @@ exports.createPages = ({ graphql, actions }) => {
         },
       });
     });
+  });
+};
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { deletePage, createPage } = actions;
+
+  return new Promise(resolve => {
+    // if the page component is the index page component
+    const dirname = __dirname.replace(/\\/g, '/');
+    if (page.componentPath === `${dirname}/src/pages/index/index.tsx`) {
+      deletePage(page);
+
+      // create a new page but with '/' as path
+      createPage({
+        ...page,
+        path: '/',
+      });
+    }
+
+    resolve();
   });
 };
