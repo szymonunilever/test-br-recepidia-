@@ -65,7 +65,7 @@ storiesOf('Components/Recipe Copy', module)
         recipe={recipe}
         viewType={RecipeCopyViewType.Ingredients}
         content={content}
-        titleLevel={2} // Title level = 2 as default.
+        titleLevel={1} // Title level of main title, all subtitles will go by hierarchy. Default value 1.
       />
     ),
     { inline: false }

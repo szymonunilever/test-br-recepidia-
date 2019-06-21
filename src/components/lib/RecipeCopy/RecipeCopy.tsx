@@ -14,7 +14,7 @@ export const RecipeCopy = ({
   className,
   content: { title, subtitle },
   recipe,
-  titleLevel = 2,
+  titleLevel = 1,
   viewType,
 }: RecipeCopyProps) => {
   const classWrapper = cx(theme.recipeCopy, className);
@@ -52,7 +52,7 @@ export const RecipeCopy = ({
       view = (
         <RecipeCopyIngredients
           ingredients={get(recipe, 'ingredients')}
-          titleLevel={titleLevel}
+          titleLevel={(titleLevel + 1) as titleLevel}
           title={title}
           subtitle={subtitle}
         />
