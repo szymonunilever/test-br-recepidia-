@@ -5,9 +5,9 @@ import { get } from 'lodash';
 import { RecipeDietaryAttributesProps } from './models';
 
 const RecipeDietaryAttributes = ({
-  listAttributes,
-  listActiveAttributes,
-  listIcons,
+  attributes,
+  activeAttributes,
+  icons,
   className,
 }: RecipeDietaryAttributesProps) => {
   const classNames = cx('recipe-dietary-attributes', className);
@@ -15,11 +15,11 @@ const RecipeDietaryAttributes = ({
   return (
     <div className={classNames} data-componentname="recipe-dietary-attributes">
       <ul className="recipe-dietary-attributes__list">
-        {listAttributes.map(attr => {
-          const activeAttribute = listActiveAttributes.find(
+        {attributes.map(attr => {
+          const activeAttribute = activeAttributes.find(
             activeAttr => attr.id === activeAttr.id
           );
-          const icon = listIcons.find(icn => attr.id === icn.id);
+          const icon = icons.find(icn => attr.id === icn.id);
 
           return (
             <Attribute

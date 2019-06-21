@@ -1,17 +1,17 @@
 export interface RecipeDietaryAttributesProps {
   className?: string;
-  listAttributes: Attribute[];
-  listActiveAttributes: Attribute[];
-  listIcons: Icon[];
+  attributes: Attribute[];
+  icons: Icon[];
+  activeAttributes: Attribute[];
 }
 
 interface Attribute {
-  id: number;
+  id: number | string;
   name: string;
 }
 
 export interface Icon {
-  id: number;
-  active: JSX.Element;
-  inActive: JSX.Element;
+  id: string | number;
+  active?: JSX.Element;
+  inActive?: JSX.Element;
 }
