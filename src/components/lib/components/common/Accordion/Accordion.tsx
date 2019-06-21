@@ -1,0 +1,48 @@
+import React, { KeyboardEvent, useState } from 'react';
+import { AccordionProps } from './models';
+import cx from 'classnames';
+import theme from './Accordion.module.scss';
+
+export const Accordion = ({
+  title,
+  isOpen = true,
+  children,
+  className,
+  icon,
+  iconOpened,
+}: AccordionProps) => {
+  const [state, setState] = useState(isOpen);
+  const onToggle = () => {
+    setState(!state);
+  };
+  const onToggleKeyboard = (e: KeyboardEvent) => {
+    e.preventDefault();
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      setState(!state);
+    }
+  };
+
+  const classWrapper = cx(theme.accordion, className);
+
+  return (
+    <div className={classWrapper} data-componentname="accordion">
+      <div
+        role="tree"
+        className="accordion__title"
+        onClick={onToggle}
+        tabIndex={0}
+        aria-expanded={state}
+        onKeyUp={onToggleKeyboard}
+      >
+        {title ? title : null}
+        {state ? iconOpened : icon}
+      </div>
+
+      <div className="accordion__body" hidden={!state}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default Accordion;

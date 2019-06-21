@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import pageListingData from '../src/components/data/pageListing.json';
-import PageListing from '../src/components/lib/PageListing';
-import { PageListingProps } from './components/lib/PageListing/models';
+import PageListing from '../src/components/lib/components/PageListing';
+import { PageListingProps } from '../src/components/lib/components/PageListing/models';
 
 const config: PageListingProps = {
   content: {

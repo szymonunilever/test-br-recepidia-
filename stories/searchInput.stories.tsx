@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PlaceholderIcon from '../src/svgs/inline/placeholder.svg';
 
-import SeachInput from 'src/components/lib/SearchInput';
+import SeachInput from 'src/components/lib/components/SearchInput';
 import searchData from 'src/components/data/search.json';
 
 const content: AppContent.SearchInput.Content = {

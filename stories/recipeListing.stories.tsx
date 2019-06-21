@@ -4,7 +4,7 @@ import React from 'react';
 import {
   RecipeListing,
   RecipeListViewType,
-} from '../src/components/lib/RecipeListing';
+} from '../src/components/lib/components/RecipeListing';
 import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
