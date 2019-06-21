@@ -2,7 +2,7 @@ import { UnileverLibraryComponent } from '../common/globalModels';
 
 export interface BrandSocialChannelsProps
   extends UnileverLibraryComponent<AppContent.BrandSocialChannels.Content> {
-  listicons: SocialIcons;
+  listIcons: SocialIcons;
   displayLabel?: boolean;
 }
 

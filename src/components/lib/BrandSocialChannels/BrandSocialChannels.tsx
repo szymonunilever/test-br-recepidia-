@@ -5,7 +5,7 @@ import { BrandSocialChannelsProps } from './models';
 import { map } from 'lodash';
 
 const BrandSocialChannels = ({
-  listicons,
+  listIcons,
   content: { socialItems },
   className,
   displayLabel = false,
@@ -14,7 +14,7 @@ const BrandSocialChannels = ({
 
   return (
     <ul className={classNames} data-componentname="social-channels">
-      {map(listicons, (icon, index) => {
+      {map(listIcons, (icon, index) => {
         return (
           <SocialChannel
             key={index}

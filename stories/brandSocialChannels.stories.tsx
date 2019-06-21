@@ -38,5 +38,5 @@ const config = {
 };
 
 storiesOf('Components/BrandSocialChannels', module).add('default', () => (
-  <BrandSocialChannels listicons={list} content={content} {...config} />
+  <BrandSocialChannels listIcons={list} content={content} {...config} />
 ));
