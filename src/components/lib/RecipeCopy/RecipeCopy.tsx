@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import { get } from 'lodash';
 import React from 'react';
 import { titleLevel } from '../common/globalModels';
 import { RecipeCopyProps, RecipeCopyViewType } from './models';
@@ -18,40 +17,35 @@ export const RecipeCopy = ({
   viewType,
 }: RecipeCopyProps) => {
   const classWrapper = cx(theme.recipeCopy, className);
-  let view: JSX.Element | undefined;
+  let view: JSX.Element | undefined | null;
   switch (viewType) {
     case RecipeCopyViewType.Title:
-      view = (
-        <RecipeCopyTitle
-          title={get(recipe, 'title', '')}
-          titleLevel={titleLevel}
-        />
-      );
+      view = <RecipeCopyTitle title={recipe.title} titleLevel={titleLevel} />;
       break;
     case RecipeCopyViewType.ShortTitle:
-      view = (
+      view = recipe.shortTitle ? (
         <RecipeCopyTitle
           className="recipe-copy-short-title"
-          title={get(recipe, 'shortTitle', '')}
+          title={recipe.shortTitle}
           titleLevel={titleLevel}
         />
-      );
+      ) : null;
       break;
     case RecipeCopyViewType.Description:
-      view = <RecipeCopyDescription description={get(recipe, 'description')} />;
+      view = <RecipeCopyDescription description={recipe.description} />;
       break;
     case RecipeCopyViewType.ShortDescription:
-      view = (
+      view = recipe.shortDescription ? (
         <RecipeCopyDescription
           className="recipe-copy-short-description"
-          description={get(recipe, 'shortDescription', '')}
+          description={recipe.shortDescription}
         />
-      );
+      ) : null;
       break;
     case RecipeCopyViewType.Ingredients:
       view = (
         <RecipeCopyIngredients
-          ingredients={get(recipe, 'ingredients')}
+          ingredients={recipe.ingredients}
           titleLevel={(titleLevel + 1) as titleLevel}
           title={title}
           subtitle={subtitle}

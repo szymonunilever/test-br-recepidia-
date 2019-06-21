@@ -44,12 +44,12 @@ const RecipeCard = ({
         isToggle={true}
         viewType={ButtonViewType.icon}
       />
-      <Img className="recipe-card__image" fluid={imgObject} alt={title} />
+      <Img className="recipe-card__image" fluid={imgObject} />
       {itemTitle}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <Img className="recipe-card__image" fluid={imgObject} alt={title} />
+      <Img className="recipe-card__image" fluid={imgObject} />
       {itemTitle}
     </Link>
   );
