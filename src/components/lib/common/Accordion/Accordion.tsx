@@ -3,7 +3,7 @@ import { AccordionProps } from './models';
 import cx from 'classnames';
 import theme from './Accordion.module.scss';
 
-const Accordion = ({
+export const Accordion = ({
   title,
   isOpen = true,
   children,

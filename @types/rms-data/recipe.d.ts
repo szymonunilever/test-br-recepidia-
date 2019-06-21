@@ -7,7 +7,7 @@ declare namespace RMSData {
     description: string;
     creationTime: Date;
     recipeDetails: RMSData.RecipeDetails;
-    assets: RMSData.RecipeAssets;
+    imageUrls: string[];
     ingredients: RMSData.Ingredient[];
     methods: RMSData.CookingMethod[];
     nutrients: RMSData.RecipeNutrient[];

@@ -15,8 +15,8 @@ const config = {
     path: '/',
   },
   login: <Example text="login" />,
-  dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
-  buttonCloseIcon: <ButtonCloseIcon />,
+  dropDownIcon: ArrowDownIcon,
+  buttonCloseIcon: ButtonCloseIcon,
   isAccordion: false,
 };
 

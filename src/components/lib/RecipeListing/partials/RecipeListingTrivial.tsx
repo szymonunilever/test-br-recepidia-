@@ -1,11 +1,12 @@
 import React from 'react';
-import { Recommendations } from '../../NullResult';
+import { NullResult } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 
 const RecipeListingTrivial = ({
   list,
   withFavorite,
+  FavoriteIcon,
   titleLevel = 3,
   onFavoriteChange,
   content: { nullResult },
@@ -19,6 +20,7 @@ const RecipeListingTrivial = ({
               id={item.id}
               inFavorite={withFavorite ? item.inFavorite : false}
               enableSelectFavorite={withFavorite}
+              Icon={FavoriteIcon}
               titleLevel={titleLevel}
               imgObject={item.localImage.childImageSharp.fluid}
               content={{ title: item.shortTitle }}
@@ -29,7 +31,7 @@ const RecipeListingTrivial = ({
         );
       })
     ) : nullResult ? (
-      <Recommendations
+      <NullResult
         content={nullResult}
         className="recipe-list__null-results"
         titleLevel={titleLevel}

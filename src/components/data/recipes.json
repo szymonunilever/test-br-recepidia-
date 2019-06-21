@@ -7,8 +7,25 @@
           "node": {
             "id": "069cee1a-b673-51ae-829a-cfac76de0223",
             "shortTitle": "Salada Francesa do @caio",
-            "cookingTime": 25,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "2",
+              "makes": null,
+              "cookingTime": 25,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 25
+            },
+            "description": "",
+            "assets": [],
+            "nutrients": [],
+            "nutrientsPerServing": [],
+            "nutrientsPer100g": [],
+            "calculatedServingWeightg": 0,
             "creationTime": "2019-05-13T16:06:08Z",
             "title": "Salada Francesa do @caio",
             "localImage": {
@@ -57,6 +74,25 @@
                 "description": "filé filé mignon"
               }
             ],
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Assar a carne na frigideira, temperar com manteiga, sal e pimenta do reino"
+              },
+              {
+                "position": 2,
+                "description": "Cortar e lavar as alfaces, cenoura, beterraba e tomate"
+              },
+              {
+                "position": 3,
+                "description": "Assar a baguette no forno pra comer quentinha"
+              },
+              {
+                "position": 4,
+                "description": "Cortar o queijo em tiras"
+              }
+            ],
             "categories": [],
             "fields": {
               "slug": "/recipes/salada-francesa-do-@caio"
@@ -67,8 +103,19 @@
           "node": {
             "id": "f6e357c8-5af6-56b7-bbb2-c947f06f17a9",
             "shortTitle": "Strogonoff com Maionese do @brogui",
-            "cookingTime": 30,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "2",
+              "makes": null,
+              "cookingTime": 30,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 30
+            },
             "creationTime": "2019-05-13T13:47:00Z",
             "title": "Strogonoff com Maionese do @brogui",
             "localImage": {
@@ -83,6 +130,33 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Corte a carne em tirinhas e não cubinhos."
+              },
+              {
+                "position": 2,
+                "description": "Em uma panela, aqueça o filé mignon."
+              },
+              {
+                "position": 3,
+                "description": "Adicione os cogumelos,  o ketchup HELLMANN'S, o molho de mostarda HELLMANN'S e o molho inglês."
+              },
+              {
+                "position": 4,
+                "description": "Cozinhe por 5 minutos."
+              },
+              {
+                "position": 5,
+                "description": "Acrescente a maionese HELLMANN'S e misture até ficar homogêneo e cremoso."
+              },
+              {
+                "position": 6,
+                "description": "Sirva a seguir"
+              }
+            ],
             "ingredients": [
               {
                 "productId": "4996",
@@ -137,8 +211,19 @@
           "node": {
             "id": "c9b4c983-03d8-5ba7-8c29-ecc7293405b7",
             "shortTitle": "Bolinho de Tapioca, carne e queijo da @crispimichele",
-            "cookingTime": 30,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "4",
+              "makes": "15",
+              "cookingTime": 30,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 30
+            },
             "creationTime": "2019-05-13T13:27:24Z",
             "title": "Bolinho de Tapioca, carne e queijo da @crispimichele",
             "localImage": {
@@ -153,6 +238,33 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Em um recipiente, colocar a tapioca granulada e juntar o leite quente. Reservar por 5 minutos para hidratar."
+              },
+              {
+                "position": 2,
+                "description": "Cortar em pedaços pequenos a carne (já assada ou grelhada) e levar a um mixer para triturar."
+              },
+              {
+                "position": 3,
+                "description": "Na tapioca hidratada (caso a tapioca fique um pouco dura, junte mais um pouco de leite quente para poder mexer e agregar os demais ingredientes), adicionar a carne triturada, o queijo parmesão ralado, a salsinha, uma colher cheia de maionese Hellmans e temperar com sal e pimenta-do-reino."
+              },
+              {
+                "position": 4,
+                "description": "Abrir uma pequena porção e rechear com um bastão de muçarela e enrolar como um croquete."
+              },
+              {
+                "position": 5,
+                "description": "Passar no ovo batido e em seguida, na farinha panko."
+              },
+              {
+                "position": 6,
+                "description": "Fritar em óleo quente, retirar o excesso de óleo em papel absorvente e servir."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -209,8 +321,19 @@
           "node": {
             "id": "f941cf66-dfc9-554b-9088-7efb63805757",
             "shortTitle": "Rosebife de filé mignon do @andremifano",
-            "cookingTime": 65,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "4",
+              "makes": null,
+              "cookingTime": 65,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 65
+            },
             "creationTime": "2019-05-09T21:04:39Z",
             "title": "Rosebife de filé mignon do @andremifano",
             "localImage": {
@@ -225,6 +348,65 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Temperar a peça inteira de carne com sal"
+              },
+              {
+                "position": 2,
+                "description": "Misturar a mostarda e salsinha e lambuzar a carne"
+              },
+              {
+                "position": 3,
+                "description": "Em uma frigideira grande bem quente ou chapa, selar a carne até dourada em todos os lados."
+              },
+              {
+                "position": 4,
+                "description": "Embrulhar ainda quente em filme de pvc e reservar."
+              },
+              {
+                "position": 5,
+                "description": "Na hora de servir, retirar do filme e levar ao forno pré aquecido a 200° po 10 min"
+              },
+              {
+                "position": 6,
+                "description": "Fatiar e servir"
+              },
+              {
+                "position": 7,
+                "description": "Amassar a batata e misturar bem com as gemas, manteiga, sal e noz moscada"
+              },
+              {
+                "position": 8,
+                "description": "Colocar em um saco de confeiteiro e aplicar em uma assadeira com papel manteiga."
+              },
+              {
+                "position": 9,
+                "description": "Bater levemente o ovo e o creme e pincelar sobre as batatas"
+              },
+              {
+                "position": 10,
+                "description": "Assar em forno pré aquecido a 200° até dourar. 40 a 45 min"
+              },
+              {
+                "position": 11,
+                "description": "Picar os cogumelos finamente"
+              },
+              {
+                "position": 12,
+                "description": "Aquecer a manteiga em uma frigideira e colocar a cebola e o alho."
+              },
+              {
+                "position": 13,
+                "description": "Acrescentar os cogumelos e a salsinha"
+              },
+              {
+                "position": 14,
+                "description": "Cozinhar até ficar seco porém não dourar."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -305,8 +487,19 @@
           "node": {
             "id": "7d441014-33f5-54d0-93ef-b78d5c2e07ca",
             "shortTitle": "CARNE LOUCA CREMOSA",
-            "cookingTime": 0,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "1",
+              "makes": null,
+              "cookingTime": 0,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 10
+            },
             "creationTime": "2018-11-09T15:06:11Z",
             "title": "CARNE LOUCA CREMOSA",
             "localImage": {
@@ -321,6 +514,25 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Numa frigideira antiaderente, coloque o óleo e leve ao fogo alto para aquecer."
+              },
+              {
+                "position": 2,
+                "description": "Refogue a cebola e o alho rapidamente. Junte os pimentões, a carne cozida e a páprica, e\r\nmisture bem."
+              },
+              {
+                "position": 3,
+                "description": "Acrescente o molho inglês, o ketchup e a maionese HELLMANN´S, e mexa até ficar bem homogêneo."
+              },
+              {
+                "position": 4,
+                "description": "Retire do fogo, finalize com o cheiro-verde, e sirva em seguida."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -395,8 +607,19 @@
           "node": {
             "id": "e02e3fb1-82e7-52ea-abfa-8001cc7a2cfa",
             "shortTitle": "SALADA GREGA Vegana",
-            "cookingTime": 10,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "4",
+              "makes": null,
+              "cookingTime": 10,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 10
+            },
             "creationTime": "2018-10-11T19:57:41Z",
             "title": "Salada Grega Vegana",
             "localImage": {
@@ -411,6 +634,21 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Em uma tigela coloque o pepino, o tomate, a cebola, e misture delicadamente."
+              },
+              {
+                "position": 2,
+                "description": "Disponha as folhas de hortelã e a HELLMANN´S Vegana."
+              },
+              {
+                "position": 3,
+                "description": "Misture antes de consumir."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -455,8 +693,19 @@
           "node": {
             "id": "11826b1e-0248-56b4-ad0a-201f54143382",
             "shortTitle": "Estrogonofe de Cogumelos Vegano",
-            "cookingTime": 20,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "4",
+              "makes": "4",
+              "cookingTime": 20,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 20
+            },
             "creationTime": "2018-10-03T18:40:12Z",
             "title": "Estrogonofe de Cogumelos Vegano",
             "localImage": {
@@ -471,6 +720,21 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Em uma panela, coloque o azeite e leve ao fogo alto para aquecer bem. Junte a cebola e o alho, e refogue até dourarem."
+              },
+              {
+                "position": 2,
+                "description": "Acrescente os cogumelos, o sal, a pimenta e a páprica, e misture bem. Adicione a HELLMANN´S Vegana, o tomate e a água, e deixe cozinhar em fogo médio por 5 minutos, ou até encorpar."
+              },
+              {
+                "position": 3,
+                "description": "Retire do fogo e sirva em seguida."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -540,8 +804,19 @@
           "node": {
             "id": "d3ff2b89-9c1f-5ebb-8471-7641bb65e815",
             "shortTitle": "Fideuá com Molho Branco Vegano",
-            "cookingTime": 10,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "5",
+              "makes": null,
+              "cookingTime": 10,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 10
+            },
             "creationTime": "2018-10-01T13:29:20Z",
             "title": "Fideuá com Molho Branco Vegano",
             "localImage": {
@@ -556,6 +831,37 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Em uma frigideira aqueça o azeite e refogue os aspargos, reserve."
+              },
+              {
+                "position": 2,
+                "description": "Quebre o macarrão em pedaços de aproximadamente 3cm e regue com um fio de azeite"
+              },
+              {
+                "position": 3,
+                "description": "Asse em forno pré aquecido a 180° por 10min ou até que estejam dourados."
+              },
+              {
+                "position": 4,
+                "description": "Em uma frigideira grande, aqueça o leite de amêndoas."
+              },
+              {
+                "position": 5,
+                "description": "Junte o macarrão assado para finalizar o cozimento (cerca de 5 minutos)."
+              },
+              {
+                "position": 6,
+                "description": "Adicione a maionese HELLMANN’S Vegana, as rodelas de aspargos e misture bem."
+              },
+              {
+                "position": 7,
+                "description": "Retire do fogo, decore com as pontas de aspargos, os brotos, as flores e as amêndoas. Sirva a seguir."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -608,8 +914,19 @@
           "node": {
             "id": "0f31e4a9-9c39-5212-bbda-5c5830b8dbf8",
             "shortTitle": "HAMBÚRGUER VEGANO",
-            "cookingTime": 30,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "4",
+              "makes": null,
+              "cookingTime": 30,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 30
+            },
             "creationTime": "2018-09-28T17:51:37Z",
             "title": "HAMBÚRGUER VEGANO",
             "localImage": {
@@ -624,6 +941,29 @@
                 }
               }
             },
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Em uma frigideira, coloque o azeite e leve ao fogo alto para aquecer."
+              },
+              {
+                "position": 2,
+                "description": "Junte os hambúrgueres e frite por 4 minutos de a cada lado ou até dourar."
+              },
+              {
+                "position": 3,
+                "description": "Passe a HELLMANN´S Vegana na parte de baixo dos pães e disponha os hambúrgueres."
+              },
+              {
+                "position": 4,
+                "description": "Distribua, por cima, as rodelas de pimentão, os tomates, a beterraba fatiada e as folhas de beterraba."
+              },
+              {
+                "position": 5,
+                "description": "Feche com a parte de cima dos pães e sirva em seguida."
+              }
+            ],
             "ingredients": [
               {
                 "productId": null,
@@ -676,8 +1016,20 @@
           "node": {
             "id": "3e9795f6-f490-59a4-91f7-0d6f287e6a9f",
             "shortTitle": "Fritas Burger",
-            "cookingTime": 15,
-            "preparationTime": 0,
+            "recipeDetails": {
+              "serves": "2",
+              "makes": "2",
+              "cookingTime": 15,
+              "preparationTime": 0,
+              "waitingTime": 0,
+              "marinateTime": 0,
+              "ovenTime": 0,
+              "freezeTime": 0,
+              "chillTime": 0,
+              "brewTime": 0,
+              "totalTime": 15
+            },
+
             "creationTime": "2018-07-04T21:26:00Z",
             "title": "Fritas Burger",
             "localImage": {
@@ -703,6 +1055,25 @@
                     "name": "New Year's Day"
                   }
                 ]
+              }
+            ],
+
+            "methods": [
+              {
+                "position": 1,
+                "description": "Aqueça em fogo alto uma frigideira antiaderente, disponha os hambúrgueres e frite-os, por 3 minutos de cada lado, ou até que dourem bem. Salpique o sal no momento da fritura, se necessário."
+              },
+              {
+                "position": 2,
+                "description": "Cubra os hambúrgueres com as fatias de queijo, tampe a frigideira e deixe derreter em fogo baixo"
+              },
+              {
+                "position": 3,
+                "description": "Disponha por cima da parte de baixo dos pães os hambúrgueres já com o queijo derretido, as batatas fritas e o ketchup picante HELLMANN´S Burger House"
+              },
+              {
+                "position": 4,
+                "description": "Feche com as outras metades, decore com picles e sirva em seguida"
               }
             ],
             "ingredients": [

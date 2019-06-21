@@ -18,12 +18,15 @@ import {
   sortBy,
 } from './utils';
 
-const RecipeListing = ({
+export const RecipeListing = ({
   className,
   content,
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
+  RemoveTagIcon,
   withFavorite = false,
+  FavoriteIcon,
+  OpenIcon,
   recipePerLoad = 4,
   favorites = [],
   list,
@@ -112,6 +115,7 @@ const RecipeListing = ({
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
+        FavoriteIcon={FavoriteIcon}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
         content={content}
@@ -134,6 +138,7 @@ const RecipeListing = ({
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
+        FavoriteIcon={FavoriteIcon}
         withFavorite={withFavorite}
         onFavoriteChange={changeFavorites}
         content={content}
@@ -147,6 +152,8 @@ const RecipeListing = ({
         <RecipeFilter
           className="recipe-list__filter"
           allFilters={tags}
+          OpenIcon={OpenIcon}
+          RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={listState.filterLength}

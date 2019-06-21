@@ -8,6 +8,7 @@ export interface TagsProps
   extends UnileverLibraryComponent<AppContent.TagsContent> {
   list: ItemProps[];
   isEditable: boolean;
+  RemoveIcon?: JSX.Element;
   tagsPerLoad?: number;
   enableExternalManage?: boolean;
   selectedTags?: ItemProps[];
@@ -24,6 +25,7 @@ export interface TagToggleHandler {
 export interface TagProps {
   tag: ItemProps;
   isEditable: boolean;
+  RemoveIcon?: JSX.Element;
   isToggle?: boolean;
   active?: boolean;
   enableExternalManage?: boolean;

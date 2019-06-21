@@ -21,18 +21,13 @@ describe('Button', () => {
   const buttonIcon: ReactWrapper = mount(
     <Button
       viewType={ButtonViewType.icon}
-      icon={<Icon />}
+      Icon={Icon}
       isToggle
       onClick={callbackFunction}
     />
   );
   const buttonIconPreSelected: ReactWrapper = mount(
-    <Button
-      viewType={ButtonViewType.icon}
-      icon={<Icon />}
-      isSelected
-      isToggle
-    />
+    <Button viewType={ButtonViewType.icon} Icon={Icon} isSelected isToggle />
   );
 
   it('Render classic button with className', () => {
@@ -48,7 +43,7 @@ describe('Button', () => {
     expect(testClick).toEqual(false);
   });
 
-  it('Render icon button', () => {
+  it('Render Icon button', () => {
     expect(buttonIcon.find('button[componentname="button"]')).toBeTruthy();
     expect(buttonIcon.find('svg')).toBeTruthy();
   });

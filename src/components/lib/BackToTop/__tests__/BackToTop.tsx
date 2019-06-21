@@ -16,13 +16,9 @@ describe('Back to top', () => {
     expect(wrapper.find('button[data-componentname="button"]')).toBeTruthy();
   });
 
-  it('Render with icon', () => {
+  it('Render with Icon', () => {
     const wrapper: ReactWrapper = mount(
-      <BackToTop
-        content={content}
-        icon={<Icon />}
-        viewType={ButtonViewType.icon}
-      />
+      <BackToTop content={content} Icon={Icon} viewType={ButtonViewType.icon} />
     );
 
     expect(wrapper.find('button[data-componentname="button"]')).toBeTruthy();
