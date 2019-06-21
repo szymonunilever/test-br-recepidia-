@@ -1,13 +1,8 @@
 export interface RecipeDietaryAttributesProps {
   className?: string;
-  attributes: Attribute[];
+  attributes: RMSData.Tag[];
   icons: Icon[];
-  activeAttributes: Attribute[];
-}
-
-interface Attribute {
-  id: number | string;
-  name: string;
+  activeAttributes: RMSData.Tag[];
 }
 
 export interface Icon {
