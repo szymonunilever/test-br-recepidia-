@@ -1,2 +1,3 @@
-export { default as RecipeCookingMethod } from './RecipeCookingMethod';
+export { default } from './RecipeCookingMethod';
+export { RecipeCookingMethod } from './RecipeCookingMethod';
 export * from './models';

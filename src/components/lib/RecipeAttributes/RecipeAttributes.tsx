@@ -4,7 +4,7 @@ import { RecipeAttributesKeys, RecipeAttributesProps } from './models';
 import theme from './RecipeAttributes.module.scss';
 import { RecipeAttributeCard } from './partials';
 
-const RecipeAttributes = ({
+export const RecipeAttributes = ({
   className,
   content: { labels },
   recipe,

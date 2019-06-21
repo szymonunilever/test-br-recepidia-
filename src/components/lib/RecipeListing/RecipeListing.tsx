@@ -18,7 +18,7 @@ import {
   sortBy,
 } from './utils';
 
-const RecipeListing = ({
+export const RecipeListing = ({
   className,
   content,
   titleLevel = 2,

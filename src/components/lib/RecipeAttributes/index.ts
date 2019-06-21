@@ -1,2 +1,3 @@
-export { default as RecipeAttributes } from './RecipeAttributes';
+export { default } from './RecipeAttributes';
+export { RecipeAttributes } from './RecipeAttributes';
 export * from './models';

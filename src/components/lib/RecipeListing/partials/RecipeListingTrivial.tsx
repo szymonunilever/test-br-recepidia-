@@ -1,5 +1,5 @@
 import React from 'react';
-import { Recommendations } from '../../NullResult';
+import { NullResult } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
 
@@ -31,7 +31,7 @@ const RecipeListingTrivial = ({
         );
       })
     ) : nullResult ? (
-      <Recommendations
+      <NullResult
         content={nullResult}
         className="recipe-list__null-results"
         titleLevel={titleLevel}

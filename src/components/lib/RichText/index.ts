@@ -1,2 +1,3 @@
-export { default as RichText } from './RichText';
+export { default } from './RichText';
+export { RichText } from './RichText';
 export * from './models';

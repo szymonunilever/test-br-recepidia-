@@ -15,14 +15,15 @@
     "chillTime": 0,
     "brewTime": 0
   },
-  "description": "",
+  "shortDescription": "Deliciosa Salada Francesa à sobra",
+  "description": "Deliciosa Salada Francesa à sobra da casa do Caio Braz",
   "imageUrls": [],
   "nutrients": [],
   "nutrientsPerServing": [],
   "nutrientsPer100g": [],
   "calculatedServingWeightg": 0,
   "creationTime": "2019-05-13T16:06:08Z",
-  "title": "Salada Francesa do @caio",
+  "title": "Salada Francesa do @caio form 21.06.2019",
   "ingredients": [
     {
       "productId": null,

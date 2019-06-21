@@ -3,7 +3,7 @@ import React, { MouseEvent, useEffect, useState } from 'react';
 import { ButtonProps, ButtonViewType } from './models';
 import theme from './Button.module.scss';
 
-const Button = ({
+export const Button = ({
   Icon,
   IconSelected = Icon,
   isSelected = false,
