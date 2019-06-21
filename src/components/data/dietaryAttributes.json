@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Vegeterian"
+  },
+  {
+    "id": 2,
+    "name": "Vegan"
+  },
+  {
+    "id": 3,
+    "name": "Nut free"
+  },
+  {
+    "id": 4,
+    "name": "Pregnancy safe"
+  },
+  {
+    "id": 5,
+    "name": "Gluten free"
+  },
+  {
+    "id": 6,
+    "name": "Lactose free"
+  },
+  {
+    "id": 7,
+    "name": "Raw food"
+  },
+  {
+    "id": 8,
+    "name": "Egg free"
+  },
+  {
+    "id": 9,
+    "name": "Dairy free"
+  },
+  {
+    "id": 10,
+    "name": "Paleo diet"
+  },
+  {
+    "id": 11,
+    "name": "Wheat free"
+  }
+]
