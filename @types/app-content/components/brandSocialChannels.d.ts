@@ -11,7 +11,7 @@ declare namespace AppContent.BrandSocialChannels {
     [key: string]: SocialItem;
   }
 
-  export interface SocialItem {
+  interface SocialItem {
     url: string;
     label: string;
   }
