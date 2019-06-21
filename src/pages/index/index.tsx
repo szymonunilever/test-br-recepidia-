@@ -9,22 +9,11 @@ import LogoIcon from 'src/svgs/inline/placeholder.svg';
 import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import { RecipeListing } from 'src/components/lib/RecipeListing';
-import { find, get } from 'lodash';
 import dataSource from 'src/components/data/recipes.json';
 import Hero from 'src/components/lib/Hero';
+import { findPageComponentContent } from 'src/utils';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
-
-export const findComponent = (components: any, name: string, view?: string) => {
-  return get(
-    find(
-      components,
-      ({ name: compName, content }) =>
-        compName === name && content.view === view
-    ),
-    'content'
-  );
-};
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.edges[0].node;
@@ -50,7 +39,7 @@ const HomePage = ({ data }: HomePageProps) => {
       />
       <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
       <RecipeListing
-        content={findComponent(
+        content={findPageComponentContent(
           components,
           'RecipeListing',
           'LatestAndGreatest'
@@ -58,10 +47,17 @@ const HomePage = ({ data }: HomePageProps) => {
         list={listing}
       />
       <RecipeListing
-        content={findComponent(components, 'RecipeListing', 'TopRecipes')}
+        content={findPageComponentContent(
+          components,
+          'RecipeListing',
+          'TopRecipes'
+        )}
         list={listing}
       />
-      <Hero content={findComponent(components, 'Hero')} viewType="Image" />
+      <Hero
+        content={findPageComponentContent(components, 'Hero')}
+        viewType="Image"
+      />
     </Layout>
   );
 };
@@ -80,6 +76,8 @@ export const pageQuery = graphql`
               name
               content {
                 image {
+                  url
+                  alt
                   localImage {
                     childImageSharp {
                       fluid(maxWidth: 1200) {
@@ -87,8 +85,6 @@ export const pageQuery = graphql`
                       }
                     }
                   }
-                  alt
-                  url
                 }
                 primaryCta {
                   label
