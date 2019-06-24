@@ -6,44 +6,57 @@
 
 html, body{
     font-family: $arial;
-    font-size: 16px;
+    font-size: 10px;
+    color:$black-blue;
+}
+.container{
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+    box-sizing: content-box;
 }
 h1,h2,h3,h4,h5,.subheading{
     font-family: $rubik;
     font-weight: 500;
-    margin: 0 1.6rem;
 }
 h1{
-    font-size: 48px;
+    font-size: 4.5rem;
     line-height: 1.19;
 }
 h2{
-    font-size: 34px;
+    font-size: 3.7rem;
     line-height: 1.06;
 }
 h3{
-    font-size: 30px;
+    font-size: 2.5rem;
     line-height: 1.07;
 }
 h4{
-    font-size: 24px;
+    font-size: 1.8rem;
     line-height: 1.17;
 }
 h5{
-    font-size: 21px;
+    font-size: 1.6rem;
     line-height: 1.33;
 }
 h5.h6{
-    font-size: 18px;
+    font-size: 1.4rem;
     line-height: 1.22;
 }
 .subheading{
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.25;
 }
 P{
-    font-size:.875rem;
+    font-size:1.4rem;
     margin: 0 0 10px;
+}
+.color--inverted{
+    h1,h2,h3,h4,h5,p{
+        color: $white;
+    }
 }
 
 

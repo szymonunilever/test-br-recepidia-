@@ -23,8 +23,25 @@ const config: HeroProps = {
     },
   },
 };
+const configPlanner: HeroProps = {
+  className: 'hero--planner color--inverted',
+  viewType: 'Image',
+  content: {
+    header: 'Try our Meal Planner',
+    longSubheader:
+      'We will collect your preferences and customize a weekly menu so you don’t even have to think.',
+    image: {
+      url: '',
+      alt: 'Alt',
+    },
+    primaryCTA: {
+      label: 'Sign me up!',
+      linkTo: '',
+    },
+  },
+};
 
-config.localImage = {
+config.localImage = configPlanner.localImage = {
   id: '0bcf6c75-0450-554d-89c7-85316cc28839',
   childImageSharp: {
     fluid: {
@@ -44,6 +61,10 @@ config.localImage = {
   },
 };
 
-storiesOf('Components/Hero', module).add('Hero Full configuration', () => {
-  return <Hero {...config} />;
-});
+storiesOf('Components/Hero', module)
+  .add('Hero Full configuration', () => {
+    return <Hero {...config} />;
+  })
+  .add('Hero for Meal planer CTA', () => {
+    return <Hero {...configPlanner} />;
+  });

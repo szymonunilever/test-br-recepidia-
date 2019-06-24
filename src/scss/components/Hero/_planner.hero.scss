@@ -1,0 +1,62 @@
+.hero--planner{
+  background-color: $blue-overlay;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 20px 20px 0 0;
+    @include respondTo(desktop) {
+      display: block;
+      position: relative;
+      border-radius: 0;
+    }
+  .hero{
+    &__image{
+      @include respondTo(desktop) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .gatsby-image-wrapper{
+          height: 100%;
+        }
+      }
+    }
+    &__copy{
+      @extend .container;
+      padding-top: 20px;
+      padding-bottom: 40px;
+      text-align: center;
+      @include respondTo(desktop) {
+        position: relative;
+        &>*{
+          width:50%;
+        }
+      }
+    }
+    &__header{
+      h2{
+        @extend h3;
+        @include respondTo(desktop) {
+          font-size: 4.5rem;
+        }
+      }
+    }
+    &__long-subheader{
+      p{
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        @include respondTo(desktop) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+    &__cta-primary{
+      button{
+        @extend .button--rect;
+        @extend .button--signup;
+        @extend .button--medium;
+        @include respondTo(desktop) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
