@@ -15,9 +15,11 @@ const GlobalFooter = ({
     <footer className={classNames} data-componentname="global-footer">
       <Menu list={list} />
       {children}
-      <a href="//www.unilever.com" target="_blank" rel="noopener noreferrer">
-        {logoIcon}
-      </a>
+      {logoIcon && (
+        <a href="//www.unilever.com" target="_blank" rel="noopener noreferrer">
+          {logoIcon}
+        </a>
+      )}
       <span className="global-footer__copyright"> &copy; {copyrightText}</span>
     </footer>
   );
