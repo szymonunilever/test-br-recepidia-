@@ -1,12 +1,12 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Select } from '../src/components/lib/common/Select';
+import { Select } from '../src/components/lib/components/common/Select';
 import selectOptions from '../src/components/data/select.json';
 // import { action } from '@storybook/addon-actions';
 import {
   CheckElem,
   checkElemTypes,
-} from '../src/components/lib/common/CheckElem/index';
+} from '../src/components/lib/components/common/CheckElem/index';
 // import { Button } from '../src/components/lib/common/Button';
 import cx from 'classnames';
 
@@ -18,7 +18,7 @@ import {
   // minValue,
   composeValidators,
   validEmail,
-} from '../src/components/lib/Form';
+} from '../src/components/lib/components/Form';
 
 const options = selectOptions.options;
 
