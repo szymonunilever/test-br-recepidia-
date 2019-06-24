@@ -35,7 +35,7 @@ export const Tabs = ({
   ));
 
   return (
-    <div className={classWrapper}>
+    <div className={classWrapper} data-componentname="tabs">
       <div className="tabs__buttons">{tabs}</div>
       <div className="tabs__items">{tabsContents}</div>
     </div>
