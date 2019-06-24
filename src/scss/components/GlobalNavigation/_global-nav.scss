@@ -166,6 +166,8 @@ $submenu-icon-color: $black-blue;
           .dropdown-icon {
             fill: currentColor;
             font-size: 1.4rem;
+            width: 1em;
+            height: 1em;
           }
         }
 
@@ -238,6 +240,8 @@ $submenu-icon-color: $black-blue;
                 @include respondTo(desktop) {
                   fill: $submenu-icon-color;
                 }
+                width: 1em;
+                height: 1em;
               }
             }
 

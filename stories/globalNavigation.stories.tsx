@@ -18,7 +18,7 @@ const config = {
   login: <Example className="login" text="Login to your account" />,
   dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
   buttonCloseIcon: ButtonCloseIcon,
-  isAccordion: false,
+  isAccordion: true,
 };
 
 const content = {
