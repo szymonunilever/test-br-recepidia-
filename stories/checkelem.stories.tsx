@@ -3,7 +3,7 @@ import React from 'react';
 import {
   CheckElem,
   checkElemTypes,
-} from '../src/components/lib/common/CheckElem/index';
+} from '../src/components/lib/components/common/CheckElem/index';
 
 storiesOf(
   'Components/Form elements/Checkbox+Radio button combined element',

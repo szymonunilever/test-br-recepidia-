@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import RecipeDietaryAttributes from 'src/components/lib/RecipeDietaryAttributes';
+import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 
 import attributes from 'src/components/data/dietaryAttributes.json';
 import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
