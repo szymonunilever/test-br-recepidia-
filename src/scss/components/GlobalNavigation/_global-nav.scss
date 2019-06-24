@@ -251,6 +251,7 @@ $submenu-icon-color: #363840;
         &__link {
           font-size: 1.6rem;
           font-weight: normal;
+          display: block;
           color: inherit;
           text-decoration: none;
           flex: 1;
