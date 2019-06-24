@@ -1,9 +1,10 @@
 $header-height: 80px;
-$header-color: #fff;
-$header-dark-color: #4c6b7f;
 
-$submenu-color: #f4f7f9;
-$submenu-icon-color: #363840;
+$header-color: $white;
+$header-dark-color: $fish-blue;
+
+$submenu-color: $white-gray;
+$submenu-icon-color: $black-blue;
 
 .global-navigation {
   display: flex;
