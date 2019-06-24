@@ -2,26 +2,25 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo/Seo';
-import GlobalNavigation from 'src/components/lib/GlobalNavigation';
-import { Text, TagName } from 'src/components/lib/Text';
+import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
+import { Text, TagName } from 'src/components/lib/components/Text';
 import list from 'src/components/data/globalNavigationMenu.json';
 import LogoIcon from 'src/svgs/inline/placeholder.svg';
 import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
-import { RecipeListing } from 'src/components/lib/RecipeListing';
-import dataSource from 'src/components/data/recipes.json';
-import Hero from 'src/components/lib/Hero';
+import { RecipeListing } from 'src/components/lib/components/RecipeListing';
+import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
-
-const listing = dataSource.data.allRecipe.edges.map(item => item.node);
+import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials';
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.edges[0].node;
+  const components = page.components.items;
   // page.components.items = page.components.items.map(item => ({
   //   ...item,
   //   content: JSON.parse(item.content),
   // }));
-  const components = page.components.items;
+  const recipes = data.allRecipe.nodes;
 
   return (
     <Layout>
@@ -44,7 +43,7 @@ const HomePage = ({ data }: HomePageProps) => {
           'RecipeListing',
           'LatestAndGreatest'
         )}
-        list={listing}
+        list={recipes}
       />
       <RecipeListing
         content={findPageComponentContent(
@@ -52,7 +51,7 @@ const HomePage = ({ data }: HomePageProps) => {
           'RecipeListing',
           'TopRecipes'
         )}
-        list={listing}
+        list={recipes}
       />
       <Hero
         content={findPageComponentContent(components, 'Hero')}
@@ -69,38 +68,13 @@ export const pageQuery = graphql`
     allPage(filter: { type: { eq: "Home" } }) {
       edges {
         node {
-          title
-          type
-          components {
-            items {
-              name
-              content {
-                image {
-                  url
-                  alt
-                  localImage {
-                    childImageSharp {
-                      fluid(maxWidth: 1200) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
-                  }
-                }
-                primaryCta {
-                  label
-                  linkTo
-                  type
-                }
-                recipeLabel
-                sortLabel
-                subtitle
-                title
-                view
-                viewAllRecipesLabel
-              }
-            }
-          }
+          ...PageFields
         }
+      }
+    }
+    allRecipe(skip: 10) {
+      nodes {
+        ...RecipeFields
       }
     }
   }
@@ -109,16 +83,19 @@ export const pageQuery = graphql`
 interface HomePageProps {
   data: {
     allPage: {
-      edges: Edge[];
+      edges: Edge<PageNode>[];
+    };
+    allRecipe: {
+      nodes: RecipeItem[];
     };
   };
 }
 
-interface Edge {
-  node: Node;
+interface Edge<T> {
+  node: T;
 }
 
-interface Node {
+interface PageNode {
   components: {
     items: {
       name: string;
