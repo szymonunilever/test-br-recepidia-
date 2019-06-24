@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import BrandSocialChannels from 'src/components/lib/BrandSocialChannels';
+import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
 
 import Icon from 'src/svgs/inline/placeholder.svg';
 
