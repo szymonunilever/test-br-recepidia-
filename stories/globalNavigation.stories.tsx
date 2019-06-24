@@ -4,10 +4,10 @@ import LogoIcon from 'src/svgs/inline/placeholder.svg';
 import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 
-import GlobalNavigation from 'src/components/lib/GlobalNavigation';
+import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import list from 'src/components/data/globalNavigationMenu.json';
 
-import Example from 'src/components/lib/Example';
+import Example from 'src/components/lib/components/Example';
 
 const config = {
   logo: {
@@ -15,8 +15,8 @@ const config = {
     path: '/',
   },
   login: <Example text="login" />,
-  dropDownIcon: <ArrowDownIcon className="dropdown-icon" />,
-  buttonCloseIcon: <ButtonCloseIcon />,
+  dropDownIcon: ArrowDownIcon,
+  buttonCloseIcon: ButtonCloseIcon,
   isAccordion: false,
 };
 

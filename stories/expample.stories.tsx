@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import Example from '../src/components/lib/Example/Example';
+import Example from '../src/components/lib/components/Example/Example';
 
 storiesOf('Example', module)
   .add('with text', () => <Example text="Hello Example" />, {

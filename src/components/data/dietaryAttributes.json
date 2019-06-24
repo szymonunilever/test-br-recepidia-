@@ -1,0 +1,46 @@
+[
+  {
+    "id": "vegetarian",
+    "name": "Vegeterian"
+  },
+  {
+    "id": "vegan",
+    "name": "Vegan"
+  },
+  {
+    "id": "nutFree",
+    "name": "Nut free"
+  },
+  {
+    "id": "pregnancySafe",
+    "name": "Pregnancy safe"
+  },
+  {
+    "id": "glutenFree",
+    "name": "Gluten free"
+  },
+  {
+    "id": "lactoseFree",
+    "name": "Lactose free"
+  },
+  {
+    "id": "rawFood",
+    "name": "Raw food"
+  },
+  {
+    "id": "eggFree",
+    "name": "Egg free"
+  },
+  {
+    "id": "dairyProductFree",
+    "name": "Dairy free"
+  },
+  {
+    "id": "paleoFree",
+    "name": "Paleo diet"
+  },
+  {
+    "id": "wheatFree",
+    "name": "Wheat free"
+  }
+]

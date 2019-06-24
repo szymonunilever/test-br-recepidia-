@@ -2,10 +2,10 @@ import React from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/SEO/Seo';
 import '../scss/main.scss';
-import { RecipeListing } from 'src/components/lib/RecipeListing';
+import { RecipeListing } from 'src/components/lib/components/RecipeListing';
 import Kritique from '../integrations/Kritique';
 import dataSource from 'src/components/data/recipes.json';
-import { RatingProvider } from 'src/components/lib/Rating';
+import { RatingProvider } from 'src/components/lib/components/Rating';
 
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 
