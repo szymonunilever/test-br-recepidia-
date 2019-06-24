@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.399" height="17.326" viewBox="0 0 23.399 17.326">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-4{fill:none}.cls-1,.cls-2{stroke:inherit;stroke-linecap:round;stroke-width:2px}.cls-1{stroke-linejoin:round}.cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="Group_1509" data-name="Group 1509" transform="translate(-323 -12)">
+        <g id="Group_1" data-name="Group 1" transform="translate(323 12)">
+            <g id="Ellipse_1" class="cls-1" data-name="Ellipse 1">
+                <ellipse cx="6.212" cy="6.212" class="cls-3" rx="6.212" ry="6.212"/>
+                <ellipse cx="6.212" cy="6.212" class="cls-4" rx="5.212" ry="5.212"/>
+            </g>
+            <path id="Line_4" d="M0 0l8.73 5.694" class="cls-2" data-name="Line 4" transform="translate(13.285 10.249)"/>
+        </g>
+    </g>
+</svg>
