@@ -15,6 +15,7 @@ const KritiqueTestPage = ({ location }: KritiqueTestPageProps) => {
       <SEO title="Kritique integration" />
       {/* <Kritique /> */}
       <RecipeListing
+        // @ts-ignore
         list={listing}
         content={{ title: 'Recipes' }}
         ratingProvider={RatingProvider.kritique}

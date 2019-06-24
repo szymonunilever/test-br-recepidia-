@@ -23,7 +23,6 @@ const RecipeCard = ({
   inFavorite = false,
   onFavoriteChange,
   ratingProvider,
-  rating,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -42,12 +41,7 @@ const RecipeCard = ({
   const RatingWidget =
     ratingProvider !== RatingProvider.none ? (
       <>
-        <Rating
-          recipeId={recipeId}
-          rating={rating}
-          provider={ratingProvider}
-          linkTo={slug}
-        />
+        <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
         <Kritique />
       </>
     ) : null;

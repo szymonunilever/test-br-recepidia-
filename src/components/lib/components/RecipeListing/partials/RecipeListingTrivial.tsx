@@ -21,7 +21,6 @@ const RecipeListingTrivial = ({
             <RecipeCard
               id={item.id}
               recipeId={item.recipeId}
-              rating={item.rating}
               inFavorite={withFavorite ? item.inFavorite : false}
               enableSelectFavorite={withFavorite}
               Icon={FavoriteIcon}
