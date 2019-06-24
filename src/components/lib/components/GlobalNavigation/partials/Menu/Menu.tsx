@@ -61,9 +61,14 @@ const Menu = ({
             {link}
             {menuItem.children && (
               <>
-                 <span className={`${className}__dropdown-icon`} onClick={e => {
-                   isSubMenuList && handleClickMenu(e, i);
-                 }}>{dropDownIcon}</span>
+                <span
+                  className={`${className}__dropdown-icon`}
+                  onClick={e => {
+                    isSubMenuList && handleClickMenu(e, i);
+                  }}
+                >
+                  {dropDownIcon}
+                </span>
                 <Menu
                   list={menuItem.children}
                   isOpened={matchItem(i)}
