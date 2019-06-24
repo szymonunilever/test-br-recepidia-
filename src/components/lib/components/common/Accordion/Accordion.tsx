@@ -8,8 +8,8 @@ export const Accordion = ({
   isOpen = true,
   children,
   className,
-  icon,
-  iconOpened,
+  Icon,
+  IconOpened,
 }: AccordionProps) => {
   const [state, setState] = useState(isOpen);
   const onToggle = () => {
@@ -35,7 +35,7 @@ export const Accordion = ({
         onKeyUp={onToggleKeyboard}
       >
         {title ? title : null}
-        {state ? iconOpened : icon}
+        {state ? IconOpened ? <IconOpened /> : null : Icon ? <Icon /> : null}
       </div>
 
       <div className="accordion__body" hidden={!state}>

@@ -4,6 +4,6 @@ export interface AccordionProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
   isOpen?: boolean;
-  icon?: JSX.Element;
-  iconOpened?: JSX.Element;
+  Icon?: any;
+  IconOpened?: any;
 }

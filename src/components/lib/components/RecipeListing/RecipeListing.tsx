@@ -27,6 +27,7 @@ export const RecipeListing = ({
   withFavorite = false,
   FavoriteIcon,
   OpenIcon,
+  FilterIcon,
   recipePerLoad = 4,
   favorites = [],
   list,
@@ -153,6 +154,7 @@ export const RecipeListing = ({
           className="recipe-list__filter"
           allFilters={tags}
           OpenIcon={OpenIcon}
+          FilterIcon={FilterIcon}
           RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}

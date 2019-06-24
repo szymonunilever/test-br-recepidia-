@@ -14,6 +14,7 @@ const Filter = ({
   className,
   allFilters,
   OpenIcon,
+  FilterIcon,
   RemoveTagIcon,
   onChangeSorting,
   onChangeFilter,
@@ -85,6 +86,7 @@ const Filter = ({
       <FilterSettings
         allFilters={allFilters}
         onFilterChange={onFilterChange}
+        OpenIcon={OpenIcon}
         filtersSelected={state.filterTags}
         hidden={!state.showFilterSettings}
         content={content}
@@ -92,7 +94,7 @@ const Filter = ({
       />
       <Button
         className="recipe-filter__button"
-        Icon={OpenIcon}
+        Icon={FilterIcon}
         viewType={ButtonViewType.classic}
         onClick={toggleFilterSettings}
       />

@@ -66,6 +66,7 @@ export interface RecipeFilterProps
   results: number;
   sortSelectPlaceholder: string;
   OpenIcon?: JSX.Element;
+  FilterIcon?: JSX.Element;
   RemoveTagIcon?: JSX.Element;
 }
 
@@ -75,5 +76,7 @@ export interface FilterSettingsProps
   onFilterChange: (filter: RMSData.Tag[]) => void;
   filtersSelected: RMSData.Tag[];
   hidden?: boolean;
+  OpenIcon?: JSX.Element;
+  CloseIcon?: JSX.Element;
   onApply: () => void;
 }

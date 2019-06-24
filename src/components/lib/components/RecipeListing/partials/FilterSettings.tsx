@@ -12,6 +12,8 @@ const FilterSettings = ({
   allFilters,
   filtersSelected,
   onFilterChange,
+  OpenIcon,
+  CloseIcon = OpenIcon,
   className,
   hidden,
   onApply,
@@ -41,6 +43,8 @@ const FilterSettings = ({
             <Accordion
               className="filter-settings__category-header"
               title={item.name}
+              Icon={OpenIcon}
+              IconOpened={CloseIcon}
             >
               <Tags
                 isEditable={false}
