@@ -6,6 +6,7 @@ import theme from './Hero.modules.scss';
 import Text from '../Text/Text';
 import { TagName } from '../Text';
 import { navigate } from 'gatsby';
+import { get } from 'lodash';
 import { Button } from '../common/Button';
 
 const Hero = (props: HeroProps) => {
@@ -22,15 +23,13 @@ const Hero = (props: HeroProps) => {
     const { secondaryCTA } = props.content;
     secondaryCTA && secondaryCTA.linkTo && navigate(secondaryCTA.linkTo);
   };
+  const image = get(props, 'content.image');
 
   return (
     <div data-componentname="hero" className={containerStyles}>
-      {props.viewType === 'Image' && props.content.image && props.localImage && (
+      {props.viewType === 'Image' && image.localImage && (
         <div className={imageStyles} onClick={goByPrimaryCTA}>
-          <Img
-            fluid={props.localImage.childImageSharp.fluid}
-            alt={props.content.image.alt}
-          />
+          <Img fluid={image.localImage.childImageSharp.fluid} alt={image.alt} />
         </div>
       )}
 

@@ -10,7 +10,6 @@ const Layout = ({ title, children }: LayoutProps) => {
         </h1>
       </header>
       <main>{children}</main>
-      <footer>© {new Date().getFullYear()}</footer>
     </div>
   );
 };
@@ -19,6 +18,6 @@ export default Layout;
 
 interface LayoutProps {
   location?: Location;
-  title: string;
+  title?: string;
   children?: any; // eslint-disable-line
 }

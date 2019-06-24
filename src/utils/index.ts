@@ -1,0 +1,1 @@
+export { findPageComponentContent } from './findPageComponentContent';
