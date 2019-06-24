@@ -44,8 +44,8 @@ const GlobalNavigation = ({
         list={list}
       />
 
-      {children}
       {login}
+      {children}
     </header>
   );
 };

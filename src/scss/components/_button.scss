@@ -1,7 +1,7 @@
 .button{
   &--rect{
     height: 40px;
-    border-radius: 5px
+    border-radius: 5px;
   }
   &--primary{
     @extend .button--rect;
