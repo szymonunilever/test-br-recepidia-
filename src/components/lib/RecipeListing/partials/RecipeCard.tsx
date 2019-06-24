@@ -8,9 +8,12 @@ import Icon from 'src/svgs/inline/plus.svg';
 import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
+import { RatingProvider } from '../../Rating/models';
+import Rating from '../../Rating';
 
 const RecipeCard = ({
   id,
+  recipeId,
   content: { title },
   imgObject,
   enableSelectFavorite = false,
@@ -19,6 +22,8 @@ const RecipeCard = ({
   className = '',
   inFavorite = false,
   onFavoriteChange,
+  ratingProvider,
+  rating,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -28,13 +33,22 @@ const RecipeCard = ({
       className="recipe-card__title"
     />
   ) : null;
-
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
       onFavoriteChange({ id, val });
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
+  const RatingWidget =
+    ratingProvider !== RatingProvider.none ? (
+      <Rating
+        recipeId={recipeId}
+        rating={rating}
+        provider={ratingProvider}
+        linkTo={slug}
+      />
+    ) : null;
+
   const resultView = enableSelectFavorite ? (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Button
@@ -47,11 +61,13 @@ const RecipeCard = ({
       />
       <Img className="recipe-card__image" fluid={imgObject} alt={title} />
       {itemTitle}
+      {RatingWidget}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Img className="recipe-card__image" fluid={imgObject} alt={title} />
       {itemTitle}
+      {RatingWidget}
     </Link>
   );
   return <>{resultView} </>;

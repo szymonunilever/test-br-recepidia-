@@ -37,12 +37,15 @@ export interface RecipeCardFavoriteCallback {
 export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
+  recipeId: string;
   enableSelectFavorite?: boolean;
   imgObject?: FluidObject;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   slug: string;
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  ratingProvider: RatingProvider;
+  rating?: RecipeRating;
 }
 
 export interface RecipeListingTrivialProps

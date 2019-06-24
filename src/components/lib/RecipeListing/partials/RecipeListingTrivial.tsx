@@ -2,7 +2,6 @@ import React from 'react';
 import { Recommendations } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
-import Rating from '../../Rating';
 import { RatingProvider } from '../../Rating/models';
 
 const RecipeListingTrivial = ({
@@ -20,6 +19,8 @@ const RecipeListingTrivial = ({
           <li key={item.id} className="recipe-list__item">
             <RecipeCard
               id={item.id}
+              recipeId={item.recipeId}
+              rating={item.rating}
               inFavorite={withFavorite ? item.inFavorite : false}
               enableSelectFavorite={withFavorite}
               titleLevel={titleLevel}
@@ -27,15 +28,8 @@ const RecipeListingTrivial = ({
               content={{ title: item.shortTitle }}
               slug={item.fields.slug}
               onFavoriteChange={onFavoriteChange}
+              ratingProvider={ratingProvider}
             />
-            {ratingProvider !== RatingProvider.none ? (
-              <Rating
-                recipeId={item.recipeId}
-                rating={item.rating}
-                provider={ratingProvider}
-                linkTo={item.fields.slug}
-              />
-            ) : null}
           </li>
         );
       })

@@ -4,6 +4,16 @@ export enum RatingProvider {
   none,
 }
 
+export enum RatingEntityType {
+  recipe = 'recipe',
+  product = 'product',
+  article = 'article',
+}
+
+export enum RatingSymmaryTemplate {
+  inline01 = 'inline01',
+}
+
 export interface RatingProps {
   rating?: RecipeRating;
   provider: RatingProvider;
