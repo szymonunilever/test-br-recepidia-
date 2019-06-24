@@ -1,0 +1,25 @@
+.backToTop {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  bottom: 25px;
+  right: 25px;
+  fill: #fff;
+  font-size: 30px;
+  background: $apple-green;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  @include respondTo(desktop) {
+    width: 58px;
+    height: 58px;
+    bottom: 50px;
+    right: 200px;
+  }
+  &[hidden] {
+    display: none;
+  }
+}
