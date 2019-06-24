@@ -13,7 +13,7 @@ const KritiqueTestPage = ({ location }: KritiqueTestPageProps) => {
   return (
     <Layout location={location} title={'smth'}>
       <SEO title="Kritique integration" />
-      <Kritique />
+      {/* <Kritique /> */}
       <RecipeListing
         list={listing}
         content={{ title: 'Recipes' }}
