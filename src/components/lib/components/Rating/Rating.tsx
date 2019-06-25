@@ -5,14 +5,12 @@ import {
   RatingSymmaryTemplate,
   RatingEntityType,
 } from './models';
-import Kritique from 'integrations/Kritique';
 
 const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
   return (
     <>
       {provider === RatingProvider.kritique ? (
         <>
-          <Kritique />
           <div
             className="rr-widget-container rr-container"
             data-summary-template={RatingSymmaryTemplate.inline01}
