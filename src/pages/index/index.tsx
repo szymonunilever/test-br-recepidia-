@@ -9,7 +9,6 @@ import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
 import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials';
 import { RatingProvider } from 'src/components/lib/components/Rating';
-import Kritique from 'integrations/Kritique';
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.edges[0].node;
@@ -19,7 +18,6 @@ const HomePage = ({ data }: HomePageProps) => {
   return (
     <Layout>
       <SEO title="Recepedia Home" />
-      <Kritique />
 
       <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
       <section>
