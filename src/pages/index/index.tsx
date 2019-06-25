@@ -8,6 +8,7 @@ import { RecipeListing } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
 import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials';
+import { RatingProvider } from 'src/components/lib/components/Rating';
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.edges[0].node;
@@ -27,6 +28,7 @@ const HomePage = ({ data }: HomePageProps) => {
             'LatestAndGreatest'
           )}
           list={recipes}
+          ratingProvider={RatingProvider.kritique}
         />
       </section>
 
@@ -38,6 +40,7 @@ const HomePage = ({ data }: HomePageProps) => {
             'TopRecipes'
           )}
           list={recipes}
+          ratingProvider={RatingProvider.kritique}
         />
       </section>
 
@@ -89,6 +92,7 @@ interface PageNode {
   components: {
     items: {
       name: string;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       content: any;
     }[];
   };

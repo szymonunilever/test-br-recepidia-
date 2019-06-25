@@ -3,7 +3,6 @@ import React from 'react';
 // @ts-ignore
 import Icon from 'src/svgs/inline/arrow-up.svg';
 import { BackToTop } from '../src/components/lib/components/BackToTop';
-import { ButtonViewType } from '../src/components/lib/components/common/Button';
 
 const page = {
   height: '200vh',

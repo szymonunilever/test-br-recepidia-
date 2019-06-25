@@ -89,7 +89,7 @@ interface SeoProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta: any;
   title?: string;
-  children?: any;
+  children?: JSX.Element[] | JSX.Element;
 }
 
 export default SEO;

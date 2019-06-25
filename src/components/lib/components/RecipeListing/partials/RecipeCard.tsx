@@ -8,7 +8,6 @@ import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 import { RatingProvider } from '../../Rating/models';
 import Rating from '../../Rating';
-import Kritique from 'src/integrations/Kritique';
 
 const RecipeCard = ({
   id,
@@ -38,17 +37,13 @@ const RecipeCard = ({
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
-<<<<<<< HEAD
   const RatingWidget =
     ratingProvider !== RatingProvider.none ? (
       <>
         <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
-        <Kritique />
       </>
     ) : null;
 
-  const resultView = enableSelectFavorite ? (
-=======
   const Image = localImage && (
     <Img
       className="recipe-card__image"
@@ -56,7 +51,6 @@ const RecipeCard = ({
     />
   );
   const view = enableSelectFavorite ? (
->>>>>>> develop
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Button
         className="recipe-card__favorite"
