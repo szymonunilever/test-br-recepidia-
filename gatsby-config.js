@@ -68,7 +68,7 @@ module.exports = {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: 'Recipe',
-        imagePath: 'assets.image.default[0].url',
+        imagePath: 'assets.images.default.url',
         // imagePath: 'imageUrl',
       },
     },
