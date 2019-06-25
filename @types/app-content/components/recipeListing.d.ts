@@ -6,7 +6,7 @@ declare namespace AppContent.RecipeListing {
     resultLabelPlural?: string;
     optionLabels?: OptionLabels;
     sortSelectPlaceholder?: string;
-    nullResult: NullResult;
+    nullResult?: NullResult;
     filtersCta?: FiltersCTA;
   }
   interface OptionLabels {

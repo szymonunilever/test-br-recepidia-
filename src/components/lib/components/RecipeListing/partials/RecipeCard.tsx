@@ -6,11 +6,14 @@ import { TagName, Text } from '../../Text';
 import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
+import { RatingProvider } from '../../Rating/models';
+import Rating from '../../Rating';
 
 const RecipeCard = ({
   id,
+  recipeId,
   content: { title },
-  imgObject,
+  localImage,
   Icon,
   enableSelectFavorite = false,
   titleLevel = 3,
@@ -18,6 +21,7 @@ const RecipeCard = ({
   className = '',
   inFavorite = false,
   onFavoriteChange,
+  ratingProvider,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -27,14 +31,26 @@ const RecipeCard = ({
       className="recipe-card__title"
     />
   ) : null;
-
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
       onFavoriteChange({ id, val });
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
-  const resultView = enableSelectFavorite ? (
+  const RatingWidget =
+    ratingProvider !== RatingProvider.none ? (
+      <>
+        <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
+      </>
+    ) : null;
+
+  const Image = localImage && (
+    <Img
+      className="recipe-card__image"
+      fluid={localImage.childImageSharp.fluid}
+    />
+  );
+  const view = enableSelectFavorite ? (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Button
         className="recipe-card__favorite"
@@ -44,16 +60,19 @@ const RecipeCard = ({
         isToggle={true}
         viewType={ButtonViewType.icon}
       />
-      <Img className="recipe-card__image" fluid={imgObject} />
+      {Image}
       {itemTitle}
+      {RatingWidget}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <Img className="recipe-card__image" fluid={imgObject} />
+      {Image}
       {itemTitle}
+      {RatingWidget}
     </Link>
   );
-  return <>{resultView} </>;
+
+  return view;
 };
 
 export default RecipeCard;

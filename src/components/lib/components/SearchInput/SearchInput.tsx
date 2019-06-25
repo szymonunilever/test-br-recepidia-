@@ -21,8 +21,11 @@ const SearchInput = ({
   const [data, setData] = useState<string[]>([]);
   const [timerId, setTimerId] = useState();
 
-  const filterData: FilterData = (data, val) =>
-    val.length ? data.filter((item: string) => item.includes(val)) : [];
+  const filterData: FilterData = (data, val) => {
+    return val.length
+      ? data.filter((text: string) => (text ? text.includes(val) : false))
+      : [];
+  };
 
   const getResults = (searchInputValue: string) => {
     if (searchUrl) {

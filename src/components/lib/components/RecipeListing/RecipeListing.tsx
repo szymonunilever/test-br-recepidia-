@@ -24,9 +24,10 @@ export const RecipeListing = ({
   titleLevel = 2,
   viewType = RecipeListViewType.Base,
   RemoveTagIcon,
-  withFavorite = false,
+  ratingProvider,
   FavoriteIcon,
   OpenIcon,
+  withFavorite = false,
   FilterIcon,
   recipePerLoad = 4,
   favorites = [],
@@ -118,6 +119,7 @@ export const RecipeListing = ({
         recipeCount={listState.listItems.length}
         FavoriteIcon={FavoriteIcon}
         withFavorite={withFavorite}
+        ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
         content={content}
         // @ts-ignore
@@ -141,6 +143,7 @@ export const RecipeListing = ({
         recipeCount={listState.listItems.length}
         FavoriteIcon={FavoriteIcon}
         withFavorite={withFavorite}
+        ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
         content={content}
         // @ts-ignore
