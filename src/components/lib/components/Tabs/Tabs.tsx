@@ -7,36 +7,38 @@ import { Tab } from './partials';
 
 export const Tabs = ({
   className,
-  content: { titles },
+  content: { tabs },
   children = [],
 }: TabsProps) => {
   const classWrapper = cx(theme.tabs, className);
-  const [active, setActive] = useState(titles[0]);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let tabs: JSX.Element[], tabsContents: any;
+  const [active, setActive] = useState(tabs[0].view);
 
-  tabs = children.map((child, index) => (
+  let tabItems: JSX.Element[], tabsContents: JSX.Element[];
+  tabItems = tabs.map(tab => (
     <Button
-      key={index}
+      key={tab.view}
       className="tabs__button"
       isToggle
-      isSelected={active === titles[index]}
+      isSelected={active === tab.view}
       toggleExternalManage={true}
-      onClick={() => setActive(titles[index])}
+      onClick={() => setActive(tab.view)}
     >
-      {titles[index]}
+      {tab.title}
     </Button>
   ));
-
-  tabsContents = children.map((child, index) => (
-    <Tab key={index} active={active === titles[index]}>
+  tabsContents = children.map(child => (
+    <Tab
+      key={child.props.view}
+      active={active === child.props.view}
+      {...child.props}
+    >
       {child.props.children}
     </Tab>
   ));
 
   return (
     <div className={classWrapper} data-componentname="tabs">
-      <div className="tabs__buttons">{tabs}</div>
+      <div className="tabs__buttons">{tabItems}</div>
       <div className="tabs__items">{tabsContents}</div>
     </div>
   );

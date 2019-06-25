@@ -1,5 +1,8 @@
-declare namespace AppContent {
-  interface TabsContent extends BaseContent {
-    titles: string[];
+declare namespace AppContent.Tabs {
+  interface Content extends BaseContent {
+    tabs: Tab[];
+  }
+  interface Tab extends BaseContent {
+    title: string;
   }
 }
