@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import {
   RatingProps,
   RatingProvider,
@@ -25,6 +25,9 @@ const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
               `${window.location.origin}${'/recipes'}`
             }
             title="Recipeeeeeeeeeee"
+            onClick={(e: SyntheticEvent) => {
+              e.stopPropagation();
+            }}
           />
         </>
       ) : null}
