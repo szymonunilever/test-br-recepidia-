@@ -5,7 +5,7 @@ import RecipeCopy, {
   RecipeCopyViewType,
 } from 'src/components/lib/components/RecipeCopy';
 
-const recipe: RMSData.Recipe = {
+const recipe = {
   ...dataSource,
   creationTime: new Date(dataSource.creationTime),
 };
@@ -20,6 +20,7 @@ storiesOf('Components/Recipe Copy', module)
     'viewType: Title',
     () => (
       <RecipeCopy
+        //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.Title}
         content={{}}
@@ -31,6 +32,7 @@ storiesOf('Components/Recipe Copy', module)
     'viewType: ShortTitle',
     () => (
       <RecipeCopy
+        //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.ShortTitle}
         content={{}}
@@ -42,6 +44,7 @@ storiesOf('Components/Recipe Copy', module)
     'viewType: Description',
     () => (
       <RecipeCopy
+        //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.Description}
         content={{}}
@@ -53,6 +56,7 @@ storiesOf('Components/Recipe Copy', module)
     'viewType: ShortDescription',
     () => (
       <RecipeCopy
+        //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.ShortDescription}
         content={{}}
@@ -64,6 +68,7 @@ storiesOf('Components/Recipe Copy', module)
     'viewType: Ingredients',
     () => (
       <RecipeCopy
+        //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.Ingredients}
         content={content}

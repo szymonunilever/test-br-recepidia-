@@ -40,9 +40,10 @@ const config: RecipeAttributesKeys[] = [
   RecipeAttributesKeys.difficulties,
 ];
 
-const recipeData: RMSData.Recipe = Object.assign(dataSource, {
+const recipeData = {
+  ...dataSource,
   creationTime: new Date(dataSource.creationTime),
-});
+};
 
 const icons: RecipeAttributeIcons = {
   preparationTime: RecipeKnife,
@@ -55,6 +56,7 @@ storiesOf('Components/Recipe Attributes', module).add(
   'Default View',
   () => (
     <RecipeAttributes
+      //@ts-ignore
       recipe={recipeData}
       visible={config}
       icons={icons}
