@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
+const integrations = require('./integrations.json');
 
 module.exports = {
   siteMetadata: {
@@ -41,7 +42,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     'gatsby-transformer-remark',
@@ -50,6 +50,28 @@ module.exports = {
       options: {
         src: path.join(__dirname, 'src'),
         lib: path.join(__dirname, 'src/components/lib'),
+      },
+    },
+    {
+      resolve: `gatsby-source-rms`,
+      options: {
+        endpoint: integrations.middleware.recipesEndpoint,
+        key: integrations.middleware.key,
+      },
+    },
+    {
+      resolve: `gatsby-source-content`,
+      options: {
+        endpoint: integrations.middleware.pagesEndpoint,
+        key: integrations.middleware.key,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'Recipe',
+        imagePath: 'assets.image.default[0].url',
+        // imagePath: 'imageUrl',
       },
     },
   ],

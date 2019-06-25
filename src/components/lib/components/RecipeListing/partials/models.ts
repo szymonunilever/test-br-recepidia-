@@ -36,7 +36,7 @@ export interface RecipeCardProps
   id: string;
   recipeId: string;
   enableSelectFavorite?: boolean;
-  imgObject?: FluidObject;
+  localImage?: LocalImage;
   titleLevel?: titleLevel;
   slug: string;
   Icon?: JSX.Element;

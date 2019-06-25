@@ -3,10 +3,7 @@ declare namespace AppContent {
     header?: string;
     shortSubheader?: string;
     longSubheader?: string;
-    image?: {
-      url: string;
-      alt: string;
-    };
+    image?: AppContent.ImageContent;
     primaryCTA?: AppContent.CTAContent;
     secondaryCTA?: AppContent.CTAContent;
   }

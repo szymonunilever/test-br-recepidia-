@@ -14,7 +14,7 @@ const RecipeCard = ({
   id,
   recipeId,
   content: { title },
-  imgObject,
+  localImage,
   Icon,
   enableSelectFavorite = false,
   titleLevel = 3,
@@ -38,6 +38,7 @@ const RecipeCard = ({
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
+<<<<<<< HEAD
   const RatingWidget =
     ratingProvider !== RatingProvider.none ? (
       <>
@@ -47,6 +48,15 @@ const RecipeCard = ({
     ) : null;
 
   const resultView = enableSelectFavorite ? (
+=======
+  const Image = localImage && (
+    <Img
+      className="recipe-card__image"
+      fluid={localImage.childImageSharp.fluid}
+    />
+  );
+  const view = enableSelectFavorite ? (
+>>>>>>> develop
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       <Button
         className="recipe-card__favorite"
@@ -56,18 +66,19 @@ const RecipeCard = ({
         isToggle={true}
         viewType={ButtonViewType.icon}
       />
-      <Img className="recipe-card__image" fluid={imgObject} />
+      {Image}
       {itemTitle}
       {RatingWidget}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <Img className="recipe-card__image" fluid={imgObject} />
+      {Image}
       {itemTitle}
       {RatingWidget}
     </Link>
   );
-  return <>{resultView} </>;
+
+  return view;
 };
 
 export default RecipeCard;
