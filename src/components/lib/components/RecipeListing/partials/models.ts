@@ -28,7 +28,7 @@ export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
   enableSelectFavorite?: boolean;
-  imgObject?: FluidObject;
+  localImage?: LocalImage;
   titleLevel?: titleLevel;
   slug: string;
   Icon?: JSX.Element;

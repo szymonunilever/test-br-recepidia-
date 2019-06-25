@@ -6,7 +6,6 @@ export interface GlobalNavigationProps
   logo: LogoProps;
   dropDownIcon: JSX.Element;
   buttonCloseIcon: JSX.Element;
-  searchBar?: JSX.Element;
   login?: JSX.Element;
   children?: React.ReactNode;
   isAccordion?: boolean;
