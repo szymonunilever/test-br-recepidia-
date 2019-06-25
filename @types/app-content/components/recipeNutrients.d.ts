@@ -1,5 +1,5 @@
 declare namespace AppContent {
-  interface RecipeNutrientsContent {
+  interface RecipeNutrientsContent extends BaseContent {
     titlePer100: string;
     titlePerServing: string;
     titleTotal: string;
