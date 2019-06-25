@@ -5,13 +5,10 @@ const integrations = require('./integrations/keys.json');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Unilever Theme',
-    author: '',
-    description: 'Unilever theme',
-    siteUrl: 'https://themealplanner.netlify.com/',
-    social: {
-      twitter: 'kylemathews',
-    },
+    title: 'Recipedia',
+    author: 'Unilever',
+    description: 'Recipedia application',
+    siteUrl: 'https://recipedia.netlify.com/',
   },
   plugins: [
     'gatsby-transformer-sharp',
