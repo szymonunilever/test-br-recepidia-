@@ -6,34 +6,21 @@ export const query = graphql`
   fragment PageFields on Page {
     title
     type
+    relativePath
     components {
-      items {
-        name
-        content {
-          image {
-            url
-            alt
-            localImage {
-              childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
+      name
+      assets {
+        url
+        alt
+        localImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
-          primaryCta {
-            label
-            linkTo
-            type
-          }
-          recipeLabel
-          sortLabel
-          subtitle
-          title
-          view
-          viewAllRecipesLabel
         }
       }
+      content
     }
   }
 `;

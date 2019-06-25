@@ -10,11 +10,16 @@ exports.sourceNodes = async (
   delete configOptions.plugins;
 
   const processPage = page => {
-    const nodeId = createNodeId(`recipe-${page.type}`);
-    page.components.items = page.components.items.map(component => ({
-      ...component,
-      // content: JSON.stringify(component.content),
-    }));
+    const nodeId = createNodeId(`page-${page.type}`);
+    page.components = page.components.items.map(component => {
+      const assets = component.content.image ? [component.content.image] : [];
+
+      return {
+        name: component.name,
+        content: JSON.stringify(component.content),
+        assets,
+      };
+    });
     const nodeContent = JSON.stringify(page);
     const nodeData = Object.assign({}, page, {
       id: nodeId,

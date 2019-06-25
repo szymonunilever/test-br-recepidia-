@@ -11,16 +11,16 @@ import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials
 import { RatingProvider } from 'src/components/lib/components/Rating';
 import Kritique from 'integrations/Kritique';
 
-const HomePage = ({ data }: HomePageProps) => {
-  const page = data.allPage.edges[0].node;
-  const components = page.components.items;
+const HomePage = ({ data, pageContext }: HomePageProps) => {
+  const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
+
   return (
     <Layout>
       <SEO title="Recepedia Home" />
       <Kritique />
 
-      <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
+      <Text tag={TagName['h1']} text={title} />
       <section>
         <RecipeListing
           content={findPageComponentContent(
@@ -59,13 +59,6 @@ export default HomePage;
 
 export const pageQuery = graphql`
   {
-    allPage(filter: { type: { eq: "Home" } }) {
-      edges {
-        node {
-          ...PageFields
-        }
-      }
-    }
     allRecipe(skip: 10) {
       nodes {
         ...RecipeFields
@@ -76,12 +69,15 @@ export const pageQuery = graphql`
 
 interface HomePageProps {
   data: {
-    allPage: {
-      edges: Edge<PageNode>[];
-    };
     allRecipe: {
       nodes: RecipeItem[];
     };
+  };
+  pageContext: {
+    title: string;
+    components: {
+      [key: string]: string | number | boolean | object | null;
+    }[];
   };
 }
 
