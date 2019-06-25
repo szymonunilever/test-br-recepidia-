@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const integrations = require('./integrations.json');
+const integrations = require('./integrations/keys.json');
 
 module.exports = {
   siteMetadata: {
@@ -49,6 +49,7 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.join(__dirname, 'src'),
+        integrations: path.join(__dirname, 'integrations'),
         lib: path.join(__dirname, 'src/components/lib'),
       },
     },

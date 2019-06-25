@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -89,7 +89,7 @@ interface SeoProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta: any;
   title?: string;
-  children?: JSX.Element[] | JSX.Element;
+  children?: ReactNode | ReactNode[];
 }
 
 export default SEO;

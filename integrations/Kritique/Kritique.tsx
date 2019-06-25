@@ -3,7 +3,7 @@ import keys from '../keys.json';
 import Helmet from 'react-helmet';
 
 const Kritique = () => {
-  const kritiqueWidjetSrc = `${keys.kritique.url}?brandid=${
+  const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
@@ -20,9 +20,10 @@ const Kritique = () => {
         type="text/javascript"
         async
         id="rr-widget"
-        src={kritiqueWidjetSrc}
+        src={kritiqueWidgetSrc}
       />
-      <script type="text/javascript" async src="/config/RR_widget_config.js" />
+      {/* apply this if needed */}
+      {/* <script type="text/javascript" async src="/config/RR_widget_config.js" /> */}
       <link
         rel="stylesheet"
         type="text/css"

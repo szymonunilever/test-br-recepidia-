@@ -5,7 +5,7 @@ import {
   RatingSymmaryTemplate,
   RatingEntityType,
 } from './models';
-import Kritique from 'src/integrations/Kritique';
+import Kritique from 'integrations/Kritique';
 
 const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
   return (
