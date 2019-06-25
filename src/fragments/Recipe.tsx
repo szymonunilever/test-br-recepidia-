@@ -10,16 +10,12 @@ export const query = graphql`
     }
     id
     ingredients {
-      all_nutrition_complete
-      core_nutrition_complete
       description
-      excluded_from_recipe_nutrition_calc
+      measurementUnit
       multiple
-      original_product_id
-      position
-      product_id
+      originalProductId
+      productId
       quantity
-      unit
     }
     methods {
       description
@@ -33,7 +29,7 @@ export const query = graphql`
     recipeId
     shortDescription
     shortTitle
-    tagCategories {
+    tagGroups {
       label
       name
       tags {

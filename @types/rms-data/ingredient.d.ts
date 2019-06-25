@@ -1,7 +1,7 @@
 declare namespace RMSData {
   export interface Ingredient {
-    product_id?: number | string;
-    original_product_id?: number | string;
+    productId?: number | string | null;
+    originalProductId?: number | string;
     productName?: string;
     quantity?: number;
     multiple?: number;
