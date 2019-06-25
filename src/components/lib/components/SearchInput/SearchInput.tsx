@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, SyntheticEvent, KeyboardEvent } from 'react';
 import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
@@ -53,11 +53,17 @@ const SearchInput = ({
     setData([]);
   };
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
 
     if (onSubmit) {
       onSubmit(inputValue);
+    }
+  };
+
+  const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      submitHandler(e);
     }
   };
 
@@ -82,7 +88,7 @@ const SearchInput = ({
     <div className={classNames} data-componentname="search-input">
       <h3 className="search-input__title">{title}</h3>
 
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form">
         <div className="form__group">
           <label className="form__label" htmlFor="search-input">
             {labelIcon}
@@ -91,6 +97,7 @@ const SearchInput = ({
             className="form__input"
             type="text"
             onChange={onChangeHandler}
+            onKeyPress={onKeyPressHandler}
             value={inputValue}
             id="search-input"
             placeholder={placeholderText}
@@ -99,7 +106,7 @@ const SearchInput = ({
           {buttonReset}
           <button
             className="form__button-submit"
-            type="submit"
+            onClick={submitHandler}
             disabled={!inputHasValue}
           >
             {buttonSubmitIcon}

@@ -8,11 +8,12 @@ import { BackToTopProps, CustomEventTarget } from './models';
 smoothScroll.polyfill();
 export const BackToTop = ({
   className,
+  content,
   hideTopPositionPx = window.innerHeight,
   ...props
 }: BackToTopProps) => {
   const [isHidden, setIsHidden] = useState(true);
-  const wrapClasses = cx(theme.backToTop, className);
+  const wrapClasses = cx('back-to-top', theme.backToTop, className);
   const onClick = () => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   };
@@ -34,13 +35,15 @@ export const BackToTop = ({
     };
   });
 
+  if (isHidden) {
+    return null;
+  }
+
   return (
-    <Button
-      className={wrapClasses}
-      {...props}
-      onClick={onClick}
-      hidden={isHidden}
-    />
+    <div className={wrapClasses}>
+      <Button {...props} onClick={onClick} />
+      <span className="back-to-top--label">{content.label}</span>
+    </div>
   );
 };
 

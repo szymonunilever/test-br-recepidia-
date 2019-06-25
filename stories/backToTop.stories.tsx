@@ -29,11 +29,7 @@ storiesOf('Components/Back To Top', module)
     () => (
       <>
         <div style={page}>
-          <BackToTop
-            content={{ label: undefined }}
-            className="backToTop"
-            Icon={Icon}
-          />
+          <BackToTop content={{ label: undefined }} Icon={Icon} />
         </div>
       </>
     ),

@@ -9,10 +9,13 @@ import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import globalMenuItems from 'src/components/data/globalNavigationMenu.json';
 import 'src/scss/main.scss';
+import BackToTop from '../lib/components/BackToTop/BackToTop';
+import Icon from 'src/svgs/inline/arrow-up.svg';
 
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="global-container">
+      <BackToTop content={{ label: 'Back to top' }} Icon={Icon} />
       <a className="skip-to-content" href="#content">
         Skip To Content
       </a>
