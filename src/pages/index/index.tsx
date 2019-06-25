@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from 'src/components/Layout/Layout';
-import SEO from 'src/components/Seo/Seo';
+// import SEO from 'src/components/Seo/Seo';
 import { Text, TagName } from 'src/components/lib/components/Text';
 
 import { RecipeListing } from 'src/components/lib/components/RecipeListing';
@@ -17,7 +17,7 @@ const HomePage = ({ data }: HomePageProps) => {
 
   return (
     <Layout>
-      <SEO title="Recepedia Home" />
+      {/* <SEO title="Recepedia Home" /> */}
 
       <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
       <section>
