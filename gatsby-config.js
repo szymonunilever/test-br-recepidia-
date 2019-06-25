@@ -1,17 +1,14 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const integrations = require('./integrations.json');
+const integrations = require('./integrations/keys.json');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Unilever Theme',
-    author: '',
-    description: 'Unilever theme',
-    // siteUrl: 'https://gatsby-unilever-theme-demo.netlify.com/',
-    social: {
-      twitter: 'kylemathews',
-    },
+    title: 'Recipedia',
+    author: 'Unilever',
+    description: 'Recipedia application',
+    siteUrl: 'https://recipedia.netlify.com/',
   },
   plugins: [
     'gatsby-transformer-sharp',
@@ -22,7 +19,6 @@ module.exports = {
         //trackingId: 'ADD YOUR TRACKING ID HERE',
       },
     },
-    'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -45,10 +41,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.join(__dirname, 'src'),
+        integrations: path.join(__dirname, 'integrations'),
         lib: path.join(__dirname, 'src/components/lib'),
       },
     },
@@ -70,7 +68,7 @@ module.exports = {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: 'Recipe',
-        imagePath: 'assets.image.default[0].url',
+        imagePath: 'assets.images.default.url',
         // imagePath: 'imageUrl',
       },
     },

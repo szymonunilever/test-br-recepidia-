@@ -16,7 +16,7 @@ export const query = graphql`
       recipeId
       shortTitle
       ingredients {
-        product_id
+        productId
         description
       }
       methods {

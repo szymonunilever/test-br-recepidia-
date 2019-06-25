@@ -73,3 +73,7 @@ P{
     width:auto;
     height:auto;
 }
+
+.rr-box-wrapper:not(:first-child) {
+    display: none;
+}

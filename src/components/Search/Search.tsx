@@ -2,7 +2,6 @@ import React from 'react';
 import { StaticQuery, graphql, navigate } from 'gatsby';
 import SearchInput from '../lib/components/SearchInput/SearchInput';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
-import { string } from 'prop-types';
 
 const Search = () => (
   <StaticQuery

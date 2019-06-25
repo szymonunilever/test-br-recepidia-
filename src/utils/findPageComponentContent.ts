@@ -1,7 +1,7 @@
 import { find, get } from 'lodash';
 
 export const findPageComponentContent = (
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components: any,
   name: string,
   view?: string

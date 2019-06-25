@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Search from 'src/components/Search/Search';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import footerItemsList from 'src/components/data/globalFooterMenu.json';
@@ -47,5 +47,5 @@ export default Layout;
 interface LayoutProps {
   location?: Location;
   title?: string;
-  children?: any; // eslint-disable-line
+  children?: ReactNode | ReactNode[];
 }

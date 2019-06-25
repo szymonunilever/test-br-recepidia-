@@ -1,4 +1,5 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
+import { RatingProvider } from '../../Rating/models';
 import {
   titleLevel,
   UnileverLibraryComponent,
@@ -18,6 +19,12 @@ export interface RecipeItem extends RMSData.Recipe {
   fields: {
     slug: string;
   };
+  recipeId: string;
+  cookingTime: number;
+  preparationTime: number;
+  creationTime: Date;
+  ingredients: RMSData.Ingredient[];
+  categories: RMSData.TagCategory[];
 }
 
 export interface RecipeCardFavoriteCallback {
@@ -27,6 +34,7 @@ export interface RecipeCardFavoriteCallback {
 export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
+  recipeId: string;
   enableSelectFavorite?: boolean;
   localImage?: LocalImage;
   titleLevel?: titleLevel;
@@ -34,6 +42,7 @@ export interface RecipeCardProps
   Icon?: JSX.Element;
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  ratingProvider: RatingProvider;
 }
 
 export interface RecipeListingTrivialProps
@@ -43,6 +52,7 @@ export interface RecipeListingTrivialProps
   FavoriteIcon?: JSX.Element;
   titleLevel?: titleLevel;
   onFavoriteChange?: RecipeCardFavoriteCallback;
+  ratingProvider?: RatingProvider;
 }
 
 export enum RecipeSortingOptions {

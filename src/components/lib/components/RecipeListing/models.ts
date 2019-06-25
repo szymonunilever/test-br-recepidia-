@@ -1,3 +1,4 @@
+import { RatingProvider } from '../Rating';
 import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeFilterOptions, RecipeItem } from './partials';
 
@@ -25,5 +26,6 @@ export interface RecipeListingProps
   list: RecipeItem[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
+  ratingProvider?: RatingProvider;
   tags?: RecipeFilterOptions;
 }

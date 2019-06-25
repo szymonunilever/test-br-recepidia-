@@ -14,7 +14,7 @@ declare namespace RMSData {
     nutrientsPerServing: RMSData.RecipeNutrient[];
     nutrientsPer100g: RMSData.RecipeNutrient[];
     calculatedServingWeightg: number;
-    rating?: number;
+    rating?: RMSData.Rating;
     relatedRecipes?: RMSData.Recipe[];
     /**
      * The property aggregates all tags from the following RMS fields:

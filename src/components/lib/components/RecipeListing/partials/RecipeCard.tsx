@@ -6,9 +6,12 @@ import { TagName, Text } from '../../Text';
 import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
+import { RatingProvider } from '../../Rating/models';
+import Rating from '../../Rating';
 
 const RecipeCard = ({
   id,
+  recipeId,
   content: { title },
   localImage,
   Icon,
@@ -18,6 +21,7 @@ const RecipeCard = ({
   className = '',
   inFavorite = false,
   onFavoriteChange,
+  ratingProvider,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -27,13 +31,19 @@ const RecipeCard = ({
       className="recipe-card__title"
     />
   ) : null;
-
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
       onFavoriteChange({ id, val });
     }
   };
   const wrapClasses = cx(theme['recipe-card'], className);
+  const RatingWidget =
+    ratingProvider !== RatingProvider.none ? (
+      <>
+        <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
+      </>
+    ) : null;
+
   const Image = localImage && (
     <Img
       className="recipe-card__image"
@@ -52,11 +62,13 @@ const RecipeCard = ({
       />
       {Image}
       {itemTitle}
+      {RatingWidget}
     </Link>
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       {Image}
       {itemTitle}
+      {RatingWidget}
     </Link>
   );
 
