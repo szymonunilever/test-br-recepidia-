@@ -10,6 +10,7 @@ import { get } from 'lodash';
 import { Button } from '../common/Button';
 
 const Hero = (props: HeroProps) => {
+  const titleLevel = props.titleLevel || 2;
   const containerStyles = cx('hero', props.className, theme.container);
   const imageStyles = cx('hero__image', theme.image);
   const copyStyles = cx('hero__copy', theme.copy);
@@ -36,13 +37,21 @@ const Hero = (props: HeroProps) => {
       <div className={copyStyles}>
         {props.content.header && (
           <div className="hero__header">
-            <Text tag={TagName.h1} text={props.content.header} />
+            <Text
+              //@ts-ignore
+              tag={TagName[`h${titleLevel}`]}
+              text={props.content.header}
+            />
           </div>
         )}
 
         {props.content.shortSubheader && (
           <div className="hero__short-subheader">
-            <Text tag={TagName.h3} text={props.content.shortSubheader} />
+            <Text
+              // @ts-ignore
+              tag={TagName[`h${titleLevel + 1}`]}
+              text={props.content.shortSubheader}
+            />
           </div>
         )}
 
