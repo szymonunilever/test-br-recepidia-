@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface ButtonCallback {
   (selected: boolean): void;
 }
@@ -20,8 +22,7 @@ export interface ButtonProps {
   isSelected?: boolean;
   onClick?: ButtonCallback;
   toggleExternalManage?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  children?: any;
+  children?: ReactNode | ReactNode[];
   viewType?: ButtonViewType;
   hidden?: boolean;
   isToggle?: boolean;
