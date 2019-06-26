@@ -3,4 +3,11 @@
 }
 .social-sharing-button{
   position: relative;
+  cursor: pointer;
+  span {
+    pointer-events: none;
+  }
+  svg{
+    pointer-events: none;
+  }
 }

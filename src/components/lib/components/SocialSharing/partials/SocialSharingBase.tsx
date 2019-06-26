@@ -27,7 +27,7 @@ export const SocialSharingBase = ({
           click: handleSocialButtonClick ? handleSocialButtonClick : null,
           close: handleSocialDialogClose ? handleSocialDialogClose : null,
         });
-      }, 0);
+      }, 10);
     };
     if (!state.loaded) initSocial();
   });
@@ -39,7 +39,7 @@ export const SocialSharingBase = ({
       key: key,
       type: 'button' as 'button',
       className: classWrapperButton,
-      'data-url': state,
+      'data-url': state.href,
       'data-title': linkTitleToShare,
       'data-description': linkDescriptionToShare,
       title: label,
@@ -47,6 +47,7 @@ export const SocialSharingBase = ({
     const iconProps = {
       className: 'social-sharing-button__icon',
       alt: label,
+      disabled: true,
     };
     const FacebookIcon =
       icons && icons.facebook && !icons.facebook.aspectRatio
@@ -86,7 +87,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="facebook" {...props}>
             {FacebookIcon ? (
-              <FacebookIcon className="social-sharing-button__icon" />
+              <FacebookIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.facebook ? (
               <Img fluid={icons.facebook} {...iconProps} />
             ) : (
@@ -101,7 +105,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="twitter" {...props}>
             {TwitterIcon ? (
-              <TwitterIcon className="social-sharing-button__icon" />
+              <TwitterIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.twitter ? (
               <Img fluid={icons.twitter} {...iconProps} />
             ) : (
@@ -116,7 +123,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="bitly" {...props}>
             {BitlyIcon ? (
-              <BitlyIcon className="social-sharing-button__icon" />
+              <BitlyIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.bitly ? (
               <Img fluid={icons.bitly} {...iconProps} />
             ) : (
@@ -131,7 +141,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="link" {...props}>
             {CopyLinkIcon ? (
-              <CopyLinkIcon className="social-sharing-button__icon" />
+              <CopyLinkIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.copyLink ? (
               <Img fluid={icons.copyLink} {...iconProps} />
             ) : (
@@ -146,7 +159,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="email" {...props}>
             {EmailIcon ? (
-              <EmailIcon className="social-sharing-button__icon" />
+              <EmailIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.email ? (
               <Img fluid={icons.email} {...iconProps} />
             ) : (
@@ -161,7 +177,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="linkedin" {...props}>
             {LinkedInIcon ? (
-              <LinkedInIcon className="social-sharing-button__icon" />
+              <LinkedInIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.linkedIn ? (
               <Img fluid={icons.linkedIn} {...iconProps} />
             ) : (
@@ -176,7 +195,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="pinterest_share" {...props}>
             {PinterestIcon ? (
-              <PinterestIcon className="social-sharing-button__icon" />
+              <PinterestIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.pinterest ? (
               <Img fluid={icons.pinterest} {...iconProps} />
             ) : (
@@ -191,7 +213,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="tumblr" {...props}>
             {TumblrIcon ? (
-              <TumblrIcon className="social-sharing-button__icon" />
+              <TumblrIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.tumblr ? (
               <Img fluid={icons.tumblr} {...iconProps} />
             ) : (
@@ -206,7 +231,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="lineme" {...props}>
             {LineIcon ? (
-              <LineIcon className="social-sharing-button__icon" />
+              <LineIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.line ? (
               <Img fluid={icons.line} {...iconProps} />
             ) : (
@@ -221,7 +249,10 @@ export const SocialSharingBase = ({
         return (
           <button data-service="whatsapp" {...props}>
             {WhatsUpIcon ? (
-              <WhatsUpIcon className="social-sharing-button__icon" />
+              <WhatsUpIcon
+                className="social-sharing-button__icon"
+                {...iconProps}
+              />
             ) : icons && icons.whatsApp ? (
               <Img fluid={icons.whatsApp} {...iconProps} />
             ) : (
