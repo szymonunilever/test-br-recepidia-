@@ -1,0 +1,16 @@
+.recipe-hero{
+  display: flex;
+  &__title{
+    font-size: 4.5rem;
+    font-family: $rubik;
+    font-weight: 500;
+    color: $fish-blue;
+    line-height: 5.5rem;
+    margin-bottom: 35px;
+  }
+  &__description{
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: $fish-blue-darken;
+  }
+}
