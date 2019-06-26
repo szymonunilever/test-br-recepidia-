@@ -66,14 +66,16 @@ P{
     width:1px;
     height:1px;
     overflow:hidden;
+    &:focus{
+        position:static;
+        width:auto;
+        height:auto;
+    }
 }
 
-.skip-to-content:focus{
-    position:static;
-    width:auto;
-    height:auto;
+.no-scroll{
+    overflow:hidden;
 }
-
 .rr-box-wrapper:not(:first-child) {
     display: none;
 }

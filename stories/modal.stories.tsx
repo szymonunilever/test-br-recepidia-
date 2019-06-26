@@ -8,7 +8,7 @@ import Icon from '../src/svgs/inline/logo.svg';
 // ReactModal.setAppElement('#root');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ModalStateControl = (props: any) => {
+export const ModalStateControl = (props: any) => {
   const [modalState, setModalState] = useState(false);
 
   const openModal = () => {
