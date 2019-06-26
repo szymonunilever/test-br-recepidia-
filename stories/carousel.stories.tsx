@@ -36,6 +36,17 @@ storiesOf('Components/Carousel', module)
         viewType={RecipeListViewType.Carousel}
         content={recipesContents}
         titleLevel={1}
+        carouselConfig={{
+          breakpoints: [
+            {
+              width: 1366,
+              switchElementsBelowBreakpoint: 1,
+              switchElementsAfterBreakpoint: 2,
+              visibleElementsBelowBreakpoint: 2,
+              visibleElementsAboveBreakpoint: 4,
+            },
+          ],
+        }}
       />
     ),
     {
@@ -50,32 +61,17 @@ storiesOf('Components/Carousel', module)
         content={pagesContents}
         viewType="carousel"
         initialCount={4}
-      />
-    ),
-    { info: { inline: false } }
-  )
-  .add(
-    'Recipes Carousel with thumbnails',
-    () => (
-      <RecipeListing
-        list={recipesList}
-        viewType={RecipeListViewType.Carousel}
-        content={recipesContents}
-        titleLevel={1}
-        showThumbnails={true}
-      />
-    ),
-    { info: { inline: false } }
-  )
-  .add(
-    'Pages Carousel with thumbnails',
-    () => (
-      <PageListing
-        list={pages}
-        content={pagesContents}
-        viewType="carousel"
-        initialCount={4}
-        showThumbnails={true}
+        carouselConfig={{
+          breakpoints: [
+            {
+              width: 1366,
+              switchElementsBelowBreakpoint: 1,
+              switchElementsAfterBreakpoint: 2,
+              visibleElementsBelowBreakpoint: 2,
+              visibleElementsAboveBreakpoint: 4,
+            },
+          ],
+        }}
       />
     ),
     { info: { inline: false } }

@@ -10,6 +10,28 @@ import RecipeCard from '../../../RecipeListing/partials/RecipeCard';
 
 const recipeList = recipes.data.allRecipe.edges.map(item => item.node);
 const pageList = pages;
+const config = {
+  breakpoints: [
+    {
+      width: 1366,
+      switchElementsBelowBreakpoint: 1,
+      switchElementsAfterBreakpoint: 2,
+      visibleElementsBelowBreakpoint: 2,
+      visibleElementsAboveBreakpoint: 4,
+    },
+  ],
+};
+const carouselConfig = {
+  breakpoints: [
+    {
+      width: 1366,
+      switchElementsBelowBreakpoint: 1,
+      switchElementsAfterBreakpoint: 2,
+      visibleElementsBelowBreakpoint: 2,
+      visibleElementsAboveBreakpoint: 4,
+    },
+  ],
+};
 const getPageItem = () => {
   return (
     <div className="carousel__item">
@@ -51,7 +73,11 @@ const getRecipeItem = () => {
 describe('Carousel Component', () => {
   it('Pages Carousel default', () => {
     const defaultPagesCarousel: ReactWrapper = mount(
-      <Carousel list={pageList} createElementFunction={getPageItem} />
+      <Carousel
+        list={pageList}
+        createElementFunction={getPageItem}
+        config={carouselConfig}
+      />
     );
     expect(defaultPagesCarousel.find('div[className="carousel"]')).toBeTruthy();
     expect(
@@ -59,30 +85,13 @@ describe('Carousel Component', () => {
     ).toBeTruthy();
   });
 
-  it('Pages Carousel with children', () => {
-    const itemsToShow = 4;
-    const pagesCarouselWithChildren: ReactWrapper = mount(
-      <Carousel
-        list={pageList}
-        createElementFunction={getPageItem}
-        shownItems={itemsToShow}
-        showThumbnails={true}
-      />
-    );
-
-    expect(
-      pagesCarouselWithChildren.find('div[className="carousel"]')
-    ).toBeTruthy();
-    expect(
-      pagesCarouselWithChildren
-        .find('div[className="carousel__items"]')
-        .children()
-    ).toHaveLength(itemsToShow);
-  });
-
   it('Recipes Carousel default', () => {
     const defaultRecipesCarousel: ReactWrapper = mount(
-      <Carousel list={pageList} createElementFunction={getRecipeItem} />
+      <Carousel
+        list={pageList}
+        createElementFunction={getRecipeItem}
+        config={config}
+      />
     );
     expect(
       defaultRecipesCarousel.find('div[className="carousel"]')
@@ -92,34 +101,13 @@ describe('Carousel Component', () => {
     ).toBeTruthy();
   });
 
-  it('Recipes Carousel with children', () => {
-    const itemsToShow = 4;
-    const recipesCarouselWithChildren: ReactWrapper = mount(
-      <Carousel
-        list={pageList}
-        createElementFunction={getPageItem}
-        shownItems={itemsToShow}
-        showThumbnails={true}
-      />
-    );
-
-    expect(
-      recipesCarouselWithChildren.find('div[className="carousel"]')
-    ).toBeTruthy();
-    expect(
-      recipesCarouselWithChildren
-        .find('div[className="carousel__items"]')
-        .children()
-    ).toHaveLength(itemsToShow);
-  });
-
   it('Recipes Carousel with favorite', () => {
     favorites = [];
     const recipeCarouselWithFavorite: ReactWrapper = mount(
       <Carousel
         list={recipeList}
         createElementFunction={getRecipeItem}
-        showThumbnails={true}
+        config={config}
       />
     );
     expect(

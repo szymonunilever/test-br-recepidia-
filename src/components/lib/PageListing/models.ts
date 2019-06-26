@@ -1,5 +1,6 @@
 import { ItemProps } from './partials/models';
 import { UnileverLibraryComponent } from '../common/globalModels';
+import { CarouselConfig } from '../common/Carousel/models';
 
 export interface PageListingProps
   extends UnileverLibraryComponent<AppContent.PageListingContent> {
@@ -8,11 +9,12 @@ export interface PageListingProps
   viewType: string;
   initialCount: number;
   pagesPerLoad?: number;
-  showThumbnails?: boolean;
+  carouselConfig?: CarouselConfig;
 }
 
 export interface PageListingCarouselProps
   extends UnileverLibraryComponent<AppContent.PageListingContent> {
   list: ItemProps[];
   showThumbnails?: boolean;
+  config: CarouselConfig;
 }

@@ -1,26 +1,11 @@
-.carousel__transition-appear {
-  opacity: 0;
-  z-index: 1;
+.carousel .carousel__images {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
 }
-.carousel__transition-appear-active {
-  opacity: 1;
-  transition: opacity 300ms linear;
-}
-.carousel__transition-enter {
-  opacity: 0;
-  z-index: 1;
-}
-.carousel__transition-enter-active {
-  opacity: 1;
-  transition: opacity 300ms linear;
-}
-.carousel__transition-exit {
-  opacity: 1;
-}
-.carousel__transition-exit-active {
-  opacity: 0;
-  transition: opacity 300ms linear;
-}
-.carousel__transition-exit-done {
-  opacity: 0;
+.carousel__images .carousel__item {
+  flex-shrink: 0;
+  /* flex-basis: 50%; */
+  transition: all .5s;
+  /* transform: translateX(-200%); */
 }

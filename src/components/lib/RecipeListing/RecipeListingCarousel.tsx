@@ -3,7 +3,6 @@ import Carousel from '../common/Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import { RecipeItem } from './partials/models';
 import RecipeCard from './partials/RecipeCard';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const RecipeListingCarousel = ({
   withFavorite = true,
@@ -11,37 +10,27 @@ const RecipeListingCarousel = ({
   onFavoriteChange,
   content,
   list,
-  showThumbnails = false,
+  config,
 }: RecipeListingCarouselProps) => {
   const getCurrentItem = (item: RecipeItem) => {
     return (
-      <TransitionGroup>
-        <CSSTransition
-          key={item.id}
-          timeout={300}
-          classNames="carousel__transition"
-        >
-          <div className="carousel__item">
-            <RecipeCard
-              id={item.id}
-              inFavorite={withFavorite ? item.inFavorite : false}
-              enableSelectFavorite={withFavorite}
-              titleLevel={titleLevel}
-              imgObject={item.localImage.childImageSharp.fluid}
-              slug={item.fields.slug}
-              content={content}
-              onFavoriteChange={onFavoriteChange}
-            />
-          </div>
-        </CSSTransition>
-      </TransitionGroup>
+      <RecipeCard
+        id={item.id}
+        inFavorite={withFavorite ? item.inFavorite : false}
+        enableSelectFavorite={withFavorite}
+        titleLevel={titleLevel}
+        imgObject={item.localImage.childImageSharp.fluid}
+        slug={item.fields.slug}
+        content={content}
+        onFavoriteChange={onFavoriteChange}
+      />
     );
   };
   return (
     <Carousel
       list={list}
       createElementFunction={getCurrentItem}
-      showThumbnails={showThumbnails}
+      config={config}
     />
   );
 };

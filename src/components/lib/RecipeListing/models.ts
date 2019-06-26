@@ -4,6 +4,7 @@ import {
   RecipeItem,
   RecipeCardFavoriteCallback,
 } from './partials';
+import { CarouselConfig } from '../common/Carousel/models';
 
 export enum RecipeListViewType {
   Trivial,
@@ -27,7 +28,7 @@ export interface RecipeListingProps
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
   tags?: RecipeFilterOptions;
-  showThumbnails?: boolean;
+  carouselConfig?: CarouselConfig;
 }
 
 export interface RecipeListingCarouselProps
@@ -36,5 +37,5 @@ export interface RecipeListingCarouselProps
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   onFavoriteChange: RecipeCardFavoriteCallback;
   list: RecipeItem[];
-  showThumbnails?: boolean;
+  config: CarouselConfig;
 }

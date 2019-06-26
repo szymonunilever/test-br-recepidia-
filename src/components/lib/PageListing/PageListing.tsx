@@ -14,7 +14,17 @@ const PageListing = ({
   initialCount,
   className,
   pagesPerLoad = 4,
-  showThumbnails = false,
+  carouselConfig = {
+    breakpoints: [
+      {
+        width: 1366,
+        switchElementsBelowBreakpoint: 1,
+        switchElementsAfterBreakpoint: 2,
+        visibleElementsBelowBreakpoint: 2,
+        visibleElementsAboveBreakpoint: 4,
+      },
+    ],
+  },
 }: PageListingProps) => {
   const [pages, setPages] = useState({
     list: list.slice(0, initialCount),
@@ -63,7 +73,7 @@ const PageListing = ({
       <PageListingCarousel
         list={pages.list}
         content={{ title, subtitle, cta }}
-        showThumbnails={showThumbnails}
+        config={carouselConfig}
       />
     );
   }

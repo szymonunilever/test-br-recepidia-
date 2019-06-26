@@ -31,7 +31,17 @@ const RecipeListing = ({
   initialCount = 4,
   onFavoriteChange,
   tags = { categories: [] },
-  showThumbnails = false,
+  carouselConfig = {
+    breakpoints: [
+      {
+        width: 1366,
+        switchElementsBelowBreakpoint: 1,
+        switchElementsAfterBreakpoint: 2,
+        visibleElementsBelowBreakpoint: 2,
+        visibleElementsAboveBreakpoint: 4,
+      },
+    ],
+  },
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
@@ -149,7 +159,7 @@ const RecipeListing = ({
         onFavoriteChange={changeFavorites}
         list={list}
         content={content}
-        showThumbnails={showThumbnails}
+        config={carouselConfig}
       />
     ) : (
       <>
