@@ -19,7 +19,7 @@ export const RecipeAttributes = ({
   const classWrapper = cx(theme.recipeAttributes, className);
   const view = visible.map((value, index) => {
     if (value === RecipeAttributesKeys.difficulties) {
-      const difficulties = recipe.categories.find(
+      const difficulties = recipe.tagGroups.find(
         item => item.name === RecipeAttributesKeys[value]
       );
       const difficultyVal = difficulties ? difficulties.tags[0].name : '';

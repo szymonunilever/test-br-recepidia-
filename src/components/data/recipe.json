@@ -919,7 +919,7 @@
       "description": "Cortar o queijo em tiras"
     }
   ],
-  "categories": [
+  "tagGroups": [
     {
       "name": "difficulties",
       "label": "difficulties",

@@ -93,7 +93,7 @@
                 "description": "Cortar o queijo em tiras"
               }
             ],
-            "categories": [],
+            "tagGroups": [],
             "fields": {
               "slug": "/recipes/salada-francesa-do-@caio"
             }
@@ -179,7 +179,7 @@
                 "description": "400 g de filé mignon"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "eventos anuais",
                 "label": "Eventos anuais",
@@ -311,7 +311,7 @@
                 "description": "2 xícaras de farinha *Panko*"
               }
             ],
-            "categories": [],
+            "tagGroups": [],
             "fields": {
               "slug": "/recipes/bolinho-de-tapioca,-carne-e-queijo-da-@crispimichele"
             }
@@ -477,7 +477,7 @@
                 "description": "sal a gosto"
               }
             ],
-            "categories": [],
+            "tagGroups": [],
             "fields": {
               "slug": "/recipes/rosebife-de-filé-mignon-do-@andremifano"
             }
@@ -575,7 +575,7 @@
                 "description": "1 colher (sopa) de cheiro-verde picado"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "eventos anuais",
                 "label": "Eventos anuais",
@@ -671,7 +671,7 @@
                 "description": "4 colher de sopa de Hellmann's Vegana"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "eventos anuais",
                 "label": "Eventos anuais",
@@ -777,7 +777,7 @@
                 "description": "1/2 xícara de chá de água"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "orçamento",
                 "label": "Orçamento",
@@ -892,7 +892,7 @@
                 "description": "1 xícara de chá de amêndoas levemente quebradas"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "orçamento",
                 "label": "Orçamento",
@@ -994,7 +994,7 @@
                 "description": "8 folhas de beterraba"
               }
             ],
-            "categories": [
+            "tagGroups": [
               {
                 "name": "eventos anuais",
                 "label": "Eventos anuais",
@@ -1044,7 +1044,7 @@
                 }
               }
             },
-            "categories": [
+            "tagGroups": [
               {
                 "name": "eventos anuais",
                 "label": "Eventos anuais",
