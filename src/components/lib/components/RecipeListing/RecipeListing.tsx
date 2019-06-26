@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType } from './models';
+import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   RecipeFilter,
   RecipeItem,
@@ -35,6 +36,17 @@ export const RecipeListing = ({
   initialCount = 4,
   onFavoriteChange,
   tags = { tagGroups: [] },
+  carouselConfig = {
+    breakpoints: [
+      {
+        width: 1366,
+        switchElementsBelowBreakpoint: 1,
+        switchElementsAfterBreakpoint: 2,
+        visibleElementsBelowBreakpoint: 2,
+        visibleElementsAboveBreakpoint: 4,
+      },
+    ],
+  },
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
@@ -137,7 +149,7 @@ export const RecipeListing = ({
   );
 
   const view: JSX.Element =
-    viewType === RecipeListViewType.Trivial ? (
+    viewType == RecipeListViewType.Trivial ? (
       <RecipeListingTrivial
         list={listState.listItems}
         recipeCount={listState.listItems.length}
@@ -145,12 +157,20 @@ export const RecipeListing = ({
         withFavorite={withFavorite}
         ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
-        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
-    ) : viewType === RecipeListViewType.Base ? (
+    ) : viewType == RecipeListViewType.Base ? (
       <>{recipeListBasic}</>
+    ) : viewType == RecipeListViewType.Carousel ? (
+      <RecipeListingCarousel
+        withFavorite={withFavorite}
+        onFavoriteChange={changeFavorites}
+        list={list}
+        content={content}
+        config={carouselConfig}
+        ratingProvider={ratingProvider}
+      />
     ) : (
       <>
         <RecipeFilter
