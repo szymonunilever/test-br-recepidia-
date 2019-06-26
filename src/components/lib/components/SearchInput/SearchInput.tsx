@@ -86,7 +86,7 @@ const SearchInput = ({
 
   return (
     <div className={classNames} data-componentname="search-input">
-      <h3 className="search-input__title">{title}</h3>
+      <h2 className="search-input__title">{title}</h2>
 
       <form className="form">
         <div className="form__group">
