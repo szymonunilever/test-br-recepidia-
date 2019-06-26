@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { GlobalFooterProps } from './models';
 
 const GlobalFooter = ({
-  content: { list, copyrightText },
+  content: { lists, copyrightText },
   children,
   logoIcon,
   className,
@@ -13,7 +13,10 @@ const GlobalFooter = ({
 
   return (
     <footer className={classNames} data-componentname="global-footer">
-      <Menu list={list} />
+      {lists.map((list, index) => (
+        <Menu list={list} key={index} />
+      ))}
+
       {children}
       {logoIcon && (
         <a href="//www.unilever.com" target="_blank" rel="noopener noreferrer">

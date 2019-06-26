@@ -1,3 +1,3 @@
 export interface MenuProps {
-  list: AppContent.GlobalFooter.MenuItem[];
+  list: AppContent.GlobalFooter.MenuList;
 }
