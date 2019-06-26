@@ -6,7 +6,7 @@ export interface SearchInputProps
   searchUrl?: string;
   labelIcon: JSX.Element;
   buttonResetIcon: JSX.Element;
-  buttonSubmitIcon: JSX.Element;
+  buttonSubmitIcon?: JSX.Element;
   searchResultsCount?: number;
   debounceTimeout?: number;
   onSubmit: (inputValue: string) => void;
