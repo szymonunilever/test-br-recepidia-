@@ -31,7 +31,6 @@ const content: AppContent.SocialSharing.Content = {
 const icons: SocialIcons = {
   facebook: Icon,
   twitter: Icon,
-  pinterest: Icon,
   linkedIn: Icon,
 };
 
