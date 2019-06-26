@@ -24,7 +24,7 @@ export interface RecipeItem extends RMSData.Recipe {
   preparationTime: number;
   creationTime: Date;
   ingredients: RMSData.Ingredient[];
-  categories: RMSData.TagCategory[];
+  tagGroups: RMSData.TagCategory[];
 }
 
 export interface RecipeCardFavoriteCallback {
@@ -65,7 +65,7 @@ export enum RecipeSortingOptions {
 }
 
 export interface RecipeFilterOptions {
-  categories: RMSData.TagCategory[];
+  tagGroups: RMSData.TagCategory[];
 }
 
 export interface RecipeFilterProps

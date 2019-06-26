@@ -34,7 +34,7 @@ export const RecipeListing = ({
   list,
   initialCount = 4,
   onFavoriteChange,
-  tags = { categories: [] },
+  tags = { tagGroups: [] },
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
