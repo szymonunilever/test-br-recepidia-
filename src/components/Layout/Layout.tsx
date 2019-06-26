@@ -1,16 +1,43 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import Search from 'src/components/Search/Search';
+import GlobalFooter from 'src/components/lib/components/GlobalFooter';
+import footerContent from 'src/components/data/globalFooterMenu.json';
+import LogoIcon from 'src/svgs/inline/logo.svg';
+import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
+import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
+import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
+import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
+import globalMenuItems from 'src/components/data/globalNavigationMenu.json';
+import 'src/scss/main.scss';
+import BackToTop from '../lib/components/BackToTop/BackToTop';
+import Icon from 'src/svgs/inline/arrow-up.svg';
 
-const Layout = ({ title, children }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to={'/'}>{title}</Link>
-        </h1>
-      </header>
-      <main>{children}</main>
-      <footer>© {new Date().getFullYear()}</footer>
+    <div className="global-container">
+      <BackToTop content={{ label: 'Back to top' }} Icon={Icon} />
+      <a className="skip-to-content" href="#content">
+        Skip To Content
+      </a>
+      <GlobalNavigation
+        logo={{
+          icon: (
+            <LogoIcon style={{ height: '40px' }} className="main-logo__icon" />
+          ),
+          path: '/',
+        }}
+        dropDownIcon={<ArrowDownIcon className="dropdown-icon" />}
+        buttonCloseIcon={ButtonCloseIcon}
+        content={{ list: globalMenuItems }}
+        isAccordion
+      >
+        <Search />
+      </GlobalNavigation>
+      <main id="content">{children}</main>
+      <GlobalFooter
+        logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
+        content={footerContent}
+      />
     </div>
   );
 };
@@ -19,6 +46,6 @@ export default Layout;
 
 interface LayoutProps {
   location?: Location;
-  title: string;
-  children?: any; // eslint-disable-line
+  title?: string;
+  children?: ReactNode | ReactNode[];
 }

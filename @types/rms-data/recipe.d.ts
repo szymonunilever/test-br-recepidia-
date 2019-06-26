@@ -7,14 +7,14 @@ declare namespace RMSData {
     description: string;
     creationTime: Date;
     recipeDetails: RMSData.RecipeDetails;
-    assets: RMSData.RecipeAssets;
+    imageUrls: string[];
     ingredients: RMSData.Ingredient[];
     methods: RMSData.CookingMethod[];
     nutrients: RMSData.RecipeNutrient[];
     nutrientsPerServing: RMSData.RecipeNutrient[];
     nutrientsPer100g: RMSData.RecipeNutrient[];
     calculatedServingWeightg: number;
-    rating?: number;
+    rating?: RMSData.Rating;
     relatedRecipes?: RMSData.Recipe[];
     /**
      * The property aggregates all tags from the following RMS fields:
@@ -22,6 +22,6 @@ declare namespace RMSData {
      * difficulties, dishes, mainIngredients, occasions, seasons,
      * spiciness, suitability, timesOfDay, dietary
      * */
-    categories: TagCategory[];
+    tagGroups: TagCategory[];
   }
 }

@@ -1,0 +1,20 @@
+.page-listing-item {
+  &__image {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__title {
+    font-size: 1.6rem;
+    font-family: $rubik;
+    font-weight: 500;
+    color: $black-blue;
+    margin: 12px 0;
+    outline: none;
+    @include respondTo(desktop) {
+      margin: 20px 0;
+    }
+  }
+}

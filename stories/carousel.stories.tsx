@@ -3,9 +3,9 @@ import React from 'react';
 import {
   RecipeListing,
   RecipeListViewType,
-} from '../src/components/lib/RecipeListing';
-import { RecipeItem } from '../src/components/lib/RecipeListing/partials/models';
-import PageListing from '../src/components/lib/PageListing/PageListing';
+} from '../src/components/lib/components/RecipeListing';
+import { RecipeItem } from '../src/components/lib/components/RecipeListing/partials/models';
+import PageListing from '../src/components/lib/components/PageListing/PageListing';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
 

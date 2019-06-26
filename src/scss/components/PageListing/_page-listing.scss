@@ -1,0 +1,43 @@
+$col-width-mobile: 100% / 2;
+$col-width-desktop: 100% / 3;
+$col-indent-mobile: 5px;
+$col-indent-desktop: 8px;
+
+.page-listing {
+  overflow: hidden;
+  &__title {
+    font-size: 2.1rem;
+    line-height: 3rem;
+    color: $black-blue;
+    font-family: $rubik;
+    margin: 0 0 20px 0;
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+      margin: 0 0 50px 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    //Margin to remove indent
+    margin: -$col-indent-mobile;
+    @include respondTo(desktop) {
+      margin: -$col-indent-desktop;
+    }
+  }
+  &__button-wrap {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .page-listing-item {
+    margin: $col-indent-mobile;
+    width: calc(#{$col-width-mobile} - #{$col-indent-mobile * 2});
+    @include respondTo(desktop) {
+      width: calc(#{$col-width-desktop} - #{$col-indent-desktop * 2});
+      margin: $col-indent-desktop;
+    }
+  }
+}

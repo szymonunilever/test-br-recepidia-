@@ -1,9 +1,8 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 // @ts-ignore
-import Icon from 'src/svgs/inline/plus.svg';
-import { BackToTop } from '../src/components/lib/BackToTop';
-import { ButtonViewType } from '../src/components/lib/common/Button';
+import Icon from 'src/svgs/inline/arrow-up.svg';
+import { BackToTop } from '../src/components/lib/components/BackToTop';
 
 const page = {
   height: '200vh',
@@ -30,11 +29,7 @@ storiesOf('Components/Back To Top', module)
     () => (
       <>
         <div style={page}>
-          <BackToTop
-            content={content}
-            viewType={ButtonViewType.icon}
-            icon={<Icon />}
-          />
+          <BackToTop content={{ label: undefined }} Icon={Icon} />
         </div>
       </>
     ),

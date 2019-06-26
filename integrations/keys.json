@@ -1,0 +1,17 @@
+{
+  "COMMENT": "THIS SHOULD BE MOVED TO DEPLOYMENT SCRIPT",
+
+  "middleware": {
+    "recipesEndpoint": "https://86cud0n5yf.execute-api.eu-west-1.amazonaws.com/staging/recipes/pt-br",
+    "pagesEndpoint": "https://86cud0n5yf.execute-api.eu-west-1.amazonaws.com/staging/pages/pt-br",
+    "key": "9XSH9yCeFh4k1RlU8ZxQT3GijzcH2aox75XsQKph"
+  },
+
+  "kritique":{
+    "url": "https://eu-stage-kritique.unileversolutions.com/widget/resources/js/RR_widget.js",
+    "brandId":"117",
+    "localeId":"532",
+    "apiKey":"f4036dfe-9e89-4b03-a2ce-70d552042bd3",
+    "siteSource":"Recipedia-pt-br"
+  }
+}

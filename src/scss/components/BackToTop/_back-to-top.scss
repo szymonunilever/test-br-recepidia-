@@ -1,0 +1,37 @@
+.back-to-top {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  bottom: 25px;
+  right: 25px;
+  font-size: 3rem;
+  width: 43px;
+  height: 43px;
+
+  @include respondTo(desktop) {
+    width: 58px;
+    height: 58px;
+    bottom: 50px;
+    right: 200px;
+  }
+
+  button {
+    fill: #fff;
+    background: $apple-green;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  &--label {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}

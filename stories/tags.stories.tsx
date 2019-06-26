@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Tags } from '../src/components/lib/Tags';
+import { Tags } from '../src/components/lib/components/Tags';
 import tagsData from '../src/components/data/tags.json';
 import { action } from '@storybook/addon-actions';
-import { TagViewType } from '../src/components/lib/Tags/models';
+import { TagViewType } from '../src/components/lib/components/Tags/models';
+import RemoveIcon from 'src/svgs/inline/x-mark.svg';
 const content: AppContent.TagsContent = {
   title: 'Custom title text',
   loadMoreButton: {
@@ -23,6 +24,7 @@ storiesOf('Components/Tags', module)
     return (
       <Tags
         list={tagsData}
+        RemoveIcon={RemoveIcon}
         handleTagRemove={action('tag was removed')}
         {...config}
       />

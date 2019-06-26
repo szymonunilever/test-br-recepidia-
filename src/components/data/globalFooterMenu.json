@@ -1,30 +1,61 @@
-[
-  {
-    "name": "Item1",
-    "path": "/item1"
-  },
-  {
-    "name": "Item2",
-    "path": "/item2"
-  },
-  {
-    "name": "Item3",
-    "path": "/item3"
-  },
-  {
-    "name": "Item4",
-    "path": "/Item4"
-  },
-  {
-    "name": "Item5",
-    "path": "/Item5"
-  },
-  {
-    "name": "Item6",
-    "path": "/Item6"
-  },
-  {
-    "name": "Item7",
-    "path": "/Item7"
-  }
-]
+{
+  "copyrightText": "Unilever",
+  "lists":[
+    {
+      "items":[
+        {
+          "name":"Vegan dishes",
+          "path":"/vegan-dishes"
+        },
+        {
+          "name":"Spring Delights",
+          "path":"/spring-delights"
+        },
+        {
+          "name":"Barbecue & Grilling",
+          "path":"/barbecue-grilling"
+        },
+        {
+          "name":"Meals In Minutes",
+          "path":"/meals-in-minutes"
+        }
+      ]
+    },
+    {
+      "items":[
+        {
+          "name":"Meal Planner",
+          "path":"/meal-planner"
+        },
+        {
+          "name":"About us",
+          "path":"/about-us"
+        },
+        {
+          "name":"Contact us",
+          "path":"/contact-us"
+        },
+        {
+          "name":"Acessibility",
+          "path":"/acessibility"
+        },
+        {
+          "name":"Cookie Policy",
+          "path":"https://www.unilevercookiepolicy.com/pt_PT/policy.aspx"
+        },
+        {
+          "name":"Privacy Policy",
+          "path":"https://www.unileverprivacypolicy.com/portuguese/policy.aspx"
+        },
+        {
+          "name":"Legal Notice",
+          "path":"https://www.unilever.com.br/legal.html"
+        },
+        {
+          "name":"Sitemap",
+          "path":"/sitemap"
+        }
+      ]
+    }
+  ]
+}

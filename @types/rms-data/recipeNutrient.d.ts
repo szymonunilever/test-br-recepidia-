@@ -1,16 +1,16 @@
 declare namespace RMSData {
   export interface RecipeNutrient {
-    dvPercent?: number;
-    position: number;
+    dvPercent?: number | string | null;
+    position: number | string;
     messurementUnit: string;
     displayUnit: string;
     dv: string;
-    rawValue: number;
+    rawValue: number | string;
     name: string;
     ri: string;
     riPercent: string;
-    quantity: number;
+    quantity: number | string;
     description: string;
-    epercent?: string;
+    epercent?: string | null;
   }
 }
