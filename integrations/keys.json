@@ -13,5 +13,10 @@
     "localeId":"532",
     "apiKey":"f4036dfe-9e89-4b03-a2ce-70d552042bd3",
     "siteSource":"Recipedia-pt-br"
+  },
+
+  "addThis": {
+    "url": "https://s7.addthis.com/js/300/addthis_widget.js",
+    "key": ""
   }
 }
