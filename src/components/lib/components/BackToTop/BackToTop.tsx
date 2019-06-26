@@ -5,7 +5,6 @@ import { Button } from '../common/Button';
 import theme from './BackToTop.module.scss';
 import { BackToTopProps, CustomEventTarget } from './models';
 
-smoothScroll.polyfill();
 export const BackToTop = ({
   className,
   content,
@@ -19,6 +18,7 @@ export const BackToTop = ({
   };
 
   useEffect(() => {
+    smoothScroll.polyfill();
     const scrollListener = (e: Event) => {
       const element = e.target as Partial<CustomEventTarget>;
       const top =
