@@ -8,7 +8,7 @@ import { BackToTopProps, CustomEventTarget } from './models';
 export const BackToTop = ({
   className,
   content,
-  hideTopPositionPx = window.innerHeight,
+  hideTopPositionPx,
   ...props
 }: BackToTopProps) => {
   const [isHidden, setIsHidden] = useState(true);
@@ -19,13 +19,18 @@ export const BackToTop = ({
 
   useEffect(() => {
     smoothScroll.polyfill();
+    hideTopPositionPx = hideTopPositionPx || window.innerHeight;
+
     const scrollListener = (e: Event) => {
       const element = e.target as Partial<CustomEventTarget>;
       const top =
         element && element.scrollingElement
           ? element.scrollingElement.scrollTop
           : document.documentElement.scrollTop;
-      setIsHidden(top + hideTopPositionPx <= hideTopPositionPx);
+
+      if (hideTopPositionPx) {
+        setIsHidden(top + hideTopPositionPx <= hideTopPositionPx);
+      }
     };
 
     document.addEventListener('scroll', scrollListener);
