@@ -26,9 +26,11 @@ const PageListing = ({
   const shouldAppear = list.length > pages.list.length && cta;
 
   const loadMoreBtn = shouldAppear ? (
-    <Button onClick={loadMore} className="page-listing__button">
-      {cta ? cta.label : null}
-    </Button>
+    <div className="page-listing__button-wrap">
+      <Button onClick={loadMore} className="page-listing__button">
+        {cta ? cta.label : null}
+      </Button>
+    </div>
   ) : null;
 
   const subTitle = subtitle ? (

@@ -5,10 +5,14 @@ import pageListingData from '../src/components/data/pageListing.json';
 import PageListing from '../src/components/lib/components/PageListing';
 import { PageListingProps } from '../src/components/lib/components/PageListing/models';
 
+const page = {
+  maxWidth: '1090px',
+};
+
 const config: PageListingProps = {
   content: {
-    title: 'Custom title text',
-    subtitle: 'Custom subtitle',
+    title: 'What we offer',
+    // subtitle: 'Custom subtitle',
     cta: {
       label: 'Custom button text',
     },
@@ -16,34 +20,23 @@ const config: PageListingProps = {
   list: pageListingData,
   className: 'custom-class',
   viewType: 'default',
-  initialCount: 2,
-  pagesPerLoad: 1,
+  initialCount: 6,
+  pagesPerLoad: 6,
 };
 
-storiesOf('Components/PageListing/defaultView', module)
-  .add('With loadmore button', () => {
-    return <PageListing {...config} />;
-  })
-  .add('Without loadmore button', () => {
-    const newConfig = {
-      ...config,
-      content: {
-        ...config.content,
-        cta: undefined,
-      },
-    };
+storiesOf('Components/PageListing/defaultView', module).add('Default', () => {
+  const newConfig = {
+    ...config,
+    content: {
+      ...config.content,
+      subtitle: undefined,
+      cta: undefined,
+    },
+  };
 
-    return <PageListing {...newConfig} />;
-  })
-  .add('Without loadmore button & without subtitle', () => {
-    const newConfig = {
-      ...config,
-      content: {
-        ...config.content,
-        subtitle: undefined,
-        cta: undefined,
-      },
-    };
-
-    return <PageListing {...newConfig} />;
-  });
+  return (
+    <div style={page}>
+      <PageListing {...newConfig} />
+    </div>
+  );
+});
