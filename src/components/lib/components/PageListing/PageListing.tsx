@@ -4,6 +4,7 @@ import { PageListingProps } from './models';
 import { ItemProps } from './partials/models';
 
 import PageListingItem from './partials/PageListingItem';
+import PageListingCarousel from './PageListingCarousel';
 import { Button } from 'src/components/lib/components/common/Button';
 
 const PageListing = ({
@@ -13,6 +14,17 @@ const PageListing = ({
   initialCount,
   className,
   pagesPerLoad = 4,
+  carouselConfig = {
+    breakpoints: [
+      {
+        width: 1366,
+        switchElementsBelowBreakpoint: 1,
+        switchElementsAfterBreakpoint: 2,
+        visibleElementsBelowBreakpoint: 2,
+        visibleElementsAboveBreakpoint: 4,
+      },
+    ],
+  },
 }: PageListingProps) => {
   const [pages, setPages] = useState({
     list: list.slice(0, initialCount),
@@ -46,7 +58,11 @@ const PageListing = ({
 
       <ul className={`page-listing__list`}>
         {pages.list.map((item: ItemProps) => {
-          return <PageListingItem key={item.title} page={item} />;
+          return (
+            <li key={item.title} className={`page-listing__item`}>
+              <PageListingItem key={item.title} page={item} />;
+            </li>
+          );
         })}
       </ul>
 
@@ -55,7 +71,13 @@ const PageListing = ({
   );
 
   if (viewType === 'carousel') {
-    view = <div className={viewType}>{view}</div>;
+    view = (
+      <PageListingCarousel
+        list={pages.list}
+        content={{ title, subtitle, cta }}
+        config={carouselConfig}
+      />
+    );
   }
 
   return view;
