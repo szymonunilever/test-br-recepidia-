@@ -70,7 +70,7 @@ const PageListing = ({
     </div>
   );
 
-  if (viewType === 'carousel') {
+  if (viewType === PageListingViewTypes.carousel) {
     view = (
       <PageListingCarousel
         list={pages.list}
