@@ -1,5 +1,6 @@
 const path = require('path');
 const url = require('url');
+const get = require('lodash').get;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = async ({
@@ -156,4 +157,14 @@ exports.onCreatePage = ({ page, actions }) => {
 
     resolve();
   });
+};
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+  // Add hashes to icons classNames
+  const config = getConfig();
+  const svgLoaderRule = config.module.rules.find(
+    rule => get(rule, 'use.loader') === 'svg-react-loader'
+  );
+  svgLoaderRule.use.options.classIdPrefix = true;
+  actions.replaceWebpackConfig(config);
 };
