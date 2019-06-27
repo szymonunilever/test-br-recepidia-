@@ -103,39 +103,39 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 
-  // const recipePageCategoryCreation = new Promise(resolve => {
-  //   graphql(`
-  //     {
-  //       allTag {
-  //         edges {
-  //           node {
-  //             fields {
-  //               slug
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `).then(result => {
-  //     result.data.allTag.edges.forEach(({ node }) => {
-  //       createPage({
-  //         path: node.fields.slug,
-  //         component: path.resolve(
-  //           `./src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx`
-  //         ),
-  //         context: {
-  //           // Data passed to context is available
-  //           // in page queries as GraphQL variables.
-  //           slug: node.fields.slug,
-  //         },
-  //       });
+  const recipePageCategoryCreation = new Promise(resolve => {
+    graphql(`
+      {
+        allTag {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `).then(result => {
+      result.data.allTag.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve(
+            `./src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx`
+          ),
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: node.fields.slug,
+          },
+        });
 
-  //       resolve();
-  //     });
-  //   });
-  // });
+        resolve();
+      });
+    });
+  });
 
-  return Promise.all([recipePageCreation]);
+  return Promise.all([recipePageCreation, recipePageCategoryCreation]);
 };
 
 exports.onCreatePage = ({ page, actions }) => {
