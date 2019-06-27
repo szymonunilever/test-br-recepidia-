@@ -106,6 +106,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   };
 
   return (
+<<<<<<< HEAD
     <>
       <ProgressBar percentage={percentage} />
       <div className="carousel">
@@ -132,6 +133,24 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
         )}
       </div>
     </>
+=======
+    <div className="carousel">
+      <ProgressBar percentage={percentage} />
+      {mayGoLeft && (
+        <Arrow direction="left" clickFunction={previousImage} icon="&#9664;" />
+      )}
+      <div className={'carousel__images'}>
+        {list.map((item: any, index: number) => (
+          <div key={index} className="carousel__item" style={style}>
+            {createElementFunction(item)}
+          </div>
+        ))}
+      </div>
+      {mayGoRight && (
+        <Arrow direction="right" clickFunction={nextImage} icon="&#9654;" />
+      )}
+    </div>
+>>>>>>> develop
   );
 };
 
