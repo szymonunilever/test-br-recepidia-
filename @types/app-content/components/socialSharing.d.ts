@@ -4,9 +4,10 @@ declare namespace AppContent.SocialSharing {
     openModalButton?: AppContent.CTAContent;
   }
 
-  interface SocialButton extends BaseContent {
+  interface SocialButton {
     label: string;
     linkTitleToShare?: string;
     linkDescriptionToShare?: string;
+    name: string;
   }
 }

@@ -11,15 +11,15 @@ import AddThis from '../integrations/AddThis';
 const content: AppContent.SocialSharing.Content = {
   buttons: [
     {
-      view: 'facebook',
+      name: 'facebook',
       label: 'Facebook',
     },
     {
-      view: 'twitter',
+      name: 'twitter',
       label: 'Twitter',
     },
     {
-      view: 'linkedIn',
+      name: 'linkedIn',
       label: 'Linked In',
     },
   ],

@@ -16,6 +16,14 @@ export const SocialSharing = ({
   handleSocialDialogClose,
   CloseButtonIcon,
 }: SocialSharingProps) => {
+  const props = {
+    buttons,
+    icons,
+    buttonClassName,
+    handleSocialButtonClick,
+    handleSocialDialogClose,
+    showTextLabels,
+  };
   const classWrapper = cx(className, {
     'social-sharing-in-modal': viewType === SocialSharingViewType.Modal,
   });
@@ -26,14 +34,7 @@ export const SocialSharing = ({
     case SocialSharingViewType.Base:
       view = (
         <div className={classWrapper}>
-          <SocialSharingBase
-            buttons={buttons}
-            icons={icons}
-            buttonClassName={buttonClassName}
-            handleSocialButtonClick={handleSocialButtonClick}
-            handleSocialDialogClose={handleSocialDialogClose}
-            showTextLabels={showTextLabels}
-          />
+          <SocialSharingBase {...props} />
         </div>
       );
       break;
@@ -56,14 +57,7 @@ export const SocialSharing = ({
               setState(false);
             }}
           >
-            <SocialSharingBase
-              buttons={buttons}
-              icons={icons}
-              buttonClassName={buttonClassName}
-              handleSocialButtonClick={handleSocialButtonClick}
-              handleSocialDialogClose={handleSocialDialogClose}
-              showTextLabels={showTextLabels}
-            />
+            <SocialSharingBase {...props} />
           </Modal>
         </div>
       );
@@ -71,14 +65,7 @@ export const SocialSharing = ({
     default:
       view = (
         <div className={classWrapper}>
-          <SocialSharingBase
-            buttons={buttons}
-            icons={icons}
-            buttonClassName={buttonClassName}
-            handleSocialButtonClick={handleSocialButtonClick}
-            handleSocialDialogClose={handleSocialDialogClose}
-            showTextLabels={showTextLabels}
-          />
+          <SocialSharingBase {...props} />
         </div>
       );
       break;
