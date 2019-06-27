@@ -14,7 +14,7 @@ const RecipeHero = (props: RecipeHeroProps) => {
   return (
     <div data-componentname="recipe-hero" className={containerStyles}>
       <div className={imageStyles}>
-        {image ? (
+        {image != undefined ? (
           <Img fluid={image.localImage.childImageSharp.fluid} alt={image.alt} />
         ) : (
           <Img
