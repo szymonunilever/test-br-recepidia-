@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { PageListingProps } from './models';
+import { PageListingProps, PageListingViewTypes } from './models';
 import { ItemProps } from './partials/models';
 
 import PageListingItem from './partials/PageListingItem';
@@ -10,8 +10,8 @@ import { Button } from 'src/components/lib/components/common/Button';
 const PageListing = ({
   list,
   content: { title, subtitle, cta },
-  viewType,
-  initialCount,
+  viewType = PageListingViewTypes.default,
+  initialCount = 6,
   className,
   pagesPerLoad = 4,
   carouselConfig = {
