@@ -1,0 +1,38 @@
+/* ----------------------------------------------------------------------------- *\
+   BREAKPOINTS
+\* ----------------------------------------------------------------------------- */
+// $bp-small: 480px;
+// $bp-medium: 768px;
+// $bp-large: 992px;
+// $bp-extra-large: 1200px;
+$bp-desktop: 1366px;
+
+// usage example
+// a {
+//    @include respondTo(desktop) {
+//      &:hover { background: blue; } // only add the hover effect on desktop browsers
+//    }
+// }
+
+/* ----------------------------------------------------------------------------- *\
+   COLORS
+\* ----------------------------------------------------------------------------- */
+$recepedia-orange: #ff7875;
+$fish-blue: #587c94;
+$apple-green: #b6dc85;
+$luminous-yellow: #facc00;
+$black-blue:#363840;
+$white-gray:#f4f7f9;
+$white: #ffffff;
+$blue-overlay:#587c94;
+$blue-overlay-40: rgba(88,124,148,.4);
+
+$primary-color: $recepedia-orange;
+$overlay-color: $blue-overlay-40;
+$alert-color: #fc5959;
+
+/* ----------------------------------------------------------------------------- *\
+   FONTS
+\* ----------------------------------------------------------------------------- */
+$rubik: 'Rubik', sans-serif;
+$arial: Arial, Helvetica, sans-serif;

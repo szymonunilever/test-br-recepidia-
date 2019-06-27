@@ -67,3 +67,10 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+
+# idea
+.idea
+
+# we use yarn as default package manager so we don't need the package-lock.json
+package-lock.json

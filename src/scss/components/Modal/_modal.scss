@@ -1,0 +1,72 @@
+//class name for body to prevent scroll when modal is open
+.modal--open{
+  @extend .no-scroll;
+}
+.modal{
+  &__overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: $blue-overlay-40;
+  }
+  &__content{
+    position: absolute;
+    overflow: auto;
+    outline: none;
+    padding: 20px;
+  }
+  &__btn-close{
+    @extend .button--icon;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    svg{
+      width: 16px;
+      height: 16px;
+      display: block;
+      margin:auto;
+    }
+  }
+}
+.modal--search{ //fullscreen mobile, small window on desktop
+  @extend .container;
+   .modal{
+    &__content{
+      background-color: $white-gray;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      max-height: 100%;
+      @include respondTo(desktop) {
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        width: 720px;
+        height: 475px;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        max-height:96vh;
+      }
+    } 
+  }
+}
+.modal--bordered{
+    // top: 40px;
+    // left: 40px;
+    // right: 40px;
+    // bottom: 40px;
+    // border-radius: 5px;
+}
+.modal--fullscreen{
+  
+}
+.modal--grounded{
+  
+}

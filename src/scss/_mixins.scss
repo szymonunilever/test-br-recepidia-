@@ -1,0 +1,19 @@
+@import 'vars';
+
+@mixin respondTo($media) {
+    @if $media == small {
+        @media (max-width: $bp-small) { @content; }
+    }
+    @else if $media == medium {
+        @media (min-width: $bp-medium) { @content; }
+    }
+    @else if $media == large {
+        @media (min-width: $bp-large) { @content; }
+    }
+    @else if $media == extra-large {
+        @media (min-width: $bp-extra-large) { @content; }
+    }
+    @else if $media == desktop {
+        @media (min-width: $bp-desktop) { @content; }
+    }
+}

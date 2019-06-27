@@ -1,0 +1,27 @@
+.recipe-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  text-decoration: none;
+}
+
+:global(.recipe-card__favorite){
+  position: absolute;
+  margin: 10px 0 0 -10px;
+  z-index: 1;
+  align-self: flex-end;
+}
+
+:global(.recipe-card__image){
+  min-width: 100%;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+:global(.recipe-card__title){
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+

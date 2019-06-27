@@ -1,0 +1,61 @@
+{
+  "copyrightText": "Unilever",
+  "lists":[
+    {
+      "items":[
+        {
+          "name":"Vegan dishes",
+          "path":"/vegan-dishes"
+        },
+        {
+          "name":"Spring Delights",
+          "path":"/spring-delights"
+        },
+        {
+          "name":"Barbecue & Grilling",
+          "path":"/barbecue-grilling"
+        },
+        {
+          "name":"Meals In Minutes",
+          "path":"/meals-in-minutes"
+        }
+      ]
+    },
+    {
+      "items":[
+        {
+          "name":"Meal Planner",
+          "path":"/meal-planner"
+        },
+        {
+          "name":"About us",
+          "path":"/about-us"
+        },
+        {
+          "name":"Contact us",
+          "path":"/contact-us"
+        },
+        {
+          "name":"Acessibility",
+          "path":"/acessibility"
+        },
+        {
+          "name":"Cookie Policy",
+          "path":"https://www.unilevercookiepolicy.com/pt_PT/policy.aspx"
+        },
+        {
+          "name":"Privacy Policy",
+          "path":"https://www.unileverprivacypolicy.com/portuguese/policy.aspx"
+        },
+        {
+          "name":"Legal Notice",
+          "path":"https://www.unilever.com.br/legal.html"
+        },
+        {
+          "name":"Sitemap",
+          "path":"/sitemap"
+        }
+      ]
+    }
+  ]
+}
