@@ -67,8 +67,10 @@ const RecipeCard = ({
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       {Image}
-      {itemTitle}
-      {RatingWidget}
+      <div className="recipe-card__info">
+        {itemTitle}
+        {RatingWidget}
+      </div>
     </Link>
   );
 

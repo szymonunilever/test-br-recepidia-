@@ -4,15 +4,10 @@ import { ProgressBarProps } from './models';
 
 const ProgressBar = ({ percentage = 0 }: ProgressBarProps) => {
   return (
-<<<<<<< HEAD
-    <div className={styles['progress-bar'] + ' progress-bar'}>
+    // <div className={styles['progress-bar'] + ' progress-bar'}>
+    <div className={styles.progressBar + ' progress-bar'}>
       <div
-        className={styles['progress-bar__content'] + ' progress-bar__content'}
-=======
-    <div className={styles['progress-bar']}>
-      <div
-        className={styles['progress-bar__content']}
->>>>>>> develop
+        className={styles.progressBar__content + ' progress-bar__content'}
         style={{ width: `${percentage}%` }}
       />
     </div>

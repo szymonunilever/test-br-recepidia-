@@ -32,25 +32,27 @@ storiesOf('Components/Carousel', module)
   .add(
     'Recipes Carousel default',
     () => (
-      <RecipeListing
-        list={recipesList}
-        viewType={RecipeListViewType.Carousel}
-        className="recipe-list--carousel"
-        content={recipesContents}
-        titleLevel={3}
-        carouselConfig={{
-          breakpoints: [
-            {
-              width: 1366,
-              switchElementsBelowBreakpoint: 1,
-              switchElementsAfterBreakpoint: 2,
-              visibleElementsBelowBreakpoint: 2,
-              visibleElementsAboveBreakpoint: 4,
-            },
-          ],
-          arrowIcon: <ArrowIcon />,
-        }}
-      />
+      <div className="container">
+        <RecipeListing
+          list={recipesList}
+          viewType={RecipeListViewType.Carousel}
+          className="recipe-list--carousel"
+          content={recipesContents}
+          titleLevel={3}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 1366,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 2,
+                visibleElementsBelowBreakpoint: 2,
+                visibleElementsAboveBreakpoint: 4,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
+      </div>
     ),
     {
       info: { inline: false },

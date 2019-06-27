@@ -29,12 +29,23 @@ $carouselItemPadding: 5px;
   }
 
 }  
-.progress-bar{
-  &__content{
-
+.cards--2-4{
+  .gatsby-image-wrapper{
+    &>div{
+      padding-bottom: 142% !important;
+      @include respondTo(medium){
+        padding-bottom: 123% !important;
+      }
+    }
   }
 }
-
-.recipe-card{
-
+.cards--1-2{
+  .gatsby-image-wrapper{
+    &>div{
+      padding-bottom: 69% !important;
+      @include respondTo(medium){
+        padding-bottom: 59% !important;
+      }
+    }
+  }
 }

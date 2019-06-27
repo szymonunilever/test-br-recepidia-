@@ -23,10 +23,12 @@ $border-radius-rect: 5px;
   // by type
   &--primary{
     background-color: $apple-green;
-    color: $white;
-    fill: $white;
+    color: $fish-blue-darker;
+    fill: $fish-blue-darker;
     &:hover{
       background-color: $black-blue;
+      color: $white;
+      fill: $white;
     }
   }
   &--secondary{

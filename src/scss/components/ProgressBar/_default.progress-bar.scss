@@ -1,0 +1,10 @@
+.progress-bar{
+  background-color: $gray;
+  height: 2px;
+  width: 170px;
+  margin-bottom: 25px;
+  &__content{
+    background-color: $fish-blue-darker;
+    transition: width .2s ease-in;
+  }
+}

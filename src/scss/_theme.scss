@@ -24,6 +24,7 @@ h1,h2,h3,h4,h5,.subheading{
 h1{
     font-size: 4.5rem;
     line-height: 1.19;
+    color: $fish-blue;
 }
 h2{
     font-size: 3.7rem;
@@ -78,4 +79,31 @@ P{
 }
 .rr-box-wrapper:not(:first-child) {
     display: none;
+}
+
+// recipe rating widget
+.rr-widget-container{
+    margin-top: 12px;
+    .aggregateRating{
+        height: 10px;
+        @include respondTo(desktop){
+            height: 13px;
+        }
+    }
+    .agRatingSelect, .agRatingDeSelect{
+        height: 100%;
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
+    .aggRtng{
+        display:none;
+    }
+    .tRtng{
+        display:none;
+    }
+    .tReview{
+        display:none;
+    }
 }
