@@ -9,6 +9,7 @@ export interface RecipeHeroProps
 
 export interface RecipeHeroContent extends AppContent.RecipeHeroContent {
   image?: Image;
+  imagePlaceholder?: Image;
 }
 
 export interface Image extends AppContent.ImageContent {
