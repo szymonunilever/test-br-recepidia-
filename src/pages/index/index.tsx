@@ -10,6 +10,8 @@ import { findPageComponentContent } from 'src/utils';
 import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials';
 import { RatingProvider } from 'src/components/lib/components/Rating';
 import Kritique from 'integrations/Kritique';
+import PageListing from 'src/components/lib/components/PageListing';
+import pageListingData from 'src/components/data/pageListing.json';
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.edges[0].node;
@@ -52,6 +54,15 @@ const HomePage = ({ data }: HomePageProps) => {
           viewType="Image"
         />
       </section>
+      <section>
+        <PageListing
+          content={{
+            title: 'What we offer',
+          }}
+          list={pageListingData}
+          initialCount={6}
+        />
+      </section>
     </Layout>
   );
 };
@@ -67,9 +78,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    allRecipe(skip: 10) {
+    allRecipe(limit: 10) {
       nodes {
         ...RecipeFields
+      }
+    }
+    allTagGroup(limit: 10) {
+      nodes {
+        name
       }
     }
   }

@@ -2,12 +2,17 @@ import { ItemProps } from './partials/models';
 import { UnileverLibraryComponent } from '../common/globalModels';
 import { CarouselConfig } from '../common/Carousel/models';
 
+export enum PageListingViewTypes {
+  default,
+  carousel,
+}
+
 export interface PageListingProps
   extends UnileverLibraryComponent<AppContent.PageListingContent> {
   list: ItemProps[];
   className?: string;
-  viewType: string;
-  initialCount: number;
+  viewType?: PageListingViewTypes;
+  initialCount?: number;
   pagesPerLoad?: number;
   carouselConfig?: CarouselConfig;
 }

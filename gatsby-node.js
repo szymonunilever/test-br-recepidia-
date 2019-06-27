@@ -1,6 +1,5 @@
 const path = require('path');
 const url = require('url');
-const get = require('lodash').get;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = async ({
@@ -27,7 +26,22 @@ exports.onCreateNode = async ({
       value: slug,
     });
   }
-  // console.log(node.internal.type);
+
+  if (node.internal.type === 'Tag') {
+    const slug = url.resolve(
+      '/recipe-category/',
+      node.name
+        .toLowerCase()
+        .split(' ')
+        .join('-')
+    );
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
 
   if (node.internal.type === 'Page') {
     const componentPromises = node.components.items.map(async component => {
@@ -59,31 +73,69 @@ exports.onCreateNode = async ({
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return graphql(`
-    {
-      allRecipe {
-        edges {
-          node {
-            fields {
-              slug
+  const recipePageCreation = new Promise(resolve => {
+    return graphql(`
+      {
+        allRecipe {
+          edges {
+            node {
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }
-  `).then(result => {
-    result.data.allRecipe.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
+    `).then(result => {
+      result.data.allRecipe.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: node.fields.slug,
+          },
+        });
+
+        resolve();
       });
     });
   });
+
+  // const recipePageCategoryCreation = new Promise(resolve => {
+  //   graphql(`
+  //     {
+  //       allTag {
+  //         edges {
+  //           node {
+  //             fields {
+  //               slug
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `).then(result => {
+  //     result.data.allTag.edges.forEach(({ node }) => {
+  //       createPage({
+  //         path: node.fields.slug,
+  //         component: path.resolve(
+  //           `./src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx`
+  //         ),
+  //         context: {
+  //           // Data passed to context is available
+  //           // in page queries as GraphQL variables.
+  //           slug: node.fields.slug,
+  //         },
+  //       });
+
+  //       resolve();
+  //     });
+  //   });
+  // });
+
+  return Promise.all([recipePageCreation]);
 };
 
 exports.onCreatePage = ({ page, actions }) => {
