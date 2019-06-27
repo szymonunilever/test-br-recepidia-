@@ -16,10 +16,14 @@ const GlobalFooter = ({
       {lists.map((list, index) => (
         <Menu list={list} key={index} />
       ))}
-
       {children}
       {logoIcon && (
-        <a href="//www.unilever.com" target="_blank" rel="noopener noreferrer">
+        <a
+          className="global-footer__logo"
+          href="//www.unilever.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {logoIcon}
         </a>
       )}

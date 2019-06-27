@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import LogoIcon from 'src/svgs/inline/placeholder.svg';
+import LogoIcon from 'src/svgs/inline/unilever-logo.svg';
 
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import content from 'src/components/data/globalFooterMenu.json';
@@ -14,8 +14,11 @@ const config = {
 storiesOf('Components/GlobalFooter', module).add('Default view', () => {
   return (
     <GlobalFooter content={content} {...config}>
-      <Example text="language selector" />
-      <Example text="social icons" />
+      <Example
+        className={'global-footer__languages'}
+        text="language selector"
+      />
+      <Example className={'global-footer__social-icons'} text="social icons" />
     </GlobalFooter>
   );
 });

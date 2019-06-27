@@ -1,0 +1,152 @@
+$footer-color: $black-blue;
+
+.global-footer {
+  border-top: 1px solid $footer-color;
+  @extend .container;
+  @include respondTo(desktop) {
+    align-items: center;
+  }
+
+  .footer-menu {
+    width: 100%;
+    padding: 20px 0;
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      @include respondTo(desktop) {
+        padding: 0 40px;
+        align-items: center;
+      }
+    }
+
+    &__item {
+      margin-bottom: 5px;
+      @include respondTo(desktop) {
+        margin: 20px 0;
+      }
+      &:nth-child(odd) {
+        width: 60%;
+        @include respondTo(desktop) {
+          width: auto;
+        }
+      }
+
+      &:nth-child(even) {
+        width: 40%;
+        @include respondTo(desktop) {
+          width: auto;
+        }
+      }
+    }
+
+    &__link {
+      display: inline-block;
+      font-size: 1.4rem;
+      font-family: $arial;
+      color: $footer-color;
+      text-decoration: none;
+      text-align: left;
+      padding: 10px 0;
+    }
+
+    &:first-child {
+      border-bottom: 1px solid $footer-color;
+      @include respondTo(desktop) {
+        padding: 45px 0;
+      }
+      .footer-menu__list {
+        justify-content: space-between;
+      }
+
+      .footer-menu__link {
+        @include respondTo(desktop) {
+          font-size: 2.5rem;
+          font-weight: bold;
+          line-height: 2.6rem;
+          letter-spacing: 0.5px;
+          padding: 10px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .footer-menu__list {
+        justify-content: space-between;
+      }
+      .footer-menu__item {
+        @include respondTo(desktop) {
+          &:nth-child(-n + 3) {
+            width: calc(100% / 3);
+            .footer-menu__link {
+              font-size: 2.5rem;
+            }
+          }
+          &:first-child {
+            text-align: right;
+          }
+          &:nth-child(2) {
+            text-align: center;
+          }
+          &:last-child {
+            margin-right: 25%;
+          }
+        }
+      }
+    }
+  }
+  &__languages {
+    color: inherit;
+    fill: currentColor;
+    margin-bottom: 40px;
+
+    //temporary styles for language select ( transformed ) / not clear position
+    @include respondTo(desktop) {
+      position: relative;
+      text-align: right;
+      z-index: -1;
+      margin-bottom: 0;
+      transform: translateY(-66px);
+    }
+  }
+
+  &__social-icons {
+    color: inherit;
+    fill: currentColor;
+    margin-bottom: 40px;
+    @include respondTo(desktop) {
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 45px;
+    height: 50px;
+    @include respondTo(desktop) {
+      display: block;
+      margin: 0 auto;
+      width: 65px;
+      height: 70px;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__copyright {
+    display: inline-block;
+    margin-left: 35px;
+    font-size: 12px;
+    color: $footer-color;
+    @include respondTo(desktop) {
+      display: block;
+      text-align: center;
+      margin-top: 17px;
+      margin-left: 0;
+    }
+  }
+}
