@@ -52,6 +52,7 @@ const HomePage = ({ data }: HomePageProps) => {
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
+          className="hero--planner color--inverted"
         />
       </section>
       <section>
