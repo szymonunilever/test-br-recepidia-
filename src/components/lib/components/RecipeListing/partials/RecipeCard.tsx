@@ -36,7 +36,7 @@ const RecipeCard = ({
       onFavoriteChange({ id, val });
     }
   };
-  const wrapClasses = cx(theme['recipe-card'], className);
+  const wrapClasses = cx(theme['recipe-card'], 'recipe-card', className);
   const RatingWidget =
     ratingProvider !== RatingProvider.none ? (
       <>

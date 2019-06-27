@@ -170,6 +170,7 @@ export const RecipeListing = ({
         content={content}
         config={carouselConfig}
         ratingProvider={ratingProvider}
+        titleLevel={titleLevel + 1}
       />
     ) : (
       <>

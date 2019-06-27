@@ -8,6 +8,7 @@ import { RecipeItem } from '../src/components/lib/components/RecipeListing/parti
 import PageListing from '../src/components/lib/components/PageListing/PageListing';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
+import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 
 const recipesList: RecipeItem[] = recipes.data.allRecipe.edges.map(
   (item: { node: RecipeItem | any }) => item.node
@@ -34,8 +35,9 @@ storiesOf('Components/Carousel', module)
       <RecipeListing
         list={recipesList}
         viewType={RecipeListViewType.Carousel}
+        className="recipe-list--carousel"
         content={recipesContents}
-        titleLevel={1}
+        titleLevel={3}
         carouselConfig={{
           breakpoints: [
             {
@@ -46,6 +48,7 @@ storiesOf('Components/Carousel', module)
               visibleElementsAboveBreakpoint: 4,
             },
           ],
+          arrowIcon: <ArrowIcon />,
         }}
       />
     ),

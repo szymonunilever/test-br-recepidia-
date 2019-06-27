@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface CreateElement {
   (itemData: any): JSX.Element;
 }
@@ -12,6 +14,7 @@ export interface BreakpointProps {
 
 export interface CarouselConfig {
   breakpoints: BreakpointProps[];
+  arrowIcon?: ReactElement;
 }
 
 export interface CarouselProps {

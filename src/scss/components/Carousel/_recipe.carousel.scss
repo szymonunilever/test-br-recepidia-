@@ -1,0 +1,40 @@
+$buttonSize: 43px;
+$carouselItemPadding: 5px;
+@include respondTo(desktop){
+  $buttonSize: 58px;
+  $carouselItemPadding: 8px;
+}
+
+.carousel{
+  position: relative;
+  &__images{
+    margin: 0 (-$carouselItemPadding);
+  }
+  &__item{
+    padding: $carouselItemPadding;
+  }
+  .slide-arrow{
+    @extend .button--control;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    &.left{
+      transform:rotate(90deg) translate(-50%, 50%);
+      left:0;
+    }
+    &.right{
+      transform:rotate(-90deg) translate(50%, 50%);
+      right: 0;
+    }
+  }
+
+}  
+.progress-bar{
+  &__content{
+
+  }
+}
+
+.recipe-card{
+
+}

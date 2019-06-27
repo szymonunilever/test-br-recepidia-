@@ -1,10 +1,19 @@
+$border-radius-rect: 5px;
+
 .button{
+  // by shape
   &--rect{
     height: 40px;
     font-size: 1.4rem;
     border:none;
-    border-radius: 5px;
+    border-radius: $border-radius-rect;
     transition: all .15s;
+  }
+  &--square{
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &--icon{
     border:none;
@@ -15,6 +24,7 @@
   &--primary{
     background-color: $apple-green;
     color: $white;
+    fill: $white;
     &:hover{
       background-color: $black-blue;
     }
@@ -46,5 +56,47 @@
   &--large{
     width: 100%;
     max-width: 352px;
+  }
+}
+
+//derived types
+.button{
+  &--control{
+    @extend .button--square;
+    @extend .button--primary;
+    width: 43px;
+    height: 43px;
+    font-size: 1.4rem;
+    border-radius: $border-radius-rect;
+    @include respondTo(desktop){
+      width: 58px;
+      height: 58px;
+      font-size: 2rem;
+    }
+  }
+  &--tooltip{
+    @extend .button--square;
+    width: 46px;
+    height: 46px;
+    font-size: 2rem;
+    border-radius: $border-radius-rect;
+    &-primary{ //.button--tooltip-primary
+      @extend .button--primary;
+    }
+    &-secondary{//.button--tooltip-secondary
+      @extend .button--secondary;
+    }
+  }
+  &--aside{
+    @extend .button--square;
+    @extend .button--primary;
+    width: 43px;
+    height: 43px;
+    font-size: 1.8rem;
+    @include respondTo(desktop){
+      width: 75px;
+      height: 75px;
+      font-size: 3rem;
+    }
   }
 }
