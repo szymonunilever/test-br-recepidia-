@@ -18,12 +18,17 @@ exports.createRecipeNodes = (
   createNode(nodeData);
 };
 
-const processTag = (tag, { createNodeId, createContentDigest, createNode }) => {
+const processTag = (
+  tag,
+  parentNodeId,
+  { createNodeId, createContentDigest, createNode }
+) => {
   const nodeId = createNodeId(`tag-${tag.name}`);
   const nodeContent = JSON.stringify(tag);
   const nodeData = Object.assign({}, tag, {
     id: nodeId,
-    parent: null,
+    tagId: tag.id,
+    parent: parentNodeId,
     children: [],
     internal: {
       type: 'Tag',
@@ -31,7 +36,8 @@ const processTag = (tag, { createNodeId, createContentDigest, createNode }) => {
       contentDigest: createContentDigest(tag),
     },
   });
-  return createNode(nodeData);
+  createNode(nodeData);
+  return nodeId;
 };
 
 exports.createTagGroupNodes = (
@@ -43,7 +49,13 @@ exports.createTagGroupNodes = (
   const nodeData = Object.assign({}, tagGroup, {
     id: nodeId,
     parent: null,
-    children: [],
+    children: tagGroup.tags.map(tag =>
+      processTag(tag, nodeId, {
+        createNodeId,
+        createContentDigest,
+        createNode,
+      })
+    ),
     internal: {
       type: 'TagGroup',
       content: nodeContent,
@@ -55,11 +67,11 @@ exports.createTagGroupNodes = (
 
   createNode(nodeData);
 
-  tagGroup.tags.map(tag =>
-    processTag(tag, {
-      createNodeId,
-      createContentDigest,
-      createNode,
-    })
-  );
+  // tagGroup.tags.map(tag =>
+  //   processTag(tag, nodeData.id, {
+  //     createNodeId,
+  //     createContentDigest,
+  //     createNode,
+  //   })
+  // );
 };

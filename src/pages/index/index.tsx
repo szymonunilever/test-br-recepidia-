@@ -12,9 +12,10 @@ import { RatingProvider } from 'src/components/lib/components/Rating';
 import Kritique from 'integrations/Kritique';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
+import { Tag } from 'src/components/models/Tags';
 
 const HomePage = ({ data }: HomePageProps) => {
-  const page = data.allPage.edges[0].node;
+  const page = data.allPage.nodes[0];
   const components = page.components.items;
   const recipes = data.allRecipe.nodes;
 
@@ -22,8 +23,7 @@ const HomePage = ({ data }: HomePageProps) => {
     <Layout>
       <SEO title="Recepedia Home" />
       <Kritique />
-
-      <Text tag={TagName['h1']} text={data.allPage.edges[0].node.title} />
+      <Text tag={TagName['h1']} text={page.title} />
       <section>
         <RecipeListing
           content={findPageComponentContent(
@@ -73,19 +73,23 @@ export default HomePage;
 export const pageQuery = graphql`
   {
     allPage(filter: { type: { eq: "Home" } }) {
-      edges {
-        node {
-          ...PageFields
-        }
+      nodes {
+        ...PageFields
       }
     }
+
     allRecipe(limit: 10) {
       nodes {
         ...RecipeFields
       }
     }
-    allTagGroup(limit: 10) {
+
+    allTag {
       nodes {
+        fields {
+          slug
+        }
+        tagId
         name
       }
     }
@@ -95,16 +99,15 @@ export const pageQuery = graphql`
 interface HomePageProps {
   data: {
     allPage: {
-      edges: Edge<PageNode>[];
+      nodes: PageNode[];
     };
     allRecipe: {
       nodes: RecipeItem[];
     };
+    allTag: {
+      nodes: Tag[];
+    };
   };
-}
-
-interface Edge<T> {
-  node: T;
 }
 
 interface PageNode {
