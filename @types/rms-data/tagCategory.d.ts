@@ -1,5 +1,5 @@
 declare namespace RMSData {
-  export interface TagCategory {
+  export interface TagGroup {
     name: string;
     label: string;
     tags: Tag[];
