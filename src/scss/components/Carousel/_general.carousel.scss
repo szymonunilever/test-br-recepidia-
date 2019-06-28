@@ -1,0 +1,51 @@
+$buttonSize: 43px;
+$carouselItemPadding: 5px;
+@include respondTo(desktop){
+  $buttonSize: 58px;
+  $carouselItemPadding: 8px;
+}
+
+.carousel{
+  position: relative;
+  &__images{
+    margin: 0 (-$carouselItemPadding);
+  }
+  &__item{
+    padding: $carouselItemPadding;
+  }
+  .slide-arrow{
+    @extend .button--control;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    &.left{
+      transform:rotate(90deg) translate(-50%, 50%);
+      left:0;
+    }
+    &.right{
+      transform:rotate(-90deg) translate(50%, 50%);
+      right: 0;
+    }
+  }
+
+}  
+.cards--2-4{
+  .gatsby-image-wrapper{
+    &>div{
+      padding-bottom: 142% !important;
+      @include respondTo(medium){
+        padding-bottom: 123% !important;
+      }
+    }
+  }
+}
+.cards--1-2{
+  .gatsby-image-wrapper{
+    &>div{
+      padding-bottom: 69% !important;
+      @include respondTo(medium){
+        padding-bottom: 59% !important;
+      }
+    }
+  }
+}

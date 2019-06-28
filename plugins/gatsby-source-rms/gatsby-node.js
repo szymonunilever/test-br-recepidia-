@@ -1,14 +1,6 @@
 const axios = require('axios');
-
-const getListFromStrangeContract = (col, key) => {
-  const list = [];
-
-  for (let dish in col) {
-    list.push(...col[dish][key]);
-  }
-
-  return list;
-};
+const createNodes = require('./createNodes');
+const { createRecipeNodes, createTagGroupNodes } = createNodes;
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
@@ -19,23 +11,6 @@ exports.sourceNodes = async (
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins;
 
-  const processRecipe = recipe => {
-    const nodeId = createNodeId(`recipe-${recipe.id}`);
-    const nodeContent = JSON.stringify(recipe);
-    const nodeData = Object.assign({}, recipe, {
-      id: nodeId,
-      recipeId: recipe.id,
-      parent: null,
-      children: [],
-      internal: {
-        type: 'Recipe',
-        content: nodeContent,
-        contentDigest: createContentDigest(recipe),
-      },
-    });
-    return nodeData;
-  };
-
   const config = {
     headers: {
       'x-api-key': configOptions.key,
@@ -44,8 +19,18 @@ exports.sourceNodes = async (
 
   const response = await axios.get(configOptions.endpoint, config);
 
-  response.data.recipes.forEach(recipe => {
-    const nodeData = processRecipe(recipe);
-    createNode(nodeData);
-  });
+  response.data.recipes.forEach(recipe =>
+    createRecipeNodes(recipe, {
+      createNodeId,
+      createContentDigest,
+      createNode,
+    })
+  );
+  response.data.tagGroups.forEach(tagGroup =>
+    createTagGroupNodes(tagGroup, {
+      createNodeId,
+      createContentDigest,
+      createNode,
+    })
+  );
 };

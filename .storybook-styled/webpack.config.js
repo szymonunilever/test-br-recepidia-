@@ -33,7 +33,7 @@ module.exports = ({ config }) => {
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
-  config.resolve.alias = { src: path.resolve(__dirname, '../src') };
+  config.resolve.alias = {src: path.resolve(__dirname, '../src'), integrations: path.resolve(__dirname, '../integrations')};
 
   config.module.rules.push({
     test: /\.scss$/,

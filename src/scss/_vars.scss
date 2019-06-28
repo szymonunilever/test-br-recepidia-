@@ -2,7 +2,7 @@
    BREAKPOINTS
 \* ----------------------------------------------------------------------------- */
 // $bp-small: 480px;
-// $bp-medium: 768px;
+$bp-medium: 768px;
 // $bp-large: 992px;
 // $bp-extra-large: 1200px;
 $bp-desktop: 1366px;
@@ -19,14 +19,14 @@ $bp-desktop: 1366px;
 \* ----------------------------------------------------------------------------- */
 $recepedia-orange: #ff7875;
 $fish-blue: #587c94;
-$fish-blue-darken: #4c6b7f;
+$fish-blue-darker: #4C6B7F;
 $apple-green: #b6dc85;
 $luminous-yellow: #facc00;
 $black-blue:#363840;
 $white-gray:#f4f7f9;
 $white: #ffffff;
-$blue-overlay:#587c94;
 $blue-overlay-40: rgba(88,124,148,.4);
+$gray: #C3C3C3;
 
 $primary-color: $recepedia-orange;
 $overlay-color: $blue-overlay-40;

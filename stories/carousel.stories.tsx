@@ -8,6 +8,8 @@ import { RecipeItem } from '../src/components/lib/components/RecipeListing/parti
 import PageListing from '../src/components/lib/components/PageListing/PageListing';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
+import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 
 const recipesList: RecipeItem[] = recipes.data.allRecipe.edges.map(
   (item: { node: RecipeItem | any }) => item.node
@@ -31,23 +33,27 @@ storiesOf('Components/Carousel', module)
   .add(
     'Recipes Carousel default',
     () => (
-      <RecipeListing
-        list={recipesList}
-        viewType={RecipeListViewType.Carousel}
-        content={recipesContents}
-        titleLevel={1}
-        carouselConfig={{
-          breakpoints: [
-            {
-              width: 1366,
-              switchElementsBelowBreakpoint: 1,
-              switchElementsAfterBreakpoint: 2,
-              visibleElementsBelowBreakpoint: 2,
-              visibleElementsAboveBreakpoint: 4,
-            },
-          ],
-        }}
-      />
+      <div className="container">
+        <RecipeListing
+          list={recipesList}
+          viewType={RecipeListViewType.Carousel}
+          className="recipe-list--carousel"
+          content={recipesContents}
+          titleLevel={3}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 1366,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 2,
+                visibleElementsBelowBreakpoint: 2,
+                visibleElementsAboveBreakpoint: 4,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
+      </div>
     ),
     {
       info: { inline: false },
@@ -59,7 +65,7 @@ storiesOf('Components/Carousel', module)
       <PageListing
         list={pages}
         content={pagesContents}
-        viewType="carousel"
+        viewType={PageListingViewTypes.carousel}
         initialCount={4}
         carouselConfig={{
           breakpoints: [
