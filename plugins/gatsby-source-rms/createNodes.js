@@ -63,15 +63,5 @@ exports.createTagGroupNodes = (
     },
   });
 
-  // tagGroup[`tags___NODE`] = tags;
-
   createNode(nodeData);
-
-  // tagGroup.tags.map(tag =>
-  //   processTag(tag, nodeData.id, {
-  //     createNodeId,
-  //     createContentDigest,
-  //     createNode,
-  //   })
-  // );
 };

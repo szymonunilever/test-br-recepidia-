@@ -44,12 +44,6 @@ exports.onCreateNode = async ({
     });
   }
 
-  // if (node.internal.type === 'TagGroup') {
-  //   node.tags.forEach(tagNode => {
-  //     createTagSlugField(tagNode, { createNodeField });
-  //   });
-  // }
-
   if (node.internal.type === 'Page') {
     const componentPromises = node.components.items.map(async component => {
       let fileNode;

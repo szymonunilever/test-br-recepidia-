@@ -18,7 +18,6 @@ const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.nodes[0];
   const components = page.components.items;
   const recipes = data.allRecipe.nodes;
-
   return (
     <Layout>
       <SEO title="Recepedia Home" />
