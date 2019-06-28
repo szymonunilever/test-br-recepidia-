@@ -6,6 +6,8 @@ declare namespace RMSData {
     shortDescription?: string;
     description: string;
     creationTime: Date;
+    cookingTime: number;
+    preparationTime: number;
     recipeDetails: RMSData.RecipeDetails;
     imageUrls: string[];
     ingredients: RMSData.Ingredient[];
@@ -22,6 +24,6 @@ declare namespace RMSData {
      * difficulties, dishes, mainIngredients, occasions, seasons,
      * spiciness, suitability, timesOfDay, dietary
      * */
-    tagGroups: TagCategory[];
+    tagGroups: TagGroup[];
   }
 }

@@ -157,6 +157,7 @@ export const RecipeListing = ({
         withFavorite={withFavorite}
         ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
+        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />

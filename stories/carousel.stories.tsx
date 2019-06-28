@@ -9,6 +9,7 @@ import PageListing from '../src/components/lib/components/PageListing/PageListin
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 
 const recipesList: RecipeItem[] = recipes.data.allRecipe.edges.map(
   (item: { node: RecipeItem | any }) => item.node
@@ -64,7 +65,7 @@ storiesOf('Components/Carousel', module)
       <PageListing
         list={pages}
         content={pagesContents}
-        viewType="carousel"
+        viewType={PageListingViewTypes.carousel}
         initialCount={4}
         carouselConfig={{
           breakpoints: [
