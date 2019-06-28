@@ -171,6 +171,8 @@ export const RecipeListing = ({
         content={content}
         config={carouselConfig}
         ratingProvider={ratingProvider}
+        // @ts-ignore
+        titleLevel={titleLevel + 1}
       />
     ) : (
       <>

@@ -12,6 +12,7 @@ export interface BreakpointProps {
 
 export interface CarouselConfig {
   breakpoints: BreakpointProps[];
+  arrowIcon?: JSX.Element;
 }
 
 export interface CarouselProps {

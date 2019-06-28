@@ -37,7 +37,7 @@ export interface RecipeListingProps
 export interface RecipeListingCarouselProps
   extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
   withFavorite?: boolean;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  titleLevel?: titleLevel;
   onFavoriteChange: RecipeCardFavoriteCallback;
   list: RecipeItem[];
   config: CarouselConfig;

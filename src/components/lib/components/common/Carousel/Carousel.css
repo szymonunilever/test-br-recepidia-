@@ -5,7 +5,5 @@
 }
 .carousel__images .carousel__item {
   flex-shrink: 0;
-  /* flex-basis: 50%; */
   transition: all .5s;
-  /* transform: translateX(-200%); */
 }
