@@ -13,19 +13,9 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
     );
   };
   const [imageIndex, setImageIndex] = useState(0);
-  const [breakpoint, setBreakpoint] = useState(
-    getNearestBreakpoint(window.innerWidth)
-  );
-  const [slideStep, setSlideStep] = useState(
-    window.innerWidth > breakpoint.width
-      ? breakpoint.switchElementsAfterBreakpoint
-      : breakpoint.switchElementsBelowBreakpoint
-  );
-  const [visibleElements, setVisibleElements] = useState(
-    window.innerWidth > breakpoint.width
-      ? breakpoint.visibleElementsAboveBreakpoint
-      : breakpoint.visibleElementsBelowBreakpoint
-  );
+  const [breakpoint, setBreakpoint] = useState(config.breakpoints[0]);
+  const [slideStep, setSlideStep] = useState();
+  const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
 
   const [percentage, setPercentage] = useState(
