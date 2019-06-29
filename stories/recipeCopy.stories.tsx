@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import dataSource from 'src/components/data/recipe.json';
 import RecipeCopy, {
   RecipeCopyViewType,
 } from 'src/components/lib/components/RecipeCopy';
+import dataSource from 'src/components/data/recipe.json';
 
 const recipe = {
   ...dataSource,

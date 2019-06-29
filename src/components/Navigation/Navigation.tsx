@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
-import { TagGroup, Tag } from '../models/Tags';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import LogoIcon from 'src/svgs/inline/logo.svg';
 import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';

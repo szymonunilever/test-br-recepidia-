@@ -1,0 +1,22 @@
+{
+  "labels": {
+    "preparationTime": {
+      "title": "Prep time",
+      "units": "min",
+      "unitsPlural": "mins"
+    },
+    "totalTime": {
+      "title": "Total time",
+      "units": "min",
+      "unitsPlural": "mins"
+    },
+    "serves": {
+      "title": "Feeds",
+      "units": "person",
+      "unitsPlural": "people"
+    },
+    "difficulties": {
+      "title": "Difficulty"
+    }
+  }
+}

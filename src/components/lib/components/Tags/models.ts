@@ -7,7 +7,7 @@ export enum TagViewType {
 export interface TagsProps
   extends UnileverLibraryComponent<AppContent.TagsContent> {
   list: ItemProps[];
-  isEditable: boolean;
+  isEditable?: boolean;
   RemoveIcon?: JSX.Element;
   tagsPerLoad?: number;
   enableExternalManage?: boolean;

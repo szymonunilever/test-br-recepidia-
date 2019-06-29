@@ -3,23 +3,27 @@ import cx from 'classnames';
 import { RecipeHeroProps } from './models';
 import Img from 'gatsby-image';
 import theme from './RecipeHero.module.scss';
-import { get } from 'lodash';
 
-const RecipeHero = (props: RecipeHeroProps) => {
-  const containerStyles = cx('recipe-hero', props.className, theme.container);
+const RecipeHero = ({
+  content,
+  imagePlaceholder,
+  className,
+}: RecipeHeroProps) => {
+  const containerStyles = cx('recipe-hero', className, theme.container);
   const imageStyles = cx('recipe-hero__image', theme.image);
-  const image = get(props, 'content.image');
-  const imagePlaceholder = get(props, 'content.imagePlaceholder');
 
   return (
     <div data-componentname="recipe-hero" className={containerStyles}>
       <div className={imageStyles}>
-        {image != undefined ? (
-          <Img fluid={image.localImage.childImageSharp.fluid} alt={image.alt} />
+        {content.localImage ? (
+          <Img
+            fluid={content.localImage.childImageSharp.fluid}
+            alt={content.title}
+          />
         ) : (
           <Img
-            fluid={imagePlaceholder.localImage.childImageSharp.fluid}
-            alt={imagePlaceholder.alt}
+            fluid={imagePlaceholder.childImageSharp.fluid}
+            alt={content.title}
           />
         )}
       </div>
