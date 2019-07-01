@@ -4,34 +4,13 @@ import {
   RecipeAttributeIcons,
   RecipeAttributes,
   RecipeAttributesKeys,
-} from '../src/components/lib/components/RecipeAttributes';
+} from 'src/components/lib/components/RecipeAttributes';
 import dataSource from 'src/components/data/recipe.json';
 import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
 import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
 import RecipePeople from 'src/svgs/inline/recipe-people.svg';
 import RecipeKnife from 'src/svgs/inline/recope-chop.svg';
-const content: AppContent.RecipeAttributes.Content = {
-  labels: {
-    preparationTime: {
-      title: 'Prep time',
-      units: 'min',
-      unitsPlural: 'mins',
-    },
-    totalTime: {
-      title: 'Total time',
-      units: 'min',
-      unitsPlural: 'mins',
-    },
-    serves: {
-      title: 'Feeds',
-      units: 'person',
-      unitsPlural: 'people',
-    },
-    difficulties: {
-      title: 'Difficulty',
-    },
-  },
-};
+import content from 'src/components/data/recipeAttributes.json';
 
 const config: RecipeAttributesKeys[] = [
   RecipeAttributesKeys.serves,

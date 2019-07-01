@@ -10,13 +10,11 @@ import {
 } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
-import { RecipeItem } from 'src/components/lib/components/RecipeListing/partials';
 import { RatingProvider } from 'src/components/lib/components/Rating';
 import Kritique from 'integrations/Kritique';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
-import { Tag } from 'src/components/models/Tags';
 
 const HomePage = ({ data }: HomePageProps) => {
   const page = data.allPage.nodes[0];
@@ -142,10 +140,10 @@ interface HomePageProps {
       nodes: PageNode[];
     };
     allRecipe: {
-      nodes: RecipeItem[];
+      nodes: Internal.Recipe[];
     };
     allTag: {
-      nodes: Tag[];
+      nodes: Internal.Tag[];
     };
   };
 }

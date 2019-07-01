@@ -1,15 +1,13 @@
-import { TagGroup, Tag } from '../models/Tags';
-
 export const constructMenu = (
-  tagGroups: TagGroup[]
+  tagGroups: Internal.TagGroup[]
 ): AppContent.GlobalNavigation.MenuItem[] => {
   const menuItems: AppContent.GlobalNavigation.MenuItem[] = [
     {
       name: 'Recipes',
-      children: tagGroups.map((tagGroup: TagGroup) => {
+      children: tagGroups.map((tagGroup: Internal.TagGroup) => {
         const recipesMenuItems: AppContent.GlobalNavigation.MenuItem = {
           name: tagGroup.name,
-          children: tagGroup.children.map((tag: Tag) => ({
+          children: tagGroup.children.map((tag: Internal.Tag) => ({
             name: tag.name,
             path: tag.fields.slug,
           })),

@@ -1,5 +1,6 @@
-import cx from 'classnames';
 import React from 'react';
+import cx from 'classnames';
+import { get } from 'lodash';
 import { RecipeAttributesKeys, RecipeAttributesProps } from './models';
 import theme from './RecipeAttributes.module.scss';
 import { RecipeAttributeCard } from './partials';
@@ -22,7 +23,8 @@ export const RecipeAttributes = ({
       const difficulties = recipe.tagGroups.find(
         item => item.name === RecipeAttributesKeys[value]
       );
-      const difficultyVal = difficulties ? difficulties.tags[0].name : '';
+      const difficultyVal = get(difficulties, 'tags[0].name', '');
+
       return (
         <RecipeAttributeCard
           key={index}
