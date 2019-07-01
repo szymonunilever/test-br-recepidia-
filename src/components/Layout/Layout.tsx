@@ -7,9 +7,9 @@ import BackToTop from '../lib/components/BackToTop/BackToTop';
 import Icon from 'src/svgs/inline/arrow-up.svg';
 import Navigation from '../Navigation/Navigation';
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, className }: LayoutProps) => {
   return (
-    <div className="global-container">
+    <div className={'global-container ' + className}>
       <BackToTop content={{ label: 'Back to top' }} Icon={Icon} />
       <a className="skip-to-content" href="#content">
         Skip To Content
@@ -30,4 +30,5 @@ interface LayoutProps {
   location?: Location;
   title?: string;
   children?: ReactNode | ReactNode[];
+  className?: string;
 }
