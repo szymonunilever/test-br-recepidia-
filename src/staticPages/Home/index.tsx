@@ -16,9 +16,8 @@ import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 
-const HomePage = ({ data }: HomePageProps) => {
-  const page = data.allPage.nodes[0];
-  const components = page.components.items;
+const HomePage = ({ data, pageContext }: HomePageProps) => {
+  const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
 
   return (
@@ -26,8 +25,9 @@ const HomePage = ({ data }: HomePageProps) => {
       <SEO title="Recepedia Home" />
       <Kritique />
       <div className="container">
-        <Text tag={TagName['h1']} text={page.title} />
+        <Text tag={TagName['h1']} text={title} />
       </div>
+
       <section>
         <div className="container">
           <RecipeListing
@@ -110,13 +110,7 @@ export default HomePage;
 
 export const pageQuery = graphql`
   {
-    allPage(filter: { type: { eq: "Home" } }) {
-      nodes {
-        ...PageFields
-      }
-    }
-
-    allRecipe(limit: 10) {
+    allRecipe(skip: 10) {
       nodes {
         ...RecipeFields
       }
@@ -136,9 +130,6 @@ export const pageQuery = graphql`
 
 interface HomePageProps {
   data: {
-    allPage: {
-      nodes: PageNode[];
-    };
     allRecipe: {
       nodes: Internal.Recipe[];
     };
@@ -146,6 +137,16 @@ interface HomePageProps {
       nodes: Internal.Tag[];
     };
   };
+  pageContext: {
+    title: string;
+    components: {
+      [key: string]: string | number | boolean | object | null;
+    }[];
+  };
+}
+
+interface Edge<T> {
+  node: T;
 }
 
 interface PageNode {
