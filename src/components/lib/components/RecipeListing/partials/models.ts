@@ -1,31 +1,8 @@
-import { FixedObject, FluidObject } from 'gatsby-image';
 import { RatingProvider } from '../../Rating/models';
 import {
   titleLevel,
   UnileverLibraryComponent,
 } from '../../common/globalModels';
-
-export interface LocalImage {
-  id: string;
-  childImageSharp: {
-    fluid?: FluidObject;
-    fixed?: FixedObject;
-  };
-}
-
-export interface RecipeItem extends RMSData.Recipe {
-  inFavorite?: boolean;
-  localImage: LocalImage;
-  fields: {
-    slug: string;
-  };
-  recipeId: string;
-  cookingTime: number;
-  preparationTime: number;
-  creationTime: Date;
-  ingredients: RMSData.Ingredient[];
-  tagGroups: RMSData.TagCategory[];
-}
 
 export interface RecipeCardFavoriteCallback {
   (selected: { id: string; val: boolean }): void;
@@ -36,7 +13,7 @@ export interface RecipeCardProps
   id: string;
   recipeId: string;
   enableSelectFavorite?: boolean;
-  localImage?: LocalImage;
+  localImage?: Internal.LocalImage;
   titleLevel?: titleLevel;
   slug: string;
   Icon?: JSX.Element;
@@ -47,7 +24,7 @@ export interface RecipeCardProps
 
 export interface RecipeListingTrivialProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
-  list: RecipeItem[];
+  list: Internal.Recipe[];
   withFavorite: boolean;
   FavoriteIcon?: JSX.Element;
   titleLevel?: titleLevel;
@@ -65,7 +42,7 @@ export enum RecipeSortingOptions {
 }
 
 export interface RecipeFilterOptions {
-  tagGroups: RMSData.TagCategory[];
+  tagGroups: RMSData.TagGroup[];
 }
 
 export interface RecipeFilterProps

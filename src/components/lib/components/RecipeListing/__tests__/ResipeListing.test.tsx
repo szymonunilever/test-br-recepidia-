@@ -5,12 +5,11 @@ import React from 'react';
 import dataSource from 'src/components/data/recipes.json';
 
 import { RecipeListing, RecipeListViewType, OnFavoriteChange } from '../index';
-import { RecipeItem } from '../partials';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 
-const listing: RecipeItem[] = dataSource.data.allRecipe.edges.map(
+const listing: Internal.Recipe[] = dataSource.data.allRecipe.edges.map(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (item: { node: RecipeItem | any }) => item.node
+  (item: { node: Internal.Recipe | any }) => item.node
 );
 const countItems = listing.length;
 const content: AppContent.RecipeListing.Content = {

@@ -8,7 +8,7 @@ import { includes } from 'lodash';
 const Tags = ({
   list,
   content,
-  isEditable,
+  isEditable = false,
   tagsPerLoad = 4,
   initialCount = 4,
   RemoveIcon,

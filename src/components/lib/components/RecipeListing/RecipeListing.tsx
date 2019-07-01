@@ -7,7 +7,6 @@ import { RecipeListingProps, RecipeListViewType } from './models';
 import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   RecipeFilter,
-  RecipeItem,
   RecipeListingTrivial,
   RecipeSortingOptions,
 } from './partials';
@@ -57,7 +56,7 @@ export const RecipeListing = ({
   );
 
   const [listState, setListState] = useState<{
-    listItems: RecipeItem[];
+    listItems: Internal.Recipe[];
     filterLength: number;
     filter: RMSData.Tag[];
     sorting: RecipeSortingOptions;
@@ -157,6 +156,7 @@ export const RecipeListing = ({
         withFavorite={withFavorite}
         ratingProvider={ratingProvider}
         onFavoriteChange={changeFavorites}
+        content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
@@ -170,6 +170,8 @@ export const RecipeListing = ({
         content={content}
         config={carouselConfig}
         ratingProvider={ratingProvider}
+        // @ts-ignore
+        titleLevel={titleLevel + 1}
       />
     ) : (
       <>

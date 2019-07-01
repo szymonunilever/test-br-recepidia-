@@ -1,6 +1,6 @@
 import { RatingProvider } from '../Rating';
 import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
-import { RecipeFilterOptions, RecipeItem } from './partials';
+import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../common/Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 
@@ -26,7 +26,7 @@ export interface RecipeListingProps
   RemoveTagIcon?: JSX.Element;
   FilterIcon?: JSX.Element;
   favorites?: string[];
-  list: RecipeItem[];
+  list: Internal.Recipe[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
   ratingProvider?: RatingProvider;
@@ -37,9 +37,9 @@ export interface RecipeListingProps
 export interface RecipeListingCarouselProps
   extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
   withFavorite?: boolean;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  titleLevel?: titleLevel;
   onFavoriteChange: RecipeCardFavoriteCallback;
-  list: RecipeItem[];
+  list: Internal.Recipe[];
   config: CarouselConfig;
   ratingProvider?: RatingProvider;
 }

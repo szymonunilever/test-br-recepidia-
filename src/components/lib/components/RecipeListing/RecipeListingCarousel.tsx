@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel from '../common/Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
-import { RecipeItem } from './partials/models';
 import RecipeCard from './partials/RecipeCard';
 import { RatingProvider } from '../Rating/index';
 
@@ -9,12 +8,11 @@ const RecipeListingCarousel = ({
   withFavorite = true,
   titleLevel = 1,
   onFavoriteChange,
-  content,
   list,
   config,
   ratingProvider = RatingProvider.none,
 }: RecipeListingCarouselProps) => {
-  const getCurrentItem = (item: RecipeItem) => {
+  const getCurrentItem = (item: Internal.Recipe) => {
     return (
       <RecipeCard
         id={item.id}
@@ -22,7 +20,7 @@ const RecipeListingCarousel = ({
         enableSelectFavorite={withFavorite}
         titleLevel={titleLevel}
         slug={item.fields.slug}
-        content={content}
+        content={{ title: item.shortTitle }}
         onFavoriteChange={onFavoriteChange}
         recipeId={item.recipeId}
         ratingProvider={ratingProvider}

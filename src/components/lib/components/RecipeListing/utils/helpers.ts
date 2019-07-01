@@ -1,28 +1,29 @@
 import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
-import { RecipeItem, RecipeSortingOptions } from '../partials';
+import { RecipeSortingOptions } from '../partials';
 
-const sortByPreparationTime = (list: RecipeItem[]) =>
+const sortByPreparationTime = (list: Internal.Recipe[]) =>
   _sortBy(list, ['recipeDetails.preparationTime', 'creationDate']);
 
-const sortByCookingTime = (list: RecipeItem[]) =>
+const sortByCookingTime = (list: Internal.Recipe[]) =>
   _sortBy(list, ['recipeDetails.cookingTime', 'creationDate']);
 
-const sortByAverageRating = (list: RecipeItem[]) => {
+const sortByAverageRating = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method
   return list;
 };
 
-const sortByNewest = (list: RecipeItem[]) => _sortBy(list, ['creationDate']);
+const sortByNewest = (list: Internal.Recipe[]) =>
+  _sortBy(list, ['creationDate']);
 
-const sortByRecentlyUpdate = (list: RecipeItem[]) => {
+const sortByRecentlyUpdate = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method
   return list;
 };
 
-const sortByTitle = (list: RecipeItem[]) => _sortBy(list, ['title']);
+const sortByTitle = (list: Internal.Recipe[]) => _sortBy(list, ['title']);
 
 export function applyingFavorites(
-  list: RecipeItem[],
+  list: Internal.Recipe[],
   withFavorites: boolean,
   favorites: string[]
 ) {
@@ -67,7 +68,7 @@ export function applyContentDefaults(
     ...content,
   };
 }
-export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
+export function sortBy(sort: RecipeSortingOptions, list: Internal.Recipe[]) {
   switch (sort) {
     case RecipeSortingOptions.preparationTime:
       return sortByPreparationTime(list);
@@ -88,12 +89,12 @@ export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
 
 export function applyFilters(
   filters: RMSData.Tag[],
-  list: RecipeItem[]
-): RecipeItem[] {
+  list: Internal.Recipe[]
+): Internal.Recipe[] {
   if (filters.length > 0) {
-    return filter(list, (item: RecipeItem) => {
+    return filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
-      const includedTags = filter(tagGroups, (item: RMSData.TagCategory) => {
+      const includedTags = filter(tagGroups, (item: RMSData.TagGroup) => {
         return (
           intersectionBy(item.tags, filters, 'id').length >= filters.length
         );

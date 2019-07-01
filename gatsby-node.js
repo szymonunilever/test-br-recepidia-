@@ -48,7 +48,22 @@ exports.onCreateNode = async ({
       value: slug,
     });
   }
-  // console.log(node.internal.type);
+
+  if (node.internal.type === 'Tag') {
+    const slug = url.resolve(
+      '/recipe-category/',
+      node.name
+        .toLowerCase()
+        .split(' ')
+        .join('-')
+    );
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
 
   if (node.internal.type === 'Page') {
     const componentPromises = node.components.map(async component => {
@@ -106,6 +121,15 @@ exports.createPages = ({ graphql, actions }) => {
           title
         }
       }
+      allTag {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     function parseComponents(components) {
@@ -135,6 +159,9 @@ exports.createPages = ({ graphql, actions }) => {
       });
 
     const recipeDetailsPage = pages.find(item => item.type === 'RecipeDetail');
+    const recipeCategoryPage = pages.find(
+      item => item.type === 'RecipeCategory'
+    );
 
     result.data.allRecipe.edges.forEach(({ node }) => {
       //@todo consider building path from some pattern, taken from middleware
@@ -149,5 +176,26 @@ exports.createPages = ({ graphql, actions }) => {
         },
       });
     });
+    result.data.allTag.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: getPageTemplate(recipeCategoryPage.type),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.fields.slug,
+        },
+      });
+    });
   });
+};
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+  // Add hashes to icons classNames
+  const config = getConfig();
+  const svgLoaderRule = config.module.rules.find(
+    rule => get(rule, 'use.loader') === 'svg-react-loader'
+  );
+  svgLoaderRule.use.options.classIdPrefix = true;
+  actions.replaceWebpackConfig(config);
 };

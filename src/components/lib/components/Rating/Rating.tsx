@@ -5,6 +5,7 @@ import {
   RatingSymmaryTemplate,
   RatingEntityType,
 } from './models';
+import isBrowser from '../../utils/isBrowser';
 
 const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
   const [locationOrigin, setLocationOrigin] = useState('');
@@ -22,11 +23,9 @@ const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
             data-summary-template={RatingSymmaryTemplate.inline01}
             data-entity-type={RatingEntityType.recipe}
             data-unique-id={recipeId}
-            data-entity-url={
-              typeof window !== 'undefined' && `${locationOrigin}${linkTo}`
-            }
+            data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
             data-category-pageurl={
-              typeof window !== 'undefined' && `${locationOrigin}${'/recipes'}`
+              isBrowser() && `${locationOrigin}${'/recipes'}`
             }
             title="Recipeeeeeeeeeee"
             onClick={(e: SyntheticEvent) => {

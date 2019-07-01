@@ -36,7 +36,7 @@ const RecipeCard = ({
       onFavoriteChange({ id, val });
     }
   };
-  const wrapClasses = cx(theme['recipe-card'], className);
+  const wrapClasses = cx(theme['recipe-card'], 'recipe-card', className);
   const RatingWidget =
     ratingProvider !== RatingProvider.none ? (
       <>
@@ -67,8 +67,10 @@ const RecipeCard = ({
   ) : (
     <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
       {Image}
-      {itemTitle}
-      {RatingWidget}
+      <div className="recipe-card__info">
+        {itemTitle}
+        {RatingWidget}
+      </div>
     </Link>
   );
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { PageListingProps } from './models';
+import { PageListingProps, PageListingViewTypes } from './models';
 import { ItemProps } from './partials/models';
 
 import PageListingItem from './partials/PageListingItem';
@@ -10,8 +10,8 @@ import { Button } from 'src/components/lib/components/common/Button';
 const PageListing = ({
   list,
   content: { title, subtitle, cta },
-  viewType,
-  initialCount,
+  viewType = PageListingViewTypes.default,
+  initialCount = 6,
   className,
   pagesPerLoad = 4,
   carouselConfig = {
@@ -57,20 +57,16 @@ const PageListing = ({
       {subTitle}
 
       <ul className={`page-listing__list`}>
-        {pages.list.map((item: ItemProps) => {
-          return (
-            <li key={item.title} className={`page-listing__item`}>
-              <PageListingItem key={item.title} page={item} />;
-            </li>
-          );
-        })}
+        {pages.list.map((item: ItemProps) => (
+          <PageListingItem key={item.title} page={item} />
+        ))}
       </ul>
 
       {loadMoreBtn}
     </div>
   );
 
-  if (viewType === 'carousel') {
+  if (viewType === PageListingViewTypes.carousel) {
     view = (
       <PageListingCarousel
         list={pages.list}

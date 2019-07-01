@@ -13,19 +13,9 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
     );
   };
   const [imageIndex, setImageIndex] = useState(0);
-  const [breakpoint, setBreakpoint] = useState(
-    getNearestBreakpoint(window.innerWidth)
-  );
-  const [slideStep, setSlideStep] = useState(
-    window.innerWidth > breakpoint.width
-      ? breakpoint.switchElementsAfterBreakpoint
-      : breakpoint.switchElementsBelowBreakpoint
-  );
-  const [visibleElements, setVisibleElements] = useState(
-    window.innerWidth > breakpoint.width
-      ? breakpoint.visibleElementsAboveBreakpoint
-      : breakpoint.visibleElementsBelowBreakpoint
-  );
+  const [breakpoint, setBreakpoint] = useState(config.breakpoints[0]);
+  const [slideStep, setSlideStep] = useState();
+  const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
 
   const [percentage, setPercentage] = useState(
@@ -106,22 +96,32 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   };
 
   return (
-    <div className="carousel">
+    <>
       <ProgressBar percentage={percentage} />
-      {mayGoLeft && (
-        <Arrow direction="left" clickFunction={previousImage} icon="&#9664;" />
-      )}
-      <div className={'carousel__images'}>
-        {list.map((item: any, index: number) => (
-          <div key={index} className="carousel__item" style={style}>
-            {createElementFunction(item)}
-          </div>
-        ))}
+      <div className="carousel">
+        {mayGoLeft && (
+          <Arrow
+            direction="left"
+            clickFunction={previousImage}
+            icon={config.arrowIcon || '&#9664;'}
+          />
+        )}
+        <div className={'carousel__images'}>
+          {list.map((item: any, index: number) => (
+            <div key={index} className="carousel__item" style={style}>
+              {createElementFunction(item)}
+            </div>
+          ))}
+        </div>
+        {mayGoRight && (
+          <Arrow
+            direction="right"
+            clickFunction={nextImage}
+            icon={config.arrowIcon || '&#9654;'}
+          />
+        )}
       </div>
-      {mayGoRight && (
-        <Arrow direction="right" clickFunction={nextImage} icon="&#9654;" />
-      )}
-    </div>
+    </>
   );
 };
 

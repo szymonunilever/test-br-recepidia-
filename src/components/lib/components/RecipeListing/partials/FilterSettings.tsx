@@ -38,7 +38,7 @@ const FilterSettings = ({
   return (
     <div className={classWrapper} hidden={hidden}>
       <ul className="filter-settings__tagGroups">
-        {allFilters.tagGroups.map((item: RMSData.TagCategory, key) => (
+        {allFilters.tagGroups.map((item: RMSData.TagGroup, key) => (
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"

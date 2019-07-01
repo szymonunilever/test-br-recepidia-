@@ -19,8 +19,6 @@ const config: PageListingProps = {
   },
   list: pageListingData,
   className: 'custom-class',
-  viewType: 'default',
-  initialCount: 6,
   pagesPerLoad: 6,
 };
 
