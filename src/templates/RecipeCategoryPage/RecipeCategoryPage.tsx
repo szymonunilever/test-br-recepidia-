@@ -1,9 +1,10 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
+import { get } from 'lodash';
 
 const RecipeCategotyPage = ({ data }: RecipeCategotyPageProps) => {
-  return <Layout>{data.tag.name}</Layout>;
+  return <Layout>{get(data, 'tag.name')}</Layout>;
 };
 
 export default RecipeCategotyPage;
