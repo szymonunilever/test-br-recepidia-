@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Arrow from './partials/Arrow';
 import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
-import './Carousel.css';
+import styles from './Carousel.module.scss';
+import { useSwipeable } from 'react-swipeable';
+import isBrowser from '../../../utils/isBrowser';
 
 const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const getNearestBreakpoint = (target: number) => {
@@ -12,20 +14,56 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
         : prev
     );
   };
-  const [imageIndex, setImageIndex] = useState(0);
-  const [breakpoint, setBreakpoint] = useState(config.breakpoints[0]);
-  const [slideStep, setSlideStep] = useState();
-  const [visibleElements, setVisibleElements] = useState();
-  const [translateValue, setTranslateValue] = useState(0);
-
-  const [percentage, setPercentage] = useState(
-    (100 * visibleElements) / list.length
+  const getWindowWidth = () => {
+    return isBrowser() ? window.innerWidth : 0;
+  };
+  const [breakpoint, setBreakpoint] = useState(
+    getNearestBreakpoint(getWindowWidth())
   );
+  const [slideStep, setSlideStep] = useState(
+    getWindowWidth() > breakpoint.width
+      ? breakpoint.switchElementsAfterBreakpoint
+      : breakpoint.switchElementsBelowBreakpoint
+  );
+  const [visibleElements, setVisibleElements] = useState(
+    getWindowWidth() > breakpoint.width
+      ? breakpoint.visibleElementsAboveBreakpoint
+      : breakpoint.visibleElementsBelowBreakpoint
+  );
+  const [translateValue, setTranslateValue] = useState(0);
+  const [percentage, setPercentage] = useState(0);
+  const [trackingIndex, setTrackingIndex] = useState(0);
 
   const resizeHandler = () => {
     window.innerWidth > breakpoint.width
       ? setVisibleElements(breakpoint.visibleElementsAboveBreakpoint)
       : setVisibleElements(breakpoint.visibleElementsBelowBreakpoint);
+  };
+
+  const mayGoLeft = translateValue < 0;
+  const mayGoRight =
+    translateValue > -(list.length - visibleElements) * (100 / list.length);
+
+  const switchImages = (mayMove: boolean, newTranslateValue: number) => {
+    if (mayMove) {
+      const maxTranslate =
+        -(list.length - visibleElements) * (100 / list.length);
+      setTranslateValue(newTranslateValue);
+      setPercentage(Math.abs(newTranslateValue / maxTranslate) * 100);
+      const firstIndex = Math.abs(newTranslateValue) / (100 / list.length);
+      setTrackingIndex(firstIndex);
+    }
+  };
+
+  const previousImage = () => {
+    switchImages(mayGoLeft, translateValue + (100 * slideStep) / list.length);
+  };
+
+  const nextImage = () => {
+    switchImages(
+      mayGoRight,
+      translateValue + -((100 * slideStep) / list.length)
+    );
   };
 
   useEffect(() => {
@@ -40,60 +78,44 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
         ? breakpoint.visibleElementsAboveBreakpoint
         : breakpoint.visibleElementsBelowBreakpoint
     );
+    const maxTranslate = -(list.length - visibleElements) * (100 / list.length);
+    if (translateValue < maxTranslate) {
+      setTranslateValue(maxTranslate);
+    } else if (translateValue > 0) {
+      setTranslateValue(0);
+    }
+    setPercentage(Math.abs(translateValue / maxTranslate) * 100);
+    setTrackingIndex(Math.abs(translateValue) / (100 / list.length));
     window.addEventListener('resize', resizeHandler);
     return () => {
       window.removeEventListener('resize', resizeHandler);
     };
   });
 
-  const mayGoLeft = imageIndex - slideStep >= 0;
-
-  const previousImage = () => {
-    if (mayGoLeft) {
-      let index = imageIndex - slideStep;
-
-      let switchElements =
-        index >= slideStep ? slideStep : Math.abs(index - slideStep);
-      if (index === 0 && percentage === (100 * visibleElements) / list.length) {
-        switchElements = 1;
-      }
-
-      const newPercentage = (100 * (index + switchElements)) / list.length;
-      setImageIndex(index);
-      setPercentage(newPercentage);
-      setTranslateValue(translateValue + switchElements * 100);
-    }
+  const isSlideVisible = (index: number) => {
+    return (
+      index >= Math.round(trackingIndex) &&
+      index < Math.round(trackingIndex) + visibleElements
+    );
   };
 
-  const mayGoRight = imageIndex + visibleElements < list.length;
-
-  const getSwitch: any = (index: number, step: number, visible: number) => {
-    const thisIndex = index;
-    const thisStep = step;
-    if (thisIndex + thisStep + visible > list.length) {
-      return getSwitch(thisIndex, thisStep - 1, visible);
-    }
-    return thisStep;
+  const carouselItemStyle = (visible: boolean) => {
+    return {
+      flexBasis: `${100 / visibleElements}%`,
+      visibility: visible ? 'visible' : 'hidden',
+      transition: 'all .5s',
+    };
   };
 
-  const nextImage = () => {
-    if (mayGoRight) {
-      let index = imageIndex + slideStep;
-      const switchElements =
-        list.length - 1 - index > slideStep
-          ? slideStep
-          : list.length - slideStep - index;
-      const percentage = (100 * (index + switchElements)) / list.length;
-      setImageIndex(index);
-      setPercentage(percentage);
-      setTranslateValue(translateValue + -(switchElements * 100));
-    }
-  };
-
-  const style = {
+  const trackerStyle = {
+    width: `${(100 * list.length) / visibleElements}%`,
     transform: `translateX(${translateValue}%)`,
-    flexBasis: `${100 / visibleElements}%`,
   };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => nextImage(),
+    onSwipedRight: () => previousImage(),
+  });
 
   return (
     <>
@@ -106,12 +128,22 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
             icon={config.arrowIcon || '&#9664;'}
           />
         )}
-        <div className={'carousel__images'}>
-          {list.map((item: any, index: number) => (
-            <div key={index} className="carousel__item" style={style}>
-              {createElementFunction(item)}
-            </div>
-          ))}
+        <div className={styles.carousel__images} {...swipeHandlers}>
+          <div
+            className={styles.carousel__images__tracker}
+            style={trackerStyle}
+          >
+            {list.map((item: any, index: number) => (
+              <div
+                key={index}
+                className={'carousel__item'}
+                style={carouselItemStyle(isSlideVisible(index))}
+                aria-hidden={!isSlideVisible(index)}
+              >
+                {createElementFunction(item)}
+              </div>
+            ))}
+          </div>
         </div>
         {mayGoRight && (
           <Arrow
