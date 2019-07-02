@@ -10,7 +10,7 @@ import Navigation from '../Navigation/Navigation';
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="global-container">
-      <BackToTop content={{ label: 'Back to top' }} Icon={Icon} />
+      <BackToTop content={{}} Icon={Icon} />
       <a className="skip-to-content" href="#content">
         Skip To Content
       </a>
