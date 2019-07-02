@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { PageListingProps, PageListingViewTypes } from './models';
-import { ItemProps } from './partials/models';
+import { ItemProps } from './partials/PageListingItem/models';
 
 import PageListingItem from './partials/PageListingItem';
 import PageListingCarousel from './PageListingCarousel';
@@ -46,17 +46,17 @@ const PageListing = ({
   ) : null;
 
   const subTitle = subtitle ? (
-    <div className={`page-listing__subtitle`}>{subtitle}</div>
+    <div className="page-listing__subtitle">{subtitle}</div>
   ) : null;
 
   const classNames = cx('page-listing', className);
 
   let view = (
     <div className={classNames} data-componentname="page-listing">
-      <h3 className={`page-listing__title`}>{title}</h3>
+      <h3 className="page-listing__title">{title}</h3>
       {subTitle}
 
-      <ul className={`page-listing__list`}>
+      <ul className="page-listing__list">
         {pages.list.map((item: ItemProps) => (
           <PageListingItem key={item.title} page={item} />
         ))}

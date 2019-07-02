@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 import React from 'react';
 import { TagName, Text } from '../../Text';
 import { Button, ButtonViewType } from '../../common/Button';
@@ -8,6 +7,7 @@ import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 import { RatingProvider } from '../../Rating/models';
 import Rating from '../../Rating';
+import AdaptiveImage from '../../AdaptiveImage';
 
 const RecipeCard = ({
   id,
@@ -45,9 +45,10 @@ const RecipeCard = ({
     ) : null;
 
   const Image = localImage && (
-    <Img
+    <AdaptiveImage
       className="recipe-card__image"
-      fluid={localImage.childImageSharp.fluid}
+      localImage={localImage}
+      alt={title || 'Recipe image'}
     />
   );
   const view = enableSelectFavorite ? (

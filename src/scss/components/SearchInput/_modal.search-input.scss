@@ -1,30 +1,30 @@
-.modal{
+.modal {
   .search-input {
     max-height: 100%;
     display: flex;
     flex-direction: column;
-    &__title{
+    &__title {
       text-align: center;
       color: $fish-blue;
     }
-    .form{
-      &__group{
+    .form {
+      &__group {
         position: relative;
       }
-      &__label{
+      &__label {
         position: absolute;
         left: 0;
         top: 50%;
         width: 30px;
         height: 30px;
         transform: translateY(-50%);
-        svg{
-          stroke: $black-blue; 
+        svg {
+          stroke: $black-blue;
           height: 100%;
           width: 100%;
         }
       }
-      &__button-reset{
+      &__button-reset {
         @extend .button--icon;
         position: absolute;
         right: 0;
@@ -33,17 +33,17 @@
         height: 50px;
         transform: translateY(-50%);
         display: flex;
-        svg{
+        svg {
           height: 12px;
           width: 12px;
           margin: auto;
         }
       }
-      &__button-submit{
-        display:none;
+      &__button-submit {
+        display: none;
       }
-      &__input{
-        width: 100%!important;
+      &__input {
+        width: 100% !important;
         background-color: transparent;
         color: $black-blue;
         height: 50px;
@@ -60,10 +60,10 @@
         }
       }
     }
-    &__message{
+    &__message {
       display: none;
-    }   
-    &__list{
+    }
+    &__list {
       padding: 0;
       list-style-type: none;
       background-color: $white;
@@ -72,15 +72,16 @@
       overflow: auto;
       flex-shrink: 1;
     }
-    &__link{
+    &__link {
       display: block;
       padding: 10px 18px;
       text-decoration: none;
       color: $black-blue;
       font-size: 1.4rem;
-      line-height:1.43;
+      line-height: 1.43;
       letter-spacing: 0.28px;
-      &:hover{
+      &:hover,
+      &.active {
         background-color: $apple-green;
       }
     }

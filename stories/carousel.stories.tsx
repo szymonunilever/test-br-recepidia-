@@ -58,26 +58,22 @@ storiesOf('Components/Carousel', module)
       info: { inline: false },
     }
   )
-  .add(
-    'Pages Carousel default',
-    () => (
-      <PageListing
-        list={pages}
-        content={pagesContents}
-        viewType={PageListingViewTypes.carousel}
-        initialCount={4}
-        carouselConfig={{
-          breakpoints: [
-            {
-              width: 1366,
-              switchElementsBelowBreakpoint: 1,
-              switchElementsAfterBreakpoint: 2,
-              visibleElementsBelowBreakpoint: 2,
-              visibleElementsAboveBreakpoint: 4,
-            },
-          ],
-        }}
-      />
-    ),
-    { info: { inline: false } }
-  );
+  .add('Pages Carousel default', () => (
+    <PageListing
+      list={pages}
+      content={pagesContents}
+      viewType={PageListingViewTypes.carousel}
+      initialCount={4}
+      carouselConfig={{
+        breakpoints: [
+          {
+            width: 1366,
+            switchElementsBelowBreakpoint: 1,
+            switchElementsAfterBreakpoint: 2,
+            visibleElementsBelowBreakpoint: 2,
+            visibleElementsAboveBreakpoint: 4,
+          },
+        ],
+      }}
+    />
+  ));

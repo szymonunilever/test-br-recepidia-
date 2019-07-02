@@ -1,4 +1,4 @@
-import { ItemProps } from './partials/models';
+import { ItemProps } from './partials/PageListingItem/models';
 import { UnileverLibraryComponent } from '../common/globalModels';
 import { CarouselConfig } from '../common/Carousel/models';
 

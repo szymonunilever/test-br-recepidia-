@@ -1,13 +1,13 @@
 import React from 'react';
 import { HeroProps } from './models';
 import cx from 'classnames';
-import Img from 'gatsby-image';
 import theme from './Hero.modules.scss';
 import Text from '../Text/Text';
 import { TagName } from '../Text';
 import { navigate } from 'gatsby';
 import { get } from 'lodash';
 import { Button } from '../common/Button';
+import AdaptiveImage from '../AdaptiveImage';
 
 const Hero = (props: HeroProps) => {
   const titleLevel = props.titleLevel || 2;
@@ -30,7 +30,7 @@ const Hero = (props: HeroProps) => {
     <div data-componentname="hero" className={containerStyles}>
       {props.viewType === 'Image' && image.localImage && (
         <div className={imageStyles} onClick={goByPrimaryCTA}>
-          <Img fluid={image.localImage.childImageSharp.fluid} alt={image.alt} />
+          <AdaptiveImage localImage={image.localImage} alt={image.alt} />
         </div>
       )}
 
