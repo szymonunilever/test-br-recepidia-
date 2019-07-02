@@ -3,6 +3,7 @@ $footer-color: $black-blue;
 .global-footer {
   border-top: 1px solid $footer-color;
   @extend .container;
+  padding-bottom: 50px;
   @include respondTo(desktop) {
     align-items: center;
   }

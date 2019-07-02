@@ -1,46 +1,23 @@
 $header-height: 80px;
 
-$header-color: $white;
-$header-dark-color: $fish-blue;
+$header-color-mobile: $black-blue;
+$header-color-desktop: $black-blue;
 
-$submenu-color: $white-gray;
-$submenu-icon-color: $black-blue;
+$submenu-color: $white-gray-darker;
+$submenu-icon-color: $fish-blue;
 
 .global-navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background: $primary-color;
+  z-index: 10;
+  background: transparent;
   height: $header-height;
   padding: 30px 25px;
-  color: $header-color;
   @include respondTo(desktop) {
     justify-content: initial;
     padding: 0 25px;
-  }
-  &.inverted-color {
-    background: transparent;
-    @include respondTo(desktop) {
-      color: $header-dark-color;
-    }
-
-    .main-logo {
-      &__icon {
-        fill: $primary-color;
-      }
-    }
-    .searchBar {
-      stroke: $primary-color;
-    }
-    .burger-button {
-      .burger-button__icon {
-        &:after,
-        &:before {
-          background: $primary-color;
-        }
-      }
-    }
   }
 
   .navigation {
@@ -48,12 +25,13 @@ $submenu-icon-color: $black-blue;
     top: $header-height;
     left: 0;
     width: 100%;
-    background: $primary-color;
+    background: $white;
     will-change: transform;
     transform: translate3d(-100%, 0, 0);
     transition-property: transform, visibility;
     transition-duration: 200ms;
     visibility: hidden;
+    color: $header-color-mobile;
 
     // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
     button {
@@ -99,19 +77,22 @@ $submenu-icon-color: $black-blue;
     outline: none;
     padding: 0;
     text-align: left;
+    margin: -10px;
     @include respondTo(desktop) {
       display: none;
     }
 
     .burger-button__icon {
       position: relative;
+      display: inline-block;
+      padding: 10px;
 
       &:before {
         content: '';
         display: block;
         width: 28px;
         height: 3px;
-        background: $header-color;
+        background: $primary-color;
       }
 
       &:after {
@@ -119,7 +100,7 @@ $submenu-icon-color: $black-blue;
         display: block;
         width: 22px;
         height: 3px;
-        background: $header-color;
+        background: $primary-color;
         margin-top: 10px;
       }
     }
@@ -133,7 +114,7 @@ $submenu-icon-color: $black-blue;
       display: flex;
       align-items: center;
       height: 100%;
-      margin: 0 -10px;
+      margin: 0 -15px;
     }
 
     &__item {
@@ -143,7 +124,7 @@ $submenu-icon-color: $black-blue;
         display: flex;
         align-items: center;
         height: 100%;
-        padding: 0 20px;
+        padding: 0 15px;
         border: none;
       }
 
@@ -168,6 +149,9 @@ $submenu-icon-color: $black-blue;
             font-size: 1.4rem;
             width: 1em;
             height: 1em;
+            @include respondTo(desktop) {
+              fill: $fish-blue;
+            }
           }
         }
 
@@ -185,31 +169,41 @@ $submenu-icon-color: $black-blue;
         max-height: 0;
         transition: max-height 0.2s ease-out;
         overflow: hidden;
+        visibility: hidden;
         will-change: max-height;
         @include respondTo(desktop) {
           position: absolute;
-          top: 100%;
-          left: 0;
+          max-height: none;
+          top: 80%;
+          left: 50%;
+          transform: translateX(-50%);
           width: auto;
           background: $submenu-color;
-          border-radius: 10px;
+          border-radius: 5px;
         }
 
         &.is-opened {
+          overflow: visible;
+          visibility: visible;
           max-height: 500px;
           transition: max-height 0.2s ease-in;
         }
 
         &__item {
-          line-height: 34px;
-          @include respondTo(desktop) {
-            padding: 10px 20px;
-          }
+          line-height: 1;
           &:first-child {
             padding-top: 10px;
           }
           &:last-child {
             padding-bottom: 10px;
+          }
+          @include respondTo(desktop) {
+            &:first-child {
+              padding-top: 0;
+            }
+            &:last-child {
+              padding-bottom: 0;
+            }
           }
 
           &.has-submenu {
@@ -218,12 +212,13 @@ $submenu-icon-color: $black-blue;
             flex-wrap: wrap;
             justify-content: space-between;
             position: relative;
+            overflow: visible;
             .submenu {
-              padding-left: 15px;
               @include respondTo(desktop) {
-                position: relative;
-                left: initial;
-                top: initial;
+                position: absolute;
+                left: 105%;
+                transform: translate(0);
+                top: 50%;
                 padding: 0;
               }
             }
@@ -233,9 +228,10 @@ $submenu-icon-color: $black-blue;
               will-change: transform;
               transition-property: transform;
               transition-duration: 200ms;
+              margin-left: 10px;
 
               .dropdown-icon {
-                fill: $header-color;
+                fill: $header-color-mobile;
                 font-size: 1.4rem;
                 @include respondTo(desktop) {
                   fill: $submenu-icon-color;
@@ -257,23 +253,28 @@ $submenu-icon-color: $black-blue;
           font-size: 1.6rem;
           font-weight: normal;
           display: flex;
+          cursor: pointer;
           justify-content: space-between;
           align-items: center;
-          color: inherit;
           text-decoration: none;
           flex: 1;
+          color: $header-color-mobile;
+          padding: 10px 0;
+          transition: background-color .2s ease-out;
           @include respondTo(desktop) {
             font-size: 1.4rem;
-            color: $header-dark-color;
+            color: $header-color-desktop;
+            padding: 10px 20px;
+            &:hover{
+              background-color: $apple-green;
+            }
           }
         }
       }
     }
 
     &__link {
-      color: inherit;
       font-size: 2.1rem;
-      line-height: 28px;
       font-weight: 500;
       font-family: $rubik;
       text-decoration: none;
@@ -282,11 +283,18 @@ $submenu-icon-color: $black-blue;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: $header-color-mobile;
+      transition: color .2s ease-out;
       @include respondTo(desktop) {
+        color: $header-color-desktop;
+        padding: 10px;
         font-size: 1.4rem;
         display: flex;
         align-items: center;
-        height: 100%;
+        border-radius: 5px;
+        &:hover{
+          color: $fish-blue-darker;
+        }
       }
     }
 
@@ -306,7 +314,7 @@ $submenu-icon-color: $black-blue;
     &__icon {
       width: 122px;
       height: 31.5px;
-      fill: $header-color;
+      fill: $primary-color;
       @include respondTo(desktop) {
         width: 168px;
         height: 43.4px;
@@ -347,7 +355,7 @@ $submenu-icon-color: $black-blue;
   .searchBar {
     font-size: 3rem;
     margin: 0 0 0 50px;
-    stroke: $header-color;
+    stroke: $primary-color;
   }
   .signUpBtn {
     display: none;
