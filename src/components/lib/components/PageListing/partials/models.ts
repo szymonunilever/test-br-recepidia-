@@ -7,7 +7,7 @@ export interface ItemProps {
   path: string;
   image: Image;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  localImage: any;
+  localImage: Internal.LocalImage;
 }
 
 export interface LoadMoreButtonProps {

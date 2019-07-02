@@ -18,7 +18,7 @@ const PageListingItem = ({ page }: PageProps) => {
         {localImage && (
           <Img
             className={`page-listing-item__image`}
-            fluid={localImage}
+            fluid={localImage.childImageSharp.fluid}
             alt={alt}
           />
         )}

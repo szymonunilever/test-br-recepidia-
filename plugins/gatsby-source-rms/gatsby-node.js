@@ -17,7 +17,20 @@ exports.sourceNodes = async (
     },
   };
 
-  const response = await axios.get(configOptions.endpoint, config);
+  const response = await axios.get(
+    configOptions.endpoint.replace('{contentType}', 'recipes'),
+    config
+  );
+  // const [recipes, tagGroups] = await Promise.all([
+  //   await axios.get(
+  //     configOptions.endpoint.replace('{contentType}', 'recipes'),
+  //     config
+  //   ),
+  //   await axios.get(
+  //     configOptions.endpoint.replace('{contentType}', 'tagGroups'),
+  //     config
+  //   ),
+  // ]);
 
   response.data.recipes.forEach(recipe =>
     createRecipeNodes(recipe, {

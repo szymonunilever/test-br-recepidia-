@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Uniliver Theme',
-        short_name: 'GatsbyJS',
+        name: 'Recipedia',
+        short_name: 'Recipedia',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',
@@ -53,14 +53,14 @@ module.exports = {
     {
       resolve: `gatsby-source-rms`,
       options: {
-        endpoint: integrations.middleware.recipesEndpoint,
+        endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,
       },
     },
     {
       resolve: `gatsby-source-content`,
       options: {
-        endpoint: integrations.middleware.pagesEndpoint,
+        endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,
       },
     },
