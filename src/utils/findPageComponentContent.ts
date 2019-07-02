@@ -5,13 +5,18 @@ export const findPageComponentContent = (
   components: any,
   name: string,
   view?: string
-) =>
-  get(
-    find(
-      components,
-      ({ name: compName, content }) =>
-        compName === name &&
-        (!get(content, 'view') || get(content, 'view') === view)
-    ),
-    'content'
+) => {
+  const component = find(
+    components,
+    ({ name: compName, content }) =>
+      compName === name &&
+      (!get(content, 'view') || get(content, 'view') === view)
   );
+  const content = component.content;
+
+  if (name === 'Hero') {
+    content.image = component.assets[0];
+  }
+
+  return component.content;
+};

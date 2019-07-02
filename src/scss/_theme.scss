@@ -97,13 +97,11 @@ P{
             width: auto;
         }
     }
-    .aggRtng{
-        display:none;
-    }
-    .tRtng{
-        display:none;
-    }
-    .tReview{
-        display:none;
+}
+.rr-inline-widget.rr-widget-container > * {
+    font-size: 0;
+    display: none;
+    .aggregateRating{
+        display: inline-block;
     }
 }

@@ -25,6 +25,7 @@ import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import theme from './RecipePage.module.scss';
 
 const RecipePage = ({ data }: RecipePageProps) => {
   const { recipe } = data;
@@ -32,12 +33,12 @@ const RecipePage = ({ data }: RecipePageProps) => {
   const relatedRecipes = data.allRecipe.nodes;
 
   return (
-    <Layout>
+    <Layout className="recipe-page">
       <SEO title="Recepedia Home" />
       <Kritique />
 
       <section>
-        <div>
+        <div className="container">
           <RecipeHero
             content={recipe}
             imagePlaceholder={{
@@ -56,40 +57,39 @@ const RecipePage = ({ data }: RecipePageProps) => {
               },
             }}
           />
-          <div>
-            <RecipeCopy
-              viewType={RecipeCopyViewType.Title}
-              recipe={recipe}
-              content={{}}
-            />
-            <Rating
-              recipeId={recipe.recipeId}
-              provider={RatingProvider.kritique}
-              linkTo={recipe.fields.slug}
-            />
-            <RecipeAttributes
-              //@ts-ignore
-              recipe={recipe}
-              visible={[
-                RecipeAttributesKeys.serves,
-                RecipeAttributesKeys.totalTime,
-                RecipeAttributesKeys.preparationTime,
-                RecipeAttributesKeys.difficulties,
-              ]}
-              icons={{
-                preparationTime: RecipeKnife,
-                totalTime: RecipeClock,
-                serves: RecipePeople,
-                difficulties: RecipeDifficulty,
-              }}
-              content={recipeAttributesContent}
-            />
-            <RecipeCopy
-              viewType={RecipeCopyViewType.Description}
-              recipe={recipe}
-              content={{}}
-            />
-          </div>
+          <RecipeCopy
+            viewType={RecipeCopyViewType.Title}
+            recipe={recipe}
+            content={{}}
+            className={theme.recipeCopy}
+          />
+          <Rating
+            recipeId={recipe.recipeId}
+            provider={RatingProvider.kritique}
+            linkTo={recipe.fields.slug}
+          />
+          <RecipeAttributes
+            //@ts-ignore
+            recipe={recipe}
+            visible={[
+              RecipeAttributesKeys.serves,
+              RecipeAttributesKeys.totalTime,
+              RecipeAttributesKeys.preparationTime,
+              RecipeAttributesKeys.difficulties,
+            ]}
+            icons={{
+              preparationTime: RecipeKnife,
+              totalTime: RecipeClock,
+              serves: RecipePeople,
+              difficulties: RecipeDifficulty,
+            }}
+            content={recipeAttributesContent}
+          />
+          <RecipeCopy
+            viewType={RecipeCopyViewType.Description}
+            recipe={recipe}
+            content={{}}
+          />
         </div>
       </section>
 
