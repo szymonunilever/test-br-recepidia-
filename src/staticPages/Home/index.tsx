@@ -46,7 +46,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
                 {
                   width: 768,
                   switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
                   visibleElementsBelowBreakpoint: 2,
                   visibleElementsAboveBreakpoint: 4,
                 },
