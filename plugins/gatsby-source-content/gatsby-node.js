@@ -1,4 +1,6 @@
 const axios = require('axios');
+const createNodes = require('./createNodes');
+const { createPagesNodes, createComponentsNodes } = createNodes;
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
@@ -8,43 +10,29 @@ exports.sourceNodes = async (
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins;
-
-  const processPage = page => {
-    const nodeId = createNodeId(`page-${page.type}`);
-    page.components = page.components.items.map(component => {
-      const assets = component.content.image ? [component.content.image] : [];
-
-      return {
-        name: component.name,
-        content: JSON.stringify(component.content),
-        assets,
-      };
-    });
-    const nodeContent = JSON.stringify(page);
-    const nodeData = Object.assign({}, page, {
-      id: nodeId,
-      parent: null,
-      children: [],
-      internal: {
-        type: 'Page',
-        content: nodeContent,
-        contentDigest: createContentDigest(page),
-      },
-    });
-
-    return nodeData;
-  };
-
   const config = {
     headers: {
       'x-api-key': configOptions.key,
     },
   };
 
-  const response = await axios.get(configOptions.endpoint, config);
+  const [pages, components] = await Promise.all([
+    axios.get(configOptions.endpoint.replace('{contentType}', 'pages'), config),
+    axios.get(
+      configOptions.endpoint.replace('{contentType}', 'components'),
+      config
+    ),
+  ]);
 
-  response.data.pages.forEach(page => {
-    const nodeData = processPage(page);
-    createNode(nodeData);
+  pages.data.pages.forEach(page => {
+    createPagesNodes(page, { createNodeId, createContentDigest, createNode });
+  });
+
+  components.data.components.components.items.forEach(component => {
+    createComponentsNodes(component, {
+      createNodeId,
+      createContentDigest,
+      createNode,
+    });
   });
 };

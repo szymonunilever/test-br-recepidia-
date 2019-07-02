@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import Arrow from './partials/Arrow';
 import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
@@ -99,7 +99,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
     );
   };
 
-  const carouselItemStyle = (visible: boolean) => {
+  const carouselItemStyle = (visible: boolean): CSSProperties => {
     return {
       flexBasis: `${100 / visibleElements}%`,
       visibility: visible ? 'visible' : 'hidden',

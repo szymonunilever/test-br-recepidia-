@@ -87,20 +87,24 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       </section>
 
       <section>
-        <Hero
-          content={findPageComponentContent(components, 'Hero')}
-          viewType="Image"
-          className="hero--planner color--inverted"
-        />
+        <div className="container">
+          <Hero
+            content={findPageComponentContent(components, 'Hero')}
+            viewType="Image"
+            className="hero--planner color--inverted"
+          />
+        </div>
       </section>
       <section>
-        <PageListing
-          content={{
-            title: 'What we offer',
-          }}
-          list={pageListingData}
-          initialCount={6}
-        />
+        <div className="container">
+          <PageListing
+            content={{
+              title: 'What we offer',
+            }}
+            list={pageListingData}
+            initialCount={6}
+          />
+        </div>
       </section>
     </Layout>
   );
