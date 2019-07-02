@@ -107,6 +107,25 @@ exports.createPages = ({ graphql, actions }) => {
             assets {
               url
               alt
+              localImage {
+                id
+                childImageSharp {
+                  fluid {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                    originalImg
+                    originalName
+                    presentationWidth
+                    presentationHeight
+                  }
+                }
+              }
             }
           }
           type
