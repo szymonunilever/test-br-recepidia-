@@ -4,7 +4,6 @@ import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
 import styles from './Carousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
-import isBrowser from '../../../utils/isBrowser';
 
 const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const getNearestBreakpoint = (target: number) => {
@@ -14,22 +13,9 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
         : prev
     );
   };
-  const getWindowWidth = () => {
-    return isBrowser() ? window.innerWidth : 0;
-  };
-  const [breakpoint, setBreakpoint] = useState(
-    getNearestBreakpoint(getWindowWidth())
-  );
-  const [slideStep, setSlideStep] = useState(
-    getWindowWidth() > breakpoint.width
-      ? breakpoint.switchElementsAfterBreakpoint
-      : breakpoint.switchElementsBelowBreakpoint
-  );
-  const [visibleElements, setVisibleElements] = useState(
-    getWindowWidth() > breakpoint.width
-      ? breakpoint.visibleElementsAboveBreakpoint
-      : breakpoint.visibleElementsBelowBreakpoint
-  );
+  const [breakpoint, setBreakpoint] = useState();
+  const [slideStep, setSlideStep] = useState();
+  const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [trackingIndex, setTrackingIndex] = useState(0);
@@ -67,16 +53,17 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   };
 
   useEffect(() => {
-    setBreakpoint(getNearestBreakpoint(window.innerWidth));
+    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
+    setBreakpoint(newBreakpoint);
     setSlideStep(
-      window.innerWidth > breakpoint.width
-        ? breakpoint.switchElementsAfterBreakpoint
-        : breakpoint.switchElementsBelowBreakpoint
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.switchElementsAfterBreakpoint
+        : newBreakpoint.switchElementsBelowBreakpoint
     );
     setVisibleElements(
-      window.innerWidth > breakpoint.width
-        ? breakpoint.visibleElementsAboveBreakpoint
-        : breakpoint.visibleElementsBelowBreakpoint
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.visibleElementsAboveBreakpoint
+        : newBreakpoint.visibleElementsBelowBreakpoint
     );
     const maxTranslate = -(list.length - visibleElements) * (100 / list.length);
     if (translateValue < maxTranslate) {
