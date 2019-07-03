@@ -20,33 +20,34 @@ const config = {
 };
 
 storiesOf('Components/Tags', module)
-  .add('Editable tags', () => {
+  .add('Removable tags', () => {
     return (
       <Tags
         list={tagsData}
         RemoveIcon={RemoveIcon}
         handleTagRemove={action('tag was removed')}
         {...config}
+        variant="removable"
       />
     );
   })
-  .add('Not editable tags', () => {
+  .add('Links tags', () => {
     const newConfig = {
       ...config,
-      isEditable: false,
     };
-    return <Tags list={tagsData} {...newConfig} />;
+    return <Tags list={tagsData} {...newConfig} variant="link" />;
   })
   .add('Toggle tags', () => {
     const newConfig = {
       ...config,
-      isEditable: false,
       viewType: TagViewType.filter,
+      variant: 'toggle',
     };
     return (
       <Tags
         list={tagsData}
         {...newConfig}
+        variant="toggle"
         handleTagToggle={action('tag click')}
       />
     );

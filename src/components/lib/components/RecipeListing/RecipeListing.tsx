@@ -49,7 +49,7 @@ export const RecipeListing = ({
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
-  const wrapClasses = cx(theme.recipeList, className);
+  const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
   let listModified = sortBy(
     RecipeSortingOptions.newest,
     applyingFavorites(list, withFavorite, favorites)

@@ -21,7 +21,7 @@ const FilterSettings = ({
 }: FilterSettingsProps) => {
   const resetLabel = filtersCta ? filtersCta.resetLabel : { label: '' };
   const applyLabel = filtersCta ? filtersCta.applyLabel : { label: '' };
-  const classWrapper = cx(theme.filterSettings, className);
+  const classWrapper = cx(theme.filterSettings, 'filter-settings', className);
   const onToggleFilter = (val: TagToggleHandler) => {
     const filters = [...filtersSelected];
     if (val.state) {
@@ -45,9 +45,9 @@ const FilterSettings = ({
               title={item.name}
               Icon={OpenIcon}
               IconOpened={CloseIcon}
+              isOpen={false}
             >
               <Tags
-                isEditable={false}
                 list={item.tags}
                 content={{ title: undefined, loadMoreButton: undefined }}
                 enableExternalManage
@@ -55,21 +55,24 @@ const FilterSettings = ({
                 viewType={TagViewType.filter}
                 initialCount={0}
                 handleTagToggle={onToggleFilter}
+                variant="toggle"
               />
             </Accordion>
           </li>
         ))}
       </ul>
-      <Button
-        className="filter-settings__reset"
-        onClick={onReset}
-        content={resetLabel}
-      />
-      <Button
-        className="filter-settings__apply"
-        onClick={onApply}
-        content={applyLabel}
-      />
+      <div className="filter-settings__buttons">
+        <Button
+          className="filter-settings__reset"
+          onClick={onReset}
+          content={resetLabel}
+        />
+        <Button
+          className="filter-settings__apply"
+          onClick={onApply}
+          content={applyLabel}
+        />
+      </div>
     </div>
   );
 };

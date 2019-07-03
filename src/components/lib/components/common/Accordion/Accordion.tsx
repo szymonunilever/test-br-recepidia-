@@ -22,7 +22,7 @@ export const Accordion = ({
     }
   };
 
-  const classWrapper = cx(theme.accordion, className);
+  const classWrapper = cx(theme.accordion, className, state && 'is-opened');
 
   return (
     <div className={classWrapper} data-componentname="accordion">
@@ -38,9 +38,8 @@ export const Accordion = ({
         {state ? IconOpened ? <IconOpened /> : null : Icon ? <Icon /> : null}
       </div>
 
-      <div className="accordion__body" hidden={!state}>
-        {children}
-      </div>
+      {/* <div className="accordion__body" hidden={!state}> */}
+      <div className="accordion__body">{children}</div>
     </div>
   );
 };

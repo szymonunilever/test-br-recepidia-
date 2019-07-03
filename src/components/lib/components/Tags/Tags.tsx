@@ -8,7 +8,6 @@ import { includes } from 'lodash';
 const Tags = ({
   list,
   content,
-  isEditable = false,
   tagsPerLoad = 4,
   initialCount = 4,
   RemoveIcon,
@@ -18,6 +17,7 @@ const Tags = ({
   selectedTags,
   className,
   viewType = TagViewType.standard,
+  variant,
 }: TagsProps) => {
   const { title, loadMoreButton } = content || {
     title: undefined,
@@ -79,8 +79,7 @@ const Tags = ({
               tag={item}
               enableExternalManage={enableExternalManage}
               active={includes(selectedTags, item)}
-              isEditable={false}
-              isToggle
+              variant={variant}
               handleToggle={handleTagToggle}
             />
           ))}
@@ -97,7 +96,7 @@ const Tags = ({
               key={item.id}
               handleClick={deleteItem}
               tag={item}
-              isEditable={isEditable}
+              variant={variant}
             />
           ))}
         </ul>
