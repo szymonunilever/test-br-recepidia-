@@ -1,11 +1,11 @@
 $footer-color: $black-blue;
 
 .global-footer {
-  border-top: 1px solid $footer-color;
-  @extend .container;
-  padding-bottom: 50px;
-  @include respondTo(desktop) {
-    align-items: center;
+  background-color: $primary-bg-color;
+    &__container{
+      border-top: 1px solid $footer-color;
+      @extend .container;
+      padding-bottom: 50px;
   }
 
   .footer-menu {

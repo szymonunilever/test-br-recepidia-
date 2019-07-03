@@ -4,7 +4,7 @@
 //   $buttonSize: 58px;
 //   $carouselItemPadding: 8px;
 // }
-$itemInfoHeight: 100px;
+$itemInfoHeight: 140px;
 
 .recipe-list--carousel{
   .carousel{
@@ -16,14 +16,17 @@ $itemInfoHeight: 100px;
     position: relative;
     text-decoration: none;
     &__info{
-      height: $itemInfoHeight;
+      min-height: $itemInfoHeight;
     }
     &__title{
       margin: 0;
+      padding: 1rem 0 0;
       font-size: 1.6rem;
       line-height: 1.25;
       color: $black-blue;
       text-decoration: none;
+      max-height: 11rem; //5 lines maximum
+      overflow: hidden;
     }
   }
 }

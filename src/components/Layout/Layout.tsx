@@ -6,10 +6,11 @@ import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import Icon from 'src/svgs/inline/arrow-up.svg';
 import Navigation from '../Navigation/Navigation';
+import cx from 'classnames';
 
 const Layout = ({ children, className }: LayoutProps) => {
   return (
-    <div className={'global-container ' + className}>
+    <div className={cx('global-container', className)}>
       <BackToTop content={{}} Icon={Icon} />
       <a className="skip-to-content" href="#content">
         Skip To Content

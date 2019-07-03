@@ -35,3 +35,23 @@
     }
   }
 }
+.recipe-card{
+  .rr-widget-container{
+    margin: 0;
+    padding-top: 10px;
+    .aggregateRating{
+        height: 10px;
+        @include respondTo(desktop){
+            height: 13px;
+        }
+    }
+    .agRatingSelect, .agRatingDeSelect{
+        height: 100%;
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
+  }
+}
+        
