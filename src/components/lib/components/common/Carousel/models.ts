@@ -1,4 +1,5 @@
 export interface CreateElement {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (itemData: any): JSX.Element;
 }
 
@@ -16,6 +17,7 @@ export interface CarouselConfig {
 }
 
 export interface CarouselProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   list: any;
   createElementFunction: CreateElement;
   config: CarouselConfig;

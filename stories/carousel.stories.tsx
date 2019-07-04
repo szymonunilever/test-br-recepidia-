@@ -11,6 +11,7 @@ import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 
 const recipesList: Internal.Recipe[] = recipes.data.allRecipe.edges.map(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (item: { node: Internal.Recipe | any }) => item.node
 );
 const recipesContents = {
