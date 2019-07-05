@@ -34,8 +34,7 @@ export interface RecipeListingProps
   carouselConfig?: CarouselConfig;
 }
 
-export interface RecipeListingCarouselProps
-  extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
+export interface RecipeListingCarouselProps {
   withFavorite?: boolean;
   titleLevel?: titleLevel;
   FavoriteIcon?: JSX.Element;

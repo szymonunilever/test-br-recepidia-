@@ -87,6 +87,7 @@ $button-disabled-color: #9f9f9f !default;
   &--flat {
     background: transparent;
     color: $black-blue;
+    border: none;
     &:hover {
       background-color: transparent;
       color: $apple-green;
