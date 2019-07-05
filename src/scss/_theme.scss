@@ -101,7 +101,7 @@ P{
 .rr-inline-widget.rr-widget-container > * {
     font-size: 0;
     display: none;
-    .aggregateRating{
-        display: inline-block;
-    }
+}
+.rr-inline-widget.rr-widget-container .aggregateRating {
+    display: inline-block;
 }
