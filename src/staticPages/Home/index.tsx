@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo/Seo';
 import { Text, TagName } from 'src/components/lib/components/Text';
-
+import cx from 'classnames';
 import {
   RecipeListing,
   RecipeListViewType,
@@ -15,20 +15,24 @@ import Kritique from 'integrations/Kritique';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
+import theme from './home.module.scss';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
 
   return (
-    <Layout>
+    <Layout className="header--bg">
       <SEO title="Recepedia Home" />
       <Kritique />
-      <div className="container">
-        <Text tag={TagName['h1']} text={title} />
-      </div>
+      <section className="_bg--main">
+        <div className="container">
+          <Text tag={TagName['h1']} text={title} />
+        </div>
+      </section>
 
-      <section>
+      <section className={theme.sectionRelative}>
+        <div className={cx(theme.bgBlock, '_bg--main')} />
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
@@ -86,7 +90,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pb--40">
         <div className="container">
           <Hero
             content={findPageComponentContent(components, 'Hero')}
@@ -95,7 +99,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
           />
         </div>
       </section>
-      <section>
+      <section className="_pb--40">
         <div className="container">
           <PageListing
             content={{

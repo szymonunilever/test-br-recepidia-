@@ -20,6 +20,7 @@ html, body{
 h1,h2,h3,h4,h5,.subheading{
     font-family: $rubik;
     font-weight: 500;
+    margin-top: 0;
 }
 h1{
     font-size: 4.5rem;
@@ -82,26 +83,30 @@ P{
 }
 
 // recipe rating widget
-.rr-widget-container{
-    margin-top: 12px;
-    .aggregateRating{
-        height: 10px;
-        @include respondTo(desktop){
-            height: 13px;
-        }
-    }
-    .agRatingSelect, .agRatingDeSelect{
-        height: 100%;
-        img{
-            height: 100%;
-            width: auto;
-        }
-    }
-}
 .rr-inline-widget.rr-widget-container > * {
     font-size: 0;
     display: none;
 }
 .rr-inline-widget.rr-widget-container .aggregateRating {
     display: inline-block;
+}
+// END recipe rating widget
+
+._pb--40{
+    padding-bottom:40px;
+}
+._pt--40{
+    padding-top:40px;
+}
+._bg--main{
+    background-color: $primary-bg-color;
+    h1{
+        margin:0;
+        padding:.67em 0;
+    }
+}
+.header--bg{
+    header{
+        background-color: $primary-bg-color;
+    }
 }
