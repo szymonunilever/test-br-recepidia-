@@ -18,25 +18,29 @@
     @extend .button--rounded;
     @extend .button--secondary;
     @extend .button--small;
-  } 
-  &__toggle {
-     @extend .tags__link;
   }
+
+  &__toggle {
+    @extend .tags__link;
+  }
+
   &__removable {
-     @extend .tags__link;
-     position: relative;
-     padding-right: 55px;
-    .tags__removable--button{
-      position:absolute;
+    @extend .tags__link;
+    position: relative;
+    padding-right: 55px;
+
+    .tags__removable--button {
+      position: absolute;
       top: 0;
-      right:15px;
-      height:100%;
+      right: 15px;
+      height: 100%;
       width: 40px;
       padding: 0;
       border: none;
       background-color: transparent;
     }
   }
+
   &__load-more {
     display: inline-block;
     margin: 0 -10px;

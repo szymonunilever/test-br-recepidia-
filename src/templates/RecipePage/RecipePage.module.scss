@@ -1,3 +1,101 @@
-.recipe-copy{
-  display: block;
+@import '../../scss/theme';
+
+.recipe-page {
+  .recipeTopBlock {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .recipeTopBlockItem {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      &:first-child {
+        display: none;
+        @include respondTo(desktop) {
+          display: block;
+        }
+      }
+      @include respondTo(desktop) {
+        &:last-child {
+          padding-left: 100px;
+        }
+      }
+    }
+
+    .recipeHeroMobile {
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      @include respondTo(desktop) {
+        display: none;
+      }
+    }
+    .recipeHeroDesktop {
+      @extend .recipeHeroMobile;
+      @include respondTo(desktop) {
+        display: block;
+      }
+    }
+    .recipeBlockTitle {
+      order: -1;
+    }
+    .recipeBlockDescription {
+      display: flex;
+      flex-direction: column;
+      @include respondTo(desktop) {
+        flex-direction: column-reverse;
+      }
+      p {
+        margin-top: 20px;
+        @include respondTo(desktop) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .recipeIngredientsCooking {
+    display: none;
+    @include respondTo(desktop) {
+      display: block;
+    }
+    @include respondTo(desktop) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipeCopyIngredients {
+      @include respondTo(desktop) {
+        width: 42.2%;
+      }
+    }
+    .recipeCookingMethod {
+      @include respondTo(desktop) {
+        width: 57.7%;
+      }
+    }
+  }
+  .recipeIngredientsCookingMobile {
+    display: block;
+    @include respondTo(desktop) {
+      display: none;
+    }
+  }
+}
+:global {
+  .recipe-attributes {
+    & > div {
+      flex: 1;
+      justify-content: center;
+      @include respondTo(desktop) {
+        justify-content: flex-start;
+        flex: 0 1 auto;
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
 }

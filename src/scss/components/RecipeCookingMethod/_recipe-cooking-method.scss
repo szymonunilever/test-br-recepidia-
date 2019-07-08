@@ -1,0 +1,43 @@
+.recipe-cooking-method{
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    counter-reset: li;
+    @include respondTo(desktop) {
+      margin: 40px 0;
+    }
+  }
+  &__title{
+    font-size: 2.5rem;
+    color: $black-blue;
+  }
+  &__item {
+    font-size: 1.4rem;
+    @include respondTo(desktop) {
+      display: flex;
+      align-items: center;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include respondTo(desktop) {
+        margin-bottom: 40px;
+      }
+    }
+    &:before {
+      display: block;
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: $fish-blue;
+      counter-increment: li;
+      content: counter(li);
+      margin-bottom: 10px;
+      @include respondTo(desktop) {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 50px;
+        font-size: 3.7rem;
+      }
+    }
+  }
+}

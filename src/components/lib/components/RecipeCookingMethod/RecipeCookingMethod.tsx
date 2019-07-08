@@ -9,7 +9,7 @@ export const RecipeCookingMethod = ({
   className,
   content: { title = undefined, subtitle = undefined },
   methodList = [],
-  titleLevel = 1,
+  titleLevel = 2,
 }: RecipeCookingMethodProps) => {
   const classWrapper = cx(theme.recipeCookingMethod, className);
   const list = sortBy(methodList, ['position']);

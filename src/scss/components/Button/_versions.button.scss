@@ -1,24 +1,13 @@
 $border-radius-rect: 5px;
 
-.button{
+.button {
   // by shape
-  &--rect{
+  &--rect {
     height: 40px;
     font-size: 1.4rem;
-    border:none;
+    border: none;
     border-radius: $border-radius-rect;
     transition: all .15s;
-  }
-  &--square{
-    border:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &--icon{
-    border:none;
-    background-color: transparent;
-    padding: 0;
   }
   &--rounded{
     padding: 12px 25px;
@@ -28,100 +17,141 @@ $border-radius-rect: 5px;
     border-radius: 20px;
     transition: all .15s;
   }
+  &--square{
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--icon {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  &--rounded {
+    padding: 12px 25px;
+    font-size: 1.4rem;
+    border: none;
+    line-height: 1;
+    border-radius: 20px;
+    transition: all .15s;
+  }
+
   // by type
-  &--primary{
+  &--primary {
     background-color: $apple-green;
     color: $fish-blue-darker;
     fill: $fish-blue-darker;
-    &:hover{
+
+    &:hover {
       background-color: $black-blue;
       color: $white;
       fill: $white;
     }
   }
-  &--secondary{
+
+  &--secondary {
     background-color: $white-gray;
     color: $black-blue;
-    @media (hover:hover) { //workaround for mobile devices pressed hover state
-      &:hover{
-        background-color: $apple-green;
-        color: $white;
+
+    &:hover {
+      background-color: $apple-green;
+      color: $fish-blue-darker;
+      @media (hover: hover) { //workaround for mobile devices pressed hover state
+        &:hover {
+          background-color: $apple-green;
+          color: $white;
+        }
       }
     }
-  }
-  &--signup{
-    background-color: $luminous-yellow;
-    color: $white;
-    &:hover{
-      background-color: $black-blue;
+
+    &--signup {
+      background-color: $luminous-yellow;
+      color: $white;
+
+      &:hover {
+        background-color: $black-blue;
+      }
     }
-  }
-  // by width
-  &--small{
-    padding-left:23px;
-    padding-right:23px;
-  }
-  &--medium{
-    padding-left:46px;
-    padding-right:46px;
-  }
-  &--large{
-    width: 100%;
-    max-width: 352px;
+
+    // by width
+    &--small {
+      padding-left: 23px;
+      padding-right: 23px;
+    }
+
+    &--medium {
+      padding-left: 46px;
+      padding-right: 46px;
+    }
+
+    &--large {
+      width: 100%;
+      max-width: 352px;
+    }
   }
 }
 
 //derived types
-.button{
-  &--control{
+.button {
+  &--control {
     @extend .button--square;
     @extend .button--primary;
     width: 43px;
     height: 43px;
     font-size: 1.4rem;
     border-radius: $border-radius-rect;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       width: 58px;
       height: 58px;
       font-size: 2rem;
     }
   }
-  &--tooltip{
+
+  &--tooltip {
     @extend .button--square;
     width: 46px;
     height: 46px;
     font-size: 2rem;
     border-radius: $border-radius-rect;
-    &-primary{ //.button--tooltip-primary
+
+    &-primary { //.button--tooltip-primary
       @extend .button--primary;
     }
-    &-secondary{//.button--tooltip-secondary
+
+    &-secondary { //.button--tooltip-secondary
       @extend .button--secondary;
     }
   }
-  &--aside{
+
+  &--aside {
     @extend .button--square;
     @extend .button--primary;
     width: 43px;
     height: 43px;
     font-size: 1.8rem;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       width: 75px;
       height: 75px;
       font-size: 3rem;
     }
   }
-  &--filter{ //advanced recipy listing
+
+  &--filter { //advanced recipy listing
     border: none;
     background-color: $black-blue;
     width: 40px;
     height: 40px;
-    font-size:1.5rem;
-    svg{
-      fill:$white;
+    font-size: 1.5rem;
+
+    svg {
+      fill: $white;
     }
   }
-  &__selected{ // tags
+
+  &__selected { // tags
     background-color: $fish-blue-darker;
     color: $white;
   }
