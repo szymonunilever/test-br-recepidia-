@@ -33,11 +33,11 @@ const config: HeroProps = {
         },
       },
     },
-    primaryCTA: {
+    primaryCta: {
       label: 'Primary CTA',
       linkTo: '',
     },
-    secondaryCTA: {
+    secondaryCta: {
       label: 'Secondary CTA',
       linkTo: '',
     },
@@ -73,7 +73,7 @@ const configPlanner: HeroProps = {
         },
       },
     },
-    primaryCTA: {
+    primaryCta: {
       label: 'Sign me up!',
       linkTo: '',
     },

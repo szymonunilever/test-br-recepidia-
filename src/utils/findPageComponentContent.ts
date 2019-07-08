@@ -14,7 +14,7 @@ export const findPageComponentContent = (
   );
   const content = component.content;
 
-  if (name === 'Hero') {
+  if (component.assets) {
     content.image = component.assets[0];
   }
 

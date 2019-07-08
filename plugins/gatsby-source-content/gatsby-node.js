@@ -17,7 +17,14 @@ exports.sourceNodes = async (
   };
 
   const [pages, components] = await Promise.all([
-    axios.get(configOptions.endpoint.replace('{contentType}', 'pages'), config),
+    axios.get(
+      'https://o04j5q4nt9.execute-api.eu-west-1.amazonaws.com/v1/pages/pt-br',
+      {
+        headers: {
+          'x-api-key': 'UJAk5ILYjo8AhWaTP9d9K40LsdZZwoDS1YzCgo5s',
+        },
+      }
+    ),
     axios.get(
       configOptions.endpoint.replace('{contentType}', 'components'),
       config

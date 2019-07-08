@@ -150,6 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
+            tagId
           }
         }
       }
@@ -163,11 +164,12 @@ exports.createPages = ({ graphql, actions }) => {
       });
     };
 
-    const createPageFromTemplate = ({ node }, pageData) => {
+    const createPageFromTemplate = ({ node }, pageData, idPath = 'id') => {
       createPage({
         path: node.fields.slug,
         component: getPageTemplate(pageData.type),
         context: {
+          id: get(node, idPath),
           slug: node.fields.slug,
           components: pageData.components,
         },
@@ -179,7 +181,9 @@ exports.createPages = ({ graphql, actions }) => {
     );
 
     pages
-      .filter(node => ['RecipeDetail'].indexOf(node.type) === -1)
+      .filter(
+        node => ['RecipeDetail', 'RecipeCategory'].indexOf(node.type) === -1
+      )
       .forEach(node => {
         createPage({
           path: node.relativePath,
@@ -197,11 +201,11 @@ exports.createPages = ({ graphql, actions }) => {
       item => item.type === 'RecipeCategory'
     );
 
-    result.data.allRecipe.edges.forEach(edge => {
-      createPageFromTemplate(edge, recipeDetailsPage);
-    });
+    // result.data.allRecipe.edges.forEach(edge => {
+    //   createPageFromTemplate(edge, recipeDetailsPage);
+    // });
     result.data.allTag.edges.forEach(edge => {
-      createPageFromTemplate(edge, recipeCategoryPage);
+      createPageFromTemplate(edge, recipeCategoryPage, 'tagId');
     });
   });
 };

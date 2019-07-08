@@ -16,13 +16,13 @@ const Hero = (props: HeroProps) => {
   const copyStyles = cx('hero__copy', theme.copy);
 
   const goByPrimaryCTA = () => {
-    const { primaryCTA } = props.content;
-    primaryCTA && primaryCTA.linkTo && navigate(primaryCTA.linkTo);
+    const { primaryCta } = props.content;
+    primaryCta && primaryCta.linkTo && navigate(primaryCta.linkTo);
   };
 
   const goBySecondaryCTA = () => {
-    const { secondaryCTA } = props.content;
-    secondaryCTA && secondaryCTA.linkTo && navigate(secondaryCTA.linkTo);
+    const { secondaryCta } = props.content;
+    secondaryCta && secondaryCta.linkTo && navigate(secondaryCta.linkTo);
   };
   const image = get(props, 'content.image');
 
@@ -61,18 +61,18 @@ const Hero = (props: HeroProps) => {
           </div>
         )}
 
-        {props.content.primaryCTA && (
+        {props.content.primaryCta && (
           <div className="hero__cta-primary">
             <Button onClick={goByPrimaryCTA}>
-              {props.content.primaryCTA.label}
+              {props.content.primaryCta.label}
             </Button>
           </div>
         )}
 
-        {props.content.secondaryCTA && (
+        {props.content.secondaryCta && (
           <div className="hero__cta-secondary">
             <Button onClick={goBySecondaryCTA}>
-              {props.content.secondaryCTA.label}
+              {props.content.secondaryCta.label}
             </Button>
           </div>
         )}

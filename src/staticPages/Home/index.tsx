@@ -118,7 +118,7 @@ export default HomePage;
 
 export const pageQuery = graphql`
   {
-    allRecipe(skip: 10) {
+    allRecipe(limit: 20) {
       nodes {
         ...RecipeFields
       }
@@ -126,11 +126,7 @@ export const pageQuery = graphql`
 
     allTag {
       nodes {
-        fields {
-          slug
-        }
-        tagId
-        name
+        ...TagFields
       }
     }
   }
