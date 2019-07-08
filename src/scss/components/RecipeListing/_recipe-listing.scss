@@ -40,8 +40,7 @@ $col-indent-desktop: 8px;
     text-align: center;
   }
   &__load-more {
-    @extend .button--rect;
-    @extend .button--primary;
+    @extend .button;
     @extend .button--medium;
     display: block;
     margin: 40px auto;

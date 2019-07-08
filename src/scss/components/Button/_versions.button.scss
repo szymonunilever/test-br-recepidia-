@@ -59,11 +59,7 @@ $button-disabled-color: #9f9f9f !default;
   }
   &--rounded{
     padding: 12px 25px;
-    font-size: 1.4rem;
-    border: none;
-    line-height: 1;
     border-radius: 20px;
-    transition: all .15s;
   }
 
   // Button color modification
@@ -139,7 +135,6 @@ $button-disabled-color: #9f9f9f !default;
   }
 
   &--filter { //advanced recipy listing
-    border: none;
     background-color: $black-blue;
     width: 40px;
     height: 40px;

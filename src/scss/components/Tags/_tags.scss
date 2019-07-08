@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    @extend .button;
     @extend .button--rounded;
     @extend .button--secondary;
     @extend .button--small;
@@ -50,6 +51,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      @extend .button;
       @extend .button--rounded;
       @extend .button--secondary;
       @extend .button--small;
