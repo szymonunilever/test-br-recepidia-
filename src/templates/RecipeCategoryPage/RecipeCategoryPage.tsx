@@ -7,13 +7,12 @@ import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { findPageComponentContent } from 'src/utils';
 import RecipeListing from 'src/components/lib/components/RecipeListing';
-import { RatingProvider } from 'src/components/lib/components/Rating';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import Hero from 'src/components/lib/components/Hero';
 import RichText from 'src/components/lib/components/RichText';
 import { Tags } from 'src/components/lib/components/Tags';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
@@ -70,7 +69,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
               ),
             }}
             list={allRecipe.nodes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             initialCount={6}
             recipePerLoad={4}
