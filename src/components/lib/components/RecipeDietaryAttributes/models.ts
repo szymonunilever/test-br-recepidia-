@@ -3,6 +3,7 @@ export interface RecipeDietaryAttributesProps {
   attributes: RMSData.Tag[];
   icons: Icon[];
   activeAttributes: RMSData.Tag[];
+  showInactiveAttributes?: boolean;
 }
 
 export interface Icon {
