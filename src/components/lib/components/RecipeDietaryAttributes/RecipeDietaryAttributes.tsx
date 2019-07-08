@@ -9,30 +9,40 @@ const RecipeDietaryAttributes = ({
   activeAttributes,
   icons,
   className,
+  showInactiveAttributes = false,
 }: RecipeDietaryAttributesProps) => {
   const classNames = cx('recipe-dietary-attributes', className);
 
-  return (
-    <div className={classNames} data-componentname="recipe-dietary-attributes">
-      <ul className="recipe-dietary-attributes__list">
-        {attributes.map(attr => {
-          const activeAttribute = activeAttributes.find(
-            activeAttr => attr.id === activeAttr.id
-          );
-          const icon = icons.find(icn => attr.id === icn.id);
+  const attributesList = attributes.map(attr => {
+    const activeAttribute = activeAttributes.find(
+      activeAttr => attr.id === activeAttr.id
+    );
 
-          return (
-            <Attribute
-              key={attr.id}
-              attributeText={attr.name}
-              icon={
-                icon && activeAttribute ? icon.active : get(icon, 'inActive')
-              }
-            />
-          );
-        })}
-      </ul>
-    </div>
+    const icon = icons.find(icn => attr.id === icn.id);
+    if (showInactiveAttributes || activeAttribute) {
+      return (
+        <Attribute
+          key={attr.id}
+          attributeText={attr.name}
+          icon={icon && activeAttribute ? icon.active : get(icon, 'inActive')}
+        />
+      );
+    }
+  });
+
+  return (
+    <>
+      {attributesList.length ? (
+        <div
+          className={classNames}
+          data-componentname="recipe-dietary-attributes"
+        >
+          <ul className="recipe-dietary-attributes__list">{attributesList}</ul>
+        </div>
+      ) : (
+        <p>No attributes</p>
+      )}
+    </>
   );
 };
 
