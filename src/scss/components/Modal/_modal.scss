@@ -19,7 +19,8 @@
     padding: 20px;
   }
   &__btn-close{
-    @extend .button--icon;
+    @extend .button;
+    @extend .button--control;
     position: absolute;
     right: 0;
     top: 0;
@@ -74,7 +75,7 @@
 
 }
 
-.modal--search{ 
+.modal--search{
   @extend .container;
   .modal{
     &__content{
@@ -83,15 +84,15 @@
       @include respondTo(desktop) {
         height: 475px;
       }
-    } 
+    }
   }
 }
 .modal--filter{
   .modal{
     &__content{
       @extend %modal__content--bordered;
-    } 
-  } 
+    }
+  }
 }
 
 .modal--medium{

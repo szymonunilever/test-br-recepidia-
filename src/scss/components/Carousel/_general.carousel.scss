@@ -14,6 +14,7 @@ $carouselItemPadding: 5px;
     padding: $carouselItemPadding;
   }
   .slide-arrow{
+    @extend .button;
     @extend .button--control;
     position: absolute;
     top: 50%;

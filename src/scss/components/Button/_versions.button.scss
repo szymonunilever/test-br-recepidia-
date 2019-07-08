@@ -1,141 +1,140 @@
-$border-radius-rect: 5px;
+// Button vars
+$button-border: none !default;
+$button-font-size: 1.4rem !default;
+$button-icon-font-size: 1.3rem !default;
+$button-height: 40px !default;
+$button-padding: 0 15px !default;
+$button-radius: 5px !default;
+
+// Button colors
+$button-color: $fish-blue-darker !default;
+$button-background: $apple-green !default;
+$button-color-hover: $white !default;
+$button-background-hover: $black-blue !default;
+
+$button-secondary-color: $black-blue !default;
+$button-secondary-background: $white-gray !default;
+
+// Disabled styles
+$button-disabled-background: #dfdfdf !default;
+$button-disabled-color: #9f9f9f !default;
 
 .button {
-  // by shape
-  &--rect {
-    height: 40px;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: $border-radius-rect;
-    transition: all .15s;
+  border: $button-border;
+  border-radius: $button-radius;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  height: $button-height;
+  line-height: normal;
+  padding: $button-padding;
+  text-transform: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
+  background-color: $button-background;
+  color: $button-color;
+  fill: $button-color;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: $button-background-hover;
+    color: $button-color-hover;
+    fill: $button-color-hover;
+  }
+  @include respondTo(desktop) {
+    font-size: 1.6rem;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: $button-disabled-background;
+    color: $button-disabled-color;
+    cursor: default;
+
+    &:hover {
+      background-color: $button-disabled-background !important;
+      color: $button-disabled-color !important;
+    }
   }
   &--rounded{
     padding: 12px 25px;
     font-size: 1.4rem;
-    border:none;
-    line-height: 1;
-    border-radius: 20px;
-    transition: all .15s;
-  }
-  &--square{
-    border:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &--icon {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-  }
-
-  &--rounded {
-    padding: 12px 25px;
-    font-size: 1.4rem;
     border: none;
     line-height: 1;
     border-radius: 20px;
     transition: all .15s;
   }
 
-  // by type
-  &--primary {
-    background-color: $apple-green;
-    color: $fish-blue-darker;
-    fill: $fish-blue-darker;
-
-    &:hover {
-      background-color: $black-blue;
-      color: $white;
-      fill: $white;
-    }
-  }
+  // Button color modification
 
   &--secondary {
-    background-color: $white-gray;
+    background-color: $button-secondary-background;
+    color: $button-secondary-color;
+  }
+
+  &--yellow {
+    background-color: $luminous-yellow;
     color: $black-blue;
+  }
 
+  &--flat {
+    background: transparent;
+    color: $black-blue;
     &:hover {
-      background-color: $apple-green;
-      color: $fish-blue-darker;
-      @media (hover: hover) { //workaround for mobile devices pressed hover state
-        &:hover {
-          background-color: $apple-green;
-          color: $white;
-        }
-      }
-    }
-
-    &--signup {
-      background-color: $luminous-yellow;
-      color: $white;
-
-      &:hover {
-        background-color: $black-blue;
-      }
-    }
-
-    // by width
-    &--small {
-      padding-left: 23px;
-      padding-right: 23px;
-    }
-
-    &--medium {
-      padding-left: 46px;
-      padding-right: 46px;
-    }
-
-    &--large {
-      width: 100%;
-      max-width: 352px;
+      background-color: transparent;
+      color: $apple-green;
     }
   }
-}
 
-//derived types
-.button {
-  &--control {
-    @extend .button--square;
-    @extend .button--primary;
-    width: 43px;
-    height: 43px;
-    font-size: 1.4rem;
-    border-radius: $border-radius-rect;
+  // Button size modification
+
+  &--fullwidth {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  &--medium {
+    width: 100%;
+    max-width: 160px;
     @include respondTo(desktop) {
-      width: 58px;
-      height: 58px;
-      font-size: 2rem;
+      max-width: 260px;
+    }
+  }
+
+  &--small {
+    width: 100%;
+    max-width: 110px;
+    @include respondTo(desktop) {
+      max-width: 160px;
+    }
+  }
+
+  // Button With icon
+
+  &--control {
+    padding: 0;
+    width: 46px;
+    height: 46px;
+    @include respondTo(desktop) {
+      width: 56px;
+      height: 56px;
     }
   }
 
   &--tooltip {
-    @extend .button--square;
+    padding: 0;
     width: 46px;
     height: 46px;
-    font-size: 2rem;
-    border-radius: $border-radius-rect;
-
-    &-primary { //.button--tooltip-primary
-      @extend .button--primary;
-    }
-
-    &-secondary { //.button--tooltip-secondary
-      @extend .button--secondary;
-    }
   }
 
   &--aside {
-    @extend .button--square;
-    @extend .button--primary;
-    width: 43px;
-    height: 43px;
-    font-size: 1.8rem;
+    padding: 0;
+    width: 46px;
+    height: 46px;
     @include respondTo(desktop) {
-      width: 75px;
-      height: 75px;
-      font-size: 3rem;
+      width: 74px;
+      height: 74px;
     }
   }
 
