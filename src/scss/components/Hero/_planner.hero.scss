@@ -53,9 +53,9 @@
     }
     &__cta-primary{
       button{
-        @extend .button--rect;
-        @extend .button--signup;
+        @extend .button;
         @extend .button--medium;
+        @extend .button--yellow;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }

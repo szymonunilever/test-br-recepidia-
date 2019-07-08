@@ -24,8 +24,9 @@
           width: 100%;
         }
       }
-      &__button-reset {
-        @extend .button--icon;
+      &__button-reset{
+        @extend .button;
+        @extend .button--control;
         position: absolute;
         right: 0;
         top: 50%;

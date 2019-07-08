@@ -7,11 +7,12 @@ $submenu-color: $white-gray-darker;
 $submenu-icon-color: $fish-blue;
 
 .global-navigation {
+  @extend .container;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 10;
+  z-index: 15;
   background: transparent;
   height: $header-height;
   padding: 30px 25px;
@@ -121,22 +122,17 @@ $submenu-icon-color: $fish-blue;
       border-bottom: 1px solid $submenu-color;
       padding: 30px 25px;
       @include respondTo(desktop) {
-        display: flex;
+        display: inline-block;
         align-items: center;
-        height: 100%;
-        padding: 0 15px;
+        padding: 0 10px;
         border: none;
       }
 
       &.has-submenu {
         position: relative;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
         justify-content: space-between;
 
         .menu__dropdown-icon {
-          display: inline-flex;
           will-change: transform;
           transition-property: transform;
           transition-duration: 200ms;
@@ -145,6 +141,7 @@ $submenu-icon-color: $fish-blue;
           }
 
           .dropdown-icon {
+            vertical-align: middle;
             fill: currentColor;
             font-size: 1.4rem;
             width: 1em;
@@ -174,18 +171,17 @@ $submenu-icon-color: $fish-blue;
         @include respondTo(desktop) {
           position: absolute;
           max-height: none;
-          top: 80%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: auto;
+          top: 100%;
+          left: 0;
           background: $submenu-color;
+          width: auto;
           border-radius: 5px;
         }
 
         &.is-opened {
           overflow: visible;
           visibility: visible;
-          max-height: 500px;
+          max-height: 100vh;
           transition: max-height 0.2s ease-in;
         }
 
@@ -214,23 +210,25 @@ $submenu-icon-color: $fish-blue;
             position: relative;
             overflow: visible;
             .submenu {
+              background: $submenu-color;
+              padding: 0 10px;
+              border-radius: 5px;
               @include respondTo(desktop) {
                 position: absolute;
                 left: 105%;
-                transform: translate(0);
-                top: 50%;
+                top: 0;
                 padding: 0;
               }
             }
 
             .submenu__dropdown-icon {
-              display: flex;
               will-change: transform;
               transition-property: transform;
               transition-duration: 200ms;
               margin-left: 10px;
 
               .dropdown-icon {
+                vertical-align: middle;
                 fill: $header-color-mobile;
                 font-size: 1.4rem;
                 @include respondTo(desktop) {
@@ -253,19 +251,20 @@ $submenu-icon-color: $fish-blue;
           font-size: 1.6rem;
           font-weight: normal;
           display: flex;
+          width: 100%;
           cursor: pointer;
           justify-content: space-between;
           align-items: center;
           text-decoration: none;
-          flex: 1;
           color: $header-color-mobile;
-          padding: 10px 0;
-          transition: background-color .2s ease-out;
+          padding: 15px 0;
+          transition: background-color 0.2s ease-out;
+          border-radius: 5px;
           @include respondTo(desktop) {
             font-size: 1.4rem;
             color: $header-color-desktop;
             padding: 10px 20px;
-            &:hover{
+            &:hover {
               background-color: $apple-green;
             }
           }
@@ -284,7 +283,7 @@ $submenu-icon-color: $fish-blue;
       justify-content: space-between;
       align-items: center;
       color: $header-color-mobile;
-      transition: color .2s ease-out;
+      transition: color 0.2s ease-out;
       @include respondTo(desktop) {
         color: $header-color-desktop;
         padding: 10px;
@@ -292,7 +291,7 @@ $submenu-icon-color: $fish-blue;
         display: flex;
         align-items: center;
         border-radius: 5px;
-        &:hover{
+        &:hover {
           color: $fish-blue-darker;
         }
       }
