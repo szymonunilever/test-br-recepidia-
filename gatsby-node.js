@@ -206,12 +206,17 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   // Add hashes to icons classNames
   const config = getConfig();
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
   );
+  stage === 'develop' &&
+    config.module.rules.push({
+      test: /react-hot-loader/,
+      use: [loaders.js()],
+    });
   svgLoaderRule.use.options.classIdPrefix = true;
   actions.replaceWebpackConfig(config);
 };
