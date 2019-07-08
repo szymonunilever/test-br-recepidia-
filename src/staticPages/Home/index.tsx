@@ -10,12 +10,12 @@ import {
 } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
-import { RatingProvider } from 'src/components/lib/components/Rating';
 import Kritique from 'integrations/Kritique';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import theme from './home.module.scss';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
@@ -41,7 +41,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
               'LatestAndGreatest'
             )}
             list={recipes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--2-4"
             titleLevel={3}
@@ -70,7 +70,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
               'TopRecipes'
             )}
             list={recipes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
             titleLevel={3}

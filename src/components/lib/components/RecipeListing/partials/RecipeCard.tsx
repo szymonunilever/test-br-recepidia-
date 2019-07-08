@@ -5,9 +5,9 @@ import { TagName, Text } from '../../Text';
 import { Button, ButtonViewType } from '../../common/Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
-import { RatingProvider } from '../../Rating/models';
 import Rating from '../../Rating';
 import AdaptiveImage from '../../AdaptiveImage';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const RecipeCard = ({
   id,
@@ -38,7 +38,7 @@ const RecipeCard = ({
   };
   const wrapClasses = cx(theme['recipe-card'], 'recipe-card', className);
   const RatingWidget =
-    ratingProvider !== RatingProvider.none ? (
+    ratingProvider !== RatingAndReviewsProvider.none ? (
       <>
         <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
       </>
