@@ -39,6 +39,7 @@ export const RecipeAttributes = ({
       if (attrValue) {
         return (
           <RecipeAttributeCard
+            key={index}
             value={attrValue}
             label={labels ? labels[RecipeAttributesKeys[value]] : undefined}
             Icon={icons ? icons[RecipeAttributesKeys[value]] : undefined}

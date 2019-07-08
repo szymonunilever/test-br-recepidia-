@@ -26,15 +26,20 @@ const RecipeAttributeCard = ({
   ) : null;
 
   const IconImg = Icon ? (
-    <Icon className="recipe-attribute-card__icon" />
+    <Icon
+      aria-label={label && label.title}
+      className="recipe-attribute-card__icon"
+    />
   ) : null;
   return (
     <div className={classWrapper}>
-      {IconImg}
-      {title}
-      <div className="recipe-attribute-card__value">
-        {value}
-        {units}
+      <div className="recipe-attribute-card__item">
+        {IconImg}
+        {title}
+        <div className="recipe-attribute-card__value">
+          {value}
+          {units}
+        </div>
       </div>
     </div>
   );

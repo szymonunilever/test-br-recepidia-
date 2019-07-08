@@ -1,0 +1,15 @@
+.recipe-copy {
+  &__title {
+    h1{
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+  }
+  &__description {
+    p {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      margin-bottom: 20px;
+    }
+  }
+}

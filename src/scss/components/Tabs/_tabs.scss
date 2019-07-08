@@ -1,0 +1,21 @@
+.tabs {
+  width: 100%;
+  &__buttons {
+    display: flex;
+    background: $white-gray;
+    button {
+      padding: 20px;
+      width: 100%;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      font-family: $rubik;
+      &[aria-selected='false'] {
+        color: $gray;
+      }
+    }
+  }
+  &__items {
+    padding: 10px 0;
+  }
+}

@@ -100,7 +100,7 @@ const Tags = ({
             />
           ))}
         </ul>
-        {loadMoreBtn}
+        <span className="tags__load-more">{loadMoreBtn}</span>
       </div>
     );
 
