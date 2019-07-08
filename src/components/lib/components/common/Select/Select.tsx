@@ -40,6 +40,7 @@ const Select = ({
   input,
   changeHandler,
 }: SelectProps) => {
+  className = cx(className, 'select');
   const props = {
     ...input,
     styles: {},

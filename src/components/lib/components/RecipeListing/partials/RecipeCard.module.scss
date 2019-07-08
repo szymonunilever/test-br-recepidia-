@@ -4,13 +4,12 @@
   justify-content: flex-start;
   align-content: center;
   text-decoration: none;
+  position: relative;
 }
 
 :global(.recipe-card__favorite){
   position: absolute;
-  margin: 10px 0 0 -10px;
   z-index: 1;
-  align-self: flex-end;
 }
 
 :global(.recipe-card__image){

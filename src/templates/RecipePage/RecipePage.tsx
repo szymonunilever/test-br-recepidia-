@@ -33,7 +33,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
   const relatedRecipes = data.allRecipe.nodes;
 
   return (
-    <Layout className="recipe-page">
+    <Layout className={theme.recipePage}>
       <SEO title="Recepedia Home" />
       <Kritique />
 
@@ -129,6 +129,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           }}
           initialCount={8}
           tagsPerLoad={4}
+          variant="link"
         />
       </section>
       <section>{/* Hero Component should go here */}</section>

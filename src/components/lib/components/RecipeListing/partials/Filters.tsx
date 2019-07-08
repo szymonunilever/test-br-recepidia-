@@ -9,6 +9,8 @@ import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../common/Button';
 import { FilterSettings } from './index';
 import { remove } from 'lodash';
+import { Modal } from 'src/components/lib/components/common/Modal';
+import CloseSvg from 'src/svgs/inline/x-mark.svg';
 
 const Filter = ({
   className,
@@ -72,28 +74,37 @@ const Filter = ({
 
   return (
     <div className={classWrapper}>
-      <span>
+      <span className="filter__count">
         {results} {results > 1 ? resultLabelPlural : resultLabel}
       </span>
       {optionLabels ? (
         <Select
           options={sortingOptions}
-          className="recipe-filter__sort"
+          className="filter__sort"
           placeholder={sortSelectPlaceholder}
           changeHandler={sortingChange}
         />
       ) : null}
-      <FilterSettings
-        allFilters={allFilters}
-        onFilterChange={onFilterChange}
-        OpenIcon={OpenIcon}
-        filtersSelected={state.filterTags}
-        hidden={!state.showFilterSettings}
-        content={content}
-        onApply={toggleFilterSettings}
-      />
+      <Modal
+        isOpen={state.showFilterSettings}
+        close={toggleFilterSettings}
+        className="modal--filter"
+        closeBtn={<CloseSvg />}
+        title="Filters"
+        titleLevel={2}
+      >
+        <FilterSettings
+          allFilters={allFilters}
+          onFilterChange={onFilterChange}
+          OpenIcon={OpenIcon}
+          filtersSelected={state.filterTags}
+          // hidden={!state.showFilterSettings}
+          content={content}
+          onApply={toggleFilterSettings}
+        />
+      </Modal>
       <Button
-        className="recipe-filter__button"
+        className="filter__button"
         Icon={FilterIcon}
         viewType={ButtonViewType.classic}
         onClick={toggleFilterSettings}
@@ -101,7 +112,7 @@ const Filter = ({
       <Tags
         list={state.filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
-        isEditable
+        variant="removable"
         RemoveIcon={RemoveTagIcon}
         enableExternalManage
         handleTagRemove={onTagRemoved}

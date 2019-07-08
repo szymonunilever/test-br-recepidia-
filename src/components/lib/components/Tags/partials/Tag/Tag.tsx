@@ -8,16 +8,15 @@ const Tag = ({
   tag,
   handleClick,
   RemoveIcon,
-  isEditable,
   active = false,
   enableExternalManage = false,
   handleToggle,
-  isToggle,
+  variant,
 }: TagProps) => {
   const [state, setState] = useState(active);
   const { name, path = '' } = tag;
   const classWrapper = cx('tags__item', {
-    'for-filter': isToggle,
+    'for-filter': variant === 'toggle',
   });
   const onButtonClick = () => {
     handleClick(tag);
@@ -35,31 +34,43 @@ const Tag = ({
     }
   });
 
-  const buttonDelete = isEditable ? (
-    <Button
-      Icon={RemoveIcon}
-      onClick={onButtonClick}
-      className="tags__button-delete"
-    />
-  ) : null;
-
-  const view = isToggle ? (
-    <Button
-      className="tags__link"
-      onClick={onTagClick}
-      toggleExternalManage
-      content={{ label: name }}
-      isSelected={state}
-      isToggle
-    />
-  ) : (
-    <>
-      <Link className="tags__link" to={path}>
-        {name}
-      </Link>
-      {buttonDelete}
-    </>
-  );
+  let view;
+  switch (variant) {
+    case 'toggle':
+      view = (
+        <Button
+          className="tags__toggle"
+          onClick={onTagClick}
+          toggleExternalManage
+          content={{ label: name }}
+          isSelected={state}
+          isToggle={true}
+        />
+      );
+      break;
+    case 'link':
+      view = (
+        <Link className="tags__link" to={path}>
+          {name}
+        </Link>
+      );
+      break;
+    case 'removable':
+      view = (
+        <div className="tags__removable" tabIndex={0}>
+          <span>{name}</span>
+          <Button
+            className="tags__removable--button"
+            onClick={onButtonClick}
+            toggleExternalManage
+            isSelected={state}
+            Icon={RemoveIcon}
+          />
+        </div>
+      );
+      break;
+    default:
+  }
 
   return <li className={classWrapper}>{view}</li>;
 };

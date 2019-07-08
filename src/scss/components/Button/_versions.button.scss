@@ -20,6 +20,14 @@ $border-radius-rect: 5px;
     background-color: transparent;
     padding: 0;
   }
+  &--rounded{
+    padding: 12px 25px;
+    font-size: 1.4rem;
+    border:none;
+    line-height: 1;
+    border-radius: 20px;
+    transition: all .15s;
+  }
   // by type
   &--primary{
     background-color: $apple-green;
@@ -34,9 +42,11 @@ $border-radius-rect: 5px;
   &--secondary{
     background-color: $white-gray;
     color: $black-blue;
-    &:hover{
-      background-color: $apple-green;
-      color: $white;
+    @media (hover:hover) { //workaround for mobile devices pressed hover state
+      &:hover{
+        background-color: $apple-green;
+        color: $white;
+      }
     }
   }
   &--signup{
@@ -100,5 +110,19 @@ $border-radius-rect: 5px;
       height: 75px;
       font-size: 3rem;
     }
+  }
+  &--filter{ //advanced recipy listing
+    border: none;
+    background-color: $black-blue;
+    width: 40px;
+    height: 40px;
+    font-size:1.5rem;
+    svg{
+      fill:$white;
+    }
+  }
+  &__selected{ // tags
+    background-color: $fish-blue-darker;
+    color: $white;
   }
 }

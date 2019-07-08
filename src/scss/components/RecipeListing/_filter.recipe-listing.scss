@@ -1,0 +1,48 @@
+.recipe-list{
+  &__filter{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .filter{
+      &__count{
+        @extend h4;
+        margin-right: auto;
+      }
+      &__sort{
+        width: 120px;
+        &:hover{
+          cursor: pointer;
+        }
+        &> *{
+          font-size: 1.4rem;
+        }
+        [class*='menu']{
+          z-index: 2;
+        }
+        [class*='control']{
+          border-radius: 0;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        [class*='placeholder']{
+          color: $black-blue;
+        }
+        .option{
+          font-size: 1.4rem;
+        }
+        @include respondTo(desktop){
+          width: 140px;
+        }
+      }
+      &__button{
+        @extend .button--filter;
+      }
+    }
+    .tags{
+      width: 100%;
+      margin: 0;
+      padding: 20px 0;
+    }
+  }
+}

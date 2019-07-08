@@ -85,6 +85,9 @@
 
 // Select component styles
 .select {
+  &:hover{
+    cursor: pointer;
+  }
   [class*='control'] {
     @extend %input-general;
     padding: 0;

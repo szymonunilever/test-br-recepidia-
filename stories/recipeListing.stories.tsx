@@ -132,6 +132,7 @@ storiesOf('Components/Recipe Listing', module)
         viewType={RecipeListViewType.Trivial}
         content={contents[1]}
         titleLevel={1}
+        className="recipe-list"
       />
     ),
     {
@@ -210,20 +211,22 @@ storiesOf('Components/Recipe Listing', module)
   .add(
     'Recipe listing Advanced',
     () => (
-      <RecipeListing
-        // @ts-ignore
-        list={listing}
-        FavoriteIcon={FavoriteIcon}
-        OpenIcon={OpenIcon}
-        FilterIcon={FilterIcon}
-        viewType={RecipeListViewType.Advanced}
-        RemoveTagIcon={RemoveTagIcon}
-        favorites={[]}
-        withFavorite
-        content={contents[6]}
-        titleLevel={1}
-        tags={dataTags}
-      />
+      <div className="container">
+        <RecipeListing
+          // @ts-ignore
+          list={listing}
+          FavoriteIcon={FavoriteIcon}
+          OpenIcon={OpenIcon}
+          FilterIcon={FilterIcon}
+          viewType={RecipeListViewType.Advanced}
+          RemoveTagIcon={RemoveTagIcon}
+          favorites={[]}
+          withFavorite
+          content={contents[6]}
+          titleLevel={1}
+          tags={dataTags}
+        />
+      </div>
     ),
     {
       info: { inline: false },
