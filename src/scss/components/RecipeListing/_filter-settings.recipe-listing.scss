@@ -54,13 +54,12 @@
       }
     }
     &__reset{
-      @extend .button--rect;
+      @extend .button;
       @extend .button--secondary;
       @extend .button--medium;
     }
     &__apply{
-       @extend .button--rect;
-      @extend .button--primary;
+      @extend .button;
       @extend .button--medium;
     }
 
