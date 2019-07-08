@@ -55,6 +55,7 @@ export const RecipeListing = ({
     applyingFavorites(list, withFavorite, favorites)
   );
 
+  const [displayNumber, setDisplayNumber] = useState(initialCount);
   const [listState, setListState] = useState<{
     listItems: Internal.Recipe[];
     filterLength: number;
@@ -75,35 +76,31 @@ export const RecipeListing = ({
     }
   };
   const onFilterChange = (filter: RMSData.Tag[]) => {
-    const recipeCount = listState.listItems.length;
+    const recipeCount = displayNumber;
     listModified = sortBy(listState.sorting, listModified);
+    const filtered = applyFilters(filter, listModified);
     setListState({
       ...listState,
-      listItems:
-        recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
-      filterLength: applyFilters(filter, listModified).length,
+      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
+      filterLength: filtered.length,
       filter,
     });
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
-    const recipeCount = listState.listItems.length;
+    const recipeCount = displayNumber;
     const { filter } = listState;
     listModified = sortBy(sorting, listModified);
+    const filtered = applyFilters(filter, listModified);
     setListState({
       ...listState,
-      listItems:
-        recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
+      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
       sorting,
     });
   };
 
   const loadMore = () => {
-    const recipeCount = listState.listItems.length + recipePerLoad;
+    const recipeCount = displayNumber + recipePerLoad;
     const { filter } = listState;
     setListState({
       ...listState,
@@ -112,6 +109,7 @@ export const RecipeListing = ({
           ? applyFilters(filter, listModified).slice(0, recipeCount)
           : applyFilters(filter, listModified),
     });
+    setDisplayNumber(recipeCount);
   };
 
   const listHeader = title ? (
@@ -140,7 +138,7 @@ export const RecipeListing = ({
         <Button
           className="recipe-list__load-more"
           onClick={loadMore}
-          hidden={listState.listItems.length === listState.filterLength}
+          hidden={displayNumber >= listState.filterLength}
           content={cta}
         />
       ) : null}
