@@ -39,6 +39,8 @@ const Select = ({
   placeholder = '',
   input,
   changeHandler,
+  defaultValue,
+  formatOptionLabel,
 }: SelectProps) => {
   className = cx(className, 'select');
   const props = {
@@ -47,6 +49,8 @@ const Select = ({
     options,
     className,
     components: { Option },
+    formatOptionLabel,
+    defaultValue,
     placeholder,
   };
 
