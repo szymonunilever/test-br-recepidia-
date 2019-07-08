@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { SocialSharingBaseProps } from './models';
 import theme from './SocialSharingBase.module.scss';
 import cx from 'classnames';
-import Img from 'gatsby-image';
 import keys from 'integrations/keys.json';
+import AdaptiveImage from '../../AdaptiveImage';
 
 export const SocialSharingBase = ({
   buttonClassName,
@@ -52,7 +52,7 @@ export const SocialSharingBase = ({
     };
 
     const Icon =
-      icons && name && icons[name] && !icons[name].aspectRatio
+      icons && name && icons[name] && !icons[name].childImageSharp
         ? icons[name]
         : null;
 
@@ -61,7 +61,11 @@ export const SocialSharingBase = ({
         {Icon ? (
           <Icon className="social-sharing-button__icon" {...iconProps} />
         ) : icons && icons[name] ? (
-          <Img fluid={icons[name]} {...iconProps} />
+          <AdaptiveImage
+            localImage={icons[name]}
+            alt={iconProps.alt}
+            className={iconProps.className}
+          />
         ) : (
           label
         )}

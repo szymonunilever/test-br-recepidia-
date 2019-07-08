@@ -20,10 +20,16 @@ const SearchInput = ({
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<string[]>([]);
   const [timerId, setTimerId] = useState();
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
 
   const filterData: FilterData = (data, val) => {
-    return val.length
-      ? data.filter((text: string) => (text ? text.includes(val) : false))
+    return val
+      ? data
+          .filter(
+            (text: string) =>
+              text && text.toLowerCase().includes(val.toLowerCase())
+          )
+          .slice(0, searchResultsCount)
       : [];
   };
 
@@ -51,6 +57,7 @@ const SearchInput = ({
     clearTimeOut();
     setInputValue('');
     setData([]);
+    setActiveItemIndex(0);
   };
 
   const submitHandler = (e: SyntheticEvent) => {
@@ -61,9 +68,19 @@ const SearchInput = ({
     }
   };
 
-  const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+  const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       submitHandler(e);
+    } else if (e.key === 'ArrowDown') {
+      setInputValue(data[activeItemIndex]);
+      setActiveItemIndex(
+        activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0
+      );
+    } else if (e.key === 'ArrowUp') {
+      setInputValue(data[activeItemIndex]);
+      setActiveItemIndex(
+        activeItemIndex <= 0 ? data.length - 1 : activeItemIndex - 1
+      );
     }
   };
 
@@ -76,9 +93,10 @@ const SearchInput = ({
       window.setTimeout(() => getResults(value), debounceTimeout)
     );
   };
-  const inputHasValue = !!inputValue.length;
 
-  const buttonReset = inputValue.length ? (
+  const inputHasValue = !!inputValue;
+
+  const buttonReset = inputHasValue ? (
     <button className="form__button-reset" type="button" onClick={resetForm}>
       {buttonResetIcon}
     </button>
@@ -97,7 +115,7 @@ const SearchInput = ({
             className="form__input"
             type="text"
             onChange={onChangeHandler}
-            onKeyPress={onKeyPressHandler}
+            onKeyDown={onKeyDownHandler}
             value={inputValue}
             id="search-input"
             placeholder={placeholderText}
@@ -115,7 +133,7 @@ const SearchInput = ({
       </form>
 
       <SearchResults
-        count={searchResultsCount}
+        activeIndex={activeItemIndex}
         hasSearchQuery={inputHasValue}
         list={data}
       />
