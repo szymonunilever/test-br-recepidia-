@@ -19,6 +19,10 @@
     @extend .button--rounded;
     @extend .button--secondary;
     @extend .button--small;
+    &:hover {
+      background: $apple-green;
+      color: $fish-blue;
+    }
   }
 
   &__toggle {
@@ -47,14 +51,8 @@
     margin: 0 -10px;
     button {
       margin: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      @extend .button;
-      @extend .button--rounded;
-      @extend .button--secondary;
-      @extend .button--small;
+      @extend .tags__link;
+      max-width: 130px;
     }
   }
 }

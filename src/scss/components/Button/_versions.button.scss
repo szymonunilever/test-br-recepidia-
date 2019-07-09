@@ -24,6 +24,7 @@ $button-disabled-color: #9f9f9f !default;
   border-radius: $button-radius;
   display: inline-flex;
   align-items: center;
+  font-size: $button-font-size;
   justify-content: center;
   font-weight: 500;
   height: $button-height;
@@ -34,16 +35,17 @@ $button-disabled-color: #9f9f9f !default;
   -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
   background-color: $button-background;
   color: $button-color;
-  fill: $button-color;
+  fill: currentColor;
   transition: all 0.2s ease-out;
+
+  @include respondTo(desktop) {
+    font-size: 1.6rem;
+  }
 
   &:hover {
     background-color: $button-background-hover;
     color: $button-color-hover;
     fill: $button-color-hover;
-  }
-  @include respondTo(desktop) {
-    font-size: 1.6rem;
   }
 
   &[disabled] {
@@ -57,8 +59,7 @@ $button-disabled-color: #9f9f9f !default;
       color: $button-disabled-color !important;
     }
   }
-  &--rounded{
-    padding: 12px 25px;
+  &--rounded {
     border-radius: 20px;
   }
 
@@ -72,6 +73,7 @@ $button-disabled-color: #9f9f9f !default;
   &--yellow {
     background-color: $luminous-yellow;
     color: $black-blue;
+    fill: currentColor;
   }
 
   &--flat {
@@ -80,6 +82,7 @@ $button-disabled-color: #9f9f9f !default;
     &:hover {
       background-color: transparent;
       color: $apple-green;
+      fill: currentColor;
     }
   }
 
@@ -134,7 +137,8 @@ $button-disabled-color: #9f9f9f !default;
     }
   }
 
-  &--filter { //advanced recipy listing
+  &--filter {
+    //advanced recipy listing
     background-color: $black-blue;
     width: 40px;
     height: 40px;
@@ -145,7 +149,8 @@ $button-disabled-color: #9f9f9f !default;
     }
   }
 
-  &__selected { // tags
+  &__selected {
+    // tags
     background-color: $fish-blue-darker;
     color: $white;
   }
