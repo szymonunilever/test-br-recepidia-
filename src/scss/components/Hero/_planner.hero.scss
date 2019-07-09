@@ -14,38 +14,50 @@
         height: 300px;
       }
       @include respondTo(desktop) {
-        position: absolute;
-        width: 100%;
-        height: 100%;
         .gatsby-image-wrapper{
-          height: 100%;
+          height: 556px;
+        }
+      }
+    }
+    &__container{
+      @extend .container;
+      @include respondTo(desktop) {
+        width: 100%;
+        & > div{
+          width: 50%;
         }
       }
     }
     &__copy{
-      @extend .container;
-      padding-top: 20px;
+      position: relative;
+      padding-top: 42px;
       padding-bottom: 40px;
       text-align: center;
       @include respondTo(desktop) {
-        position: relative;
-        &>*{
-          width:50%;
-        }
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
       }
     }
     &__header{
+      margin-bottom: 19px;
       h2{
         @extend h3;
+        margin: 0;
         @include respondTo(desktop) {
           font-size: 4.5rem;
         }
       }
     }
     &__long-subheader{
+      margin-bottom: 27px;
       p{
         font-size: 1.4rem;
-        margin-bottom: 20px;
+        margin: 0;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }
@@ -56,6 +68,7 @@
         @extend .button;
         @extend .button--medium;
         @extend .button--yellow;
+        color: $fish-blue-darker;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }

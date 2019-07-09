@@ -91,13 +91,11 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       </section>
 
       <section className="_pb--40">
-        <div className="container">
-          <Hero
-            content={findPageComponentContent(components, 'Hero')}
-            viewType="Image"
-            className="hero--planner color--inverted"
-          />
-        </div>
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
       <section className="_pb--40">
         <div className="container">

@@ -84,12 +84,11 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       </section>
 
       <section>
-        <div className="container">
-          <Hero
-            content={findPageComponentContent(components, 'Hero')}
-            viewType="Image"
-          />
-        </div>
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
 
       <section>
