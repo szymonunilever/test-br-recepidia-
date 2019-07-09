@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
+import signUpFormContent from 'src/components/data/signUpFormContent.json';
 
 const content: AppContent.GeneratedForm.Content = {
   view: 'TestGeneratedForm',
@@ -175,11 +176,21 @@ const onSubmit = async (values: object) => {
   return logSubmitValues(values);
 };
 
-storiesOf('Components/Generated Form', module).add('with validation', () => (
-  <GeneratedForm
-    onSubmit={onSubmit}
-    content={content}
-    className="test"
-    shouldValidate
-  />
-));
+storiesOf('Components/Generated Form', module)
+  .add('with validation', () => (
+    <GeneratedForm
+      onSubmit={onSubmit}
+      content={content}
+      className="test"
+      shouldValidate
+    />
+  ))
+  .add('Resipe sign up with validation', () => (
+    <GeneratedForm
+      content={signUpFormContent as AppContent.GeneratedForm.Content}
+      titleLevel={1}
+      onSubmit={onSubmit}
+      className="test-recipe-sign-up"
+      shouldValidate={true}
+    />
+  ));

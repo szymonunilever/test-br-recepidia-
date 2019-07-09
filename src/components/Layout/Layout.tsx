@@ -15,6 +15,8 @@ import BrandSocialChannels from 'src/components/lib/components/BrandSocialChanne
 import brandSocialChannelsContent from 'src/components/data/brandSocialChannels.json';
 import { CountrySelector } from 'src/components/lib/components/CountrySelector';
 import countriesList from 'src/components/data/countrySelector.json';
+import GeneratedForm from 'src/components/lib/components/GeneratedForm';
+import signUpFormContent from 'src/components/data/signUpFormContent.json';
 
 const Layout = ({ children, className }: LayoutProps) => {
   return (
@@ -25,6 +27,16 @@ const Layout = ({ children, className }: LayoutProps) => {
       </a>
       <Navigation />
       <main id="content">{children}</main>
+      <GeneratedForm
+        titleLevel={1}
+        shouldValidate={true}
+        onSubmit={async (value: object) => {
+          await new Promise(resolve => setTimeout(resolve, 500));
+          // eslint-disable-next-line no-console
+          console.log('Submitting sign up email', value);
+        }}
+        content={signUpFormContent as AppContent.GeneratedForm.Content}
+      />
       <GlobalFooter
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
         content={footerContent}
