@@ -4,7 +4,7 @@ import React from 'react';
 import { Accordion } from '../../common/Accordion';
 import { Button } from '../../common/Button';
 import { Tags } from '../../Tags';
-import { ItemProps, TagToggleHandler, TagViewType } from '../../Tags/models';
+import { TagToggleHandler, TagViewType } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';
 import { FilterSettingsProps } from './models';
 
@@ -27,7 +27,7 @@ const FilterSettings = ({
     if (val.state) {
       filters.push(val.tag);
     } else if (filters.length > 0) {
-      remove(filters, (t: ItemProps) => t.id === val.tag.id);
+      remove(filters, (t: Internal.Tag) => t.id === val.tag.id);
     }
     onFilterChange(filters);
   };
@@ -38,7 +38,7 @@ const FilterSettings = ({
   return (
     <div className={classWrapper} hidden={hidden}>
       <ul className="filter-settings__tagGroups">
-        {allFilters.tagGroups.map((item: RMSData.TagGroup, key) => (
+        {allFilters.tagGroups.map((item: Internal.TagGroup, key) => (
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"
@@ -48,7 +48,7 @@ const FilterSettings = ({
               isOpen={false}
             >
               <Tags
-                list={item.tags}
+                list={item.children}
                 content={{ title: undefined, loadMoreButton: undefined }}
                 enableExternalManage
                 selectedTags={filtersSelected}

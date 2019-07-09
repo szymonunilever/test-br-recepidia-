@@ -26,7 +26,7 @@ const Filter = ({
 }: RecipeFilterProps) => {
   const [state, setState] = useState<{
     showFilterSettings: boolean;
-    filterTags: RMSData.Tag[];
+    filterTags: Internal.Tag[];
   }>({
     showFilterSettings: false,
     filterTags: [],
@@ -54,7 +54,7 @@ const Filter = ({
     });
   };
 
-  const onFilterChange = (val: RMSData.Tag[]) => {
+  const onFilterChange = (val: Internal.Tag[]) => {
     setState({
       ...state,
       filterTags: val,
@@ -62,9 +62,9 @@ const Filter = ({
     onChangeFilter(val);
   };
 
-  const onTagRemoved = (val: RMSData.Tag) => {
+  const onTagRemoved = (val: Internal.Tag) => {
     const filtered = [...state.filterTags];
-    remove(filtered, (item: RMSData.Tag) => item.id === val.id);
+    remove(filtered, (item: Internal.Tag) => item.id === val.id);
     setState({
       ...state,
       filterTags: filtered,

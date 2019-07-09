@@ -20,13 +20,18 @@
   }
   &__btn-close{
     @extend .button;
-    @extend .button--control;
+    @extend .button--flat;
     position: absolute;
     right: 0;
     top: 0;
     width: 54px;
     height: 54px;
     display: flex;
+
+    &:hover {
+      fill: $fish-blue;
+    }
+
     svg{
       width: 16px;
       height: 16px;
@@ -100,5 +105,5 @@
 }
 
 .modal--fullscreen{
-  
+
 }
