@@ -76,6 +76,7 @@ const Menu = ({
                   isOpened={matchItem(i)}
                   className="submenu"
                   dropDownIcon={dropDownIcon}
+                  isAccordion={isAccordion}
                 />
               </>
             )}

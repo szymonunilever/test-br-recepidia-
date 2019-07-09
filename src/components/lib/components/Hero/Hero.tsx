@@ -33,49 +33,50 @@ const Hero = (props: HeroProps) => {
           <AdaptiveImage localImage={image.localImage} alt={image.alt} />
         </div>
       )}
-
       <div className={copyStyles}>
-        {props.content.header && (
-          <div className="hero__header">
-            <Text
-              //@ts-ignore
-              tag={TagName[`h${titleLevel}`]}
-              text={props.content.header}
-            />
-          </div>
-        )}
+        <div className="hero__container">
+          {props.content.header && (
+            <div className="hero__header">
+              <Text
+                //@ts-ignore
+                tag={TagName[`h${titleLevel}`]}
+                text={props.content.header}
+              />
+            </div>
+          )}
 
-        {props.content.shortSubheader && (
-          <div className="hero__short-subheader">
-            <Text
-              // @ts-ignore
-              tag={TagName[`h${titleLevel + 1}`]}
-              text={props.content.shortSubheader}
-            />
-          </div>
-        )}
+          {props.content.shortSubheader && (
+            <div className="hero__short-subheader">
+              <Text
+                // @ts-ignore
+                tag={TagName[`h${titleLevel + 1}`]}
+                text={props.content.shortSubheader}
+              />
+            </div>
+          )}
 
-        {props.content.longSubheader && (
-          <div className="hero__long-subheader">
-            <Text tag={TagName.p} text={props.content.longSubheader} />
-          </div>
-        )}
+          {props.content.longSubheader && (
+            <div className="hero__long-subheader">
+              <Text tag={TagName.p} text={props.content.longSubheader} />
+            </div>
+          )}
 
-        {props.content.primaryCta && (
-          <div className="hero__cta-primary">
-            <Button onClick={goByPrimaryCTA}>
-              {props.content.primaryCta.label}
-            </Button>
-          </div>
-        )}
+          {props.content.primaryCta && (
+            <div className="hero__cta-primary">
+              <Button onClick={goByPrimaryCTA}>
+                {props.content.primaryCta.label}
+              </Button>
+            </div>
+          )}
 
-        {props.content.secondaryCta && (
-          <div className="hero__cta-secondary">
-            <Button onClick={goBySecondaryCTA}>
-              {props.content.secondaryCta.label}
-            </Button>
-          </div>
-        )}
+          {props.content.secondaryCta && (
+            <div className="hero__cta-secondary">
+              <Button onClick={goBySecondaryCTA}>
+                {props.content.secondaryCta.label}
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

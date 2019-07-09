@@ -91,18 +91,16 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       </section>
 
       <section className="_pb--40">
-        <div className="container">
-          <Hero
-            content={{
-              ...findPageComponentContent(components, 'Hero'),
-              header: 'Try our Meal Planner',
-              longSubheader:
-                "We will collect your preferences and customize a weekly menu so you don't even have to think.",
-            }}
-            viewType="Image"
-            className="hero--planner color--inverted"
-          />
-        </div>
+        <Hero
+          content={{
+            ...findPageComponentContent(components, 'Hero'),
+            header: 'Try our Meal Planner',
+            longSubheader:
+              "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+          }}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
       <section className="_pb--40">
         <div className="container">
