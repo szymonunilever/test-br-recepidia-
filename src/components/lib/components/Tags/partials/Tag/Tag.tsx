@@ -14,7 +14,10 @@ const Tag = ({
   variant,
 }: TagProps) => {
   const [state, setState] = useState(active);
-  const { name, path = '' } = tag;
+  const {
+    name,
+    fields: { slug: path },
+  } = tag;
   const classWrapper = cx('tags__item', {
     'for-filter': variant === 'toggle',
   });

@@ -1,27 +1,42 @@
 [
   {
     "id": 1347,
+    "tagId": "someId",
     "name": "New Year's Day",
-    "path": "/search.html?q=New%20Year's%20Day"
+    "fields": {
+      "slug": "/recipe-category/new-years-day"
+    }
   },
   {
     "id": 1348,
+    "tagId": "someId",
     "name": "Dia de São Nicolau",
-    "path": "/search.html?q=Dia%20de%20São%20Nicolau"
+    "fields": {
+      "slug": "/recipe-category/eventos-anuais"
+    }
   },
   {
     "id": 1349,
+    "tagId": "someId",
     "name": "Dia de Ação de Graças",
-    "path": "/search.html?q=Dia%20de%20Ação%20de%20Graças"
+    "fields": {
+      "slug": "/recipe-category/dia-dos-namorados"
+    }
   },
   {
     "id": 1350,
+    "tagId": "someId",
     "name": "dia dos namorados",
-    "path": "/search.html?q=Ddia%20dos%20namorados"
+    "fields": {
+      "slug": "/recipe-category/dia-dos-namorados"
+    }
   },
   {
     "id": 1355,
+    "tagId": "someId",
     "name": "Dia de Canadá",
-    "path": "/search.html?q=Dia%20de%20Canadá"
+    "fields": {
+      "slug": "/recipe-category/eventos-anuais"
+    }
   }
 ]

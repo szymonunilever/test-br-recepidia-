@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'src/components/lib/components/common/Button';
-import { ItemProps, TagsProps, TagViewType } from './models';
+import { TagsProps, TagViewType } from './models';
 import Tag from './partials/Tag';
 import { includes } from 'lodash';
 
@@ -36,7 +36,7 @@ const Tags = ({
     });
   };
 
-  const deleteItem = (tag: ItemProps) => {
+  const deleteItem = (tag: Internal.Tag) => {
     setTags({
       list: tags.list.filter(item => item.id !== tag.id),
       displayList: tags.displayList.filter(item => item.id !== tag.id),
@@ -72,7 +72,7 @@ const Tags = ({
     viewType === TagViewType.filter ? (
       <div className={classNames} data-componentname="tags">
         <ul className="tags__list">
-          {tags.list.map((item: ItemProps) => (
+          {tags.list.map((item: Internal.Tag) => (
             <Tag
               key={item.id}
               handleClick={deleteItem}
@@ -90,7 +90,7 @@ const Tags = ({
         {title ? <h3 className="tags__title">{title}</h3> : null}
 
         <ul className="tags__list">
-          {tags.displayList.map((item: ItemProps) => (
+          {tags.displayList.map((item: Internal.Tag) => (
             <Tag
               RemoveIcon={RemoveIcon}
               key={item.id}

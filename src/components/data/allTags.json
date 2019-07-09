@@ -1,47 +1,63 @@
 {
-  "tagGroups":[
+  "tagGroups": [
     {
       "name": "eventos anuais",
       "label": "Eventos anuais",
-      "tags": [
+      "children": [
         {
           "id": 1347,
-          "language": "pt-BR",
-          "name": "New Year's Day"
+          "name": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/new-years-day"
+          }
         },
         {
           "id": 1348,
-          "language": "pt-BR",
-          "name": "Dia de São Nicolau"
+          "name": "Dia de São Nicolau",
+          "fields": {
+            "slug": "/recipe-category/eventos-anuais"
+          }
         },
         {
           "id": 1349,
-          "language": "pt-BR",
-          "name": "Dia de Ação de Graças"
+          "name": "Dia de Ação de Graças",
+          "fields": {
+            "slug": "/recipe-category/dia-dos-namorados"
+          }
         },
         {
           "id": 1350,
-          "language": "pt-BR",
-          "name": "dia dos namorados"
+          "name": "dia dos namorados",
+          "fields": {
+            "slug": "/recipe-category/dia-dos-namorados"
+          }
         },
         {
           "id": 1355,
-          "language": "pt-BR",
-          "name": "Dia de Canadá"
+          "name": "Dia de Canadá",
+          "fields": {
+            "slug": "/recipe-category/eventos-anuais"
+          }
         }
       ]
     },
     {
       "name": "orçamento",
       "label": "Orçamento",
-      "tags": [
-        { "id": 1369,
-          "language": "pt-BR",
-          "name": "preço médio"
+      "children": [
+        {
+          "id": 1369,
+          "name": "preço médio",
+          "fields": {
+            "slug": "/recipe-category/preço-médio"
+          }
         },
-        { "id": 1370,
-          "language": "pt-BR",
-          "name": "econômica"
+        {
+          "id": 1370,
+          "name": "econômica",
+          "fields": {
+            "slug": "/recipe-category/economica"
+          }
         }
       ]
     }

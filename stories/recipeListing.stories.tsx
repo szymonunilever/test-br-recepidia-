@@ -224,6 +224,7 @@ storiesOf('Components/Recipe Listing', module)
           withFavorite
           content={contents[6]}
           titleLevel={1}
+          // @ts-ignore
           tags={dataTags}
         />
       </div>

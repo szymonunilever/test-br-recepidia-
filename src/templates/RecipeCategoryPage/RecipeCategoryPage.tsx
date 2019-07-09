@@ -19,6 +19,11 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
   const { tag, allRecipe, allTag } = data;
   const categoryImage = get(tag.assets, '[0].localImage');
+  const recipesListingContent = findPageComponentContent(
+    components,
+    'RecipeListing',
+    'RecipesByCategory'
+  );
 
   return (
     <Layout>
@@ -57,11 +62,13 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       <section>
         <div className="container">
           <RecipeListing
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'RecipesByCategory'
-            )}
+            content={{
+              ...recipesListingContent,
+              title: recipesListingContent.title.replace(
+                '{numRes}',
+                allRecipe.nodes.length
+              ),
+            }}
             list={allRecipe.nodes}
             ratingProvider={RatingProvider.kritique}
             titleLevel={3}
@@ -85,7 +92,12 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
 
       <section>
         <Hero
-          content={findPageComponentContent(components, 'Hero')}
+          content={{
+            ...findPageComponentContent(components, 'Hero'),
+            header: 'Try our Meal Planner',
+            longSubheader:
+              "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+          }}
           viewType="Image"
           className="hero--planner color--inverted"
         />

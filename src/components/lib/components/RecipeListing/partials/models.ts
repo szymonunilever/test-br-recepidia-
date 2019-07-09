@@ -42,14 +42,14 @@ export enum RecipeSortingOptions {
 }
 
 export interface RecipeFilterOptions {
-  tagGroups: RMSData.TagGroup[];
+  tagGroups: Internal.TagGroup[];
 }
 
 export interface RecipeFilterProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
   onChangeSorting: (sort: RecipeSortingOptions) => void;
-  onChangeFilter: (filter: RMSData.Tag[]) => void;
+  onChangeFilter: (filter: Internal.Tag[]) => void;
   results: number;
   sortSelectPlaceholder: string;
   OpenIcon?: JSX.Element;
@@ -60,8 +60,8 @@ export interface RecipeFilterProps
 export interface FilterSettingsProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
-  onFilterChange: (filter: RMSData.Tag[]) => void;
-  filtersSelected: RMSData.Tag[];
+  onFilterChange: (filter: Internal.Tag[]) => void;
+  filtersSelected: Internal.Tag[];
   hidden?: boolean;
   OpenIcon?: JSX.Element;
   CloseIcon?: JSX.Element;
