@@ -201,9 +201,9 @@ exports.createPages = ({ graphql, actions }) => {
       item => item.type === 'RecipeCategory'
     );
 
-    // result.data.allRecipe.edges.forEach(edge => {
-    //   createPageFromTemplate(edge, recipeDetailsPage);
-    // });
+    result.data.allRecipe.edges.forEach(edge => {
+      createPageFromTemplate(edge, recipeDetailsPage);
+    });
     result.data.allTag.edges.forEach(edge => {
       createPageFromTemplate(edge, recipeCategoryPage, 'tagId');
     });
