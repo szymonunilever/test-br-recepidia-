@@ -1,0 +1,20 @@
+{
+  "socialItems": {
+    "facebook": {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/"
+    },
+    "instagram": {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/"
+    },
+    "twitter": {
+      "label": "Twitter",
+      "url": "https://twitter.com/"
+    },
+    "pinterest": {
+      "label": "Pinterest",
+      "url": "https://www.pinterest.com/"
+    }
+  }
+}
