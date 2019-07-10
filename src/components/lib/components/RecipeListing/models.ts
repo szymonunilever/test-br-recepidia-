@@ -1,8 +1,8 @@
-import { RatingProvider } from '../Rating';
 import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
 import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../common/Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 export enum RecipeListViewType {
   Trivial,
@@ -29,7 +29,7 @@ export interface RecipeListingProps
   list: Internal.Recipe[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
-  ratingProvider?: RatingProvider;
+  ratingProvider?: RatingAndReviewsProvider;
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
 }
@@ -41,5 +41,5 @@ export interface RecipeListingCarouselProps
   onFavoriteChange: RecipeCardFavoriteCallback;
   list: Internal.Recipe[];
   config: CarouselConfig;
-  ratingProvider?: RatingProvider;
+  ratingProvider?: RatingAndReviewsProvider;
 }

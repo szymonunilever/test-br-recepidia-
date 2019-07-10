@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from '../common/Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import RecipeCard from './partials/RecipeCard';
-import { RatingProvider } from '../Rating/index';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 const RecipeListingCarousel = ({
   withFavorite = true,
@@ -10,7 +10,7 @@ const RecipeListingCarousel = ({
   onFavoriteChange,
   list,
   config,
-  ratingProvider = RatingProvider.none,
+  ratingProvider = RatingAndReviewsProvider.none,
 }: RecipeListingCarouselProps) => {
   const getCurrentItem = (item: Internal.Recipe) => {
     return (

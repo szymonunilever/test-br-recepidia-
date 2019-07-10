@@ -7,7 +7,7 @@ import pages from 'src/components/data/pageListing.json';
 import { Carousel } from '../index';
 import PageListingItem from '../../../PageListing/partials/PageListingItem/PageListingItem';
 import RecipeCard from '../../../RecipeListing/partials/RecipeCard';
-import { RatingProvider } from '../../../Rating/models';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const recipeList = recipes.data.allRecipe.edges.map(item => item.node);
 const pageList = pages;
@@ -66,7 +66,7 @@ const getRecipeItem = () => {
         onFavoriteChange={changeFavorites}
         content={{ title: recipeList[0].shortTitle }}
         recipeId={recipeList[0].id}
-        ratingProvider={RatingProvider.none}
+        ratingProvider={RatingAndReviewsProvider.none}
       />
     </div>
   );
