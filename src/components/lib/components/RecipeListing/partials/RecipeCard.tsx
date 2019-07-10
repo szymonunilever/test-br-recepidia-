@@ -40,7 +40,12 @@ const RecipeCard = ({
   const RatingWidget =
     ratingProvider !== RatingAndReviewsProvider.none ? (
       <>
-        <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
+        <Rating
+          className={'recipe-rating--stars'}
+          recipeId={recipeId}
+          provider={ratingProvider}
+          linkTo={slug}
+        />
       </>
     ) : null;
 

@@ -35,15 +35,6 @@ import Reviews from 'src/components/lib/components/Reviews';
 const RecipePage = ({ data }: RecipePageProps) => {
   const { recipe } = data;
   const tags = data.allTag.nodes;
-  const newTags = tags.map(tag => {
-    const newTag = {
-      ...tag,
-      id: tag.tagId,
-    };
-
-    return newTag;
-  });
-
   const relatedRecipes = data.allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page');
   const tabsContent = {
@@ -209,7 +200,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
       <section className="_pt--40">
         <div className="container">
           <Tags
-            list={newTags}
+            list={tags}
             content={{
               title: 'Similar tags',
               loadMoreButton: {

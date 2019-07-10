@@ -4,6 +4,7 @@
   @extend .header--bg;
   .topBg {
     @extend ._pt--40;
+    @extend ._pb--40;
     @extend ._bg--main;
     position: relative;
     &:before {
@@ -12,7 +13,7 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 10%;
+      height: 90px;
       background: $white;
       @include respondTo(desktop) {
         display: block;
