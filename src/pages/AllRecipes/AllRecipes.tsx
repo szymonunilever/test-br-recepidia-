@@ -3,7 +3,6 @@ import pageData from 'src/components/data/allRecipesPageData.json';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
-import { get } from 'lodash';
 import SEO from 'src/components/Seo/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
@@ -11,7 +10,6 @@ import { findPageComponentContent } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
-import { RatingProvider } from 'src/components/lib/components/Rating';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
@@ -21,6 +19,7 @@ import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   // const { components, title } = pageContext;
@@ -64,7 +63,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               'AllRecipes'
             )}
             list={allRecipe.nodes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             tags={{ tagGroups: allTagGroup.nodes }}
             className="recipe-list--carousel cards--2-4"
@@ -85,7 +84,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               'SeasonalPromotionalRecipes'
             )}
             list={allRecipe.nodes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
