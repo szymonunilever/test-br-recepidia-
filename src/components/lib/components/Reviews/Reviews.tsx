@@ -27,14 +27,13 @@ const Reviews = ({
       {provider === RatingAndReviewsProvider.kritique ? (
         <div className={classNames} data-componentname="recipe-reviews">
           <div
-            className="c-recipe-reviews rr-widget-container"
+            className="rr-widget-container"
             data-readpanel-template={ReviewsSummaryTemplate.readpanel01}
             data-entity-type={RatingAndReviewsEntityType.recipe}
             data-unique-id={recipeId}
             data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
             data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
           />
-          <div className="c-recipe-reviews_seo" />
         </div>
       ) : null}
     </>
