@@ -2,7 +2,7 @@ import React from 'react';
 import { NullResult } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
-import { RatingProvider } from '../../Rating/models';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const RecipeListingTrivial = ({
   list,
@@ -11,7 +11,7 @@ const RecipeListingTrivial = ({
   titleLevel = 3,
   onFavoriteChange,
   content: { nullResult },
-  ratingProvider = RatingProvider.none,
+  ratingProvider = RatingAndReviewsProvider.none,
 }: RecipeListingTrivialProps) => (
   <ul className="recipe-list__list">
     {list.length > 0 ? (

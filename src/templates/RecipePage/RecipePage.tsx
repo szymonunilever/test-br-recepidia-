@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo/Seo';
 import Kritique from 'integrations/Kritique';
 import RecipeHero from 'src/components/lib/components/RecipeHero';
-import Rating, { RatingProvider } from 'src/components/lib/components/Rating';
+import Rating from 'src/components/lib/components/Rating';
 import RecipeCopy, {
   RecipeCopyViewType,
 } from 'src/components/lib/components/RecipeCopy';
@@ -29,6 +29,8 @@ import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { Tabs } from 'src/components/lib/components/Tabs';
 import { Tab } from '../../components/lib/components/Tabs/partials';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import Reviews from 'src/components/lib/components/Reviews';
 
 const RecipePage = ({ data }: RecipePageProps) => {
   const { recipe } = data;
@@ -117,7 +119,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
                 />
                 <Rating
                   recipeId={recipe.recipeId}
-                  provider={RatingProvider.kritique}
+                  provider={RatingAndReviewsProvider.kritique}
                   linkTo={recipe.fields.slug}
                 />
               </div>
@@ -228,7 +230,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           <RecipeListing
             content={{ title: 'Related recipes' }}
             list={relatedRecipes}
-            ratingProvider={RatingProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--2-4"
             titleLevel={3}
@@ -244,6 +246,15 @@ const RecipePage = ({ data }: RecipePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+          />
+        </div>
+      </section>
+      <section className={'_pt--40'}>
+        <div className="container">
+          <Reviews
+            recipeId={recipe.recipeId}
+            provider={RatingAndReviewsProvider.kritique}
+            linkTo={recipe.fields.slug}
           />
         </div>
       </section>
