@@ -17,4 +17,30 @@ storiesOf('Components/CountrySelector', module)
     {
       info: { inline: false },
     }
+  )
+  .add(
+    'Country selector with small flags',
+    () => (
+      <CountrySelector
+        selected={countriesList[0]}
+        list={countriesList}
+        flagSize={'lg'}
+      />
+    ),
+    {
+      info: { inline: false },
+    }
+  )
+  .add(
+    'Country selector with large flags',
+    () => (
+      <CountrySelector
+        selected={countriesList[0]}
+        list={countriesList}
+        flagSize={'5x'}
+      />
+    ),
+    {
+      info: { inline: false },
+    }
   );
