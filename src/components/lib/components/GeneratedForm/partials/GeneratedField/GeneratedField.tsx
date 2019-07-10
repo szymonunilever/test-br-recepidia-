@@ -57,7 +57,14 @@ const GeneratedField = ({
             break;
           }
           case 'pattern': {
-            if (val && !rule.value.test(val)) {
+            if (val && !new RegExp(rule.value).test(val)) {
+              validMessage = errorMessage(rule.type);
+            }
+            break;
+          }
+          case 'email': {
+            // eslint-disable-next-line no-useless-escape
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(val)) {
               validMessage = errorMessage(rule.type);
             }
             break;

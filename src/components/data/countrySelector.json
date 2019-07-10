@@ -2,61 +2,51 @@
   {
     "value": "Argentina",
     "label": "AR",
-    "path": "/to/argentina/page",
-    "icon": "#x1f30e;"
+    "path": "/to/argentina/page"
   },
   {
     "value": "Bolivia",
     "label": "BO",
-    "path": "/to/bolivia/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/bolivia/page"
   },
   {
     "value": "Brazil",
     "label": "BR",
-    "path": "/to/brazil/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/brazil/page"
   },
   {
     "value": "Colombia",
     "label": "CO",
-    "path": "/to/colombia/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/colombia/page"
   },
   {
     "value": "Chile",
     "label": "CL",
-    "path": "/to/chile/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/chile/page"
   },
   {
     "value": "Mexico",
     "label": "MX",
-    "path": "/to/mexico/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/mexico/page"
   },
   {
     "value": "Paraguay",
     "label": "PY",
-    "path": "/to/paraguay/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/paraguay/page"
   },
   {
     "value": "Puerto rico",
     "label": "PR",
-    "path": "/to/puerto-rico/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/puerto-rico/page"
   },
   {
     "value": "Rep. Dominicana",
     "label": "DO",
-    "path": "/to/domimicana/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/domimicana/page"
   },
   {
-    "value": "URUGUAY",
+    "value": "Uruguay",
     "label": "UY",
-    "path": "/to/uruguay/page",
-    "icon": "&#x1f30e;"
+    "path": "/to/uruguay/page"
   }
 ]

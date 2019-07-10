@@ -1817,6 +1817,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-flag-icon-css@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-flag-icon-css/-/react-flag-icon-css-1.0.2.tgz#ad758931ddf70a46e36ddf845791dc9233ea2b53"
+  integrity sha512-ECCdG24Bpp4+JIJhXHjY6lZ3oFHRe3pI8HgEdsel6PAJZptEnkpQuJyLA+sNjhFvC7vfXaNESKH8YxqnA8S1MQ==
+  dependencies:
+    "@types/react" "*"
+    csstype "^2.2.0"
+
 "@types/react-helmet@^5.0.8":
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.8.tgz#f080eea6652e44f60b4574463d238f268d81d9af"
@@ -6087,6 +6095,11 @@ find-versions@^3.0.0:
   dependencies:
     array-uniq "^2.1.0"
     semver-regex "^2.0.0"
+
+flag-icon-css@^3.2.1:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-3.3.0.tgz#7772461e4480d3d86da5962f02120a2825688433"
+  integrity sha512-u5lCGVExrJJRykNGd//ZrBU5Bkt0LTZJFSuG+Az/pwcHgzDeFwomwFbsgVtI1aJd6ysyHsx+5UGrA+nhSGd4yw==
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -11880,6 +11893,15 @@ react-final-form@^6.1.0:
   dependencies:
     "@babel/runtime" "^7.4.5"
     ts-essentials "^2.0.2"
+
+react-flag-icon-css@^1.0.25:
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/react-flag-icon-css/-/react-flag-icon-css-1.0.25.tgz#ac2e99f635ce333c210f593576f12908db8bf3ba"
+  integrity sha512-UJll3zpmbZvkwZvu4HI00iGF8ya4OdFzMR5k3cAluIwdHn8l5cB3CPYt+hw0tt7fLKaYIfncxNEO/qTtvBw2qw==
+  dependencies:
+    classnames "^2.2.6"
+    flag-icon-css "^3.2.1"
+    prop-types "^15.6.2"
 
 react-focus-lock@^1.17.7, react-focus-lock@^1.18.3:
   version "1.19.1"
