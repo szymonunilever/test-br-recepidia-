@@ -172,6 +172,7 @@ $submenu-text-color: $fish-blue-darker;
       font-size: 3rem;
       margin: 0 0 0 50px;
       stroke: $primary-color;
+      cursor: pointer;
     }
 
     .signUpBtn {
@@ -184,246 +185,246 @@ $submenu-text-color: $fish-blue-darker;
       }
     }
   }
-}
 
-/// MENU STYLES 1st lvl
+  /// MENU STYLES 1st lvl
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  @include respondTo(desktop) {
-    display: flex;
-    align-items: center;
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     height: 100%;
-    margin: 0 -15px;
-  }
-
-  &__item {
-    border-bottom: 1px solid $header-color-mobile;
-    padding: 30px 25px;
     @include respondTo(desktop) {
-      display: inline-block;
-      align-items: center;
-      padding: 0 10px;
-      border: none;
-    }
-
-    &.has-submenu {
-      position: relative;
-      justify-content: space-between;
-
-      .menu__dropdown-icon {
-        will-change: transform;
-        transition-property: transform;
-        transition-duration: 200ms;
-        @include respondTo(desktop) {
-          margin-left: 10px;
-        }
-
-        .dropdown-icon {
-          vertical-align: middle;
-          fill: currentColor;
-          font-size: 1.4rem;
-          width: 1em;
-          height: 1em;
-          @include respondTo(desktop) {
-            fill: $fish-blue;
-          }
-        }
-      }
-
-      &.active {
-        .menu__dropdown-icon {
-          transform: rotate(180deg);
-        }
-      }
-    }
-  }
-
-  &__link {
-    font-size: 2.1rem;
-    font-weight: 500;
-    font-family: $rubik;
-    text-decoration: none;
-    flex: 1;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $header-color-mobile;
-    transition: color 0.2s ease-out;
-    @include respondTo(desktop) {
-      color: $header-color-desktop;
-      padding: 10px;
-      font-size: 1.4rem;
       display: flex;
       align-items: center;
-      border-radius: 5px;
-      &:hover {
-        color: $fish-blue-darker;
-      }
+      height: 100%;
+      margin: 0 -15px;
     }
-  }
 
-  &__dropdown-icon {
-    cursor: pointer;
-  }
-}
-
-/// MENU STYLES 2-3 lvl
-
-.submenu {
-  list-style: none;
-  width: 100%;
-  height: 0;
-  font-size: 1.6rem;
-  overflow: hidden;
-  visibility: hidden;
-  @include respondTo(desktop) {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: $submenu-bg-color;
-    width: auto;
-    min-width: 180px;
-    border-radius: 5px;
-  }
-
-  &.is-opened {
-    height: 100%;
-    padding: 10px 0;
-    overflow: visible;
-    visibility: visible;
-    @include respondTo(desktop) {
-      height: auto;
-      padding: 0;
-    }
-  }
-
-  &__link {
-    font-size: inherit;
-    font-weight: normal;
-    display: flex;
-    width: 100%;
-    cursor: pointer;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: $submenu-text-color;
-    padding: 15px 0;
-    transition: background-color 0.2s ease-out;
-    border-radius: 5px;
-    @include respondTo(desktop) {
-      font-size: 1.4rem;
-      color: $submenu-text-color;
-      padding: 10px 20px;
-      &:hover {
-        background-color: $apple-green;
-      }
-    }
-  }
-
-  &__item {
-    line-height: 1;
-
-    &.has-submenu {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      position: relative;
-      overflow: visible;
-
-      .submenu {
-        padding: 0;
-        display: block;
-        border-radius: 5px;
-        @include respondTo(desktop) {
-          position: absolute;
-          left: 100%;
-          top: 0;
-          padding: 0;
-        }
-
-        &.is-opened {
-          padding: 10px 0;
-          @include respondTo(desktop) {
-            padding: 0;
-          }
-        }
+    &__item {
+      border-bottom: 1px solid $header-color-mobile;
+      padding: 30px 25px;
+      @include respondTo(desktop) {
+        display: inline-block;
+        align-items: center;
+        padding: 0 10px;
+        border: none;
       }
 
-      & > .submenu {
-        font-size: 1.4rem;
-
-        .submenu__link {
-          padding: 10px 0;
-          @include respondTo(desktop) {
-            padding: 10px 20px;
-          }
-        }
-      }
-
-      .submenu__dropdown-icon {
-        transform: none;
-        margin-left: 15px;
+      &.has-submenu {
         position: relative;
-        @include respondTo(desktop) {
+        justify-content: space-between;
+
+        .menu__dropdown-icon {
           will-change: transform;
           transition-property: transform;
           transition-duration: 200ms;
-          display: inline-block;
-          &:before,
-          &:after {
-            display: none;
-          }
-        }
-
-        &:before,
-        &:after {
-          font-weight: bold;
-          position: absolute;
-          line-height: 0;
-          top: 0;
-          right: 0;
-          font-size: 20px;
-        }
-
-        &:before {
-          content: '\002B';
-        }
-
-        &:after {
-          content: '\2212';
-        }
-
-        .dropdown-icon {
-          display: none;
           @include respondTo(desktop) {
-            display: inline-block;
+            margin-left: 10px;
+          }
+
+          .dropdown-icon {
             vertical-align: middle;
-            fill: $fish-blue;
+            fill: currentColor;
             font-size: 1.4rem;
             width: 1em;
             height: 1em;
+            @include respondTo(desktop) {
+              fill: $fish-blue;
+            }
+          }
+        }
+
+        &.active {
+          .menu__dropdown-icon {
+            transform: rotate(180deg);
           }
         }
       }
+    }
 
-      &.active {
-        .submenu__dropdown-icon {
+    &__link {
+      font-size: 2.1rem;
+      font-weight: 500;
+      font-family: $rubik;
+      text-decoration: none;
+      flex: 1;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $header-color-mobile;
+      transition: color 0.2s ease-out;
+      @include respondTo(desktop) {
+        color: $header-color-desktop;
+        padding: 10px;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        &:hover {
+          color: $fish-blue-darker;
+        }
+      }
+    }
+
+    &__dropdown-icon {
+      cursor: pointer;
+    }
+  }
+
+  /// MENU STYLES 2-3 lvl
+
+  .submenu {
+    list-style: none;
+    width: 100%;
+    height: 0;
+    font-size: 1.6rem;
+    overflow: hidden;
+    visibility: hidden;
+    @include respondTo(desktop) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: $submenu-bg-color;
+      width: auto;
+      min-width: 180px;
+      border-radius: 5px;
+    }
+
+    &.is-opened {
+      height: 100%;
+      padding: 10px 0;
+      overflow: visible;
+      visibility: visible;
+      @include respondTo(desktop) {
+        height: auto;
+        padding: 0;
+      }
+    }
+
+    &__link {
+      font-size: inherit;
+      font-weight: normal;
+      display: flex;
+      width: 100%;
+      cursor: pointer;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: $submenu-text-color;
+      padding: 15px 0;
+      transition: background-color 0.2s ease-out;
+      border-radius: 5px;
+      @include respondTo(desktop) {
+        font-size: 1.4rem;
+        color: $submenu-text-color;
+        padding: 10px 20px;
+        &:hover {
+          background-color: $apple-green;
+        }
+      }
+    }
+
+    &__item {
+      line-height: 1;
+
+      &.has-submenu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        overflow: visible;
+
+        .submenu {
+          padding: 0;
+          display: block;
+          border-radius: 5px;
           @include respondTo(desktop) {
-            transform: rotate(-90deg);
+            position: absolute;
+            left: 100%;
+            top: 0;
+            padding: 0;
+          }
+
+          &.is-opened {
+            padding: 10px 0;
+            @include respondTo(desktop) {
+              padding: 0;
+            }
+          }
+        }
+
+        & > .submenu {
+          font-size: 1.4rem;
+
+          .submenu__link {
+            padding: 10px 0;
+            @include respondTo(desktop) {
+              padding: 10px 20px;
+            }
+          }
+        }
+
+        .submenu__dropdown-icon {
+          transform: none;
+          margin-left: 15px;
+          position: relative;
+          @include respondTo(desktop) {
+            will-change: transform;
+            transition-property: transform;
+            transition-duration: 200ms;
+            display: inline-block;
+            &:before,
+            &:after {
+              display: none;
+            }
+          }
+
+          &:before,
+          &:after {
+            font-weight: bold;
+            position: absolute;
+            line-height: 0;
+            top: 0;
+            right: 0;
+            font-size: 20px;
           }
 
           &:before {
-            visibility: hidden;
+            content: '\002B';
           }
 
           &:after {
-            visibility: visible;
+            content: '\2212';
+          }
+
+          .dropdown-icon {
+            display: none;
+            @include respondTo(desktop) {
+              display: inline-block;
+              vertical-align: middle;
+              fill: $fish-blue;
+              font-size: 1.4rem;
+              width: 1em;
+              height: 1em;
+            }
+          }
+        }
+
+        &.active {
+          .submenu__dropdown-icon {
+            @include respondTo(desktop) {
+              transform: rotate(-90deg);
+            }
+
+            &:before {
+              visibility: hidden;
+            }
+
+            &:after {
+              visibility: visible;
+            }
           }
         }
       }
