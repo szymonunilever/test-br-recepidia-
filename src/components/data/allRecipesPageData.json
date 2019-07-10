@@ -1,0 +1,70 @@
+{
+  "title": "Recipes",
+  "type": "AllRecipes",
+  "relativePath": "/all-recipes",
+  "components": {
+    "items": [
+      {
+        "name": "PageListing",
+        "content": {
+          "view": "RecipeCategories",
+          "title": "Daily fresh new recipes"
+        }
+      },
+      {
+        "name": "RecipeListing",
+        "content": {
+          "view": "AllRecipes",
+          "cta": {
+            "label": "Load more recipes"
+          },
+          "resultLabel": "recipe",
+          "resultLabelPlural": "recipes",
+          "sortSelectPlaceholder": "Sort By",
+          "filtersCta": {
+            "resetLabel": { "label": "Reset filters" },
+            "applyLabel": { "label": "Apply filters" }
+          },
+          "nullResult": {
+            "title": "Oops! No results",
+            "subtitle": "Maybe try the following:",
+            "textList": [
+              "Don't use too many filters at once",
+              "Try using only filters"
+            ]
+          },
+          "optionLabels": {
+            "preparationTime": "Preparation time Test",
+            "cookingTime": "Cooking time",
+            "averageRating": "Average rating",
+            "newest": "Newest",
+            "recentlyUpdated": "Recently updated"
+          }
+        }
+      },
+      {
+        "name": "RecipeListing",
+        "content": {
+          "view": "SeasonalPromotionalRecipes",
+          "title": "Seasonal / Promotional Recipes"
+        }
+      },
+      {
+        "name": "Hero",
+        "content": {
+          "header": "Try our Meal Planner",
+          "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+          "primaryCta": {
+            "type": "Button",
+            "linkTo": "/meal-planner-sign-up/",
+            "label": "Sign me up!"
+          },
+          "image": {
+            "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+            "alt": "meal planner"
+          }
+        }
+      }
+    ]
+  }
+}
