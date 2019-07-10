@@ -24,7 +24,7 @@ declare namespace AppContent.GeneratedForm {
   }
 
   export interface Rule {
-    type: 'required' | 'pattern' | 'maxLength' | 'minLength';
+    type: 'required' | 'pattern' | 'maxLength' | 'minLength' | 'email';
     value?: any;
     errorMessage?: string;
     errorCode?: string;
