@@ -1,12 +1,14 @@
 import React from 'react';
 import { CountrySelectorProps, LanguageEntry } from './models';
 import { Select } from '../common/Select';
+import { FlagIcon } from '../common/FlagIcon';
 import cx from 'classnames';
 
 const CountrySelector = ({
   selected,
   list,
   className = '',
+  flagSize = '3x',
 }: CountrySelectorProps) => {
   const selectClassName = cx('country-dropdown', className);
   const changeHandler = (selected: LanguageEntry) => {
@@ -14,9 +16,13 @@ const CountrySelector = ({
   };
   const formatOptionLabel = (item: LanguageEntry) => (
     <div>
-      <div className="country-dropdown-icon">{item.icon}</div>
-      <div className="country-dropdown-name">{item.value}</div>
-      <div className="country-dropdown-iso">{item.label}</div>
+      <FlagIcon
+        className="country-dropdown-icon"
+        code={item.label.toLowerCase()}
+        size={flagSize}
+      />
+      <span className="country-dropdown-name">{item.value}</span>
+      <span className="country-dropdown-iso">{item.label}</span>
     </div>
   );
   return (
