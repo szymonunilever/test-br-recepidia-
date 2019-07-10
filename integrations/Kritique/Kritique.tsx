@@ -13,7 +13,7 @@ const Kritique = () => {
     <Helmet
       script={[
         {
-          src: 'http://url.com/script.js',
+          src: 'https://code.jquery.com/jquery-3.4.1.min.js',
           integrity: 'sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=',
           crossOrigin: 'anonymous',
           defer: true,
