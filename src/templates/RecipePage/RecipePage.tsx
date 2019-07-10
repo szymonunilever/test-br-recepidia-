@@ -115,7 +115,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
                   viewType={RecipeCopyViewType.Title}
                   recipe={recipe}
                   content={{}}
-                  className={'recipe-copy__title'}
+                  className="recipe-copy__title"
                 />
                 <Rating
                   recipeId={recipe.recipeId}
@@ -128,7 +128,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
                   viewType={RecipeCopyViewType.Description}
                   recipe={recipe}
                   content={{}}
-                  className={'recipe-copy__description'}
+                  className="recipe-copy__description"
                 />
                 <RecipeAttributes
                   //@ts-ignore
@@ -145,7 +145,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
                     serves: RecipePeople,
                     difficulties: RecipeDifficulty,
                   }}
-                  className={'recipe-attributes'}
+                  className="recipe-attributes"
                   content={recipeAttributesContent}
                 />
               </div>
@@ -173,7 +173,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           </div>
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
-          <Tabs className={'tabs'} content={tabsContent}>
+          <Tabs className="tabs" content={tabsContent}>
             <Tab view="recipeTabIngredients">
               <RecipeCopy
                 viewType={RecipeCopyViewType.Ingredients}
@@ -192,7 +192,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section className={'_pt--40'}>
+      <section className="_pt--40">
         <div className="container">
           <RecipeNutrients
             recipe={recipe}
@@ -206,7 +206,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           />
         </div>
       </section>
-      <section className={'_pt--40'}>
+      <section className="_pt--40">
         <div className="container">
           <Tags
             list={newTags}
@@ -222,10 +222,10 @@ const RecipePage = ({ data }: RecipePageProps) => {
           />
         </div>
       </section>
-      <section className={'_pt--40'}>
+      <section className="_pt--40">
         {/* Hero Component should go here */}
       </section>
-      <section className={'_pt--40'}>
+      <section className="_pt--40">
         <div className="container">
           <RecipeListing
             content={{ title: 'Related recipes' }}
@@ -249,7 +249,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           />
         </div>
       </section>
-      <section className={'_pt--40'}>
+      <section className="_pt--40">
         <div className="container">
           <Reviews
             recipeId={recipe.recipeId}
