@@ -1,8 +1,25 @@
 .tabs {
+  position: relative;
   width: 100%;
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 62px;
+    width: 100%;
+    background: $primary-bg-color;
+    border-radius: 0 0 20px 20px;
+    @include respondTo(desktop) {
+      display: none;
+    }
+  }
   &__buttons {
     display: flex;
     background: $white-gray;
+    border-radius: 0 0 20px 20px;
+    height: 62px;
+    @extend .container;
     button {
       padding: 20px;
       width: 100%;
@@ -10,12 +27,16 @@
       border: none;
       font-size: 1.8rem;
       font-family: $rubik;
+      color: $black-blue;
       &[aria-selected='false'] {
         color: $gray;
       }
     }
   }
   &__items {
-    padding: 10px 0;
+    @extend .container;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
   }
 }

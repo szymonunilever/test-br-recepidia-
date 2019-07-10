@@ -25,27 +25,29 @@ const GlobalNavigation = ({
 
   return (
     <header className={classNames} data-componentname="global-navigation">
-      <BurgerButton
-        onClick={handleToggleNavigationClick}
-        className="burger-button"
-      >
-        <span className="burger-button__icon" />
-      </BurgerButton>
+      <div className="global-navigation__inner">
+        <BurgerButton
+          onClick={handleToggleNavigationClick}
+          className="burger-button"
+        >
+          <span className="burger-button__icon" />
+        </BurgerButton>
 
-      <Logo {...logo} />
+        <Logo {...logo} />
 
-      <Navigation
-        buttonCloseIcon={buttonCloseIcon}
-        login={login}
-        handleToggleNavigationClick={handleToggleNavigationClick}
-        dropDownIcon={dropDownIcon}
-        isActive={burgerButton.isActive}
-        isAccordion={isAccordion}
-        list={list}
-      />
+        <Navigation
+          buttonCloseIcon={buttonCloseIcon}
+          login={login}
+          handleToggleNavigationClick={handleToggleNavigationClick}
+          dropDownIcon={dropDownIcon}
+          isActive={burgerButton.isActive}
+          isAccordion={isAccordion}
+          list={list}
+        />
 
-      {login}
-      {children}
+        {login}
+        {children}
+      </div>
     </header>
   );
 };

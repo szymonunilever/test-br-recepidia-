@@ -21,6 +21,7 @@
   &__btn-close{
     @extend .button;
     @extend .button--flat;
+    @extend .button--control;
     position: absolute;
     right: 0;
     top: 0;

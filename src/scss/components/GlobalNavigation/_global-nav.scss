@@ -3,114 +3,196 @@ $header-height: 80px;
 $header-color-mobile: $black-blue;
 $header-color-desktop: $black-blue;
 
-$submenu-color: $white-gray-darker;
-$submenu-icon-color: $fish-blue;
+$submenu-bg-color: $white-gray-darker;
+$submenu-text-color: $fish-blue-darker;
 
 .global-navigation {
-  @extend .container;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 15;
-  background: transparent;
-  height: $header-height;
-  padding: 30px 25px;
-  @include respondTo(desktop) {
-    justify-content: initial;
+  &__inner {
+    @extend .container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 15;
+    background: transparent;
+    height: $header-height;
     padding: 0 25px;
-  }
-
-  .navigation {
-    position: absolute;
-    top: $header-height;
-    left: 0;
-    width: 100%;
-    background: $white;
-    will-change: transform;
-    transform: translate3d(-100%, 0, 0);
-    transition-property: transform, visibility;
-    transition-duration: 200ms;
-    visibility: hidden;
-    color: $header-color-mobile;
-
-    // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
-    button {
-      display: none;
+    @include respondTo(desktop) {
+      justify-content: initial;
+      padding: 0 25px;
     }
-    .login {
-      display: block;
-      text-align: center;
-      color: inherit;
-      padding: 15px 0;
+
+    .navigation {
+      position: absolute;
+      top: $header-height;
+      height: 100vh;
+      left: 0;
+      width: 100%;
+      background: $white-gray;
+      will-change: transform;
+      transform: translate3d(-100%, 0, 0);
+      transition-property: transform, visibility;
+      transition-duration: 200ms;
+      visibility: hidden;
+      color: $header-color-mobile;
+
+      // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
+      button {
+        display: none;
+      }
+
+      .login {
+        display: block;
+        text-align: center;
+        color: inherit;
+        padding: 15px 0;
+        @include respondTo(desktop) {
+          display: none;
+        }
+      }
+
+      // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
+
+      &.active {
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+      }
+
+      @include respondTo(desktop) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        background: transparent;
+        width: auto;
+        transform: none;
+        visibility: visible;
+        top: auto;
+        margin-right: auto;
+        &.active {
+          visibility: visible;
+          transform: none;
+        }
+      }
+    }
+
+    .burger-button {
+      display: inline-block;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 0;
+      text-align: left;
+      margin: -10px;
       @include respondTo(desktop) {
         display: none;
       }
-    }
-    // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
 
-    &.active {
-      visibility: visible;
-      transform: translate3d(0, 0, 0);
-    }
-    @include respondTo(desktop) {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      background: transparent;
-      width: auto;
-      transform: none;
-      visibility: visible;
-      top: auto;
-      margin-right: auto;
-      &.active {
-        visibility: visible;
-        transform: none;
+      .burger-button__icon {
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+
+        &:before {
+          content: '';
+          display: block;
+          width: 28px;
+          height: 3px;
+          background: $primary-color;
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          width: 22px;
+          height: 3px;
+          background: $primary-color;
+          margin-top: 10px;
+        }
       }
     }
-  }
 
-  .burger-button {
-    display: inline-block;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-    text-align: left;
-    margin: -10px;
-    @include respondTo(desktop) {
-      display: none;
+    .main-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      order: 1;
+
+      &__link {
+        display: flex;
+      }
+
+      &__icon {
+        width: 122px;
+        height: 31.5px;
+        fill: $primary-color;
+        @include respondTo(desktop) {
+          width: 168px;
+          height: 43.4px;
+        }
+      }
     }
 
-    .burger-button__icon {
-      position: relative;
-      display: inline-block;
-      padding: 10px;
+    .login {
+      display: none;
+      font-size: 1.4rem;
+      line-height: 28px;
+      margin: 0;
+      color: inherit;
+      @include respondTo(desktop) {
+        display: inline-block;
+      }
+    }
+
+    .login-user {
+      display: none;
+      @include respondTo(desktop) {
+        display: flex;
+        position: relative;
+        font-size: 1.4rem;
+        align-items: center;
+        margin: 0 0 0 50px;
+        color: inherit;
+        cursor: pointer;
+      }
 
       &:before {
         content: '';
-        display: block;
-        width: 28px;
-        height: 3px;
-        background: $primary-color;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+        background: #ddd;
+        border-radius: 50%;
+        margin-right: 20px;
       }
+    }
 
-      &:after {
-        content: '';
-        display: block;
-        width: 22px;
-        height: 3px;
-        background: $primary-color;
-        margin-top: 10px;
+    .searchBar {
+      font-size: 3rem;
+      margin: 0 0 0 50px;
+      stroke: $primary-color;
+      cursor: pointer;
+    }
+
+    .signUpBtn {
+      display: none;
+      @extend .button;
+      @extend .button--yellow;
+      @extend .button--small;
+      @include respondTo(desktop) {
+        margin: 0 0 0 27px;
       }
     }
   }
+
+  /// MENU STYLES 1st lvl
 
   .menu {
     list-style: none;
     padding: 0;
     margin: 0;
+    height: 100%;
     @include respondTo(desktop) {
       display: flex;
       align-items: center;
@@ -119,7 +201,7 @@ $submenu-icon-color: $fish-blue;
     }
 
     &__item {
-      border-bottom: 1px solid $submenu-color;
+      border-bottom: 1px solid $header-color-mobile;
       padding: 30px 25px;
       @include respondTo(desktop) {
         display: inline-block;
@@ -158,118 +240,6 @@ $submenu-icon-color: $fish-blue;
           }
         }
       }
-
-      .submenu {
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        max-height: 0;
-        transition: max-height 0.2s ease-out;
-        overflow: hidden;
-        visibility: hidden;
-        will-change: max-height;
-        @include respondTo(desktop) {
-          position: absolute;
-          max-height: none;
-          top: 100%;
-          left: 0;
-          background: $submenu-color;
-          width: auto;
-          border-radius: 5px;
-        }
-
-        &.is-opened {
-          overflow: visible;
-          visibility: visible;
-          max-height: 100vh;
-          transition: max-height 0.2s ease-in;
-        }
-
-        &__item {
-          line-height: 1;
-          &:first-child {
-            padding-top: 10px;
-          }
-          &:last-child {
-            padding-bottom: 10px;
-          }
-          @include respondTo(desktop) {
-            &:first-child {
-              padding-top: 0;
-            }
-            &:last-child {
-              padding-bottom: 0;
-            }
-          }
-
-          &.has-submenu {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            position: relative;
-            overflow: visible;
-            .submenu {
-              background: $submenu-color;
-              padding: 0 10px;
-              border-radius: 5px;
-              @include respondTo(desktop) {
-                position: absolute;
-                left: 105%;
-                top: 0;
-                padding: 0;
-              }
-            }
-
-            .submenu__dropdown-icon {
-              will-change: transform;
-              transition-property: transform;
-              transition-duration: 200ms;
-              margin-left: 10px;
-
-              .dropdown-icon {
-                vertical-align: middle;
-                fill: $header-color-mobile;
-                font-size: 1.4rem;
-                @include respondTo(desktop) {
-                  fill: $submenu-icon-color;
-                }
-                width: 1em;
-                height: 1em;
-              }
-            }
-
-            &.active {
-              .submenu__dropdown-icon {
-                transform: rotate(180deg);
-              }
-            }
-          }
-        }
-
-        &__link {
-          font-size: 1.6rem;
-          font-weight: normal;
-          display: flex;
-          width: 100%;
-          cursor: pointer;
-          justify-content: space-between;
-          align-items: center;
-          text-decoration: none;
-          color: $header-color-mobile;
-          padding: 15px 0;
-          transition: background-color 0.2s ease-out;
-          border-radius: 5px;
-          @include respondTo(desktop) {
-            font-size: 1.4rem;
-            color: $header-color-desktop;
-            padding: 10px 20px;
-            &:hover {
-              background-color: $apple-green;
-            }
-          }
-        }
-      }
     }
 
     &__link {
@@ -301,73 +271,163 @@ $submenu-icon-color: $fish-blue;
       cursor: pointer;
     }
   }
-  .main-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    order: 1;
-    &__link {
-      display: flex;
+
+  /// MENU STYLES 2-3 lvl
+
+  .submenu {
+    list-style: none;
+    width: 100%;
+    height: 0;
+    font-size: 1.6rem;
+    overflow: hidden;
+    visibility: hidden;
+    @include respondTo(desktop) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: $submenu-bg-color;
+      width: auto;
+      min-width: 180px;
+      border-radius: 5px;
     }
-    &__icon {
-      width: 122px;
-      height: 31.5px;
-      fill: $primary-color;
+
+    &.is-opened {
+      height: 100%;
+      padding: 10px 0;
+      overflow: visible;
+      visibility: visible;
       @include respondTo(desktop) {
-        width: 168px;
-        height: 43.4px;
+        height: auto;
+        padding: 0;
       }
     }
-  }
-  .login {
-    display: none;
-    font-size: 1.4rem;
-    line-height: 28px;
-    margin: 0;
-    color: inherit;
-    @include respondTo(desktop) {
-      display: inline-block;
-    }
-  }
-  .login-user {
-    display: none;
-    @include respondTo(desktop) {
+
+    &__link {
+      font-size: inherit;
+      font-weight: normal;
       display: flex;
-      position: relative;
-      font-size: 1.4rem;
+      width: 100%;
+      cursor: pointer;
+      justify-content: space-between;
       align-items: center;
-      margin: 0 0 0 50px;
-      color: inherit;
-      cursor: pointer;
-    }
-    &:before {
-      content: '';
-      display: inline-block;
-      width: 38px;
-      height: 38px;
-      background: #ddd;
-      border-radius: 50%;
-      margin-right: 20px;
-    }
-  }
-  .searchBar {
-    font-size: 3rem;
-    margin: 0 0 0 50px;
-    stroke: $primary-color;
-    cursor: pointer;
-  }
-  .signUpBtn {
-    display: none;
-    @include respondTo(desktop) {
-      display: inline-block;
-      cursor: pointer;
-      font-size: 1.4rem;
-      background: $luminous-yellow;
+      text-decoration: none;
+      color: $submenu-text-color;
+      padding: 15px 0;
+      transition: background-color 0.2s ease-out;
       border-radius: 5px;
-      color: inherit;
-      padding: 12px 25px;
-      margin: 0 0 0 27px;
+      @include respondTo(desktop) {
+        font-size: 1.4rem;
+        color: $submenu-text-color;
+        padding: 10px 20px;
+        &:hover {
+          background-color: $apple-green;
+        }
+      }
+    }
+
+    &__item {
+      line-height: 1;
+
+      &.has-submenu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        overflow: visible;
+
+        .submenu {
+          padding: 0;
+          display: block;
+          border-radius: 5px;
+          @include respondTo(desktop) {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            padding: 0;
+          }
+
+          &.is-opened {
+            padding: 10px 0;
+            @include respondTo(desktop) {
+              padding: 0;
+            }
+          }
+        }
+
+        & > .submenu {
+          font-size: 1.4rem;
+
+          .submenu__link {
+            padding: 10px 0;
+            @include respondTo(desktop) {
+              padding: 10px 20px;
+            }
+          }
+        }
+
+        .submenu__dropdown-icon {
+          transform: none;
+          margin-left: 15px;
+          position: relative;
+          @include respondTo(desktop) {
+            will-change: transform;
+            transition-property: transform;
+            transition-duration: 200ms;
+            display: inline-block;
+            &:before,
+            &:after {
+              display: none;
+            }
+          }
+
+          &:before,
+          &:after {
+            font-weight: bold;
+            position: absolute;
+            line-height: 0;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+          }
+
+          &:before {
+            content: '\002B';
+          }
+
+          &:after {
+            content: '\2212';
+          }
+
+          .dropdown-icon {
+            display: none;
+            @include respondTo(desktop) {
+              display: inline-block;
+              vertical-align: middle;
+              fill: $fish-blue;
+              font-size: 1.4rem;
+              width: 1em;
+              height: 1em;
+            }
+          }
+        }
+
+        &.active {
+          .submenu__dropdown-icon {
+            @include respondTo(desktop) {
+              transform: rotate(-90deg);
+            }
+
+            &:before {
+              visibility: hidden;
+            }
+
+            &:after {
+              visibility: visible;
+            }
+          }
+        }
+      }
     }
   }
 }

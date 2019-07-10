@@ -62,7 +62,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
       <SEO title="Recepedia Home" />
       <Kritique />
 
-      <section className={'_pt--40'}>
+      <section className={theme.topBg}>
         <div className="container">
           <div className={theme.recipeTopBlock}>
             <div className={theme.recipeTopBlockItem}>
@@ -152,7 +152,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
         </div>
       </section>
 
-      <section className={'_pt--40'}>
+      <section>
         <div className="container">
           <div className={theme.recipeIngredientsCooking}>
             <RecipeCopy
@@ -169,26 +169,25 @@ const RecipePage = ({ data }: RecipePageProps) => {
               }}
             />
           </div>
-
-          <div className={theme.recipeIngredientsCookingMobile}>
-            <Tabs className={'tabs'} content={tabsContent}>
-              <Tab view="recipeTabIngredients">
-                <RecipeCopy
-                  viewType={RecipeCopyViewType.Ingredients}
-                  recipe={recipe}
-                  content={{}}
-                  className={theme.recipeCopyIngredients}
-                />
-              </Tab>
-              <Tab view="recipeTabCookingMethod">
-                <RecipeCookingMethod
-                  methodList={recipe.methods}
-                  className={theme.recipeCookingMethod}
-                  content={{}}
-                />
-              </Tab>
-            </Tabs>
-          </div>
+        </div>
+        <div className={theme.recipeIngredientsCookingMobile}>
+          <Tabs className={'tabs'} content={tabsContent}>
+            <Tab view="recipeTabIngredients">
+              <RecipeCopy
+                viewType={RecipeCopyViewType.Ingredients}
+                recipe={recipe}
+                content={{}}
+                className={theme.recipeCopyIngredients}
+              />
+            </Tab>
+            <Tab view="recipeTabCookingMethod">
+              <RecipeCookingMethod
+                methodList={recipe.methods}
+                className={theme.recipeCookingMethod}
+                content={{}}
+              />
+            </Tab>
+          </Tabs>
         </div>
       </section>
       <section className={'_pt--40'}>
