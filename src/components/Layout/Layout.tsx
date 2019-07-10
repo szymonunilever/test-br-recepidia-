@@ -41,7 +41,6 @@ const Layout = ({ children, className }: LayoutProps) => {
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
         content={footerContent}
       >
-        <CountrySelector list={countriesList} />
         <BrandSocialChannels
           content={brandSocialChannelsContent}
           listIcons={{
