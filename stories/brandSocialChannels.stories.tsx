@@ -1,36 +1,14 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
-
+import content from 'src/components/data/brandSocialChannels.json';
 import Icon from 'src/svgs/inline/placeholder.svg';
-
-const content = {
-  className: 'custom-class',
-  socialItems: {
-    facebook: {
-      label: 'Facebook',
-      url: 'https://www.facebook.com/',
-    },
-    instagram: {
-      label: 'Instagram',
-      url: 'https://www.instagram.com/',
-    },
-    twitter: {
-      label: 'Twitter',
-      url: 'https://twitter.com/',
-    },
-    youtube: {
-      label: 'YouTube',
-      url: 'https://www.youtube.com/',
-    },
-  },
-};
 
 const list = {
   facebook: <Icon />,
-  instagram: <Icon />,
+  pinterest: <Icon />,
   twitter: <Icon />,
-  youtube: <Icon />,
+  instagram: <Icon />,
 };
 
 const config = {

@@ -7,7 +7,7 @@ declare namespace AppContent.BrandSocialChannels {
     facebook: SocialItem;
     instagram: SocialItem;
     twitter: SocialItem;
-    youtube: SocialItem;
+    pinterest: SocialItem;
     [key: string]: SocialItem;
   }
 

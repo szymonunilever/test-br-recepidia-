@@ -8,8 +8,8 @@ export interface BrandSocialChannelsProps
 
 interface SocialIcons {
   facebook: JSX.Element;
-  instagram: JSX.Element;
+  pinterest: JSX.Element;
   twitter: JSX.Element;
-  youtube: JSX.Element;
+  instagram: JSX.Element;
   [key: string]: JSX.Element;
 }
