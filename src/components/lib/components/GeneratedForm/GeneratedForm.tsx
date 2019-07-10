@@ -70,28 +70,30 @@ export const GeneratedForm = ({
           return promise;
         };
         return (
-          <form onSubmit={onSubmitHandler}>
-            {Title}
-            {Subtitle}
-            {view}
-            <div className="buttons">
-              <button
-                type="submit"
-                disabled={submitting}
-                className="generated-form__button--primary"
-              >
-                {submitButton.label}
-              </button>
-              {resetButton ? (
+          <form onSubmit={onSubmitHandler} className={classWrapper}>
+            <div className="generated-form__container">
+              {Title}
+              {Subtitle}
+              {view}
+              <div className="buttons">
                 <button
-                  type="reset"
+                  type="submit"
                   disabled={submitting}
-                  className="generated-form__button--secondary"
-                  onClick={form.reset}
+                  className="generated-form__button--primary"
                 >
-                  {resetButton.label}
+                  {submitButton.label}
                 </button>
-              ) : null}
+                {resetButton ? (
+                  <button
+                    type="reset"
+                    disabled={submitting}
+                    className="generated-form__button--secondary"
+                    onClick={form.reset}
+                  >
+                    {resetButton.label}
+                  </button>
+                ) : null}
+              </div>
             </div>
           </form>
         );

@@ -2,8 +2,8 @@ $footer-color: $black-blue;
 
 .global-footer {
   background-color: $primary-bg-color;
+  border-top: 1px solid $footer-color;
     &__container{
-      border-top: 1px solid $footer-color;
       @extend .container;
       padding-bottom: 50px;
   }
