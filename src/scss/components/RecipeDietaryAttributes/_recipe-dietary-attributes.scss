@@ -1,0 +1,68 @@
+.recipe-dietary-attributes__wrapper {
+  background-color: $white-gray;
+  padding: 30px 0 36px;
+  border-radius: 20px;
+  h2{
+    font-size: 2.1rem;
+  }
+  [data-comonentname=recipeNutrients]{
+    @include respondTo(desktop){
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .container-fluid{
+    @extend .container;
+    max-width: 100%;
+  }
+}
+
+.recipe-dietary-attributes {
+  &__list{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include respondTo(desktop){
+      justify-content: center;
+    }
+  }
+
+  &__item{
+    width: calc(99.9%/3);
+    margin-bottom: 5px;
+    @include respondTo(desktop){
+      padding-left: 10px;
+      padding-right: 10px;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__icon{
+    svg{
+      @include respondTo(desktop){
+        height: 98px;
+        width: 100px;
+      }
+    }
+  }
+  
+  &__text{
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: center;
+    color: $fish-blue-darker; 
+    margin-top: -10px;
+    @include respondTo(desktop){
+      margin-top: 0;
+      max-width: 80px;
+    }
+  }
+
+}

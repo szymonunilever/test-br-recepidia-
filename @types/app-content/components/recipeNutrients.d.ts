@@ -4,5 +4,6 @@ declare namespace AppContent {
     titlePerServing: string;
     titleTotal: string;
     buttonLabel?: AppContent.CTAContent;
+    modalTitle?: string;
   }
 }
