@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import footerContent from 'src/components/data/globalFooterMenu.json';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
@@ -13,19 +14,46 @@ import Navigation from '../Navigation/Navigation';
 import cx from 'classnames';
 import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
 import brandSocialChannelsContent from 'src/components/data/brandSocialChannels.json';
-import { CountrySelector } from 'src/components/lib/components/CountrySelector';
-import countriesList from 'src/components/data/countrySelector.json';
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import signUpFormContent from 'src/components/data/signUpFormContent.json';
+import { findPageComponentContent } from 'src/utils';
 
 const Layout = ({ children, className }: LayoutProps) => {
+  const { data } = useStaticQuery(graphql`
+    query CommonComponentsQuery {
+      allCommonComponent {
+        nodes {
+          content
+          name
+        }
+      }
+    }
+  `);
+
+  const components = data.allCommonComponent.nodes;
+  components.forEach((component: any) => {
+    component.content = JSON.parse(component.content);
+  });
   return (
     <div className={cx('global-container', className)}>
       <BackToTop content={{}} Icon={ArrowUpIcon} />
       <a className="skip-to-content" href="#content">
         Skip To Content
       </a>
-      <Navigation />
+      <Navigation
+        navigatonContent={
+          findPageComponentContent(
+            components,
+            'GlobalNavigation'
+          ) as AppContent.GlobalNavigation.Content
+        }
+        searchContent={
+          findPageComponentContent(
+            components,
+            'SearchInput'
+          ) as AppContent.SearchInput.Content
+        }
+      />
       <main id="content">{children}</main>
       <GeneratedForm
         titleLevel={1}
@@ -39,7 +67,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <GlobalFooter
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
-        content={footerContent}
+        content={findPageComponentContent(components, 'Footer')}
       >
         <BrandSocialChannels
           content={brandSocialChannelsContent}
