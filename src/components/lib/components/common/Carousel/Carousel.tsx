@@ -110,7 +110,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
           <Arrow
             direction="left"
             clickFunction={previousImage}
-            icon={config.arrowIcon || '&#9664;'}
+            icon={
+              config.arrowIcon || (
+                <div dangerouslySetInnerHTML={{ __html: '&#9664;' }} />
+              )
+            }
           />
         )}
         <div className={styles.carousel__images} {...swipeHandlers}>
@@ -134,7 +138,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
           <Arrow
             direction="right"
             clickFunction={nextImage}
-            icon={config.arrowIcon || '&#9654;'}
+            icon={
+              config.arrowIcon || (
+                <div dangerouslySetInnerHTML={{ __html: '&#9654;' }} />
+              )
+            }
           />
         )}
       </div>

@@ -49,7 +49,7 @@ const PageListing = ({
     <div className="page-listing__subtitle">{subtitle}</div>
   ) : null;
 
-  const classNames = cx('page-listing', className);
+  let classNames = cx('page-listing', className);
 
   let view = (
     <div className={classNames} data-componentname="page-listing">
@@ -67,12 +67,17 @@ const PageListing = ({
   );
 
   if (viewType === PageListingViewTypes.carousel) {
+    let classNames = cx('page-listing--carousel', className);
     view = (
-      <PageListingCarousel
-        list={pages.list}
-        content={{ title, subtitle, cta }}
-        config={carouselConfig}
-      />
+      <div className={classNames} data-componentname="page-listing">
+        <h3 className="page-listing__title">{title}</h3>
+
+        <PageListingCarousel
+          list={pages.list}
+          content={{ title }}
+          config={carouselConfig}
+        />
+      </div>
     );
   }
 

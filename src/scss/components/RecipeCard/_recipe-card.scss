@@ -1,0 +1,14 @@
+.recipe-card {
+  &__image {
+    overflow: hidden;
+  }
+
+  .gatsby-image-wrapper {
+    & > div {
+      padding-bottom: 140% !important;
+      @include respondTo(medium) {
+        padding-bottom: 117.5% !important;
+      }
+    }
+  }
+}

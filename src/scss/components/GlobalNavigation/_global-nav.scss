@@ -25,12 +25,11 @@ $submenu-text-color: $fish-blue-darker;
     .navigation {
       position: absolute;
       top: $header-height;
-      height: 100vh;
       left: 0;
       width: 100%;
       background: $white-gray;
       will-change: transform;
-      transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-110%, 0, 0);
       transition-property: transform, visibility;
       transition-duration: 200ms;
       visibility: hidden;

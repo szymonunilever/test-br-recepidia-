@@ -9,5 +9,6 @@ export const query = graphql`
     }
     tagId
     name
+    id
   }
 `;

@@ -1,5 +1,8 @@
 .tags {
-  margin: 60px 0;
+  margin: 35px 0;
+  @include respondTo(desktop) {
+    margin: 60px 0;
+  }
   &__list {
     list-style: none;
     padding: 0;
@@ -19,6 +22,7 @@
     @extend .button--rounded;
     @extend .button--secondary;
     @extend .button--small;
+    max-width: none;
     &:hover {
       background: $apple-green;
       color: $fish-blue;
