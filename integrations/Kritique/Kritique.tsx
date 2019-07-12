@@ -25,8 +25,14 @@ const Kritique = () => {
               integrity: 'sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=',
               crossOrigin: 'anonymous',
               defer: true,
+              async: true,
             },
-            { id: 'rr-widget', src: kritiqueWidgetSrc, defer: true },
+            {
+              id: 'rr-widget',
+              src: kritiqueWidgetSrc,
+              defer: true,
+              async: true,
+            },
           ]}
         />
       ) : null}
