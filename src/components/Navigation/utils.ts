@@ -3,7 +3,7 @@ export const constructMenu = (
   navigationContent: AppContent.GlobalNavigation.Content
 ): AppContent.GlobalNavigation.MenuItem[] => {
   const recipeNav = navigationContent.list.find(
-    ({ name }) => name === 'recipes'
+    ({ name }) => name === 'Recipes'
   );
   if (recipeNav) {
     const prevRecipeNavChildren = recipeNav.children;
