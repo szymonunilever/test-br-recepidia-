@@ -1,5 +1,3 @@
-import pageData from 'src/components/data/allRecipesPageData.json';
-
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
@@ -22,16 +20,12 @@ import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
-  // const { components, title } = pageContext;
-  const {
-    components: { items: components },
-    title,
-  } = pageData;
+  const { components } = pageContext;
   const { allRecipe, allTagGroup } = data;
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="All Recipes" />
       <Kritique />
       <section>
         <div className="container">

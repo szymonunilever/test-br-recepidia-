@@ -130,7 +130,6 @@ exports.createPages = ({ graphql, actions }) => {
           }
           type
           relativePath
-          title
         }
       }
 

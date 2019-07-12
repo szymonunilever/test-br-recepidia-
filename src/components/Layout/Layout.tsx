@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
-import footerContent from 'src/components/data/globalFooterMenu.json';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
 import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
@@ -13,14 +12,12 @@ import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import Navigation from '../Navigation/Navigation';
 import cx from 'classnames';
 import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
-import brandSocialChannelsContent from 'src/components/data/brandSocialChannels.json';
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
-import signUpFormContent from 'src/components/data/signUpFormContent.json';
 import { findPageComponentContent } from 'src/utils';
 
 const Layout = ({ children, className }: LayoutProps) => {
-  const { data } = useStaticQuery(graphql`
-    query CommonComponentsQuery {
+  const { allCommonComponent } = useStaticQuery(graphql`
+    {
       allCommonComponent {
         nodes {
           content
@@ -30,9 +27,12 @@ const Layout = ({ children, className }: LayoutProps) => {
     }
   `);
 
-  const components = data.allCommonComponent.nodes;
+  const components = allCommonComponent.nodes;
   components.forEach((component: any) => {
-    component.content = JSON.parse(component.content);
+    component.content =
+      typeof component.content === 'string'
+        ? JSON.parse(component.content)
+        : component.content;
   });
   return (
     <div className={cx('global-container', className)}>
@@ -41,7 +41,7 @@ const Layout = ({ children, className }: LayoutProps) => {
         Skip To Content
       </a>
       <Navigation
-        navigatonContent={
+        navigationContent={
           findPageComponentContent(
             components,
             'GlobalNavigation'
@@ -67,7 +67,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <GlobalFooter
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
-        content={findPageComponentContent(components, 'Footer')}
+        content={findPageComponentContent(components, 'GlobalFooter')}
       >
         <BrandSocialChannels
           content={findPageComponentContent(components, 'BrandSocialChannels')}
