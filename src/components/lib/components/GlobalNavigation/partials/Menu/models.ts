@@ -8,4 +8,5 @@ export interface MenuProps {
 
 export interface MenuStateProps {
   openedItems: number[];
+  isChildOpened: boolean;
 }
