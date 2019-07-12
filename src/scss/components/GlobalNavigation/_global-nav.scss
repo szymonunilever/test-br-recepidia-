@@ -234,8 +234,24 @@ $submenu-text-color: $fish-blue-darker;
         }
 
         &.active {
-          .menu__dropdown-icon {
-            transform: rotate(180deg);
+          @include respondTo(desktop) {
+            & > .submenu{
+              overflow: hidden;
+              visibility: hidden;
+            }
+          }
+        }
+        &:hover{
+          @include respondTo(desktop) {
+            .menu__dropdown-icon {
+              transform: rotate(180deg);
+            }
+            & > .submenu{
+              overflow: visible;
+              visibility: visible;
+              height: auto;
+              padding: 0;
+            }
           }
         }
       }
@@ -320,6 +336,7 @@ $submenu-text-color: $fish-blue-darker;
         padding: 10px 20px;
         &:hover {
           background-color: $apple-green;
+          color: $black-blue;
         }
       }
     }
@@ -413,9 +430,6 @@ $submenu-text-color: $fish-blue-darker;
 
         &.active {
           .submenu__dropdown-icon {
-            @include respondTo(desktop) {
-              transform: rotate(-90deg);
-            }
 
             &:before {
               visibility: hidden;
@@ -423,6 +437,43 @@ $submenu-text-color: $fish-blue-darker;
 
             &:after {
               visibility: visible;
+            }
+          }
+          
+          @include respondTo(desktop) {
+            .submenu__dropdown-icon {
+              &:before{
+                visibility: visible;
+              }
+              &:after{
+                visibility: hidden;
+              }
+            }
+            & > .submenu{
+              overflow: hidden;
+              visibility: hidden;
+            }
+          }
+        }
+        &:hover{
+          @include respondTo(desktop) {
+            .submenu__dropdown-icon {
+              transform: rotate(-90deg);
+              &:before {
+                visibility: hidden;
+              }
+              &:after {
+                visibility: visible;
+              }
+              .dropdown-icon{
+                fill: $black-blue;
+              }
+            }
+            & > .submenu{
+              overflow: visible;
+              visibility: visible;
+              height: auto;
+              padding: 0;
             }
           }
         }
