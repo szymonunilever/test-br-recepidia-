@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import SocialChannel from './partials/index';
 import { BrandSocialChannelsProps } from './models';
-import { map } from 'lodash';
+import { map, get } from 'lodash';
 
 const BrandSocialChannels = ({
   listIcons,
@@ -15,11 +15,12 @@ const BrandSocialChannels = ({
   return (
     <ul className={classNames} data-componentname="social-channels">
       {map(listIcons, (icon, index) => {
+        const socialItem = socialItems[index];
         return (
           <SocialChannel
             key={index}
-            url={socialItems[index].url}
-            label={displayLabel && socialItems[index].label}
+            url={get(socialItem, 'url')}
+            label={displayLabel && get(socialItem, 'get')}
             icon={icon}
           />
         );

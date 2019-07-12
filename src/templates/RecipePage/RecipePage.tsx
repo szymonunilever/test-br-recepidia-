@@ -15,7 +15,6 @@ import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
 import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
 import RecipePeople from 'src/svgs/inline/recipe-people.svg';
 import RecipeKnife from 'src/svgs/inline/recope-chop.svg';
-import recipeAttributesContent from 'src/components/data/recipeAttributes.json';
 import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
@@ -31,9 +30,11 @@ import { Tabs } from 'src/components/lib/components/Tabs';
 import { Tab } from '../../components/lib/components/Tabs/partials';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Reviews from 'src/components/lib/components/Reviews';
+import { findPageComponentContent } from 'src/utils';
 
-const RecipePage = ({ data }: RecipePageProps) => {
+const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
+  const { components } = pageContext;
   const tags = data.allTag.nodes;
   const relatedRecipes = data.allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page');
@@ -137,7 +138,10 @@ const RecipePage = ({ data }: RecipePageProps) => {
                     difficulties: RecipeDifficulty,
                   }}
                   className="recipe-attributes"
-                  content={recipeAttributesContent}
+                  content={findPageComponentContent(
+                    components,
+                    'RecipeAttributes'
+                  )}
                 />
               </div>
             </div>
@@ -151,15 +155,20 @@ const RecipePage = ({ data }: RecipePageProps) => {
             <RecipeCopy
               viewType={RecipeCopyViewType.Ingredients}
               recipe={recipe}
-              content={{ title: 'Ingredients' }}
+              content={findPageComponentContent(
+                components,
+                'RecipeCopy',
+                'Ingredients'
+              )}
               className={theme.recipeCopyIngredients}
             />
             <RecipeCookingMethod
               methodList={recipe.methods}
               className={theme.recipeCookingMethod}
-              content={{
-                title: 'Cook',
-              }}
+              content={findPageComponentContent(
+                components,
+                'RecipeCookingMethod'
+              )}
             />
           </div>
         </div>
@@ -188,12 +197,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
           <RecipeNutrients
             recipe={recipe}
             viewType={RecipeNutrientsViewType.Base}
-            content={{
-              buttonLabel: { label: 'Nutrients' },
-              titleTotal: 'Total',
-              titlePer100: 'Per 100',
-              titlePerServing: 'Amount per Serving',
-            }}
+            content={findPageComponentContent(components, 'RecipeNutrients')}
           />
         </div>
       </section>
@@ -201,12 +205,7 @@ const RecipePage = ({ data }: RecipePageProps) => {
         <div className="container">
           <Tags
             list={tags}
-            content={{
-              title: 'Similar tags',
-              loadMoreButton: {
-                label: '+ show more',
-              },
-            }}
+            content={findPageComponentContent(components, 'Tags')}
             initialCount={8}
             tagsPerLoad={4}
             variant="link"
@@ -219,7 +218,11 @@ const RecipePage = ({ data }: RecipePageProps) => {
       <section className="_pt--40">
         <div className="container">
           <RecipeListing
-            content={{ title: 'Related recipes' }}
+            content={findPageComponentContent(
+              components,
+              'RecipeListing',
+              'RelatedRecipes'
+            )}
             list={relatedRecipes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
@@ -284,5 +287,11 @@ interface RecipePageProps {
     allRecipe: {
       nodes: Internal.Recipe[];
     };
+  };
+  pageContext: {
+    title: string;
+    components: {
+      [key: string]: string | number | boolean | object | null;
+    }[];
   };
 }

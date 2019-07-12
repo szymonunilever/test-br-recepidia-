@@ -34,7 +34,7 @@ exports.createComponentsNodes = (
   component,
   { createNodeId, createContentDigest, createNode }
 ) => {
-  const nodeId = createNodeId(`component-${component.type}`);
+  const nodeId = createNodeId(`component-${component.name}`);
   const processedComponent = processComponent(component);
   const nodeContent = JSON.stringify(processedComponent);
   const nodeData = Object.assign({}, processedComponent, {

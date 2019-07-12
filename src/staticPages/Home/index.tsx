@@ -27,7 +27,12 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       <Kritique />
       <section className="_bg--main">
         <div className="container">
-          <Text tag={TagName['h1']} text={title} />
+          <Text
+            tag={TagName['h1']}
+            text={
+              findPageComponentContent(components, 'Text', 'PageTitle').text
+            }
+          />
         </div>
       </section>
 
@@ -92,12 +97,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
       <section className="_pb--40">
         <Hero
-          content={{
-            ...findPageComponentContent(components, 'Hero'),
-            header: 'Try our Meal Planner',
-            longSubheader:
-              "We will collect your preferences and customize a weekly menu so you don't even have to think.",
-          }}
+          content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -105,9 +105,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       <section className="_pb--40">
         <div className="container">
           <PageListing
-            content={{
-              title: 'What we offer',
-            }}
+            content={findPageComponentContent(components, 'PageListing')}
             list={pageListingData}
             initialCount={6}
           />

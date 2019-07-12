@@ -4,7 +4,6 @@ export default () => null;
 
 export const query = graphql`
   fragment PageFields on Page {
-    title
     type
     relativePath
     components {
