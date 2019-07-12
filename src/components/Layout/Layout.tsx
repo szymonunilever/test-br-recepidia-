@@ -63,14 +63,14 @@ const Layout = ({ children, className }: LayoutProps) => {
           // eslint-disable-next-line no-console
           console.log('Submitting sign up email', value);
         }}
-        content={signUpFormContent as AppContent.GeneratedForm.Content}
+        content={findPageComponentContent(components, 'Form', 'SignUpForm')}
       />
       <GlobalFooter
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
         content={findPageComponentContent(components, 'Footer')}
       >
         <BrandSocialChannels
-          content={brandSocialChannelsContent}
+          content={findPageComponentContent(components, 'BrandSocialChannels')}
           listIcons={{
             facebook: <FacebookIcon />,
             instagram: <InstagramIcon />,

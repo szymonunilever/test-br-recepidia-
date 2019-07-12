@@ -5,7 +5,11 @@ import { Modal } from 'src/components/lib/components/common/Modal';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 
-const GlobalSearch = () => {
+const GlobalSearch = ({
+  searchContent,
+}: {
+  searchContent: AppContent.SearchInput.Content;
+}) => {
   const [modalState, setModalState] = useState(false);
 
   const openModal = () => {
@@ -49,10 +53,7 @@ const GlobalSearch = () => {
                   ({ node }: { node: RecipeSearchDetailsNode }) =>
                     node.shortTitle
                 )}
-                content={{
-                  title: 'Looking for something?',
-                  placeholderText: 'Type something',
-                }}
+                content={searchContent}
                 labelIcon={<SearchIcon />}
                 buttonResetIcon={<ButtonCloseIcon />}
                 onSubmit={() => {
