@@ -1,10 +1,11 @@
+import { cloneDeep } from 'lodash';
+
 export const constructMenu = (
   tagGroups: Internal.TagGroup[],
   navigationContent: AppContent.GlobalNavigation.Content
 ): AppContent.GlobalNavigation.MenuItem[] => {
-  const recipeNav = navigationContent.list.find(
-    ({ name }) => name === 'Recipes'
-  );
+  const menuItems = cloneDeep(navigationContent);
+  const recipeNav = menuItems.list.find(({ name }) => name === 'Recipes');
   if (recipeNav) {
     const prevRecipeNavChildren = recipeNav.children;
     recipeNav.children = tagGroups.map((tagGroup: Internal.TagGroup) => {
@@ -21,5 +22,5 @@ export const constructMenu = (
     prevRecipeNavChildren && recipeNav.children.push(...prevRecipeNavChildren);
   }
 
-  return navigationContent.list;
+  return menuItems.list;
 };
