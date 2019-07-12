@@ -12,6 +12,7 @@ const Menu = ({
 }: MenuProps) => {
   const [menuState, setMenuState] = useState<MenuStateProps>({
     openedItems: [],
+    isChildOpened: false,
   });
 
   const classNames = cx(className, {
@@ -28,6 +29,7 @@ const Menu = ({
       openedItems: matchItem(i)
         ? menuState.openedItems.filter(index => index !== i)
         : openedItems,
+      isChildOpened: !matchItem(i),
     });
   };
 
@@ -69,7 +71,7 @@ const Menu = ({
         return (
           <li key={i} className={classNames}>
             {link}
-            {menuItem.children && (
+            {menuItem.children && menuState.isChildOpened && (
               <>
                 <Menu
                   list={menuItem.children}

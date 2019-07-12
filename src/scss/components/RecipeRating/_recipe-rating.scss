@@ -1,0 +1,17 @@
+.recipe-rating {
+  margin-bottom: 20px;
+}
+.recipe-rating--stars{
+  .rr-inline-widget.rr-widget-container {
+    font-size: 0;
+  }
+  .rr-inline-widget.rr-widget-container > * {
+    display: none;
+  }
+}
+
+// recipe rating widget
+
+.rr-inline-widget.rr-widget-container .aggregateRating {
+  display: inline-block;
+}

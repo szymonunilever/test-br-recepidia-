@@ -26,8 +26,12 @@ exports.sourceNodes = async (
       }
     ),
     axios.get(
-      configOptions.endpoint.replace('{contentType}', 'components'),
-      config
+      'https://o04j5q4nt9.execute-api.eu-west-1.amazonaws.com/v1/components/pt-br',
+      {
+        headers: {
+          'x-api-key': 'UJAk5ILYjo8AhWaTP9d9K40LsdZZwoDS1YzCgo5s',
+        },
+      }
     ),
   ]);
 

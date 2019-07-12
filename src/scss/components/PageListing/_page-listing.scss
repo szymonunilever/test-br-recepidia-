@@ -2,7 +2,7 @@ $col-width-mobile: 100% / 2;
 $col-width-desktop: 100% / 3;
 $col-indent-mobile: 5px;
 $col-indent-desktop: 8px;
-
+$itemTitleHeight: 100px;
 .page-listing {
   overflow: hidden;
   &__title {
@@ -13,7 +13,7 @@ $col-indent-desktop: 8px;
     margin: 0 0 20px 0;
     @include respondTo(desktop) {
       font-size: 2.5rem;
-      margin: 0 0 50px 0;
+      margin: 0 0 25px 0;
     }
   }
   &__list {
@@ -38,6 +38,20 @@ $col-indent-desktop: 8px;
     @include respondTo(desktop) {
       width: calc(#{$col-width-desktop} - #{$col-indent-desktop * 2});
       margin: $col-indent-desktop;
+    }
+  }
+  &--carousel {
+    .carousel {
+      .slide-arrow {
+        &.right {
+          top: calc(50% - (#{$itemTitleHeight} / 2));
+          transform: translate(50% , -50%);
+        }
+        &.left {
+          top: calc(50% - (#{$itemTitleHeight} / 2));
+          transform: translate(-50% , -50%);
+        }
+      }
     }
   }
 }

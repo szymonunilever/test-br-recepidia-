@@ -1,0 +1,84 @@
+.generated-form{
+  padding: 37px 0 45px;
+  background-color: $white-gray;
+  @include respondTo(desktop){
+    padding: 65px 0 72px;
+  }
+
+  &__container{
+    @extend .container;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    
+    h1, h2, h3{
+      display: block;
+      width: 100%;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.17;
+      text-align: center;
+      margin-bottom: 22px;
+      color: $black-blue;
+      @include respondTo(desktop){
+        font-size: 36px;
+        margin-bottom: 34px;
+      }
+    }
+  }
+
+  .field{
+    flex: 2;
+    margin: 0 10px 0 0;
+    max-width: 536px;
+    @include respondTo(desktop){
+      margin-right: 16px;
+    }
+
+    &__label-text{
+      margin: 0;
+    }
+
+    &__input{
+      border: solid 1px $black-blue;
+      height: 40px;
+      font-size: 14px;
+      color: $black-blue;
+      background-color: transparent;
+      padding: 0 18px;
+      @include respondTo(desktop){
+        font-size: 16px;
+        height: 46px;
+      }
+    }
+
+    &__error{
+      padding-left: 5px;
+      display: block;
+      font-size: 12px;
+      line-height: 1.25;
+      letter-spacing: 0.24px;
+      color: $alert-color;
+      margin-top: 14px;
+    }
+
+    &__hint{
+      margin: 0;
+    }
+  }
+
+  &__button--primary{
+    @extend .button;
+    @extend .button--yellow;
+    padding: 0 23px;
+    font-size: 14px;
+    font-weight: bold;
+    @include respondTo(desktop){
+      font-size: 16px;
+      height: 46px;
+      padding: 0 52px;
+    }
+  }
+
+}

@@ -6,18 +6,26 @@ import SEO from 'src/components/Seo/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { findPageComponentContent } from 'src/utils';
-import RecipeListing from 'src/components/lib/components/RecipeListing';
+import RecipeListing, {
+  RecipeListViewType,
+} from 'src/components/lib/components/RecipeListing';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Hero from 'src/components/lib/components/Hero';
-import RichText from 'src/components/lib/components/RichText';
 import { Tags } from 'src/components/lib/components/Tags';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import cx from 'classnames';
+import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
+import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
+import { action } from '@storybook/addon-actions';
+import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
   const { tag, allRecipe, allTag } = data;
   const categoryImage = get(tag.assets, '[0].localImage');
+  const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
     'RecipeListing',
@@ -25,10 +33,10 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   );
 
   return (
-    <Layout>
+    <Layout className={classWrapper}>
       <SEO title={`Recipe category: ${tag.title}`} />
       <Kritique />
-      <section>
+      <section className="_pt--40">
         <div className="container">
           <Text
             tag={TagName['h1']}
@@ -36,29 +44,27 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
           />
         </div>
       </section>
-
       <section>
         <div className="container">
-          {/* <RichText content={{ html: tag.description }} /> */}
-          <RichText content={{ html: 'Some tag description' }} />
+          <Text
+            tag={TagName['p']}
+            text={
+              tag.description ||
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
+            }
+          />
         </div>
       </section>
 
       {categoryImage && (
-        <section>
+        <section className={theme.heroBg}>
           <div className="container">
-            <Hero
-              content={{
-                image: { localImage: categoryImage, alt: tag.title, url: '' },
-              }}
-              viewType="Image"
-              className="hero--planner color--inverted"
-            />
+            <AdaptiveImage localImage={categoryImage} alt={tag.title} />
           </div>
         </section>
       )}
 
-      <section>
+      <section className={theme.greyBg}>
         <div className="container">
           <RecipeListing
             content={{
@@ -70,9 +76,14 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             }}
             list={allRecipe.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
+            viewType={RecipeListViewType.Base}
+            FavoriteIcon={FavoriteIcon}
             titleLevel={3}
             initialCount={6}
             recipePerLoad={4}
+            withFavorite
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
           />
         </div>
       </section>
@@ -89,20 +100,15 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pb--40">
         <Hero
-          content={{
-            ...findPageComponentContent(components, 'Hero'),
-            header: 'Try our Meal Planner',
-            longSubheader:
-              "We will collect your preferences and customize a weekly menu so you don't even have to think.",
-          }}
+          content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
-          className="hero--planner color--inverted"
+          className={'hero--planner color--inverted'}
         />
       </section>
 
-      <section>
+      <section className="_pb--40 _pt--40">
         <div className="container">
           <PageListing
             content={findPageComponentContent(
@@ -110,6 +116,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
               'PageListing',
               'RecipeCategories'
             )}
+            viewType={PageListingViewTypes.carousel}
             list={pageListingData}
             initialCount={6}
           />

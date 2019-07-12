@@ -7,7 +7,13 @@ import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
 import Search from 'src/components/Search/Search';
 import { constructMenu } from './utils';
 
-const Navigation = () => {
+const Navigation = ({
+  navigationContent,
+  searchContent,
+}: {
+  navigationContent: AppContent.GlobalNavigation.Content;
+  searchContent: AppContent.SearchInput.Content;
+}) => {
   return (
     <StaticQuery
       query={graphql`
@@ -31,7 +37,7 @@ const Navigation = () => {
       `}
       render={data => {
         const tagGroups = data.allTagGroup.nodes;
-        const menuItems = constructMenu(tagGroups);
+        const menuItems = constructMenu(tagGroups, navigationContent);
 
         return (
           <GlobalNavigation
@@ -49,7 +55,7 @@ const Navigation = () => {
             content={{ list: menuItems }}
             isAccordion
           >
-            <Search />
+            <Search searchContent={searchContent} />
           </GlobalNavigation>
         );
       }}
