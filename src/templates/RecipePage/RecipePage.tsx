@@ -36,15 +36,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
   const { components } = pageContext;
   const tags = data.allTag.nodes;
-  const newTags = tags.map(tag => {
-    const newTag = {
-      ...tag,
-      id: tag.tagId,
-    };
-
-    return newTag;
-  });
-
   const relatedRecipes = data.allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page');
   const tabsContent = {
@@ -213,7 +204,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       <section className="_pt--40">
         <div className="container">
           <Tags
-            list={newTags}
+            list={tags}
             content={findPageComponentContent(components, 'Tags')}
             initialCount={8}
             tagsPerLoad={4}

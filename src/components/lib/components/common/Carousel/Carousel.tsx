@@ -13,22 +13,37 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
         : prev
     );
   };
-  const [breakpoint, setBreakpoint] = useState();
   const [slideStep, setSlideStep] = useState();
   const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [trackingIndex, setTrackingIndex] = useState(0);
 
-  const resizeHandler = () => {
-    window.innerWidth > breakpoint.width
-      ? setVisibleElements(breakpoint.visibleElementsAboveBreakpoint)
-      : setVisibleElements(breakpoint.visibleElementsBelowBreakpoint);
-  };
-
   const mayGoLeft = translateValue < 0;
   const mayGoRight =
     translateValue > -(list.length - visibleElements) * (100 / list.length);
+
+  const setCarouselSettings = () => {
+    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
+    setSlideStep(
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.switchElementsAfterBreakpoint
+        : newBreakpoint.switchElementsBelowBreakpoint
+    );
+    setVisibleElements(
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.visibleElementsAboveBreakpoint
+        : newBreakpoint.visibleElementsBelowBreakpoint
+    );
+    const maxTranslate = -(list.length - visibleElements) * (100 / list.length);
+    if (translateValue < maxTranslate) {
+      setTranslateValue(maxTranslate);
+    } else if (translateValue > 0) {
+      setTranslateValue(0);
+    }
+    setPercentage(Math.abs(translateValue / maxTranslate) * 100);
+    setTrackingIndex(Math.abs(translateValue) / (100 / list.length));
+  };
 
   const switchImages = (mayMove: boolean, newTranslateValue: number) => {
     if (mayMove) {
@@ -53,31 +68,14 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   };
 
   useEffect(() => {
-    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
-    setBreakpoint(newBreakpoint);
-    setSlideStep(
-      window.innerWidth > newBreakpoint.width
-        ? newBreakpoint.switchElementsAfterBreakpoint
-        : newBreakpoint.switchElementsBelowBreakpoint
-    );
-    setVisibleElements(
-      window.innerWidth > newBreakpoint.width
-        ? newBreakpoint.visibleElementsAboveBreakpoint
-        : newBreakpoint.visibleElementsBelowBreakpoint
-    );
-    const maxTranslate = -(list.length - visibleElements) * (100 / list.length);
-    if (translateValue < maxTranslate) {
-      setTranslateValue(maxTranslate);
-    } else if (translateValue > 0) {
-      setTranslateValue(0);
-    }
-    setPercentage(Math.abs(translateValue / maxTranslate) * 100);
-    setTrackingIndex(Math.abs(translateValue) / (100 / list.length));
-    window.addEventListener('resize', resizeHandler);
+    setCarouselSettings();
+
+    window.addEventListener('resize', setCarouselSettings);
+
     return () => {
-      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('resize', setCarouselSettings);
     };
-  });
+  }, []);
 
   const isSlideVisible = (index: number) => {
     return (
@@ -112,7 +110,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
           <Arrow
             direction="left"
             clickFunction={previousImage}
-            icon={config.arrowIcon || '&#9664;'}
+            icon={
+              config.arrowIcon || (
+                <div dangerouslySetInnerHTML={{ __html: '&#9664;' }} />
+              )
+            }
           />
         )}
         <div className={styles.carousel__images} {...swipeHandlers}>
@@ -136,7 +138,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
           <Arrow
             direction="right"
             clickFunction={nextImage}
-            icon={config.arrowIcon || '&#9654;'}
+            icon={
+              config.arrowIcon || (
+                <div dangerouslySetInnerHTML={{ __html: '&#9654;' }} />
+              )
+            }
           />
         )}
       </div>

@@ -27,6 +27,7 @@ const Tags = ({
     list: list,
     displayList: initialCount !== 'all' ? list.slice(0, initialCount) : list,
   });
+
   const loadMore = () => {
     const newCount = tags.displayList.length + tagsPerLoad;
 

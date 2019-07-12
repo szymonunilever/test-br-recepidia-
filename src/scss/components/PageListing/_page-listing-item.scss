@@ -1,4 +1,5 @@
 .page-listing-item {
+  list-style: none;
   &__image {
     border-radius: 5px;
     overflow: hidden;
@@ -11,10 +12,12 @@
     font-family: $rubik;
     font-weight: 500;
     color: $black-blue;
-    margin: 12px 0;
+    padding-top: 12px;
     outline: none;
+    min-height: $itemTitleHeight;
+    margin: 0;
     @include respondTo(desktop) {
-      margin: 20px 0;
+      padding-top: 20px;
     }
   }
 }
