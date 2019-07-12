@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { MenuProps, MenuStateProps } from './models';
 import { Link } from 'gatsby';
@@ -8,16 +8,21 @@ const Menu = ({
   isOpened,
   className,
   dropDownIcon,
-  isAccordion,
+  isAccordion = true,
 }: MenuProps) => {
   const [menuState, setMenuState] = useState<MenuStateProps>({
     openedItems: [],
-    isChildOpened: false,
   });
 
   const classNames = cx(className, {
     'is-opened': isOpened,
   });
+
+  useEffect(() => {
+    if (!isOpened) {
+      setMenuState({ openedItems: [] });
+    }
+  }, [isOpened]);
 
   const matchItem = (i: number) => menuState.openedItems.includes(i);
 
@@ -29,7 +34,6 @@ const Menu = ({
       openedItems: matchItem(i)
         ? menuState.openedItems.filter(index => index !== i)
         : openedItems,
-      isChildOpened: !matchItem(i),
     });
   };
 
@@ -71,16 +75,14 @@ const Menu = ({
         return (
           <li key={i} className={classNames}>
             {link}
-            {menuItem.children && menuState.isChildOpened && (
-              <>
-                <Menu
-                  list={menuItem.children}
-                  isOpened={matchItem(i)}
-                  className="submenu"
-                  dropDownIcon={dropDownIcon}
-                  isAccordion={isAccordion}
-                />
-              </>
+            {menuItem.children && (
+              <Menu
+                list={menuItem.children}
+                isOpened={matchItem(i)}
+                className="submenu"
+                dropDownIcon={dropDownIcon}
+                isAccordion={isAccordion}
+              />
             )}
           </li>
         );
