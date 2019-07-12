@@ -31,9 +31,11 @@
   .field{
     flex: 2;
     margin: 0 10px 0 0;
-    max-width: 536px;
+    width: 100%;
     @include respondTo(desktop){
       margin-right: 16px;
+      flex: auto;
+      max-width: 536px;
     }
 
     &__label-text{
