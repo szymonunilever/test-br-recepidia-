@@ -31,11 +31,89 @@ import { Tab } from '../../components/lib/components/Tabs/partials';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Reviews from 'src/components/lib/components/Reviews';
 import { findPageComponentContent } from 'src/utils';
+import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
+import attributes from 'src/components/data/dietaryAttributes.json';
+import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
+import dataRecipe from 'src/components/data/recipe.json';
+import * as icons from 'src/svgs/attributes';
+import CloseButton from 'src/svgs/inline/x-mark.svg';
+import { Text, TagName } from 'src/components/lib/components/Text';
 
 const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
   const { components } = pageContext;
+  // TODO below fields should be fetched from back-end. Currenty missing in back-end response
+  recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as RMSData.RecipeNutrient[];
+  recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
+  recipe.nutrients = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
   const tags = data.allTag.nodes;
+  const newTags = tags.map(tag => {
+    const newTag = {
+      ...tag,
+      id: tag.tagId,
+    };
+
+    return newTag;
+  });
+  const dietaryAttributesIcons = [
+    {
+      id: 'vegetarian',
+      active: <icons.VegeterianActive />,
+      inActive: <icons.VegeterianInactive />,
+    },
+    {
+      id: 'vegan',
+      active: <icons.VeganActive />,
+      inActive: <icons.VeganInactive />,
+    },
+    {
+      id: 'nutFree',
+      active: <icons.NutFreeActive />,
+      inActive: <icons.NutFreeInactive />,
+    },
+    {
+      id: 'pregnancySafe',
+      active: <icons.PregnancySafeActive />,
+      inActive: <icons.PregnancySafeInactive />,
+    },
+    {
+      id: 'glutenFree',
+      active: <icons.GlutenFreeActive />,
+      inActive: <icons.GlutenFreeInactive />,
+    },
+    {
+      id: 'lactoseFree',
+      active: <icons.LactoseFreeActive />,
+      inActive: <icons.LactoseFreeInactive />,
+    },
+    {
+      id: 'rawFood',
+      active: <icons.RawFoodActive />,
+      inActive: <icons.RawFoodInactive />,
+    },
+    {
+      id: 'eggFree',
+      active: <icons.EggFreeActive />,
+      inActive: <icons.EggFreeInactive />,
+    },
+    {
+      id: 'paleoFree',
+      active: <icons.PaleoDietActive />,
+      inActive: <icons.PaleoDietInactive />,
+    },
+    // TODO replace below icons with proper onesafter
+    {
+      id: 'wheatFree',
+      active: <icons.DairyFreeActive />,
+      inActive: <icons.DairyFreeInactive />,
+    },
+    {
+      id: 'dairyProductFree',
+      active: <icons.WheatFreeActive />,
+      inActive: <icons.WheatFreeInactive />,
+    },
+  ];
+
   const relatedRecipes = data.allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page');
   const tabsContent = {
@@ -192,12 +270,22 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section className="_pt--40">
+      <section className="recipe-dietary-attributes__wrapper">
         <div className="container">
+          <Text text={'Nutritional'} tag={TagName.h2} />
+        </div>
+        <div className="container-fluid">
+          <RecipeDietaryAttributes
+            activeAttributes={activeAttributes}
+            attributes={attributes}
+            showInactiveAttributes={true}
+            icons={dietaryAttributesIcons}
+          />
           <RecipeNutrients
             recipe={recipe}
-            viewType={RecipeNutrientsViewType.Base}
             content={findPageComponentContent(components, 'RecipeNutrients')}
+            viewType={RecipeNutrientsViewType.WithAction}
+            CloseButton={CloseButton}
           />
         </div>
       </section>

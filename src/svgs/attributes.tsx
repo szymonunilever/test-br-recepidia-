@@ -46,3 +46,17 @@ export {
 export {
   default as PaleoDietInactive,
 } from './inline/nutrition-paleo-diet-no.svg';
+
+export {
+  default as DairyFreeActive,
+} from './inline/nutrition-dairy-free-active.svg';
+export {
+  default as DairyFreeInactive,
+} from './inline/nutrition-dairy-free-inactive.svg';
+
+export {
+  default as WheatFreeActive,
+} from './inline/nutrition-wheat-free-active.svg';
+export {
+  default as WheatFreeInactive,
+} from './inline/nutrition-wheat-free-inactive.svg';
