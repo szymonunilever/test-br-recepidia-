@@ -1,4 +1,4 @@
-:global(.recipe-card){
+:global(.recipe-card) {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,20 +7,18 @@
   position: relative;
 }
 
-:global(.recipe-card__favorite){
+:global(.recipe-card__favorite) {
   position: absolute;
   z-index: 1;
 }
 
-:global(.recipe-card__image){
+:global(.recipe-card__image) {
   min-width: 100%;
   background-color: #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
+  z-index: 0;
 }
 
-:global(.recipe-card__title){
+:global(.recipe-card__title) {
   font-weight: bold;
-  padding: 1rem 0;
 }
-
-

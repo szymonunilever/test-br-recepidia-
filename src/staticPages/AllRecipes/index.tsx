@@ -18,6 +18,7 @@ import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import { action } from '@storybook/addon-actions';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
@@ -27,7 +28,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     <Layout>
       <SEO title="All Recipes" />
       <Kritique />
-      <section>
+      <section className="_pt--40">
         <div className="container">
           <Text
             tag={TagName['h1']}
@@ -38,7 +39,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <PageListing
             content={findPageComponentContent(
@@ -52,7 +53,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
             viewType={RecipeListViewType.Advanced}
@@ -66,7 +67,10 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             titleLevel={3}
             tags={{ tagGroups: allTagGroup.nodes }}
             className="recipe-list--carousel cards--2-4"
+            withFavorite
             FavoriteIcon={FavoriteIcon}
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
@@ -74,7 +78,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
@@ -85,6 +89,10 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             list={allRecipe.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
+            withFavorite
+            FavoriteIcon={FavoriteIcon}
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
             carouselConfig={{
@@ -103,14 +111,12 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section>
-        <div className="container">
-          <Hero
-            content={findPageComponentContent(components, 'Hero')}
-            viewType="Image"
-            className="hero--planner color--inverted"
-          />
-        </div>
+      <section className="_pt--40">
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
     </Layout>
   );

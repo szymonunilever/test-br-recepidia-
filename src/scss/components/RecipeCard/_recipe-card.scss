@@ -1,14 +1,72 @@
 .recipe-card {
+  position: relative;
+  text-decoration: none;
+  list-style: none;
+
+  &__title {
+    font-size: 1.6rem;
+    font-family: $rubik;
+    font-weight: 500;
+    color: $black-blue;
+    padding: 0;
+    margin: 15px 0 0 0;
+    outline: none;
+    @include respondTo(desktop) {
+      margin: 20px 0 0 0;
+    }
+  }
+
+  &__favorite {
+    font-size: 3rem;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    svg {
+      stroke: $white;
+      fill-opacity: 0;
+    }
+  }
+
   &__image {
     overflow: hidden;
+    position: relative;
+    min-width: 100%;
+    border-radius: 5px;
+    z-index: 0;
   }
 
   .gatsby-image-wrapper {
     & > div {
-      padding-bottom: 140% !important;
+      padding-bottom: $recipe-card-height--mobile !important;
       @include respondTo(medium) {
-        padding-bottom: 117.5% !important;
+        padding-bottom: $recipe-card-height--desktop !important;
       }
     }
+  }
+
+  .rr-widget-container {
+    margin: 0;
+    padding-top: 10px;
+
+    .agRatingSelect,
+    .agRatingDeSelect {
+      height: 100%;
+      img {
+        width: auto;
+        height: 10px;
+        @include respondTo(desktop) {
+          height: 13px;
+        }
+      }
+    }
+  }
+}
+
+.recipe-card__favorite.button__selected {
+  svg {
+    fill: $luminous-yellow;
+    stroke: $luminous-yellow;
+    fill-opacity: 1;
   }
 }

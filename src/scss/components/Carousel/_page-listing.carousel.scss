@@ -1,0 +1,28 @@
+.page-listing--carousel {
+  .gatsby-image-wrapper {
+    & > div {
+      padding-bottom: $page-listing-card-height--mobile !important;
+      @include respondTo(medium) {
+        padding-bottom: $page-listing-card-height--desktop !important;
+      }
+    }
+  }
+  .carousel {
+    .slide-arrow {
+      &.right {
+        top: calc(#{$page-listing-card-height--mobile} / 2);
+        transform: translate(50%, -50%);
+        @include respondTo(medium) {
+          top: calc(#{$page-listing-card-height--desktop} / 2);
+        }
+      }
+      &.left {
+        top: calc(#{$page-listing-card-height--mobile} / 2);
+        transform: translate(-50%, -50%);
+        @include respondTo(medium) {
+          top: calc(#{$page-listing-card-height--desktop} / 2);
+        }
+      }
+    }
+  }
+}

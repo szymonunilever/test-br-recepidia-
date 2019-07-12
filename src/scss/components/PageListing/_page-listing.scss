@@ -2,7 +2,7 @@ $col-width-mobile: 100% / 2;
 $col-width-desktop: 100% / 3;
 $col-indent-mobile: 5px;
 $col-indent-desktop: 8px;
-$itemTitleHeight: 100px;
+
 .page-listing {
   overflow: hidden;
   &__title {
@@ -40,18 +40,5 @@ $itemTitleHeight: 100px;
       margin: $col-indent-desktop;
     }
   }
-  &--carousel {
-    .carousel {
-      .slide-arrow {
-        &.right {
-          top: calc(50% - (#{$itemTitleHeight} / 2));
-          transform: translate(50% , -50%);
-        }
-        &.left {
-          top: calc(50% - (#{$itemTitleHeight} / 2));
-          transform: translate(-50% , -50%);
-        }
-      }
-    }
-  }
+
 }

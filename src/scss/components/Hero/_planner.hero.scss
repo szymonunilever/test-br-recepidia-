@@ -75,7 +75,6 @@
         @extend .button;
         @extend .button--medium;
         @extend .button--yellow;
-        color: $fish-blue-darker;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }

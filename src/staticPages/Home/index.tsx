@@ -16,6 +16,8 @@ import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import { action } from '@storybook/addon-actions';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
@@ -47,9 +49,13 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
             )}
             list={recipes}
             ratingProvider={RatingAndReviewsProvider.kritique}
+            className="recipe-list--blue-header recipe-list--carousel cards--2-4"
             viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel cards--2-4"
             titleLevel={3}
+            withFavorite
+            FavoriteIcon={FavoriteIcon}
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
             carouselConfig={{
               breakpoints: [
                 {
@@ -66,7 +72,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         </div>
       </section>
 
-      <section>
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
@@ -75,6 +81,10 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
               'TopRecipes'
             )}
             list={recipes}
+            withFavorite
+            FavoriteIcon={FavoriteIcon}
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
@@ -102,7 +112,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
           className="hero--planner color--inverted"
         />
       </section>
-      <section className="_pb--40">
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <PageListing
             content={findPageComponentContent(components, 'PageListing')}

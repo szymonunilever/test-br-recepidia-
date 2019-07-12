@@ -1,56 +1,53 @@
-$buttonSize: 43px;
 $carouselItemPadding: 5px;
-@include respondTo(desktop){
-  $buttonSize: 58px;
+@include respondTo(desktop) {
   $carouselItemPadding: 8px;
 }
 
-.carousel{
+.carousel {
   position: relative;
-  &__images{
+  &__images {
     margin: 0 (-$carouselItemPadding);
   }
-  &__item{
-    padding: $carouselItemPadding;
+  &__item {
+    padding: 0 $carouselItemPadding;
   }
-  .slide-arrow{
+  .slide-arrow {
     @extend .button;
     @extend .button--control;
     position: absolute;
     top: 50%;
     z-index: 1;
-    &.left{
+    &.left {
       transform: translate(-50%, -50%);
-      left:0;
-      svg{
-        transform:rotate(90deg);
+      left: 0;
+      svg {
+        transform: rotate(90deg);
       }
     }
-    &.right{
+    &.right {
       transform: translate(50%, -50%);
       right: 0;
-      svg{
-        transform:rotate(-90deg);
+      svg {
+        transform: rotate(-90deg);
       }
     }
   }
-
-}  
-.cards--2-4{
-  .gatsby-image-wrapper{
-    &>div{
+}
+.cards--2-4 {
+  .gatsby-image-wrapper {
+    & > div {
       padding-bottom: 142% !important;
-      @include respondTo(medium){
+      @include respondTo(medium) {
         padding-bottom: 123% !important;
       }
     }
   }
 }
-.cards--1-2{
-  .gatsby-image-wrapper{
-    &>div{
+.cards--1-2 {
+  .gatsby-image-wrapper {
+    & > div {
       padding-bottom: 69% !important;
-      @include respondTo(medium){
+      @include respondTo(medium) {
         padding-bottom: 59% !important;
       }
     }

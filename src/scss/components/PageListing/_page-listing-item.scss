@@ -1,8 +1,16 @@
 .page-listing-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  text-decoration: none;
+  position: relative;
   list-style: none;
   &__image {
     border-radius: 5px;
     overflow: hidden;
+    min-width: 100%;
+    z-index: 0;
   }
   &__link {
     text-decoration: none;
@@ -13,8 +21,8 @@
     font-weight: 500;
     color: $black-blue;
     padding-top: 12px;
+    padding-bottom: 20px;
     outline: none;
-    min-height: $itemTitleHeight;
     margin: 0;
     @include respondTo(desktop) {
       padding-top: 20px;

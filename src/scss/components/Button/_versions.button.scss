@@ -7,7 +7,7 @@ $button-padding: 0 15px !default;
 $button-radius: 5px !default;
 
 // Button colors
-$button-color: $fish-blue-darker !default;
+$button-color: $black-blue !default;
 $button-background: $apple-green !default;
 $button-color-hover: $white !default;
 $button-background-hover: $black-blue !default;
@@ -26,7 +26,7 @@ $button-disabled-color: #9f9f9f !default;
   align-items: center;
   font-size: $button-font-size;
   justify-content: center;
-  font-weight: 500;
+  font-weight: bold;
   height: $button-height;
   line-height: normal;
   padding: $button-padding;
@@ -74,6 +74,10 @@ $button-disabled-color: #9f9f9f !default;
     background-color: $luminous-yellow;
     color: $black-blue;
     fill: currentColor;
+    &:hover {
+      background-color: $button-background-hover;
+      color: $white;
+    }
   }
 
   &--flat {

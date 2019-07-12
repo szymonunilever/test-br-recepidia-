@@ -23,9 +23,10 @@
     @extend .button--secondary;
     @extend .button--small;
     max-width: none;
+    font-weight: normal;
     &:hover {
       background: $apple-green;
-      color: $fish-blue;
+      color: $black-blue;
     }
   }
 

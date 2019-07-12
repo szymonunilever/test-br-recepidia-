@@ -10,6 +10,9 @@ body {
   font-size: 10px;
   color: $black-blue;
 }
+main{
+  display: block;
+}
 .container {
   padding-left: 24px;
   padding-right: 24px;
@@ -93,14 +96,19 @@ p {
   display: none;
 }
 
-
 // END recipe rating widget
 
 ._pb--40 {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
+  @include respondTo(desktop) {
+    padding-bottom: 40px;
+  }
 }
 ._pt--40 {
-  padding-top: 40px;
+  padding-top: 20px;
+  @include respondTo(desktop) {
+    padding-top: 40px;
+  }
 }
 ._bg--main {
   background-color: $primary-bg-color;

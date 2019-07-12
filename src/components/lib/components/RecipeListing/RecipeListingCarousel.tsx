@@ -7,6 +7,7 @@ import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 const RecipeListingCarousel = ({
   withFavorite = true,
   titleLevel = 1,
+  FavoriteIcon,
   onFavoriteChange,
   list,
   config,
@@ -18,6 +19,7 @@ const RecipeListingCarousel = ({
         id={item.id}
         inFavorite={withFavorite ? item.inFavorite : false}
         enableSelectFavorite={withFavorite}
+        Icon={FavoriteIcon}
         titleLevel={titleLevel}
         slug={item.fields.slug}
         content={{ title: item.shortTitle }}

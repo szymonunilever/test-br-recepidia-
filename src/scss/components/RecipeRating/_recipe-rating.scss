@@ -1,7 +1,22 @@
 .recipe-rating {
   margin-bottom: 20px;
+  .rr-widget-container{
+    display: flex;
+    align-items: center;
+  }
+  .agRatingSelect,
+  .agRatingDeSelect {
+    height: 100%;
+    img {
+      width: auto;
+      height: 17px;
+      @include respondTo(desktop) {
+        height: 17px;
+      }
+    }
+  }
 }
-.recipe-rating--stars{
+.recipe-rating--stars {
   .rr-inline-widget.rr-widget-container {
     font-size: 0;
   }

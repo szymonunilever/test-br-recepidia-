@@ -163,6 +163,7 @@ export const RecipeListing = ({
     ) : viewType == RecipeListViewType.Carousel ? (
       <RecipeListingCarousel
         withFavorite={withFavorite}
+        FavoriteIcon={FavoriteIcon}
         onFavoriteChange={changeFavorites}
         list={list}
         content={content}

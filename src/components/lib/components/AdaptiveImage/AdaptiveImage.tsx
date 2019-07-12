@@ -1,5 +1,6 @@
 import React from 'react';
-import Img from 'gatsby-image';
+// @ts-ignore
+import Img from 'gatsby-image/withIEPolyfill';
 import { AdaptiveImageProps } from './models';
 import cx from 'classnames';
 import WithLink from './partials/WithLink';

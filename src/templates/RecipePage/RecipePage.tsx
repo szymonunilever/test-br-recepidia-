@@ -31,6 +31,8 @@ import { Tab } from '../../components/lib/components/Tabs/partials';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Reviews from 'src/components/lib/components/Reviews';
 import { findPageComponentContent } from 'src/utils';
+import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import { action } from '@storybook/addon-actions';
 import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 import attributes from 'src/components/data/dietaryAttributes.json';
 import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
@@ -47,14 +49,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
   recipe.nutrients = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
   const tags = data.allTag.nodes;
-  const newTags = tags.map(tag => {
-    const newTag = {
-      ...tag,
-      id: tag.tagId,
-    };
-
-    return newTag;
-  });
   const dietaryAttributesIcons = [
     {
       id: 'vegetarian',
@@ -316,6 +310,10 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--2-4"
             titleLevel={3}
+            withFavorite
+            FavoriteIcon={FavoriteIcon}
+            favorites={[]}
+            onFavoriteChange={action('favorites were changed')}
             carouselConfig={{
               breakpoints: [
                 {

@@ -6,6 +6,14 @@ $col-indent-medium: 8px;
 $col-indent-desktop: 8px;
 
 .recipe-list {
+
+  &--blue-header {
+    .recipe-list__header{
+      color: $fish-blue;
+    }
+
+  }
+
   &__title {
     font-size: 2.1rem;
     line-height: 3rem;
@@ -46,9 +54,8 @@ $col-indent-desktop: 8px;
     margin: 40px auto;
   }
   &__null-results {
-
   }
-  .recommendations{
+  .recommendations {
     &__title {
       font-size: 2.8rem;
       @include respondTo(desktop) {
