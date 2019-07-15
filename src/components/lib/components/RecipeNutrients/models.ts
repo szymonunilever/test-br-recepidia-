@@ -8,4 +8,5 @@ export interface RecipeNutrientsProps
   recipe: RMSData.Recipe;
   viewType: RecipeNutrientsViewType;
   CloseButton?: JSX.Element;
+  modalTitle?: string;
 }
