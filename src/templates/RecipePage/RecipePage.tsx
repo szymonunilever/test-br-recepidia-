@@ -272,7 +272,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
           <RecipeDietaryAttributes
             activeAttributes={activeAttributes}
             attributes={attributes}
-            showInactiveAttributes={true}
             icons={dietaryAttributesIcons}
           />
           <RecipeNutrients
