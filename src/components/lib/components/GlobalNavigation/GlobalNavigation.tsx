@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { GlobalNavigationProps } from './models';
 import Navigation from './partials/Navigation';
 import Logo from './partials/Logo';
 import cx from 'classnames';
 import { Button as BurgerButton } from '../common/Button';
 
-const GlobalNavigation = ({
+const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
   content: { list },
   logo,
   login,
@@ -14,14 +14,14 @@ const GlobalNavigation = ({
   buttonCloseIcon,
   isAccordion,
   children,
-}: GlobalNavigationProps) => {
-  const [burgerButton, setburgerButton] = useState({
-    isActive: false,
-  });
+}) => {
+  const [isBurgerActive, setBurgerActive] = useState(false);
   const classNames = cx('global-navigation', className);
 
-  const handleToggleNavigationClick = () =>
-    setburgerButton({ isActive: !burgerButton.isActive });
+  const handleToggleNavigationClick = useCallback(
+    () => setBurgerActive(!isBurgerActive),
+    [isBurgerActive]
+  );
 
   return (
     <header className={classNames} data-componentname="global-navigation">
@@ -32,19 +32,16 @@ const GlobalNavigation = ({
         >
           <span className="burger-button__icon" />
         </BurgerButton>
-
         <Logo {...logo} />
-
         <Navigation
           buttonCloseIcon={buttonCloseIcon}
           login={login}
           handleToggleNavigationClick={handleToggleNavigationClick}
           dropDownIcon={dropDownIcon}
-          isActive={burgerButton.isActive}
+          isActive={isBurgerActive}
           isAccordion={isAccordion}
           list={list}
         />
-
         {login}
         {children}
       </div>
