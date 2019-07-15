@@ -10,7 +10,9 @@ export const constructMenu = (
     const prevRecipeNavChildren = recipeNav.children;
     recipeNav.children = tagGroups.map((tagGroup: Internal.TagGroup) => {
       const recipesMenuItems: AppContent.GlobalNavigation.MenuItem = {
-        name: tagGroup.name,
+        name: tagGroup.name
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, str => str.toUpperCase()),
         children: tagGroup.children.map((tag: Internal.Tag) => ({
           name: tag.name,
           path: tag.fields.slug,

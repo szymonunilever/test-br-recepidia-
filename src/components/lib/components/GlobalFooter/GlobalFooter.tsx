@@ -30,7 +30,7 @@ const GlobalFooter = ({
         )}
         <span className="global-footer__copyright">
           {' '}
-          &copy; {copyrightText}
+          &copy; {copyrightText} {new Date().getFullYear()}
         </span>
       </div>
     </footer>
