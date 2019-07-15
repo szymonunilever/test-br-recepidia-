@@ -129,7 +129,7 @@ export default HomePage;
 
 export const pageQuery = graphql`
   {
-    allRecipe(limit: 20) {
+    allRecipe(limit: 6) {
       nodes {
         ...RecipeFields
       }
