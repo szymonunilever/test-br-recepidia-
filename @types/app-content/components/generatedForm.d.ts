@@ -11,6 +11,7 @@ declare namespace AppContent.GeneratedForm {
     type: FieldType;
     name: string;
     label?: string;
+    rows?: number;
     placeholder?: string;
     hint?: string;
     defaultValue?: string | number | boolean;
@@ -25,6 +26,7 @@ declare namespace AppContent.GeneratedForm {
 
   export interface Rule {
     type: 'required' | 'pattern' | 'maxLength' | 'minLength' | 'email';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value?: any;
     errorMessage?: string;
     errorCode?: string;
@@ -33,6 +35,7 @@ declare namespace AppContent.GeneratedForm {
   type FieldType =
     | 'description'
     | 'text'
+    | 'textarea'
     | 'number'
     | 'email'
     | 'tel'

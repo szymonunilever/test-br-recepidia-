@@ -1,4 +1,5 @@
 import React from 'react';
+import Textarea from '../Textarea';
 import { GeneratedFieldProps } from './models';
 import { Field } from '../../../Form';
 import cx from 'classnames';
@@ -10,7 +11,7 @@ import Input from '../Input/';
 
 const GeneratedField = ({
   className,
-  content: { type, name, validationRules = [], ...content },
+  content: { type, name, rows = 4, validationRules = [], ...content },
   innerContent,
   shouldValidate,
 }: GeneratedFieldProps) => {
@@ -24,10 +25,11 @@ const GeneratedField = ({
     return errMsg || 'Invalid field';
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validate = (val: any) => {
     let validMessage = undefined;
 
-    if (shouldValidate) {
+    if (shouldValidate && validationRules && validationRules.length > 0) {
       forEach(validationRules, rule => {
         switch (rule.type) {
           case 'required': {
@@ -99,10 +101,23 @@ const GeneratedField = ({
       view = (
         <Input
           content={content}
+          rules={validationRules}
           name={name}
           validate={validate}
           error={error}
           type={type}
+        />
+      );
+      break;
+    case 'textarea':
+      view = (
+        <Textarea
+          content={content}
+          rules={validationRules}
+          name={name}
+          rows={rows}
+          validate={validate}
+          error={error}
         />
       );
       break;
@@ -139,8 +154,16 @@ const GeneratedField = ({
           {({ input, meta }) => (
             <div
               className={cx('checkable', 'checkbox', {
-                valid: (meta.touched || meta.submitFailed) && meta.valid,
-                invalid: (meta.touched || meta.submitFailed) && meta.invalid,
+                valid:
+                  validationRules &&
+                  validationRules.length > 0 &&
+                  (meta.touched || meta.submitFailed) &&
+                  meta.valid,
+                invalid:
+                  validationRules &&
+                  validationRules.length > 0 &&
+                  (meta.touched || meta.submitFailed) &&
+                  meta.invalid,
               })}
             >
               <CheckElem
@@ -166,7 +189,20 @@ const GeneratedField = ({
         >
           {({ input, meta }) => {
             return (
-              <div className="checkable radiobtn">
+              <div
+                className={cx('checkable', 'radiobtn', {
+                  valid:
+                    validationRules &&
+                    validationRules.length > 0 &&
+                    (meta.touched || meta.submitFailed) &&
+                    meta.valid,
+                  invalid:
+                    validationRules &&
+                    validationRules.length > 0 &&
+                    (meta.touched || meta.submitFailed) &&
+                    meta.invalid,
+                })}
+              >
                 <CheckElem
                   input={input}
                   type={checkElemTypes.radio}
@@ -191,7 +227,20 @@ const GeneratedField = ({
             <div className="field">
               <label className="field__label">
                 <span className="field__label-text">{content.label}</span>
-                <div className="field__wrap">
+                <div
+                  className={cx('field__wrap', {
+                    valid:
+                      validationRules &&
+                      validationRules.length > 0 &&
+                      (meta.touched || meta.submitFailed) &&
+                      meta.valid,
+                    invalid:
+                      validationRules &&
+                      validationRules.length > 0 &&
+                      (meta.touched || meta.submitFailed) &&
+                      meta.invalid,
+                  })}
+                >
                   <Select
                     input={input}
                     options={content.options ? content.options : []}

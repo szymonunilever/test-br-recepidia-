@@ -1,8 +1,8 @@
 import { FieldMetaState } from 'react-final-form';
 
-export interface InputProps {
-  content: InputContent;
-  type: string;
+export interface TextareaProps {
+  content: TextareaContent;
+  rows?: number;
   rules?: AppContent.GeneratedForm.Rule[];
   name: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,7 +10,7 @@ export interface InputProps {
   error: (meta: FieldMetaState) => void;
 }
 
-interface InputContent {
+export interface TextareaContent {
   label?: string;
   placeholder?: string;
   hint?: string;

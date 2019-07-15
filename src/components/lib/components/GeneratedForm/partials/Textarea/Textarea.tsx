@@ -1,9 +1,16 @@
+import cx from 'classnames';
 import React from 'react';
 import { Field } from '../../../Form/partials/Field';
-import { InputProps } from './models';
-import cx from 'classnames';
+import { TextareaProps } from './models';
 
-const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
+export const Textarea = ({
+  rules,
+  content,
+  name,
+  rows,
+  validate,
+  error,
+}: TextareaProps) => (
   <Field name={name} validate={validate}>
     {({ input, meta }) => {
       return (
@@ -24,10 +31,9 @@ const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
                   meta.invalid,
               })}
             >
-              <input
+              <textarea
                 {...input}
-                type={type}
-                className={cx('field__input', {
+                className={cx('field__textarea', {
                   valid:
                     rules &&
                     rules.length > 0 &&
@@ -41,6 +47,7 @@ const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
                 })}
                 placeholder={content.placeholder}
                 value={content.value}
+                rows={rows}
               />
               {error(meta)}
             </div>
@@ -52,4 +59,4 @@ const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
   </Field>
 );
 
-export default Input;
+export default Textarea;

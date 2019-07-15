@@ -88,6 +88,20 @@ const content: AppContent.GeneratedForm.Content = {
       ],
     },
     {
+      name: 'testTextarea',
+      type: 'textarea',
+      label: 'Test textarea',
+      placeholder: 'Test textarea',
+      rows: 6,
+      hint: 'Enter some text',
+      validationRules: [
+        {
+          type: 'required',
+          errorMessage: 'This field is required.',
+        },
+      ],
+    },
+    {
       name: 'radio buttons group one',
       type: 'radio',
       label: 'Test Radiobutton One',

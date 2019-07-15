@@ -122,6 +122,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
             className={styles.carousel__images__tracker}
             style={trackerStyle}
           >
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {list.map((item: any, index: number) => (
               <div
                 key={index}

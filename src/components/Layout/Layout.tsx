@@ -28,6 +28,7 @@ const Layout = ({ children, className }: LayoutProps) => {
   `);
 
   const components = allCommonComponent.nodes;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components.forEach((component: any) => {
     component.content =
       typeof component.content === 'string'
