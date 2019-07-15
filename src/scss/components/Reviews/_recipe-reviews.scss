@@ -1,0 +1,257 @@
+.recipe-reviews{
+  padding: 40px 0;
+  // @include respondTo(medium){
+  //   width: 50%;
+  // }
+  .reviews-container{
+    @include respondTo(medium){
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  .rr-product-reviews{  
+    margin: 0;
+    h2{
+      font-size: 2.1rem;
+      font-weight: 500;
+      line-height: 1.33;
+      text-align: left;
+      color: $black-blue;
+      margin-bottom: 20px;
+      padding: 0;
+      font-family: $rubik;
+    }
+
+    .sort-container{
+      display: none;
+    }
+
+    .averageRingBlock{
+      padding: 0;
+      background-color: transparent;
+      margin: 0 0 30px 0;
+      h3{
+        display: none;
+      }
+    }
+
+    .average-rating{
+      text-align: left;
+      .aggregateRating{
+        height: 0;
+        transform: translateX(82px) translateY(4px);
+        img{
+          height: 17px;
+          width: auto;
+        }
+      }
+
+      .total-reviews{
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        line-height: 1;
+        font-size: 14px;
+        .aggRtng{
+          font-size: 4.8rem;
+          font-weight: 500;
+          line-height: .75;
+          color: $black-blue;
+          font-family: $rubik;
+          background: none;
+          padding: 0;
+          margin-right: 9px;
+        }
+        .tRtng{
+          margin-left: 0;
+          line-height: 1;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .write-review-btn{
+      @extend .button;
+      margin: 25px 0 0;
+      width: 100%;
+      font-weight: bold;
+      position: relative;
+      top: 0;
+      left: 0;
+      @include respondTo(medium){
+        max-width: 352px;
+      }
+    }
+
+    .review-block{
+      border-top: none;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+
+      .review-rightBlock{
+        width: 100%;
+      }
+      .review-leftBlock{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        & > *{
+          margin: 0;
+          padding: 0;
+          flex: auto;
+          @include respondTo(medium){
+            flex: 0 1 auto;
+          }
+        }
+        h3{
+          order: 4;
+          width: 100%;
+          text-align: left;
+          margin-top: 21px;
+          font-size: 2.1rem;
+          font-weight: 500;
+          line-height: 1.33;
+          color: $black-blue;
+          margin-bottom: 14px;
+          font-family: $rubik;
+        }
+        .rating-container{
+          display: flex;
+          order: 1;
+          align-items: center;
+          img{
+            height: 17px;
+            width: auto;
+          }
+          .aggRtng{
+            margin: 0;
+            padding: 0;
+            font-size: 1.4rem;
+            line-height: 1;
+            font-weight: normal;
+            margin-left: 10px;
+          }
+        }
+        .reviewer-name{
+          order: 2;
+          font-size: 1.6rem;
+          line-height: 1.13;
+          color: $fish-blue-darker;
+          @include respondTo(medium){
+            margin-left: 29px;
+          } 
+        }
+        .reviewDate{
+          order: 3;
+          border-left: none;
+          font-size: 1.2rem;
+          line-height: 1.17;
+          color: $black-blue;
+          position: relative;
+          top: 0;
+          right: 0;
+          text-align: right;
+          @include respondTo(medium){
+            margin-left: 29px;
+          } 
+        }
+      }
+      .rr-comments{
+        font-size: 1.4rem;
+        line-height: 1.29;
+        text-align: left;
+        color: $black-blue;
+        margin: 0;
+      }
+      .socialBtn{
+        display: none;
+      }
+      .feedback-container{
+        width: 100%;
+        margin: 25px 0 0 0;
+        padding: 0;
+        background: none;
+        display: flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+        @include respondTo(medium){
+          justify-content: flex-start;
+        }           
+        dd, dt{
+          flex: 2 2 auto;
+          float: none;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          background-image: none;
+          @include respondTo(medium){
+            flex: 0 1 auto;
+          }          
+        }
+        dt{
+          flex: 1 1 auto;
+          justify-content: flex-start;
+          @include respondTo(medium){
+            flex: 0 1 auto;
+          }   
+        }
+        dd:nth-last-child(1){
+          flex: 1 1 auto;
+          justify-content: flex-end;
+          @include respondTo(medium){
+            flex: 0 1 auto;
+          }   
+        }
+        a{
+          @extend .button;
+          @extend .button--secondary;
+          font-size: 1.2rem;
+          display: flex;
+          align-items: center;
+          border-radius: 20px;
+          background-image: none;
+          height: 31px;
+          padding: 0 15px;
+          width: auto;
+          margin: 0;
+          &:not(.report-btn){
+            &:before{
+              display: inline-block;
+              position: relative;
+            }
+            &:after{
+              display: inline-block;
+              position: relative;
+              content: ')';
+            }
+            &.helpful{
+              @include respondTo(medium){
+                margin-left: 29px;
+              } 
+              &:before{
+                content: 'Yes ('
+              }
+            }
+            &.un-helpful{
+              @include respondTo(medium){
+                margin-left: 29px;
+              } 
+              &:before{
+                content: 'No ('
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
