@@ -236,18 +236,18 @@ $submenu-text-color: $fish-blue-darker;
 
         &.active {
           @include respondTo(desktop) {
-            & > .submenu{
+            & > .submenu {
               overflow: hidden;
               visibility: hidden;
             }
           }
         }
-        &:hover{
+        &:hover {
           @include respondTo(desktop) {
             .menu__dropdown-icon {
               transform: rotate(180deg);
             }
-            & > .submenu{
+            & > .submenu {
               overflow: visible;
               visibility: visible;
               height: auto;
@@ -331,6 +331,7 @@ $submenu-text-color: $fish-blue-darker;
       padding: 15px 0;
       transition: background-color 0.2s ease-out;
       border-radius: 5px;
+
       @include respondTo(desktop) {
         font-size: 1.4rem;
         color: $submenu-text-color;
@@ -377,6 +378,7 @@ $submenu-text-color: $fish-blue-darker;
 
           .submenu__link {
             padding: 10px 0;
+            text-transform: capitalize;
             @include respondTo(desktop) {
               padding: 10px 20px;
             }
@@ -431,7 +433,6 @@ $submenu-text-color: $fish-blue-darker;
 
         &.active {
           .submenu__dropdown-icon {
-
             &:before {
               visibility: hidden;
             }
@@ -440,23 +441,23 @@ $submenu-text-color: $fish-blue-darker;
               visibility: visible;
             }
           }
-          
+
           @include respondTo(desktop) {
             .submenu__dropdown-icon {
-              &:before{
+              &:before {
                 visibility: visible;
               }
-              &:after{
+              &:after {
                 visibility: hidden;
               }
             }
-            & > .submenu{
+            & > .submenu {
               overflow: hidden;
               visibility: hidden;
             }
           }
         }
-        &:hover{
+        &:hover {
           @include respondTo(desktop) {
             .submenu__dropdown-icon {
               transform: rotate(-90deg);
@@ -466,11 +467,11 @@ $submenu-text-color: $fish-blue-darker;
               &:after {
                 visibility: visible;
               }
-              .dropdown-icon{
+              .dropdown-icon {
                 fill: $black-blue;
               }
             }
-            & > .submenu{
+            & > .submenu {
               overflow: visible;
               visibility: visible;
               height: auto;
