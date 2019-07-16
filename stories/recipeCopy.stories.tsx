@@ -29,36 +29,12 @@ storiesOf('Components/Recipe Copy', module)
     { inline: false }
   )
   .add(
-    'viewType: ShortTitle',
-    () => (
-      <RecipeCopy
-        //@ts-ignore
-        recipe={recipe}
-        viewType={RecipeCopyViewType.ShortTitle}
-        content={{}}
-      />
-    ),
-    { inline: false }
-  )
-  .add(
     'viewType: Description',
     () => (
       <RecipeCopy
         //@ts-ignore
         recipe={recipe}
         viewType={RecipeCopyViewType.Description}
-        content={{}}
-      />
-    ),
-    { inline: false }
-  )
-  .add(
-    'viewType: ShortDescription',
-    () => (
-      <RecipeCopy
-        //@ts-ignore
-        recipe={recipe}
-        viewType={RecipeCopyViewType.ShortDescription}
         content={{}}
       />
     ),

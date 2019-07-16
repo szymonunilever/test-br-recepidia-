@@ -23,25 +23,8 @@ export const RecipeCopy = ({
     case RecipeCopyViewType.Title:
       view = <RecipeCopyTitle title={recipe.title} titleLevel={titleLevel} />;
       break;
-    case RecipeCopyViewType.ShortTitle:
-      view = recipe.shortTitle ? (
-        <RecipeCopyTitle
-          className="recipe-copy-short-title"
-          title={recipe.shortTitle}
-          titleLevel={titleLevel}
-        />
-      ) : null;
-      break;
     case RecipeCopyViewType.Description:
       view = <RecipeCopyDescription description={recipe.description} />;
-      break;
-    case RecipeCopyViewType.ShortDescription:
-      view = recipe.shortDescription ? (
-        <RecipeCopyDescription
-          className="recipe-copy-short-description"
-          description={recipe.shortDescription}
-        />
-      ) : null;
       break;
     case RecipeCopyViewType.Ingredients:
       view = (

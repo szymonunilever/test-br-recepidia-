@@ -5,12 +5,6 @@ export enum RecipeAttributesKeys {
   difficulties,
   cookingTime,
   preparationTime,
-  waitingTime,
-  marinateTime,
-  ovenTime,
-  freezeTime,
-  chillTime,
-  brewTime,
   totalTime,
 }
 
