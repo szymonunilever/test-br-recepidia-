@@ -17,41 +17,21 @@
 
   &__modal{
     .modal{
-      &__btn-close{
-        svg{
-          margin: 0;
-        }
+      &__overlay{
+        align-items: flex-start;
       }
       &__header{
         *{
           margin-bottom: 35px;
           padding: 0 24px;
-          font-size: 2.1rem;
-          font-weight: 500;
-          line-height: 1.33;
-          color: $fish-blue;
           @include respondTo(desktop){
             padding: 0 90px;
-            color: $black-blue;
           }
         }
       }
-      &__overlay{
-        overflow: auto;
-        background-color: rgba(54, 56, 64, .4);
-        @include respondTo(desktop){
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-        }
-      }
       &__content{
-        position: relative;
         margin-top: 47px;
-        background-color: $white;
-        border-radius: 20px;
         padding: 20px 0;
-        width: 100%;
         @include respondTo(desktop){
           width: 720px;
           padding: 45px 0;

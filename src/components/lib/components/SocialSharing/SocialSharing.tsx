@@ -1,13 +1,15 @@
 import cx from 'classnames';
 import React, { useState } from 'react';
 import Button from '../common/Button';
+import Icon from 'src/svgs/inline/social-sharing.svg';
+import { ButtonViewType } from '../common/Button';
 import { Modal } from '../common/Modal';
 import { SocialSharingProps, SocialSharingViewType } from './models';
 import { SocialSharingBase } from './partials';
 
 export const SocialSharing = ({
   className,
-  buttonClassName,
+  buttonClassName = 'social-sharing__button',
   icons,
   viewType = SocialSharingViewType.Base,
   showTextLabels = false,
@@ -43,6 +45,8 @@ export const SocialSharing = ({
       view = (
         <div className={classWrapper}>
           <Button
+            Icon={Icon}
+            viewType={ButtonViewType.icon}
             className="social-sharing__dialog-open-button"
             content={openModalButton}
             onClick={() => {

@@ -1,0 +1,69 @@
+[class*="--recipeHeroMobile--"], [class*="--recipeHeroDesktop--"]{
+  position: relative;
+} 
+
+.social-sharing-in-modal{
+  position: absolute;
+  top: 51px;
+  right: 18px;
+  
+  button{
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: $white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      height: 12px;
+      width: 10px;
+      min-width: 0;
+    }
+  }
+}
+
+.social-sharing{
+  &__button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-right: 45px;
+    &:nth-last-child(1){
+      margin-right: 0;
+    }
+    svg{
+      width: 22px;
+      height: 22px;
+      @include respondTo(medium){
+        width: 38px;
+        height: 38px;
+      }
+    }
+    path{
+      fill: $recepedia-orange;
+    }
+  }
+}
+
+.social-sharing__dialog{
+  .modal{
+    &__overlay{
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    &__content{
+      padding: 28px 28px 40px;
+      @include respondTo(medium){
+        padding: 56px 92px 78px;
+      }
+    }
+    &__header{
+      *{
+        margin-bottom: 28px;
+      }
+    }    
+  }
+}
