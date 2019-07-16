@@ -24,6 +24,7 @@ const GlobalFooter = ({
             href="//www.unilever.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="www.unilever.com"
           >
             {logoIcon}
           </a>

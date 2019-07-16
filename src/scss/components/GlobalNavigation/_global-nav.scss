@@ -122,6 +122,9 @@ $submenu-text-color: $fish-blue-darker;
       &__link {
         display: flex;
       }
+      &__text {
+        @extend .sr-only;
+      }
 
       &__icon {
         width: 122px;
