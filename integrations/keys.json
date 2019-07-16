@@ -30,5 +30,9 @@
   "ReCaptcha": {
     "version": "3",
     "clientKey": "6Lcd3a0UAAAAAFTGnJV44IPyKmMJa7hv7YICKrs9"
+  },
+  "elasticSearch": {
+    "url": "https://search-recipedia-dev-jwvjnpywrw6hxolpwrjycxt7y4.eu-west-1.es.amazonaws.com",
+    "index": "recepedia_pt_br"
   }
 }

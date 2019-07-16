@@ -1,3 +1,6 @@
+// const keys = require('./integrations/keys.json');
+// const axios = require('axios');
+
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -213,11 +216,72 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
   );
-  stage === 'develop' &&
+  if (stage === 'develop') {
     config.module.rules.push({
       test: /react-hot-loader/,
       use: [loaders.js()],
     });
+  } else if (stage === 'build-html') {
+    config.module.rules.push({
+      test: /elasticsearch-browser/,
+      use: loaders.null(),
+    });
+  }
+
   svgLoaderRule.use.options.classIdPrefix = true;
   actions.replaceWebpackConfig(config);
 };
+
+// const bulkPostRecipe = async data => {
+//   try {
+//     await axios.post(`${keys.elasticSearch.url}/_bulk`, data);
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// };
+
+// exports.onPostBuild = async ({ getNodes }) => {
+//   console.log(process.env.NODE_ENV);
+
+//   if (process.env.NODE_ENV === 'production') {
+//     return;
+//   }
+
+//   const nodes = getNodes();
+//   const recipes = nodes.filter(node => node.internal.type === 'Recipe');
+
+//   const promises = [];
+//   // we can play around with this to speed up build time
+//   const batchSize = 600;
+//   const noOfBatches = Math.ceil(recipes.length / batchSize);
+//   let startItem = 0;
+//   for (let i = 0; i < noOfBatches; i++) {
+//     const endItem = startItem + batchSize;
+//     const bulkRows = [];
+//     for (const recipe of recipes.slice(startItem, endItem)) {
+//       if (recipe) {
+//         // each datarow requires a header row like the belwo
+//         const headerRow = {
+//           index: {
+//             _index: keys.elasticSearch.index,
+//             _type: '_doc',
+//             _id: recipe.recipeId,
+//           },
+//         };
+//         bulkRows.push(JSON.stringify(headerRow));
+//         // i've removed these fields to speed up the api call
+//         // we don't need to search on them,
+//         // there's other fields we can remove
+//         delete recipe.assets;
+//         delete recipe.parent;
+//         delete recipe.children;
+//         // we can send any json to the data row
+//         const dataRow = JSON.stringify(recipe);
+//         bulkRows.push(dataRow);
+//       }
+//     }
+//     startItem = endItem > recipes.length ? endItem : recipes.length;
+//     // format required by ES needs newline at end of each row
+//     promises.push(bulkPostRecipe(bulkRows.join('\n') + '\n'));
+//   }
+// };
