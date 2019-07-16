@@ -7,26 +7,9 @@ import SocialSharing, {
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import Icon from 'src/svgs/inline/placeholder.svg';
 import AddThis from '../integrations/AddThis';
+import socialSharingContent from 'src/components/data/socialSharingContent.json';
 
-const content: AppContent.SocialSharing.Content = {
-  buttons: [
-    {
-      name: 'facebook',
-      label: 'Facebook',
-    },
-    {
-      name: 'twitter',
-      label: 'Twitter',
-    },
-    {
-      name: 'linkedIn',
-      label: 'Linked In',
-    },
-  ],
-  openModalButton: {
-    label: 'Share into social networks',
-  },
-};
+const content: AppContent.SocialSharing.Content = socialSharingContent;
 
 const icons: SocialIcons = {
   facebook: Icon,

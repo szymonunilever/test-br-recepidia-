@@ -1,5 +1,5 @@
 import { FluidObject } from 'gatsby-image';
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent, titleLevel } from '../common/globalModels';
 
 export enum SocialSharingViewType {
   Base,
@@ -28,6 +28,7 @@ export interface SocialSharingProps
   buttonClassName?: string;
   CloseButtonIcon?: any;
   icons?: SocialIcons;
+  titleLevel?: titleLevel;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSocialButtonClick?: (shareObject: Record<string, any>) => void;
   handleSocialDialogClose?: () => void;

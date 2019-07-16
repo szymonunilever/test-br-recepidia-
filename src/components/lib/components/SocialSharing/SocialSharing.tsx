@@ -11,10 +11,11 @@ export const SocialSharing = ({
   icons,
   viewType = SocialSharingViewType.Base,
   showTextLabels = false,
-  content: { buttons, openModalButton },
+  content: { buttons, openModalButton, modalTitle },
   handleSocialButtonClick,
   handleSocialDialogClose,
   CloseButtonIcon,
+  titleLevel,
 }: SocialSharingProps) => {
   const props = {
     buttons,
@@ -53,6 +54,8 @@ export const SocialSharing = ({
             isOpen={state}
             className="social-sharing__dialog"
             closeBtn={<CloseButtonIcon />}
+            title={modalTitle}
+            titleLevel={titleLevel}
             close={() => {
               setState(false);
             }}

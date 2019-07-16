@@ -40,6 +40,15 @@ import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
+import SocialSharing, {
+  SocialSharingViewType,
+  SocialIcons,
+} from 'src/components/lib/components/SocialSharing';
+import AddThis from '../../../integrations/AddThis';
+import socialSharingContent from 'src/components/data/socialSharingContent.json';
+import FacebookIcon from 'src/svgs/inline/facebook.svg';
+import InstagramIcon from 'src/svgs/inline/instagram.svg';
+import TwitterIcon from 'src/svgs/inline/twitter.svg';
 
 const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
@@ -122,6 +131,12 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       },
     ],
   };
+  const socialIcons: SocialIcons = {
+    facebook: FacebookIcon,
+    twitter: TwitterIcon,
+    //TODO linkedin icon should be here
+    linkedIn: InstagramIcon,
+  };
 
   return (
     <Layout className={classWrapper}>
@@ -151,6 +166,16 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
                     },
                   }}
                 />
+                <>
+                  <AddThis />
+                  <SocialSharing
+                    content={socialSharingContent}
+                    viewType={SocialSharingViewType.Modal}
+                    CloseButtonIcon={CloseButton}
+                    icons={socialIcons}
+                    titleLevel={4}
+                  />
+                </>
               </div>
             </div>
             <div className={theme.recipeTopBlockItem}>
@@ -173,6 +198,16 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
                     },
                   }}
                 />
+                <>
+                  <AddThis />
+                  <SocialSharing
+                    content={socialSharingContent}
+                    viewType={SocialSharingViewType.Modal}
+                    CloseButtonIcon={CloseButton}
+                    icons={socialIcons}
+                    titleLevel={4}
+                  />
+                </>
               </div>
               <div className={theme.recipeBlockTitle}>
                 <RecipeCopy
