@@ -69,6 +69,7 @@ $submenu-text-color: $fish-blue-darker;
         visibility: visible;
         top: auto;
         margin-right: auto;
+        min-height: 0;
         &.active {
           visibility: visible;
           transform: none;
