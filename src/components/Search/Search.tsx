@@ -32,7 +32,6 @@ const GlobalSearch = ({
                 }
                 id
                 recipeId
-                shortTitle
               }
             }
           }
@@ -50,8 +49,7 @@ const GlobalSearch = ({
             >
               <SearchInput
                 list={data.allRecipe.edges.map(
-                  ({ node }: { node: RecipeSearchDetailsNode }) =>
-                    node.shortTitle
+                  ({ node }: { node: RecipeSearchDetailsNode }) => node.title
                 )}
                 content={searchContent}
                 labelIcon={<SearchIcon />}
@@ -76,5 +74,5 @@ export interface RecipeSearchDetailsNode {
   };
   id: string;
   recipeId: string;
-  shortTitle: string;
+  title: string;
 }

@@ -45,9 +45,9 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
   const { components } = pageContext;
   // TODO below fields should be fetched from back-end. Currenty missing in back-end response
-  recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as RMSData.RecipeNutrient[];
-  recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
-  recipe.nutrients = dataRecipe.nutrientsPerServing as RMSData.RecipeNutrient[];
+  recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as any;
+  recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as any;
+  recipe.nutrients = dataRecipe.nutrientsPerServing as any;
   const tags = data.allTag.nodes;
   const dietaryAttributesIcons = [
     {

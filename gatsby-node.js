@@ -38,7 +38,10 @@ exports.onCreateNode = async ({
   if (node.internal.type === 'Recipe') {
     const slug = url.resolve(
       '/recipes/',
-      (node.shortTitle || node.title)
+      (
+        (node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) ||
+        node.id
+      )
         .toLowerCase()
         .split(' ')
         .join('-')

@@ -1,6 +1,6 @@
 declare namespace AppContent {
   interface Page {
-    title: string;
+    // title: string;
     type: 'Home' | 'RecipeCategory' | 'Search' | 'ContactUs' | 'ContactForm';
     components: {
       items: AppContent.BaseComponent[];
@@ -14,6 +14,6 @@ declare namespace AppContent {
     /**
      * Gatsby should use this dynamic value for page URL
      */
-    path: string;
+    relativePath: string;
   }
 }

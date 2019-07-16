@@ -64,7 +64,7 @@ const getRecipeItem = () => {
         titleLevel={1}
         slug={recipeList[0].fields.slug}
         onFavoriteChange={changeFavorites}
-        content={{ title: recipeList[0].shortTitle }}
+        content={{ title: recipeList[0].title }}
         recipeId={recipeList[0].id}
         ratingProvider={RatingAndReviewsProvider.none}
       />

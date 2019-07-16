@@ -27,8 +27,6 @@ export const query = graphql`
       totalTime
     }
     recipeId
-    shortDescription
-    shortTitle
     tagGroups {
       label
       name
