@@ -57,7 +57,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <main id="content">{children}</main>
       <GeneratedForm
-        titleLevel={1}
+        titleLevel={2}
         shouldValidate={true}
         onSubmit={async (value: object) => {
           await new Promise(resolve => setTimeout(resolve, 500));
@@ -65,6 +65,7 @@ const Layout = ({ children, className }: LayoutProps) => {
           console.log('Submitting sign up email', value);
         }}
         content={findPageComponentContent(components, 'Form', 'SignUpForm')}
+        className="general-signup"
       />
       <GlobalFooter
         logoIcon={<UnileverLogoIcon text="Unilever Logo" />}

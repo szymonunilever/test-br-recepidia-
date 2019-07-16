@@ -22,6 +22,7 @@ const BrandSocialChannels = ({
             url={get(socialItem, 'url')}
             label={displayLabel && get(socialItem, 'get')}
             icon={icon}
+            attributes={{ 'aria-label': index }}
           />
         );
       })}

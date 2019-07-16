@@ -16,6 +16,7 @@ export const Button = ({
   toggleExternalManage = false,
   viewType = ButtonViewType.classic,
   content,
+  attributes = {},
 }: ButtonProps) => {
   const { label } = content || { label: '' };
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
@@ -55,14 +56,14 @@ export const Button = ({
   };
 
   // @ts-ignore
-  isToggle ? (props['aria-selected'] = selected) : null;
+  isToggle ? (props['aria-pressed'] = selected) : null;
 
   return viewType === ButtonViewType.icon ? (
-    <button className={iconClasses} {...props}>
+    <button className={iconClasses} {...props} {...attributes}>
       {TheIcon ? <TheIcon /> : null}
     </button>
   ) : (
-    <button className={wrapClasses} {...props}>
+    <button className={wrapClasses} {...props} {...attributes}>
       {TheIcon ? <TheIcon /> : null}
       {label ? <span className="button__label">{label}</span> : null}
       {children}

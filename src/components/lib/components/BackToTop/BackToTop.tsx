@@ -46,7 +46,11 @@ export const BackToTop = ({
 
   return (
     <div className={wrapClasses}>
-      <Button {...props} onClick={onClick} />
+      <Button
+        {...props}
+        onClick={onClick}
+        attributes={{ 'aria-label': 'back to top' }}
+      />
       <span className="back-to-top--label">{content.label}</span>
     </div>
   );

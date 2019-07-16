@@ -29,6 +29,7 @@ const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
         <BurgerButton
           onClick={handleToggleNavigationClick}
           className="burger-button"
+          attributes={{ 'aria-label': 'Menu' }}
         >
           <span className="burger-button__icon" />
         </BurgerButton>

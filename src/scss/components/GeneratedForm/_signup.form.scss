@@ -1,11 +1,11 @@
-.generated-form{
+.general-signup{
   padding: 37px 0 45px;
   background-color: $white-gray;
   @include respondTo(desktop){
     padding: 65px 0 72px;
   }
 
-  &__container{
+  .generated-form__container{
     @extend .container;
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +39,7 @@
     }
 
     &__label-text{
-      margin: 0;
+      @extend .sr-only;
     }
 
     &__input{
@@ -70,7 +70,7 @@
     }
   }
 
-  &__button--primary{
+  .generated-form__button--primary{
     @extend .button;
     @extend .button--yellow;
     padding: 0 23px;
