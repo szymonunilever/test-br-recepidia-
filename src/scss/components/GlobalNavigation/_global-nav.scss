@@ -349,6 +349,16 @@ $submenu-text-color: $fish-blue-darker;
     &__item {
       line-height: 1;
 
+      &:not(.has-submenu){
+        &:nth-last-child(1){
+          margin-top: 20px;
+          a{
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+      
       &.has-submenu {
         display: flex;
         align-items: center;

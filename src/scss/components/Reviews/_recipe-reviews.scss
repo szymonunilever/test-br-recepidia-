@@ -22,6 +22,9 @@
       margin-bottom: 20px;
       padding: 0;
       font-family: $rubik;
+      @include respondTo(medium){
+        font-size: 2.5rem;
+      }
     }
 
     .sort-container{
@@ -42,6 +45,9 @@
       .aggregateRating{
         height: 0;
         transform: translateX(82px) translateY(4px);
+        @include respondTo(medium){
+          transform: translateX(82px) translateY(0px);
+        }        
         img{
           height: 17px;
           width: auto;
