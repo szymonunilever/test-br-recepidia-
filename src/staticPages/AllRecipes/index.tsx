@@ -19,13 +19,14 @@ import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import { action } from '@storybook/addon-actions';
+import theme from './AllRecipes.module.scss';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
   const { allRecipe, allTagGroup } = data;
 
   return (
-    <Layout>
+    <Layout className={theme.allRecipes}>
       <SEO title="All Recipes" />
       <Kritique />
       <section className="_pt--40">
@@ -39,7 +40,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section className="_pt--40 _pb--40">
+      <section className="_pb--40">
         <div className="container">
           <PageListing
             content={findPageComponentContent(
@@ -49,6 +50,19 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             )}
             list={pageListingData}
             viewType={PageListingViewTypes.carousel}
+            titleLevel={2}
+            carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
+                  visibleElementsBelowBreakpoint: 3,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+              arrowIcon: <ArrowIcon />,
+            }}
           />
         </div>
       </section>

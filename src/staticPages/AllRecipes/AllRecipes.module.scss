@@ -1,0 +1,13 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+
+.all-recipes{
+  :global{
+    .page-listing__title{
+      font-size: 1.4rem;
+      @include respondTo(desktop){
+        font-size: 2rem;
+      }
+    }
+  }
+}

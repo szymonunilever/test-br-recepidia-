@@ -21,17 +21,12 @@
   &__btn-close{
     @extend .button;
     @extend .button--flat;
-    @extend .button--control;
     position: absolute;
     right: 0;
     top: 0;
     width: 54px;
     height: 54px;
     display: flex;
-
-    &:hover {
-      fill: $fish-blue;
-    }
 
     svg{
       width: 16px;

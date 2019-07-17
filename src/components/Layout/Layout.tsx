@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
@@ -14,6 +14,7 @@ import cx from 'classnames';
 import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
+import smartOutline from 'smart-outline';
 
 const Layout = ({ children, className }: LayoutProps) => {
   const { allCommonComponent } = useStaticQuery(graphql`
@@ -27,6 +28,9 @@ const Layout = ({ children, className }: LayoutProps) => {
     }
   `);
 
+  useEffect(() => {
+    smartOutline.init();
+  });
   const components = allCommonComponent.nodes;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components.forEach((component: any) => {
