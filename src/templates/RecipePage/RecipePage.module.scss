@@ -43,12 +43,26 @@
     }
 
     .recipeHeroMobile {
+      position: relative;
       border-radius: 5px;
       width: 100%;
       height: 100%;
       overflow: hidden;
       @include respondTo(desktop) {
         display: none;
+      }
+    }
+    .recipeHeroActions {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 18px;
+      right: 18px;
+      & > div:not(:last-child) {
+        margin-bottom: 10px;
+        @include respondTo(desktop) {
+          margin-bottom: 20px;
+        }
       }
     }
     .recipeHeroDesktop {

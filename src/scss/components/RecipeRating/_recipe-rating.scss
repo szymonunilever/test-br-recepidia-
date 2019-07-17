@@ -1,8 +1,12 @@
 .recipe-rating {
   margin-bottom: 20px;
-  .rr-widget-container{
+  .rr-widget-container {
     display: flex;
     align-items: center;
+    margin: 0;
+    .wRtng {
+      display: none;
+    }
   }
   .agRatingSelect,
   .agRatingDeSelect {

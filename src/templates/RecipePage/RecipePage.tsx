@@ -32,7 +32,6 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import Reviews from 'src/components/lib/components/Reviews';
 import { findPageComponentContent } from 'src/utils';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
-import { action } from '@storybook/addon-actions';
 import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 import attributes from 'src/components/data/dietaryAttributes.json';
 import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
@@ -40,6 +39,7 @@ import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
+import Button from '../../components/lib/components/common/Button';
 import SocialSharing, {
   SocialSharingViewType,
   SocialIcons,
@@ -142,6 +142,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
       <Kritique />
+      <AddThis />
 
       <section className={theme.topBg}>
         <div className="container">
@@ -166,16 +167,25 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
                     },
                   }}
                 />
-                <>
-                  <AddThis />
-                  <SocialSharing
-                    content={socialSharingContent}
-                    viewType={SocialSharingViewType.Modal}
-                    CloseButtonIcon={CloseButton}
-                    icons={socialIcons}
-                    titleLevel={4}
-                  />
-                </>
+                <div className={theme.recipeHeroActions}>
+                  <div>
+                    <Button
+                      Icon={FavoriteIcon}
+                      isToggle={true}
+                      // changeHandler={console.log}
+                      className="action-button"
+                    />
+                  </div>
+                  <>
+                    <SocialSharing
+                      content={socialSharingContent}
+                      viewType={SocialSharingViewType.Modal}
+                      CloseButtonIcon={CloseButton}
+                      icons={socialIcons}
+                      titleLevel={4}
+                    />
+                  </>
+                </div>
               </div>
             </div>
             <div className={theme.recipeTopBlockItem}>
@@ -198,16 +208,25 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
                     },
                   }}
                 />
-                <>
-                  <AddThis />
-                  <SocialSharing
-                    content={socialSharingContent}
-                    viewType={SocialSharingViewType.Modal}
-                    CloseButtonIcon={CloseButton}
-                    icons={socialIcons}
-                    titleLevel={4}
-                  />
-                </>
+                <div className={theme.recipeHeroActions}>
+                  <div>
+                    <Button
+                      Icon={FavoriteIcon}
+                      isToggle={true}
+                      // changeHandler={console.log}
+                      className="action-button"
+                    />
+                  </div>
+                  <>
+                    <SocialSharing
+                      content={socialSharingContent}
+                      viewType={SocialSharingViewType.Modal}
+                      CloseButtonIcon={CloseButton}
+                      icons={socialIcons}
+                      titleLevel={4}
+                    />
+                  </>
+                </div>
               </div>
               <div className={theme.recipeBlockTitle}>
                 <RecipeCopy
@@ -347,7 +366,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
             carouselConfig={{
               breakpoints: [
                 {

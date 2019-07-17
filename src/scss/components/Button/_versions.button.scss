@@ -63,6 +63,10 @@ $button-disabled-color: #9f9f9f !default;
     border-radius: 20px;
   }
 
+  &--circle {
+    border-radius: 50%;
+  }
+
   // Button color modification
 
   &--secondary {
@@ -157,5 +161,44 @@ $button-disabled-color: #9f9f9f !default;
     // tags
     background-color: $fish-blue-darker;
     color: $white;
+  }
+}
+
+.action-button {
+  @extend .button;
+  @extend .button--circle;
+  padding: 0;
+  background: $white;
+  color: $fish-blue-darker;
+  &:hover {
+    background-color: $apple-green;
+    color: $black-blue;
+    svg {
+      fill: $black-blue;
+    }
+  }
+  width: 24px;
+  height: 24px;
+  @include respondTo(desktop) {
+    width: 40px;
+    height: 40px;
+  }
+  svg {
+    stroke: currentColor;
+    fill: $white;
+    transition: stroke 0.2s ease-out;
+    width: 10px;
+    height: 9px;
+    @include respondTo(desktop) {
+      width: 17px;
+      height: 15px;
+    }
+  }
+  &.button__selected {
+    background-color: $apple-green;
+    color: $black-blue;
+    svg {
+      fill: $black-blue;
+    }
   }
 }

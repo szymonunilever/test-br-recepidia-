@@ -17,7 +17,6 @@ import pageListingData from 'src/components/data/pageListing.json';
 import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
-import { action } from '@storybook/addon-actions';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
@@ -55,13 +54,12 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
             carouselConfig={{
               breakpoints: [
                 {
                   width: 768,
                   switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 2,
+                  switchElementsAfterBreakpoint: 1,
                   visibleElementsBelowBreakpoint: 2,
                   visibleElementsAboveBreakpoint: 4,
                 },
@@ -84,7 +82,6 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"

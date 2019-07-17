@@ -75,6 +75,7 @@
         @extend .button;
         @extend .button--medium;
         @extend .button--yellow;
+        font-weight: bold;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }

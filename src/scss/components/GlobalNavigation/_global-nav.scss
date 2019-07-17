@@ -69,7 +69,7 @@ $submenu-text-color: $fish-blue-darker;
         visibility: visible;
         top: auto;
         margin-right: auto;
-        min-height: 0;
+        min-height: initial;
         &.active {
           visibility: visible;
           transform: none;
@@ -291,6 +291,17 @@ $submenu-text-color: $fish-blue-darker;
       cursor: pointer;
     }
   }
+  .menu__item.has-submenu:first-child {
+    & > .submenu {
+      & > .submenu__item:last-child {
+        margin-top: 15px;
+        a {
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 
   /// MENU STYLES 2-3 lvl
 
@@ -350,16 +361,6 @@ $submenu-text-color: $fish-blue-darker;
     &__item {
       line-height: 1;
 
-      &:not(.has-submenu){
-        &:nth-last-child(1){
-          margin-top: 20px;
-          a{
-            text-transform: uppercase;
-            font-weight: bold;
-          }
-        }
-      }
-      
       &.has-submenu {
         display: flex;
         align-items: center;
