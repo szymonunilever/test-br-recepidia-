@@ -9,24 +9,14 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
+    background-color: $blue-overlay-40;
     z-index: 100;
-    overflow: auto;
-    background-color: rgba(54, 56, 64, .4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   &__content{
+    position: absolute;
     overflow: auto;
     outline: none;
     padding: 20px;
-    position: relative;
-    background-color: $white;
-    border-radius: 20px;
-    width: 100%;
-    @include respondTo(medium){
-      width: 720px;
-    }
   }
   &__btn-close{
     @extend .button;
@@ -47,20 +37,9 @@
       width: 16px;
       height: 16px;
       display: block;
-      margin:0;
+      margin:auto;
     }
   }
-  &__header{
-    *{
-      font-size: 2.1rem;
-      font-weight: 500;
-      line-height: 1.33;
-      color: $fish-blue;
-      @include respondTo(medium){
-        color: $black-blue;
-      }
-    }
-  }  
 }
 
 %modal__content--small{//fullscreen mobile, small window on desktop
@@ -112,12 +91,26 @@
         height: 475px;
       }
     }
+    &__btn-close{
+      svg{
+        margin: 0;
+      }
+    }
   }
 }
 .modal--filter{
   .modal{
     &__content{
       @extend %modal__content--bordered;
+      padding-top: 26px;
+      @include respondTo(desktop) {
+        padding-top: 42px;
+      }
+    }
+    &__btn-close{
+      svg{
+        margin: 0;
+      }
     }
   }
 }
@@ -128,4 +121,94 @@
 
 .modal--fullscreen{
 
+}
+
+
+%modal__overlay--flex{
+  align-items: flex-start;
+  overflow: auto;
+  background-color: rgba(54, 56, 64, .4);
+  display: flex;
+  justify-content: center;
+}
+%modal__content--flex{
+  position: relative;
+  padding: 20px 0;
+  background-color: $white;
+  border-radius: 20px;
+  width: 100%;
+  @include respondTo(medium){
+    width: 720px;
+    padding: 45px 0;
+    border-radius: 5px;
+  }
+}
+%modal__header--flex{
+  *{
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 1.33;
+    color: $fish-blue;
+    margin-bottom: 28px;
+    @include respondTo(medium){
+      color: $black-blue;
+    }
+  }
+}
+%modal__btn-close--flex{
+  justify-content: center;
+  align-items: center;
+  svg{
+    margin: 0;
+  }
+} 
+
+.recipe-nutrients__modal{
+  .modal{
+    &__overlay{
+      @extend %modal__overlay--flex;
+    }
+    &__header{
+      @extend %modal__header--flex;
+      *{
+        margin-bottom: 35px;
+        padding: 0 24px;
+        @include respondTo(medium){
+          padding: 0 90px;
+        }
+      }
+    }
+    &__content{
+      @extend %modal__content--flex;
+      margin-top: 47px;
+    }
+    &__btn-close{
+      @extend %modal__btn-close--flex;
+    } 
+  }
+}
+
+.social-sharing__dialog{
+  .modal{
+    &__overlay{
+      @extend %modal__overlay--flex;
+      padding-left: 24px;
+      padding-right: 24px;
+      align-items: center;
+    }
+    &__content{
+      @extend %modal__content--flex;
+      padding: 28px 28px 40px;
+      @include respondTo(medium){
+        padding: 56px 92px 78px;
+        border-radius: 20px;
+      }
+    }
+    &__header{
+      @extend %modal__header--flex;
+    }   
+    &__btn-close{
+      @extend %modal__btn-close--flex;
+    } 
+  }
 }

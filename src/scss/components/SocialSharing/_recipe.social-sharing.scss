@@ -47,23 +47,3 @@
     }
   }
 }
-
-.social-sharing__dialog{
-  .modal{
-    &__overlay{
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-    &__content{
-      padding: 28px 28px 40px;
-      @include respondTo(medium){
-        padding: 56px 92px 78px;
-      }
-    }
-    &__header{
-      *{
-        margin-bottom: 28px;
-      }
-    }    
-  }
-}

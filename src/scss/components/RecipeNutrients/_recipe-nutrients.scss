@@ -16,99 +16,78 @@
   } 
 
   &__modal{
-    .modal{
-      &__overlay{
-        align-items: flex-start;
+    table{
+      width: 100%;
+      margin-bottom: 24px;
+      &:nth-last-child(1){
+        margin-bottom: 0;
       }
-      &__header{
-        *{
-          margin-bottom: 35px;
+      tr{
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      td, th{
+        display: block;
+        flex: 1;
+        padding-right: 15px;
+        &:nth-last-child(1){
+          padding-right: 0;
+        }
+      }
+      th{
+        padding-bottom: 15px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        line-height: 1.29;
+        color: $black-blue;
+        text-align: left;
+      }
+      tbody{
+        display: block;
+        width: 100vw;
+        padding: 0 24px;
+        @include respondTo(desktop){
+          width: 100%;
+        }
+      }
+      &:nth-child(1){
+        thead{
           padding: 0 24px;
+          display: block;
+        }
+        tbody{
+          border-radius: 20px;
+          background-color: $white-gray;
+          font-size: 1.4rem;
+          line-height: 1.29;
+          color: $black-blue;
+          padding: 24px;
+          @include respondTo(desktop){
+            padding: 24px 90px;
+            border-radius: 0;
+          }
+        }
+      }
+      &:nth-child(2){
+        thead{
           @include respondTo(desktop){
             padding: 0 90px;
+            display: block;
           }
         }
-      }
-      &__content{
-        margin-top: 47px;
-        padding: 20px 0;
-        @include respondTo(desktop){
-          width: 720px;
-          padding: 45px 0;
-        }
-        table{
-          width: 100%;
-          margin-bottom: 24px;
-          &:nth-last-child(1){
-            margin-bottom: 0;
+        tbody{
+          padding: 0;
+          @include respondTo(desktop){
+            padding: 24px 90px;
           }
-          tr{
-            display: flex;
-            flex-wrap: nowrap;
-          }
-          td, th{
-            display: block;
-            flex: 1;
-            padding-right: 15px;
-            &:nth-last-child(1){
-              padding-right: 0;
-            }
-          }
-          th{
-            padding-bottom: 15px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            line-height: 1.29;
-            color: $black-blue;
-            text-align: left;
-          }
-          tbody{
-            display: block;
-            width: 100vw;
-            padding: 0 24px;
-            @include respondTo(desktop){
-              width: 100%;
-            }
-          }
-          &:nth-child(1){
-            thead{
-              padding: 0 24px;
-              display: block;
-            }
-            tbody{
-              border-radius: 20px;
-              background-color: $white-gray;
-              font-size: 1.4rem;
-              line-height: 1.29;
-              color: $black-blue;
-              padding: 24px;
+          td{
+            padding: 15px 15px 15px 0;
+            border-bottom: 1px solid rgba(54, 56, 64, .4);
+            &:nth-child(1){
+              font-weight: bold;
+              padding: 15px 0 14px 24px;
               @include respondTo(desktop){
-                padding: 24px 90px;
-              }
-            }
-          }
-          &:nth-child(2){
-            thead{
-              @include respondTo(desktop){
-                padding: 0 90px;
-                display: block;
-              }
-            }
-            tbody{
-              padding: 0;
-              @include respondTo(desktop){
-                padding: 24px 90px;
-              }
-              td{
                 padding: 15px 15px 15px 0;
-                border-bottom: 1px solid rgba(54, 56, 64, .4);
-                &:nth-child(1){
-                  font-weight: bold;
-                  padding: 15px 0 14px 24px;
-                  @include respondTo(desktop){
-                    padding: 15px 15px 15px 0;
-                  }
-                }
               }
             }
           }
