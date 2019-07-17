@@ -13,23 +13,26 @@ module.exports = {
   plugins: [
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-zopfli',
+    },
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {
     //     //trackingId: 'ADD YOUR TRACKING ID HERE',
     //   },
     // },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Recipedia',
-        short_name: 'Recipedia',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     name: 'Recipedia',
+    //     short_name: 'Recipedia',
+    //     start_url: '/',
+    //     background_color: '#ffffff',
+    //     theme_color: '#663399',
+    //     display: 'minimal-ui',
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {

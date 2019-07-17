@@ -963,6 +963,12 @@
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
+"@gfx/zopfli@^1.0.12":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@gfx/zopfli/-/zopfli-1.0.14.tgz#52319e9bce0482f03ff02845e13fd95bb0ec7152"
+  dependencies:
+    base64-js "^1.3.0"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -1820,7 +1826,6 @@
 "@types/react-flag-icon-css@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-flag-icon-css/-/react-flag-icon-css-1.0.2.tgz#ad758931ddf70a46e36ddf845791dc9233ea2b53"
-  integrity sha512-ECCdG24Bpp4+JIJhXHjY6lZ3oFHRe3pI8HgEdsel6PAJZptEnkpQuJyLA+sNjhFvC7vfXaNESKH8YxqnA8S1MQ==
   dependencies:
     "@types/react" "*"
     csstype "^2.2.0"
@@ -3106,7 +3111,7 @@ base64-arraybuffer@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
 
-base64-js@^1.0.2:
+base64-js@^1.0.2, base64-js@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
 
@@ -6099,7 +6104,6 @@ find-versions@^3.0.0:
 flag-icon-css@^3.2.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-3.3.0.tgz#7772461e4480d3d86da5962f02120a2825688433"
-  integrity sha512-u5lCGVExrJJRykNGd//ZrBU5Bkt0LTZJFSuG+Az/pwcHgzDeFwomwFbsgVtI1aJd6ysyHsx+5UGrA+nhSGd4yw==
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -6374,7 +6378,6 @@ gatsby-graphiql-explorer@^0.1.0:
 gatsby-image@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.2.5.tgz#2d9bfc8ccaa66a05990835fb825ff157d9293e8a"
-  integrity sha512-bf6NmR8MgjwI1RcOEBSjBmfUBzU7I1/c8/fJjNI7PkjDlW4lTo8i1cnojo8loGYB3r1PiM6G2lKAufND7t4TCg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     object-fit-images "^3.2.4"
@@ -6492,6 +6495,14 @@ gatsby-plugin-typescript@^2.0.15:
     "@babel/preset-typescript" "^7.0.0"
     "@babel/runtime" "^7.0.0"
     babel-plugin-remove-graphql-queries "^2.6.3"
+
+gatsby-plugin-zopfli@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-zopfli/-/gatsby-plugin-zopfli-1.2.3.tgz#c3ee9b6c65f9b5a725ccc7f514fb1577002414db"
+  dependencies:
+    "@gfx/zopfli" "^1.0.12"
+    glob "^7.1.4"
+    mkdirp "^0.5.1"
 
 gatsby-react-router-scroll@^2.0.7:
   version "2.0.7"
@@ -6828,7 +6839,7 @@ glob-to-regexp@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
 
-glob@^7.0.0, glob@~7.1.1:
+glob@^7.0.0, glob@^7.1.4, glob@~7.1.1:
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.4.tgz#aa608a2f6c577ad357e1ae5a5c26d9a8d1969255"
   dependencies:
@@ -11898,7 +11909,6 @@ react-final-form@^6.1.0:
 react-flag-icon-css@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/react-flag-icon-css/-/react-flag-icon-css-1.0.25.tgz#ac2e99f635ce333c210f593576f12908db8bf3ba"
-  integrity sha512-UJll3zpmbZvkwZvu4HI00iGF8ya4OdFzMR5k3cAluIwdHn8l5cB3CPYt+hw0tt7fLKaYIfncxNEO/qTtvBw2qw==
   dependencies:
     classnames "^2.2.6"
     flag-icon-css "^3.2.1"
@@ -12076,7 +12086,6 @@ react-svg-loader@^3.0.2:
 react-swipeable@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.3.0.tgz#861bcecab2d5ff462e5737b1a20da2bfe35d8b21"
-  integrity sha512-mOfRfPxbcfl0jC/3DHSYWRkTElr8aU+ZVc4qv+VOhOQfw8+UM7Mhlky+1YhpRQ/5F9NRR36NZHhHP0kC1yEjGQ==
   dependencies:
     prop-types "^15.6.2"
 
