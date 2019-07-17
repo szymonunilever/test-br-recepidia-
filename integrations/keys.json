@@ -26,5 +26,9 @@
       "line": "lineme",
       "whatsUp": "whatsapp"
     }
+  },
+  "ReCaptcha": {
+    "version": "3",
+    "clientKey": "6Lcd3a0UAAAAAFTGnJV44IPyKmMJa7hv7YICKrs9"
   }
 }

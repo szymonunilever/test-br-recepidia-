@@ -175,6 +175,10 @@ const content: AppContent.GeneratedForm.Content = {
         },
       ],
     },
+    {
+      type: 'captcha',
+      name: 'recaptcha',
+    },
   ],
 };
 
@@ -197,14 +201,16 @@ storiesOf('Components/Generated Form', module)
       content={content}
       className="test"
       shouldValidate
+      recaptchaAction="signUp"
     />
   ))
-  .add('Resipe sign up with validation', () => (
+  .add('Recipe sign up with validation', () => (
     <GeneratedForm
       content={signUpFormContent as AppContent.GeneratedForm.Content}
       titleLevel={1}
       onSubmit={onSubmit}
       className="test-recipe-sign-up"
       shouldValidate={true}
+      recaptchaAction="signUp"
     />
   ));

@@ -5,4 +5,6 @@ export interface GeneratedFormProps
   onSubmit: (values: object) => Promise<void>;
   shouldValidate?: boolean;
   titleLevel?: titleLevel;
+  recaptchaAction?: string;
+  hasCaptcha?: boolean;
 }

@@ -63,6 +63,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       <GeneratedForm
         titleLevel={2}
         shouldValidate={true}
+        recaptchaAction="SignUpEmail"
         onSubmit={async (value: object) => {
           await new Promise(resolve => setTimeout(resolve, 500));
           // eslint-disable-next-line no-console

@@ -255,9 +255,8 @@ const GeneratedField = ({
         </Field>
       );
       break;
-    case 'capcha':
+    case 'captcha':
       view = <></>;
-      //TODO: make capcha integration.
       break;
     default:
       view = <p className={className + '-description'}>{content.label}</p>;
