@@ -64,7 +64,16 @@ const Layout = ({ children, className }: LayoutProps) => {
           // eslint-disable-next-line no-console
           console.log('Submitting sign up email', value);
         }}
-        content={findPageComponentContent(components, 'Form', 'SignUpForm')}
+        content={{
+          ...findPageComponentContent(components, 'Form', 'SignUpForm'),
+          fields: [
+            {
+              ...findPageComponentContent(components, 'Form', 'SignUpForm')
+                .fields[0],
+              label: 'Email',
+            },
+          ],
+        }}
         className="general-signup"
       />
       <GlobalFooter
