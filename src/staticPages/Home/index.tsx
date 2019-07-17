@@ -114,7 +114,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
           <PageListing
             content={findPageComponentContent(components, 'PageListing')}
             list={pageListingData}
-            initialCount={6}
+            initialCount={12}
           />
         </div>
       </section>
