@@ -344,6 +344,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
             initialCount={8}
             tagsPerLoad={4}
             variant="link"
+            titleLevel={2}
           />
         </div>
       </section>
@@ -362,7 +363,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--2-4"
-            titleLevel={3}
+            titleLevel={2}
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}

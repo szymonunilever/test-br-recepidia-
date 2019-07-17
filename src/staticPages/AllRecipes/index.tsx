@@ -102,7 +102,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             )}
             list={allRecipe.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
-            titleLevel={3}
+            titleLevel={2}
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}

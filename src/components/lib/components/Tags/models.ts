@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
 
 export enum TagViewType {
   standard,
@@ -17,6 +17,7 @@ export interface TagsProps
   viewType?: TagViewType;
   handleTagToggle?: (val: TagToggleHandler) => void;
   handleTagRemove?: (val: Internal.Tag) => void;
+  titleLevel?: titleLevel;
 }
 export interface TagToggleHandler {
   tag: Internal.Tag;
