@@ -5,7 +5,8 @@
     flex-direction: column;
     &__title {
       text-align: center;
-      color: $fish-blue;
+      color: $fish-blue-darker;
+      @extend %h2--bigger;
     }
     .form {
       &__group {

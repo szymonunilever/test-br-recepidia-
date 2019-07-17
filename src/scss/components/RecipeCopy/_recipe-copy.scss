@@ -1,7 +1,7 @@
 .recipe-copy {
   &__title {
     h1{
-      font-size: 3rem;
+      @extend %h1--smaller;
       margin-bottom: 30px;
     }
   }

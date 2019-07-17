@@ -233,7 +233,7 @@ $submenu-text-color: $fish-blue-darker;
             width: 1em;
             height: 1em;
             @include respondTo(desktop) {
-              fill: $fish-blue;
+              fill: $fish-blue-darker;
             }
           }
         }
@@ -438,7 +438,7 @@ $submenu-text-color: $fish-blue-darker;
             @include respondTo(desktop) {
               display: inline-block;
               vertical-align: middle;
-              fill: $fish-blue;
+              fill: $fish-blue-darker;
               font-size: 1.4rem;
               width: 1em;
               height: 1em;

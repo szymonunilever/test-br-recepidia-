@@ -78,7 +78,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
-            titleLevel={3}
+            titleLevel={2}
             initialCount={6}
             recipePerLoad={4}
             withFavorite

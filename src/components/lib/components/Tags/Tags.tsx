@@ -4,6 +4,7 @@ import { Button } from 'src/components/lib/components/common/Button';
 import { TagsProps, TagViewType } from './models';
 import Tag from './partials/Tag';
 import { includes } from 'lodash';
+import { TagName, Text } from '../Text';
 
 const Tags = ({
   list,
@@ -18,6 +19,7 @@ const Tags = ({
   className,
   viewType = TagViewType.standard,
   variant,
+  titleLevel = 2,
 }: TagsProps) => {
   const { title, loadMoreButton } = content || {
     title: undefined,
@@ -88,7 +90,14 @@ const Tags = ({
       </div>
     ) : (
       <div className={classNames} data-componentname="tags">
-        {title ? <h3 className="tags__title">{title}</h3> : null}
+        {title && (
+          <Text
+            className="tags__title"
+            // @ts-ignore
+            tag={TagName[`h${titleLevel}`]}
+            text={title}
+          />
+        )}
 
         <ul className="tags__list">
           {tags.displayList.map((item: Internal.Tag) => (
