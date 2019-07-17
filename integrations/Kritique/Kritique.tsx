@@ -21,7 +21,7 @@ const Kritique = () => {
         <Helmet
           script={[
             {
-              src: 'jquery.min.js',
+              src: 'https://code.jquery.com/jquery-3.4.1.slim.min.js',
               defer: true,
               async: true,
             },
