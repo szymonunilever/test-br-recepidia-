@@ -22,6 +22,7 @@ declare namespace AppContent.GeneratedForm {
     }[];
     fieldset?: string;
     validationRules?: Rule[];
+    className?: string;
   }
 
   export interface Rule {

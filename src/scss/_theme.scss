@@ -139,6 +139,13 @@ p {
 [hidden] {
   display: none !important;
 }
+._desktop-50{
+  @include respondTo(desktop){
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
 .sr-only{
   position: absolute;
   width: 1px;

@@ -182,17 +182,8 @@ const content: AppContent.GeneratedForm.Content = {
   ],
 };
 
-const promise = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-const logSubmitValues = (values: object) => {
-  // eslint-disable-next-line no-console
-  console.log(values);
-};
-
-const onSubmit = async (values: object) => {
-  await promise(500);
-  return logSubmitValues(values);
-};
+// eslint-disable-next-line no-console
+const onSubmit = () => console.log('onSubmit');
 
 storiesOf('Components/Generated Form', module)
   .add('with validation', () => (
