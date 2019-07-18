@@ -64,6 +64,9 @@ $footer-color: $black-blue;
       }
 
       .footer-menu__link {
+        &:first-child{
+          text-transform: capitalize;
+        }
         @include respondTo(desktop) {
           font-size: 2.5rem;
           font-weight: bold;

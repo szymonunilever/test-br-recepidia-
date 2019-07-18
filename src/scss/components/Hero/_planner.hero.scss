@@ -50,7 +50,6 @@
         padding: 0 30px;
       }
       h2{
-        @extend h3;
         margin: 0;
         @include respondTo(desktop) {
           font-size: 4.5rem;

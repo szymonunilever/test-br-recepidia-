@@ -51,7 +51,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             className="recipe-list--blue-header recipe-list--carousel cards--2-4"
             viewType={RecipeListViewType.Carousel}
-            titleLevel={3}
+            titleLevel={2}
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
@@ -86,7 +86,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
-            titleLevel={3}
+            titleLevel={2}
             carouselConfig={{
               breakpoints: [
                 {
@@ -115,7 +115,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
           <PageListing
             content={findPageComponentContent(components, 'PageListing')}
             list={pageListingData}
-            initialCount={6}
+            initialCount={12}
           />
         </div>
       </section>

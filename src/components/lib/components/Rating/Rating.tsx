@@ -32,7 +32,7 @@ const Rating = ({
             data-unique-id={recipeId}
             data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
             data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
-            title="Recipeeeeeeeeeee"
+            title="Recipe"
             onClick={(e: SyntheticEvent) => {
               e.stopPropagation();
             }}

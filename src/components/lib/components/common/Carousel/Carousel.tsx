@@ -4,6 +4,7 @@ import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
 import styles from './Carousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
+import cx from 'classnames';
 
 const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const getNearestBreakpoint = (target: number) => {
@@ -18,40 +19,67 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const [translateValue, setTranslateValue] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [trackingIndex, setTrackingIndex] = useState(0);
+  const [updateKey, setUpdateKey] = useState();
 
   const mayGoLeft = translateValue < 0;
   const mayGoRight =
     translateValue > -(list.length - visibleElements) * (100 / list.length);
 
+  const adjustSizing = (
+    currentlyVisibleElements: number,
+    currentTranslateValue: number
+  ) => {
+    const maxTranslate =
+      -(list.length - currentlyVisibleElements) * (100 / list.length);
+
+    let fixedTranslateValue = undefined;
+    if (currentTranslateValue < maxTranslate) {
+      fixedTranslateValue = maxTranslate;
+      setTranslateValue(fixedTranslateValue);
+    } else if (currentTranslateValue > 0) {
+      fixedTranslateValue = 0;
+      setTranslateValue(fixedTranslateValue);
+    }
+    const actualCurrentTranslateValue =
+      fixedTranslateValue !== undefined
+        ? fixedTranslateValue
+        : currentTranslateValue;
+    return [actualCurrentTranslateValue, maxTranslate];
+  };
+
   const setCarouselSettings = () => {
     const newBreakpoint = getNearestBreakpoint(window.innerWidth);
-    setSlideStep(
+    const newSlideStep =
       window.innerWidth > newBreakpoint.width
         ? newBreakpoint.switchElementsAfterBreakpoint
-        : newBreakpoint.switchElementsBelowBreakpoint
-    );
-    setVisibleElements(
+        : newBreakpoint.switchElementsBelowBreakpoint;
+    const newVisibleElemenst =
       window.innerWidth > newBreakpoint.width
         ? newBreakpoint.visibleElementsAboveBreakpoint
-        : newBreakpoint.visibleElementsBelowBreakpoint
+        : newBreakpoint.visibleElementsBelowBreakpoint;
+    setSlideStep(newSlideStep);
+    setVisibleElements(newVisibleElemenst);
+
+    const [newTranslateValue, maxTranslate] = adjustSizing(
+      newVisibleElemenst,
+      translateValue
     );
-    const maxTranslate = -(list.length - visibleElements) * (100 / list.length);
-    if (translateValue < maxTranslate) {
-      setTranslateValue(maxTranslate);
-    } else if (translateValue > 0) {
-      setTranslateValue(0);
-    }
-    setPercentage(Math.abs(translateValue / maxTranslate) * 100);
-    setTrackingIndex(Math.abs(translateValue) / (100 / list.length));
+    const newPercentage = Math.abs(newTranslateValue / maxTranslate) * 100;
+    setPercentage(newPercentage);
+    const newTrackingIndex = Math.abs(newTranslateValue) / (100 / list.length);
+    setTrackingIndex(newTrackingIndex);
   };
 
   const switchImages = (mayMove: boolean, newTranslateValue: number) => {
     if (mayMove) {
-      const maxTranslate =
-        -(list.length - visibleElements) * (100 / list.length);
-      setTranslateValue(newTranslateValue);
-      setPercentage(Math.abs(newTranslateValue / maxTranslate) * 100);
-      const firstIndex = Math.abs(newTranslateValue) / (100 / list.length);
+      const [actualCurrentTranslateValue, maxTranslate] = adjustSizing(
+        visibleElements,
+        newTranslateValue
+      );
+      setTranslateValue(actualCurrentTranslateValue);
+      setPercentage(Math.abs(actualCurrentTranslateValue / maxTranslate) * 100);
+      const firstIndex =
+        Math.abs(actualCurrentTranslateValue) / (100 / list.length);
       setTrackingIndex(firstIndex);
     }
   };
@@ -69,11 +97,14 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
 
   useEffect(() => {
     setCarouselSettings();
+  }, [updateKey]);
 
-    window.addEventListener('resize', setCarouselSettings);
+  useEffect(() => {
+    const resizeHandler = () => setUpdateKey(Math.random());
+    window.addEventListener('resize', resizeHandler);
 
     return () => {
-      window.removeEventListener('resize', setCarouselSettings);
+      window.removeEventListener('resize', resizeHandler);
     };
   }, []);
 
@@ -117,7 +148,10 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
             }
           />
         )}
-        <div className={styles.carousel__images} {...swipeHandlers}>
+        <div
+          className={cx('carousel__images', styles.carousel__images)}
+          {...swipeHandlers}
+        >
           <div
             className={styles.carousel__images__tracker}
             style={trackerStyle}

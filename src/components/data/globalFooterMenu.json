@@ -4,19 +4,19 @@
     {
       "items": [
         {
-          "name": "Vegan dishes",
+          "name": "Vegan Dishes",
           "path": "/vegan-dishes"
-        },
-        {
-          "name": "Spring Delights",
-          "path": "/spring-delights"
         },
         {
           "name": "Barbecue & Grilling",
           "path": "/barbecue-grilling"
         },
         {
-          "name": "Meals In Minutes",
+          "name": "Spring Delights",
+          "path": "/spring-delights"
+        },
+        {
+          "name": "Meals in Minutes",
           "path": "/meals-in-minutes"
         }
       ]

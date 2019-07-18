@@ -40,12 +40,12 @@ $button-disabled-color: #9f9f9f !default;
 
   @include respondTo(desktop) {
     font-size: 1.6rem;
-  }
 
-  &:hover {
-    background-color: $button-background-hover;
-    color: $button-color-hover;
-    fill: $button-color-hover;
+    &:hover {
+      background-color: $button-background-hover;
+      color: $button-color-hover;
+      fill: $button-color-hover;
+    }
   }
 
   &[disabled] {
@@ -171,13 +171,16 @@ $button-disabled-color: #9f9f9f !default;
   padding: 0;
   background: $white;
   color: $fish-blue-darker;
-  &:hover {
-    background-color: $apple-green;
-    color: $black-blue;
-    svg {
-      fill: $black-blue;
+  @include respondTo(desktop) {
+    &:hover {
+      background-color: $apple-green;
+      color: $black-blue;
+      svg {
+        fill: $black-blue;
+      }
     }
   }
+
   width: 24px;
   height: 24px;
   @include respondTo(desktop) {
