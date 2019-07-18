@@ -1,6 +1,3 @@
-// const keys = require('./integrations/keys.json');
-// const axios = require('axios');
-
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -15,6 +12,7 @@ const templatesMap = {
   ),
   ContentHub: path.resolve(`./src/templates/ContentHubPage/ContentHubPage.tsx`),
   RecipeDetail: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
+  ArticleDetail: path.resolve(`./src/templates/ArticlePage/ArticlePage.tsx`),
   default: path.resolve(`./src/templates/ContentPage/ContentPage.tsx`),
 };
 
@@ -54,6 +52,45 @@ exports.onCreateNode = async ({
         .join('-')
     );
 
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
+
+  if (node.internal.type === 'Article') {
+    const slug = url.resolve(
+      '/articles/',
+      (
+        (node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) ||
+        node.id
+      )
+        .toLowerCase()
+        .split(' ')
+        .join('-')
+    );
+
+    const promises = node.assets.map(async asset => {
+      const { type, content } = asset;
+      if (type === 'Image' && content.url) {
+        const imgNode = await createRemoteFileNode({
+          url: content.url,
+          parentNodeId: node.id,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          ext: '.jpg',
+          name: 'image',
+        });
+        asset.content['localImage___NODE'] = imgNode.id;
+      }
+
+      return asset;
+    });
+
+    await Promise.all(promises);
     createNodeField({
       node,
       name: 'slug',
@@ -158,6 +195,20 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allArticle {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+          next {
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     const parseComponents = components => {
@@ -168,19 +219,17 @@ exports.createPages = ({ graphql, actions }) => {
       });
     };
 
-    const createPageFromTemplate = (
-      { node },
-      pageData,
-      idPath = 'id',
-      path
-    ) => {
+    const createPageFromTemplate = (edge, pageData, idPath = 'id', path) => {
       createPage({
-        path: path || node.fields.slug,
+        path: path || edge.node.fields.slug,
         component: getPageTemplate(pageData.type),
         context: {
-          id: get(node, idPath),
-          slug: node.fields.slug,
+          id: get(edge.node, idPath),
+          slug: edge.node.fields.slug,
           components: pageData.components,
+          nextSlug: get(edge, 'next.fields.slug'),
+          previousSlug: get(edge, 'previous.fields.slug'),
+          edge,
         },
       });
     };
@@ -192,9 +241,12 @@ exports.createPages = ({ graphql, actions }) => {
     pages
       .filter(
         node =>
-          ['RecipeDetail', 'RecipeCategory', 'ContentHub'].indexOf(
-            node.type
-          ) === -1
+          [
+            'RecipeDetail',
+            'RecipeCategory',
+            'ArticleDetail',
+            'ContentHub',
+          ].indexOf(node.type) === -1
       )
       .forEach(node => {
         createPage({
@@ -208,6 +260,9 @@ exports.createPages = ({ graphql, actions }) => {
         });
       });
 
+    const articleDetailsPage = pages.find(
+      item => item.type === 'ArticleDetail'
+    );
     const recipeDetailsPage = pages.find(item => item.type === 'RecipeDetail');
     const recipeCategoryPage = pages.find(
       item => item.type === 'RecipeCategory'
@@ -217,7 +272,9 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allRecipe.edges.forEach(edge => {
       createPageFromTemplate(edge, recipeDetailsPage);
     });
-
+    result.data.allArticle.edges.forEach(edge => {
+      createPageFromTemplate(edge, articleDetailsPage);
+    });
     result.data.allTag.edges.forEach(edge => {
       createPageFromTemplate(
         edge,
@@ -257,57 +314,3 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   svgLoaderRule.use.options.classIdPrefix = true;
   actions.replaceWebpackConfig(config);
 };
-
-// const bulkPostRecipe = async data => {
-//   try {
-//     await axios.post(`${keys.elasticSearch.url}/_bulk`, data);
-//   } catch (err) {
-//     throw new Error(err);
-//   }
-// };
-
-// exports.onPostBuild = async ({ getNodes }) => {
-//   console.log(process.env.NODE_ENV);
-
-//   if (process.env.NODE_ENV === 'production') {
-//     return;
-//   }
-
-//   const nodes = getNodes();
-//   const recipes = nodes.filter(node => node.internal.type === 'Recipe');
-
-//   const promises = [];
-//   // we can play around with this to speed up build time
-//   const batchSize = 600;
-//   const noOfBatches = Math.ceil(recipes.length / batchSize);
-//   let startItem = 0;
-//   for (let i = 0; i < noOfBatches; i++) {
-//     const endItem = startItem + batchSize;
-//     const bulkRows = [];
-//     for (const recipe of recipes.slice(startItem, endItem)) {
-//       if (recipe) {
-//         // each datarow requires a header row like the belwo
-//         const headerRow = {
-//           index: {
-//             _index: keys.elasticSearch.index,
-//             _type: '_doc',
-//             _id: recipe.recipeId,
-//           },
-//         };
-//         bulkRows.push(JSON.stringify(headerRow));
-//         // i've removed these fields to speed up the api call
-//         // we don't need to search on them,
-//         // there's other fields we can remove
-//         delete recipe.assets;
-//         delete recipe.parent;
-//         delete recipe.children;
-//         // we can send any json to the data row
-//         const dataRow = JSON.stringify(recipe);
-//         bulkRows.push(dataRow);
-//       }
-//     }
-//     startItem = endItem > recipes.length ? endItem : recipes.length;
-//     // format required by ES needs newline at end of each row
-//     promises.push(bulkPostRecipe(bulkRows.join('\n') + '\n'));
-//   }
-// };

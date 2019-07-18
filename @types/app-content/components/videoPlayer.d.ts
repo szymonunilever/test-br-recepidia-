@@ -3,6 +3,7 @@ declare namespace AppContent.VideoPlayer {
     preview?: VideoPreviewProps;
     videoId: string;
     title?: Title;
+    description?: string;
   }
   interface VideoPreviewProps {
     previewImage: Internal.LocalImage;

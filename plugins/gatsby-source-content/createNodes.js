@@ -30,6 +30,27 @@ exports.createPagesNodes = (
   return nodeData;
 };
 
+exports.createArticleNodes = (
+  article,
+  { createNodeId, createContentDigest, createNode }
+) => {
+  const nodeId = createNodeId(`article-${article.title}`);
+  const nodeContent = JSON.stringify(article);
+  const nodeData = Object.assign({}, article, {
+    id: nodeId,
+    parent: null,
+    children: [],
+    internal: {
+      type: 'Article',
+      content: nodeContent,
+      contentDigest: createContentDigest(article),
+    },
+  });
+
+  createNode(nodeData);
+  return nodeData;
+};
+
 exports.createComponentsNodes = (
   component,
   { createNodeId, createContentDigest, createNode }

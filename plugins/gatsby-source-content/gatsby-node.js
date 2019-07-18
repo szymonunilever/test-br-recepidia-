@@ -1,6 +1,14 @@
 const axios = require('axios');
 const createNodes = require('./createNodes');
-const { createPagesNodes, createComponentsNodes } = createNodes;
+const {
+  createPagesNodes,
+  createComponentsNodes,
+  createArticleNodes,
+} = createNodes;
+
+//TODO: It should be removed after BackEnd will be done.
+let articlePageTemplate = require('../../src/components/data/articleTemplateMock.json');
+let articlesData = require('../../src/components/data/allArticlesPageData.json');
 const contentHubPageMock = require('../../src/components/data/contentHubPage.json');
 
 exports.sourceNodes = async (
@@ -34,14 +42,44 @@ exports.sourceNodes = async (
         },
       }
     ),
+    /*axios.get(
+      'https://o04j5q4nt9.execute-api.eu-west-1.amazonaws.com/v1/articles/pt-br',
+      {
+        headers: {
+          'x-api-key': 'UJAk5ILYjo8AhWaTP9d9K40LsdZZwoDS1YzCgo5s',
+        },
+      }
+    ),*/
   ]);
 
-  [...pages.data.pages, contentHubPageMock].forEach(page => {
+  //TODO: use this when BE for articles will be done.
+  // pages.data.pages.forEach(page => {
+  // createPagesNodes(page, { createNodeId, createContentDigest, createNode });
+  // });
+
+  //TODO: It should be removed after BackEnd for articles will be done.
+
+  const tempData = [
+    ...pages.data.pages,
+    articlePageTemplate,
+    contentHubPageMock,
+  ];
+  tempData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });
 
   components.data.components.components.items.forEach(component => {
     createComponentsNodes(component, {
+      createNodeId,
+      createContentDigest,
+      createNode,
+    });
+  });
+
+  //TODO: It should be replaced by real result mapping.
+  articlesData = [...articlesData];
+  articlesData.forEach(article => {
+    createArticleNodes(article, {
       createNodeId,
       createContentDigest,
       createNode,
