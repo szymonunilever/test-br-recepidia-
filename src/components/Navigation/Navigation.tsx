@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import LogoIcon from 'src/svgs/inline/logo.svg';

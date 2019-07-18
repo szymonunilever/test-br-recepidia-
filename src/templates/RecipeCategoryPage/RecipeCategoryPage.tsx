@@ -2,10 +2,10 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import { get } from 'lodash';
-import SEO from 'src/components/Seo/Seo';
+import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, fromCamelCase } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -40,7 +40,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         <div className="container">
           <Text
             tag={TagName['h1']}
-            text={tag.title || 'Recipe Category Name'}
+            text={tag.title || fromCamelCase(tag.name)}
           />
         </div>
       </section>

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from 'src/components/Layout/Layout';
-import SEO from 'src/components/Seo/Seo';
+import SEO from 'src/components/Seo';
 
 const NotFoundPage = ({ data, location }: NotFoundPageProps) => {
   return (
