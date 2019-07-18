@@ -30,9 +30,10 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <Text
             tag={TagName['h1']}
-            text={
-              findPageComponentContent(components, 'Text', 'PageTitle').text
-            }
+            text="Hello ! Welcome to Recepedia"
+            // text={
+            //   findPageComponentContent(components, 'Text', 'PageTitle').text
+            // }
           />
         </div>
       </section>
