@@ -88,7 +88,7 @@ const GeneratedFormInstance = ({
             <div className="generated-form__container">
               {Title}
               {Subtitle}
-              {view}
+              <div className="generated-form__fields">{view}</div>
               <div className="buttons">
                 <button
                   type="submit"
