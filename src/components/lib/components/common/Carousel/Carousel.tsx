@@ -4,6 +4,7 @@ import ProgressBar from './partials/ProgressBar';
 import { CarouselProps } from './models';
 import styles from './Carousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
+import cx from 'classnames';
 
 const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const getNearestBreakpoint = (target: number) => {
@@ -147,7 +148,10 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
             }
           />
         )}
-        <div className={styles.carousel__images} {...swipeHandlers}>
+        <div
+          className={cx('carousel__images', styles.carousel__images)}
+          {...swipeHandlers}
+        >
           <div
             className={styles.carousel__images__tracker}
             style={trackerStyle}

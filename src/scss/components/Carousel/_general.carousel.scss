@@ -1,15 +1,20 @@
 $carouselItemPadding: 5px;
-@include respondTo(desktop) {
-  $carouselItemPadding: 8px;
-}
+$carouselItemPaddingDesktop: 8px;
 
 .carousel {
   position: relative;
   &__images {
     margin: 0 (-$carouselItemPadding);
+    @include respondTo(desktop) {
+      margin: 0 (-$carouselItemPaddingDesktop);
+    }
+
   }
   &__item {
     padding: 0 $carouselItemPadding;
+    @include respondTo(desktop) {
+      padding: 0 $carouselItemPaddingDesktop;
+    }
   }
   .slide-arrow {
     @extend .button;

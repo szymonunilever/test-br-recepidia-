@@ -28,13 +28,16 @@
       fill-opacity: 0;
       transition: stroke 0.2s ease-out;
     }
-    &:hover {
-      svg {
-        fill: $luminous-yellow;
-        stroke: $luminous-yellow;
-        fill-opacity: 1;
+    @include respondTo(desktop) {
+      &:hover {
+        svg {
+          fill: $luminous-yellow;
+          stroke: $luminous-yellow;
+          fill-opacity: 1;
+        }
       }
     }
+
   }
 
   &__image {
