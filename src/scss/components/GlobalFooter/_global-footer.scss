@@ -52,6 +52,15 @@ $footer-color: $black-blue;
       text-decoration: none;
       text-align: left;
       padding: 10px 0;
+      @extend %link--external;
+      &[target="_blank"]{
+        &:after{    
+          display: block;
+        }
+      }
+      &:hover{
+        text-decoration: underline;
+      }
     }
 
     &:first-child {
@@ -114,15 +123,6 @@ $footer-color: $black-blue;
       z-index: -1;
       margin-bottom: 0;
       transform: translateY(-66px);
-    }
-  }
-
-  &__social-icons {
-    color: inherit;
-    fill: currentColor;
-    margin-bottom: 40px;
-    @include respondTo(desktop) {
-      text-align: center;
     }
   }
 

@@ -12,6 +12,7 @@
 
   &__item{
     margin-right: 36px;
+    font-size: 1.4rem;
     &:nth-last-child(1){
       margin-right: 0;
     }
@@ -21,6 +22,7 @@
   }
 
   &__icon{
+    border-bottom: 2px solid transparent;
     svg{
       height: 22px;
       width: 22px;
@@ -30,5 +32,11 @@
       }
     }
   }
-
+  &__link{
+    &:hover{
+      .social-channels__icon{
+        border-bottom: 2px solid $black-blue;
+      }
+    }
+  }
 }
