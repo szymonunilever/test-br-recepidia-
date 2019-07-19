@@ -1,4 +1,9 @@
-import React, { useState, SyntheticEvent, KeyboardEvent } from 'react';
+import React, {
+  useState,
+  SyntheticEvent,
+  KeyboardEvent,
+  useEffect,
+} from 'react';
 import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
@@ -14,13 +19,20 @@ const SearchInput = ({
   searchResultsCount,
   debounceTimeout = 300,
   onSubmit,
-  getFilteredData,
+  getSearchData,
+  defaultSearchValue = '',
+  onClickSearchResultsItem,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<string[]>([]);
   const [timerId, setTimerId] = useState();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const [inputIsDirty, setInputIsDirty] = useState(false);
+
+  useEffect(() => {
+    setInputValue(defaultSearchValue);
+  }, [defaultSearchValue]);
 
   const filterData: FilterData = (data, val) => {
     return val
@@ -35,22 +47,28 @@ const SearchInput = ({
 
   const getResults = (searchInputValue: string) => {
     if (searchUrl) {
-      fetch(`${searchUrl}/?q=${inputValue}/`)
+      fetch(`${searchUrl}/?searchQuery=${inputValue}/`)
         .then(res => res.json())
         .then(data => setData(data))
         .catch(err => {
           throw new Error(err);
         });
-    } else if (getFilteredData) {
-      setData(getFilteredData(searchInputValue));
+    } else if (getSearchData) {
+      getSearchData(searchInputValue, {
+        from: 0,
+        size: searchResultsCount,
+      }).then(data => {
+        const filteredData = data.hits.hits.map(item => item._source.title);
+        setInputIsDirty(true);
+        setData(filteredData.slice(0, searchResultsCount));
+      });
     } else {
       setData(filterData(list, searchInputValue));
+      setInputIsDirty(true);
     }
   };
 
-  const clearTimeOut = () => {
-    window.clearTimeout(timerId);
-  };
+  const clearTimeOut = () => window.clearTimeout(timerId);
 
   const resetForm = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -84,13 +102,24 @@ const SearchInput = ({
     }
   };
 
+  const onClickSearchResultsItemHandler = (index: number) => {
+    setInputValue(data[index]);
+
+    if (onClickSearchResultsItem) {
+      setInputIsDirty(false);
+      onClickSearchResultsItem(data[index]);
+    }
+  };
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
     clearTimeOut();
     setInputValue(value);
     setTimerId(() =>
-      window.setTimeout(() => getResults(value), debounceTimeout)
+      window.setTimeout(() => {
+        getResults(value);
+      }, debounceTimeout)
     );
   };
 
@@ -132,11 +161,14 @@ const SearchInput = ({
         </div>
       </form>
 
-      <SearchResults
-        activeIndex={activeItemIndex}
-        hasSearchQuery={inputHasValue}
-        list={data}
-      />
+      {inputIsDirty && inputHasValue ? (
+        <SearchResults
+          navigateToItem={!!onClickSearchResultsItem}
+          onClickHandler={onClickSearchResultsItemHandler}
+          activeIndex={activeItemIndex}
+          list={data}
+        />
+      ) : null}
     </div>
   );
 };
