@@ -173,9 +173,10 @@ $submenu-text-color: $fish-blue-darker;
     }
 
     .searchBar {
+      color: $primary-color;
+      stroke: $primary-color;
       font-size: 3rem;
       margin: 0 0 0 50px;
-      stroke: $primary-color;
       cursor: pointer;
     }
 
@@ -239,6 +240,12 @@ $submenu-text-color: $fish-blue-darker;
         }
 
         &.active {
+          .menu__dropdown-icon {
+            transform: rotate(180deg);
+            @include respondTo(desktop) {
+              transform: none;
+            }
+          }
           @include respondTo(desktop) {
             & > .submenu {
               overflow: hidden;

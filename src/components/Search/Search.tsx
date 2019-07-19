@@ -40,7 +40,9 @@ const GlobalSearch = ({
       render={data => {
         return (
           <>
-            <SearchIcon className="searchBar" onClick={openModal} />
+            <div className="searchBar" onClick={openModal}>
+              <SearchIcon className="searchBar__icon" />
+            </div>
             <Modal
               className="modal--search"
               isOpen={modalState}
