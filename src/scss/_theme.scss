@@ -172,3 +172,30 @@ p {
     display: none; // can be shown constantly or on hover only
   }
 }
+
+.bg--half{
+  position: relative;
+  &:before{
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 180px;
+    width: 100%;
+    z-index: 0;
+    background-color: $white-gray;
+    border-radius: 0 0 24px 24px;
+    @include respondTo(medium){
+        height: 228px;
+        border-radius: 0;
+    }
+    @include respondTo(desktop){
+        height: 234px;
+    }
+  }
+
+  .container{
+    position: relative;
+    z-index: 1;
+  }     
+}

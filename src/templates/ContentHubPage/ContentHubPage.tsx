@@ -12,7 +12,7 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
-import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
+import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import { action } from '@storybook/addon-actions';
@@ -37,7 +37,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
       <SEO title={`Recipe category: ${tag.title}`} />
       <Kritique />
 
-      <section>
+      <section className={cx(theme.contenthubRecipes, 'bg--half')}>
         <div className="container">
           <RecipeListing
             content={{

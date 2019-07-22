@@ -1,18 +1,10 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
 
-.section-relative{
-  position: relative;
-  .bg-block{
-    position: absolute;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: calc(50%);
-    z-index: -1;
-    border-radius: 0 0 24px 24px;
-    @include respondTo(desktop){
-      border-radius: 0;
+.home-top-section:global(.bg--half){
+  &:before{
+    background-color: $white-gray;
+    @include respondTo(medium){
     }
   }
 }

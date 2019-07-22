@@ -38,8 +38,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         </div>
       </section>
 
-      <section className={theme.sectionRelative}>
-        <div className={cx(theme.bgBlock, '_bg--main')} />
+      <section className={cx(theme.homeTopSection, 'bg--half')}>
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
