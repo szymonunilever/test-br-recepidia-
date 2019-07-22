@@ -8,13 +8,12 @@ import { default as WizardQuiz } from '../src/components/lib/components/Wizard/p
 import { default as WizardSignUp } from '../src/components/lib/components/Wizard/partials/SignUp';
 import { default as WizardResultSection } from '../src/components/lib/components/Wizard/partials/ResultSection';
 import recipes from './mocks/recipes';
-// @ts-ignore
-import GatsbyImage from './assets/GatsbyImage.js';
+import localImage from './assets/localImage';
 
 const closeCallback = () => alert('test');
 const wizardAction = () => alert('wizard has finished his work');
 const image = {
-  fluid: GatsbyImage,
+  localImage,
   alt: '',
 };
 const introProps = {

@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent, useState } from 'react';
 import QuestionLabel from '../QuestionLabel';
 import { QuestionProps } from '../Question/models';
 import CheckMark from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
-import Img from 'gatsby-image';
+import AdaptiveImage from '../../../../../AdaptiveImage';
 
 const Multi: FunctionComponent<QuestionProps> = ({
   question,
@@ -41,7 +41,10 @@ const Multi: FunctionComponent<QuestionProps> = ({
                   <div className="quiz__label-checkmark">
                     <CheckMark />
                   </div>
-                  <Img className="quiz__label-image" {...option.label.image} />
+                  <AdaptiveImage
+                    className="quiz__label-image"
+                    {...option.label.image}
+                  />
                 </div>
                 <h3 className="quiz__label-title">{option.label.text}</h3>
               </div>

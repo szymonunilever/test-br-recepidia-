@@ -2,7 +2,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { IntroductionPanelProps } from './models';
 import { TagName, Text } from '../../../Text';
-import Img from 'gatsby-image';
+import AdaptiveImage from '../../../AdaptiveImage';
 import { Button } from '../../../common/Button';
 
 const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
@@ -24,7 +24,7 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
     </div>
 
     <div className="wizard__image">
-      <Img {...image} />
+      <AdaptiveImage {...image} />
     </div>
     <div className="wizard__buttons">
       <Button
