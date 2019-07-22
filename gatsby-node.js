@@ -6,10 +6,14 @@ const url = require('url');
 const fs = require('fs');
 const get = require('lodash').get;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+
+const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
+
 const templatesMap = {
   RecipeCategory: path.resolve(
     `./src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx`
   ),
+  ContentHub: path.resolve(`./src/templates/ContentHubPage/ContentHubPage.tsx`),
   RecipeDetail: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
   default: path.resolve(`./src/templates/ContentPage/ContentPage.tsx`),
 };
@@ -59,7 +63,7 @@ exports.onCreateNode = async ({
 
   if (node.internal.type === 'Tag') {
     const slug = url.resolve(
-      '/recipe-category/',
+      '/',
       node.name
         .toLowerCase()
         .split(' ')
@@ -164,9 +168,14 @@ exports.createPages = ({ graphql, actions }) => {
       });
     };
 
-    const createPageFromTemplate = ({ node }, pageData, idPath = 'id') => {
+    const createPageFromTemplate = (
+      { node },
+      pageData,
+      idPath = 'id',
+      path
+    ) => {
       createPage({
-        path: node.fields.slug,
+        path: path || node.fields.slug,
         component: getPageTemplate(pageData.type),
         context: {
           id: get(node, idPath),
@@ -182,7 +191,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     pages
       .filter(
-        node => ['RecipeDetail', 'RecipeCategory'].indexOf(node.type) === -1
+        node =>
+          ['RecipeDetail', 'RecipeCategory', 'ContentHub'].indexOf(
+            node.type
+          ) === -1
       )
       .forEach(node => {
         createPage({
@@ -200,12 +212,26 @@ exports.createPages = ({ graphql, actions }) => {
     const recipeCategoryPage = pages.find(
       item => item.type === 'RecipeCategory'
     );
+    const contentHubPage = pages.find(item => item.type === 'ContentHub');
 
     result.data.allRecipe.edges.forEach(edge => {
       createPageFromTemplate(edge, recipeDetailsPage);
     });
+
     result.data.allTag.edges.forEach(edge => {
-      createPageFromTemplate(edge, recipeCategoryPage, 'tagId');
+      createPageFromTemplate(
+        edge,
+        recipeCategoryPage,
+        'tagId',
+        getTagSlug(recipeCategoryPage.relativePath, edge.node)
+      );
+
+      createPageFromTemplate(
+        edge,
+        contentHubPage,
+        'tagId',
+        getTagSlug(contentHubPage.relativePath, edge.node)
+      );
     });
   });
 };

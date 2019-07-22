@@ -20,7 +20,7 @@ const nestPaths = (
   const sitemap = rootPaths.map(path => ({
     path: path,
     title: capitalize(
-      path.substring(rootPath.length, path.length).replace('-', ' ')
+      path.substring(rootPath.length, path.length).replace(/-/g, ' ')
     ),
     categoryItems: nestPaths(`${path}/`, restPaths, nestingLevel + 1),
   }));

@@ -3,7 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { Tags } from '../src/components/lib/components/Tags';
 import tagsData from '../src/components/data/tags.json';
 import { action } from '@storybook/addon-actions';
-import { TagViewType } from '../src/components/lib/components/Tags/models';
+import {
+  TagViewType,
+  TagVariant,
+} from '../src/components/lib/components/Tags/models';
 import RemoveIcon from 'src/svgs/inline/x-mark.svg';
 const content: AppContent.TagsContent = {
   title: 'Custom title text',
@@ -27,7 +30,7 @@ storiesOf('Components/Tags', module)
         RemoveIcon={RemoveIcon}
         handleTagRemove={action('tag was removed')}
         {...config}
-        variant="removable"
+        variant={TagVariant.removable}
       />
     );
   })
@@ -35,7 +38,7 @@ storiesOf('Components/Tags', module)
     const newConfig = {
       ...config,
     };
-    return <Tags list={tagsData} {...newConfig} variant="link" />;
+    return <Tags list={tagsData} {...newConfig} variant={TagVariant.link} />;
   })
   .add('Toggle tags', () => {
     const newConfig = {
@@ -47,7 +50,7 @@ storiesOf('Components/Tags', module)
       <Tags
         list={tagsData}
         {...newConfig}
-        variant="toggle"
+        variant={TagVariant.toggle}
         handleTagToggle={action('tag click')}
       />
     );

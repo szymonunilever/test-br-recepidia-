@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-import { TagProps } from '../../models';
+import { TagProps, TagVariant } from '../../models';
 import { Button } from 'src/components/lib/components/common/Button';
 import cx from 'classnames';
 
@@ -19,7 +19,7 @@ const Tag = ({
     fields: { slug: path },
   } = tag;
   const classWrapper = cx('tags__item', {
-    'for-filter': variant === 'toggle',
+    'for-filter': variant === TagVariant.toggle,
   });
   const onButtonClick = () => {
     handleClick(tag);
@@ -39,7 +39,7 @@ const Tag = ({
 
   let view;
   switch (variant) {
-    case 'toggle':
+    case TagVariant.toggle:
       view = (
         <Button
           className="tags__toggle"
@@ -51,14 +51,14 @@ const Tag = ({
         />
       );
       break;
-    case 'link':
+    case TagVariant.link:
       view = (
         <Link className="tags__link" to={path}>
           {name}
         </Link>
       );
       break;
-    case 'removable':
+    case TagVariant.removable:
       view = (
         <div className="tags__removable" tabIndex={0}>
           <span>{name}</span>

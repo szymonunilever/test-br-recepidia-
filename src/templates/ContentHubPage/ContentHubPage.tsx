@@ -1,11 +1,9 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
-import { get } from 'lodash';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent, fromCamelCase } from 'src/utils';
+import { findPageComponentContent, fromCamelCase, getTagSlug } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -18,61 +16,35 @@ import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import { action } from '@storybook/addon-actions';
-import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
+import TagLinks from 'src/components/TagsLinks';
 
-const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
+const ContentHubPage: React.SFC<ContentHubPageProps> = ({
+  data,
+  pageContext,
+}) => {
   const { components } = pageContext;
   const { tag, allRecipe, allTag } = data;
-  const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
     'RecipeListing',
     'RecipesByCategory'
   );
+  const tagLabel = tag.title || fromCamelCase(tag.name);
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.name}`} />
+      <SEO title={`Recipe category: ${tag.title}`} />
       <Kritique />
-      <section className="_pt--40">
-        <div className="container">
-          <Text
-            tag={TagName['h1']}
-            text={tag.title || fromCamelCase(tag.name)}
-          />
-        </div>
-      </section>
+
       <section>
-        <div className="container">
-          <Text
-            tag={TagName['p']}
-            text={
-              tag.description ||
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
-            }
-          />
-        </div>
-      </section>
-
-      {categoryImage && (
-        <section className={theme.heroBg}>
-          <div className="container">
-            <AdaptiveImage localImage={categoryImage} alt={tag.title} />
-          </div>
-        </section>
-      )}
-
-      <section className={theme.greyBg}>
         <div className="container">
           <RecipeListing
             content={{
               ...recipesListingContent,
-              title: recipesListingContent.title.replace(
-                '{numRes}',
-                allRecipe.nodes.length
-              ),
+              title: recipesListingContent.title
+                .replace('{numRes}', allRecipe.nodes.length)
+                .replace('{categoryName}', tagLabel),
             }}
             list={allRecipe.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
@@ -101,7 +73,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
-          className={'hero--planner color--inverted'}
+          className="hero--planner color--inverted"
         />
       </section>
 
@@ -123,7 +95,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   );
 };
 
-export default RecipeCategotyPage;
+export default ContentHubPage;
 
 export const query = graphql`
   query($slug: String!, $id: Int) {
@@ -150,45 +122,7 @@ export const query = graphql`
   }
 `;
 
-// export const query = graphql`
-//   query($slug: String!, $id: Int!) {
-//     tag(fields: { slug: { eq: $slug } }) {
-//       name
-//       description
-//       title
-//       tagId
-//       assets {
-//         url
-//         alt
-//         localImage {
-//           childImageSharp {
-//             fluid(maxWidth: 1200) {
-//               ...GatsbyImageSharpFluid_withWebp
-//             }
-//           }
-//         }
-//       }
-//     }
-
-//     allRecipe(
-//       filter: {
-//         tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-//       }
-//     ) {
-//       nodes {
-//         ...RecipeFields
-//       }
-//     }
-
-//     allTag {
-//       nodes {
-//         ...TagFields
-//       }
-//     }
-//   }
-// `;
-
-interface RecipeCategotyPageProps {
+interface ContentHubPageProps {
   data: {
     tag: {
       name: string;

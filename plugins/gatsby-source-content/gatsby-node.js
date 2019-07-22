@@ -1,6 +1,7 @@
 const axios = require('axios');
 const createNodes = require('./createNodes');
 const { createPagesNodes, createComponentsNodes } = createNodes;
+const contentHubPageMock = require('../../src/components/data/contentHubPage.json');
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
@@ -35,7 +36,7 @@ exports.sourceNodes = async (
     ),
   ]);
 
-  pages.data.pages.forEach(page => {
+  [...pages.data.pages, contentHubPageMock].forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });
 

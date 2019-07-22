@@ -33,11 +33,22 @@ const Navigation: React.SFC<NavigationProps> = ({
           id
         }
       }
+
+      allPage(filter: { type: { eq: "RecipeCategory" } }) {
+        nodes {
+          relativePath
+        }
+      }
     }
   `);
 
   const tagGroups = data.allTagGroup.nodes;
-  const menuItems = constructMenu(tagGroups, navigationContent);
+  const recipeCategoryPath = data.allPage.nodes[0].relativePath;
+  const menuItems = constructMenu(
+    tagGroups,
+    navigationContent,
+    recipeCategoryPath
+  );
 
   return (
     <GlobalNavigation

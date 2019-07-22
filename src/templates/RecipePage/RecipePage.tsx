@@ -19,7 +19,6 @@ import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMeth
 import RecipeNutrients, {
   RecipeNutrientsViewType,
 } from 'src/components/lib/components/RecipeNutrients';
-import { Tags } from 'src/components/lib/components/Tags';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -49,6 +48,7 @@ import socialSharingContent from 'src/components/data/socialSharingContent.json'
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
 import InstagramIcon from 'src/svgs/inline/instagram.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
+import TagLinks from 'src/components/TagsLinks/TagLinks';
 
 const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
@@ -338,13 +338,9 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       </section>
       <section className="_pt--40">
         <div className="container">
-          <Tags
+          <TagLinks
             list={tags}
             content={findPageComponentContent(components, 'Tags')}
-            initialCount={8}
-            tagsPerLoad={4}
-            variant="link"
-            titleLevel={2}
           />
         </div>
       </section>
