@@ -65,7 +65,6 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <main id="content">{children}</main>
       <GeneratedForm
-        titleLevel={2}
         shouldValidate={true}
         onSubmit={onSignUpCallback}
         recaptchaAction="SignUpEmail"

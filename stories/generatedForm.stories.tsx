@@ -198,7 +198,6 @@ storiesOf('Components/Generated Form', module)
   .add('Recipe sign up with validation', () => (
     <GeneratedForm
       content={signUpFormContent as AppContent.GeneratedForm.Content}
-      titleLevel={1}
       onSubmit={onSubmit}
       className="test-recipe-sign-up"
       shouldValidate={true}

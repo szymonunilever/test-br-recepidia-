@@ -5,6 +5,7 @@ export enum TagName {
   h4,
   h5,
   h6,
+  div,
   p,
 }
 

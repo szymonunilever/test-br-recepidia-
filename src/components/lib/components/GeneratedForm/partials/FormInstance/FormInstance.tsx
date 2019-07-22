@@ -14,17 +14,20 @@ const GeneratedFormInstance = ({
   content: { title, subtitle, fields, submitButton, resetButton },
   onSubmit,
   shouldValidate = false,
-  titleLevel = 1,
 }: GeneratedFormProps) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const classWrapper = cx('generated-form', className);
   const Title = title ? (
     // @ts-ignore
-    <Text tag={TagName[`h${titleLevel}`]} text={title} />
+    <Text tag={TagName[`div`]} className="generated-form__title" text={title} />
   ) : null;
   const Subtitle = subtitle ? (
     // @ts-ignore
-    <Text tag={TagName[`h${titleLevel + 1}`]} text={subtitle} />
+    <Text
+      tag={TagName[`div`]}
+      className="generated-form__subtitle"
+      text={subtitle}
+    />
   ) : null;
 
   const formFields = groupBy(fields, field => field.fieldset);
