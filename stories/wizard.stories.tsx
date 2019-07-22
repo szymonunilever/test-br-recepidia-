@@ -1,16 +1,18 @@
 /* eslint-disable no-console */
 import { storiesOf } from '@storybook/react';
-import React from 'react';
+import React, { Fragment } from 'react';
+import Button from '../src/components/lib/components/Button';
 import Wizard from '../src/components/lib/components/Wizard';
 import { default as WizardIntroductionPanel } from '../src/components/lib/components/Wizard/partials/IntroductionPanel';
 import { default as WizardFinishPanel } from '../src/components/lib/components/Wizard/partials/FinishPanel';
 import { default as WizardQuiz } from '../src/components/lib/components/Wizard/partials/Quiz';
 import { default as WizardSignUp } from '../src/components/lib/components/Wizard/partials/SignUp';
 import { default as WizardResultSection } from '../src/components/lib/components/Wizard/partials/ResultSection';
+import IntroQuiz from '../src/components/page/IntroQuiz';
+import introQuizQuestions from './mocks/introQuiz';
 import recipes from './mocks/recipes';
 import localImage from './assets/localImage';
 
-const closeCallback = () => alert('test');
 const wizardAction = () => alert('wizard has finished his work');
 const image = {
   localImage,
@@ -33,6 +35,7 @@ const quizProps = {
       label: 'What do you like?',
       type: {
         control: 'checkbox',
+        labelPosition: 'bottom',
       },
       options: [
         {
@@ -57,7 +60,8 @@ const quizProps = {
       key: 'question2',
       label: 'Choose your favourite dish?',
       type: {
-        control: 'radio',
+        control: 'checkbox',
+        labelPosition: 'bottom',
       },
       options: [
         {
@@ -159,7 +163,7 @@ storiesOf('Diagnostic tools (components)', module)
   .add(
     'Introduction Panel',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardIntroductionPanel
@@ -176,7 +180,7 @@ storiesOf('Diagnostic tools (components)', module)
   .add(
     'Quiz',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardQuiz
@@ -191,9 +195,37 @@ storiesOf('Diagnostic tools (components)', module)
     }
   )
   .add(
+    'Quiz with intro',
+    () => (
+      <Wizard actionCallback={wizardAction}>
+        {/*
+          // @ts-ignore */}
+        <WizardQuiz
+          intro={
+            <Fragment>
+              <div className="wizard__info">
+                <h1>Welcome to Recepeida</h1>
+                <p className="wizard__description">
+                  We want to know you better and feed yu with recipes you love
+                </p>
+              </div>
+            </Fragment>
+          }
+          {...quizProps}
+          stepResultsCallback={answers => console.log(answers)}
+          containerClass="wizard--quiz wizard--quiz-initial"
+          stepId="quiz"
+        />
+      </Wizard>
+    ),
+    {
+      info: { inline: true },
+    }
+  )
+  .add(
     'Finish Panel',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardFinishPanel
@@ -210,7 +242,7 @@ storiesOf('Diagnostic tools (components)', module)
   .add(
     'SignUp Panel',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardSignUp
@@ -227,7 +259,7 @@ storiesOf('Diagnostic tools (components)', module)
   .add(
     'Result section',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardResultSection
@@ -246,7 +278,7 @@ storiesOf('Diagnostic tools (components)', module)
   .add(
     'Wizard multiple steps',
     () => (
-      <Wizard actionCallback={wizardAction} closeCallback={closeCallback}>
+      <Wizard actionCallback={wizardAction}>
         {/*
           // @ts-ignore */}
         <WizardIntroductionPanel
@@ -285,6 +317,34 @@ storiesOf('Diagnostic tools (components)', module)
           title={'My meal plan'}
         />
       </Wizard>
+    ),
+    {
+      info: { inline: true },
+    }
+  )
+  .add(
+    'Home page quiz',
+    () => (
+      <div>
+        <p>
+          If quiz does not appear in 3 seconds, please reset saved values using
+          button below
+        </p>
+        <Button
+          onClick={() => {
+            window.localStorage.removeItem('userProfile');
+            window.location.reload();
+          }}
+        >
+          Clear saved values and reload page
+        </Button>
+        <IntroQuiz
+          questions={introQuizQuestions}
+          primaryButtonLabel={'Continue'}
+          primaryButtonFinalLabel={'Finish'}
+          secondaryButtonLabel={'Skip'}
+        />
+      </div>
     ),
     {
       info: { inline: true },

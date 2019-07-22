@@ -1,12 +1,11 @@
-.wizard{
+.wizard {
   position: fixed;
   top: 0;
   right: 0;
-  bottom:0;
+  bottom: 0;
   left: 0;
   background-color: $white;
-  z-index: 101;
-  &__container{
+  &__container {
     @extend .container;
     box-sizing: border-box;
     height: 100%;
@@ -14,28 +13,51 @@
     padding-top: 70px;
     // display: flex;
   }
-  &__content{
+  &__content {
     height: 100%;
     width: 100%;
-
   }
-  &__logo{
+  &__info {
+    h1 {
+      margin-bottom: 12px;
+      @include respondTo(desktop) {
+        margin-bottom: 18px;
+      }
+    }
+  }
+  &__description {
+    padding-bottom: 20px;
+  }
+  &__logo {
     position: absolute;
     width: 50px;
     height: 50px;
-    top:0;
-    left: 0;
     display: flex;
-    svg{
+    top: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
       width: 28px;
       height: 35px;
       display: block;
       margin: auto;
     }
+    .main-logo {
+      &__text {
+        @extend .sr-only;
+      }
+    }
   }
-  &__back{
-    @extend .wizard__logo;
-    svg{
+  &__back {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    display: flex;
+    svg {
       width: 16px;
       height: 16px;
       display: block;
@@ -43,13 +65,13 @@
       stroke: $black-blue;
     }
   }
-  &__close{
+  &__close {
     position: absolute;
     width: 50px;
     height: 50px;
-    top:0;
+    top: 0;
     right: 0;
-    svg{
+    svg {
       width: 16px;
       height: 16px;
       display: block;
@@ -57,11 +79,11 @@
     }
   }
 
-  &__title{
+  &__title {
     color: $fish-blue-darker;
     width: 100%;
   }
-  &__buttons{
+  &__buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,17 +91,18 @@
     width: 100%;
     padding: 20px 0;
   }
-  &__button{
-    &--primary{
+  &__button {
+    &--primary {
       @extend .button;
       @extend .button--fullwidth;
     }
-    &--secondary{
+    &--secondary {
       @extend .button--fullwidth;
       @extend .button--flat;
       height: 40px;
+      font-size: 12px;
     }
-    &-placeholder{
+    &-placeholder {
       height: 40px;
     }
   }

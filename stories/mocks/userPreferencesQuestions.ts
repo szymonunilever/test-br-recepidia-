@@ -14,6 +14,7 @@ const questions1 = [
     label: 'What do you like?',
     type: {
       control: 'checkbox',
+      labelPosition: 'bottom',
     },
     options: [
       {
@@ -40,6 +41,7 @@ const questions1 = [
     label: 'Choose your favourite dish?',
     type: {
       control: 'radio',
+      labelPosition: 'bottom',
     },
     options: [
       {
@@ -68,6 +70,7 @@ const questions2 = [
     label: 'What do you dislike?',
     type: {
       control: 'checkbox',
+      labelPosition: 'bottom',
     },
     options: [
       {
@@ -94,6 +97,7 @@ const questions2 = [
     label: 'Choose your unfavourite dish',
     type: {
       control: 'radio',
+      labelPosition: 'bottom',
     },
     options: [
       {
