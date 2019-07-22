@@ -16,7 +16,7 @@ const SocialChannel = ({
         className="social-channels__link"
         href={url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         {...attributes}
       >
         <div className="social-channels__icon">{icon}</div>

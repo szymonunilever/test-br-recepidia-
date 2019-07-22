@@ -16,6 +16,8 @@ const Text = ({ className, tag, text }: TextProps) => {
       return <h5 className={className}>{text}</h5>;
     case TagName.h6:
       return <h6 className={className}>{text}</h6>;
+    case TagName.div:
+      return <div className={className}>{text}</div>;
     case TagName.p:
       return <p className={className}>{text}</p>;
     default:
