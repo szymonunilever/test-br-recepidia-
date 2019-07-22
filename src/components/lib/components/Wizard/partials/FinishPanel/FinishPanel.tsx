@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { FinishPanelProps } from './models';
 import { TagName, Text } from '../../../Text';
 import { Button } from '../../../common/Button';
-import Img from 'gatsby-image';
+import AdaptiveImage from '../../../AdaptiveImage';
 
 const FinishPanel: FunctionComponent<FinishPanelProps> = ({
   actionCallback,
@@ -24,7 +24,7 @@ const FinishPanel: FunctionComponent<FinishPanelProps> = ({
     </div>
 
     <div className="wizard__image">
-      <Img {...image} />
+      <AdaptiveImage {...image} />
     </div>
     <div className="wizard__buttons">
       <Button

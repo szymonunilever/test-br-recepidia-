@@ -1,4 +1,4 @@
-import { FluidObject } from 'gatsby-image';
+import { AdaptiveImageProps } from '../../../AdaptiveImage/models';
 
 export interface Question {
   orderIndex: number;
@@ -15,10 +15,7 @@ export interface QuestionOption {
   value: string;
   label: {
     text: string;
-    image: {
-      fluid: FluidObject;
-      alt: string;
-    };
+    image: AdaptiveImageProps;
   };
 }
 

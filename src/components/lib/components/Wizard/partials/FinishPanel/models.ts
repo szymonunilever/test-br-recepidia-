@@ -1,14 +1,11 @@
-import { FluidObject } from 'gatsby-image';
 import { ResultsStore } from '../../models';
+import { AdaptiveImageProps } from '../../../AdaptiveImage/models';
 
 export interface FinishPanelProps {
   title: string;
   subheading: string;
   description: string;
-  image: {
-    fluid: FluidObject;
-    alt: string;
-  };
+  image: AdaptiveImageProps;
   primaryButtonLabel: string;
   actionCallback?: () => void;
   resultsStore: ResultsStore;
