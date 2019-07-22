@@ -118,7 +118,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   ];
 
   const relatedRecipes = data.allRecipe.nodes;
-  const classWrapper = cx(theme.recipePage, 'recipe-page');
+  const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tabsContent = {
     tabs: [
       {
@@ -144,7 +144,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       <Kritique />
       <AddThis />
 
-      <section className={theme.topBg}>
+      <section className={cx(theme.topBg, '_pt--40 _pb--40 _bg--main')}>
         <div className="container">
           <div className={theme.recipeTopBlock}>
             <div className={theme.recipeTopBlockItem}>
@@ -277,7 +277,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
 
       <section>
         <div className="container">
-          <div className={theme.recipeIngredientsCooking}>
+          <div className={cx(theme.recipeIngredientsCooking, '_pt--40')}>
             <RecipeCopy
               viewType={RecipeCopyViewType.Ingredients}
               recipe={recipe}

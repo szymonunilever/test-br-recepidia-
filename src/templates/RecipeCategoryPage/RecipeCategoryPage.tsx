@@ -64,7 +64,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </section>
       )}
 
-      <section className={theme.greyBg}>
+      <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
         <div className="container">
           <RecipeListing
             content={{
