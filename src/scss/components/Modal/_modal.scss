@@ -1,9 +1,9 @@
 //class name for body to prevent scroll when modal is open
-.modal--open{
+.modal--open {
   @extend .no-scroll;
 }
-.modal{
-  &__overlay{
+.modal {
+  &__overlay {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -12,13 +12,13 @@
     background-color: $blue-overlay-40;
     z-index: 100;
   }
-  &__content{
+  &__content {
     position: absolute;
     overflow: auto;
     outline: none;
     padding: 20px;
   }
-  &__btn-close{
+  &__btn-close {
     @extend .button;
     @extend .button--flat;
     position: absolute;
@@ -28,16 +28,17 @@
     height: 54px;
     display: flex;
 
-    svg{
+    svg {
       width: 16px;
       height: 16px;
       display: block;
-      margin:auto;
+      margin: auto;
     }
   }
 }
 
-%modal__content--small{//fullscreen mobile, small window on desktop
+%modal__content--small {
+  //fullscreen mobile, small window on desktop
   top: 0px;
   left: 0px;
   right: 0px;
@@ -52,11 +53,11 @@
     width: 720px;
     height: auto;
     overflow: hidden;
-    max-height:96vh;
+    max-height: 96vh;
   }
 }
 
-%modal__content--bordered{
+%modal__content--bordered {
   top: 0px;
   left: 0px;
   right: 0px;
@@ -72,138 +73,146 @@
     max-width: none;
   }
 }
-%modal__content--grounded{
-
+%modal__content--grounded {
 }
 
-.modal--search{
+.modal--search {
   @extend .container;
-  .modal{
-    &__content{
+  .modal {
+    &__content {
       @extend %modal__content--small;
       background-color: $white-gray;
+      padding: 100px 25px;
       @include respondTo(desktop) {
         height: 475px;
+        padding: 65px 90px;
+        border-radius: 5px;
       }
     }
-    &__btn-close{
-      svg{
+    &__btn-close {
+      svg {
         margin: 0;
       }
     }
   }
+  .search-input {
+    &__title {
+      font-size: 3.4rem;
+      @include respondTo(desktop) {
+        font-size: 4.5rem;
+      }
+
+    }
+  }
 }
-.modal--filter{
-  .modal{
-    &__content{
+.modal--filter {
+  .modal {
+    &__content {
       @extend %modal__content--bordered;
       padding-top: 26px;
       @include respondTo(desktop) {
         padding-top: 42px;
       }
     }
-    &__btn-close{
-      svg{
+    &__btn-close {
+      svg {
         margin: 0;
       }
     }
   }
 }
 
-.modal--medium{
-
+.modal--medium {
 }
 
-.modal--fullscreen{
-
+.modal--fullscreen {
 }
 
-
-%modal__overlay--flex{
+%modal__overlay--flex {
   align-items: flex-start;
   overflow: auto;
-  background-color: rgba(54, 56, 64, .4);
+  background-color: rgba(54, 56, 64, 0.4);
   display: flex;
   justify-content: center;
 }
-%modal__content--flex{
+%modal__content--flex {
   position: relative;
   padding: 20px 0;
   background-color: $white;
   border-radius: 20px;
   width: 100%;
-  @include respondTo(medium){
+  @include respondTo(medium) {
     width: 720px;
     padding: 45px 0;
     border-radius: 5px;
   }
 }
-%modal__header--flex{
-  *{
+%modal__header--flex {
+  * {
     font-size: 2.1rem;
     font-weight: 500;
     line-height: 1.33;
     color: $fish-blue-darker;
     margin-bottom: 28px;
-    @include respondTo(medium){
+    @include respondTo(medium) {
       color: $black-blue;
     }
   }
 }
-%modal__btn-close--flex{
+%modal__btn-close--flex {
   justify-content: center;
   align-items: center;
-  svg{
+  svg {
     margin: 0;
   }
-} 
+}
 
-.recipe-nutrients__modal{
-  .modal{
-    &__overlay{
+.recipe-nutrients__modal {
+  .modal {
+    &__overlay {
       @extend %modal__overlay--flex;
     }
-    &__header{
+    &__header {
       @extend %modal__header--flex;
-      *{
+      * {
         margin-bottom: 35px;
         padding: 0 24px;
-        @include respondTo(medium){
+        @include respondTo(medium) {
           padding: 0 90px;
         }
       }
     }
-    &__content{
+    &__content {
       @extend %modal__content--flex;
       margin-top: 47px;
     }
-    &__btn-close{
+    &__btn-close {
       @extend %modal__btn-close--flex;
-    } 
+    }
   }
 }
 
-.social-sharing__dialog{
-  .modal{
-    &__overlay{
+.social-sharing__dialog {
+  .modal {
+    &__overlay {
       @extend %modal__overlay--flex;
       padding-left: 24px;
       padding-right: 24px;
       align-items: center;
     }
-    &__content{
+    &__content {
       @extend %modal__content--flex;
       padding: 28px 28px 40px;
-      @include respondTo(medium){
+      @include respondTo(medium) {
         padding: 56px 92px 78px;
         border-radius: 20px;
       }
     }
-    &__header{
+    &__header {
       @extend %modal__header--flex;
-    }   
-    &__btn-close{
+    }
+    &__btn-close {
       @extend %modal__btn-close--flex;
-    } 
+    }
   }
 }
