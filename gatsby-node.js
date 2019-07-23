@@ -1,35 +1,34 @@
-const path = require('path');
+/* eslint-disable no-console */
 const url = require('url');
-const fs = require('fs');
 const get = require('lodash').get;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
+const getPageTemplate = require('./scripts/build/getPageTemplate');
+const createDefaultPages = require('./scripts/build/createDefaultPages');
+const createRecipePages = require('./scripts/build/createRecipePages');
+const createArticlePages = require('./scripts/build/createArticlePages');
+const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
+
 const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
 
-const templatesMap = {
-  RecipeCategory: path.resolve(
-    './src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx'
-  ),
-  ContentHub: path.resolve('./src/templates/ContentHubPage/ContentHubPage.tsx'),
-  RecipeDetail: path.resolve('./src/templates/RecipePage/RecipePage.tsx'),
-  ArticleDetail: path.resolve('./src/templates/ArticlePage/ArticlePage.tsx'),
-  default: path.resolve('./src/templates/ContentPage/ContentPage.tsx'),
+const getSlugFromPath = (path, node) =>
+  url.resolve(
+    path,
+    ((node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) || node.id)
+      .toLowerCase()
+      .split(' ')
+      .join('-')
+  );
+
+const createSlugFor = ({ path, node, createNodeField }) => {
+  const slug = getSlugFromPath(path, node);
+
+  createNodeField({
+    node,
+    name: 'slug',
+    value: slug,
+  });
 };
-
-function getPageTemplate(pageType) {
-  let template;
-  const staticPath = path.resolve(`./src/staticPages/${pageType}/index.tsx`);
-
-  if (fs.existsSync(staticPath)) {
-    template = staticPath;
-  } else if (templatesMap[pageType]) {
-    template = templatesMap[pageType];
-  } else {
-    template = templatesMap.default;
-  }
-
-  return template;
-}
 
 exports.onCreateNode = async ({
   node,
@@ -40,257 +39,146 @@ exports.onCreateNode = async ({
 }) => {
   const { createNodeField, createNode } = actions;
 
-  if (node.internal.type === 'Recipe') {
-    const slug = url.resolve(
-      '/recipes/',
-      (
-        (node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) ||
-        node.id
-      )
-        .toLowerCase()
-        .split(' ')
-        .join('-')
-    );
+  switch (node.internal.type) {
+    case 'Recipe':
+      createSlugFor({ path: '/recipes/', node, createNodeField });
+      break;
+    case 'Tag':
+      createSlugFor({ path: '/', node, createNodeField });
+      break;
+    case 'Article': {
+      const slug = getSlugFromPath('/articles/', node);
 
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
+      await Promise.all(
+        node.assets.map(async asset => {
+          const { type, content } = asset;
+          if (type === 'Image' && content.url) {
+            const imgNode = await createRemoteFileNode({
+              url: content.url,
+              parentNodeId: node.id,
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              ext: '.jpg',
+              name: 'image',
+            });
+            asset.content['localImage___NODE'] = imgNode.id;
+          }
 
-  if (node.internal.type === 'Article') {
-    const slug = url.resolve(
-      '/articles/',
-      (
-        (node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) ||
-        node.id
-      )
-        .toLowerCase()
-        .split(' ')
-        .join('-')
-    );
+          return asset;
+        })
+      );
 
-    const promises = node.assets.map(async asset => {
-      const { type, content } = asset;
-      if (type === 'Image' && content.url) {
-        const imgNode = await createRemoteFileNode({
-          url: content.url,
-          parentNodeId: node.id,
-          store,
-          cache,
-          createNode,
-          createNodeId,
-          ext: '.jpg',
-          name: 'image',
-        });
-        asset.content['localImage___NODE'] = imgNode.id;
-      }
+      createNodeField({
+        node,
+        name: 'slug',
+        value: slug,
+      });
+      break;
+    }
+    case 'Page': {
+      await Promise.all(
+        node.components.map(async component => {
+          let fileNode;
+          try {
+            if (component.assets.length > 0) {
+              fileNode = await createRemoteFileNode({
+                url: component.assets[0].url,
+                parentNodeId: node.id,
+                store,
+                cache,
+                createNode,
+                createNodeId,
+                ext: '.jpg',
+                name: 'image',
+              });
+            }
+          } catch (error) {
+            console.error(error);
+          }
 
-      return asset;
-    });
-
-    await Promise.all(promises);
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-
-  if (node.internal.type === 'Tag') {
-    const slug = url.resolve(
-      '/',
-      node.name
-        .toLowerCase()
-        .split(' ')
-        .join('-')
-    );
-
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-
-  if (node.internal.type === 'Page') {
-    const componentPromises = node.components.map(async component => {
-      let fileNode;
-      try {
-        fileNode = await createRemoteFileNode({
-          url: component.assets[0].url,
-          parentNodeId: node.id,
-          store,
-          cache,
-          createNode,
-          createNodeId,
-          ext: '.jpg',
-          name: 'image',
-        });
-      } catch (error) {
-        // TODO: error handler
-      }
-
-      if (fileNode) {
-        component.assets[0][`localImage___NODE`] = fileNode.id;
-      }
-    });
-
-    await Promise.all(componentPromises);
+          if (fileNode) {
+            component.assets[0][`localImage___NODE`] = fileNode.id;
+          }
+        })
+      );
+      break;
+    }
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return graphql(`
-    {
-      allPage {
-        nodes {
-          components {
-            name
-            content
-            assets {
-              url
-              alt
-              localImage {
-                id
-                childImageSharp {
-                  fluid {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                    srcSetWebp
-                    srcWebp
-                  }
-                }
-              }
-            }
-          }
-          type
-          relativePath
-        }
-      }
+  const createPageFromTemplate = (edge, pageData, idPath = 'id', path) => {
+    createPage({
+      path: path || edge.node.fields.slug,
+      component: getPageTemplate(pageData.type),
+      context: {
+        id: get(edge.node, idPath),
+        slug: edge.node.fields.slug,
+        components: pageData.components,
+        nextSlug: get(edge, 'next.fields.slug'),
+        previousSlug: get(edge, 'previous.fields.slug'),
+        edge,
+      },
+    });
+  };
 
-      allRecipe {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-        }
-      }
-
-      allTag {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            tagId
-          }
-        }
-      }
-      allArticle {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-          next {
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
-    const parseComponents = components => {
-      return components.map(component => {
-        return Object.assign({}, component, {
-          content: JSON.parse(component.content),
-        });
-      });
-    };
-
-    const createPageFromTemplate = (edge, pageData, idPath = 'id', path) => {
+  const pages = await createDefaultPages({
+    graphql,
+    createPage: node => {
       createPage({
-        path: path || edge.node.fields.slug,
-        component: getPageTemplate(pageData.type),
+        path: node.relativePath,
+        component: getPageTemplate(node.type),
         context: {
-          id: get(edge.node, idPath),
-          slug: edge.node.fields.slug,
-          components: pageData.components,
-          nextSlug: get(edge, 'next.fields.slug'),
-          previousSlug: get(edge, 'previous.fields.slug'),
-          edge,
+          slug: node.relativePath,
+          title: node.title,
+          components: node.components,
         },
       });
-    };
-
-    const pages = result.data.allPage.nodes.map(node =>
-      Object.assign(node, { components: parseComponents(node.components) })
-    );
-
-    pages
-      .filter(
-        node =>
-          [
-            'RecipeDetail',
-            'RecipeCategory',
-            'ArticleDetail',
-            'ContentHub',
-          ].indexOf(node.type) === -1
-      )
-      .forEach(node => {
-        createPage({
-          path: node.relativePath,
-          component: getPageTemplate(node.type),
-          context: {
-            slug: node.relativePath,
-            title: node.title,
-            components: node.components,
-          },
-        });
-      });
-
-    const articleDetailsPage = pages.find(
-      item => item.type === 'ArticleDetail'
-    );
-    const recipeDetailsPage = pages.find(item => item.type === 'RecipeDetail');
-    const recipeCategoryPage = pages.find(
-      item => item.type === 'RecipeCategory'
-    );
-    const contentHubPage = pages.find(item => item.type === 'ContentHub');
-
-    result.data.allRecipe.edges.forEach(edge => {
-      createPageFromTemplate(edge, recipeDetailsPage);
-    });
-    result.data.allArticle.edges.forEach(edge => {
-      createPageFromTemplate(edge, articleDetailsPage);
-    });
-    result.data.allTag.edges.forEach(edge => {
-      createPageFromTemplate(
-        edge,
-        recipeCategoryPage,
-        'tagId',
-        getTagSlug(recipeCategoryPage.relativePath, edge.node)
-      );
-
-      createPageFromTemplate(
-        edge,
-        contentHubPage,
-        'tagId',
-        getTagSlug(contentHubPage.relativePath, edge.node)
-      );
-    });
+    },
   });
+
+  // Get the page data for each page type
+  const recipeDetailsData = pages.find(item => item.type === 'RecipeDetail');
+  const articleDetailsData = pages.find(item => item.type === 'ArticleDetail');
+  const recipeCategoryData = pages.find(item => item.type === 'RecipeCategory');
+  const contentHubData = pages.find(item => item.type === 'ContentHub');
+
+  await Promise.all([
+    createRecipePages({
+      graphql,
+      createPage: edge => {
+        createPageFromTemplate(edge, recipeDetailsData);
+      },
+    }),
+    createArticlePages({
+      graphql,
+      createPage: edge => {
+        createPageFromTemplate(edge, articleDetailsData);
+      },
+    }),
+    createCategoryAndContentPages({
+      graphql,
+      createPage: edge => {
+        createPageFromTemplate(
+          edge,
+          recipeCategoryData,
+          'tagId',
+          getTagSlug(recipeCategoryData.relativePath, edge.node)
+        );
+
+        createPageFromTemplate(
+          edge,
+          contentHubData,
+          'tagId',
+          getTagSlug(contentHubData.relativePath, edge.node)
+        );
+      },
+    }),
+  ]);
 };
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
