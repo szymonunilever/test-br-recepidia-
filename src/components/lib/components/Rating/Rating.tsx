@@ -20,7 +20,6 @@ const Rating = ({
   useEffect(() => {
     setLocationOrigin(window.location.origin);
   }, []);
-
   return (
     <>
       {provider === RatingAndReviewsProvider.kritique ? (
@@ -32,7 +31,6 @@ const Rating = ({
             data-unique-id={recipeId}
             data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
             data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
-            title="Recipe"
             onClick={(e: SyntheticEvent) => {
               e.stopPropagation();
             }}

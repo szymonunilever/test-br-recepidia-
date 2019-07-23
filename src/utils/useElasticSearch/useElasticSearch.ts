@@ -1,8 +1,7 @@
 //@ts-ignore
 import elasticsearch from 'elasticsearch-browser';
 import keys from 'integrations/keys.json';
-import { UseElasticSearchProps } from './models';
-import { SearchResponse, Client } from 'elasticsearch';
+import { SearchResponse, Client, SearchParams } from 'elasticsearch';
 //@ts-ignore
 let client: Client = null;
 
@@ -16,14 +15,16 @@ const getClient = (): Client => {
   return client;
 };
 
-const useElasticSearch = async (searchBody: UseElasticSearchProps) => {
+const useElasticSearch = async <T>(
+  searchBody: SearchParams
+): Promise<SearchResponse<T>> => {
   return await getClient()
-    .search({
+    .search<T>({
       index: keys.elasticSearch.index,
       body: searchBody,
     })
-    .then((resp: SearchResponse<unknown>) => resp)
-    .catch((err: any) => {
+    .then((resp: SearchResponse<T>) => resp)
+    .catch(err => {
       throw new Error(err);
     });
 };

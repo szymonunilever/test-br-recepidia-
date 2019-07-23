@@ -1,11 +1,7 @@
-@import '../../scss/theme';
+@import '../../scss/mixins';
 
 .recipe-page {
-  @extend .header--bg;
   .topBg {
-    @extend ._pt--40;
-    @extend ._pb--40;
-    @extend ._bg--main;
     position: relative;
     &:before {
       display: none;
@@ -41,8 +37,7 @@
         }
       }
     }
-
-    .recipeHeroMobile {
+    %recipeHeroMobile{
       position: relative;
       border-radius: 5px;
       width: 100%;
@@ -51,6 +46,9 @@
       @include respondTo(desktop) {
         display: none;
       }
+    }
+    .recipeHeroMobile {
+      @extend %recipeHeroMobile;
     }
     .recipeHeroActions {
       position: absolute;
@@ -66,7 +64,7 @@
       }
     }
     .recipeHeroDesktop {
-      @extend .recipeHeroMobile;
+      @extend %recipeHeroMobile;
       @include respondTo(desktop) {
         display: block;
       }
@@ -91,7 +89,6 @@
 
   .recipeIngredientsCooking {
     display: none;
-    @extend ._pt--40;
     @include respondTo(desktop) {
       display: block;
     }

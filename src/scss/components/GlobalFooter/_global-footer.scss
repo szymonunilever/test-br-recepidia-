@@ -46,40 +46,55 @@ $footer-color: $black-blue;
 
     &__link {
       display: inline-block;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-family: $arial;
       color: $footer-color;
       text-decoration: none;
       text-align: left;
       padding: 10px 0;
+      position: relative;
       @extend %link--external;
-      &[target="_blank"]{
-        &:after{    
-          display: block;
+
+      @include respondTo(desktop) {
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background: $footer-color;
+          transition: width 0.2s ease-out;
+        }
+
+        &:hover {
+          &:before {
+            width: 100%;
+          }
         }
       }
-      &:hover{
-        text-decoration: underline;
+
+      &[target='_blank'] {
+        &:after {
+          display: inline-block;
+        }
       }
     }
 
     &:first-child {
       border-bottom: 1px solid $footer-color;
       @include respondTo(desktop) {
-        padding: 45px 0;
+        padding: 35px 150px;
       }
       .footer-menu__list {
         justify-content: space-between;
       }
 
       .footer-menu__link {
-        &:first-child{
-          text-transform: capitalize;
-        }
         @include respondTo(desktop) {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
           font-weight: bold;
-          line-height: 2.6rem;
+          line-height: 1;
           letter-spacing: 0.5px;
           padding: 10px;
         }
@@ -95,7 +110,7 @@ $footer-color: $black-blue;
           &:nth-child(-n + 3) {
             width: calc(100% / 3);
             .footer-menu__link {
-              font-size: 2.5rem;
+              font-size: 1.8rem;
             }
           }
           &:first-child {
@@ -139,6 +154,7 @@ $footer-color: $black-blue;
     svg {
       width: 100%;
       height: 100%;
+      transition: fill 0.2s ease-out;
     }
   }
   &__copyright {

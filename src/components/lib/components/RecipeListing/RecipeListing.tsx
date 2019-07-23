@@ -1,9 +1,9 @@
 import cx from 'classnames';
 import { remove } from 'lodash';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
-import { RecipeListingProps, RecipeListViewType } from './models';
+import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
 import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   RecipeFilter,
@@ -17,6 +17,7 @@ import {
   applyingFavorites,
   sortBy,
 } from './utils';
+import { get } from 'lodash';
 
 export const RecipeListing = ({
   className,
@@ -34,6 +35,7 @@ export const RecipeListing = ({
   list,
   initialCount = 4,
   onFavoriteChange,
+  loadMoreConfig,
   tags = { tagGroups: [] },
   carouselConfig = {
     breakpoints: [
@@ -69,6 +71,19 @@ export const RecipeListing = ({
     sorting: RecipeSortingOptions.newest,
   });
 
+  const isAsyncLoadMore = () =>
+    get(loadMoreConfig, 'type') === LoadMoreType.async;
+
+  useEffect(() => {
+    const syncList =
+      initialCount > 0 ? listModified.slice(0, initialCount) : listModified;
+
+    setListState({
+      ...listState,
+      listItems: isAsyncLoadMore() ? list : syncList,
+    });
+  }, [list]);
+
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
     if (onFavoriteChange) {
@@ -101,14 +116,21 @@ export const RecipeListing = ({
 
   const loadMore = () => {
     const recipeCount = displayNumber + recipePerLoad;
-    const { filter } = listState;
-    setListState({
-      ...listState,
-      listItems:
-        recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
-    });
+
+    if (isAsyncLoadMore()) {
+      //@ts-ignore
+      loadMoreConfig.onLoadMore(recipePerLoad);
+    } else {
+      const { filter } = listState;
+      setListState({
+        ...listState,
+        listItems:
+          recipeCount > 0
+            ? applyFilters(filter, listModified).slice(0, recipeCount)
+            : applyFilters(filter, listModified),
+      });
+    }
+
     setDisplayNumber(recipeCount);
   };
 
@@ -120,6 +142,13 @@ export const RecipeListing = ({
       text={title}
     />
   ) : null;
+
+  const shouldAppear =
+    (listState.listItems.length > 0 &&
+      initialCount !== 0 &&
+      displayNumber < listState.filterLength) ||
+    //@ts-ignore
+    (isAsyncLoadMore() && listState.listItems.length < loadMoreConfig.allCount);
 
   const recipeListBasic = (
     <>
@@ -134,11 +163,10 @@ export const RecipeListing = ({
         // @ts-ignore
         titleLevel={titleLevel + 1}
       />
-      {listState.listItems.length > 0 && initialCount !== 0 ? (
+      {shouldAppear ? (
         <Button
           className="recipe-list__load-more"
           onClick={loadMore}
-          hidden={displayNumber >= listState.filterLength}
           content={cta}
         />
       ) : null}

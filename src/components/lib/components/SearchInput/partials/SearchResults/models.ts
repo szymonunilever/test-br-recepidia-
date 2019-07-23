@@ -1,5 +1,6 @@
 export interface SearchResultsProps {
   list: string[];
-  hasSearchQuery: boolean;
   activeIndex: number;
+  onClickHandler: (currentItemValue: number) => void;
+  navigateToItem: boolean;
 }

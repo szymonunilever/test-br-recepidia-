@@ -5,14 +5,11 @@ import cx from 'classnames';
 
 const SearchResults = ({
   list,
-  hasSearchQuery,
   activeIndex,
-}: SearchResultsProps) => {
-  const noResultsMessage = hasSearchQuery ? (
-    <p className="search-input__message">no results</p>
-  ) : null;
-
-  return list.length ? (
+  onClickHandler,
+  navigateToItem,
+}: SearchResultsProps) =>
+  list.length ? (
     <ul className="search-input__list">
       {list.map((item, index) => {
         const classNames = cx('search-input__link', {
@@ -20,17 +17,24 @@ const SearchResults = ({
         });
 
         return (
-          <li key={index} className="search-input__item">
-            <Link className={classNames} to={`/search?q=${item}`}>
-              {item}
-            </Link>
+          <li
+            key={index}
+            onClick={() => onClickHandler(index)}
+            className="search-input__item"
+          >
+            {navigateToItem ? (
+              <a className={classNames}>{item}</a>
+            ) : (
+              <Link className={classNames} to={`/search?searchQuery=${item}`}>
+                {item}
+              </Link>
+            )}
           </li>
         );
       })}
     </ul>
   ) : (
-    noResultsMessage
+    <p className="search-input__message">no results</p>
   );
-};
 
 export default SearchResults;
