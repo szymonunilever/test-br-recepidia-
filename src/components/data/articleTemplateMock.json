@@ -1,0 +1,42 @@
+{
+  "type": "ArticleDetail",
+  "relativePath": "/articles",
+  "components": {
+    "items": [
+      {
+        "name": "SocialSharing",
+        "content": {
+          "buttons": [
+            {
+              "label": "Facebook",
+              "name": "facebook"
+            },
+            {
+              "label": "Twitter",
+              "name": "twitter"
+            }
+          ],
+          "openModalButton": {
+            "label": "Share"
+          }
+        }
+      },
+      {
+        "name": "Hero",
+        "content": {
+          "header": "Try our Meal Planner",
+          "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+          "primaryCta": {
+            "type": "Button",
+            "linkTo": "/meal-planner-sign-up/",
+            "label": "Sign me up!"
+          },
+          "image": {
+            "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+            "alt": "Meal planner"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -29,7 +29,7 @@ export const SocialSharingBase = ({
           click: handleSocialButtonClick ? handleSocialButtonClick : null,
           close: handleSocialDialogClose ? handleSocialDialogClose : null,
         });
-      }, 10);
+      }, 300);
     };
     if (!state.loaded) initSocial();
   });

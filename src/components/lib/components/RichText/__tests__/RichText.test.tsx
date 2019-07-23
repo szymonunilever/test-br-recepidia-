@@ -4,7 +4,7 @@ import React from 'react';
 import RichText from '../RichText';
 
 const content: AppContent.RichTextContent = {
-  html: `
+  text: `
     <h1>Header 1</h1>
     <h2>Header 2</h2>
     <p>
@@ -17,7 +17,7 @@ const content: AppContent.RichTextContent = {
 const className = 'rich-text';
 
 describe('RichText', () => {
-  it('should render html from props', () => {
+  it('should render text from props', () => {
     const testContent = shallow(
       <RichText content={content} className={className} />
     );
