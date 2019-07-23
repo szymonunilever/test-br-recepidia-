@@ -84,6 +84,7 @@ const SearchInput = ({
     if (onSubmit) {
       onSubmit(inputValue);
     }
+    setInputIsDirty(false);
   };
 
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
