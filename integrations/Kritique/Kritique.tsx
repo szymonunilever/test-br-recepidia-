@@ -26,9 +26,7 @@ const Kritique = () => {
         <Helmet
           script={[
             {
-              src: 'https://code.jquery.com/jquery-3.4.1.min.js',
-              integrity: 'sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=',
-              crossOrigin: 'anonymous',
+              src: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
               defer: true,
               async: true,
             },
