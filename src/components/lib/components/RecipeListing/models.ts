@@ -6,9 +6,9 @@ import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 export enum RecipeListViewType {
   Trivial,
-  Base,
-  Advanced,
   Carousel,
+  Advanced,
+  Base,
 }
 
 export interface OnFavoriteChange {
@@ -32,6 +32,18 @@ export interface RecipeListingProps
   ratingProvider?: RatingAndReviewsProvider;
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
+  loadMoreConfig?: LoadMoreConfig;
+}
+
+export enum LoadMoreType {
+  async,
+  sync,
+}
+
+export interface LoadMoreConfig {
+  type: LoadMoreType;
+  onLoadMore: (recipePerLoad: number) => void;
+  allCount: number;
 }
 
 export interface RecipeListingCarouselProps {

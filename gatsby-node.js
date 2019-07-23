@@ -8,12 +8,12 @@ const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
 
 const templatesMap = {
   RecipeCategory: path.resolve(
-    `./src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx`
+    './src/templates/RecipeCategoryPage/RecipeCategoryPage.tsx'
   ),
-  ContentHub: path.resolve(`./src/templates/ContentHubPage/ContentHubPage.tsx`),
-  RecipeDetail: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
-  ArticleDetail: path.resolve(`./src/templates/ArticlePage/ArticlePage.tsx`),
-  default: path.resolve(`./src/templates/ContentPage/ContentPage.tsx`),
+  ContentHub: path.resolve('./src/templates/ContentHubPage/ContentHubPage.tsx'),
+  RecipeDetail: path.resolve('./src/templates/RecipePage/RecipePage.tsx'),
+  ArticleDetail: path.resolve('./src/templates/ArticlePage/ArticlePage.tsx'),
+  default: path.resolve('./src/templates/ContentPage/ContentPage.tsx'),
 };
 
 function getPageTemplate(pageType) {
