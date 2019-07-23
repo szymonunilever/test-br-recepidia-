@@ -34,5 +34,36 @@
   "elasticSearch": {
     "url": "https://search-recipedia-dev-jwvjnpywrw6hxolpwrjycxt7y4.eu-west-1.es.amazonaws.com",
     "index": "recepedia_pt_br"
+  },
+  "analytics": {
+    "adobe": {
+      "url": "//assets.adobedtm.com/launch-EN44f54226de934d4eb94899b7090e7c11.min.js"
+    }
+  },
+  "digitalData": {
+    "siteInfo": {
+      "sitetype": "",
+      "category": "",
+      "country": "Brazil",
+      "globalbrand": "Recepedia",
+      "localbrand": "Recipedia"
+    },
+    "page": {
+      "attributes": {
+        "brandCategory": "",
+        "country": "Brazil",
+        "globalbrand": "Recepedia",
+        "localbrand": "Recipedia"
+      }
+    },
+    "trackingInfo": {
+      "GID": "",
+      "tool": [
+        {
+          "ids": "",
+          "id": ""
+        }
+      ]
+    }
   }
 }
