@@ -46,7 +46,6 @@ import SocialSharing, {
 import AddThis from '../../../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
-import InstagramIcon from 'src/svgs/inline/instagram.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 
@@ -134,8 +133,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
-    //TODO linkedin icon should be here
-    linkedIn: InstagramIcon,
   };
 
   const recipeHero = (
@@ -185,7 +182,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       <SEO title="Recepedia Home" />
       <Kritique />
 
-      <section className={cx(theme.topBg, '_pt--40 _pb--40 _bg--main')}>
+      <section className={cx(theme.topBg, '_bg--main')}>
         <div className="container">
           <div className={theme.recipeTopBlock}>
             <div className={theme.recipeTopBlockItem}>
