@@ -16,12 +16,12 @@ const getClient = (): Client => {
 };
 
 const useElasticSearch = async <T>(
-  searchBody: SearchParams
+  searchParams: SearchParams
 ): Promise<SearchResponse<T>> => {
   return await getClient()
     .search<T>({
-      index: keys.elasticSearch.index,
-      body: searchBody,
+      index: searchParams.index,
+      body: searchParams.body,
     })
     .then((resp: SearchResponse<T>) => resp)
     .catch(err => {

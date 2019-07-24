@@ -3,6 +3,7 @@ import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../common/Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import { triggerGetSearchData } from 'src/staticPages/Search/models';
 
 export enum RecipeListViewType {
   Trivial,
@@ -33,7 +34,13 @@ export interface RecipeListingProps
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
+  getSearchData?: getSearchData;
 }
+
+export type getSearchData = (
+  searchQuery: string,
+  params: object
+) => Promise<void>;
 
 export enum LoadMoreType {
   async,
@@ -42,7 +49,7 @@ export enum LoadMoreType {
 
 export interface LoadMoreConfig {
   type: LoadMoreType;
-  onLoadMore: (recipePerLoad: number) => void;
+  onLoadMore: triggerGetSearchData;
   allCount: number;
 }
 

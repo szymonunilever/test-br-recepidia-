@@ -17,12 +17,23 @@
                 "view": "all"
               },
               {
+                "title": "Articles",
+                "view": "articles"
+              },
+              {
                 "title": "Recipes",
                 "view": "recipes"
               }
             ]
           },
-          "recipesContent": {
+          "articleContent": {
+            "title": "Articles",
+            "cta": {
+              "label": "Load more"
+            }
+          },
+          "recipeContent": {
+            "title": "Recipes",
             "cta": { "label": "Load more recipes" },
             "nullResult": {
               "title": "Oops! No results",

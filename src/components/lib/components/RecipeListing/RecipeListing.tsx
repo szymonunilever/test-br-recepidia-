@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import { remove } from 'lodash';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
@@ -52,10 +52,11 @@ export const RecipeListing = ({
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
   const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
-  let listModified = sortBy(
-    RecipeSortingOptions.newest,
-    applyingFavorites(list, withFavorite, favorites)
-  );
+  const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
+  let listModified =
+    viewType === RecipeListViewType.Advanced
+      ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
+      : listWithFavorites;
 
   const [displayNumber, setDisplayNumber] = useState(initialCount);
   const [listState, setListState] = useState<{
@@ -64,8 +65,7 @@ export const RecipeListing = ({
     filter: RMSData.Tag[];
     sorting: RecipeSortingOptions;
   }>({
-    listItems:
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
+    listItems: [],
     filterLength: listModified.length,
     filter: [],
     sorting: RecipeSortingOptions.newest,
@@ -74,16 +74,6 @@ export const RecipeListing = ({
   const isAsyncLoadMore = () =>
     get(loadMoreConfig, 'type') === LoadMoreType.async;
 
-  useEffect(() => {
-    const syncList =
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified;
-
-    setListState({
-      ...listState,
-      listItems: isAsyncLoadMore() ? list : syncList,
-    });
-  }, [list]);
-
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
     if (onFavoriteChange) {
@@ -91,27 +81,52 @@ export const RecipeListing = ({
     }
   };
   const onFilterChange = (filter: RMSData.Tag[]) => {
-    const recipeCount = displayNumber;
-    listModified = sortBy(listState.sorting, listModified);
-    const filtered = applyFilters(filter, listModified);
-    setListState({
-      ...listState,
-      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-      filterLength: filtered.length,
-      filter,
-    });
+    if (isAsyncLoadMore()) {
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: filtered,
+        filterLength: filtered.length,
+        filter,
+      });
+    } else {
+      const recipeCount = displayNumber;
+      listModified = sortBy(listState.sorting, listModified);
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
+        filterLength: filtered.length,
+        filter,
+      });
+    }
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
-    const recipeCount = displayNumber;
-    const { filter } = listState;
-    listModified = sortBy(sorting, listModified);
-    const filtered = applyFilters(filter, listModified);
-    setListState({
-      ...listState,
-      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-      sorting,
-    });
+    if (isAsyncLoadMore()) {
+      listModified = sortBy(sorting, listState.listItems);
+
+      setListState({
+        ...listState,
+        listItems: listModified,
+        sorting,
+      });
+    } else {
+      listModified = sortBy(sorting, listModified);
+
+      const recipeCount = displayNumber;
+      const { filter } = listState;
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
+        sorting,
+      });
+      setDisplayNumber(recipeCount);
+    }
   };
 
   const loadMore = () => {
@@ -130,8 +145,6 @@ export const RecipeListing = ({
             : applyFilters(filter, listModified),
       });
     }
-
-    setDisplayNumber(recipeCount);
   };
 
   const listHeader = title ? (
@@ -145,7 +158,7 @@ export const RecipeListing = ({
 
   const shouldAppear =
     isAsyncLoadMore() && loadMoreConfig
-      ? listState.listItems.length < loadMoreConfig.allCount
+      ? list.length < loadMoreConfig.allCount
       : listState.listItems.length > 0 &&
         initialCount !== 0 &&
         displayNumber < listState.filterLength;
@@ -153,8 +166,8 @@ export const RecipeListing = ({
   const recipeListBasic = (
     <>
       <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
+        list={list}
+        recipeCount={list.length}
         FavoriteIcon={FavoriteIcon}
         withFavorite={withFavorite}
         ratingProvider={ratingProvider}
@@ -210,7 +223,11 @@ export const RecipeListing = ({
           RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
-          results={listState.filterLength}
+          results={
+            listState.filterLength ||
+            (loadMoreConfig && loadMoreConfig.allCount) ||
+            0
+          }
           content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />

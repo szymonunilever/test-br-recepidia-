@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -15,35 +15,165 @@ import TagLinks from 'src/components/TagsLinks';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 import PlaceholderIcon from 'src/svgs/inline/placeholder.svg';
 
+import keys from 'integrations/keys.json';
+
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 
 import CloseSvg from 'src/svgs/inline/x-mark.svg';
 import { RecipeListViewType } from 'src/components/lib/components/RecipeListing';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import withLocation from 'src/components/lib/components/common/WithLocation';
+import { WithLocationProps } from 'src/components/lib/components/common/WithLocation/models';
+import { ParsedQuery } from 'query-string';
+import { SearchInputProps } from 'src/components/lib/components/searchInput/models';
+import { get } from 'lodash';
+import { SearchParams } from './models';
 
-const SearchPage = ({ data, pageContext }: SearchPageProps) => {
+const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
   const { components } = pageContext;
+  const [recipeResults, setRecipeResults] = useState<{
+    list: Internal.Recipe[];
+    count: number;
+  }>({
+    list: [],
+    count: 0,
+  });
+  const [articleResults, setArticleResults] = useState<{
+    list: Internal.Article[];
+    count: number;
+  }>({
+    list: [],
+    count: 0,
+  });
+  const [searchInputResults, setSearchInputResults] = useState<{
+    list: SearchInputProps['searchResults'];
+    count: number;
+  }>({
+    list: [],
+    count: 0,
+  });
 
   const { allTag } = data;
 
-  const getSearchData = (
+  const getRecipeSearchData = async (
     searchQuery: string,
-    { from = 0, size = undefined }
+    params: SearchParams
   ) => {
-    const searchBody = {
-      from,
-      size,
-      query: {
-        /*eslint-disable */
-        multi_match: {
-          query: `${searchQuery}`,
-          fields: ['title', 'description', 'tagGroups.tags.name'],
+    const searchParams = {
+      index: keys.elasticSearch.recipeIndex,
+      body: {
+        from: params.from,
+        size: params.size,
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: `*${searchQuery}*`,
+            fields: [
+              'title',
+              'description',
+              'tagGroups.tags.name',
+              'ingredients.description',
+            ],
+          },
         },
-        /*eslint-enable */
       },
     };
 
-    return useElasticSearch<Internal.Recipe>(searchBody);
+    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
+      setRecipeResults({
+        list: recipeResults.list.length
+          ? [
+              ...recipeResults.list,
+              ...res.hits.hits.map(resItem => resItem._source),
+            ]
+          : res.hits.hits.map(resItem => resItem._source),
+        count: res.hits.total,
+      });
+    });
+  };
+
+  const getArticleSearchData = async (
+    searchQuery: string,
+    params: SearchParams
+  ) => {
+    const searchParams = {
+      index: keys.elasticSearch.articleIndex,
+      body: {
+        from: params.from,
+        size: params.size,
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: `*${searchQuery}*`,
+            fields: ['title', 'articleText.text'],
+          },
+        },
+      },
+    };
+
+    return useElasticSearch<Internal.Article>(searchParams).then(res => {
+      setArticleResults({
+        list: articleResults.list.length
+          ? [
+              ...articleResults.list,
+              ...res.hits.hits.map(resItem => resItem._source),
+            ]
+          : res.hits.hits.map(resItem => resItem._source),
+        count: res.hits.total,
+      });
+    });
+  };
+
+  useEffect(() => {
+    getArticleSearchData(get(search, 'searchQuery'), {
+      size: 8,
+    });
+
+    getRecipeSearchData(get(search, 'searchQuery'), {
+      size: 8,
+    });
+  }, []);
+
+  const getSearchSuggestionData = async (
+    searchQuery: string,
+    params: SearchParams
+  ) => {
+    const searchParams = {
+      index: keys.elasticSearch.recipeIndex,
+      body: {
+        from: params.from,
+        size: params.size,
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: `*${searchQuery}*`,
+            fields: [
+              'title',
+              'description',
+              'tagGroups.tags.name',
+              'ingredients.description',
+            ],
+          },
+        },
+      },
+    };
+
+    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
+      setSearchInputResults({
+        list: res.hits.hits.map(item => item._source.title),
+        count: res.hits.total,
+      });
+    });
+  };
+
+  const getSearchData = async (searchQeury: string, params: SearchParams) => {
+    getArticleSearchData(searchQeury, {
+      size: params.size,
+    });
+
+    getRecipeSearchData(searchQeury, {
+      size: params.size,
+    });
   };
 
   return (
@@ -53,24 +183,34 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
       <section className="_bg--main">
         <div className="container">
           <SearchListing
+            search={search}
+            searchResults={{
+              recipeResults,
+              searchInputResults,
+              articleResults,
+            }}
             searchResultTitleLevel={3}
-            getSearchData={getSearchData}
             config={{
               searchInputConfig: {
+                getSearchSuggestionData,
+                onClickSearchResultsItem: getSearchData,
                 searchResultsCount: 8,
                 labelIcon: <SearchIcon />,
                 buttonResetIcon: <CloseSvg />,
                 buttonSubmitIcon: <PlaceholderIcon />,
-                onSubmit: () => {},
               },
-              recipesConfig: {
+              recipeConfig: {
+                getRecipeSearchData,
                 viewType: RecipeListViewType.Base,
-                FavoriteIcon: FavoriteIcon,
+                FavoriteIcon,
                 withFavorite: true,
                 initialCount: 2,
                 recipePerLoad: 4,
                 favorites: [],
                 onFavoriteChange: () => {},
+              },
+              articleConfig: {
+                getArticleSearchData,
               },
             }}
             content={findPageComponentContent(components, 'SearchListing')}
@@ -125,7 +265,7 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
   );
 };
 
-export default SearchPage;
+export default withLocation<SearchPageProps & WithLocationProps>(SearchPage);
 
 export const pageQuery = graphql`
   {
@@ -147,6 +287,7 @@ interface SearchPageProps {
     title: string;
     components: {
       [key: string]: string | number | boolean | object | null;
-    }[];
+    };
   };
+  search: ParsedQuery<string> | object;
 }

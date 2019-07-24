@@ -12,16 +12,17 @@ const SearchInput = ({
   list = [],
   content: { title, placeholderText },
   className,
-  searchUrl,
   labelIcon,
   buttonResetIcon,
   buttonSubmitIcon,
   searchResultsCount,
   debounceTimeout = 300,
   onSubmit,
-  getSearchData,
+  getSearchResults,
+  searchResults,
   defaultSearchValue = '',
   onClickSearchResultsItem,
+  autoFocus = false,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -29,6 +30,7 @@ const SearchInput = ({
   const [timerId, setTimerId] = useState();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [inputIsDirty, setInputIsDirty] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setInputValue(defaultSearchValue);
@@ -46,27 +48,26 @@ const SearchInput = ({
   };
 
   const getResults = (searchInputValue: string) => {
-    if (searchUrl) {
-      fetch(`${searchUrl}/?searchQuery=${inputValue}/`)
-        .then(res => res.json())
-        .then(data => setData(data))
-        .catch(err => {
-          throw new Error(err);
-        });
-    } else if (getSearchData) {
-      getSearchData(searchInputValue, {
+    if (getSearchResults) {
+      setIsLoading(true);
+      getSearchResults(searchInputValue, {
         from: 0,
         size: searchResultsCount,
-      }).then(data => {
-        const filteredData = data.hits.hits.map(item => item._source.title);
+      }).then(() => {
+        setIsLoading(false);
         setInputIsDirty(true);
-        setData(filteredData.slice(0, searchResultsCount));
       });
     } else {
       setData(filterData(list, searchInputValue));
       setInputIsDirty(true);
     }
   };
+
+  useEffect(() => {
+    if (searchResults) {
+      setData(searchResults);
+    }
+  }, [searchResults]);
 
   const clearTimeOut = () => window.clearTimeout(timerId);
 
@@ -82,7 +83,10 @@ const SearchInput = ({
     e.preventDefault();
 
     if (onSubmit) {
-      onSubmit(inputValue);
+      onSubmit(inputValue, {
+        from: 0,
+        size: searchResultsCount,
+      });
     }
     setInputIsDirty(false);
   };
@@ -108,7 +112,7 @@ const SearchInput = ({
 
     if (onClickSearchResultsItem) {
       setInputIsDirty(false);
-      onClickSearchResultsItem(data[index]);
+      onClickSearchResultsItem(data[index], { size: searchResultsCount });
     }
   };
 
@@ -116,6 +120,7 @@ const SearchInput = ({
     const { value } = e.target;
 
     clearTimeOut();
+    setInputIsDirty(false);
     setInputValue(value);
     setTimerId(() =>
       window.setTimeout(() => {
@@ -125,7 +130,6 @@ const SearchInput = ({
   };
 
   const inputHasValue = !!inputValue;
-
   const buttonReset = inputHasValue ? (
     <button className="form__button-reset" type="button" onClick={resetForm}>
       {buttonResetIcon}
@@ -142,6 +146,7 @@ const SearchInput = ({
             {labelIcon}
           </label>
           <input
+            autoFocus={autoFocus}
             className="form__input"
             type="text"
             onChange={onChangeHandler}
@@ -162,7 +167,7 @@ const SearchInput = ({
         </div>
       </form>
 
-      {inputIsDirty && inputHasValue ? (
+      {inputIsDirty && inputHasValue && !isLoading ? (
         <SearchResults
           navigateToItem={!!onClickSearchResultsItem}
           onClickHandler={onClickSearchResultsItemHandler}

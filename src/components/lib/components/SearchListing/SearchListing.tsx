@@ -1,181 +1,224 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SearchInput from '../SearchInput';
-import withLocation from '../common/WithLocation';
 import { Tabs, Tab } from '../Tabs';
-import RecipeListing, { LoadMoreType } from '../RecipeListing';
+import RecipeListing, {
+  LoadMoreType,
+  RecipeListViewType,
+} from '../RecipeListing';
 import cx from 'classnames';
 
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
-import { SearchListingProps, ResponseRecipeData } from './models';
+import { SearchListingProps } from './models';
 import { get } from 'lodash';
-import { WithLocationProps } from '../common/WithLocation/models';
+import MediaGallery from '../MediaGallery';
+import { SearchParams } from 'src/staticPages/Search/models';
 
-const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
+const SearchListing: React.SFC<SearchListingProps> = ({
   content,
-  config,
+  config: { recipeConfig, searchInputConfig, articleConfig },
   search,
-  getSearchData,
   className,
   searchResultTitleLevel = 3,
+  searchResults: { recipeResults, searchInputResults, articleResults },
 }) => {
   const classNames = cx('search-listing', className);
-  const [recipeData, setRecipeData] = useState<
-    ResponseRecipeData<Internal.Recipe>[]
-  >([]);
+
   const [defaultSearchValue, setDefaultSearchValue] = useState(
     get(search, 'searchQuery')
   );
-  const [numRes, setNumRes] = useState(0);
-  const [dataIsFetched, setDataIsFetched] = useState(false);
 
   useEffect(() => {
-    if (search) {
-      getSearchData(get(search, 'searchQuery', ''), {
-        size: 8,
-      }).then(data => {
-        setRecipeData(data.hits.hits);
-        setNumRes(data.hits.total);
-        setDataIsFetched(true);
-
-        setDefaultSearchValue(get(search, 'searchQuery', ''));
-      });
-    }
+    setDefaultSearchValue(get(search, 'searchQuery', ''));
   }, [search]);
 
-  const onSubmit = useCallback((value: string) => {
-    getSearchData(value, { size: 8 }).then(data => {
-      setDataIsFetched(true);
-      setRecipeData(data.hits.hits);
-      setDefaultSearchValue(value);
-      setNumRes(data.hits.total);
-    });
+  const onSubmit = useCallback(async (searchQuery: string) => {
+    setDefaultSearchValue(searchQuery);
+
+    if (recipeConfig.getRecipeSearchData) {
+      recipeConfig.getRecipeSearchData(searchQuery, { size: 8 });
+    }
+
+    if (articleConfig.getArticleSearchData) {
+      articleConfig.getArticleSearchData(searchQuery, { size: 8 });
+    }
   }, []);
 
-  const onLoadMoreRecipes = useCallback(
-    (size: number) =>
-      getSearchData(defaultSearchValue, { from: recipeData.length, size })
-        .then(data => {
-          setRecipeData([...recipeData, ...data.hits.hits]);
-        })
-        .catch(err => {
-          throw new Error(err);
-        }),
-    [defaultSearchValue, recipeData]
-  );
+  const onLoadMoreRecipes = (size: number) => {
+    if (recipeConfig.getRecipeSearchData) {
+      recipeConfig.getRecipeSearchData(defaultSearchValue, {
+        from: recipeResults.list.length,
+        size,
+      });
+    }
+  };
+
+  const onLoadMoreArticles = (size: number) => {
+    if (articleConfig.getArticleSearchData) {
+      articleConfig.getArticleSearchData(defaultSearchValue, {
+        from: articleResults.list.length,
+        size,
+      });
+    }
+  };
 
   const onClickSearchResultsItem = useCallback(
-    () => (itemValue: string) =>
-      getSearchData(itemValue, { size: 8 }).then(data => {
-        setRecipeData(data.hits.hits);
-        setNumRes(data.hits.total);
-        setDataIsFetched(true);
-      }),
+    async (searchQuery: string, params: SearchParams) => {
+      setDefaultSearchValue(searchQuery);
+
+      if (searchInputConfig.onClickSearchResultsItem) {
+        searchInputConfig.onClickSearchResultsItem(searchQuery, {
+          size: params.size,
+        });
+      }
+    },
     []
   );
 
-  const tabs = content.tabsContent.tabs.reduce(
-    (tabs: JSX.Element[], { view }) => {
-      switch (view) {
-        case 'all': {
-          tabs.push(
-            <Tab view={view} key={view}>
-              <Text
-                className="search-listing__results-header"
-                // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
-                text={content.searchListingContent.title
-                  .replace('{numRes}', numRes.toString())
-                  .replace(
-                    '{searchInputValue}',
-                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                  )}
-              />
-              <RecipeListing
-                loadMoreConfig={{
-                  type: LoadMoreType.async,
-                  onLoadMore: onLoadMoreRecipes,
-                  allCount: numRes,
-                }}
-                list={recipeData.map(item => item._source)}
-                content={content.recipesContent}
-                {...config.recipesConfig}
-              />
-            </Tab>
-          );
-          break;
-        }
+  const searchResultsText = (
+    <Text
+      className="search-listing__results-header"
+      // @ts-ignore
+      tag={TagName[`h${searchResultTitleLevel}`]}
+      text={content.searchListingContent.title
+        .replace(
+          '{numRes}',
+          (recipeResults.count + articleResults.count).toString()
+        )
+        .replace(
+          '{searchInputValue}',
+          `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+        )}
+    />
+  );
 
-        case 'recipes': {
-          tabs.push(
-            <Tab view={view} key={view}>
-              <Text
-                className="search-listing__results-header"
-                // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
-                text={content.searchListingContent.title
-                  .replace('{numRes}', numRes.toString())
-                  .replace(
-                    '{searchInputValue}',
-                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                  )}
-              />
-              <RecipeListing
-                loadMoreConfig={{
-                  type: LoadMoreType.async,
-                  onLoadMore: onLoadMoreRecipes,
-                  allCount: numRes,
-                }}
-                list={recipeData.map(item => item._source)}
-                content={content.recipesContent}
-                {...config.recipesConfig}
-              />
-            </Tab>
-          );
-          break;
-        }
+  const recipes = !!content.tabsContent.tabs.find(
+    tab => get(tab, 'view') === 'recipes'
+  ) &&
+    recipeResults.list.length && (
+      <RecipeListing
+        initialCount={8}
+        viewType={RecipeListViewType.Advanced}
+        loadMoreConfig={{
+          type: LoadMoreType.async,
+          onLoadMore: onLoadMoreRecipes,
+          allCount: recipeResults.count,
+        }}
+        list={recipeResults.list}
+        content={content.recipeContent}
+        {...recipeConfig}
+      />
+    );
+
+  const articles = !!content.tabsContent.tabs.find(
+    tab => get(tab, 'view') === 'articles'
+  ) &&
+    articleResults.list.length && (
+      <MediaGallery
+        content={content.articleContent}
+        onLoadMore={onLoadMoreArticles}
+        list={articleResults.list}
+        allCount={articleResults.count}
+      />
+    );
+
+  const tabs = content.tabsContent.tabs.reduce(
+    (
+      tabs: {
+        list: JSX.Element[];
+        content: AppContent.Tabs.Content;
+      },
+      item
+    ) => {
+      if (
+        item.view === 'all' &&
+        (recipeResults.list.length || articleResults.list.length)
+      ) {
+        tabs.list.push(
+          <Tab view={item.view} key={item.view}>
+            {searchResultsText}
+            {articles}
+            {recipes}
+          </Tab>
+        );
+        tabs.content.tabs.push(item);
+      }
+      if (item.view === 'articles' && articleResults.list.length) {
+        tabs.list.push(
+          <Tab view={item.view} key={item.view}>
+            <Text
+              className="search-listing__results-header"
+              // @ts-ignore
+              tag={TagName[`h${searchResultTitleLevel}`]}
+              text={content.searchListingContent.title
+                .replace('{numRes}', articleResults.count.toString())
+                .replace(
+                  '{searchInputValue}',
+                  `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+                )}
+            />
+            {articles}
+          </Tab>
+        );
+        tabs.content.tabs.push(item);
+      }
+      if (item.view === 'recipes' && recipeResults.list.length) {
+        tabs.list.push(
+          <Tab view={item.view} key={item.view}>
+            <Text
+              className="search-listing__results-header"
+              // @ts-ignore
+              tag={TagName[`h${searchResultTitleLevel}`]}
+              text={content.searchListingContent.title
+                .replace('{numRes}', recipeResults.count.toString())
+                .replace(
+                  '{searchInputValue}',
+                  `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+                )}
+            />
+            {recipes}
+          </Tab>
+        );
+        tabs.content.tabs.push(item);
       }
 
       return tabs;
     },
-    []
+    {
+      list: [],
+      content: {
+        tabs: [],
+      },
+    }
   );
 
   return (
     <div className={classNames} data-componentname="search-listing">
       <SearchInput
+        searchResults={searchInputResults.list}
         content={content.searchInputContent}
-        {...config.searchInputConfig}
+        {...searchInputConfig}
         defaultSearchValue={defaultSearchValue}
-        getSearchData={getSearchData}
+        getSearchResults={searchInputConfig.getSearchSuggestionData}
         onSubmit={onSubmit}
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
 
-      {recipeData.length ? (
-        <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
-      ) : dataIsFetched ? (
+      {(tabs.list.length && recipeResults.list.length) ||
+      (tabs.list.length && articleResults.list.length) ? (
+        <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
+      ) : (
         <>
-          <Text
-            className="search-listing__results-header"
-            // @ts-ignore
-            tag={TagName[`h${searchResultTitleLevel}`]}
-            text={content.searchListingContent.title
-              .replace('{numRes}', numRes.toString())
-              .replace(
-                '{searchInputValue}',
-                `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-              )}
-          />
+          {searchResultsText}
           <NullResult
             content={content.nullResultContent}
             className="search-listing__null-results"
             titleLevel={3}
           />
         </>
-      ) : null}
+      )}
     </div>
   );
 };
 
-export default withLocation(SearchListing);
+export default SearchListing;
