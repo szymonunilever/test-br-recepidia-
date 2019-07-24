@@ -44,7 +44,10 @@ module.exports = async ({ graphql, createPage }) => {
   }));
 
   pages
-    .filter(({ type }) => type === 'Home' || type === 'AllRecipes')
+    .filter(
+      ({ type }) =>
+        type === 'Home' || type === 'AllRecipes' || type === 'Search'
+    )
     .forEach(node => {
       createPage(node);
     });
