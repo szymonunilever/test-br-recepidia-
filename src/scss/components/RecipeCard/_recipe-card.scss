@@ -28,7 +28,7 @@
       fill-opacity: 0;
       transition: stroke 0.2s ease-out;
     }
-    @include respondTo(desktop) {
+    @media (hover) {
       &:hover {
         svg {
           fill: $luminous-yellow;

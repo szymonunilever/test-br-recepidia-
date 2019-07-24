@@ -1,8 +1,6 @@
 .tags {
-  margin: 35px 0;
-  @include respondTo(desktop) {
-    margin: 60px 0;
-  }
+ @extend ._pt--40;
+ @extend ._pb--40;
   &__list {
     list-style: none;
     padding: 0;

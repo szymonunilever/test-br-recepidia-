@@ -28,7 +28,7 @@
       font-size: 1.8rem;
       font-family: $rubik;
       color: $black-blue;
-      &[aria-selected='false'] {
+      &[aria-pressed='false'] {
         color: $gray;
       }
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ModalProps } from './models';
 import cx from 'classnames';
 import ReactModal from 'react-modal';
@@ -15,6 +15,9 @@ const Modal = ({
   ...props
 }: ModalProps) => {
   const wrapClasses = cx(className, 'modal');
+  useEffect(() => {
+    ReactModal.setAppElement('body');
+  }, []);
   return (
     <ReactModal
       {...props}
