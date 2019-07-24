@@ -60,6 +60,7 @@ const GlobalSearch = ({
                   navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
                   setModalState(false);
                 }}
+                autoFocus
               />
             </Modal>
           </>

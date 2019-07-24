@@ -22,6 +22,7 @@ const SearchInput = ({
   getSearchData,
   defaultSearchValue = '',
   onClickSearchResultsItem,
+  autoFocus = false,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -142,6 +143,7 @@ const SearchInput = ({
             {labelIcon}
           </label>
           <input
+            autoFocus={autoFocus}
             className="form__input"
             type="text"
             onChange={onChangeHandler}

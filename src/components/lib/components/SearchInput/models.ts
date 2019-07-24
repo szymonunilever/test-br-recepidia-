@@ -14,6 +14,7 @@ export interface SearchInputProps
   onSubmit: (inputValue: string) => void;
   getSearchData?: getSearchData;
   onClickSearchResultsItem?: (currentItemValue: string) => void;
+  autoFocus?: boolean;
 }
 
 export interface FilterData {
