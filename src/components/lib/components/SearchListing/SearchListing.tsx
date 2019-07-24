@@ -24,47 +24,45 @@ const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
     ResponseRecipeData<Internal.Recipe>[]
   >([]);
   const [defaultSearchValue, setDefaultSearchValue] = useState(
-    'search.searchQuery'
+    get(search, 'searchQuery')
   );
   const [numRes, setNumRes] = useState(0);
   const [dataIsFetched, setDataIsFetched] = useState(false);
 
   useEffect(() => {
     if (search) {
-      getSearchData(get(search, 'parsedQuery', ''), {
+      getSearchData(get(search, 'searchQuery', ''), {
         size: 8,
       }).then(data => {
         setRecipeData(data.hits.hits);
         setNumRes(data.hits.total);
         setDataIsFetched(true);
+
+        setDefaultSearchValue(get(search, 'searchQuery', ''));
       });
     }
+  }, [search]);
+
+  const onSubmit = useCallback((value: string) => {
+    getSearchData(value, { size: 8 }).then(data => {
+      setDataIsFetched(true);
+      setRecipeData(data.hits.hits);
+      setDefaultSearchValue(value);
+      setNumRes(data.hits.total);
+    });
   }, []);
 
-  const onSubmit = (value: string) =>
-    useCallback(
-      () =>
-        getSearchData(value, { size: 8 }).then(data => {
-          setDataIsFetched(true);
-          setRecipeData(data.hits.hits);
-          setDefaultSearchValue(value);
-          setNumRes(data.hits.total);
+  const onLoadMoreRecipes = useCallback(
+    (size: number) =>
+      getSearchData(defaultSearchValue, { from: recipeData.length, size })
+        .then(data => {
+          setRecipeData([...recipeData, ...data.hits.hits]);
+        })
+        .catch(err => {
+          throw new Error(err);
         }),
-      []
-    );
-
-  const onLoadMoreRecipes = (size: number) =>
-    useCallback(
-      () =>
-        getSearchData(defaultSearchValue, { from: recipeData.length, size })
-          .then(data => {
-            setRecipeData([...recipeData, ...data.hits.hits]);
-          })
-          .catch(err => {
-            throw new Error(err);
-          }),
-      [defaultSearchValue, recipeData]
-    );
+    [defaultSearchValue, recipeData]
+  );
 
   const onClickSearchResultsItem = useCallback(
     () => (itemValue: string) =>

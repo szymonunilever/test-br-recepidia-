@@ -46,6 +46,7 @@ export const SocialSharing = ({
             onClick={() => {
               setState(true);
             }}
+            attributes={{ 'aria-label': 'social sharing' }}
           />
 
           <Modal

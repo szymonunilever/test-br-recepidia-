@@ -9,6 +9,7 @@ const {
 //TODO: It should be removed after BackEnd will be done.
 let articlePageTemplate = require('../../src/components/data/articleTemplateMock.json');
 let articlesData = require('../../src/components/data/allArticlesPageData.json');
+const searchPageMock = require('../../src/components/data/searchPageMock.json');
 const contentHubPageMock = require('../../src/components/data/contentHubPage.json');
 
 exports.sourceNodes = async (
@@ -63,6 +64,7 @@ exports.sourceNodes = async (
     ...pages.data.pages,
     articlePageTemplate,
     contentHubPageMock,
+    searchPageMock,
   ];
   tempData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
