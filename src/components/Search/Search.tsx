@@ -56,8 +56,9 @@ const GlobalSearch = ({
                 content={searchContent}
                 labelIcon={<SearchIcon />}
                 buttonResetIcon={<ButtonCloseIcon />}
-                onSubmit={() => {
-                  navigate('/search'); // get URL from Pages when search Page is there
+                onSubmit={value => {
+                  navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+                  setModalState(false);
                 }}
               />
             </Modal>

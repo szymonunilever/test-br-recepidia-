@@ -144,11 +144,11 @@ export const RecipeListing = ({
   ) : null;
 
   const shouldAppear =
-    (listState.listItems.length > 0 &&
-      initialCount !== 0 &&
-      displayNumber < listState.filterLength) ||
-    //@ts-ignore
-    (isAsyncLoadMore() && listState.listItems.length < loadMoreConfig.allCount);
+    isAsyncLoadMore() && loadMoreConfig
+      ? listState.listItems.length < loadMoreConfig.allCount
+      : listState.listItems.length > 0 &&
+        initialCount !== 0 &&
+        displayNumber < listState.filterLength;
 
   const recipeListBasic = (
     <>
