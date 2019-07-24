@@ -173,6 +173,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
             CloseButtonIcon={CloseButton}
             icons={socialIcons}
             titleLevel={4}
+            WidgetScript={AddThis}
           />
         </>
       </div>
@@ -183,7 +184,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
       <Kritique />
-      <AddThis />
 
       <section className={cx(theme.topBg, '_pt--40 _pb--40 _bg--main')}>
         <div className="container">
