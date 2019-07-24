@@ -64,8 +64,19 @@ exports.onCreateNode = async ({
               name: 'image',
             });
             asset.content['localImage___NODE'] = imgNode.id;
+          } else if (type === 'Video') {
+            const imgNode = await createRemoteFileNode({
+              url: get(content, 'preview.url'),
+              parentNodeId: node.id,
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              ext: '.jpg',
+              name: 'image',
+            });
+            asset.content.preview['previewImage___NODE'] = imgNode.id;
           }
-
           return asset;
         })
       );
@@ -77,6 +88,7 @@ exports.onCreateNode = async ({
       });
       break;
     }
+
     case 'Page': {
       await Promise.all(
         node.components.map(async component => {

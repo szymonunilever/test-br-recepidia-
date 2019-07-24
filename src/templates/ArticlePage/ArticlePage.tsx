@@ -5,7 +5,9 @@ import SEO from 'src/components/Seo/Seo';
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
+import PlayIcon from 'src/svgs/inline/arrow-right.svg';
 import theme from 'src/templates/ArticlePage/ArticlePage.module.scss';
+import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import AddThis from '../../../integrations/AddThis';
 import Layout from '../../components/Layout/Layout';
@@ -48,38 +50,42 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
   ) as AppContent.ImageContent;
 
   return (
-    <Layout>
+    <Layout className={theme.articleWrap}>
       <SEO title={article.title} description={article.shortDescription} />
-      <section className="container">
-        <Text tag={TagName.h1} text={article.title} />
+      <section className={theme.articleTitle}>
+        <div className="container">
+          <Text tag={TagName.h1} text={article.title} />
+        </div>
       </section>
       {mainImageHero && (
-        <section>
-          <div className="container">
-            <Hero viewType="Image" content={mainImageHero} />
-            <SocialSharing
-              content={findPageComponentContent(
-                pageContext.components,
-                'SocialSharing'
-              )}
-              className={theme.articleSocial}
-              icons={socialIcons}
-              viewType={SocialSharingViewType.Modal}
-              CloseButtonIcon={CloseButton}
-              WidgetScript={AddThis}
-            />
+        <section className={cx(theme.articleImage, 'bg--half')}>
+          <div className="container ">
+            <div className="article-image__wrap">
+              <Hero viewType="Image" content={mainImageHero} />
+              <SocialSharing
+                content={findPageComponentContent(
+                  pageContext.components,
+                  'SocialSharing'
+                )}
+                className={theme.articleSocial}
+                icons={socialIcons}
+                viewType={SocialSharingViewType.Modal}
+                CloseButtonIcon={CloseButton}
+                WidgetScript={AddThis}
+              />
+            </div>
           </div>
         </section>
       )}
 
-      <section className="container">
+      <section className={cx(theme.articleText, 'container')}>
         <RichText content={article.articleText} type="md" />
       </section>
       {/* TODO: add component for image carousel if it will be approved. */}
       {video && (
-        <section>
+        <section className={theme.articleVideo}>
           <div className="container">
-            <VideoPlayer content={video} />
+            <VideoPlayer content={video} PlayIcon={PlayIcon} />
             {video.description ? (
               <Text tag={TagName.p} text={video.description} />
             ) : null}
@@ -87,22 +93,33 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
         </section>
       )}
       {next && next.fields && next.fields.slug && nextMainImageHero && (
-        <section className="container">
-          <Link to={next.fields.slug}>
-            <Hero
-              content={{
-                image: nextMainImageHero,
-                shortSubheader: next.title,
-                longSubheader: next.shortDescription,
-              }}
-              viewType="Image"
-              className="next-article"
-              titleLevel={2}
+        <section className={theme.articleNext}>
+          <div className="container">
+            <Text
+              tag={TagName.h2}
+              text={
+                findPageComponentContent(
+                  pageContext.components,
+                  'Text',
+                  'NextTitle'
+                ).text
+              }
             />
-          </Link>
+            <Link to={next.fields.slug}>
+              <Hero
+                content={{
+                  image: nextMainImageHero,
+                  shortSubheader: next.title,
+                  longSubheader: next.shortDescription,
+                }}
+                viewType="Image"
+                titleLevel={2}
+              />
+            </Link>
+          </div>
         </section>
       )}
-      <section className="_pb--40">
+      <section>
         <Hero
           content={findPageComponentContent(pageContext.components, 'Hero')}
           viewType="Image"

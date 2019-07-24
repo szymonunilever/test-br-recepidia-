@@ -11,6 +11,17 @@ export const query = graphql`
       role
       url
       videoId
+      preview {
+        alt
+        url
+        previewImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...LocalImage
+            }
+          }
+        }
+      }
       localImage {
         childImageSharp {
           fluid(maxWidth: 1200) {

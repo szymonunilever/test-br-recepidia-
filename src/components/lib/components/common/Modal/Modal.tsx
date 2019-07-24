@@ -10,7 +10,7 @@ const Modal = ({
   className,
   close,
   closeBtn,
-  titleLevel,
+  titleLevel = 2,
   title = '',
   ...props
 }: ModalProps) => {
