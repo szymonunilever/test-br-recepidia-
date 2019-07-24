@@ -49,32 +49,29 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
     <Layout className={cx('search-page', theme.searchPage)}>
       <SEO title="Recepedia Search" />
       <Kritique />
-      <section className="_bg--main">
-        <div className="container">
-          <SearchListing
-            searchResultTitleLevel={3}
-            getSearchData={getSearchData}
-            config={{
-              searchInputConfig: {
-                searchResultsCount: 8,
-                labelIcon: <SearchIcon />,
-                buttonResetIcon: <CloseSvg />,
-                buttonSubmitIcon: <PlaceholderIcon />,
-                onSubmit: () => {},
-              },
-              recipesConfig: {
-                viewType: RecipeListViewType.Base,
-                FavoriteIcon: FavoriteIcon,
-                withFavorite: true,
-                initialCount: 2,
-                recipePerLoad: 4,
-                favorites: [],
-                onFavoriteChange: () => {},
-              },
-            }}
-            content={findPageComponentContent(components, 'SearchListing')}
-          />
-        </div>
+      <section>
+        <SearchListing
+          getSearchData={getSearchData}
+          config={{
+            searchInputConfig: {
+              searchResultsCount: 8,
+              labelIcon: <SearchIcon />,
+              buttonResetIcon: <CloseSvg />,
+              buttonSubmitIcon: <SearchIcon />,
+              onSubmit: () => {},
+            },
+            recipesConfig: {
+              viewType: RecipeListViewType.Base,
+              FavoriteIcon: FavoriteIcon,
+              withFavorite: true,
+              initialCount: 2,
+              recipePerLoad: 4,
+              favorites: [],
+              onFavoriteChange: () => {},
+            },
+          }}
+          content={findPageComponentContent(components, 'SearchListing')}
+        />
       </section>
 
       <section className="_pt--40 _pb--40">
@@ -86,7 +83,7 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
         </div>
       </section>
 
-      <section className="_pb--40">
+      <section>
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
@@ -94,8 +91,8 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
         />
       </section>
 
-      <section className="_pb--40">
-        <div className="container">
+      <section className="_pt--40 _pb--40">
+        <div className="container _pt--40 _pb--40">
           <PageListing
             content={findPageComponentContent(
               components,

@@ -1,0 +1,32 @@
+.search{
+    &-listing{
+        position: relative;
+        z-index: 1;
+        padding-top: 30px;
+        @include respondTo(desktop){
+            padding-top: 60px;
+        }
+
+        &__results-header{
+            @extend .container;
+            font-size: 2.4rem;
+            line-height: 1.17;
+            color: $black-blue;
+            margin-bottom: 27px;
+            @include respondTo(desktop){
+                font-size: 2.5rem;
+                line-height: 1.12;
+            }            
+        }
+
+        &__null-results{
+            @extend .container;
+        }
+
+        .recommendations{
+            &__subtitle{
+                margin-top: 40px;
+            }
+        }
+    }
+}

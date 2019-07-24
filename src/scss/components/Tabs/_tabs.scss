@@ -19,17 +19,30 @@
     background: $white-gray;
     border-radius: 0 0 20px 20px;
     height: 62px;
+    justify-content: space-around;
     @extend .container;
     button {
+      @extend %global--links;
       padding: 20px;
-      width: 100%;
+      width: auto;
       background: none;
       border: none;
       font-size: 1.8rem;
       font-family: $rubik;
       color: $black-blue;
+      text-align: center;
+      &:before{
+        width: 100%;
+      }
       &[aria-pressed='false'] {
-        color: $gray;
+        &:before{
+          width: 0;
+        }
+        &:hover{
+          &:before{
+            width: 100%;
+          }
+        }
       }
     }
   }

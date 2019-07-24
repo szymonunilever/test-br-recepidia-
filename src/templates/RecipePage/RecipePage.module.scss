@@ -104,6 +104,9 @@
       display: none;
     }
   }
+  :global(.tabs__button) {
+    width: 140px;
+  }
 }
 :global {
   .recipe-attributes {
