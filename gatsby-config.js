@@ -16,17 +16,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-zopfli',
     },
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'Recipedia',
-    //     short_name: 'Recipedia',
-    //     start_url: '/',
-    //     background_color: '#ffffff',
-    //     theme_color: '#663399',
-    //     display: 'minimal-ui',
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -66,7 +55,21 @@ module.exports = {
       options: {
         nodeType: 'Recipe',
         imagePath: 'assets.images.default.url',
-        // imagePath: 'imageUrl',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-lodash`,
+      options: {
+        disabledFeatures: [
+          'shorthands',
+          'currying',
+          'deburring',
+          'memoize',
+          'coercions',
+          'guards',
+          'metadata',
+          'flattening',
+        ],
       },
     },
   ],
