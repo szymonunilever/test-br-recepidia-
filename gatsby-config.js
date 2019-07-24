@@ -57,20 +57,20 @@ module.exports = {
         imagePath: 'assets.images.default.url',
       },
     },
-    {
-      resolve: `gatsby-plugin-lodash`,
-      options: {
-        disabledFeatures: [
-          'shorthands',
-          'currying',
-          'deburring',
-          'memoize',
-          'coercions',
-          'guards',
-          'metadata',
-          'flattening',
-        ],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-lodash',
+    //   options: {
+    //     disabledFeatures: [
+    //       'shorthands',
+    //       'currying',
+    //       'deburring',
+    //       'memoize',
+    //       'coercions',
+    //       'guards',
+    //       'metadata',
+    //       'flattening',
+    //     ],
+    //   },
+    // },
   ],
 };
