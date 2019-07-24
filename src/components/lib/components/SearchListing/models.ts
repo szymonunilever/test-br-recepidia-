@@ -1,6 +1,6 @@
 import { SearchResponse, Explanation } from 'elasticsearch';
 import { SearchInputProps } from '../SearchInput/models';
-import { RecipeListingProps } from '../RecipeListing/index';
+import { RecipeListingProps } from '../RecipeListing';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
@@ -54,8 +54,11 @@ export declare interface ResponseRecipeData<T> {
   _source: T;
   _version?: number;
   _explanation?: Explanation;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   highlight?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inner_hits?: any;
   matched_queries?: string[];
   sort?: string[];

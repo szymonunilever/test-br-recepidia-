@@ -16,7 +16,6 @@ const RecipeCard = ({
   localImage,
   Icon,
   enableSelectFavorite = false,
-  titleLevel = 3,
   slug,
   className = '',
   inFavorite = false,

@@ -31,8 +31,15 @@ export const SocialSharing = ({
   const classWrapper = cx(className, {
     'social-sharing-in-modal': viewType === SocialSharingViewType.Modal,
   });
-  const [state, setState] = useState(false);
+  const [state, setState] = useState({ openModal: false, addThisReady: false });
   let view: JSX.Element | null;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const addThisReady = (e: Event) => {
+    if (e) {
+      setState({ ...state, addThisReady: true });
+    }
+  };
 
   switch (viewType) {
     case SocialSharingViewType.Modal:
@@ -44,25 +51,28 @@ export const SocialSharing = ({
             className="social-sharing__dialog-open-button"
             content={openModalButton}
             onClick={() => {
-              setState(true);
+              setState({ ...state, openModal: true });
             }}
             attributes={{ 'aria-label': 'social sharing' }}
           />
 
           <Modal
-            isOpen={state}
+            isOpen={state.openModal}
             className="social-sharing__dialog"
             closeBtn={<CloseButtonIcon />}
             title={modalTitle}
             titleLevel={titleLevel}
             close={() => {
-              setState(false);
+              setState({ ...state, openModal: false });
             }}
           >
             <>
-              {WidgetScript && <WidgetScript />}
+              {WidgetScript && <WidgetScript callback={addThisReady} />}
               <div className={classWrapper}>
-                <SocialSharingBase {...props} />
+                <SocialSharingBase
+                  {...props}
+                  addThisReady={state.addThisReady}
+                />
               </div>
             </>
           </Modal>
@@ -72,9 +82,9 @@ export const SocialSharing = ({
     default:
       view = (
         <>
-          <WidgetScript />
+          <WidgetScript callback={addThisReady} />
           <div className={classWrapper}>
-            <SocialSharingBase {...props} />
+            <SocialSharingBase {...props} addThisReady={state.addThisReady} />
           </div>
         </>
       );
