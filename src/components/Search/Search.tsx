@@ -40,7 +40,9 @@ const GlobalSearch = ({
       render={data => {
         return (
           <>
-            <SearchIcon className="searchBar" onClick={openModal} />
+            <div className="searchBar" onClick={openModal}>
+              <SearchIcon className="searchBar__icon" />
+            </div>
             <Modal
               className="modal--search"
               isOpen={modalState}
@@ -54,9 +56,11 @@ const GlobalSearch = ({
                 content={searchContent}
                 labelIcon={<SearchIcon />}
                 buttonResetIcon={<ButtonCloseIcon />}
-                onSubmit={() => {
-                  navigate('/search'); // get URL from Pages when search Page is there
+                onSubmit={value => {
+                  navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+                  setModalState(false);
                 }}
+                autoFocus
               />
             </Modal>
           </>

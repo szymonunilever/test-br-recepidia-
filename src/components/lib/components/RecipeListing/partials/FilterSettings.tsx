@@ -4,7 +4,7 @@ import React from 'react';
 import { Accordion } from '../../common/Accordion';
 import { Button } from '../../common/Button';
 import { Tags } from '../../Tags';
-import { TagToggleHandler, TagViewType } from '../../Tags/models';
+import { TagToggleHandler, TagViewType, TagVariant } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';
 import { FilterSettingsProps } from './models';
 
@@ -55,7 +55,7 @@ const FilterSettings = ({
                 viewType={TagViewType.filter}
                 initialCount={0}
                 handleTagToggle={onToggleFilter}
-                variant="toggle"
+                variant={TagVariant.toggle}
               />
             </Accordion>
           </li>

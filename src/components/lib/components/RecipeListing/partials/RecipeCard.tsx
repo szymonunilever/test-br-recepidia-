@@ -16,7 +16,6 @@ const RecipeCard = ({
   localImage,
   Icon,
   enableSelectFavorite = false,
-  titleLevel = 3,
   slug,
   className = '',
   inFavorite = false,
@@ -26,7 +25,7 @@ const RecipeCard = ({
   const itemTitle = title ? (
     <Text
       // @ts-ignore
-      tag={TagName[`h${titleLevel}`]}
+      tag={TagName[`div`]}
       text={title}
       className="recipe-card__title"
     />

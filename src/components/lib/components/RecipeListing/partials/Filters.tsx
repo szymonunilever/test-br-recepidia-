@@ -11,6 +11,7 @@ import { FilterSettings } from './index';
 import { remove } from 'lodash';
 import { Modal } from 'src/components/lib/components/common/Modal';
 import CloseSvg from 'src/svgs/inline/x-mark.svg';
+import { TagVariant } from '../../Tags/models';
 
 const Filter = ({
   className,
@@ -112,7 +113,7 @@ const Filter = ({
       <Tags
         list={state.filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
-        variant="removable"
+        variant={TagVariant.removable}
         RemoveIcon={RemoveTagIcon}
         enableExternalManage
         handleTagRemove={onTagRemoved}

@@ -39,6 +39,10 @@ const Layout = ({ children, className }: LayoutProps) => {
         ? JSON.parse(component.content)
         : component.content;
   });
+
+  // eslint-disable-next-line no-console
+  const onSignUpCallback = () => console.log('onsignup callback');
+
   return (
     <div className={cx('global-container', className)}>
       <BackToTop content={{}} Icon={ArrowUpIcon} />
@@ -61,14 +65,9 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <main id="content">{children}</main>
       <GeneratedForm
-        titleLevel={2}
         shouldValidate={true}
+        onSubmit={onSignUpCallback}
         recaptchaAction="SignUpEmail"
-        onSubmit={async (value: object) => {
-          await new Promise(resolve => setTimeout(resolve, 500));
-          // eslint-disable-next-line no-console
-          console.log('Submitting sign up email', value);
-        }}
         content={{
           ...findPageComponentContent(components, 'Form', 'SignUpForm'),
           fields: [

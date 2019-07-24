@@ -10,7 +10,7 @@ body {
   font-size: 10px;
   color: $black-blue;
 }
-main{
+main {
   display: block;
 }
 .container {
@@ -39,7 +39,7 @@ h1 {
     font-size: 5.2rem;
   }
 }
-%h1--smaller{
+%h1--smaller {
   font-size: 3rem;
   line-height: 1.07;
   color: $fish-blue-darker;
@@ -47,7 +47,7 @@ h1 {
     font-size: 4.5rem;
   }
 }
-%h2--bigger{
+%h2--bigger {
   font-size: 2.4rem;
   line-height: 1.06;
   color: $fish-blue-darker;
@@ -64,7 +64,7 @@ h2 {
 }
 h3 {
   font-size: 1.6rem;
-  line-height: 1.33
+  line-height: 1.33;
 }
 h4 {
   font-size: 1.4rem;
@@ -139,13 +139,64 @@ p {
 [hidden] {
   display: none !important;
 }
-.sr-only{
+._desktop-50 {
+  @include respondTo(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+%link--external {
+  //a[target="_blank"]
+  position: relative;
+  &:after {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEzIiBmaWxsPSIjMzYzODQwIj48cGF0aCBkPSJNMTkgMTlINVY1aDdWM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGMxLjEgMCAyLS45IDItMnYtN2gtMnY3ek0xNCAzdjJoMy41OWwtOS44MyA5LjgzIDEuNDEgMS40MUwxOSA2LjQxVjEwaDJWM2gtN3oiLz48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    content: '';
+    height: 1em;
+    width: 1em;
+    margin: 0 0.1875rem 0 0.25rem;
+    top: 0.8em;
+    vertical-align: middle;
+    right: -1.5em;
+    display: none; // can be shown constantly or on hover only
+  }
+}
+
+.bg--half {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 180px;
+    width: 100%;
+    z-index: 0;
+    background-color: $white-gray;
+    border-radius: 0 0 24px 24px;
+    @include respondTo(medium) {
+      height: 228px;
+      border-radius: 0;
+    }
+    @include respondTo(desktop) {
+      height: 234px;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 }

@@ -3,11 +3,11 @@ declare namespace AppContent.VideoPlayer {
     preview?: VideoPreviewProps;
     videoId: string;
     title?: Title;
+    description?: string;
   }
   interface VideoPreviewProps {
     previewImage: Internal.LocalImage;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    playIcon: any;
+    playIcon: string;
   }
   interface Title {
     value: string;

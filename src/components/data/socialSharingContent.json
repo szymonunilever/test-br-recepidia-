@@ -7,10 +7,6 @@
     {
       "name": "twitter",
       "label": "Twitter"
-    },
-    {
-      "name": "linkedIn",
-      "label": "Linked In"
     }
   ],
   "openModalButton": {

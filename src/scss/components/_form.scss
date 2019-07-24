@@ -1,7 +1,7 @@
 %input-general {
   border: 1px solid $black-blue;
   border-radius: 5px;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   line-height: 1.5;
   width: 100%;
   padding: 2px 10px;
@@ -13,7 +13,7 @@
   }
   &__label-text {
     font-family: $rubik;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 500;
     margin: 0 0 9px 0;
     display: block;
@@ -46,16 +46,16 @@
   }
   &__input {
     @extend %input-general;
-    height: 2.5rem;
+    height: 40px;
     &--large {
-      height: 3.25rem;
+      height: 52px;
     }
   }
   &__textarea {
     @extend %input-general;
   }
-  &__error-message {
-    font-size: 0.75rem;
+  &__error {
+    font-size: 1.2rem;
     color: $alert-color;
   }
 }
@@ -107,7 +107,7 @@
   }
   .option {
     padding: 6px 8px;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     font-family: inherit;
     &:hover {
       background-color: $blue-overlay-40;
@@ -125,12 +125,13 @@
 
 // CheckElem component styles
 .checkable {
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
+ 
   &__label {
-    font-size: 1rem;
+    font-size: 1.6rem; 
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
   }
   &__input {
     position: absolute;
@@ -150,7 +151,7 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin-right: 0.5rem;
+    margin-right: 8px;
     .checkable__checkmark {
       display: none;
       background-color: $black-blue;
@@ -175,13 +176,13 @@
 }
 .checkbox {
   .checkable__checkelem {
-    height: 1.125rem;
-    width: 1.125rem;
+    height: 18px;
+    width: 18px;
     .checkable__checkmark {
-      left: 0.125rem;
-      top: 0.125rem;
-      width: 0.875rem;
-      height: 0.875rem;
+      left: 2px;
+      top: 2px;
+      width: 14px;
+      height: 14px;
     }
   }
 }
@@ -192,15 +193,15 @@
     align-items: center;
   }
   .checkable__checkelem {
-    height: 1.75rem;
-    width: 1.75rem;
+    height: 28px;
+    width: 28px;
     border-radius: 100%;
     .checkable__checkmark {
       border-radius: 100%;
-      left: 0.25rem;
-      top: 0.25rem;
-      width: 1.25rem;
-      height: 1.25rem;
+      left: 2px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
     }
   }
 }

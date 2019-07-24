@@ -2,16 +2,15 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import { get } from 'lodash';
-import SEO from 'src/components/Seo/Seo';
+import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, fromCamelCase } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Hero from 'src/components/lib/components/Hero';
-import { Tags } from 'src/components/lib/components/Tags';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
@@ -20,6 +19,7 @@ import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import { action } from '@storybook/addon-actions';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
+import TagLinks from 'src/components/TagsLinks/TagLinks';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
@@ -34,13 +34,13 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.title}`} />
+      <SEO title={`Recipe category: ${tag.name}`} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
           <Text
             tag={TagName['h1']}
-            text={tag.title || 'Recipe Category Name'}
+            text={tag.title || fromCamelCase(tag.name)}
           />
         </div>
       </section>
@@ -64,7 +64,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </section>
       )}
 
-      <section className={theme.greyBg}>
+      <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
         <div className="container">
           <RecipeListing
             content={{
@@ -79,7 +79,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
             titleLevel={2}
-            initialCount={6}
+            initialCount={8}
             recipePerLoad={4}
             withFavorite
             favorites={[]}
@@ -90,12 +90,9 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
 
       <section>
         <div className="container">
-          <Tags
+          <TagLinks
             list={allTag.nodes}
             content={findPageComponentContent(components, 'Tags')}
-            initialCount={8}
-            tagsPerLoad={4}
-            variant="link"
           />
         </div>
       </section>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import LogoIcon from 'src/svgs/inline/logo.svg';
@@ -33,11 +33,22 @@ const Navigation: React.SFC<NavigationProps> = ({
           id
         }
       }
+
+      allPage(filter: { type: { eq: "RecipeCategory" } }) {
+        nodes {
+          relativePath
+        }
+      }
     }
   `);
 
   const tagGroups = data.allTagGroup.nodes;
-  const menuItems = constructMenu(tagGroups, navigationContent);
+  const recipeCategoryPath = data.allPage.nodes[0].relativePath;
+  const menuItems = constructMenu(
+    tagGroups,
+    navigationContent,
+    recipeCategoryPath
+  );
 
   return (
     <GlobalNavigation

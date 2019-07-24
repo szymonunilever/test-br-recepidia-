@@ -1,5 +1,3 @@
-import { ReactChildren } from 'react';
-
 export interface CaptchaWrapperProps {
   action: string;
   children: JSX.Element;

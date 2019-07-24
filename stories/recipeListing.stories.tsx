@@ -12,6 +12,7 @@ import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
+
 const contents: AppContent.RecipeListing.Content[] = [
   {
     title: 'Recipe listing Trivial without results',
@@ -108,6 +109,7 @@ const contents: AppContent.RecipeListing.Content[] = [
     },
   },
 ];
+
 storiesOf('Components/Recipe Listing', module)
   .add(
     'Recipe listing Trivial without results',

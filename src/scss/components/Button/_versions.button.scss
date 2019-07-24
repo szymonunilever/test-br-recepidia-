@@ -38,14 +38,16 @@ $button-disabled-color: #9f9f9f !default;
   fill: currentColor;
   transition: all 0.2s ease-out;
 
-  @include respondTo(desktop) {
-    font-size: 1.6rem;
-
+  @media (hover) {
     &:hover {
       background-color: $button-background-hover;
       color: $button-color-hover;
       fill: $button-color-hover;
     }
+  }
+
+  @include respondTo(desktop) {
+    font-size: 1.6rem;
   }
 
   &[disabled] {
@@ -54,9 +56,11 @@ $button-disabled-color: #9f9f9f !default;
     color: $button-disabled-color;
     cursor: default;
 
-    &:hover {
-      background-color: $button-disabled-background !important;
-      color: $button-disabled-color !important;
+    @media (hover) {
+      &:hover {
+        background-color: $button-disabled-background !important;
+        color: $button-disabled-color !important;
+      }
     }
   }
   &--rounded {
@@ -78,19 +82,26 @@ $button-disabled-color: #9f9f9f !default;
     background-color: $luminous-yellow;
     color: $black-blue;
     fill: currentColor;
-    &:hover {
-      background-color: $button-background-hover;
-      color: $white;
+
+    @media (hover) {
+      &:hover {
+        background-color: $button-background-hover;
+        color: $white;
+      }
     }
   }
 
   &--flat {
     background: transparent;
     color: $black-blue;
-    &:hover {
-      background-color: transparent;
-      color: $apple-green;
-      fill: currentColor;
+    border: none;
+
+    @media (hover) {
+      &:hover {
+        background-color: transparent;
+        color: $apple-green;
+        fill: currentColor;
+      }
     }
   }
 
@@ -171,7 +182,7 @@ $button-disabled-color: #9f9f9f !default;
   padding: 0;
   background: $white;
   color: $fish-blue-darker;
-  @include respondTo(desktop) {
+  @media (hover) {
     &:hover {
       background-color: $apple-green;
       color: $black-blue;
@@ -183,7 +194,7 @@ $button-disabled-color: #9f9f9f !default;
 
   width: 24px;
   height: 24px;
-  @include respondTo(desktop) {
+  @include respondTo(medium) {
     width: 40px;
     height: 40px;
   }
@@ -193,7 +204,7 @@ $button-disabled-color: #9f9f9f !default;
     transition: stroke 0.2s ease-out;
     width: 10px;
     height: 9px;
-    @include respondTo(desktop) {
+    @include respondTo(medium) {
       width: 17px;
       height: 15px;
     }

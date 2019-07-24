@@ -1,18 +1,20 @@
-.general-signup{
+.general-signup {
   padding: 37px 0 45px;
   background-color: $white-gray;
-  @include respondTo(desktop){
+  @include respondTo(desktop) {
     padding: 65px 0 72px;
   }
 
-  .generated-form__container{
+  .generated-form__container {
     @extend .container;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    
-    h1, h2, h3{
+
+    h1,
+    h2,
+    h3 {
       display: block;
       width: 100%;
       font-size: 24px;
@@ -21,41 +23,51 @@
       text-align: center;
       margin-bottom: 22px;
       color: $black-blue;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 36px;
         margin-bottom: 34px;
       }
     }
   }
-
-  .field{
+  .generated-form__fields {
     flex: 2;
     margin: 0 10px 0 0;
     width: 100%;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       margin-right: 16px;
       flex: auto;
       max-width: 536px;
     }
+  }
+  .generated-form__title {
+    @extend h2;
+  }
 
-    &__label-text{
+  .generated-form__subtitle {
+    @extend h3;
+  }
+
+  .field {
+    width: 100%;
+
+    &__label-text {
       @extend .sr-only;
     }
 
-    &__input{
+    &__input {
       border: solid 1px $black-blue;
       height: 40px;
       font-size: 14px;
       color: $black-blue;
       background-color: transparent;
       padding: 0 18px;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 16px;
         height: 46px;
       }
     }
 
-    &__error{
+    &__error {
       padding-left: 5px;
       display: block;
       font-size: 12px;
@@ -65,22 +77,21 @@
       margin-top: 14px;
     }
 
-    &__hint{
+    &__hint {
       margin: 0;
     }
   }
 
-  .generated-form__button--primary{
+  .generated-form__button--primary {
     @extend .button;
     @extend .button--yellow;
     padding: 0 23px;
     font-size: 14px;
     font-weight: bold;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       font-size: 16px;
       height: 46px;
       padding: 0 52px;
     }
   }
-
 }

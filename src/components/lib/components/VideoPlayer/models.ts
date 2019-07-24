@@ -5,4 +5,6 @@ export interface VideoPlayerProps
   width?: number;
   height?: number;
   allowFullScreen?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  PlayIcon?: any;
 }

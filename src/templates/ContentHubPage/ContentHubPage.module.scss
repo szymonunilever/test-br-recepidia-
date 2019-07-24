@@ -1,0 +1,29 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+
+.contenthub-recipes{
+    padding: 60px 0 40px;
+
+    :global{      
+        .recipe-list__load-more{
+            margin: 40px auto 0;
+        }    
+    }
+
+    &:global(.bg--half){
+        &:before{
+            height:auto;
+            top: 210px;
+            bottom: 0;
+            border-radius: 24px;
+            @include respondTo(medium){
+                border-radius: 0;
+                height: auto;
+                top: 270px;
+            }
+            @include respondTo(desktop){
+                height: auto;
+            }
+        }   
+    }
+}

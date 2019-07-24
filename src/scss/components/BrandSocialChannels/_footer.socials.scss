@@ -1,4 +1,4 @@
-.social-channels{
+.social-channels {
   margin-top: 40px;
   margin-bottom: 40px;
   list-style: none;
@@ -6,29 +6,43 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  @include respondTo(desktop){
+  @include respondTo(desktop) {
     justify-content: center;
-  }  
+  }
 
-  &__item{
+  &__item {
     margin-right: 36px;
-    &:nth-last-child(1){
+    font-size: 1.4rem;
+    &:nth-last-child(1) {
       margin-right: 0;
     }
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       margin-right: 75px;
     }
   }
 
-  &__icon{
-    svg{
+  &__icon {
+    border-bottom: 2px solid transparent;
+    svg {
       height: 22px;
       width: 22px;
-      @include respondTo(desktop){
+      fill: $black-blue;
+      transition: transform 0.2s ease-out;
+      @include respondTo(desktop) {
         height: 35px;
         width: 35px;
       }
     }
   }
-
+  &__link {
+    @media (hover) {
+      &:hover {
+        .social-channels__icon {
+          svg {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
 }

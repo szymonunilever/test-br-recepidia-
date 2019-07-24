@@ -12,26 +12,26 @@ export const SocialSharingBase = ({
   handleSocialDialogClose,
   icons,
   showTextLabels,
+  addThisReady = false,
 }: SocialSharingBaseProps) => {
   const serviceCodes: { [key: string]: string } = keys.addThis.serviceCodes;
   const [state, setState] = useState({ href: '', loaded: false });
   useEffect(() => {
     const initSocial = () => {
       setState({ href: window.location.href, loaded: true });
-      setTimeout(() => {
-        // @ts-ignore
-        const addThis = window.addthis;
-        addThis.share({
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          container_selector: `.${theme.socialSharing}`,
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          button_selector: `.${theme.socialSharingButton}`,
-          click: handleSocialButtonClick ? handleSocialButtonClick : null,
-          close: handleSocialDialogClose ? handleSocialDialogClose : null,
-        });
-      }, 10);
+      // @ts-ignore
+      const addThis = window.addthis;
+
+      addThis.share({
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        container_selector: `.${theme.socialSharing}`,
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        button_selector: `.${theme.socialSharingButton}`,
+        click: handleSocialButtonClick ? handleSocialButtonClick : null,
+        close: handleSocialDialogClose ? handleSocialDialogClose : null,
+      });
     };
-    if (!state.loaded) initSocial();
+    if (!state.loaded && addThisReady) initSocial();
   });
 
   const socialButtons = buttons.map((item, key) => {

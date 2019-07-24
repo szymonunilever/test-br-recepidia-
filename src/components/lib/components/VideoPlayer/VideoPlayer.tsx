@@ -9,6 +9,7 @@ const VideoPlayer = ({
   height = 360,
   allowFullScreen = false,
   content,
+  PlayIcon,
 }: VideoPlayerProps) => {
   const { title, preview, videoId } = content;
   const [showPreview, setShowPreview] = useState(!!preview);
@@ -33,7 +34,7 @@ const VideoPlayer = ({
         <div className="video-player__preview-tab">
           <Tab view="VideoPlayerCustomThumbnail" active={showPreview}>
             <div className="playback-icon" onClick={handlePlayButtonClick}>
-              {preview && <preview.playIcon />}
+              {preview && PlayIcon ? <PlayIcon /> : preview && preview.playIcon}
             </div>
             <AdaptiveImage
               className={'video-player__preview-image'}

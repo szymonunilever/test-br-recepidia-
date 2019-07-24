@@ -22,8 +22,7 @@ storiesOf('Components/Social Sharing', module)
     'SocialSharing Base without icons',
     () => (
       <>
-        <AddThis />
-        <SocialSharing content={content} />
+        <SocialSharing content={content} WidgetScript={AddThis} />
       </>
     ),
     { inline: false }
@@ -32,8 +31,7 @@ storiesOf('Components/Social Sharing', module)
     'SocialSharing Base with icons',
     () => (
       <>
-        <AddThis />
-        <SocialSharing content={content} icons={icons} />
+        <SocialSharing content={content} icons={icons} WidgetScript={AddThis} />
       </>
     ),
     { inline: false }
@@ -42,8 +40,12 @@ storiesOf('Components/Social Sharing', module)
     'SocialSharing Base with icons and text',
     () => (
       <>
-        <AddThis />
-        <SocialSharing content={content} icons={icons} showTextLabels={true} />
+        <SocialSharing
+          content={content}
+          icons={icons}
+          showTextLabels={true}
+          WidgetScript={AddThis}
+        />
       </>
     ),
     { inline: false }
@@ -79,12 +81,12 @@ storiesOf('Components/Social Sharing', module)
 
       return (
         <>
-          <AddThis />
           <SocialSharing
             content={content}
             icons={icons}
             showTextLabels={true}
             viewType={SocialSharingViewType.Base}
+            WidgetScript={AddThis}
           />
         </>
       );
@@ -95,11 +97,11 @@ storiesOf('Components/Social Sharing', module)
     'SocialSharing im modal without icons ',
     () => (
       <>
-        <AddThis />
         <SocialSharing
           content={content}
           viewType={SocialSharingViewType.Modal}
           CloseButtonIcon={CloseButton}
+          WidgetScript={AddThis}
         />
       </>
     ),
