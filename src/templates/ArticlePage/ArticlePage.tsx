@@ -49,7 +49,6 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
 
   return (
     <Layout>
-      <AddThis />
       <SEO title={article.title} description={article.shortDescription} />
       <section className="container">
         <Text tag={TagName.h1} text={article.title} />
@@ -67,6 +66,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
               icons={socialIcons}
               viewType={SocialSharingViewType.Modal}
               CloseButtonIcon={CloseButton}
+              WidgetScript={AddThis}
             />
           </div>
         </section>

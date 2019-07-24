@@ -18,6 +18,7 @@ export const SocialSharing = ({
   handleSocialDialogClose,
   CloseButtonIcon,
   titleLevel,
+  WidgetScript,
 }: SocialSharingProps) => {
   const props = {
     buttons,
@@ -34,13 +35,6 @@ export const SocialSharing = ({
   let view: JSX.Element | null;
 
   switch (viewType) {
-    case SocialSharingViewType.Base:
-      view = (
-        <div className={classWrapper}>
-          <SocialSharingBase {...props} />
-        </div>
-      );
-      break;
     case SocialSharingViewType.Modal:
       view = (
         <div className={classWrapper}>
@@ -64,16 +58,24 @@ export const SocialSharing = ({
               setState(false);
             }}
           >
-            <SocialSharingBase {...props} />
+            <>
+              {WidgetScript && <WidgetScript />}
+              <div className={classWrapper}>
+                <SocialSharingBase {...props} />
+              </div>
+            </>
           </Modal>
         </div>
       );
       break;
     default:
       view = (
-        <div className={classWrapper}>
-          <SocialSharingBase {...props} />
-        </div>
+        <>
+          <WidgetScript />
+          <div className={classWrapper}>
+            <SocialSharingBase {...props} />
+          </div>
+        </>
       );
       break;
   }

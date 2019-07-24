@@ -29,6 +29,7 @@ export interface SocialSharingProps
   CloseButtonIcon?: any;
   icons?: SocialIcons;
   titleLevel?: titleLevel;
+  WidgetScript: React.FunctionComponent;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSocialButtonClick?: (shareObject: Record<string, any>) => void;
   handleSocialDialogClose?: () => void;
