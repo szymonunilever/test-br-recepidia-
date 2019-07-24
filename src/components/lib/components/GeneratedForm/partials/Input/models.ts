@@ -7,7 +7,7 @@ export interface InputProps {
   name: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   validate: (val: any) => null | undefined;
-  error: (meta: FieldMetaState) => void;
+  error: (meta: FieldMetaState<string>) => void;
 }
 
 interface InputContent {
