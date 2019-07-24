@@ -34,12 +34,11 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
       from,
       size,
       query: {
-        /*eslint-disable */
-        multi_match: {
-          query: `${searchQuery}`,
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        query_string: {
+          query: `*${searchQuery}*`,
           fields: ['title', 'description', 'tagGroups.tags.name'],
         },
-        /*eslint-enable */
       },
     };
 
