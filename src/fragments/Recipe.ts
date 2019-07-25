@@ -36,10 +36,20 @@ export const query = graphql`
       }
     }
     title
-    localImage {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp
+    assets {
+      images {
+        default {
+          base64
+          aspectRatio
+          width
+          height
+          src
+          srcWebp
+          srcSet
+          srcSetWebp
+          sizes
+          url
+          title
         }
       }
     }

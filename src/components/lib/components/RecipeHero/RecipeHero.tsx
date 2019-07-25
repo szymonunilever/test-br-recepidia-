@@ -15,8 +15,14 @@ const RecipeHero = ({
   return (
     <div data-componentname="recipe-hero" className={containerStyles}>
       <div className={imageStyles}>
-        {content.localImage ? (
-          <AdaptiveImage localImage={content.localImage} alt={content.title} />
+        {content.assets ? (
+          <AdaptiveImage
+            localImage={{
+              id: content.recipeId,
+              childImageSharp: { fluid: content.assets.images.default },
+            }}
+            alt={content.title}
+          />
         ) : (
           <AdaptiveImage localImage={imagePlaceholder} alt={content.title} />
         )}
