@@ -43,7 +43,7 @@ export const RecipeNutrients = ({
           isOpen={state}
           // @ts-ignore
           closeBtn={<CloseButton />}
-          title={props.content.modalTitle}
+          title={props.modalTitle}
           titleLevel={TagName.h4}
         >
           <RecipeNutrientsBody className={classWrapper} {...props} />
