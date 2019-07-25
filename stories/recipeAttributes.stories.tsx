@@ -9,7 +9,7 @@ import dataSource from 'src/components/data/recipe.json';
 import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
 import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
 import RecipePeople from 'src/svgs/inline/recipe-people.svg';
-import RecipeKnife from 'src/svgs/inline/recope-chop.svg';
+import RecipeKnife from 'src/svgs/inline/recipe-chop.svg';
 import content from 'src/components/data/recipeAttributes.json';
 
 const config: RecipeAttributesKeys[] = [

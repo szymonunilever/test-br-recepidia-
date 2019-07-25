@@ -169,6 +169,7 @@
 
 .recipe-nutrients__modal {
   .modal {
+
     &__overlay {
       @extend %modal__overlay--flex;
     }
@@ -182,9 +183,12 @@
         }
       }
     }
+    &__title{
+      font-size: 2.5rem;
+    }
     &__content {
       @extend %modal__content--flex;
-      margin-top: 47px;
+      margin: 47px 0;
     }
     &__btn-close {
       @extend %modal__btn-close--flex;

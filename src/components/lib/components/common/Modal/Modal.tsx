@@ -33,6 +33,7 @@ const Modal = ({
           //@ts-ignore
           tag={TagName[`h${titleLevel}`]}
           text={title}
+          className="modal__title"
         />
       </div>
       {props.children}
