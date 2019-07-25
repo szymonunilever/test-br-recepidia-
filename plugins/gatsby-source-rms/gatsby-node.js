@@ -2,9 +2,7 @@ const createNodes = require('./createNodes');
 const { createRecipeNodes, createTagGroupNodes } = createNodes;
 const { getCaterogyTags, getRecipesByPage } = require('./apiService');
 
-// TODO: uncomment as soon as images transformation processing will be moved out from the app
 const RECIPE_PAGE_SIZE = 250;
-// const RECIPE_PAGE_SIZE = 100;
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
