@@ -26,7 +26,10 @@ const RecipeListingCarousel = ({
         onFavoriteChange={onFavoriteChange}
         recipeId={item.recipeId}
         ratingProvider={ratingProvider}
-        localImage={item.localImage}
+        localImage={{
+          id: item.recipeId,
+          childImageSharp: { fluid: item.assets.images.default },
+        }}
       />
     );
   };

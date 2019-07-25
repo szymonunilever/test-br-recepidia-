@@ -51,13 +51,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: 'Recipe',
-        imagePath: 'assets.images.default.url',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-lodash',
       options: {
         disabledFeatures: [

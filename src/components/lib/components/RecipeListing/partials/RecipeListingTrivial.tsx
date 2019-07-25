@@ -25,7 +25,10 @@ const RecipeListingTrivial = ({
               enableSelectFavorite={withFavorite}
               Icon={FavoriteIcon}
               titleLevel={titleLevel}
-              localImage={item.localImage}
+              localImage={{
+                id: item.recipeId,
+                childImageSharp: { fluid: item.assets.images.default },
+              }}
               content={{ title: item.title }}
               slug={item.fields.slug}
               onFavoriteChange={onFavoriteChange}
