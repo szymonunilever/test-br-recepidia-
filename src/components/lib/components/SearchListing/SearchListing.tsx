@@ -83,7 +83,7 @@ const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
               <Text
                 className="search-listing__results-header"
                 // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
+                tag={TagName[`div`]}
                 text={content.searchListingContent.title
                   .replace('{numRes}', numRes.toString())
                   .replace(
@@ -112,7 +112,7 @@ const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
               <Text
                 className="search-listing__results-header"
                 // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
+                tag={TagName[`div`]}
                 text={content.searchListingContent.title
                   .replace('{numRes}', numRes.toString())
                   .replace(
@@ -159,7 +159,7 @@ const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
           <Text
             className="search-listing__results-header"
             // @ts-ignore
-            tag={TagName[`h${searchResultTitleLevel}`]}
+            tag={TagName[`div`]}
             text={content.searchListingContent.title
               .replace('{numRes}', numRes.toString())
               .replace(
