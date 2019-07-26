@@ -3,7 +3,7 @@ import { GlobalNavigationProps } from './models';
 import Navigation from './partials/Navigation';
 import Logo from './partials/Logo';
 import cx from 'classnames';
-import { Button as BurgerButton } from '../common/Button';
+import { Button as BurgerButton } from '../Button';
 
 const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
   content: { list },

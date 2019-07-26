@@ -1,4 +1,4 @@
-import { LanguageEntry } from '../../CountrySelector/index';
+import { LanguageEntry } from '../CountrySelector/index';
 
 export interface Option {
   value: string;

@@ -1,5 +1,5 @@
 import { FluidObject } from 'gatsby-image';
-import { UnileverLibraryComponent, titleLevel } from '../common/globalModels';
+import { UnileverLibraryComponent, titleLevel } from '../globalModels';
 import * as React from 'react';
 
 export enum SocialSharingViewType {

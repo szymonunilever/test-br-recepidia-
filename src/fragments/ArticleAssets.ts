@@ -1,7 +1,5 @@
 import { graphql } from 'gatsby';
 
-export default () => null;
-
 export const query = graphql`
   fragment GetArticleAssets on ArticleAssets {
     type

@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { SignUpProps } from './models';
 import { TagName, Text } from '../../../Text';
 import GeneratedForm from '../../../GeneratedForm';
-import { Button } from '../../../common/Button';
+import { Button } from '../../../Button';
 
 const SignUp: FunctionComponent<SignUpProps> = ({
   actionCallback,

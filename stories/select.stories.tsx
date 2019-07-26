@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Select } from '../src/components/lib/components/common/Select';
+import { Select } from './components/lib/components/Select';
 import selectOptions from '../src/components/data/select.json';
 import { action } from '@storybook/addon-actions';
 

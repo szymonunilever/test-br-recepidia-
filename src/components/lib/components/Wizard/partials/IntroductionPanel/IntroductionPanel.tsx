@@ -3,7 +3,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { IntroductionPanelProps } from './models';
 import { TagName, Text } from '../../../Text';
 import AdaptiveImage from '../../../AdaptiveImage';
-import { Button } from '../../../common/Button';
+import { Button } from '../../../Button';
 
 const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   title,

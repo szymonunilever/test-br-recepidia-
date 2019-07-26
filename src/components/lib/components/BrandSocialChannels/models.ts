@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
 
 export interface BrandSocialChannelsProps
   extends UnileverLibraryComponent<AppContent.BrandSocialChannels.Content> {

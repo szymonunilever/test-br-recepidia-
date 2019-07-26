@@ -1,11 +1,11 @@
 {
   "name": "gatsby-unilever-theme",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Recipedia site for brazil",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Unilever",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/Unilever/recipedia-poc/issues"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -97,7 +97,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "main": "n/a",
   "repository": {
     "type": "git"

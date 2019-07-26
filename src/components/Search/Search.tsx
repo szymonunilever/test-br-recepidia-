@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StaticQuery, graphql, navigate } from 'gatsby';
 import SearchInput from '../lib/components/SearchInput/SearchInput';
-import { Modal } from 'src/components/lib/components/common/Modal';
+import { Modal } from 'src/components/lib/components/Modal';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 
@@ -56,6 +56,7 @@ const GlobalSearch = ({
                 content={searchContent}
                 labelIcon={<SearchIcon />}
                 buttonResetIcon={<ButtonCloseIcon />}
+                buttonSubmitIcon={<SearchIcon />}
                 onSubmit={value => {
                   navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
                   setModalState(false);

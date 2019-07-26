@@ -14,7 +14,7 @@ import RecipeAttributes, {
 import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
 import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
 import RecipePeople from 'src/svgs/inline/recipe-people.svg';
-import RecipeKnife from 'src/svgs/inline/recope-chop.svg';
+import RecipeKnife from 'src/svgs/inline/recipe-chop.svg';
 import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
@@ -38,7 +38,7 @@ import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
-import Button from '../../components/lib/components/common/Button';
+import Button from '../../components/lib/components/Button';
 import SocialSharing, {
   SocialSharingViewType,
   SocialIcons,
@@ -48,6 +48,7 @@ import socialSharingContent from 'src/components/data/socialSharingContent.json'
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
+import Hero from 'src/components/lib/components/Hero';
 
 const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
@@ -292,6 +293,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
           />
           <RecipeNutrients
             recipe={recipe}
+            modalTitle={'Nutritional information'}
             content={findPageComponentContent(components, 'RecipeNutrients')}
             viewType={RecipeNutrientsViewType.WithAction}
             CloseButton={CloseButton}
@@ -300,16 +302,29 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       </section>
       <section className="_pt--40">
         <div className="container">
+          <Reviews
+            recipeId={recipe.recipeId}
+            provider={RatingAndReviewsProvider.kritique}
+            linkTo={recipe.fields.slug}
+          />
+        </div>
+      </section>
+      <section className="_pt--40 _pb--40">
+        <div className="container">
           <TagLinks
             list={tags}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
       </section>
-      <section className="_pt--40">
-        {/* Hero Component should go here */}
+      <section className="_pb--40">
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
-      <section className="_pt--40">
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
@@ -337,15 +352,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
-          />
-        </div>
-      </section>
-      <section className="_pt--40">
-        <div className="container">
-          <Reviews
-            recipeId={recipe.recipeId}
-            provider={RatingAndReviewsProvider.kritique}
-            linkTo={recipe.fields.slug}
           />
         </div>
       </section>

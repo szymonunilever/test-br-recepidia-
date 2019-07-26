@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 import smoothScroll from 'smoothscroll-polyfill';
-import { Button } from '../common/Button';
+import { Button } from '../Button';
 import theme from './BackToTop.module.scss';
 import { BackToTopProps, CustomEventTarget } from './models';
 

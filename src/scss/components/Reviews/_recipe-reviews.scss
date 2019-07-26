@@ -1,19 +1,19 @@
-.recipe-reviews{
+.recipe-reviews {
   padding: 40px 0;
   // @include respondTo(medium){
   //   width: 50%;
   // }
-  .reviews-container{
-    @include respondTo(medium){
+  .reviews-container {
+    @include respondTo(medium) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
     }
   }
-  .rr-product-reviews{  
+  .rr-product-reviews {
     margin: 0;
-    h2{
+    h2 {
       font-size: 2.1rem;
       font-weight: 500;
       line-height: 1.33;
@@ -22,55 +22,55 @@
       margin-bottom: 20px;
       padding: 0;
       font-family: $rubik;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 2.5rem;
       }
     }
 
-    .sort-container{
+    .sort-container {
       display: none;
     }
 
-    .averageRingBlock{
+    .averageRingBlock {
       padding: 0;
       background-color: transparent;
       margin: 0 0 30px 0;
-      h3{
+      h3 {
         display: none;
       }
     }
 
-    .average-rating{
+    .average-rating {
       text-align: left;
-      .aggregateRating{
+      .aggregateRating {
         height: 0;
         transform: translateX(82px) translateY(4px);
-        @include respondTo(medium){
+        @include respondTo(medium) {
           transform: translateX(82px) translateY(0px);
-        }        
-        img{
+        }
+        img {
           height: 17px;
           width: auto;
         }
       }
 
-      .total-reviews{
+      .total-reviews {
         margin: 0;
         display: flex;
         align-items: flex-end;
         line-height: 1;
         font-size: 14px;
-        .aggRtng{
+        .aggRtng {
           font-size: 4.8rem;
           font-weight: 500;
-          line-height: .75;
+          line-height: 0.75;
           color: $black-blue;
           font-family: $rubik;
           background: none;
           padding: 0;
           margin-right: 9px;
         }
-        .tRtng{
+        .tRtng {
           margin-left: 0;
           line-height: 1;
           font-size: 14px;
@@ -78,43 +78,61 @@
       }
     }
 
-    .write-review-btn{
+    .write-review-btn {
       @extend .button;
-      margin: 25px 0 0;
       width: 100%;
       font-weight: bold;
       position: relative;
       top: 0;
       left: 0;
-      @include respondTo(medium){
+      display: block;
+      text-align: center;
+      line-height: 40px;
+      margin: 25px auto 0 auto;
+      &:before {
+        content: '';
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='%23363840' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
+        display: inline-block;
+        font-size: 14px;
+        width: 18.5px;
+        height: 15px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      &:hover{
+        &:before{
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
+        }
+      }
+      @include respondTo(medium) {
         max-width: 352px;
       }
     }
 
-    .review-block{
+    .review-block {
       border-top: none;
       padding-left: 0;
       padding-right: 0;
       width: 100%;
 
-      .review-rightBlock{
+      .review-rightBlock {
         width: 100%;
       }
-      .review-leftBlock{
+      .review-leftBlock {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         text-align: center;
-        & > *{
+        & > * {
           margin: 0;
           padding: 0;
           flex: auto;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             flex: 0 1 auto;
           }
         }
-        h3{
+        h3 {
           order: 4;
           width: 100%;
           text-align: left;
@@ -126,15 +144,15 @@
           margin-bottom: 14px;
           font-family: $rubik;
         }
-        .rating-container{
+        .rating-container {
           display: flex;
           order: 1;
           align-items: center;
-          img{
+          img {
             height: 17px;
             width: auto;
           }
-          .aggRtng{
+          .aggRtng {
             margin: 0;
             padding: 0;
             font-size: 1.4rem;
@@ -143,16 +161,16 @@
             margin-left: 10px;
           }
         }
-        .reviewer-name{
+        .reviewer-name {
           order: 2;
           font-size: 1.6rem;
           line-height: 1.13;
           color: $fish-blue-darker;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             margin-left: 29px;
-          } 
+          }
         }
-        .reviewDate{
+        .reviewDate {
           order: 3;
           border-left: none;
           font-size: 1.2rem;
@@ -162,22 +180,22 @@
           top: 0;
           right: 0;
           text-align: right;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             margin-left: 29px;
-          } 
+          }
         }
       }
-      .rr-comments{
+      .rr-comments {
         font-size: 1.4rem;
         line-height: 1.29;
         text-align: left;
         color: $black-blue;
         margin: 0;
       }
-      .socialBtn{
+      .socialBtn {
         display: none;
       }
-      .feedback-container{
+      .feedback-container {
         width: 100%;
         margin: 25px 0 0 0;
         padding: 0;
@@ -188,35 +206,36 @@
         justify-content: space-between;
         align-items: center;
         font-size: 1.2rem;
-        @include respondTo(medium){
+        @include respondTo(medium) {
           justify-content: flex-start;
-        }           
-        dd, dt{
+        }
+        dd,
+        dt {
           flex: 2 2 auto;
           float: none;
           display: flex;
           flex-wrap: nowrap;
           justify-content: space-around;
           background-image: none;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             flex: 0 1 auto;
-          }          
+          }
         }
-        dt{
+        dt {
           flex: 1 1 auto;
           justify-content: flex-start;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             flex: 0 1 auto;
-          }   
+          }
         }
-        dd:nth-last-child(1){
+        dd:nth-last-child(1) {
           flex: 1 1 auto;
           justify-content: flex-end;
-          @include respondTo(medium){
+          @include respondTo(medium) {
             flex: 0 1 auto;
-          }   
+          }
         }
-        a{
+        a {
           @extend .button;
           @extend .button--secondary;
           font-size: 1.2rem;
@@ -228,36 +247,35 @@
           padding: 0 15px;
           width: auto;
           margin: 0;
-          &:not(.report-btn){
-            &:before{
+          &:not(.report-btn) {
+            &:before {
               display: inline-block;
               position: relative;
             }
-            &:after{
+            &:after {
               display: inline-block;
               position: relative;
               content: ')';
             }
-            &.helpful{
-              @include respondTo(medium){
+            &.helpful {
+              @include respondTo(medium) {
                 margin-left: 29px;
-              } 
-              &:before{
-                content: 'Yes ('
+              }
+              &:before {
+                content: 'Yes (';
               }
             }
-            &.un-helpful{
-              @include respondTo(medium){
+            &.un-helpful {
+              @include respondTo(medium) {
                 margin-left: 29px;
-              } 
-              &:before{
-                content: 'No ('
+              }
+              &:before {
+                content: 'No (';
               }
             }
           }
         }
       }
     }
-
   }
 }

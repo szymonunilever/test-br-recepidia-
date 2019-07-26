@@ -1,7 +1,4 @@
-import {
-  titleLevel,
-  UnileverLibraryComponent,
-} from '../../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../../globalModels';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 export interface RecipeCardFavoriteCallback {

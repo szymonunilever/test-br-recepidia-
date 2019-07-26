@@ -53,25 +53,6 @@ $col-indent-desktop: 8px;
     display: block;
     margin: 40px auto;
   }
-  &__null-results {
-  }
-  .recommendations {
-    &__title {
-      font-size: 2.8rem;
-      @include respondTo(desktop) {
-        font-size: 2.5rem;
-      }
-    }
-    &__subtitle {
-      font-size: 1.6rem;
-    }
-    &__list {
-      list-style-image: url(../svgs/checkmark.svg);
-    }
-    &__item {
-      font-size: 1.4rem;
-    }
-  }
 
   .recipe-list__item {
     margin: $col-indent-mobile;
@@ -83,6 +64,29 @@ $col-indent-desktop: 8px;
     @include respondTo(desktop) {
       width: calc(#{$col-width-desktop} - #{$col-indent-desktop * 2});
       margin: $col-indent-desktop;
+    }
+  }
+}
+
+.recommendations {
+  &__title {
+    font-size: 2.8rem;
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+    }
+  }
+  &__subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  &__list {
+    list-style-image: url(../svgs/checkmark.svg);
+  }
+  &__item {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    &:nth-last-child(1){
+        margin-bottom: 0;
     }
   }
 }

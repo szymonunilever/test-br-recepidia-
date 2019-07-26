@@ -1,95 +1,102 @@
-[data-comonentname=recipeNutrients]{
-  @include respondTo(medium){
+[data-comonentname='recipeNutrients'] {
+  @include respondTo(medium) {
     margin-top: 40px;
     display: flex;
     justify-content: center;
   }
 }
-.recipe-nutrients{
-  &__button{
+.recipe-nutrients {
+  &__button {
     @extend .button;
     width: 100%;
     font-weight: bold;
-    @include respondTo(medium){
+    @include respondTo(medium) {
       max-width: 352px;
     }
-  } 
+  }
 
-  &__modal{
-    table{
+  &__modal {
+    table {
       width: 100%;
-      margin-bottom: 24px;
-      &:nth-last-child(1){
-        margin-bottom: 0;
-      }
-      tr{
+      display: block;
+      tr {
         display: flex;
         flex-wrap: nowrap;
+        width: 100%;
       }
-      td, th{
-        display: block;
-        flex: 1;
-        padding-right: 15px;
-        &:nth-last-child(1){
-          padding-right: 0;
+      tr:not(:last-child) {
+        border-bottom: 1px solid $white-gray;
+      }
+      td,
+      th {
+        display: inline-block;
+        word-break: break-word;
+        padding: 2.5px;
+        width: 25%;
+        &:first-child {
+          width: 50%;
+        }
+        @include respondTo(medium) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        &:not(:last-child) {
+          padding-right: 15px;
         }
       }
-      th{
-        padding-bottom: 15px;
+      th {
         font-size: 1.4rem;
         font-weight: bold;
         line-height: 1.29;
         color: $black-blue;
         text-align: left;
       }
-      tbody{
+      tbody {
         display: block;
-        width: 100vw;
+        width: 100%;
         padding: 0 24px;
-        @include respondTo(desktop){
+        @include respondTo(medium) {
           width: 100%;
         }
       }
-      &:nth-child(1){
-        thead{
-          padding: 0 24px;
+      thead {
+        padding-bottom: 15px;
+        display: block;
+        @include respondTo(medium) {
+          padding: 0 90px 30px 90px;
           display: block;
         }
-        tbody{
-          border-radius: 20px;
-          background-color: $white-gray;
-          font-size: 1.4rem;
-          line-height: 1.29;
-          color: $black-blue;
-          padding: 24px;
-          @include respondTo(desktop){
-            padding: 24px 90px;
-            border-radius: 0;
-          }
+        tr {
+          border-bottom: none;
         }
       }
-      &:nth-child(2){
-        thead{
-          @include respondTo(desktop){
-            padding: 0 90px;
-            display: block;
-          }
+
+      tbody {
+        border-radius: 20px;
+        font-size: 1.4rem;
+        line-height: 1.29;
+        color: $black-blue;
+        padding: 24px;
+        @include respondTo(medium) {
+          padding: 24px 90px;
+          border-radius: 0;
         }
-        tbody{
-          padding: 0;
-          @include respondTo(desktop){
-            padding: 24px 90px;
-          }
-          td{
-            padding: 15px 15px 15px 0;
-            border-bottom: 1px solid rgba(54, 56, 64, .4);
-            &:nth-child(1){
-              font-weight: bold;
-              padding: 15px 0 14px 24px;
-              @include respondTo(desktop){
-                padding: 15px 15px 15px 0;
-              }
-            }
+      }
+      &:first-child {
+        tbody {
+          background-color: $white-gray;
+        }
+      }
+      &:nth-child(2) {
+        thead {
+          padding-bottom: 0;
+        }
+        margin-top: 25px;
+        td {
+          padding: 15px 15px 15px 0;
+          &:first-child {
+            font-weight: bold;
           }
         }
       }

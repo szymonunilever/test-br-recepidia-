@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
 
 export interface GeneratedFormProps
   extends UnileverLibraryComponent<AppContent.GeneratedForm.Content> {

@@ -1,6 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import Question from './partials/Question';
-import Button from '../../../common/Button';
+import Button from '../../../Button';
 import { QuizProps } from './models';
 
 const Quiz: FunctionComponent<QuizProps> = ({

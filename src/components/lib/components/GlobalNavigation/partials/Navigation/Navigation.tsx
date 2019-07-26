@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import Menu from '../Menu';
 import { NavigationProps } from './models';
-import { Button as ButtonClose } from 'src/components/lib/components/common/Button';
+import { Button as ButtonClose } from 'src/components/lib/components/Button';
 
 const Navigation = ({
   list,
