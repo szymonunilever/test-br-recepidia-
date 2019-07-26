@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
 import { getSearchData } from '../SearchListing/models';
 
 export interface SearchInputProps

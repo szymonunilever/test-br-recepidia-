@@ -38,7 +38,7 @@ import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
-import Button from '../../components/lib/components/common/Button';
+import Button from '../../components/lib/components/Button';
 import SocialSharing, {
   SocialSharingViewType,
   SocialIcons,

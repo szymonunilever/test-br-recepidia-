@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../common/Carousel/Carousel';
+import Carousel from '../Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import RecipeCard from './partials/RecipeCard';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CountrySelectorProps, LanguageEntry } from './models';
-import { Select } from '../common/Select';
-import { FlagIcon } from '../common/FlagIcon';
+import { Select } from '../Select';
+import { FlagIcon } from '../FlagIcon';
 import cx from 'classnames';
 
 const CountrySelector = ({

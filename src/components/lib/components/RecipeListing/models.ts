@@ -1,6 +1,6 @@
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../globalModels';
 import { RecipeFilterOptions } from './partials';
-import { CarouselConfig } from '../common/Carousel/models';
+import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 

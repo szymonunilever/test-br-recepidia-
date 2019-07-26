@@ -1,6 +1,6 @@
 import { ItemProps } from './partials/PageListingItem/models';
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
-import { CarouselConfig } from '../common/Carousel/models';
+import { titleLevel, UnileverLibraryComponent } from '../globalModels';
+import { CarouselConfig } from '../Carousel/models';
 
 export enum PageListingViewTypes {
   default,

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ModalProps } from './models';
 import cx from 'classnames';
 import ReactModal from 'react-modal';
-import Text from '../../Text/Text';
-import { TagName } from '../../Text';
+import Text from '../Text/Text';
+import { TagName } from '../Text/index';
 
 const Modal = ({
   isOpen,

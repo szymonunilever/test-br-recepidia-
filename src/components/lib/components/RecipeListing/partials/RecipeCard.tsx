@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import React from 'react';
 import { TagName, Text } from '../../Text';
-import { Button, ButtonViewType } from '../../common/Button';
+import { Button, ButtonViewType } from '../../Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 import Rating from '../../Rating';

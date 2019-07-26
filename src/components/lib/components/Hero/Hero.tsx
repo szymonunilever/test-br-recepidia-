@@ -6,7 +6,7 @@ import Text from '../Text/Text';
 import { TagName } from '../Text';
 import { navigate } from 'gatsby';
 import { get } from 'lodash';
-import { Button } from '../common/Button';
+import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
 
 const Hero = (props: HeroProps) => {

@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { ResultsStore, NextAction, WizardProps } from './models';
 import WizardLogo from '../../../../svgs/inline/wizard-logo.svg';
-import { Button, ButtonViewType } from '../common/Button';
+import { Button, ButtonViewType } from '../Button';
 import CloseSvg from '../../../../svgs/inline/x-mark.svg';
 import cx from 'classnames';
 

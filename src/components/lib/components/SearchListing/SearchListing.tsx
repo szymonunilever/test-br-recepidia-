@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SearchInput from '../SearchInput';
-import withLocation from '../common/WithLocation';
+import withLocation from '../WithLocation';
 import { Tabs, Tab } from '../Tabs';
 import RecipeListing, { LoadMoreType } from '../RecipeListing';
 import cx from 'classnames';
@@ -9,7 +9,7 @@ import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
 import { SearchListingProps, ResponseRecipeData } from './models';
 import { get } from 'lodash';
-import { WithLocationProps } from '../common/WithLocation/models';
+import { WithLocationProps } from '../WithLocation/models';
 
 const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
   content,

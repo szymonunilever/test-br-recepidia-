@@ -2,7 +2,8 @@
   "name": "gatsby-source-rms",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
     "axios": "^0.18.0"
   }

@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
-import { Button, ButtonViewType } from '../Button';
+import { Button, ButtonViewType } from '../index';
 
 describe('Button', () => {
   let testClick: boolean | null = null;

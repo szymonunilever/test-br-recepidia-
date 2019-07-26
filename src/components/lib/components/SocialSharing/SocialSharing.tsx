@@ -1,9 +1,9 @@
 import cx from 'classnames';
 import React, { useState } from 'react';
-import Button from '../common/Button';
+import Button from '../Button/index';
 import Icon from 'src/svgs/inline/social-sharing.svg';
-import { ButtonViewType } from '../common/Button';
-import { Modal } from '../common/Modal';
+import { ButtonViewType } from '../Button';
+import { Modal } from '../Modal';
 import { SocialSharingProps, SocialSharingViewType } from './models';
 import { SocialSharingBase } from './partials';
 

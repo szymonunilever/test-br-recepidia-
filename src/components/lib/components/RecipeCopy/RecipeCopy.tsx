@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { titleLevel } from '../common/globalModels';
+import { titleLevel } from '../globalModels';
 import { RecipeCopyProps, RecipeCopyViewType } from './models';
 import {
   RecipeCopyDescription,

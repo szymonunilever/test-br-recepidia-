@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useState } from 'react';
-import Button, { ButtonViewType } from '../common/Button';
-import { Modal } from '../common/Modal';
+import Button, { ButtonViewType } from '../Button';
+import { Modal } from '../Modal';
 import { RecipeNutrientsProps, RecipeNutrientsViewType } from './models';
 import { RecipeNutrientsBody } from './partials';
 import theme from './RecipeNutrients.module.scss';

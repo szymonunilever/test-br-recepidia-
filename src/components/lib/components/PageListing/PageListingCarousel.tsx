@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../common/Carousel/Carousel';
+import Carousel from '../Carousel/Carousel';
 import { PageListingCarouselProps } from './models';
 import { ItemProps } from './partials/PageListingItem/models';
 import PageListingItem from './partials/PageListingItem/index';

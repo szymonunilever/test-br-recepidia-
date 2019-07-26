@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { QuestionLabelProps } from './models';
 import { TagName, Text } from '../../../../../Text';
-import { ProgressBar } from '../../../../../common/Carousel/partials';
+import { ProgressBar } from '../../../../../Carousel/partials';
 
 const QuestionLabel: FunctionComponent<QuestionLabelProps> = ({ label }) => (
   <div className="wizard__info">

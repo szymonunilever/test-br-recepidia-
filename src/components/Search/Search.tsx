@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StaticQuery, graphql, navigate } from 'gatsby';
 import SearchInput from '../lib/components/SearchInput/SearchInput';
-import { Modal } from 'src/components/lib/components/common/Modal';
+import { Modal } from 'src/components/lib/components/Modal';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 
