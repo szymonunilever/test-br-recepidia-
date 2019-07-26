@@ -11,9 +11,9 @@ async function getCaterogyTags(configOptions) {
 
 async function getRecipesByPage(configOptions, pageSize, page) {
   return await axios.get(
-    'https://3ybs95wsg8.execute-api.eu-west-1.amazonaws.com/image/recipes/pt-BR',
+    'https://lko3ncauxl.execute-api.eu-west-1.amazonaws.com/v2/recipes/br-pt',
     {
-      headers: { 'x-api-key': 'HonNf7tiKw9CiiJ4WbT8U2LmoLo3kyVv3OFi8dNX' },
+      headers: { 'x-api-key': 'OoGWuczivUaCal94EbmZQ1fcjn4mxNyq9NBxALHq' },
       params: { pageSize: pageSize, startRecord: page * pageSize + 1 },
     }
   );
