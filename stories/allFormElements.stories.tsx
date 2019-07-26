@@ -1,13 +1,11 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Select } from './components/lib/components/Select';
+import { Select } from '../src/components/lib/components/Select';
 import selectOptions from '../src/components/data/select.json';
-// import { action } from '@storybook/addon-actions';
 import {
   CheckElem,
   checkElemTypes,
-} from './components/lib/components/CheckElem';
-// import { Button } from '../src/components/lib/common/Button';
+} from '../src/components/lib/components/CheckElem';
 import cx from 'classnames';
 
 import {
