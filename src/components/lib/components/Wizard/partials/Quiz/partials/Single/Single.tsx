@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useState } from 'react';
+import React, { Fragment, FunctionComponent, useState, useEffect } from 'react';
 import QuestionLabel from '../QuestionLabel';
 import { QuestionProps } from '../Question/models';
 import CheckMark from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
@@ -7,11 +7,16 @@ const Single: FunctionComponent<QuestionProps> = ({
   question,
   onChangeCallback,
 }) => {
-  const [val, setVal] = useState('');
+  const [val, setVal] = useState(
+    (question.selectedOptions && question.selectedOptions[0]) || ''
+  );
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setVal(event.target.value);
-    onChangeCallback(question.key, event.target.value);
   };
+
+  useEffect(() => {
+    onChangeCallback(question.key, val);
+  }, [val]);
 
   return (
     <Fragment>

@@ -9,6 +9,7 @@ export interface Question {
     control: string;
   };
   options: QuestionOption[];
+  selectedOptions?: string[];
 }
 
 export interface QuestionOption {
