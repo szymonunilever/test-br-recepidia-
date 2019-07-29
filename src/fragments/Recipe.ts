@@ -36,9 +36,9 @@ export const query = graphql`
       }
     }
     title
-    assets {
-      images {
-        default {
+    localImage {
+      childImageSharp {
+        fluid {
           base64
           aspectRatio
           width

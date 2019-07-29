@@ -48,6 +48,7 @@ export const RecipeListing = ({
       },
     ],
   },
+  imageSizes,
 }: RecipeListingProps) => {
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
@@ -162,6 +163,7 @@ export const RecipeListing = ({
         content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
+        imageSizes={imageSizes}
       />
       {shouldAppear ? (
         <Button
@@ -185,6 +187,7 @@ export const RecipeListing = ({
         content={content}
         // @ts-ignore
         titleLevel={titleLevel + 1}
+        imageSizes={imageSizes}
       />
     ) : viewType == RecipeListViewType.Base ? (
       <>{recipeListBasic}</>
@@ -199,6 +202,7 @@ export const RecipeListing = ({
         ratingProvider={ratingProvider}
         // @ts-ignore
         titleLevel={titleLevel + 1}
+        imageSizes={imageSizes}
       />
     ) : (
       <>

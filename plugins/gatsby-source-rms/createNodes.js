@@ -2,6 +2,18 @@ exports.createRecipeNodes = (
   recipe,
   { createNodeId, createContentDigest, createNode }
 ) => {
+  // Temporary solution to re-use existing components data structure
+  // Should be reviewed as soon as we agree a common aproach and data structures to work with images
+  const localImage = { childImageSharp: { fluid: {} } };
+  localImage.childImageSharp.fluid = Object.assign(
+    {},
+    recipe.assets.images.default
+  );
+
+  recipe.localImage = localImage;
+
+  delete recipe.assets;
+
   const nodeId = createNodeId(`recipe-${recipe.id}`);
   const nodeContent = JSON.stringify(recipe);
   const nodeData = Object.assign({}, recipe, {

@@ -21,6 +21,7 @@ const RecipeCard = ({
   inFavorite = false,
   onFavoriteChange,
   ratingProvider,
+  imageSizes,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -53,6 +54,7 @@ const RecipeCard = ({
       className="recipe-card__image"
       localImage={localImage}
       alt={title || 'Recipe image'}
+      imageSizes={imageSizes}
     />
   );
   const view = enableSelectFavorite ? (

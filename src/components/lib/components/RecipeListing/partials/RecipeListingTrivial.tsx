@@ -12,6 +12,7 @@ const RecipeListingTrivial = ({
   onFavoriteChange,
   content: { nullResult },
   ratingProvider = RatingAndReviewsProvider.none,
+  imageSizes,
 }: RecipeListingTrivialProps) => (
   <ul className="recipe-list__list">
     {list.length > 0 ? (
@@ -25,14 +26,12 @@ const RecipeListingTrivial = ({
               enableSelectFavorite={withFavorite}
               Icon={FavoriteIcon}
               titleLevel={titleLevel}
-              localImage={{
-                id: item.recipeId,
-                childImageSharp: { fluid: item.assets.images.default },
-              }}
+              localImage={item.localImage}
               content={{ title: item.title }}
               slug={item.fields.slug}
               onFavoriteChange={onFavoriteChange}
               ratingProvider={ratingProvider}
+              imageSizes={imageSizes}
             />
           </li>
         );

@@ -56,6 +56,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
             withFavorite
             favorites={[]}
             onFavoriteChange={action('favorites were changed')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>

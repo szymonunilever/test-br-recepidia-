@@ -36,6 +36,7 @@ interface RecipesConfig {
   recipePerLoad: RecipeListingProps['recipePerLoad'];
   favorites: RecipeListingProps['favorites'];
   onFavoriteChange: RecipeListingProps['onFavoriteChange'];
+  imageSizes: RecipeListingProps['imageSizes'];
 }
 
 export declare interface SearchListingContent {

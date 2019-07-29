@@ -20,6 +20,7 @@ export interface RecipeCardProps
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider: RatingAndReviewsProvider;
+  imageSizes: string;
 }
 
 export interface RecipeListingTrivialProps
@@ -30,6 +31,7 @@ export interface RecipeListingTrivialProps
   titleLevel?: titleLevel;
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
 }
 
 export enum RecipeSortingOptions {
