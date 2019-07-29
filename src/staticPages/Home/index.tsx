@@ -17,6 +17,8 @@ import pageListingData from 'src/components/data/pageListing.json';
 import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import IntroQuiz from '../../components/page/IntroQuiz';
+import introQuizQuestions from '../../../stories/mocks/introQuiz';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
@@ -25,6 +27,12 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
   return (
     <Layout className="header--bg">
       <SEO title="Recepedia Home" />
+      <IntroQuiz
+        questions={introQuizQuestions}
+        primaryButtonLabel={'Continue'}
+        primaryButtonFinalLabel={'Finish'}
+        secondaryButtonLabel={'Skip'}
+      />
       <Kritique />
       <section className="_bg--main">
         <div className="container">

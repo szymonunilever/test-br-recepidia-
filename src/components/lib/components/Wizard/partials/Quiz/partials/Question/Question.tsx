@@ -10,12 +10,18 @@ const componentsMap = {
 
 const Question: FunctionComponent<QuestionProps> = ({
   question,
+  progress,
   onChangeCallback,
 }) => {
   // @ts-ignore
   const Component = componentsMap[question.type.control];
 
-  return Component ? <Component {...{ question, onChangeCallback }} /> : null;
+  return Component ? (
+    <Component
+      {...{ question, progress, onChangeCallback }}
+      key={question.id}
+    />
+  ) : null;
 };
 
 export default Question;

@@ -1,6 +1,6 @@
-import { configure } from '@storybook/react';
+import { configure, addParameters } from '@storybook/react';
 import '!style-loader!css-loader!sass-loader!../src/scss/main.scss';
-import { addParameters } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 const req = require.context('../stories', true, /\.stories\.tsx$/);
 
