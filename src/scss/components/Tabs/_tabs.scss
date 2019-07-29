@@ -33,14 +33,17 @@
       text-align: center;
       &:before{
         width: 100%;
+        background: $fish-blue-darker;
       }
       &[aria-pressed='false'] {
         &:before{
           width: 0;
         }
-        &:hover{
-          &:before{
-            width: 100%;
+        @media (hover) {
+          &:hover{
+            &:before{
+              width: 100%;
+            }
           }
         }
       }
