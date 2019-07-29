@@ -9,6 +9,7 @@ import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
 import { SearchListingProps, ResponseRecipeData } from './models';
 import { WithLocationProps } from '../WithLocation/models';
+import { Hit } from 'src/utils/useElasticSearch/models';
 
 const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
   content,
@@ -19,9 +20,7 @@ const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
   searchResultTitleLevel = 3,
 }) => {
   const classNames = cx('search-listing', className);
-  const [recipeData, setRecipeData] = useState<
-    ResponseRecipeData<Internal.Recipe>[]
-  >([]);
+  const [recipeData, setRecipeData] = useState<Hit<Internal.Recipe>[]>([]);
   const [defaultSearchValue, setDefaultSearchValue] = useState(searchQuery);
   const [numRes, setNumRes] = useState(0);
   const [dataIsFetched, setDataIsFetched] = useState(false);
