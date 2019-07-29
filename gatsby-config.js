@@ -63,8 +63,8 @@ module.exports = {
         disabledFeatures: [
           // 'shorthands',
           // 'currying',
-          // 'deburring',
-          // 'memoize',
+          'deburring',
+          'memoize',
           'coercions',
           'guards',
           'metadata',
