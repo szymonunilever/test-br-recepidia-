@@ -35,7 +35,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         secondaryButtonLabel={'Skip'}
       />
       <Kritique />
-      <DigitalData pageContext={pageContext} />
+      <DigitalData pageContext={pageContext} data={data} />
       <section className="_bg--main">
         <div className="container">
           <Text

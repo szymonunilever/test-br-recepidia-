@@ -133,6 +133,7 @@ exports.createPages = async ({ graphql, actions }) => {
         components: pageData.components,
         nextSlug: get(edge, 'next.fields.slug'),
         previousSlug: get(edge, 'previous.fields.slug'),
+        type: pageData.type,
         edge,
       },
     });
@@ -148,6 +149,7 @@ exports.createPages = async ({ graphql, actions }) => {
           slug: node.relativePath,
           title: node.title,
           components: node.components,
+          type: node.type,
         },
       });
     },

@@ -1,23 +1,32 @@
 import React, { useEffect } from 'react';
 import keys from '../keys.json';
 import { isMobile } from './utils';
+import { findPageComponentContent } from 'src/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DigitalData = ({ pageContext }: any) => {
-  // eslint-disable-next-line no-console
-  console.log(pageContext);
+const DigitalData = ({ pageContext, data }: any) => {
   const digitalDataDefaults = keys.digitalData;
   useEffect(() => {
+    const { type } = pageContext;
+    const pageName = /Detail$/.test(type)
+      ? data.title
+      : findPageComponentContent(pageContext.components, 'Text', 'PageTitle')
+          .text;
+
     const channelVal = isMobile() ? 'Mobile Site' : 'Brand Site';
     const siteInfo = { ...digitalDataDefaults.siteInfo, channel: channelVal };
     const page = {
       ...digitalDataDefaults.page,
       pageInfo: {
         destinationURL: window.location.href,
+        pageName,
       },
       category: {
-        pageType: '',
+        pageType: pageContext.type,
         primaryCategory: channelVal,
+      },
+      trackingInfo: {
+        ...digitalDataDefaults.trackingInfo,
       },
     };
     // @ts-ignore
@@ -26,43 +35,6 @@ const DigitalData = ({ pageContext }: any) => {
       page,
     };
   });
-  //TODO: Need collect data for page for Adobe Analytics. Main data from config should be set in gatsby-browser.js when RouteChange.
-  // useEffect(() => {
-  //   const channelVal = isMobile() ? 'Mobile Site' : 'Brand Site';
-  //   const siteInfo = { ...digitalDataDefaults.siteInfo, channel: channelVal };
-  //
-  //
-  //   setDigitalData({ siteInfo, page });
-  // }, [digitalData.page]);
-
-  /* window.digitalData = {
-    siteInfo: {
-      channel: channelVal,
-      sitetype: 'Non-Avinash/Non-D2/CMS Name',
-      page: {},
-      video: [],
-      campaign: [],
-      product: [],
-      privacy: {
-        accessCategories: [
-          {
-            domains: [],
-          },
-        ],
-      },
-      component: [],
-      trackingInfo: {
-        GID: '',
-        un: '',
-        tool: [
-          {
-            ids: '',
-          },
-        ],
-      },
-      promotion: [],
-    },
-  };*/
   return <></>;
 };
 
