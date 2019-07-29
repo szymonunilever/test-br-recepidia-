@@ -1,6 +1,6 @@
 .tags {
- @extend ._pt--40;
- @extend ._pb--40;
+  @extend ._pt--40;
+  @extend ._pb--40;
   &__list {
     list-style: none;
     padding: 0;
@@ -35,17 +35,22 @@
   &__removable {
     @extend .tags__link;
     position: relative;
-    padding-right: 55px;
+    padding-right: 45px;
+    overflow: hidden;
 
     .tags__removable--button {
       position: absolute;
       top: 0;
-      right: 15px;
+      right: 5px;
       height: 100%;
       width: 40px;
       padding: 0;
       border: none;
       background-color: transparent;
+      svg {
+        width: 8px;
+        height: 8px;
+      }
     }
   }
 

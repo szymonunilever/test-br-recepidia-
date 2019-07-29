@@ -36,6 +36,7 @@ interface RecipesConfig {
   recipePerLoad: RecipeListingProps['recipePerLoad'];
   favorites: RecipeListingProps['favorites'];
   onFavoriteChange: RecipeListingProps['onFavoriteChange'];
+  ratingProvider?: RecipeListingProps['ratingProvider'];
 }
 
 export declare interface SearchListingContent {

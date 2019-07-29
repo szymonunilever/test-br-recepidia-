@@ -1,6 +1,5 @@
 import React from 'react';
 import { Location } from '@reach/router';
-import queryString from 'query-string';
 import { WithLocationProps } from './models';
 
 const withLocation = <T extends WithLocationProps>(
@@ -13,7 +12,7 @@ const withLocation = <T extends WithLocationProps>(
           {...props}
           location={location}
           navigate={navigate}
-          search={location.search ? queryString.parse(location.search) : {}}
+          searchQuery={new URLSearchParams(location.search).get('searchQuery')}
         />
       )}
     </Location>

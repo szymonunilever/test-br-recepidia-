@@ -49,6 +49,7 @@ import FacebookIcon from 'src/svgs/inline/facebook.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
+import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 
 const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const { recipe } = data;
@@ -56,7 +57,6 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   // TODO below fields should be fetched from back-end. Currenty missing in back-end response
   recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as any;
   recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as any;
-  recipe.nutrients = dataRecipe.nutrientsPerServing as any;
   const tags = data.allTag.nodes;
   const dietaryAttributesIcons = [
     {
@@ -182,6 +182,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
       <Kritique />
+      <RecipeMicrodata recipe={recipe} />
 
       <section className={cx(theme.topBg, '_bg--main')}>
         <div className="container">

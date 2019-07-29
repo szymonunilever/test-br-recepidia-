@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import cx from 'classnames';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import theme from './Button.module.scss';
@@ -6,6 +7,7 @@ import { ButtonProps, ButtonViewType } from './models';
 export const Button = ({
   Icon,
   IconSelected = Icon,
+  isDisabled = false,
   isSelected = false,
   onClick,
   hidden = false,
@@ -25,26 +27,26 @@ export const Button = ({
       setSelected(isSelected);
     }
   });
-  const wrapClasses = cx(theme.button, className, {
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    button__selected: selected,
-  });
-  const iconClasses = cx(theme.icon, className, {
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    button__selected: selected,
-  });
-  const TheIcon = selected ? IconSelected : Icon;
+  const buttonClasses = cx(
+    viewType === ButtonViewType.icon ? theme.icon : theme.button,
+    className,
+    {
+      button__selected: selected,
+      button__disabled: isDisabled,
+    }
+  );
+
+  const IconComponent = selected ? IconSelected : Icon;
   const onButtonClick = (e: MouseEvent) => {
     e.preventDefault();
-    if (isToggle) {
-      const newVal = !selected;
-      setSelected(newVal);
-      if (typeof onClick !== 'undefined') {
-        onClick(newVal);
-      }
-    } else {
-      if (typeof onClick !== 'undefined') {
-        onClick(false);
+
+    if (!isDisabled) {
+      if (isToggle) {
+        const newVal = !selected;
+        setSelected(newVal);
+        onClick && onClick(newVal);
+      } else {
+        onClick && onClick(false);
       }
     }
   };
@@ -58,13 +60,9 @@ export const Button = ({
   // @ts-ignore
   isToggle ? (props['aria-pressed'] = selected) : null;
 
-  return viewType === ButtonViewType.icon ? (
-    <button className={iconClasses} {...props} {...attributes}>
-      {TheIcon ? <TheIcon /> : null}
-    </button>
-  ) : (
-    <button className={wrapClasses} {...props} {...attributes}>
-      {TheIcon ? <TheIcon /> : null}
+  return (
+    <button className={buttonClasses} {...props} {...attributes}>
+      {IconComponent && <IconComponent />}
       {label ? <span className="button__label">{label}</span> : null}
       {children}
     </button>
