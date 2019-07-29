@@ -94,7 +94,7 @@ export function applyFilters(
   if (filters.length > 0) {
     return filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
-      const includedTags = filter(tagGroups, (item: RMSData.TagGroup) => {
+      const includedTags = filter(tagGroups, (item: RMSData.TagGroupings) => {
         return (
           intersectionBy(item.tags, filters, 'id').length >= filters.length
         );
