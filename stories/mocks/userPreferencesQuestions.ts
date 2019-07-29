@@ -1,123 +1,22 @@
 /* eslint-disable */
-// @ts-ignore
-import localImage from '../assets/localImage';
+import questionsMock from './introQuiz';
+import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
 
-const image = {
-  localImage,
-  alt: 'some descriptive image text',
+const clone = (obj: Question) => {
+  if (null == obj || 'object' != typeof obj) return obj;
+  var copy = obj.constructor();
+  for (var attr in obj) {
+    if (obj.hasOwnProperty(attr)) {
+      // @ts-ignore
+      copy[attr] = obj[attr];
+    }
+  }
+  return copy;
 };
-const questions1 = [
-  {
-    orderIndex: 1,
-    id: 1,
-    key: 'question1',
-    label: 'What do you like?',
-    type: {
-      control: 'checkbox',
-      labelPosition: 'bottom',
-    },
-    options: [
-      {
-        value: 'meat',
-        label: {
-          text: 'Some text about meat',
-          image,
-        },
-      },
-      {
-        value: 'bread',
-        label: {
-          text: 'Some text about bread',
-          image,
-        },
-      },
-    ],
-    selectedOptions: ['meat'],
-  },
-  {
-    orderIndex: 2,
-    id: 2,
-    key: 'question2',
-    label: 'Choose your favourite dish?',
-    type: {
-      control: 'radio',
-      labelPosition: 'bottom',
-    },
-    options: [
-      {
-        value: 'meat',
-        label: {
-          text: 'Some text about meat',
-          image,
-        },
-      },
-      {
-        value: 'bread',
-        label: {
-          text: 'Some text about bread',
-          image,
-        },
-      },
-    ],
-    selectedOptions: ['bread'],
-  },
-];
-const questions2 = [
-  {
-    orderIndex: 3,
-    id: 3,
-    key: 'question3',
-    label: 'What do you dislike?',
-    type: {
-      control: 'checkbox',
-      labelPosition: 'bottom',
-    },
-    options: [
-      {
-        value: 'meat',
-        label: {
-          text: 'Some text about meat',
-          image,
-        },
-      },
-      {
-        value: 'bread',
-        label: {
-          text: 'Some text about bread',
-          image,
-        },
-      },
-    ],
-    selectedOptions: ['meat'],
-  },
-  {
-    orderIndex: 4,
-    id: 4,
-    key: 'question4',
-    label: 'Choose your unfavourite dish',
-    type: {
-      control: 'radio',
-      labelPosition: 'bottom',
-    },
-    options: [
-      {
-        value: 'meat',
-        label: {
-          text: 'Some text about meat',
-          image,
-        },
-      },
-      {
-        value: 'bread',
-        label: {
-          text: 'Some text about bread',
-          image,
-        },
-      },
-    ],
-    selectedOptions: ['bread'],
-  },
-];
+const mocks: Question[] = [];
+questionsMock.forEach(question => mocks.push(clone(question)));
+mocks.forEach((q, index) => (q.key = q.key + index));
+
 const preferencesIntroDefault = {
   heading: 'My personalisation preferences',
   content: `Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. 
@@ -166,8 +65,7 @@ const entryUpdateProps = {
   },
 };
 export {
-  questions1,
-  questions2,
+  mocks as questionsMock,
   preferencesIntroDefault,
   preferencesIntro,
   preferencesIntroWithLinks,
