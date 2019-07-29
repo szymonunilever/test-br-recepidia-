@@ -119,6 +119,7 @@ storiesOf('Components/Recipe Listing', module)
         viewType={RecipeListViewType.Trivial}
         content={contents[0]}
         titleLevel={1}
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     ),
     {
@@ -135,6 +136,7 @@ storiesOf('Components/Recipe Listing', module)
         content={contents[1]}
         titleLevel={1}
         className="recipe-list"
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     ),
     {
@@ -151,6 +153,7 @@ storiesOf('Components/Recipe Listing', module)
         content={contents[2]}
         titleLevel={1}
         initialCount={0}
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     ),
     {
@@ -170,6 +173,7 @@ storiesOf('Components/Recipe Listing', module)
         favorites={[]}
         onFavoriteChange={action('favorites were changed')}
         titleLevel={1}
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     ),
     {
@@ -204,6 +208,7 @@ storiesOf('Components/Recipe Listing', module)
         viewType={RecipeListViewType.Base}
         content={contents[5]}
         titleLevel={1}
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     ),
     {
@@ -228,6 +233,7 @@ storiesOf('Components/Recipe Listing', module)
           titleLevel={1}
           // @ts-ignore
           tags={dataTags}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
         />
       </div>
     ),

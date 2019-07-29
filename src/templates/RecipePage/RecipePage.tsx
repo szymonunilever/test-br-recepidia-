@@ -140,6 +140,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     <>
       <RecipeHero
         content={recipe}
+        imageSizes={'(min-width: 1366px) 40vw, 90vw'}
         imagePlaceholder={{
           id: '0bcf6c75-0450-554d-89c7-85316cc28839',
           childImageSharp: {
@@ -352,6 +353,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>

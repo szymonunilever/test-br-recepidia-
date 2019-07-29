@@ -68,6 +68,7 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
               recipePerLoad: 4,
               favorites: [],
               onFavoriteChange: () => {},
+              imageSizes: '(min-width: 768px) 25vw, 50vw',
             },
           }}
           content={findPageComponentContent(components, 'SearchListing')}

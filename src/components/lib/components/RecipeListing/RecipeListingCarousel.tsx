@@ -12,6 +12,7 @@ const RecipeListingCarousel = ({
   list,
   config,
   ratingProvider = RatingAndReviewsProvider.none,
+  imageSizes,
 }: RecipeListingCarouselProps) => {
   const getCurrentItem = (item: Internal.Recipe) => {
     return (
@@ -26,10 +27,8 @@ const RecipeListingCarousel = ({
         onFavoriteChange={onFavoriteChange}
         recipeId={item.recipeId}
         ratingProvider={ratingProvider}
-        localImage={{
-          id: item.recipeId,
-          childImageSharp: { fluid: item.assets.images.default },
-        }}
+        localImage={item.localImage}
+        imageSizes={imageSizes}
       />
     );
   };

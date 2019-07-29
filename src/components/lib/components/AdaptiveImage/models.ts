@@ -3,4 +3,5 @@ export interface AdaptiveImageProps {
   localImage: Internal.LocalImage;
   alt: string;
   url?: string;
+  imageSizes?: string;
 }

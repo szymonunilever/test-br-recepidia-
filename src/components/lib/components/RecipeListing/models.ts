@@ -33,6 +33,7 @@ export interface RecipeListingProps
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
+  imageSizes: string;
 }
 
 export enum LoadMoreType {
@@ -54,4 +55,5 @@ export interface RecipeListingCarouselProps {
   list: Internal.Recipe[];
   config: CarouselConfig;
   ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
 }

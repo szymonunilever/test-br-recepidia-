@@ -8,6 +8,7 @@ const RecipeHero = ({
   content,
   imagePlaceholder,
   className,
+  imageSizes,
 }: RecipeHeroProps) => {
   const containerStyles = cx('recipe-hero', className, theme.container);
   const imageStyles = cx('recipe-hero__image', theme.image);
@@ -15,12 +16,10 @@ const RecipeHero = ({
   return (
     <div data-componentname="recipe-hero" className={containerStyles}>
       <div className={imageStyles}>
-        {content.assets ? (
+        {content.localImage ? (
           <AdaptiveImage
-            localImage={{
-              id: content.recipeId,
-              childImageSharp: { fluid: content.assets.images.default },
-            }}
+            localImage={content.localImage}
+            imageSizes={imageSizes}
             alt={content.title}
           />
         ) : (
