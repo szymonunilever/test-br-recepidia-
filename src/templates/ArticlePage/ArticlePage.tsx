@@ -58,6 +58,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
         <div className="container">
           <Text tag={TagName.h1} text={article.title} />
         </div>
+      </section>
       {mainImageHero && (
         <section className={cx(theme.articleImage, 'bg--half')}>
           <div className="container ">
