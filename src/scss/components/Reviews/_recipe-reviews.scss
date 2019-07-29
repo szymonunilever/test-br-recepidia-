@@ -1,6 +1,6 @@
 .recipe-reviews {
   @include respondTo(medium) {
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid #d8d8d8;
     padding-bottom: 20px;
   }
 
@@ -99,11 +99,11 @@
         height: 15px;
         margin-right: 10px;
         vertical-align: middle;
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
         will-change: background-image;
       }
-      &:hover{
-        &:before{
+      &:hover {
+        &:before {
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
         }
       }
@@ -280,5 +280,26 @@
         }
       }
     }
+  }
+}
+
+#rr-lightbox .rr-modalWidowcontent.rr-alertBox {
+  padding: 37px 79px 37px;
+  display: flex;
+  align-items: center;
+  h3 {
+    margin: 0;
+    text-align: center;
+  }
+  #content {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .rr-submission-form .rr-product-info {
+    border-bottom: none;
+    height: 0;
+    overflow: hidden;
   }
 }

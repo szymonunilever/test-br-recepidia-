@@ -29,15 +29,16 @@
       transition: stroke 0.2s ease-out;
     }
     @media (hover) {
-      &:hover {
-        svg {
-          fill: $luminous-yellow;
-          stroke: $luminous-yellow;
-          fill-opacity: 1;
+      @include respondTo(desktop) {
+        &:hover {
+          svg {
+            fill: $luminous-yellow;
+            stroke: $luminous-yellow;
+            fill-opacity: 1;
+          }
         }
       }
     }
-
   }
 
   &__image {
