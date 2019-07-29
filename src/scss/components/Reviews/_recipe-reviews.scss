@@ -1,8 +1,9 @@
 .recipe-reviews {
-  padding: 40px 0;
-  // @include respondTo(medium){
-  //   width: 50%;
-  // }
+  @include respondTo(medium) {
+    border-bottom: 1px solid #D8D8D8;
+    padding-bottom: 20px;
+  }
+
   .reviews-container {
     @include respondTo(medium) {
       display: flex;
@@ -94,10 +95,12 @@
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='%23363840' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
         display: inline-block;
         font-size: 14px;
-        width: 18.5px;
+        width: 19px;
         height: 15px;
         margin-right: 10px;
         vertical-align: middle;
+        transition: all .2s ease-out;
+        will-change: background-image;
       }
       &:hover{
         &:before{

@@ -9,8 +9,5 @@
       "label": "Twitter"
     }
   ],
-  "openModalButton": {
-    "label": "Share into social networks"
-  },
   "modalTitle": "Share this recipe"
 }
