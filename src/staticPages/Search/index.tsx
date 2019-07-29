@@ -20,6 +20,7 @@ import SearchIcon from 'src/svgs/inline/search-icon.svg';
 import CloseSvg from 'src/svgs/inline/x-mark.svg';
 import { RecipeListViewType } from 'src/components/lib/components/RecipeListing';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const SearchPage = ({ data, pageContext }: SearchPageProps) => {
   const { components } = pageContext;
@@ -67,6 +68,7 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
               initialCount: 2,
               recipePerLoad: 4,
               favorites: [],
+              ratingProvider: RatingAndReviewsProvider.kritique,
               onFavoriteChange: () => {},
               imageSizes: '(min-width: 768px) 25vw, 50vw',
             },

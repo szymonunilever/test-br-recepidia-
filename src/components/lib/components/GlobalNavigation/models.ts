@@ -1,5 +1,5 @@
 import { UnileverLibraryComponent } from '../globalModels';
-import { LogoProps } from './partials/Logo/models';
+import { LogoProps } from '../Logo/models';
 
 export interface GlobalNavigationProps
   extends UnileverLibraryComponent<AppContent.GlobalNavigation.Content> {

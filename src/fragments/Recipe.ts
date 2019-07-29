@@ -34,6 +34,21 @@ export const query = graphql`
       }
     }
     title
+    nutrients {
+      description
+      displayUnit
+      dv
+      epercent
+      isCore
+      name
+      position
+      rawRiPercent
+      rawDvPercent
+      rawValue
+      ri
+      unit
+      value
+    }
     localImage {
       childImageSharp {
         fluid {

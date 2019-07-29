@@ -8,40 +8,36 @@ import cx from 'classnames';
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
 import { SearchListingProps, ResponseRecipeData } from './models';
-import { get } from 'lodash';
 import { WithLocationProps } from '../WithLocation/models';
+import { Hit } from 'src/utils/useElasticSearch/models';
 
 const SearchListing: React.SFC<SearchListingProps & WithLocationProps> = ({
   content,
   config,
-  search,
+  searchQuery = '',
   getSearchData,
   className,
   searchResultTitleLevel = 3,
 }) => {
   const classNames = cx('search-listing', className);
-  const [recipeData, setRecipeData] = useState<
-    ResponseRecipeData<Internal.Recipe>[]
-  >([]);
-  const [defaultSearchValue, setDefaultSearchValue] = useState(
-    get(search, 'searchQuery')
-  );
+  const [recipeData, setRecipeData] = useState<Hit<Internal.Recipe>[]>([]);
+  const [defaultSearchValue, setDefaultSearchValue] = useState(searchQuery);
   const [numRes, setNumRes] = useState(0);
   const [dataIsFetched, setDataIsFetched] = useState(false);
 
   useEffect(() => {
-    if (search) {
-      getSearchData(get(search, 'searchQuery', ''), {
+    if (searchQuery) {
+      getSearchData(searchQuery, {
         size: 8,
       }).then(data => {
         setRecipeData(data.hits.hits);
         setNumRes(data.hits.total);
         setDataIsFetched(true);
 
-        setDefaultSearchValue(get(search, 'searchQuery', ''));
+        setDefaultSearchValue(searchQuery);
       });
     }
-  }, [search]);
+  }, [searchQuery]);
 
   const onSubmit = useCallback((value: string) => {
     getSearchData(value, { size: 8 }).then(data => {

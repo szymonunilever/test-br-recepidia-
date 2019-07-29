@@ -1,1 +1,1 @@
-// custom typefaces
+import 'url-search-params-polyfill'; // for IE

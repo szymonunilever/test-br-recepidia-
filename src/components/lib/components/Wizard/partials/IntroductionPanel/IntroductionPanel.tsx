@@ -16,7 +16,7 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   <Fragment>
     <div className="wizard__info">
       <div className="wizard__title">
-        <Text className="" tag={TagName.h2} text={title} />
+        <Text className="" tag={TagName.h1} text={title} />
       </div>
       <div className="wizard__description">
         <Text className="" tag={TagName.p} text={description} />

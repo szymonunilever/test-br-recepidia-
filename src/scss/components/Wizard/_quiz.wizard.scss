@@ -2,99 +2,167 @@ $col-indent-mobile: 5px;
 $col-indent-medium: 8px;
 $col-indent-desktop: 8px;
 
-$multi-col-width-mobile: 100% / 2;
-$multi-col-width-medium: 100% / 3;
-$multi-col-width-desktop: 100% / 3;
+$quiz-item-height--mobile: 50%;
+$quiz-item-height--desktop: 60%;
 
-$single-col-width-mobile: 100% / 1;
-$single-col-width-medium: 100% / 2;
-$single-col-width-desktop: 100% / 2;
+$one-col-width: 100%;
+$two-col-width: 100% / 2;
+$three-col-width: 100% / 3;
+$four-col-width: 100% / 4;
 
-.wizard--quiz{
-  .wizard{
-    &__content{
-      &>form{
+.wizard--quiz {
+  .wizard {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      & > form {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        flex: 1;
+        overflow-y: hidden;
+        //Margin to remove indent
+        margin: 0 (-$col-indent-mobile);
+        @include respondTo(medium) {
+          margin: 0 (-$col-indent-medium);
+        }
+        .wizard__info {
+          padding: 0 $col-indent-mobile;
+          @include respondTo(medium) {
+            padding: 0 $col-indent-medium;
+          }
+        }
       }
-      
+      // quiz scroll for small screen height
+      @media screen and (max-height: 567px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        display: block;
+        overflow-y: auto;
+        form {
+          margin: 0;
+        }
+        .quiz__list {
+          margin: 0;
+        }
+      }
     }
-
   }
-  .quiz{
-    &__list{
+  .quiz {
+    &__list {
       display: flex;
       flex-wrap: wrap;
       list-style: none;
       padding: 0;
       flex: 1;
       overflow-y: auto;
-      //Margin to remove indent
-      margin: -$col-indent-mobile;
+      align-content: flex-start;
+      margin: 0;
+    }
+    &__item {
+      padding: 0 $col-indent-mobile $col-indent-mobile;
       @include respondTo(medium) {
-        margin: -$col-indent-medium;
+        padding: 0 $col-indent-medium $col-indent-medium;
       }
     }
-    &__item{
-      margin: $col-indent-mobile;
-      // width: calc(#{$col-width-mobile} - #{$col-indent-mobile * 2});
-      @include respondTo(medium) {
-        // width: calc(#{$col-width-medium} - #{$col-indent-medium * 2});
-        margin: $col-indent-medium;
+    &__item-label {
+      cursor: pointer;
+      display: block;
+    }
+    &__label {
+      &-image-wrap {
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      &-image {
+        position: relative;
+      }
+      &-checkmark {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 2rem;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &-title {
+        font-size: 1.6rem;
+        color: $black-blue;
+        font-family: $rubik;
+        margin: 15px 0;
       }
     }
-  }
-}
-
-// list with selectable items
-.quiz__multi{
-  .quiz{
-    &__item{
-      width: calc(#{$multi-col-width-mobile} - #{$col-indent-mobile * 2});
-      @include respondTo(medium) {
-        width: calc(#{$multi-col-width-medium} - #{$col-indent-medium * 2});
-      }
-    }
-    &__label{
-      &-checkmark{
-        display: none;
-        background-color: $item-overlay-color;
-      }
-    }
-  }
-
-}
-.quiz__single{
-  .quiz{
-    &__item{
-      width: calc(#{$single-col-width-mobile} - #{$col-indent-mobile * 2});
-      @include respondTo(medium) {
-        width: calc(#{$single-col-width-medium} - #{$col-indent-medium * 2});
-      }
-    }
-    &__item-input{
+    &__item-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
-          background-color: $item-overlay-color;
-          svg{
+          display: flex;
+          svg {
             display: block;
+            visibility: visible;
           }
         }
       }
-    }    
-    &__label{
-      &-image{
-        padding-top: 70%;
-        background-color: $white-gray;
-      }
-      &-checkmark{
-        svg{
-          margin: 0 10px 0 0;
-          display: none;
+    }
+  }
+}
+.gatsby-image-wrapper {
+  & > div {
+    padding-bottom: $quiz-item-height--mobile !important;
+    @include respondTo(medium) {
+      padding-bottom: $quiz-item-height--desktop !important;
+    }
+  }
+}
+
+// text is under the image
+.quiz__label--bottom {
+  pointer-events: none;
+  .quiz {
+    &__label {
+      &-checkmark {
+        display: none;
+        background-color: $item-overlay-color;
+        font-size: 3rem;
+        @include respondTo(medium) {
+          font-size: 4rem;
         }
       }
-      &-title{
+    }
+  }
+}
+// text is in front of the image
+.quiz {
+  &__item-input {
+    &:checked {
+      & + .quiz__label-content.quiz__label--inside .quiz__label-checkmark {
+        background-color: $item-overlay-color;
+        svg {
+          display: block;
+        }
+      }
+    }
+  }
+  &__label--inside {
+    .quiz__label {
+      &-image {
+        background-color: $white-gray;
+      }
+      &-checkmark {
+        padding: 15px;
+        svg {
+          margin: 0 10px 0 0;
+          visibility: hidden;
+        }
+      }
+      &-title {
         margin: 0;
         font-size: 2.4rem;
       }
@@ -102,55 +170,117 @@ $single-col-width-desktop: 100% / 2;
   }
 }
 
-.quiz{
-  &__item-label{
-    cursor:pointer;
-  }
-  &__label{
-    &-content{
-      
-    }
-    &-image-wrap{
-      position: relative;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    &-image{
-      position: relative;
-    }
-    &-checkmark{
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      font-size: 2rem;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    &-title{
-      font-size: 1.6rem;
-      line-height: 3rem;
-      color: $black-blue;
-      font-family: $rubik;
-      margin: 15px 0 0;
-    }
-  }
-  &__item-input{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-    &:checked {
-      & + .quiz__label-content .quiz__label-checkmark {
-        display: flex;
-        svg{
-          display: block;
-        }
+//column width for mobile-desktop
+.wizard-col-1-2 {
+  .quiz {
+    &__item {
+      flex-basis: $one-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$one-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $two-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-medium * 2}
+        );
       }
+      @include respondTo(desktop) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-2 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-3 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-4 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        flex-basis: $four-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$four-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+
+//Home page quiz specific styles
+.wizard--quiz-initial {
+  position: absolute;
+  overflow: hidden;
+  form {
+    .wizard__title {
+      color: $black-blue;
+    }
+  }
+  .wizard__progress {
+    display: none;
+  }
+  .wizard__buttons {
+    button + button {
+      margin-right: 16px;
+    }
+    flex-direction: row-reverse;
+    .wizard__button--primary {
+      @extend .button--medium;
+    }
+    .wizard__button--secondary {
+      @extend .button;
+      @extend .button--secondary;
+      @extend .button--medium;
     }
   }
 }

@@ -1,6 +1,7 @@
-import { SearchResponse, Explanation } from 'elasticsearch';
+// import { SearchResponse, Explanation } from 'elasticsearch';
 import { SearchInputProps } from '../SearchInput/models';
 import { RecipeListingProps } from '../RecipeListing';
+import { SearchResponse } from 'src/utils/useElasticSearch/models';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
@@ -37,6 +38,7 @@ interface RecipesConfig {
   favorites: RecipeListingProps['favorites'];
   onFavoriteChange: RecipeListingProps['onFavoriteChange'];
   imageSizes: RecipeListingProps['imageSizes'];
+  ratingProvider?: RecipeListingProps['ratingProvider'];
 }
 
 export declare interface SearchListingContent {
@@ -54,7 +56,6 @@ export declare interface ResponseRecipeData<T> {
   _score: number;
   _source: T;
   _version?: number;
-  _explanation?: Explanation;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields?: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
