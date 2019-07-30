@@ -67,6 +67,7 @@ const getRecipeItem = () => {
         content={{ title: recipeList[0].title }}
         recipeId={recipeList[0].id}
         ratingProvider={RatingAndReviewsProvider.none}
+        imageSizes={'(min-width: 768px) 25vw, 50vw'}
       />
     </div>
   );

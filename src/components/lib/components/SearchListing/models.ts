@@ -37,6 +37,7 @@ interface RecipesConfig {
   recipePerLoad: RecipeListingProps['recipePerLoad'];
   favorites: RecipeListingProps['favorites'];
   onFavoriteChange: RecipeListingProps['onFavoriteChange'];
+  imageSizes: RecipeListingProps['imageSizes'];
   ratingProvider?: RecipeListingProps['ratingProvider'];
 }
 

@@ -1,6 +1,6 @@
 declare namespace Internal {
   interface LocalImage {
-    id: string;
+    id?: string;
     childImageSharp: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       fluid?: any;

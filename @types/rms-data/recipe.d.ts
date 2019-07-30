@@ -5,15 +5,7 @@ declare namespace RMSData {
     description: string;
     creationTime: Date;
     recipeDetails: RMSData.RecipeDetails;
-    // TODO: temporary solution, remove or create RecipeAssets type
-    assets: {
-      images: {
-        default: {
-          url: string;
-          title: string;
-        };
-      };
-    };
+    assets: RMSData.RecipeAssets;
     ingredients: RMSData.Ingredient[];
     methods: RMSData.CookingMethod[];
     nutrients: RMSData.RecipeNutrient[];
