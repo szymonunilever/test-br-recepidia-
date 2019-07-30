@@ -54,7 +54,7 @@ const RecipeCard = ({
       className="recipe-card__image"
       localImage={localImage}
       alt={title || 'Recipe image'}
-      imageSizes={imageSizes}
+      sizes={imageSizes}
     />
   );
   const view = enableSelectFavorite ? (

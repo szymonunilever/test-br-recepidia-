@@ -36,6 +36,8 @@ const content: AppContent.RecipeListing.Content = {
     title: 'title',
   },
 };
+const imageSizes = '(min-width: 768px) 25vw, 50vw';
+
 describe('Recipe Listing Component', () => {
   it('Recipe Listing Trivial default', () => {
     const trivialRecipeListing: ReactWrapper = mount(
@@ -44,7 +46,7 @@ describe('Recipe Listing Component', () => {
         viewType={RecipeListViewType.Trivial}
         content={content}
         titleLevel={1}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
     expect(
@@ -63,7 +65,7 @@ describe('Recipe Listing Component', () => {
         content={content}
         titleLevel={1}
         initialCount={0}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
     expect(trivialRecipeListing.find('ul').children()).toHaveLength(countItems);
@@ -83,7 +85,7 @@ describe('Recipe Listing Component', () => {
         titleLevel={1}
         withFavorite
         onFavoriteChange={changes}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
 
@@ -109,7 +111,7 @@ describe('Recipe Listing Component', () => {
         viewType={RecipeListViewType.Base}
         content={content}
         titleLevel={1}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
 
@@ -126,7 +128,7 @@ describe('Recipe Listing Component', () => {
         viewType={RecipeListViewType.Base}
         content={content}
         titleLevel={1}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
 
@@ -145,7 +147,7 @@ describe('Recipe Listing Component', () => {
         content={content}
         titleLevel={1}
         initialCount={0}
-        imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        imageSizes={imageSizes}
       />
     );
 

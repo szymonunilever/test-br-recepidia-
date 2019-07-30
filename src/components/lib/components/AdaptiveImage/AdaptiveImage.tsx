@@ -9,13 +9,13 @@ const AdaptiveImage = ({
   className,
   alt,
   localImage,
-  imageSizes,
+  sizes,
 }: AdaptiveImageProps) => {
   const classNames = cx('adaptive-image', className);
 
-  let fluid = Object.assign({}, localImage.childImageSharp.fluid);
-  if (imageSizes) {
-    fluid.sizes = imageSizes;
+  let fluid = { ...localImage.childImageSharp.fluid };
+  if (sizes) {
+    fluid.sizes = sizes;
   }
 
   return (

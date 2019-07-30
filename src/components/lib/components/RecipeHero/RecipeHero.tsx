@@ -19,7 +19,7 @@ const RecipeHero = ({
         {content.localImage ? (
           <AdaptiveImage
             localImage={content.localImage}
-            imageSizes={imageSizes}
+            sizes={imageSizes}
             alt={content.title}
           />
         ) : (
