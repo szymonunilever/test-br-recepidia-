@@ -4,6 +4,7 @@
 }
 
 .progress-bar__content {
-    height: 100%;
+    display: inline-block;
     border-radius: inherit;
+    vertical-align: top;
 }
