@@ -9,6 +9,8 @@ import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/form.service';
 import { Modal } from '../../components/lib/components/Modal';
 import { WindowLocation } from '@reach/router';
+// Component Styles
+import '../../scss/pages/_contactForm.scss';
 
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,

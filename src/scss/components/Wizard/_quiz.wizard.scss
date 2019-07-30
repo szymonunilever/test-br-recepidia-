@@ -1,3 +1,5 @@
+@import '../../vars';
+@import '../../mixins';
 $col-indent-mobile: 5px;
 $col-indent-medium: 8px;
 $col-indent-desktop: 8px;
@@ -29,6 +31,7 @@ $four-col-width: 100% / 4;
           }
         }
         .wizard__buttons {
+          box-sizing: border-box;
           padding-left: $col-indent-mobile;
           padding-right: $col-indent-mobile;
           @include respondTo(medium) {
@@ -63,6 +66,7 @@ $four-col-width: 100% / 4;
       margin: 0;
     }
     &__item {
+      box-sizing: border-box;
       padding: 0 $col-indent-mobile $col-indent-mobile;
       @include respondTo(medium) {
         padding: 0 $col-indent-medium $col-indent-medium;
@@ -101,7 +105,7 @@ $four-col-width: 100% / 4;
         font-weight: 500;
         margin: 10px 0 20px;
         @include respondTo(desktop) {
-          margin: 14px 0 28px;
+          margin: 14px 0 25px;
         }
       }
     }

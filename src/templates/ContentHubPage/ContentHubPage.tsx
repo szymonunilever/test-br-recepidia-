@@ -22,7 +22,8 @@ import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-
+// Component Styles
+import '../../scss/pages/_contentHub.scss';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';

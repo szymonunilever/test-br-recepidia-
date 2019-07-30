@@ -1,5 +1,4 @@
 @import 'vars';
-@import 'utils';
 @import 'mixins';
 
 // @import url('https://fonts.googleapis.com/css?family=Rubik:500&display=swap');
@@ -191,7 +190,6 @@ p {
       height: 234px;
     }
   }
-
 }
 
 //custom scrollbar
@@ -241,7 +239,7 @@ progress::-ms-fill {
   overflow: hidden;
 }
 
-.wrapper{
+.wrapper {
   padding-left: $layout-indent-sm;
   padding-right: $layout-indent-sm;
   @include respondTo(desktop) {

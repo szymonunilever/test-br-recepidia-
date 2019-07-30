@@ -1,3 +1,6 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../components/Button/index';
 .search {
   &-input {
     &__list {

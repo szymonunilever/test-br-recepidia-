@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import newRelic from '../static/config/newRelic';
 
 export default function HTML(props) {
+  let headComponents = props.headComponents;
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -36,8 +37,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {/* {css} */}
-        {props.headComponents}
+        {headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

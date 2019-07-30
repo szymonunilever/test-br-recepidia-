@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 .general-signup {
   padding: 37px 0 0;
   background-color: $white-gray;

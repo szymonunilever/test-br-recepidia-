@@ -40,6 +40,8 @@ import useFavorite from 'src/utils/useFavorite';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import useFavoritesSearch from './useFavoritesSearch';
+// Component Styles
+import '../../scss/pages/_userProfile.scss';
 
 const carouselConfig = {
   breakpoints: [

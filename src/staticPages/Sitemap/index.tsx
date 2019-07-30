@@ -9,6 +9,8 @@ import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { findPageComponentContent } from 'src/utils';
+// Component Styles
+import '../../scss/pages/_sitemap.scss';
 
 const SitemapPage = ({
   pageContext: {
