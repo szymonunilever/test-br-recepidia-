@@ -4,8 +4,8 @@
   width: 170px;
   margin-bottom: 25px;
   &__content{
-    background-color: $fish-blue-darker;
     transition: width .2s ease-in;
-    height: 100%;
+    height: 2px;
+    background:$fish-blue-darker;
   }
 }
