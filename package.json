@@ -102,8 +102,8 @@
     "type": "git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "set NODE_OPTIONS=--max-old-space-size=8192 && gatsby build",
+    "develop": "set NODE_OPTIONS=--max-old-space-size=8192 && gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
