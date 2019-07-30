@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { GlobalNavigationProps } from './models';
 import Navigation from './partials/Navigation';
-import Logo from './partials/Logo';
+import Logo from '../Logo/index';
 import cx from 'classnames';
 import { Button as BurgerButton } from '../Button';
 

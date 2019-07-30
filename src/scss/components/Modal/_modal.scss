@@ -58,6 +58,22 @@
 }
 
 %modal__content--bordered {
+  top: 28px;
+  left: 24px;
+  right: 24px;
+  bottom: 28px;
+  max-height: 100%;
+  box-sizing: border-box;
+  background-color: $white;
+  @include respondTo(desktop) {
+    top: 50px;
+    left: 70px;
+    right: 70px;
+    bottom: 50px;
+    max-width: none;
+  }
+}
+%modal__content--desktop-bordered {
   top: 0px;
   left: 0px;
   right: 0px;
@@ -105,6 +121,22 @@
   }
 }
 .modal--filter {
+  .modal {
+    &__content {
+      @extend %modal__content--desktop-bordered;
+      padding-top: 26px;
+      @include respondTo(desktop) {
+        padding-top: 42px;
+      }
+    }
+    &__btn-close {
+      svg {
+        margin: 0;
+      }
+    }
+  }
+}
+.modal--quiz {
   .modal {
     &__content {
       @extend %modal__content--bordered;
