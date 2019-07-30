@@ -40,20 +40,19 @@ export const Button = ({
   const onButtonClick = (e: MouseEvent) => {
     e.preventDefault();
 
-    if (!isDisabled) {
-      if (isToggle) {
-        const newVal = !selected;
-        setSelected(newVal);
-        onClick && onClick(newVal);
-      } else {
-        onClick && onClick(false);
-      }
+    if (isToggle) {
+      const newVal = !selected;
+      setSelected(newVal);
+      onClick && onClick(newVal);
+    } else {
+      onClick && onClick(false);
     }
   };
   const props = {
     type,
     'data-componentname': 'button',
     onClick: onButtonClick,
+    disabled: isDisabled,
     hidden,
   };
 
