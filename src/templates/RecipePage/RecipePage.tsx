@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import RecipeHero from 'src/components/lib/components/RecipeHero';
@@ -51,13 +51,37 @@ import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 
-const RecipePage = ({ data, pageContext }: RecipePageProps) => {
-  const { recipe } = data;
-  const { components } = pageContext;
+const RecipePage = ({ pageContext }: RecipePageProps) => {
+  const {
+    allTag,
+    allRecipe,
+  }: {
+    allTag: {
+      nodes: Internal.Tag[];
+    };
+    allRecipe: {
+      nodes: Internal.Recipe[];
+    };
+  } = useStaticQuery(graphql`
+    {
+      allTag {
+        nodes {
+          ...TagFields
+        }
+      }
+
+      allRecipe(limit: 10) {
+        nodes {
+          ...RecipeFields
+        }
+      }
+    }
+  `);
+  const { components, recipe } = pageContext;
   // TODO below fields should be fetched from back-end. Currenty missing in back-end response
   recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as any;
   recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as any;
-  const tags = data.allTag.nodes;
+  const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
       id: 'vegetarian',
@@ -117,7 +141,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     },
   ];
 
-  const relatedRecipes = data.allRecipe.nodes;
+  const relatedRecipes = allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tabsContent = {
     tabs: [
@@ -364,40 +388,12 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
 
 export default RecipePage;
 
-export const query = graphql`
-  query($slug: String!) {
-    recipe(fields: { slug: { eq: $slug } }) {
-      ...RecipeFields
-    }
-
-    allTag {
-      nodes {
-        ...TagFields
-      }
-    }
-
-    allRecipe(limit: 10) {
-      nodes {
-        ...RecipeFields
-      }
-    }
-  }
-`;
-
 interface RecipePageProps {
-  data: {
-    recipe: Internal.Recipe;
-    allTag: {
-      nodes: Internal.Tag[];
-    };
-    allRecipe: {
-      nodes: Internal.Recipe[];
-    };
-  };
   pageContext: {
     title: string;
     components: {
       [key: string]: string | number | boolean | object | null;
     }[];
+    recipe: Internal.Recipe;
   };
 }
