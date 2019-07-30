@@ -27,17 +27,25 @@ const Modal = ({
       overlayClassName="modal__overlay"
       className="modal__content"
       bodyOpenClassName="modal--open"
+      aria={{
+        modal: 'true',
+        labelledby: 'modal__heading',
+        describedby: 'modal__description',
+      }}
     >
       <div className="modal__header">
-        <Text
-          //@ts-ignore
-          tag={TagName[`h${titleLevel}`]}
-          text={title}
-          className="modal__title"
-        />
+        {title && (
+          <Text
+            //@ts-ignore
+            tag={TagName[`h${titleLevel}`]}
+            text={title}
+            className="modal__title"
+            id="modal__heading"
+          />
+        )}
       </div>
-      {props.children}
-      <button onClick={close} className="modal__btn-close">
+      <div id="modal__description">{props.children}</div>
+      <button onClick={close} aria-label="Close" className="modal__btn-close">
         {closeBtn}
       </button>
     </ReactModal>
