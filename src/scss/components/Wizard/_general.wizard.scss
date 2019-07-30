@@ -26,9 +26,7 @@
       color: $black-blue;
       margin-bottom: 10px;
       @include respondTo(desktop) {
-        color: #4c6b7f;
-        font-size: 5.2rem;
-        margin-bottom: 17px;
+        margin-bottom: 18px;
       }
     }
   }
@@ -42,6 +40,8 @@
   &__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
+    z-index: 1;
     margin-bottom: 10px;
     margin-top: -40px;
     // quiz scroll for small screen height
@@ -103,6 +103,9 @@
     color: $fish-blue-darker;
     width: 100%;
     margin-bottom: 13px;
+    .subheading {
+      color: $black-blue;
+    }
     @include respondTo(desktop) {
       margin-bottom: 25px;
     }
@@ -133,6 +136,33 @@
     }
     &-placeholder {
       height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      a {
+        color: inherit;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: $apple-green;
+          color: $black-blue;
+        }
+      }
+    }
+  }
+  &__warning {
+    font-size: 1.2rem;
+    color: $alert-color;
+    margin-bottom: 12px;
+  }
+}
+
+.wizard:not(.wizard--quiz-initial) {
+  h1,
+  h2 {
+    @extend %h1--smaller;
+    @include respondTo(desktop) {
+      font-size: 5.2rem;
     }
   }
 }

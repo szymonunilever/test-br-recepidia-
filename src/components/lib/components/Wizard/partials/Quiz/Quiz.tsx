@@ -18,6 +18,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
   primaryButtonLabel,
   primaryButtonFinalLabel,
   secondaryButtonLabel,
+  bottomContent,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isFormDirty, setFormDirty] = useState(false);
@@ -40,6 +41,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
         stepResultsCallback && stepResultsCallback(data);
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
+        stepResultsCallback && stepResultsCallback(data);
         actionCallback(data);
       }
     },
@@ -95,11 +97,14 @@ const Quiz: FunctionComponent<QuizProps> = ({
                   : primaryButtonLabel,
             }}
           />
-          <Button
-            className="wizard__button wizard__button--secondary"
-            onClick={skipCallback}
-            content={{ label: secondaryButtonLabel }}
-          />
+          {secondaryButtonLabel && (
+            <Button
+              className="wizard__button wizard__button--secondary"
+              onClick={skipCallback}
+              content={{ label: secondaryButtonLabel }}
+            />
+          )}
+          <div className="wizard__button-placeholder">{bottomContent}</div>
         </div>
       </form>
     </Fragment>

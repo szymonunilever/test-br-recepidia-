@@ -304,6 +304,9 @@ $four-col-width: 100% / 4;
   form {
     .wizard__title {
       color: $black-blue;
+      & > p {
+        @extend h2;
+      }
     }
   }
   .wizard__progress {

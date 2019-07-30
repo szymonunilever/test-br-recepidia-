@@ -12,6 +12,7 @@ import IntroQuiz from '../src/components/page/IntroQuiz';
 import quizContent from '../src/components/data/introQuiz.json';
 import recipes from './mocks/recipes';
 import localImage from './assets/localImage';
+import RecipeListingCarousel from '../src/components/lib/components/RecipeListing/RecipeListingCarousel';
 
 const wizardAction = () => alert('wizard has finished his work');
 const image = {
@@ -274,10 +275,27 @@ storiesOf('Diagnostic tools (components)', module)
         <WizardResultSection
           containerClass="wizard--result"
           stepId="result"
-          items={recipes}
           subheading={'Your 7 recipes for the week'}
           title={'My meal plan'}
-        />
+        >
+          <RecipeListingCarousel
+            list={recipes}
+            config={{
+              breakpoints: [
+                {
+                  width: 1366,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+            }}
+            titleLevel={1}
+            onFavoriteChange={() => alert('favorite change')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
+        </WizardResultSection>
       </Wizard>
     ),
     {
@@ -321,10 +339,27 @@ storiesOf('Diagnostic tools (components)', module)
         <WizardResultSection
           containerClass="wizard--result"
           stepId="result"
-          items={recipes}
           subheading={'Your 7 recipes for the week'}
           title={'My meal plan'}
-        />
+        >
+          <RecipeListingCarousel
+            list={recipes}
+            config={{
+              breakpoints: [
+                {
+                  width: 1366,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+            }}
+            titleLevel={1}
+            onFavoriteChange={() => alert('favorite change')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
+        </WizardResultSection>
       </Wizard>
     ),
     {
