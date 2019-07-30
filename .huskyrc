@@ -1,6 +1,5 @@
 {
   "hooks": {
-    "pre-commit": ["yarn run type-check && yarn run lint"],
-    "pre-push": ["yarn run storybook --smoke-test && yarn run storybook-styled --smoke-test"]
+    "pre-commit": ["yarn run type-check && yarn run lint"]
   }
 }

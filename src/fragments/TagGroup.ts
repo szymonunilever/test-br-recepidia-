@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment TagGroupFields on TagGroup {
+  fragment TagGroupFields on TagGroupings {
     children {
       ... on Tag {
         id

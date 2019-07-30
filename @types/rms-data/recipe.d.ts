@@ -28,6 +28,6 @@ declare namespace RMSData {
      * difficulties, dishes, mainIngredients, occasions, seasons,
      * spiciness, suitability, timesOfDay, dietary
      * */
-    tagGroups: TagGroup[];
+    tagGroups: TagGroupings[];
   }
 }

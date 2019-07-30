@@ -12,7 +12,11 @@ const withLocation = <T extends WithLocationProps>(
           {...props}
           location={location}
           navigate={navigate}
-          searchQuery={new URLSearchParams(location.search).get('searchQuery')}
+          searchQuery={
+            URLSearchParams
+              ? new URLSearchParams(location.search).get('searchQuery')
+              : ''
+          }
         />
       )}
     </Location>

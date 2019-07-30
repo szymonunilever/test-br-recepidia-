@@ -23,7 +23,7 @@ import theme from './AllRecipes.module.scss';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
-  const { allRecipe, allTagGroup } = data;
+  const { allRecipe, allTagGroupings } = data;
 
   return (
     <Layout className={theme.allRecipes}>
@@ -79,7 +79,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             list={allRecipe.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
-            tags={{ tagGroups: allTagGroup.nodes }}
+            tags={{ tagGroups: allTagGroupings.nodes }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
             FavoriteIcon={FavoriteIcon}
@@ -146,7 +146,7 @@ export const query = graphql`
       }
     }
 
-    allTagGroup {
+    allTagGroupings {
       nodes {
         children {
           ... on Tag {
@@ -170,7 +170,7 @@ interface AllRecipesPageProps {
     allRecipe: {
       nodes: Internal.Recipe[];
     };
-    allTagGroup: {
+    allTagGroupings: {
       nodes: Internal.TagGroup[];
     };
   };

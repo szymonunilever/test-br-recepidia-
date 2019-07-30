@@ -199,6 +199,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
   );
+  svgLoaderRule.use.options.classIdPrefix = true;
+
   if (stage === 'develop') {
     config.module.rules.push({
       test: /react-hot-loader/,
@@ -211,6 +213,5 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     });
   }
 
-  svgLoaderRule.use.options.classIdPrefix = true;
   actions.replaceWebpackConfig(config);
 };

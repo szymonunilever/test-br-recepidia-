@@ -3,19 +3,18 @@ exports.createRecipeNodes = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   const nodeId = createNodeId(`recipe-${recipe.id}`);
-  const nodeContent = JSON.stringify(recipe);
-  const nodeData = Object.assign({}, recipe, {
+
+  createNode({
+    ...recipe,
     id: nodeId,
     recipeId: recipe.id,
     parent: null,
     children: [],
     internal: {
       type: 'Recipe',
-      content: nodeContent,
       contentDigest: createContentDigest(recipe),
     },
   });
-  createNode(nodeData);
 };
 
 const processTag = (
@@ -24,32 +23,32 @@ const processTag = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   const nodeId = createNodeId(`tag-${tag.name}`);
-  const nodeContent = JSON.stringify(tag);
-  const nodeData = Object.assign({}, tag, {
+
+  createNode({
+    ...tag,
     id: nodeId,
     tagId: tag.id,
     parent: parentNodeId,
     children: [],
     internal: {
       type: 'Tag',
-      content: nodeContent,
       contentDigest: createContentDigest(tag),
     },
   });
-  createNode(nodeData);
   return nodeId;
 };
 
-exports.createTagGroupNodes = (
-  tagGroup,
+exports.createTagGroupingsNodes = (
+  tagGroupings,
   { createNodeId, createContentDigest, createNode }
 ) => {
-  const nodeId = createNodeId(`tagGroup-${tagGroup.name}`);
-  const nodeContent = JSON.stringify(tagGroup);
-  const nodeData = Object.assign({}, tagGroup, {
+  const nodeId = createNodeId(`tagGroupings-${tagGroupings.name}`);
+
+  createNode({
+    ...tagGroupings,
     id: nodeId,
     parent: null,
-    children: tagGroup.tags.map(tag =>
+    children: tagGroupings.tags.map(tag =>
       processTag(tag, nodeId, {
         createNodeId,
         createContentDigest,
@@ -57,11 +56,8 @@ exports.createTagGroupNodes = (
       })
     ),
     internal: {
-      type: 'TagGroup',
-      content: nodeContent,
-      contentDigest: createContentDigest(tagGroup),
+      type: 'TagGroupings',
+      contentDigest: createContentDigest(tagGroupings),
     },
   });
-
-  createNode(nodeData);
 };

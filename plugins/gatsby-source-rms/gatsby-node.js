@@ -1,5 +1,5 @@
 const createNodes = require('./createNodes');
-const { createRecipeNodes, createTagGroupNodes } = createNodes;
+const { createRecipeNodes, createTagGroupingsNodes } = createNodes;
 const { getCaterogyTags, getRecipesByPage } = require('./apiService');
 
 // TODO: uncomment as soon as images transformation processing will be moved out from the app
@@ -15,20 +15,6 @@ exports.sourceNodes = async (
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins;
 
-  const createRecipeNode = recipe =>
-    createRecipeNodes(recipe, {
-      createNodeId,
-      createContentDigest,
-      createNode,
-    });
-
-  const createTagGroupsNode = tagGroup =>
-    createTagGroupNodes(tagGroup, {
-      createNodeId,
-      createContentDigest,
-      createNode,
-    });
-
   const promises = [];
 
   // TODO: uncomment as soon as images transformation processing will be moved out from the app
@@ -41,7 +27,15 @@ exports.sourceNodes = async (
     const recipePromise = async () =>
       getRecipesByPage(configOptions, RECIPE_PAGE_SIZE, recipePage).then(
         result =>
-          result.data.recipes.forEach(item => item && createRecipeNode(item))
+          result.data.recipes.forEach(
+            item =>
+              item &&
+              createRecipeNodes(item, {
+                createNodeId,
+                createContentDigest,
+                createNode,
+              })
+          )
       );
 
     promises.push(recipePromise());
@@ -49,7 +43,15 @@ exports.sourceNodes = async (
   }
 
   const getTagsPromise = getCaterogyTags(configOptions).then(result =>
-    result.data.forEach(item => item && createTagGroupsNode(item))
+    result.data.forEach(
+      item =>
+        item &&
+        createTagGroupingsNodes(item, {
+          createNodeId,
+          createContentDigest,
+          createNode,
+        })
+    )
   );
 
   promises.push(getTagsPromise);

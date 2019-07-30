@@ -27,17 +27,19 @@
       stroke: $white;
       fill-opacity: 0;
       transition: stroke 0.2s ease-out;
+      height: 26px;
     }
     @media (hover) {
-      &:hover {
-        svg {
-          fill: $luminous-yellow;
-          stroke: $luminous-yellow;
-          fill-opacity: 1;
+      @include respondTo(medium) {
+        &:hover {
+          svg {
+            fill: $luminous-yellow;
+            stroke: $luminous-yellow;
+            fill-opacity: 1;
+          }
         }
       }
     }
-
   }
 
   &__image {
@@ -67,7 +69,7 @@
       img {
         width: auto;
         height: 10px;
-        @include respondTo(desktop) {
+        @include respondTo(medium) {
           height: 13px;
         }
       }

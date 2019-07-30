@@ -17,7 +17,7 @@ $button-secondary-background: $white-gray !default;
 
 // Disabled styles
 $button-disabled-background: #dfdfdf !default;
-$button-disabled-color: #9f9f9f !default;
+$button-disabled-color: #636363 !default;
 
 .button {
   border: $button-border;
@@ -182,32 +182,29 @@ $button-disabled-color: #9f9f9f !default;
   padding: 0;
   background: $white;
   color: $fish-blue-darker;
+  border: 1px solid $fish-blue-darker;
   @media (hover) {
     &:hover {
       background-color: $apple-green;
       color: $black-blue;
+      border: 1px solid $black-blue;
       svg {
         fill: $black-blue;
+        path {
+          fill: $black-blue;
+        }
       }
     }
   }
 
-  width: 24px;
-  height: 24px;
-  @include respondTo(medium) {
-    width: 40px;
-    height: 40px;
-  }
+  width: 48px;
+  height: 48px;
   svg {
     stroke: currentColor;
     fill: $white;
     transition: stroke 0.2s ease-out;
-    width: 10px;
-    height: 9px;
-    @include respondTo(medium) {
-      width: 17px;
-      height: 15px;
-    }
+    width: 20px;
+    height: 18px;
   }
   &.button__selected {
     background-color: $apple-green;
