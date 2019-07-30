@@ -29,7 +29,7 @@
       transition: stroke 0.2s ease-out;
     }
     @media (hover) {
-      @include respondTo(desktop) {
+      @include respondTo(medium) {
         &:hover {
           svg {
             fill: $luminous-yellow;
