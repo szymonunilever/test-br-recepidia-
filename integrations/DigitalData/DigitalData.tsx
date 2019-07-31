@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react';
+import { DigitalDataProps } from './models';
 import { isMobile } from './utils';
 import { findPageComponentContent } from 'src/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DigitalData = ({ pageContext, data }: any) => {
+const DigitalData = ({
+  pageContext = { type: 'Page' },
+  data,
+  title,
+  type,
+}: DigitalDataProps) => {
   useEffect(() => {
-    const { type } = pageContext; //TODO: When we will know where to get Title of the page, we need fix this and use only type instead get all components inside this integration.
-    const pageName = /Detail$/.test(type)
+    const pageType = type ? type : pageContext.type; //TODO: When we will know where to get Title of the page, we need fix this and use only type instead get all components inside this integration.
+    const pageName = title
+      ? title
+      : /Detail$/.test(pageType)
       ? data.title
       : findPageComponentContent(pageContext.components, 'Text', 'PageTitle')
           .text;
@@ -18,7 +26,7 @@ const DigitalData = ({ pageContext, data }: any) => {
       window.digitalData.siteInfo['channel'] = channelVal;
       //@ts-ignore
       window.digitalData.page.category = {
-        pageType: pageContext.type,
+        pageType,
         primaryCategory: channelVal,
       };
       //@ts-ignore
@@ -29,7 +37,7 @@ const DigitalData = ({ pageContext, data }: any) => {
         destinationURL: window.location.href,
       };
       //@ts-ignore
-      window.digitalData.page.attributes.contentType = pageContext.type;
+      window.digitalData.page.attributes.contentType = pageType;
       if (type === 'ArticleDetail') {
         //@ts-ignore
         window.digitalData.page.attributes.articleName = pageName;
