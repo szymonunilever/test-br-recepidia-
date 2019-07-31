@@ -9,6 +9,7 @@ import Kritique from 'integrations/Kritique';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
+import DigitalData from '../../../integrations/DigitalData';
 import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
 import TagLinks from 'src/components/TagsLinks';
@@ -178,6 +179,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   return (
     <Layout className={cx('search-page', theme.searchPage)}>
       <SEO title="Recepedia Search" />
+      <DigitalData pageContext={pageContext} data={data} />
       <Kritique />
       <section className="_bg--main">
         <div className="container">
