@@ -216,7 +216,31 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                 getArticleSearchData,
               },
             }}
-            content={findPageComponentContent(components, 'SearchListing')}
+            content={{
+              ...findPageComponentContent(components, 'SearchListing'),
+              articleContent: {
+                title: 'Articles',
+                cta: {
+                  label: 'Load more',
+                },
+              },
+              tabsContent: {
+                tabs: [
+                  {
+                    title: 'All',
+                    view: 'all',
+                  },
+                  {
+                    title: 'Articles',
+                    view: 'articles',
+                  },
+                  {
+                    title: 'Recipes',
+                    view: 'recipes',
+                  },
+                ],
+              },
+            }}
           />
         </div>
       </section>
