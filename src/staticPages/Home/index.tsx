@@ -40,10 +40,9 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <Text
             tag={TagName['h1']}
-            text="Hello ! Welcome to Recepedia"
-            // text={
-            //   findPageComponentContent(components, 'Text', 'PageTitle').text
-            // }
+            text={
+              findPageComponentContent(components, 'Text', 'PageTitle').text
+            }
           />
         </div>
       </section>
@@ -76,6 +75,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
@@ -108,6 +108,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
           />
         </div>
       </section>

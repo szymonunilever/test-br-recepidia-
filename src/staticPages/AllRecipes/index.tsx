@@ -18,7 +18,6 @@ import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import { action } from '@storybook/addon-actions';
 import theme from './AllRecipes.module.scss';
 import DigitalData from '../../../integrations/DigitalData';
 
@@ -86,10 +85,11 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
+            onFavoriteChange={() => {}}
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
@@ -108,7 +108,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
+            onFavoriteChange={() => {}}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
             carouselConfig={{
@@ -123,6 +123,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
           />
         </div>
       </section>

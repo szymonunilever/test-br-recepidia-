@@ -86,6 +86,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             withFavorite
             favorites={[]}
             onFavoriteChange={action('favorites were changed')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>

@@ -34,6 +34,7 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
           config={config}
           titleLevel={1}
           onFavoriteChange={onFavoriteChange}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
         />
       </div>
     </Fragment>

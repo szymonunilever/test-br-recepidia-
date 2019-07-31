@@ -2,6 +2,14 @@ exports.createRecipeNodes = (
   recipe,
   { createNodeId, createContentDigest, createNode }
 ) => {
+  // Temporary solution to re-use existing components data structure
+  // Should be reviewed as soon as we agree a common aproach and data structures to work with images
+  recipe.localImage = {
+    childImageSharp: { fluid: recipe.assets.images.default },
+  };
+
+  delete recipe.assets;
+
   const nodeId = createNodeId(`recipe-${recipe.id}`);
 
   createNode({
@@ -43,12 +51,13 @@ exports.createTagGroupingsNodes = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   const nodeId = createNodeId(`tagGroupings-${tagGroupings.name}`);
+  const tags = tagGroupings.tags.filter(tag => tag && tag.id);
 
   createNode({
     ...tagGroupings,
     id: nodeId,
     parent: null,
-    children: tagGroupings.tags.map(tag =>
+    children: tags.map(tag =>
       processTag(tag, nodeId, {
         createNodeId,
         createContentDigest,

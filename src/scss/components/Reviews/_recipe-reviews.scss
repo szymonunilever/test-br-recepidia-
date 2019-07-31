@@ -1,8 +1,7 @@
 .recipe-reviews {
-
-  .rr-widget-container{
+  .rr-widget-container {
     @include respondTo(medium) {
-      border-bottom: 1px solid #D8D8D8;
+      border-bottom: 1px solid #d8d8d8;
       padding-bottom: 20px;
     }
   }
@@ -305,5 +304,10 @@
     border-bottom: none;
     height: 0;
     overflow: hidden;
+  }
+  body #rr-lightbox {
+    position: fixed;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

@@ -52,6 +52,7 @@ storiesOf('Components/Carousel', module)
             ],
             arrowIcon: <ArrowIcon />,
           }}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
         />
       </div>
     ),

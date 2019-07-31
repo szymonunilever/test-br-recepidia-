@@ -17,15 +17,18 @@ const Multi: FunctionComponent<QuestionProps> = ({
   const defaultValue = question.selectedOptions || [];
   const [val, setVal] = useState<string[]>(defaultValue);
 
-  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue: string = event.target.value;
+  const onChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue: string = event.target.value;
 
-    const updatedVal = val.includes(newValue)
-      ? val.filter(v => v !== newValue)
-      : val.concat([newValue]);
+      const updatedVal = val.includes(newValue)
+        ? val.filter(v => v !== newValue)
+        : val.concat([newValue]);
 
-    setVal(updatedVal);
-  }, []);
+      setVal(updatedVal);
+    },
+    [val]
+  );
 
   useEffect(() => {
     val !== defaultValue && onChangeCallback(question.key, val);

@@ -72,6 +72,7 @@ const SearchPage = ({ data, pageContext }: SearchPageProps) => {
               favorites: [],
               ratingProvider: RatingAndReviewsProvider.kritique,
               onFavoriteChange: () => {},
+              imageSizes: '(min-width: 768px) 25vw, 50vw',
             },
           }}
           content={findPageComponentContent(components, 'SearchListing')}

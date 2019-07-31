@@ -158,6 +158,7 @@ const recipesConfig = {
   recipePerLoad: 2,
   favorites: [],
   onFavoriteChange: action('favorites were changed'),
+  imageSizes: '(min-width: 768px) 25vw, 50vw',
 };
 
 storiesOf('Components/Search listing', module).add('With results', () => {
