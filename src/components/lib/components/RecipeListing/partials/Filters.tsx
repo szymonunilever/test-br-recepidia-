@@ -79,12 +79,15 @@ const Filter = ({
         {results} {results > 1 ? resultLabelPlural : resultLabel}
       </span>
       {optionLabels ? (
-        <Select
-          options={sortingOptions}
-          className="filter__sort"
-          placeholder={sortSelectPlaceholder}
-          changeHandler={sortingChange}
-        />
+        <label className="filter__sort-label">
+          <span className="filter__sort-label-text">sorting</span>
+          <Select
+            options={sortingOptions}
+            className="filter__sort"
+            placeholder={sortSelectPlaceholder}
+            changeHandler={sortingChange}
+          />
+        </label>
       ) : null}
       <Modal
         isOpen={state.showFilterSettings}
@@ -109,6 +112,7 @@ const Filter = ({
         Icon={FilterIcon}
         viewType={ButtonViewType.classic}
         onClick={toggleFilterSettings}
+        attributes={{ 'aria-label': 'open modal with fiter settings' }}
       />
       <Tags
         list={state.filterTags}
