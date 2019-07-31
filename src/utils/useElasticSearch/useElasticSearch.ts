@@ -1,5 +1,5 @@
 import keys from 'integrations/keys.json';
-import { SearchResponse } from './models';
+import { SearchResponse, SearchParams } from './models';
 
 class Client {
   public host = '';
@@ -30,12 +30,12 @@ class Client {
 const client = new Client(keys.elasticSearch.url);
 
 const useElasticSearch = async <T>(
-  searchBody: object
+  searchParams: SearchParams
 ): Promise<SearchResponse<T>> => {
   return await client
     .search<T>({
-      index: keys.elasticSearch.index,
-      body: searchBody,
+      index: searchParams.index,
+      body: searchParams.body,
     })
     .then((resp: SearchResponse<T>) => resp)
     .catch(err => {

@@ -2,10 +2,10 @@ import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
 import { RecipeSortingOptions } from '../partials';
 
 const sortByPreparationTime = (list: Internal.Recipe[]) =>
-  _sortBy(list, ['recipeDetails.preparationTime', 'creationDate']);
+  _sortBy(list, ['recipeDetails.preperationTime']);
 
 const sortByCookingTime = (list: Internal.Recipe[]) =>
-  _sortBy(list, ['recipeDetails.cookingTime', 'creationDate']);
+  _sortBy(list, ['recipeDetails.totalTime']);
 
 const sortByAverageRating = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method
@@ -13,7 +13,7 @@ const sortByAverageRating = (list: Internal.Recipe[]) => {
 };
 
 const sortByNewest = (list: Internal.Recipe[]) =>
-  _sortBy(list, ['creationDate']);
+  _sortBy(list, ['creationTime']);
 
 const sortByRecentlyUpdate = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method
@@ -88,19 +88,31 @@ export function sortBy(sort: RecipeSortingOptions, list: Internal.Recipe[]) {
 }
 
 export function applyFilters(
-  filters: RMSData.Tag[],
+  filters: Internal.Tag[],
   list: Internal.Recipe[]
 ): Internal.Recipe[] {
   if (filters.length > 0) {
-    return filter(list, (item: Internal.Recipe) => {
+    const filteredList = filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
-      const includedTags = filter(tagGroups, (item: RMSData.TagGroupings) => {
-        return (
-          intersectionBy(item.tags, filters, 'id').length >= filters.length
-        );
+
+      const includedTags = filter(tagGroups, (item: Internal.TagGroup) => {
+        if (filters) {
+          return !!filters.find(filter => {
+            if (item.tags) {
+              return !!item.tags.find(tag => tag.id === filter.tagId);
+            } else {
+              return false;
+            }
+          });
+        } else {
+          return false;
+        }
       });
+
       return includedTags.length > 0;
     });
+
+    return filteredList;
   } else {
     return list;
   }
