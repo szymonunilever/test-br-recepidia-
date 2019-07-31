@@ -29,7 +29,7 @@
   },
   "ReCaptcha": {
     "version": "3",
-    "clientKey": "6Lcd3a0UAAAAAFTGnJV44IPyKmMJa7hv7YICKrs9"
+    "clientKey": "6Lem4qsUAAAAAApC-AZb3GprO-3Bj8Pi7YXTLyCo"
   },
   "elasticSearch": {
     "url": "https://search-recipedia-dev-jwvjnpywrw6hxolpwrjycxt7y4.eu-west-1.es.amazonaws.com",
@@ -38,6 +38,20 @@
   "analytics": {
     "adobe": {
       "url": "//assets.adobedtm.com/launch-EN44f54226de934d4eb94899b7090e7c11.min.js"
+    },
+    "google": {
+      "trackingId": "",
+      "head": false,
+      "anonymize": true,
+      "respectDNT": true,
+      "exclude": [],
+      "pageTransitionDelay": 0,
+      "optimizeId": "",
+      "experimentId": "",
+      "variationId": "",
+      "sampleRate": 5,
+      "siteSpeedSampleRate": 10,
+      "cookieDomain": ""
     }
   },
   "digitalData": {
