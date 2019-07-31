@@ -110,7 +110,7 @@ storiesOf('Components/Search listing', module)
     return (
       <div style={{ maxWidth: '600px' }}>
         <SearchListing
-          search={{}}
+          searchQuery={''}
           searchResultTitleLevel={3}
           searchResults={{
             recipeResults,

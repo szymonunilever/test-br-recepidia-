@@ -17,20 +17,18 @@ import { SearchListingProps } from './models';
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,
   config: { recipeConfig, searchInputConfig, articleConfig },
-  search,
+  searchQuery,
   className,
   searchResultTitleLevel = 3,
   searchResults: { recipeResults, searchInputResults, articleResults },
 }) => {
   const classNames = cx('search-listing', className);
 
-  const [defaultSearchValue, setDefaultSearchValue] = useState(
-    get(search, 'searchQuery')
-  );
+  const [defaultSearchValue, setDefaultSearchValue] = useState(searchQuery);
 
   useEffect(() => {
-    setDefaultSearchValue(get(search, 'searchQuery', ''));
-  }, [search]);
+    setDefaultSearchValue(searchQuery);
+  }, [searchQuery]);
 
   const onSubmit = useCallback(async (searchQuery: string) => {
     setDefaultSearchValue(searchQuery);

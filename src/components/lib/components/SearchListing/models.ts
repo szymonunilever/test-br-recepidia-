@@ -1,15 +1,13 @@
-import { ParsedQuery } from 'query-string';
 import { getSearchData } from 'src/staticPages/Search/models';
 import { SearchInputProps } from '../SearchInput/models';
 import { RecipeListingProps } from '../RecipeListing';
-import { SearchResponse } from 'src/utils/useElasticSearch/models';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
   config: SearchListingConfig;
   className?: string;
   searchResultTitleLevel?: number;
-  search: ParsedQuery<string> | object;
+  searchQuery: string;
   searchResults: SearchResults;
 }
 

@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import { remove } from 'lodash';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
@@ -63,14 +63,21 @@ export const RecipeListing = ({
   const [listState, setListState] = useState<{
     listItems: Internal.Recipe[];
     filterLength: number;
-    filter: RMSData.Tag[];
+    filter: Internal.Tag[];
     sorting: RecipeSortingOptions;
   }>({
-    listItems: [],
+    listItems: listModified,
     filterLength: listModified.length,
     filter: [],
     sorting: RecipeSortingOptions.newest,
   });
+
+  useEffect(() => {
+    setListState({
+      ...listState,
+      listItems: listModified,
+    });
+  }, [list]);
 
   const isAsyncLoadMore = () =>
     get(loadMoreConfig, 'type') === LoadMoreType.async;
@@ -81,7 +88,7 @@ export const RecipeListing = ({
       onFavoriteChange(favorites);
     }
   };
-  const onFilterChange = (filter: RMSData.Tag[]) => {
+  const onFilterChange = (filter: Internal.Tag[]) => {
     if (isAsyncLoadMore()) {
       const filtered = applyFilters(filter, listModified);
 
@@ -157,28 +164,31 @@ export const RecipeListing = ({
     />
   ) : null;
 
-  const shouldAppear =
-    isAsyncLoadMore() && loadMoreConfig
+  const shouldLoadMoreAppear =
+    loadMoreConfig && isAsyncLoadMore()
       ? list.length < loadMoreConfig.allCount
       : listState.listItems.length > 0 &&
         initialCount !== 0 &&
         displayNumber < listState.filterLength;
 
+  const listing = (
+    <RecipeListingTrivial
+      list={listState.listItems}
+      recipeCount={listState.listItems.length}
+      FavoriteIcon={FavoriteIcon}
+      withFavorite={withFavorite}
+      ratingProvider={ratingProvider}
+      onFavoriteChange={changeFavorites}
+      content={content}
+      // @ts-ignore
+      titleLevel={titleLevel + 1}
+      imageSizes={imageSizes}
+    />
+  );
   const recipeListBasic = (
     <>
-      <RecipeListingTrivial
-        list={list}
-        recipeCount={list.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        content={content}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-        imageSizes={imageSizes}
-      />
-      {shouldAppear ? (
+      {listing}
+      {shouldLoadMoreAppear ? (
         <Button
           className="recipe-list__load-more"
           onClick={loadMore}
@@ -190,20 +200,9 @@ export const RecipeListing = ({
 
   const view: JSX.Element =
     viewType == RecipeListViewType.Trivial ? (
-      <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        content={content}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-        imageSizes={imageSizes}
-      />
+      listing
     ) : viewType == RecipeListViewType.Base ? (
-      <>{recipeListBasic}</>
+      recipeListBasic
     ) : viewType == RecipeListViewType.Carousel ? (
       <RecipeListingCarousel
         withFavorite={withFavorite}

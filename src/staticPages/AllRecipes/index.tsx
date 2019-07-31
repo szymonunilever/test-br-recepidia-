@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
@@ -23,7 +23,7 @@ import { action } from '@storybook/addon-actions';
 import theme from './AllRecipes.module.scss';
 
 import keys from 'integrations/keys.json';
-import { SearchParams } from 'elasticsearch';
+import { SearchParams } from '../Search/models';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
@@ -63,16 +63,25 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
 
     return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
       setRecipeResults({
-        list: res.hits.hits.map(item => item._source),
+        list: recipeResults.list.length
+          ? [
+              ...recipeResults.list,
+              ...res.hits.hits.map(resItem => resItem._source),
+            ]
+          : res.hits.hits.map(resItem => resItem._source),
         count: res.hits.total,
       });
     });
   };
 
+  useEffect(() => {
+    getRecipeSearchData('', { size: 8 });
+  }, []);
+
   const onRecipeLoadMore = (size: number) => {
     getRecipeSearchData('', {
       from: recipeResults.list.length,
-      size: size,
+      size,
     });
   };
 

@@ -1,4 +1,4 @@
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../globalModels';
 
 export interface MediaGalleryProps
   extends UnileverLibraryComponent<AppContent.MediaGalleryContent> {

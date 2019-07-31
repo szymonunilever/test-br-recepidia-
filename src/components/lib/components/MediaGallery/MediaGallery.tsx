@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import cx from 'classnames';
 import { MediaGalleryProps } from './models';
 import { TagName, Text } from '../Text';
-import { Button } from 'src/components/lib/components/common/Button';
+import { Button } from 'src/components/lib/components/Button';
 import MediaGalleryItem from './partials/MediaGalleryItem';
 
 const MediaGallery = ({
@@ -48,14 +48,16 @@ const MediaGallery = ({
       )}
 
       <ul className="media-gallery__list">
-        {articles.map((item: Internal.Article) => (
-          <MediaGalleryItem
-            key={item.id}
-            title={item.title}
-            fields={item.fields}
-            assets={item.assets}
-          />
-        ))}
+        {articles.map((item: Internal.Article) => {
+          return (
+            <MediaGalleryItem
+              key={item.id}
+              title={item.title}
+              fields={item.fields}
+              assets={item.assets}
+            />
+          );
+        })}
       </ul>
 
       {loadMoreBtn}

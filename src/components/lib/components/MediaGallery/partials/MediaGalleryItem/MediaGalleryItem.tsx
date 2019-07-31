@@ -2,10 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import AdaptiveImage from '../../../AdaptiveImage';
 import { MediaGalleryItemProps } from './models';
+import pageListing from 'src/components/data/pageListing.json';
 
 const MediaGalleryItem = ({ title, fields, assets }: MediaGalleryItemProps) => {
-  const localImage = () =>
-    assets.find(asset => !!(asset.type === 'Image' && asset.localImage));
+  const localImage = () => pageListing[0].localImage;
+  // assets.find(
+  //   //@ts-ignore
+  //   asset => !!(asset.type === 'Image' && asset.content.localImage)
+  // );
 
   return (
     <li className="media-gallery__item">
@@ -14,7 +18,7 @@ const MediaGalleryItem = ({ title, fields, assets }: MediaGalleryItemProps) => {
           <AdaptiveImage
             className="media-gallery__item-image"
             //@ts-ignore
-            localImage={localImage().localImage}
+            localImage={localImage()}
             alt={title}
           />
         )}

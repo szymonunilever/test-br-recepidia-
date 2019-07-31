@@ -24,13 +24,11 @@ import { RecipeListViewType } from 'src/components/lib/components/RecipeListing'
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
-import { ParsedQuery } from 'query-string';
 import { SearchInputProps } from 'src/components/lib/components/searchInput/models';
-import { get } from 'lodash';
 import { SearchParams } from './models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
-const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
+const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const { components } = pageContext;
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
@@ -126,11 +124,11 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
   };
 
   useEffect(() => {
-    getArticleSearchData(get(search, 'searchQuery'), {
+    getArticleSearchData(searchQuery, {
       size: 8,
     });
 
-    getRecipeSearchData(get(search, 'searchQuery'), {
+    getRecipeSearchData(searchQuery, {
       size: 8,
     });
   }, []);
@@ -184,7 +182,7 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
       <section className="_bg--main">
         <div className="container">
           <SearchListing
-            search={search}
+            searchQuery={searchQuery}
             searchResults={{
               recipeResults,
               searchInputResults,
@@ -210,6 +208,7 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
                 favorites: [],
                 onFavoriteChange: () => {},
                 imageSizes: '(min-width: 768px) 25vw, 50vw',
+                ratingProvider: RatingAndReviewsProvider.kritique,
               },
               articleConfig: {
                 getArticleSearchData,
@@ -291,5 +290,5 @@ interface SearchPageProps {
       [key: string]: string | number | boolean | object | null;
     };
   };
-  search: ParsedQuery<string> | object;
+  searchQuery: string;
 }
