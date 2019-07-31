@@ -1,8 +1,8 @@
 {
   "COMMENT": "THIS SHOULD BE MOVED TO DEPLOYMENT SCRIPT",
   "middleware": {
-    "contentEndpoint": "https://o04j5q4nt9.execute-api.eu-west-1.amazonaws.com/v1/{contentType}/pt-br",
-    "key": "UJAk5ILYjo8AhWaTP9d9K40LsdZZwoDS1YzCgo5s"
+    "contentEndpoint": "https://lko3ncauxl.execute-api.eu-west-1.amazonaws.com/v2/{contentType}/pt-br",
+    "key": "OoGWuczivUaCal94EbmZQ1fcjn4mxNyq9NBxALHq"
   },
   "kritique": {
     "url": "https://eu-stage-kritique.unileversolutions.com/widget/resources/js/RR_widget.js",

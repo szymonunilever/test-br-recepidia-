@@ -18,7 +18,6 @@ import OpenIcon from 'src/svgs/inline/arrow-down.svg';
 import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import { action } from '@storybook/addon-actions';
 import theme from './AllRecipes.module.scss';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
@@ -84,7 +83,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
+            onFavoriteChange={() => {}}
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
@@ -107,7 +106,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             withFavorite
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
+            onFavoriteChange={() => {}}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--1-2"
             carouselConfig={{
