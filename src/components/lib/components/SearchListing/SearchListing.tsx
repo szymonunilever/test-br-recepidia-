@@ -93,7 +93,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   const recipes = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'recipes'
   ) &&
-    recipeResults.list.length && (
+    !!recipeResults.list.length && (
       <RecipeListing
         initialCount={8}
         viewType={RecipeListViewType.Advanced}
@@ -121,73 +121,62 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     );
 
   const tabs = content.tabsContent.tabs.reduce(
-    (
-      tabs: {
-        list: JSX.Element[];
-        content: AppContent.Tabs.Content;
-      },
-      item
-    ) => {
-      if (
-        item.view === 'all' &&
-        (recipeResults.list.length || articleResults.list.length)
-      ) {
-        tabs.list.push(
-          <Tab view={item.view} key={item.view}>
-            {searchResultsText}
-            {articles}
-            {recipes}
-          </Tab>
-        );
-        tabs.content.tabs.push(item);
-      }
-      if (item.view === 'articles' && articleResults.list.length) {
-        tabs.list.push(
-          <Tab view={item.view} key={item.view}>
-            <Text
-              className="search-listing__results-header"
-              // @ts-ignore
-              tag={TagName[`h${searchResultTitleLevel}`]}
-              text={content.searchListingContent.title
-                .replace('{numRes}', articleResults.count.toString())
-                .replace(
-                  '{searchInputValue}',
-                  `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                )}
-            />
-            {articles}
-          </Tab>
-        );
-        tabs.content.tabs.push(item);
-      }
-      if (item.view === 'recipes' && recipeResults.list.length) {
-        tabs.list.push(
-          <Tab view={item.view} key={item.view}>
-            <Text
-              className="search-listing__results-header"
-              // @ts-ignore
-              tag={TagName[`h${searchResultTitleLevel}`]}
-              text={content.searchListingContent.title
-                .replace('{numRes}', recipeResults.count.toString())
-                .replace(
-                  '{searchInputValue}',
-                  `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                )}
-            />
-            {recipes}
-          </Tab>
-        );
-        tabs.content.tabs.push(item);
+    (tabs: JSX.Element[], { view }) => {
+      switch (view) {
+        case 'all': {
+          tabs.push(
+            <Tab view={view} key={view}>
+              {searchResultsText}
+              {articles}
+              {recipes}
+            </Tab>
+          );
+          break;
+        }
+
+        case 'articles': {
+          tabs.push(
+            <Tab view={view} key={view}>
+              <Text
+                className="search-listing__results-header"
+                // @ts-ignore
+                tag={TagName[`h${searchResultTitleLevel}`]}
+                text={content.searchListingContent.title
+                  .replace('{numRes}', articleResults.count.toString())
+                  .replace(
+                    '{searchInputValue}',
+                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+                  )}
+              />
+              {articles}
+            </Tab>
+          );
+          break;
+        }
+        case 'recipes': {
+          tabs.push(
+            <Tab view={view} key={view}>
+              <Text
+                className="search-listing__results-header"
+                // @ts-ignore
+                tag={TagName[`h${searchResultTitleLevel}`]}
+                text={content.searchListingContent.title
+                  .replace('{numRes}', recipeResults.count.toString())
+                  .replace(
+                    '{searchInputValue}',
+                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+                  )}
+              />
+              {recipes}
+            </Tab>
+          );
+          break;
+        }
       }
 
       return tabs;
     },
-    {
-      list: [],
-      content: {
-        tabs: [],
-      },
-    }
+    []
   );
 
   return (
@@ -202,9 +191,8 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
 
-      {(tabs.list.length && recipeResults.list.length) ||
-      (tabs.list.length && articleResults.list.length) ? (
-        <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
+      {tabs.length ? (
+        <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
       ) : (
         <>
           {searchResultsText}
