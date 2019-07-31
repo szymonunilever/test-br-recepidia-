@@ -5,4 +5,5 @@ export interface TabProps {
   view: string;
   active?: boolean;
   children?: ReactNode | ReactNode[];
+  attributes?: Record<string, any>;
 }

@@ -1,11 +1,4 @@
 .page-listing-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-  text-decoration: none;
-  position: relative;
-  list-style: none;
   &__image {
     border-radius: 5px;
     overflow: hidden;
