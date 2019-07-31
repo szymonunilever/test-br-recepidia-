@@ -42,19 +42,24 @@
   },
   "digitalData": {
     "siteInfo": {
-      "sitetype": "",
-      "category": "",
+      "sitetype": "Non-Avinash",
+      "category": "Foods",
       "country": "Brazil",
       "globalbrand": "Recepedia",
-      "localbrand": "Recipedia"
+      "localbrand": "Recepedia"
     },
     "page": {
       "attributes": {
-        "brandCategory": "",
+        "brandCategory": "Foods",
         "country": "Brazil",
         "globalbrand": "Recepedia",
         "localbrand": "Recipedia"
       }
+    },
+    "sitespeed": {
+      "applicationID": 341201170,
+      "licenseKey": "1a89f35859",
+      "locale": "Brazil"
     },
     "trackingInfo": {
       "GID": "",

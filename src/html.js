@@ -6,6 +6,16 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window['digitalData'] = ${JSON.stringify(
+              keys.digitalData
+            )};           
+        `,
+          }}
+        />
         {process.env.NODE_ENV !== 'development' && (
           <>
             <script
