@@ -20,6 +20,7 @@ import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import theme from './AllRecipes.module.scss';
+import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 
 import keys from 'integrations/keys.json';
@@ -27,7 +28,7 @@ import { SearchParams } from '../Search/models';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
-  const { allRecipe, allTagGroupings } = data;
+  const { allRecipe, allTagGroupings, promotionalRecipes } = data;
 
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
@@ -117,7 +118,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
                 {
                   width: 768,
                   switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 2,
+                  switchElementsAfterBreakpoint: 1,
                   visibleElementsBelowBreakpoint: 3,
                   visibleElementsAboveBreakpoint: 4,
                 },
@@ -128,7 +129,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         </div>
       </section>
 
-      <section className="_pt--40 _pb--40">
+      <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
         <div className="container">
           <RecipeListing
             getSearchData={getRecipeSearchData}
@@ -169,22 +170,23 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               'RecipeListing',
               'SeasonalPromotionalRecipes'
             )}
-            list={allRecipe.nodes}
+            list={promotionalRecipes.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={2}
             withFavorite
+            initialCount={6}
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
             onFavoriteChange={() => {}}
             viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel cards--1-2"
+            className="recipe-list--carousel"
             carouselConfig={{
               breakpoints: [
                 {
                   width: 768,
                   switchElementsBelowBreakpoint: 1,
                   switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 2,
                   visibleElementsAboveBreakpoint: 2,
                 },
               ],
@@ -210,7 +212,12 @@ export default AllRecipesPage;
 
 export const query = graphql`
   {
-    allRecipe {
+    allRecipe(limit: 100) {
+      nodes {
+        ...RecipeFields
+      }
+    }
+    promotionalRecipes: allRecipe(limit: 6) {
       nodes {
         ...RecipeFields
       }
@@ -242,6 +249,9 @@ interface AllRecipesPageProps {
     };
     allTagGroupings: {
       nodes: Internal.TagGroup[];
+    };
+    promotionalRecipes: {
+      nodes: Internal.Recipe[];
     };
   };
   pageContext: {
