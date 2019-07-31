@@ -14,6 +14,7 @@ import Kritique from 'integrations/Kritique';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
+import DigitalData from 'integrations/DigitalData';
 import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
@@ -34,6 +35,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         secondaryButtonLabel={'Skip'}
       />
       <Kritique />
+      <DigitalData pageContext={pageContext} data={data} />
       <section className="_bg--main">
         <div className="container">
           <Text

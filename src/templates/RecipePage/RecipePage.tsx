@@ -50,6 +50,7 @@ import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
+import DigitalData from '../../../integrations/DigitalData';
 
 const RecipePage = ({ pageContext }: RecipePageProps) => {
   const {
@@ -206,6 +207,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
   return (
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
+      <DigitalData pageContext={pageContext} data={recipe} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
