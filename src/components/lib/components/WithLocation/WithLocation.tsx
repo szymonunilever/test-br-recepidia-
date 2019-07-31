@@ -1,6 +1,7 @@
 import React from 'react';
 import { Location } from '@reach/router';
 import { WithLocationProps } from './models';
+import isBrowser from '../../utils/isBrowser';
 
 const withLocation = <T extends WithLocationProps>(
   Component: React.ComponentType<T>
@@ -13,7 +14,7 @@ const withLocation = <T extends WithLocationProps>(
           location={location}
           navigate={navigate}
           searchQuery={
-            URLSearchParams
+            isBrowser()
               ? new URLSearchParams(location.search).get('searchQuery')
               : ''
           }

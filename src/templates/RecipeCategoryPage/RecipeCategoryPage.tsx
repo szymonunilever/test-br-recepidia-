@@ -20,6 +20,7 @@ import { PageListingViewTypes } from '../../components/lib/components/PageListin
 import { action } from '@storybook/addon-actions';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
+import DigitalData from '../../../integrations/DigitalData';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
@@ -35,6 +36,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   return (
     <Layout className={classWrapper}>
       <SEO title={`Recipe category: ${tag.name}`} />
+      <DigitalData pageContext={pageContext} data={tag} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
