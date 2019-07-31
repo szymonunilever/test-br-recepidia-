@@ -162,9 +162,8 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
     createRecipePages({
       graphql,
-      createPage: edge => {
-        createPageFromTemplate(edge, recipeDetailsData);
-      },
+      createPage,
+      pageData: recipeDetailsData,
     }),
     createArticlePages({
       graphql,

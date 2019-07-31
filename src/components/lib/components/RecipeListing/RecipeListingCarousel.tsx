@@ -12,6 +12,7 @@ const RecipeListingCarousel = ({
   list,
   config,
   ratingProvider = RatingAndReviewsProvider.none,
+  imageSizes,
 }: RecipeListingCarouselProps) => {
   const getCurrentItem = (item: Internal.Recipe) => {
     return (
@@ -27,6 +28,7 @@ const RecipeListingCarousel = ({
         recipeId={item.recipeId}
         ratingProvider={ratingProvider}
         localImage={item.localImage}
+        imageSizes={imageSizes}
       />
     );
   };

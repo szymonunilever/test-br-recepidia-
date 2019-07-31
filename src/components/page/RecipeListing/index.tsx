@@ -24,6 +24,7 @@ const RecipeListing = ({ content }: RecipeListingProps) => {
     <components.RecipeListing
       list={recipeList.allRecipe.nodes}
       content={content}
+      imageSizes={'(min-width: 768px) 25vw, 50vw'}
     />
   );
 };

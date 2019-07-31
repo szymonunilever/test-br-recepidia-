@@ -200,3 +200,24 @@ p {
     z-index: 1;
   }
 }
+
+// Slider progress bar common styles
+progress[value] {
+  border: none; /* Needed for Firefox */
+  height: 2px;
+  -webkit-appearance: none; /* Needed for WebKit/Blink */
+}
+progress[value]::-webkit-progress-bar {
+  background-color: $fish-blue-darker;
+}
+progress[value]::-webkit-progress-value {
+  background-color: $fish-blue-darker;
+}
+progress::-moz-progress-bar {
+  height: 2px;
+  background-color: $fish-blue-darker;
+}
+
+progress::-ms-fill {
+  background: $fish-blue-darker;
+}

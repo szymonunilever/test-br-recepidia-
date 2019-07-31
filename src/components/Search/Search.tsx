@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StaticQuery, graphql, navigate } from 'gatsby';
 import SearchInput from '../lib/components/SearchInput/SearchInput';
 import { Modal } from 'src/components/lib/components/Modal';
+import { Button } from '../lib/components/Button';
 import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 
@@ -40,9 +41,13 @@ const GlobalSearch = ({
       render={data => {
         return (
           <>
-            <div className="searchBar" onClick={openModal}>
+            <Button
+              className="searchBar"
+              onClick={openModal}
+              attributes={{ 'aria-label': 'search' }}
+            >
               <SearchIcon className="searchBar__icon" />
-            </div>
+            </Button>
             <Modal
               className="modal--search"
               isOpen={modalState}

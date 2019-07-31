@@ -88,6 +88,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
@@ -121,6 +122,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
           />
         </div>
       </section>
