@@ -103,7 +103,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
           allCount: recipeResults.count,
         }}
         list={recipeResults.list}
-        content={content.recipeContent}
+        content={content.recipesContent}
         {...recipeConfig}
       />
     );
