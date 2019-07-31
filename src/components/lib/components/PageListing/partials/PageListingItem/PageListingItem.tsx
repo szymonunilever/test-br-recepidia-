@@ -13,7 +13,7 @@ const PageListingItem = ({ page }: PageProps) => {
   } = page;
 
   return (
-    <li className="page-listing-item">
+    <div className="page-listing-item">
       <Link to={path} className="page-listing-item__link">
         <AdaptiveImage
           className="page-listing-item__image"
@@ -22,7 +22,7 @@ const PageListingItem = ({ page }: PageProps) => {
         />
         <div className="page-listing-item__title">{title}</div>
       </Link>
-    </li>
+    </div>
   );
 };
 

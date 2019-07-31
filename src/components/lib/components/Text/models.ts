@@ -11,6 +11,7 @@ export enum TagName {
 
 export interface TextProps {
   className?: string;
+  id?: string;
   tag: TagName;
   text: string;
 }

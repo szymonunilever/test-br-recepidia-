@@ -27,12 +27,14 @@ $col-indent-desktop: 8px;
       margin: -$col-indent-desktop;
     }
   }
-  &__button-wrap {
-    margin-top: 25px;
-    text-align: center;
-  }
-
-  .page-listing-item {
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
     margin: $col-indent-mobile;
     width: calc(#{$col-width-mobile} - #{$col-indent-mobile * 2});
     @include respondTo(desktop) {
@@ -40,5 +42,8 @@ $col-indent-desktop: 8px;
       margin: $col-indent-desktop;
     }
   }
-
+  &__button-wrap {
+    margin-top: 25px;
+    text-align: center;
+  }
 }

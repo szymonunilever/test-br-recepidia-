@@ -34,6 +34,9 @@
         @include respondTo(desktop){
           width: 140px;
         }
+        &-label-text{
+          @extend .sr-only;
+        }
       }
       &__button{
         @extend .button;
