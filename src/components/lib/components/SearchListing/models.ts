@@ -1,35 +1,52 @@
-// import { SearchResponse, Explanation } from 'elasticsearch';
+import { getSearchData } from 'src/staticPages/Search/models';
 import { SearchInputProps } from '../SearchInput/models';
 import { RecipeListingProps } from '../RecipeListing';
-import { SearchResponse } from 'src/utils/useElasticSearch/models';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
   config: SearchListingConfig;
-  getSearchData: getSearchData;
   className?: string;
   searchResultTitleLevel?: number;
+  searchQuery: string;
+  searchResults: SearchResults;
 }
 
-export type getSearchData = (
-  searchQuery: string,
-  params: object
-) => Promise<SearchResponse<Internal.Recipe>>;
+export declare interface SearchResults {
+  recipeResults: {
+    list: Internal.Recipe[];
+    count: number;
+  };
+  searchInputResults: {
+    list: SearchInputProps['searchResults'];
+    count: number;
+  };
+  articleResults: {
+    list: Internal.Article[];
+    count: number;
+  };
+}
 
 export declare interface SearchListingConfig {
   searchInputConfig: SearchInputConfig;
-  recipesConfig: RecipesConfig;
+  recipeConfig: RecipeConfig;
+  articleConfig: ArticleConfig;
+}
+
+interface ArticleConfig {
+  getArticleSearchData?: getSearchData;
 }
 
 interface SearchInputConfig {
+  onClickSearchResultsItem?: SearchInputProps['onClickSearchResultsItem'];
+  getSearchSuggestionData?: SearchInputProps['getSearchResults'];
   searchResultsCount: SearchInputProps['searchResultsCount'];
   labelIcon: SearchInputProps['labelIcon'];
   buttonResetIcon: SearchInputProps['buttonResetIcon'];
   buttonSubmitIcon: SearchInputProps['buttonSubmitIcon'];
-  onSubmit: SearchInputProps['onSubmit'];
 }
 
-interface RecipesConfig {
+interface RecipeConfig {
+  getRecipeSearchData?: getSearchData;
   viewType: RecipeListingProps['viewType'];
   FavoriteIcon: RecipeListingProps['FavoriteIcon'];
   withFavorite: RecipeListingProps['withFavorite'];
@@ -45,6 +62,7 @@ export declare interface SearchListingContent {
   searchListingContent: AppContent.SearchListing.Content;
   searchInputContent: AppContent.SearchInput.Content;
   tabsContent: AppContent.Tabs.Content;
+  articleContent: AppContent.MediaGalleryContent;
   recipesContent: AppContent.RecipeListing.Content;
   nullResultContent: AppContent.SearchListing.NullResult;
 }

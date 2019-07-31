@@ -66,7 +66,9 @@ const PageListing = ({
 
       <ul className="page-listing__list">
         {pages.list.map((item: ItemProps) => (
-          <PageListingItem key={item.title} page={item} />
+          <li key={item.title} className="page-listing__list-item">
+            <PageListingItem page={item} />
+          </li>
         ))}
       </ul>
 

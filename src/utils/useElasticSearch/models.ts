@@ -8,3 +8,10 @@ export interface SearchResponse<T> {
 export interface Hit<T> {
   _source: T;
 }
+
+export type NameList = string | string[] | boolean;
+
+export interface SearchParams {
+  index: string;
+  body?: any;
+}

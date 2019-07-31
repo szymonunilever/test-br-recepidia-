@@ -11,20 +11,12 @@ async function getCaterogyTags(configOptions) {
 
 async function getRecipesByPage(configOptions, pageSize, page) {
   return await axios.get(
-    'https://lko3ncauxl.execute-api.eu-west-1.amazonaws.com/v2/recipes/br-pt',
+    configOptions.endpoint.replace('{contentType}', 'recipes'),
     {
-      headers: { 'x-api-key': 'OoGWuczivUaCal94EbmZQ1fcjn4mxNyq9NBxALHq' },
+      headers: { 'x-api-key': configOptions.key },
       params: { pageSize: pageSize, startRecord: page * pageSize + 1 },
     }
   );
-
-  // return await axios.get(
-  //   configOptions.endpoint.replace('{contentType}', 'recipes'),
-  //   {
-  //     headers: { 'x-api-key': configOptions.key },
-  //     params: { pageSize: pageSize, startRecord: page * pageSize + 1 },
-  //   }
-  // );
 }
 
 exports.getRecipesByPage = getRecipesByPage;

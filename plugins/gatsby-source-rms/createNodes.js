@@ -51,12 +51,13 @@ exports.createTagGroupingsNodes = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   const nodeId = createNodeId(`tagGroupings-${tagGroupings.name}`);
+  const tags = tagGroupings.tags.filter(tag => tag && tag.id);
 
   createNode({
     ...tagGroupings,
     id: nodeId,
     parent: null,
-    children: tagGroupings.tags.map(tag =>
+    children: tags.map(tag =>
       processTag(tag, nodeId, {
         createNodeId,
         createContentDigest,

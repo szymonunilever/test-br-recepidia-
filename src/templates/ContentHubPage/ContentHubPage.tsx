@@ -3,7 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { findPageComponentContent, fromCamelCase, getTagSlug } from 'src/utils';
+import { findPageComponentContent, fromCamelCase } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -15,8 +15,8 @@ import cx from 'classnames';
 import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
-import { action } from '@storybook/addon-actions';
 import TagLinks from 'src/components/TagsLinks';
+import DigitalData from '../../../integrations/DigitalData';
 
 const ContentHubPage: React.SFC<ContentHubPageProps> = ({
   data,
@@ -35,6 +35,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
   return (
     <Layout className={classWrapper}>
       <SEO title={`Recipe category: ${tag.title}`} />
+      <DigitalData pageContext={pageContext} data={tag} />
       <Kritique />
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>
@@ -55,7 +56,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
             recipePerLoad={4}
             withFavorite
             favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
+            onFavoriteChange={() => {}}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
