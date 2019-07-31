@@ -33,7 +33,8 @@
   },
   "elasticSearch": {
     "url": "https://search-recipedia-dev-jwvjnpywrw6hxolpwrjycxt7y4.eu-west-1.es.amazonaws.com",
-    "index": "recepedia_pt_br"
+    "recipeIndex": "recepedia_pt_br",
+    "articleIndex": "recepedia-articles_pt_br"
   },
   "analytics": {
     "adobe": {

@@ -1,27 +1,22 @@
+import { getSearchData } from 'src/staticPages/Search/models';
 import { UnileverLibraryComponent } from '../globalModels';
-import { getSearchData } from '../SearchListing/models';
 
 export interface SearchInputProps
   extends UnileverLibraryComponent<AppContent.SearchInput.Content> {
   list?: string[];
-  searchUrl?: string;
   labelIcon: JSX.Element;
   buttonResetIcon: JSX.Element;
   buttonSubmitIcon?: JSX.Element;
   searchResultsCount?: number;
   debounceTimeout?: number;
   defaultSearchValue?: string;
-  onSubmit: (inputValue: string) => void;
-  getSearchData?: getSearchData;
-  onClickSearchResultsItem?: (currentItemValue: string) => void;
+  onSubmit: getSearchData | Function;
+  getSearchResults?: getSearchData;
+  onClickSearchResultsItem?: getSearchData;
   autoFocus?: boolean;
+  searchResults?: string[];
 }
 
 export interface FilterData {
   (data: string[], val: string): string[];
-}
-
-export interface GetSearchDataParams {
-  from?: number;
-  size?: number;
 }

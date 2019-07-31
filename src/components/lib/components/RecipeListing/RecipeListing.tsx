@@ -53,37 +53,34 @@ export const RecipeListing = ({
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
   const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
-  let listModified = sortBy(
-    RecipeSortingOptions.newest,
-    applyingFavorites(list, withFavorite, favorites)
-  );
+  const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
+  let listModified =
+    viewType === RecipeListViewType.Advanced
+      ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
+      : listWithFavorites;
 
   const [displayNumber, setDisplayNumber] = useState(initialCount);
   const [listState, setListState] = useState<{
     listItems: Internal.Recipe[];
     filterLength: number;
-    filter: RMSData.Tag[];
+    filter: Internal.Tag[];
     sorting: RecipeSortingOptions;
   }>({
-    listItems:
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
+    listItems: listModified,
     filterLength: listModified.length,
     filter: [],
     sorting: RecipeSortingOptions.newest,
   });
 
-  const isAsyncLoadMore = () =>
-    get(loadMoreConfig, 'type') === LoadMoreType.async;
-
   useEffect(() => {
-    const syncList =
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified;
-
     setListState({
       ...listState,
-      listItems: isAsyncLoadMore() ? list : syncList,
+      listItems: listModified,
     });
   }, [list]);
+
+  const isAsyncLoadMore = () =>
+    get(loadMoreConfig, 'type') === LoadMoreType.async;
 
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
@@ -91,28 +88,53 @@ export const RecipeListing = ({
       onFavoriteChange(favorites);
     }
   };
-  const onFilterChange = (filter: RMSData.Tag[]) => {
-    const recipeCount = displayNumber;
-    listModified = sortBy(listState.sorting, listModified);
-    const filtered = applyFilters(filter, listModified);
-    setListState({
-      ...listState,
-      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-      filterLength: filtered.length,
-      filter,
-    });
+  const onFilterChange = (filter: Internal.Tag[]) => {
+    if (isAsyncLoadMore()) {
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: filtered,
+        filterLength: filtered.length,
+        filter,
+      });
+    } else {
+      const recipeCount = displayNumber;
+      listModified = sortBy(listState.sorting, listModified);
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
+        filterLength: filtered.length,
+        filter,
+      });
+    }
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
-    const recipeCount = displayNumber;
-    const { filter } = listState;
-    listModified = sortBy(sorting, listModified);
-    const filtered = applyFilters(filter, listModified);
-    setListState({
-      ...listState,
-      listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-      sorting,
-    });
+    if (isAsyncLoadMore()) {
+      listModified = sortBy(sorting, listState.listItems);
+
+      setListState({
+        ...listState,
+        listItems: listModified,
+        sorting,
+      });
+    } else {
+      listModified = sortBy(sorting, listModified);
+
+      const recipeCount = displayNumber;
+      const { filter } = listState;
+      const filtered = applyFilters(filter, listModified);
+
+      setListState({
+        ...listState,
+        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
+        sorting,
+      });
+      setDisplayNumber(recipeCount);
+    }
   };
 
   const loadMore = () => {
@@ -131,8 +153,6 @@ export const RecipeListing = ({
             : applyFilters(filter, listModified),
       });
     }
-
-    setDisplayNumber(recipeCount);
   };
 
   const listHeader = title ? (
@@ -144,28 +164,31 @@ export const RecipeListing = ({
     />
   ) : null;
 
-  const shouldAppear =
-    isAsyncLoadMore() && loadMoreConfig
-      ? listState.listItems.length < loadMoreConfig.allCount
+  const shouldLoadMoreAppear =
+    loadMoreConfig && isAsyncLoadMore()
+      ? list.length < loadMoreConfig.allCount
       : listState.listItems.length > 0 &&
         initialCount !== 0 &&
         displayNumber < listState.filterLength;
 
+  const listing = (
+    <RecipeListingTrivial
+      list={listState.listItems}
+      recipeCount={listState.listItems.length}
+      FavoriteIcon={FavoriteIcon}
+      withFavorite={withFavorite}
+      ratingProvider={ratingProvider}
+      onFavoriteChange={changeFavorites}
+      content={content}
+      // @ts-ignore
+      titleLevel={titleLevel + 1}
+      imageSizes={imageSizes}
+    />
+  );
   const recipeListBasic = (
     <>
-      <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        content={content}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-        imageSizes={imageSizes}
-      />
-      {shouldAppear ? (
+      {listing}
+      {shouldLoadMoreAppear ? (
         <Button
           className="recipe-list__load-more"
           onClick={loadMore}
@@ -177,20 +200,9 @@ export const RecipeListing = ({
 
   const view: JSX.Element =
     viewType == RecipeListViewType.Trivial ? (
-      <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        content={content}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-        imageSizes={imageSizes}
-      />
+      listing
     ) : viewType == RecipeListViewType.Base ? (
-      <>{recipeListBasic}</>
+      recipeListBasic
     ) : viewType == RecipeListViewType.Carousel ? (
       <RecipeListingCarousel
         withFavorite={withFavorite}
@@ -214,7 +226,11 @@ export const RecipeListing = ({
           RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
-          results={listState.filterLength}
+          results={
+            listState.filterLength ||
+            (loadMoreConfig && loadMoreConfig.allCount) ||
+            0
+          }
           content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />

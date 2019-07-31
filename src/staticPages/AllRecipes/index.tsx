@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent } from 'src/utils';
+import useElasticSearch, { findPageComponentContent } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
+  LoadMoreType,
 } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
@@ -21,9 +22,68 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import theme from './AllRecipes.module.scss';
 import DigitalData from '../../../integrations/DigitalData';
 
+import keys from 'integrations/keys.json';
+import { SearchParams } from '../Search/models';
+
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
   const { allRecipe, allTagGroupings } = data;
+
+  const [recipeResults, setRecipeResults] = useState<{
+    list: Internal.Recipe[];
+    count: number;
+  }>({
+    list: [],
+    count: 0,
+  });
+
+  const getRecipeSearchData = async (
+    searchQuery: string,
+    params: SearchParams
+  ) => {
+    const searchParams = {
+      index: keys.elasticSearch.recipeIndex,
+      body: {
+        from: params.from,
+        size: params.size,
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: `*${searchQuery}*`,
+            fields: [
+              'title',
+              'description',
+              'tagGroups.tags.name',
+              'ingredients.description',
+            ],
+          },
+        },
+      },
+    };
+
+    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
+      setRecipeResults({
+        list: recipeResults.list.length
+          ? [
+              ...recipeResults.list,
+              ...res.hits.hits.map(resItem => resItem._source),
+            ]
+          : res.hits.hits.map(resItem => resItem._source),
+        count: res.hits.total,
+      });
+    });
+  };
+
+  useEffect(() => {
+    getRecipeSearchData('', { size: 8 });
+  }, []);
+
+  const onRecipeLoadMore = (size: number) => {
+    getRecipeSearchData('', {
+      from: recipeResults.list.length,
+      size,
+    });
+  };
 
   return (
     <Layout className={theme.allRecipes}>
@@ -71,13 +131,14 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
+            getSearchData={getRecipeSearchData}
             viewType={RecipeListViewType.Advanced}
             content={findPageComponentContent(
               components,
               'RecipeListing',
               'AllRecipes'
             )}
-            list={allRecipe.nodes}
+            list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             tags={{ tagGroups: allTagGroupings.nodes }}
@@ -89,6 +150,11 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
+            loadMoreConfig={{
+              type: LoadMoreType.async,
+              allCount: recipeResults.count,
+              onLoadMore: onRecipeLoadMore,
+            }}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
@@ -97,6 +163,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
+            getSearchData={getRecipeSearchData}
             content={findPageComponentContent(
               components,
               'RecipeListing',
