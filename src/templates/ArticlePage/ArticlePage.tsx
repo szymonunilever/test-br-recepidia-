@@ -19,6 +19,7 @@ import SocialSharing, {
   SocialSharingViewType,
 } from '../../components/lib/components/SocialSharing';
 import { VideoPlayer } from '../../components/lib/components/VideoPlayer';
+import DigitalData from '../../../integrations/DigitalData';
 
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
@@ -52,6 +53,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
   return (
     <Layout className={theme.articleWrap}>
       <SEO title={article.title} description={article.shortDescription} />
+      <DigitalData pageContext={pageContext} data={article} />
       <section className={theme.articleTitle}>
         <div className="container">
           <Text tag={TagName.h1} text={article.title} />
