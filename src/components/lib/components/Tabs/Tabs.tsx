@@ -26,14 +26,14 @@ export const Tabs = ({
           ? {
               role: 'tab',
               'aria-selected': 'true',
-              tabindex: 0,
+              tabIndex: 0,
               'aria-controls': `${tab.view}__tab`,
               id: `${tab.view}`,
             }
           : {
               role: 'tab',
               'aria-selected': 'false',
-              tabindex: -1,
+              tabIndex: -1,
               'aria-controls': `${tab.view}__tab`,
               id: `${tab.view}`,
             }
@@ -50,13 +50,13 @@ export const Tabs = ({
         active === child.props.view
           ? {
               role: 'tabpanel',
-              tabindex: 0,
+              tabIndex: 0,
               'aria-labelledby': `${child.props.view}`,
               id: `${child.props.view}__tab`,
             }
           : {
               role: 'tabpanel',
-              tabindex: 0,
+              tabIndex: 0,
               'aria-labelledby': `${child.props.view}`,
               id: `${child.props.view}__tab`,
             }

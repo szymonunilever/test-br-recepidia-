@@ -1,0 +1,60 @@
+{
+  "type": "ContactUs",
+  "relativePath": "/contact-us",
+  "components": {
+    "items": [
+      {
+        "name": "Text",
+        "content": {
+          "view": "PageTitle",
+          "text": "Contact us"
+        }
+      },
+      {
+        "name": "Text",
+        "content": {
+          "view": "Description",
+          "text": "If you need anything, get in touch with us!"
+        }
+      },
+      {
+        "name": "Card",
+        "content": {
+          "view": "Phone",
+          "title": "Phone number",
+          "texts": [
+            "+31654234567"
+          ],
+          "type": "phone"
+        }
+      },
+      {
+        "name": "Card",
+        "content": {
+          "view": "Address",
+          "title": "Address",
+          "texts": [
+            "Unilever UK Limited.",
+            "Registered in England & Wales No. 334527"
+          ],
+          "type": "address"
+        }
+      },
+      {
+        "name": "Card",
+        "content": {
+          "view": "Contact",
+          "title": "Fill out contact form",
+          "texts": [
+            "If you wish to get in touch further or send us anything please fill in the form."
+          ],
+          "type": "text",
+          "cta": {
+            "label": "Fill in the contact form",
+            "linkTo": "/contact-form"
+          }
+        }
+      }
+    ]
+  }
+}

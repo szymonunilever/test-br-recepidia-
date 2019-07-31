@@ -11,6 +11,8 @@ const MediaGalleryItem = ({ title, fields, assets }: MediaGalleryItemProps) => {
   //   asset => !!(asset.type === 'Image' && asset.content.localImage)
   // );
 
+  //TODO switch back to normal state after localImage wil be fixed in articles
+
   return (
     <li className="media-gallery__item">
       <Link to={fields.slug} className="media-gallery__item-link">

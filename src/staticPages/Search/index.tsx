@@ -26,7 +26,7 @@ import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { SearchInputProps } from 'src/components/lib/components/searchInput/models';
-import { SearchParams } from './models';
+import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
@@ -197,7 +197,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               searchResultsCount: 8,
               labelIcon: <SearchIcon />,
               buttonResetIcon: <CloseSvg />,
-              buttonSubmitIcon: <PlaceholderIcon />,
+              buttonSubmitIcon: <SearchIcon />,
             },
             recipeConfig: {
               getRecipeSearchData,
@@ -223,6 +223,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                 label: 'Load more',
               },
             },
+            recipesContent: {
+              title: 'Recipes',
+              cta: {
+                label: 'Load more',
+              },
+            },
             tabsContent: {
               tabs: [
                 {
@@ -238,6 +244,9 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                   view: 'recipes',
                 },
               ],
+            },
+            searchInputContent: {
+              placeholderText: 'Enter minimum 3 characters',
             },
           }}
         />

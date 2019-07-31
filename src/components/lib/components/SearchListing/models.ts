@@ -1,4 +1,3 @@
-import { getSearchData } from 'src/staticPages/Search/models';
 import { SearchInputProps } from '../SearchInput/models';
 import { RecipeListingProps } from '../RecipeListing';
 
@@ -65,6 +64,17 @@ export declare interface SearchListingContent {
   articleContent: AppContent.MediaGalleryContent;
   recipesContent: AppContent.RecipeListing.Content;
   nullResultContent: AppContent.SearchListing.NullResult;
+}
+
+export type triggerGetSearchData = (size: number) => void;
+export type getSearchData = (
+  searchQuery: string,
+  params: SearchParams
+) => Promise<void>;
+
+export interface SearchParams {
+  from?: number;
+  size?: number;
 }
 
 export declare interface ResponseRecipeData<T> {

@@ -24,7 +24,7 @@ import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 
 import keys from 'integrations/keys.json';
-import { SearchParams } from '../Search/models';
+import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
