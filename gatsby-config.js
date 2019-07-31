@@ -73,5 +73,9 @@ module.exports = {
     //     production: true,
     //   },
     // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: integrations.analytics.google,
+    },
   ],
 };
