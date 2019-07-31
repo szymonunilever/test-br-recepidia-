@@ -9,10 +9,10 @@ import cx from 'classnames';
 
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
-import { SearchListingProps } from './models';
 import { get } from 'lodash';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from 'src/staticPages/Search/models';
+import { SearchListingProps } from './models';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,

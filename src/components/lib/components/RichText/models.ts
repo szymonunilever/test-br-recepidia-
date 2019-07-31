@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface RichTextProps

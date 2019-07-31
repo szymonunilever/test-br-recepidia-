@@ -94,19 +94,10 @@ export function applyFilters(
   if (filters.length > 0) {
     const filteredList = filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
-      const includedTags = filter(tagGroups, (item: RMSData.TagGroup) => {
-        if (filters) {
-          return !!filters.find(filter => {
-            if (item.tags) {
-              //@ts-ignore
-              return !!item.tags.find(tag => tag.id === filter.tagId);
-            } else {
-              return false;
-            }
-          });
-        } else {
-          return false;
-        }
+      const includedTags = filter(tagGroups, (item: RMSData.TagGroupings) => {
+        return (
+          intersectionBy(item.tags, filters, 'id').length >= filters.length
+        );
       });
       return includedTags.length > 0;
     });
@@ -116,3 +107,17 @@ export function applyFilters(
     return list;
   }
 }
+
+// const includedTags = filter(tagGroups, (item: RMSData.TagGroup) => {
+//   if (filters) {
+//     return !!filters.find(filter => {
+//       if (item.tags) {
+//         //@ts-ignore
+//         return !!item.tags.find(tag => tag.id === filter.tagId);
+//       } else {
+//         return false;
+//       }
+//     });
+//   } else {
+//     return false;
+//   }

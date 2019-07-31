@@ -3,7 +3,7 @@ import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 // @ts-ignore
 import Icon from 'src/svgs/inline/plus.svg';
-import { ButtonViewType } from '../../common/Button';
+import { ButtonViewType } from '../../Button';
 import { BackToTop } from '../index';
 
 const content: AppContent.BackToTopContent = {

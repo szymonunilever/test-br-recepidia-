@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import { remove } from 'lodash';
 import React from 'react';
-import { Accordion } from '../../common/Accordion';
-import { Button } from '../../common/Button';
+import { Accordion } from '../../Accordion';
+import { Button } from '../../Button';
 import { Tags } from '../../Tags';
 import { TagToggleHandler, TagViewType, TagVariant } from '../../Tags/models';
 import theme from './FilterSettings.module.scss';

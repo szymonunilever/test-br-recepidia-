@@ -1,7 +1,5 @@
 import { graphql } from 'gatsby';
 
-export default () => null;
-
 export const query = graphql`
   fragment GetArticleAssets on ArticleAssets {
     type
@@ -11,6 +9,17 @@ export const query = graphql`
       role
       url
       videoId
+      preview {
+        alt
+        url
+        previewImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...LocalImage
+            }
+          }
+        }
+      }
       localImage {
         childImageSharp {
           fluid(maxWidth: 1200) {

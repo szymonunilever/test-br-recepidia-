@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import React from 'react';
 import { TagName, Text } from '../../Text';
-import { Button, ButtonViewType } from '../../common/Button';
+import { Button, ButtonViewType } from '../../Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 import Rating from '../../Rating';
@@ -16,12 +16,12 @@ const RecipeCard = ({
   localImage,
   Icon,
   enableSelectFavorite = false,
-  titleLevel = 3,
   slug,
   className = '',
   inFavorite = false,
   onFavoriteChange,
   ratingProvider,
+  imageSizes,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -54,6 +54,7 @@ const RecipeCard = ({
       className="recipe-card__image"
       localImage={localImage}
       alt={title || 'Recipe image'}
+      sizes={imageSizes}
     />
   );
   const view = enableSelectFavorite ? (

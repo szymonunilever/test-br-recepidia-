@@ -178,6 +178,16 @@ $submenu-text-color: $fish-blue-darker;
       font-size: 3rem;
       margin: 0 0 0 50px;
       cursor: pointer;
+      @extend .button--flat;
+      width: 48px;
+      height: 48px;
+      transition: all 0.2s ease-out;
+      @media (hover) {
+        &:hover {
+          color: $black-blue;
+          stroke: $black-blue;
+        }
+      }
     }
 
     .signUpBtn {

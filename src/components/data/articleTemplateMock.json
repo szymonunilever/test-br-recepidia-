@@ -18,7 +18,15 @@
           ],
           "openModalButton": {
             "label": "Share"
-          }
+          },
+          "modalTitle": "Share this recipe"
+        }
+      },
+      {
+        "name": "Text",
+        "content": {
+          "text": "Next article",
+          "view": "NextTitle"
         }
       },
       {

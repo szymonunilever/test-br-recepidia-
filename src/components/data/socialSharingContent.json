@@ -7,14 +7,7 @@
     {
       "name": "twitter",
       "label": "Twitter"
-    },
-    {
-      "name": "linkedIn",
-      "label": "Linked In"
     }
   ],
-  "openModalButton": {
-    "label": "Share into social networks"
-  },
   "modalTitle": "Share this recipe"
 }

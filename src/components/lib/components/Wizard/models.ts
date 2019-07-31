@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 export interface WizardProps {
   actionCallback: (data: object) => void;
-  closeCallback?: () => void;
   children: ReactNode;
   step?: number;
 }

@@ -27,7 +27,7 @@ import { SearchParams } from 'elasticsearch';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
-  const { allRecipe, allTagGroup } = data;
+  const { allRecipe, allTagGroupings } = data;
 
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
@@ -131,7 +131,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
-            tags={{ tagGroups: allTagGroup.nodes }}
+            tags={{ tagGroups: allTagGroupings.nodes }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
             FavoriteIcon={FavoriteIcon}
@@ -145,6 +145,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               allCount: recipeResults.count,
               onLoadMore: onRecipeLoadMore,
             }}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
@@ -179,6 +180,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
           />
         </div>
       </section>
@@ -204,7 +206,7 @@ export const query = graphql`
       }
     }
 
-    allTagGroup {
+    allTagGroupings {
       nodes {
         children {
           ... on Tag {
@@ -228,7 +230,7 @@ interface AllRecipesPageProps {
     allRecipe: {
       nodes: Internal.Recipe[];
     };
-    allTagGroup: {
+    allTagGroupings: {
       nodes: Internal.TagGroup[];
     };
   };

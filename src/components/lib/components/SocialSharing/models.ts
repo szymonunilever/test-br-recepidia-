@@ -1,5 +1,6 @@
 import { FluidObject } from 'gatsby-image';
-import { UnileverLibraryComponent, titleLevel } from '../common/globalModels';
+import { UnileverLibraryComponent, titleLevel } from '../globalModels';
+import * as React from 'react';
 
 export enum SocialSharingViewType {
   Base,
@@ -29,8 +30,12 @@ export interface SocialSharingProps
   CloseButtonIcon?: any;
   icons?: SocialIcons;
   titleLevel?: titleLevel;
-  WidgetScript: React.FunctionComponent;
+  WidgetScript: React.FunctionComponent<WidgetScriptProps>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSocialButtonClick?: (shareObject: Record<string, any>) => void;
   handleSocialDialogClose?: () => void;
+}
+
+export interface WidgetScriptProps {
+  callback: (e: Event) => void;
 }

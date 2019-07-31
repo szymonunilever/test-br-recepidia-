@@ -1,5 +1,41 @@
 $footer-color: $black-blue;
 
+%global--links{
+  display: inline-block;
+  font-size: 1.5rem;
+  font-family: $arial;
+  color: $footer-color;
+  text-decoration: none;
+  text-align: left;
+  padding: 10px 0;
+  position: relative;
+  @extend %link--external;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: $footer-color;
+    transition: width 0.2s ease-out;
+  }
+  @media (hover) {
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  &[target='_blank'] {
+    &:after {
+      display: inline-block;
+    }
+  }
+}
+
 .global-footer {
   background-color: $primary-bg-color;
   border-top: 1px solid $footer-color;
@@ -45,40 +81,7 @@ $footer-color: $black-blue;
     }
 
     &__link {
-      display: inline-block;
-      font-size: 1.5rem;
-      font-family: $arial;
-      color: $footer-color;
-      text-decoration: none;
-      text-align: left;
-      padding: 10px 0;
-      position: relative;
-      @extend %link--external;
-
-      @include respondTo(desktop) {
-        &:before {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 0;
-          height: 1px;
-          background: $footer-color;
-          transition: width 0.2s ease-out;
-        }
-
-        &:hover {
-          &:before {
-            width: 100%;
-          }
-        }
-      }
-
-      &[target='_blank'] {
-        &:after {
-          display: inline-block;
-        }
-      }
+      @extend %global--links;
     }
 
     &:first-child {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TabsProps } from './models';
 import theme from './Tabs.module.scss';
 import cx from 'classnames';
-import Button from '../common/Button';
+import Button from '../Button';
 import { Tab } from './partials';
 
 export const Tabs = ({

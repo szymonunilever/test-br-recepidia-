@@ -4,7 +4,7 @@ import PlaceholderIcon from '../src/svgs/inline/placeholder.svg';
 
 import SeachInput from 'src/components/lib/components/SearchInput';
 import searchData from 'src/components/data/search.json';
-import { Modal } from 'src/components/lib/components/common/Modal';
+import { Modal } from 'src/components/lib/components/Modal';
 import CloseSvg from 'src/svgs/inline/x-mark.svg';
 import SearchSvg from 'src/svgs/inline/search-icon.svg';
 

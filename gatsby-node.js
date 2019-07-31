@@ -64,8 +64,19 @@ exports.onCreateNode = async ({
               name: 'image',
             });
             asset.content['localImage___NODE'] = imgNode.id;
+          } else if (type === 'Video') {
+            const imgNode = await createRemoteFileNode({
+              url: get(content, 'preview.url'),
+              parentNodeId: node.id,
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              ext: '.jpg',
+              name: 'image',
+            });
+            asset.content.preview['previewImage___NODE'] = imgNode.id;
           }
-
           return asset;
         })
       );
@@ -77,6 +88,7 @@ exports.onCreateNode = async ({
       });
       break;
     }
+
     case 'Page': {
       await Promise.all(
         node.components.map(async component => {
@@ -150,9 +162,8 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
     createRecipePages({
       graphql,
-      createPage: edge => {
-        createPageFromTemplate(edge, recipeDetailsData);
-      },
+      createPage,
+      pageData: recipeDetailsData,
     }),
     createArticlePages({
       graphql,
@@ -187,6 +198,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
   );
+  svgLoaderRule.use.options.classIdPrefix = true;
+
   if (stage === 'develop') {
     config.module.rules.push({
       test: /react-hot-loader/,
@@ -199,6 +212,5 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     });
   }
 
-  svgLoaderRule.use.options.classIdPrefix = true;
   actions.replaceWebpackConfig(config);
 };

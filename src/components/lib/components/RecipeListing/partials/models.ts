@@ -1,7 +1,4 @@
-import {
-  titleLevel,
-  UnileverLibraryComponent,
-} from '../../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../../globalModels';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 export interface RecipeCardFavoriteCallback {
@@ -20,6 +17,7 @@ export interface RecipeCardProps
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider: RatingAndReviewsProvider;
+  imageSizes: string;
 }
 
 export interface RecipeListingTrivialProps
@@ -30,6 +28,7 @@ export interface RecipeListingTrivialProps
   titleLevel?: titleLevel;
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
 }
 
 export enum RecipeSortingOptions {

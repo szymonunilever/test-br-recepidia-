@@ -1,7 +1,5 @@
 import { graphql } from 'gatsby';
 
-export default () => null;
-
 export const query = graphql`
   fragment RecipeFields on Recipe {
     description
@@ -36,10 +34,35 @@ export const query = graphql`
       }
     }
     title
+    nutrients {
+      description
+      displayUnit
+      dv
+      epercent
+      isCore
+      name
+      position
+      rawRiPercent
+      rawDvPercent
+      rawValue
+      ri
+      unit
+      value
+    }
     localImage {
       childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp
+        fluid {
+          base64
+          aspectRatio
+          width
+          height
+          src
+          srcWebp
+          srcSet
+          srcSetWebp
+          sizes
+          url
+          title
         }
       }
     }

@@ -1,21 +1,33 @@
-import React, { Fragment, FunctionComponent, useState } from 'react';
+import React, {
+  Fragment,
+  FunctionComponent,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import QuestionLabel from '../QuestionLabel';
 import { QuestionProps } from '../Question/models';
-import CheckMark from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
+import Option from '../Option';
 
 const Single: FunctionComponent<QuestionProps> = ({
   question,
+  progress,
   onChangeCallback,
 }) => {
-  const [val, setVal] = useState('');
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const defaultValue =
+    (question.selectedOptions && question.selectedOptions[0]) || '';
+  const [val, setVal] = useState(defaultValue);
+  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setVal(event.target.value);
-    onChangeCallback(question.key, event.target.value);
-  };
+  }, []);
+
+  useEffect(() => {
+    val !== defaultValue && onChangeCallback(question.key, val);
+  }, [val]);
 
   return (
     <Fragment>
-      <QuestionLabel label={question.label} />
+      <QuestionLabel label={question.label} {...{ progress }} />
       <ul className="quiz__list quiz__single">
         {question.options.map(option => (
           <li className="quiz__item" key={option.value}>
@@ -28,15 +40,7 @@ const Single: FunctionComponent<QuestionProps> = ({
                 onChange={onChange}
                 className="quiz__item-input"
               />
-              <div className="quiz__label-content">
-                <div className="quiz__label-image-wrap">
-                  <div className="quiz__label-checkmark">
-                    <CheckMark />
-                    <h3 className="quiz__label-title">{option.label.text}</h3>
-                  </div>
-                  <div className="quiz__label-image" />
-                </div>
-              </div>
+              <Option {...{ option, question }} />
             </label>
           </li>
         ))}

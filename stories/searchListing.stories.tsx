@@ -84,6 +84,7 @@ const recipeConfig = {
   recipePerLoad: 2,
   favorites: [],
   onFavoriteChange: action('favorites were changed'),
+  imageSizes: '(min-width: 768px) 25vw, 50vw',
 };
 
 const getSearchData = async () => {};

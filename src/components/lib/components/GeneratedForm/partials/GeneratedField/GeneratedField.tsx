@@ -3,8 +3,8 @@ import Textarea from '../Textarea';
 import { GeneratedFieldProps } from './models';
 import { Field } from '../../../Form';
 import cx from 'classnames';
-import { CheckElem, checkElemTypes } from '../../../common/CheckElem';
-import { Select } from '../../../common/Select';
+import { CheckElem, checkElemTypes } from '../../../CheckElem';
+import { Select } from '../../../Select';
 import { FieldMetaState } from 'react-final-form';
 import { forEach } from 'lodash';
 import Input from '../Input/';
@@ -80,7 +80,7 @@ const GeneratedField = ({
 
     return validMessage;
   };
-  const error = (meta: FieldMetaState) =>
+  const error = (meta: FieldMetaState<string>) =>
     meta.error &&
     meta.touched && <span className="field__error">{meta.error}</span>;
 

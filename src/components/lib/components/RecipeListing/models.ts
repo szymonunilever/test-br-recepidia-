@@ -1,6 +1,6 @@
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../globalModels';
 import { RecipeFilterOptions } from './partials';
-import { CarouselConfig } from '../common/Carousel/models';
+import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 import { triggerGetSearchData } from 'src/staticPages/Search/models';
@@ -35,6 +35,7 @@ export interface RecipeListingProps
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
   getSearchData?: getSearchData;
+  imageSizes: string;
 }
 
 export type getSearchData = (
@@ -61,4 +62,5 @@ export interface RecipeListingCarouselProps {
   list: Internal.Recipe[];
   config: CarouselConfig;
   ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
 }

@@ -22,12 +22,13 @@ import SearchIcon from 'src/svgs/inline/search-icon.svg';
 import CloseSvg from 'src/svgs/inline/x-mark.svg';
 import { RecipeListViewType } from 'src/components/lib/components/RecipeListing';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
-import withLocation from 'src/components/lib/components/common/WithLocation';
-import { WithLocationProps } from 'src/components/lib/components/common/WithLocation/models';
+import withLocation from 'src/components/lib/components/WithLocation';
+import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { ParsedQuery } from 'query-string';
 import { SearchInputProps } from 'src/components/lib/components/searchInput/models';
 import { get } from 'lodash';
 import { SearchParams } from './models';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
   const { components } = pageContext;
@@ -208,6 +209,7 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
                 recipePerLoad: 4,
                 favorites: [],
                 onFavoriteChange: () => {},
+                imageSizes: '(min-width: 768px) 25vw, 50vw',
               },
               articleConfig: {
                 getArticleSearchData,
@@ -227,7 +229,7 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
         </div>
       </section>
 
-      <section className="_pb--40">
+      <section>
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
@@ -235,8 +237,8 @@ const SearchPage = ({ data, pageContext, search }: SearchPageProps) => {
         />
       </section>
 
-      <section className="_pb--40">
-        <div className="container">
+      <section className="_pt--40 _pb--40">
+        <div className="container _pt--40 _pb--40">
           <PageListing
             content={findPageComponentContent(
               components,

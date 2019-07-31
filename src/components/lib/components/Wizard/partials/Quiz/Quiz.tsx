@@ -1,60 +1,108 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  useCallback,
+  FunctionComponent,
+} from 'react';
 import Question from './partials/Question';
-import Button from '../../../common/Button';
+import Button from '../../../Button';
 import { QuizProps } from './models';
+import { ResultsStore } from '../../models';
 
 const Quiz: FunctionComponent<QuizProps> = ({
+  intro,
   questions,
   actionCallback,
+  stepResultsCallback,
   primaryButtonLabel,
+  primaryButtonFinalLabel,
   secondaryButtonLabel,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFormDirty, setFormDirty] = useState(false);
   const [answers, setAnswers] = useState({});
+  const [currentAnswer, setCurrentAnswer] = useState();
   const question = questions[currentQuestionIndex];
+  const progress = Math.round(
+    ((currentQuestionIndex + 1) / questions.length) * 100
+  );
 
-  const continueCallback = () => {
-    if (questions.length > currentQuestionIndex + 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      actionCallback({
-        data: answers,
-      });
-    }
-  };
-
-  const onChangeCallback = (
-    questionKey: string,
-    value: string | object | null
-  ) => {
+  const putCurrentAnswer = useCallback(() => {
     const updatedAnswers = { ...answers };
-
     // @ts-ignore
-    updatedAnswers[questionKey] = value;
+    updatedAnswers[question.key] = currentAnswer;
     setAnswers(updatedAnswers);
-    setFormDirty(true);
-    // eslint-disable-next-line no-console
-    console.log('current answers are', updatedAnswers);
-  };
+  }, [question, answers, currentAnswer]);
+  const continueAction = useCallback(
+    (data: ResultsStore) => {
+      if (questions.length > currentQuestionIndex + 1) {
+        stepResultsCallback && stepResultsCallback(data);
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      } else {
+        actionCallback(data);
+      }
+    },
+    [currentQuestionIndex]
+  );
+  const skipCallback = useCallback(() => continueAction({ data: answers }), [
+    answers,
+    currentQuestionIndex,
+  ]);
+  const onChangeCallback = useCallback(
+    (questionKey: string, value: string | object | null) => {
+      setCurrentAnswer(value);
+      setFormDirty(true);
+    },
+    []
+  );
+
+  useEffect(() => setFormDirty(false), [currentQuestionIndex]);
+  useEffect(() => {
+    Object.keys(answers).length && continueAction({ data: answers });
+  }, [answers]);
+
+  const getDesktopCols = useCallback((colsNumber: number) => {
+    let val = 3;
+
+    [2].includes(colsNumber) && (val = 2);
+    [3, 5, 6, 9, 11].includes(colsNumber) && (val = 3);
+    [4, 7, 8, 10, 12].includes(colsNumber) && (val = 4);
+
+    return val;
+  }, []);
+
+  const mobileCols = 2;
+  const desktopCols = getDesktopCols(question.options.length);
+  const layoutClass = `wizard-col-${mobileCols}-${desktopCols}`;
 
   return (
-    <form>
-      <Question question={question} onChangeCallback={onChangeCallback} />
-      <div className="wizard__buttons">
-        <Button
-          className="wizard__button wizard__button--primary"
-          onClick={continueCallback}
-          content={{ label: primaryButtonLabel }}
-        />
-        <Button
-          className="wizard__button wizard__button--secondary"
-          onClick={continueCallback}
-          content={{ label: secondaryButtonLabel }}
-        />
-      </div>
-    </form>
+    <Fragment>
+      {currentQuestionIndex === 0 && intro}
+      <form className={layoutClass}>
+        <Question {...{ question, progress, onChangeCallback }} />
+        <div className="wizard__buttons">
+          {/*
+          // @ts-ignore */}
+          <Button
+            className="wizard__button wizard__button--primary"
+            onClick={putCurrentAnswer}
+            isDisabled={!isFormDirty}
+            content={{
+              label:
+                progress === 100 && primaryButtonFinalLabel
+                  ? primaryButtonFinalLabel
+                  : primaryButtonLabel,
+            }}
+          />
+          <Button
+            className="wizard__button wizard__button--secondary"
+            onClick={skipCallback}
+            content={{ label: secondaryButtonLabel }}
+          />
+        </div>
+      </form>
+    </Fragment>
   );
 };
 

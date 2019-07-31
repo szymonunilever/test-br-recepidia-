@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import { TagProps, TagVariant } from '../../models';
-import { Button } from 'src/components/lib/components/common/Button';
+import { Button } from 'src/components/lib/components/Button';
 import cx from 'classnames';
 
 const Tag = ({

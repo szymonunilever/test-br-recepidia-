@@ -1,5 +1,5 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
-import { titleLevel } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
+import { titleLevel } from '../globalModels';
 
 export type HeroViewType = 'Text' | 'Image';
 

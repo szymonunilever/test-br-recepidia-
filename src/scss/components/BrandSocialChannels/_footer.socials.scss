@@ -35,8 +35,8 @@
     }
   }
   &__link {
-    &:hover {
-      @include respondTo(desktop) {
+    @media (hover) {
+      &:hover {
         .social-channels__icon {
           svg {
             transform: scale(1.2);

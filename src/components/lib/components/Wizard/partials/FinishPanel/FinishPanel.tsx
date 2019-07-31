@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { FinishPanelProps } from './models';
 import { TagName, Text } from '../../../Text';
-import { Button } from '../../../common/Button';
+import { Button } from '../../../Button';
 import AdaptiveImage from '../../../AdaptiveImage';
 
 const FinishPanel: FunctionComponent<FinishPanelProps> = ({

@@ -3,7 +3,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { IntroductionPanelProps } from './models';
 import { TagName, Text } from '../../../Text';
 import AdaptiveImage from '../../../AdaptiveImage';
-import { Button } from '../../../common/Button';
+import { Button } from '../../../Button';
 
 const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   title,
@@ -16,7 +16,7 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   <Fragment>
     <div className="wizard__info">
       <div className="wizard__title">
-        <Text className="" tag={TagName.h2} text={title} />
+        <Text className="" tag={TagName.h1} text={title} />
       </div>
       <div className="wizard__description">
         <Text className="" tag={TagName.p} text={description} />

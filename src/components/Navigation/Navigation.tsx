@@ -18,7 +18,7 @@ const Navigation: React.SFC<NavigationProps> = ({
 }) => {
   const data = useStaticQuery(graphql`
     {
-      allTagGroup {
+      allTagGroupings {
         nodes {
           children {
             ... on Tag {
@@ -42,7 +42,7 @@ const Navigation: React.SFC<NavigationProps> = ({
     }
   `);
 
-  const tagGroups = data.allTagGroup.nodes;
+  const tagGroups = data.allTagGroupings.nodes;
   const recipeCategoryPath = data.allPage.nodes[0].relativePath;
   const menuItems = constructMenu(
     tagGroups,

@@ -68,16 +68,7 @@ const Layout = ({ children, className }: LayoutProps) => {
         shouldValidate={true}
         onSubmit={onSignUpCallback}
         recaptchaAction="SignUpEmail"
-        content={{
-          ...findPageComponentContent(components, 'Form', 'SignUpForm'),
-          fields: [
-            {
-              ...findPageComponentContent(components, 'Form', 'SignUpForm')
-                .fields[0],
-              label: 'Email',
-            },
-          ],
-        }}
+        content={findPageComponentContent(components, 'Form', 'SignUpForm')}
         className="general-signup"
       />
       <GlobalFooter
@@ -89,8 +80,6 @@ const Layout = ({ children, className }: LayoutProps) => {
           listIcons={{
             facebook: <FacebookIcon />,
             instagram: <InstagramIcon />,
-            twitter: <TwitterIcon />,
-            pinterest: <PinterestIcon />,
           }}
         />
       </GlobalFooter>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import RecipeHero from 'src/components/lib/components/RecipeHero';
@@ -14,7 +14,7 @@ import RecipeAttributes, {
 import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
 import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
 import RecipePeople from 'src/svgs/inline/recipe-people.svg';
-import RecipeKnife from 'src/svgs/inline/recope-chop.svg';
+import RecipeKnife from 'src/svgs/inline/recipe-chop.svg';
 import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
@@ -38,7 +38,7 @@ import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
-import Button from '../../components/lib/components/common/Button';
+import Button from '../../components/lib/components/Button';
 import SocialSharing, {
   SocialSharingViewType,
   SocialIcons,
@@ -46,18 +46,42 @@ import SocialSharing, {
 import AddThis from '../../../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
-import InstagramIcon from 'src/svgs/inline/instagram.svg';
 import TwitterIcon from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
+import Hero from 'src/components/lib/components/Hero';
+import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 
-const RecipePage = ({ data, pageContext }: RecipePageProps) => {
-  const { recipe } = data;
-  const { components } = pageContext;
+const RecipePage = ({ pageContext }: RecipePageProps) => {
+  const {
+    allTag,
+    allRecipe,
+  }: {
+    allTag: {
+      nodes: Internal.Tag[];
+    };
+    allRecipe: {
+      nodes: Internal.Recipe[];
+    };
+  } = useStaticQuery(graphql`
+    {
+      allTag {
+        nodes {
+          ...TagFields
+        }
+      }
+
+      allRecipe(limit: 10) {
+        nodes {
+          ...RecipeFields
+        }
+      }
+    }
+  `);
+  const { components, recipe } = pageContext;
   // TODO below fields should be fetched from back-end. Currenty missing in back-end response
   recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as any;
   recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as any;
-  recipe.nutrients = dataRecipe.nutrientsPerServing as any;
-  const tags = data.allTag.nodes;
+  const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
       id: 'vegetarian',
@@ -117,7 +141,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     },
   ];
 
-  const relatedRecipes = data.allRecipe.nodes;
+  const relatedRecipes = allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tabsContent = {
     tabs: [
@@ -134,14 +158,13 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
-    //TODO linkedin icon should be here
-    linkedIn: InstagramIcon,
   };
 
   const recipeHero = (
     <>
       <RecipeHero
         content={recipe}
+        imageSizes={'(min-width: 1366px) 40vw, 90vw'}
         imagePlaceholder={{
           id: '0bcf6c75-0450-554d-89c7-85316cc28839',
           childImageSharp: {
@@ -184,8 +207,9 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
       <Kritique />
+      <RecipeMicrodata recipe={recipe} />
 
-      <section className={cx(theme.topBg, '_pt--40 _pb--40 _bg--main')}>
+      <section className={cx(theme.topBg, '_bg--main')}>
         <div className="container">
           <div className={theme.recipeTopBlock}>
             <div className={theme.recipeTopBlockItem}>
@@ -295,6 +319,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
           />
           <RecipeNutrients
             recipe={recipe}
+            modalTitle={'Nutritional information'}
             content={findPageComponentContent(components, 'RecipeNutrients')}
             viewType={RecipeNutrientsViewType.WithAction}
             CloseButton={CloseButton}
@@ -303,16 +328,29 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
       </section>
       <section className="_pt--40">
         <div className="container">
+          <Reviews
+            recipeId={recipe.recipeId}
+            provider={RatingAndReviewsProvider.kritique}
+            linkTo={recipe.fields.slug}
+          />
+        </div>
+      </section>
+      <section className="_pt--40 _pb--40">
+        <div className="container">
           <TagLinks
             list={tags}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
       </section>
-      <section className="_pt--40">
-        {/* Hero Component should go here */}
+      <section className="_pb--40">
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
       </section>
-      <section className="_pt--40">
+      <section className="_pt--40 _pb--40">
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
@@ -340,15 +378,7 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
               ],
               arrowIcon: <ArrowIcon />,
             }}
-          />
-        </div>
-      </section>
-      <section className="_pt--40">
-        <div className="container">
-          <Reviews
-            recipeId={recipe.recipeId}
-            provider={RatingAndReviewsProvider.kritique}
-            linkTo={recipe.fields.slug}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
@@ -358,40 +388,12 @@ const RecipePage = ({ data, pageContext }: RecipePageProps) => {
 
 export default RecipePage;
 
-export const query = graphql`
-  query($slug: String!) {
-    recipe(fields: { slug: { eq: $slug } }) {
-      ...RecipeFields
-    }
-
-    allTag {
-      nodes {
-        ...TagFields
-      }
-    }
-
-    allRecipe(limit: 10) {
-      nodes {
-        ...RecipeFields
-      }
-    }
-  }
-`;
-
 interface RecipePageProps {
-  data: {
-    recipe: Internal.Recipe;
-    allTag: {
-      nodes: Internal.Tag[];
-    };
-    allRecipe: {
-      nodes: Internal.Recipe[];
-    };
-  };
   pageContext: {
     title: string;
     components: {
       [key: string]: string | number | boolean | object | null;
     }[];
+    recipe: Internal.Recipe;
   };
 }

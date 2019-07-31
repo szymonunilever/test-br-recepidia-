@@ -7,8 +7,10 @@ export interface Question {
   label: string;
   type: {
     control: string;
+    labelPosition: string;
   };
   options: QuestionOption[];
+  selectedOptions?: string[];
 }
 
 export interface QuestionOption {
@@ -20,10 +22,13 @@ export interface QuestionOption {
 }
 
 export interface QuizProps {
+  intro?: JSX.Element;
   stepId: string;
   containerClass: string;
   questions: Question[];
   primaryButtonLabel: string;
+  primaryButtonFinalLabel?: string;
   secondaryButtonLabel: string;
   actionCallback: (answers: object) => void;
+  stepResultsCallback?: (answers: object) => void;
 }

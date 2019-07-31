@@ -6,14 +6,10 @@ import React, {
   useCallback,
 } from 'react';
 import { ResultsStore, NextAction, WizardProps } from './models';
-import WizardLogo from '../../../../svgs/inline/wizard-logo.svg';
-import { Button, ButtonViewType } from '../common/Button';
-import CloseSvg from '../../../../svgs/inline/x-mark.svg';
 import cx from 'classnames';
 
 const Wizard: FunctionComponent<WizardProps> = ({
   step = 0,
-  closeCallback,
   actionCallback,
   children,
 }) => {
@@ -57,17 +53,7 @@ const Wizard: FunctionComponent<WizardProps> = ({
   return (
     <div className={cx('wizard', wizardClassName)}>
       <div className="wizard__container">
-        <div className="wizard__logo">
-          <WizardLogo />
-        </div>
         <div className="wizard__content">{currentComponent}</div>
-        <Button
-          className="wizard__close"
-          Icon={CloseSvg}
-          onClick={closeCallback}
-          isToggle={true}
-          viewType={ButtonViewType.icon}
-        />
       </div>
     </div>
   );

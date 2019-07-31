@@ -1,5 +1,5 @@
 import { ReactComponentElement } from 'react';
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../globalModels';
 import { Tab } from './partials';
 
 export interface TabsProps

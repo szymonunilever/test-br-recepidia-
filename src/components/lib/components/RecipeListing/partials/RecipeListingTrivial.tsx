@@ -12,6 +12,7 @@ const RecipeListingTrivial = ({
   onFavoriteChange,
   content: { nullResult },
   ratingProvider = RatingAndReviewsProvider.none,
+  imageSizes,
 }: RecipeListingTrivialProps) => (
   <ul className="recipe-list__list">
     {list.length > 0 ? (
@@ -30,6 +31,7 @@ const RecipeListingTrivial = ({
               slug={item.fields.slug}
               onFavoriteChange={onFavoriteChange}
               ratingProvider={ratingProvider}
+              imageSizes={imageSizes}
             />
           </li>
         );
