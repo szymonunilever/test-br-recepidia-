@@ -16,6 +16,7 @@ import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import TagLinks from 'src/components/TagsLinks';
+import DigitalData from '../../../integrations/DigitalData';
 
 const ContentHubPage: React.SFC<ContentHubPageProps> = ({
   data,
@@ -34,6 +35,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
   return (
     <Layout className={classWrapper}>
       <SEO title={`Recipe category: ${tag.title}`} />
+      <DigitalData pageContext={pageContext} data={tag} />
       <Kritique />
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>

@@ -19,6 +19,7 @@ import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
 import FilterIcon from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import theme from './AllRecipes.module.scss';
+import DigitalData from '../../../integrations/DigitalData';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
@@ -27,6 +28,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   return (
     <Layout className={theme.allRecipes}>
       <SEO title="All Recipes" />
+      <DigitalData pageContext={pageContext} data={data} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
