@@ -6,17 +6,18 @@ export const findPageComponentContent = (
   name: string,
   view?: string
 ) => {
-  const component = find(
-    components,
-    ({ name: compName, content }) =>
-      compName === name &&
-      (!get(content, 'view') || get(content, 'view') === view)
-  );
-  const content = component.content;
+  const component =
+    find(
+      components,
+      ({ name: compName, content }) =>
+        compName === name &&
+        (!get(content, 'view') || get(content, 'view') === view)
+    ) || {};
+  const content = get(component, 'content', {});
 
   if (component.assets) {
     content.image = component.assets[0];
   }
 
-  return component.content;
+  return content;
 };

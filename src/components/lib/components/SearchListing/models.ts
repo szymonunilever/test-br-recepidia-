@@ -63,7 +63,7 @@ export declare interface SearchListingContent {
   searchInputContent: AppContent.SearchInput.Content;
   tabsContent: AppContent.Tabs.Content;
   articleContent: AppContent.MediaGalleryContent;
-  recipeContent: AppContent.RecipeListing.Content;
+  recipesContent: AppContent.RecipeListing.Content;
   nullResultContent: AppContent.SearchListing.NullResult;
 }
 

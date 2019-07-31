@@ -32,7 +32,7 @@ const tabsContent: AppContent.Tabs.Content = {
   ],
 };
 
-const recipeContent = {
+const recipesContent = {
   title: 'Recipes',
   cta: { label: 'Load More Button' },
   nullResult: {
@@ -122,7 +122,7 @@ storiesOf('Components/Search listing', module)
             searchInputContent,
             articleContent,
             tabsContent,
-            recipeContent,
+            recipesContent,
             nullResultContent,
           }}
           config={{ searchInputConfig, recipeConfig, articleConfig }}
@@ -165,7 +165,7 @@ storiesOf('Components/Search listing', module)
             articleContent,
             searchInputContent,
             tabsContent,
-            recipeContent,
+            recipesContent,
             nullResultContent,
           }}
           config={{ searchInputConfig, recipeConfig, articleConfig }}
