@@ -216,9 +216,7 @@ export const RecipeListing = ({
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={
-            recipeList.length ||
-            (loadMoreConfig && loadMoreConfig.allCount) ||
-            0
+            (loadMoreConfig && loadMoreConfig.allCount) || recipeList.length
           }
           content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}
