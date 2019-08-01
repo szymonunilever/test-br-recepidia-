@@ -1,10 +1,11 @@
 .progress-bar {
-    position: relative;
-    border: transparent;
-}
-
-.progress-bar__content {
-    display: inline-block;
-    border-radius: inherit;
-    vertical-align: top;
+  position: relative;
+  border: transparent;
+  :global {
+    .progress-bar__content {
+      display: inline-block;
+      border-radius: inherit;
+      vertical-align: top;
+    }
+  }
 }

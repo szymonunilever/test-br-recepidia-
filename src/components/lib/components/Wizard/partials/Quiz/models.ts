@@ -10,7 +10,6 @@ export interface Question {
     labelPosition: string;
   };
   options: QuestionOption[];
-  selectedOptions?: string[];
 }
 
 export interface QuestionOption {

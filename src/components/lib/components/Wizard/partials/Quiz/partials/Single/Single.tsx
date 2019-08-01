@@ -12,10 +12,10 @@ import Option from '../Option';
 const Single: FunctionComponent<QuestionProps> = ({
   question,
   progress,
+  selectedOptions,
   onChangeCallback,
 }) => {
-  const defaultValue =
-    (question.selectedOptions && question.selectedOptions[0]) || '';
+  const defaultValue = selectedOptions || '';
   const [val, setVal] = useState(defaultValue);
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setVal(event.target.value);
