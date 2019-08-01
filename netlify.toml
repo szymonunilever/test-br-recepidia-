@@ -1,5 +1,5 @@
 [build]
-  command = "yarn ci"
+  command = "yarn build"
 
 [[headers]]
   for = "/*"
