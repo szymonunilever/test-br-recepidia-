@@ -3,7 +3,7 @@ import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
-import { triggerGetSearchData } from 'src/staticPages/Search/models';
+import { triggerGetSearchData } from '../SearchListing/models';
 
 export enum RecipeListViewType {
   Trivial,
