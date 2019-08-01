@@ -11,6 +11,7 @@ const componentsMap = {
 const Question: FunctionComponent<QuestionProps> = ({
   question,
   progress,
+  selectedOptions,
   onChangeCallback,
 }) => {
   // @ts-ignore
@@ -18,7 +19,7 @@ const Question: FunctionComponent<QuestionProps> = ({
 
   return Component ? (
     <Component
-      {...{ question, progress, onChangeCallback }}
+      {...{ question, progress, selectedOptions, onChangeCallback }}
       key={question.id}
     />
   ) : null;
