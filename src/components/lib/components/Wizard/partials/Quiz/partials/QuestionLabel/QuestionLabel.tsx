@@ -9,7 +9,7 @@ const QuestionLabel: FunctionComponent<QuestionLabelProps> = ({
 }) => (
   <div className="wizard__info">
     <div className="wizard__title">
-      <Text className="" tag={TagName.h2} text={label} />
+      <Text className="" tag={TagName.p} text={label} />
     </div>
     {progress && (
       <div className="wizard__progress">
