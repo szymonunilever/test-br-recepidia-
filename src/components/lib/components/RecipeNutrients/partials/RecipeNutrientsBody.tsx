@@ -12,7 +12,7 @@ export const RecipeNutrientsBody = ({
   const classWrapper = cx(theme.recipeNutrientsBody, className);
   return (
     <div className={classWrapper}>
-      {recipe.nutrientsPer100g && (
+      {recipe.nutrientsPer100g && recipe.nutrientsPer100g.length > 0 && (
         <RecipeNurientsTable100
           label={titlePer100}
           nutrients={recipe.nutrientsPer100g}
