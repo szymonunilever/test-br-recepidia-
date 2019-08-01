@@ -26,7 +26,7 @@ $button-disabled-color: #636363 !default;
   align-items: center;
   font-size: $button-font-size;
   justify-content: center;
-  font-weight: 500;
+  font-weight: bold;
   height: $button-height;
   line-height: normal;
   padding: $button-padding;
@@ -72,10 +72,10 @@ $button-disabled-color: #636363 !default;
   }
 
   // Button color modification
-
   &--secondary {
     background-color: $button-secondary-background;
     color: $button-secondary-color;
+    font-weight: normal;
   }
 
   &--yellow {

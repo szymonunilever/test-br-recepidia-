@@ -1,4 +1,4 @@
-.hero--planner{
+.hero--planner {
   background-color: $fish-blue-darker;
   display: flex;
   flex-direction: column-reverse;
@@ -7,29 +7,29 @@
     position: relative;
     border-radius: 0;
   }
-  .hero{
-    &__image{
-      .gatsby-image-wrapper{
+  .hero {
+    &__image {
+      .gatsby-image-wrapper {
         height: 300px;
       }
       @include respondTo(desktop) {
         width: 50%;
         align-self: flex-end;
-        .gatsby-image-wrapper{
+        .gatsby-image-wrapper {
           height: 556px;
         }
       }
     }
-    &__container{
+    &__container {
       @extend .container;
       @include respondTo(desktop) {
         width: 100%;
-        & > div{
+        & > div {
           width: 50%;
         }
       }
     }
-    &__copy{
+    &__copy {
       position: relative;
       padding-top: 42px;
       padding-bottom: 40px;
@@ -44,24 +44,24 @@
         align-items: center;
       }
     }
-    &__header{
+    &__header {
       margin-bottom: 19px;
       @include respondTo(desktop) {
         padding: 0 30px;
       }
-      h2{
+      h2 {
         margin: 0;
         @include respondTo(desktop) {
           font-size: 4.5rem;
         }
       }
     }
-    &__long-subheader{
+    &__long-subheader {
       margin-bottom: 27px;
       @include respondTo(desktop) {
         padding: 0 70px;
       }
-      p{
+      p {
         font-size: 1.4rem;
         margin: 0;
         @include respondTo(desktop) {
@@ -69,12 +69,11 @@
         }
       }
     }
-    &__cta-primary{
-      button{
+    &__cta-primary {
+      button {
         @extend .button;
         @extend .button--medium;
         @extend .button--yellow;
-        font-weight: bold;
         @include respondTo(desktop) {
           font-size: 1.6rem;
         }
