@@ -9,6 +9,8 @@ import { PreferenceEntryProps } from './models';
 import Button from 'src/components/lib/components/Button';
 import Question from 'src/components/lib/components/Wizard/partials/Quiz/partials/Question';
 import QuestionLabel from 'src/components/lib/components/Wizard/partials/Quiz/partials/QuestionLabel';
+import IconEdit from 'src/svgs/inline/edit.svg';
+import IconDelete from 'src/svgs/inline/delete.svg';
 
 const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
   preferenceEntry,
@@ -60,7 +62,7 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
           onChangeCallback={updateAnswers}
         />
       ) : (
-        <Fragment>
+        <div className="preferences__content-item-info">
           <QuestionLabel label={preferenceEntry.label} />
           {selectedOptions && (
             <div className="preferences__item-answers">
@@ -76,17 +78,30 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
                 ))}
             </div>
           )}
-        </Fragment>
+        </div>
       )}
       <div className="preferences__content-edit-controls" hidden={!editingThis}>
-        <Button content={buttonsContent.cancelButton} onClick={cancelEditing} />
-        <Button content={buttonsContent.saveButton} onClick={saveChanges} />
+        <Button
+          className="preferences__content-controls-cancel"
+          content={buttonsContent.cancelButton}
+          onClick={cancelEditing}
+        />
+        <Button
+          className="preferences__content-controls-save"
+          content={buttonsContent.saveButton}
+          onClick={saveChanges}
+        />
       </div>
       <div className="preferences__content-controls" hidden={editingThis}>
-        <Button content={buttonsContent.editButton} onClick={triggerEdit} />
         <Button
-          content={buttonsContent.deleteButton}
+          className="preferences__content-controls-delete"
+          Icon={IconDelete}
           onClick={deleteThisPreference}
+        />
+        <Button
+          className="preferences__content-controls-edit"
+          Icon={IconEdit}
+          onClick={triggerEdit}
         />
       </div>
     </div>
