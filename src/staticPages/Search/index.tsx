@@ -181,68 +181,66 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO title="Recepedia Search" />
       <DigitalData pageContext={pageContext} data={data} />
       <Kritique />
-      <section className="_bg--main">
-        <div className="container">
-          <SearchListing
-            searchQuery={searchQuery}
-            searchResults={{
-              recipeResults,
-              searchInputResults,
-              articleResults,
-            }}
-            searchResultTitleLevel={3}
-            config={{
-              searchInputConfig: {
-                getSearchSuggestionData,
-                onClickSearchResultsItem: getSearchData,
-                searchResultsCount: 8,
-                labelIcon: <SearchIcon />,
-                buttonResetIcon: <CloseSvg />,
-                buttonSubmitIcon: <PlaceholderIcon />,
+      <section>
+        <SearchListing
+          searchQuery={searchQuery}
+          searchResults={{
+            recipeResults,
+            searchInputResults,
+            articleResults,
+          }}
+          searchResultTitleLevel={3}
+          config={{
+            searchInputConfig: {
+              getSearchSuggestionData,
+              onClickSearchResultsItem: getSearchData,
+              searchResultsCount: 8,
+              labelIcon: <SearchIcon />,
+              buttonResetIcon: <CloseSvg />,
+              buttonSubmitIcon: <PlaceholderIcon />,
+            },
+            recipeConfig: {
+              getRecipeSearchData,
+              viewType: RecipeListViewType.Base,
+              FavoriteIcon,
+              withFavorite: true,
+              initialCount: 2,
+              recipePerLoad: 4,
+              favorites: [],
+              onFavoriteChange: () => {},
+              imageSizes: '(min-width: 768px) 25vw, 50vw',
+              ratingProvider: RatingAndReviewsProvider.kritique,
+            },
+            articleConfig: {
+              getArticleSearchData,
+            },
+          }}
+          content={{
+            ...findPageComponentContent(components, 'SearchListing'),
+            articleContent: {
+              title: 'Articles',
+              cta: {
+                label: 'Load more',
               },
-              recipeConfig: {
-                getRecipeSearchData,
-                viewType: RecipeListViewType.Base,
-                FavoriteIcon,
-                withFavorite: true,
-                initialCount: 2,
-                recipePerLoad: 4,
-                favorites: [],
-                onFavoriteChange: () => {},
-                imageSizes: '(min-width: 768px) 25vw, 50vw',
-                ratingProvider: RatingAndReviewsProvider.kritique,
-              },
-              articleConfig: {
-                getArticleSearchData,
-              },
-            }}
-            content={{
-              ...findPageComponentContent(components, 'SearchListing'),
-              articleContent: {
-                title: 'Articles',
-                cta: {
-                  label: 'Load more',
+            },
+            tabsContent: {
+              tabs: [
+                {
+                  title: 'All',
+                  view: 'all',
                 },
-              },
-              tabsContent: {
-                tabs: [
-                  {
-                    title: 'All',
-                    view: 'all',
-                  },
-                  {
-                    title: 'Articles',
-                    view: 'articles',
-                  },
-                  {
-                    title: 'Recipes',
-                    view: 'recipes',
-                  },
-                ],
-              },
-            }}
-          />
-        </div>
+                {
+                  title: 'Articles',
+                  view: 'articles',
+                },
+                {
+                  title: 'Recipes',
+                  view: 'recipes',
+                },
+              ],
+            },
+          }}
+        />
       </section>
 
       <section className="_pt--40 _pb--40">
