@@ -15,11 +15,6 @@ const sortByAverageRating = (list: Internal.Recipe[]) => {
 const sortByNewest = (list: Internal.Recipe[]) =>
   _sortBy(list, ['creationTime']);
 
-const sortByRecentlyUpdate = (list: Internal.Recipe[]) => {
-  //TODO: find what property we can use for this and rewrite method
-  return list;
-};
-
 const sortByTitle = (list: Internal.Recipe[]) => _sortBy(list, ['title']);
 
 export function applyingFavorites(
@@ -76,8 +71,6 @@ export function sortBy(sort: RecipeSortingOptions, list: Internal.Recipe[]) {
       return sortByCookingTime(list);
     case RecipeSortingOptions.averageRating:
       return sortByAverageRating(list);
-    case RecipeSortingOptions.recentlyUpdated:
-      return sortByRecentlyUpdate(list);
     case RecipeSortingOptions.title:
       return sortByTitle(list);
     case RecipeSortingOptions.newest:

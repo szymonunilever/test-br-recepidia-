@@ -36,7 +36,6 @@ export enum RecipeSortingOptions {
   cookingTime,
   averageRating,
   newest,
-  recentlyUpdated,
   title,
 }
 
@@ -45,12 +44,12 @@ export const RecipeSortingOptionsFieldsMappings = {
   [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
   [RecipeSortingOptions.averageRating]: 'rating.averageRating',
   [RecipeSortingOptions.newest]: 'creationTime',
-  [RecipeSortingOptions.recentlyUpdated]: 'creationTime',
-  [RecipeSortingOptions.title]: 'title',
+  [RecipeSortingOptions.title]: 'title.keyword',
 };
 
 export interface RecipeFilterOptions {
   tagGroups: Internal.TagGroup[];
+  displayCategories?: string[];
 }
 
 export interface RecipeFilterProps
