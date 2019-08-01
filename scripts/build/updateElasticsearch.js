@@ -77,7 +77,14 @@ const updateRecipes = async recipes => {
     'recipeId',
     keys.elasticSearch.url,
     keys.elasticSearch.recipeIndex,
-    ['parent', 'children', 'internal']
+    [
+      'parent',
+      'children',
+      'internal',
+      'methods',
+      'nutrients',
+      'nutrientsPerServing',
+    ]
   );
 };
 
