@@ -33,7 +33,7 @@ const clearIndex = async (url, index) => {
   }
 };
 
-const bulkBatchPost = (items, idField, esIndex, esUrl, fieldsToDelete) => {
+const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
   const promises = [];
   const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
   let startItem = 0;
@@ -72,21 +72,25 @@ const bulkBatchPost = (items, idField, esIndex, esUrl, fieldsToDelete) => {
 const updateRecipes = async recipes => {
   await clearIndex(keys.elasticSearch.url, keys.elasticSearch.recipeIndex);
 
-  return bulkBatchPost(recipes, 'recipeId', keys.elasticSearch.recipes, [
-    'parent',
-    'children',
-    'internal',
-  ]);
+  return bulkBatchPost(
+    recipes,
+    'recipeId',
+    keys.elasticSearch.url,
+    keys.elasticSearch.recipeIndex,
+    ['parent', 'children', 'internal']
+  );
 };
 
 const updateArticles = async articles => {
   await clearIndex(keys.elasticSearch.url, keys.elasticSearch.articleIndex);
 
-  return bulkBatchPost(articles, 'id', keys.elasticSearch.articles, [
-    'parent',
-    'children',
-    'internal',
-  ]);
+  return bulkBatchPost(
+    articles,
+    'id',
+    keys.elasticSearch.url,
+    keys.elasticSearch.articleIndex,
+    ['parent', 'children', 'internal']
+  );
 };
 
 module.exports = { updateRecipes, updateArticles, NODE_TYPES };
