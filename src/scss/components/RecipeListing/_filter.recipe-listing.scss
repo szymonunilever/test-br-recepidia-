@@ -1,52 +1,104 @@
-.recipe-list{
-  &__filter{
+.recipe-list {
+  &__filter {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    .filter{
-      &__count{
-        @extend h4;
+    .filter {
+      &__count {
+        @extend h2;
+        font-size: 1.8rem;
         margin-right: auto;
+        @include respondTo(desktop) {
+          font-size: 2.5rem;
+        }
       }
-      &__sort{
-        width: 120px;
-        &:hover{
+      &__sort {
+        width: calc(100px + 5vw);
+        @include respondTo(desktop) {
+          width: 180px;
+        }
+        &:hover {
           cursor: pointer;
         }
-        &> *{
+        & > * {
           font-size: 1.4rem;
         }
-        [class*='menu']{
+        [class*='menu'] {
+          margin: 0;
+          border: none;
           z-index: 2;
-        }
-        [class*='control']{
-          border-radius: 0;
-          &:hover{
-            cursor: pointer;
+          & > div:first-child {
+            padding: 0;
           }
         }
-        [class*='placeholder']{
+        [class*='control'] {
+          border-radius: 0;
+          padding: 0 10px;
+          min-height: 43px;
+          line-height: 28px;
+          margin: 0;
+          box-shadow: none;
+          @include respondTo(desktop) {
+            min-height: 46px;
+            // for ie aligning
+            line-height: 32px;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+          //temporary
+        }
+        [class*='placeholder'] {
           color: $black-blue;
         }
-        .option{
+        .option {
           font-size: 1.4rem;
+          transition: background-color 0.2s ease-out;
+          color: $black-blue;
+          &.is-focused {
+            background: $apple-green;
+          }
+          &.is-selected {
+            background: $black-blue;
+            color: $white;
+          }
+          &:last-child {
+            display: none;
+          }
         }
-        @include respondTo(desktop){
-          width: 140px;
-        }
-        &-label-text{
+        &-label-text {
           @extend .sr-only;
         }
       }
-      &__button{
+      &__button {
         @extend .button;
         @extend .button--filter;
+        min-height: 43px;
+        @include respondTo(desktop) {
+          min-height: 46px;
+        }
+        min-width: 46px;
       }
     }
-    .tags{
+    .tags {
       width: 100%;
       margin: 0;
       padding: 20px 0;
+    }
+    .tags__item {
+    }
+    .tags__removable {
+      border: 1px solid $black-blue;
+      border-radius: 20px;
+      height: 32px;
+      @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+        &:hover {
+          border-color: darken($apple-green , 10%);
+          svg {
+            fill: $black-blue;
+          }
+        }
+      }
     }
   }
 }

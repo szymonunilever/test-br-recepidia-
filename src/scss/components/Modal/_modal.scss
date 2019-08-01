@@ -124,10 +124,6 @@
   .modal {
     &__content {
       @extend %modal__content--desktop-bordered;
-      padding-top: 26px;
-      @include respondTo(desktop) {
-        padding-top: 42px;
-      }
     }
     &__btn-close {
       svg {

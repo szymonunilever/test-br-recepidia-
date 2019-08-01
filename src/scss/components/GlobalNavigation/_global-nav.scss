@@ -182,7 +182,7 @@ $submenu-text-color: $fish-blue-darker;
       width: 48px;
       height: 48px;
       transition: all 0.2s ease-out;
-      @media (hover) {
+      @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
         &:hover {
           color: $black-blue;
           stroke: $black-blue;

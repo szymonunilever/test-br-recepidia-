@@ -26,7 +26,7 @@ import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { SearchInputProps } from 'src/components/lib/components/searchInput/models';
-import { SearchParams } from './models';
+import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
@@ -181,68 +181,75 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO title="Recepedia Search" />
       <DigitalData pageContext={pageContext} data={data} />
       <Kritique />
-      <section className="_bg--main">
-        <div className="container">
-          <SearchListing
-            searchQuery={searchQuery}
-            searchResults={{
-              recipeResults,
-              searchInputResults,
-              articleResults,
-            }}
-            searchResultTitleLevel={3}
-            config={{
-              searchInputConfig: {
-                getSearchSuggestionData,
-                onClickSearchResultsItem: getSearchData,
-                searchResultsCount: 8,
-                labelIcon: <SearchIcon />,
-                buttonResetIcon: <CloseSvg />,
-                buttonSubmitIcon: <PlaceholderIcon />,
+      <section>
+        <SearchListing
+          searchQuery={searchQuery}
+          searchResults={{
+            recipeResults,
+            searchInputResults,
+            articleResults,
+          }}
+          searchResultTitleLevel={3}
+          config={{
+            searchInputConfig: {
+              getSearchSuggestionData,
+              onClickSearchResultsItem: getSearchData,
+              searchResultsCount: 8,
+              labelIcon: <SearchIcon />,
+              buttonResetIcon: <CloseSvg />,
+              buttonSubmitIcon: <SearchIcon />,
+            },
+            recipeConfig: {
+              getRecipeSearchData,
+              viewType: RecipeListViewType.Base,
+              FavoriteIcon,
+              withFavorite: true,
+              initialCount: 2,
+              recipePerLoad: 4,
+              favorites: [],
+              onFavoriteChange: () => {},
+              imageSizes: '(min-width: 768px) 25vw, 50vw',
+              ratingProvider: RatingAndReviewsProvider.kritique,
+            },
+            articleConfig: {
+              getArticleSearchData,
+            },
+          }}
+          content={{
+            ...findPageComponentContent(components, 'SearchListing'),
+            articleContent: {
+              title: 'Articles',
+              cta: {
+                label: 'Load more',
               },
-              recipeConfig: {
-                getRecipeSearchData,
-                viewType: RecipeListViewType.Base,
-                FavoriteIcon,
-                withFavorite: true,
-                initialCount: 2,
-                recipePerLoad: 4,
-                favorites: [],
-                onFavoriteChange: () => {},
-                imageSizes: '(min-width: 768px) 25vw, 50vw',
-                ratingProvider: RatingAndReviewsProvider.kritique,
+            },
+            recipesContent: {
+              title: 'Recipes',
+              cta: {
+                label: 'Load more',
               },
-              articleConfig: {
-                getArticleSearchData,
-              },
-            }}
-            content={{
-              ...findPageComponentContent(components, 'SearchListing'),
-              articleContent: {
-                title: 'Articles',
-                cta: {
-                  label: 'Load more',
+            },
+            tabsContent: {
+              tabs: [
+                {
+                  title: 'All',
+                  view: 'all',
                 },
-              },
-              tabsContent: {
-                tabs: [
-                  {
-                    title: 'All',
-                    view: 'all',
-                  },
-                  {
-                    title: 'Articles',
-                    view: 'articles',
-                  },
-                  {
-                    title: 'Recipes',
-                    view: 'recipes',
-                  },
-                ],
-              },
-            }}
-          />
-        </div>
+                {
+                  title: 'Articles',
+                  view: 'articles',
+                },
+                {
+                  title: 'Recipes',
+                  view: 'recipes',
+                },
+              ],
+            },
+            searchInputContent: {
+              placeholderText: 'Enter minimum 3 characters',
+            },
+          }}
+        />
       </section>
 
       <section className="_pt--40 _pb--40">

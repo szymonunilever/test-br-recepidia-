@@ -12,9 +12,13 @@ import Option from '../Option';
 const Multi: FunctionComponent<QuestionProps> = ({
   question,
   progress,
+  selectedOptions,
   onChangeCallback,
 }) => {
-  const defaultValue = question.selectedOptions || [];
+  const defaultValue =
+    (selectedOptions &&
+      (Array.isArray(selectedOptions) ? selectedOptions : [selectedOptions])) ||
+    [];
   const [val, setVal] = useState<string[]>(defaultValue);
 
   const onChange = useCallback(

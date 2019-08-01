@@ -9,6 +9,7 @@ import {
   RecipeFilter,
   RecipeListingTrivial,
   RecipeSortingOptions,
+  RecipeSortingOptionsFieldsMappings,
 } from './partials';
 import theme from './RecipeListing.module.scss';
 import {
@@ -35,6 +36,7 @@ export const RecipeListing = ({
   list,
   initialCount = 4,
   onFavoriteChange,
+  onViewChange,
   loadMoreConfig,
   tags = { tagGroups: [] },
   carouselConfig = {
@@ -60,23 +62,14 @@ export const RecipeListing = ({
       : listWithFavorites;
 
   const [displayNumber, setDisplayNumber] = useState(initialCount);
-  const [listState, setListState] = useState<{
-    listItems: Internal.Recipe[];
-    filterLength: number;
-    filter: Internal.Tag[];
-    sorting: RecipeSortingOptions;
-  }>({
-    listItems: listModified,
-    filterLength: listModified.length,
-    filter: [],
-    sorting: RecipeSortingOptions.newest,
-  });
+  const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
+    RecipeSortingOptions.newest
+  );
+  const [filteringValue, setFilteringValue] = useState<Internal.Tag[]>([]);
+  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(listModified);
 
   useEffect(() => {
-    setListState({
-      ...listState,
-      listItems: listModified,
-    });
+    setRecipeList(list);
   }, [list]);
 
   const isAsyncLoadMore = () =>
@@ -90,49 +83,44 @@ export const RecipeListing = ({
   };
   const onFilterChange = (filter: Internal.Tag[]) => {
     if (isAsyncLoadMore()) {
-      const filtered = applyFilters(filter, listModified);
-
-      setListState({
-        ...listState,
-        listItems: filtered,
-        filterLength: filtered.length,
-        filter,
-      });
+      if (onViewChange) {
+        onViewChange(
+          filter,
+          RecipeSortingOptionsFieldsMappings[sortingValue]
+        ).then(() => {
+          setFilteringValue(filter);
+        });
+      }
     } else {
       const recipeCount = displayNumber;
-      listModified = sortBy(listState.sorting, listModified);
+      listModified = sortBy(sortingValue, listModified);
       const filtered = applyFilters(filter, listModified);
-
-      setListState({
-        ...listState,
-        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-        filterLength: filtered.length,
-        filter,
-      });
+      setRecipeList(
+        recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered
+      );
+      setFilteringValue(filter);
     }
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
     if (isAsyncLoadMore()) {
-      listModified = sortBy(sorting, listState.listItems);
-
-      setListState({
-        ...listState,
-        listItems: listModified,
-        sorting,
-      });
+      if (onViewChange) {
+        onViewChange(
+          filteringValue,
+          RecipeSortingOptionsFieldsMappings[sorting]
+        ).then(() => {
+          setSortingValue(sorting);
+        });
+      }
     } else {
       listModified = sortBy(sorting, listModified);
 
       const recipeCount = displayNumber;
-      const { filter } = listState;
-      const filtered = applyFilters(filter, listModified);
-
-      setListState({
-        ...listState,
-        listItems: recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered,
-        sorting,
-      });
+      const filtered = applyFilters(filteringValue, listModified);
+      setSortingValue(sorting);
+      setRecipeList(
+        recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered
+      );
       setDisplayNumber(recipeCount);
     }
   };
@@ -142,16 +130,17 @@ export const RecipeListing = ({
 
     if (isAsyncLoadMore()) {
       //@ts-ignore
-      loadMoreConfig.onLoadMore(recipePerLoad);
+      loadMoreConfig.onLoadMore(
+        filteringValue,
+        RecipeSortingOptionsFieldsMappings[sortingValue],
+        recipePerLoad
+      );
     } else {
-      const { filter } = listState;
-      setListState({
-        ...listState,
-        listItems:
-          recipeCount > 0
-            ? applyFilters(filter, listModified).slice(0, recipeCount)
-            : applyFilters(filter, listModified),
-      });
+      setRecipeList(
+        recipeCount > 0
+          ? applyFilters(filteringValue, listModified).slice(0, recipeCount)
+          : applyFilters(filteringValue, listModified)
+      );
     }
   };
 
@@ -167,14 +156,14 @@ export const RecipeListing = ({
   const shouldLoadMoreAppear =
     loadMoreConfig && isAsyncLoadMore()
       ? list.length < loadMoreConfig.allCount
-      : listState.listItems.length > 0 &&
+      : recipeList.length > 0 &&
         initialCount !== 0 &&
-        displayNumber < listState.filterLength;
+        displayNumber < recipeList.length;
 
   const listing = (
     <RecipeListingTrivial
-      list={listState.listItems}
-      recipeCount={listState.listItems.length}
+      list={recipeList}
+      recipeCount={recipeList.length}
       FavoriteIcon={FavoriteIcon}
       withFavorite={withFavorite}
       ratingProvider={ratingProvider}
@@ -227,9 +216,7 @@ export const RecipeListing = ({
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={
-            listState.filterLength ||
-            (loadMoreConfig && loadMoreConfig.allCount) ||
-            0
+            (loadMoreConfig && loadMoreConfig.allCount) || recipeList.length
           }
           content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}

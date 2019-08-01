@@ -11,7 +11,7 @@ import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
 import { get } from 'lodash';
 import MediaGallery from '../MediaGallery';
-import { SearchParams } from 'src/staticPages/Search/models';
+import { SearchParams } from './models';
 import { SearchListingProps } from './models';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
@@ -42,13 +42,19 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     }
   }, []);
 
-  const onLoadMoreRecipes = (size: number) => {
+  const onLoadMoreRecipes = (
+    tags: Internal.Tag[],
+    sorting: string,
+    size: number
+  ) => {
     if (recipeConfig.getRecipeSearchData) {
-      recipeConfig.getRecipeSearchData(defaultSearchValue, {
+      return recipeConfig.getRecipeSearchData(defaultSearchValue, {
         from: recipeResults.list.length,
         size,
       });
     }
+
+    return Promise.resolve();
   };
 
   const onLoadMoreArticles = (size: number) => {
@@ -111,7 +117,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   const articles = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'articles'
   ) &&
-    articleResults.list.length && (
+    !!articleResults.list.length && (
       <MediaGallery
         content={content.articleContent}
         onLoadMore={onLoadMoreArticles}
@@ -126,9 +132,8 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         case 'all': {
           tabs.push(
             <Tab view={view} key={view}>
-              {searchResultsText}
-              {articles}
               {recipes}
+              {articles}
             </Tab>
           );
           break;
@@ -137,17 +142,6 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         case 'articles': {
           tabs.push(
             <Tab view={view} key={view}>
-              <Text
-                className="search-listing__results-header"
-                // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
-                text={content.searchListingContent.title
-                  .replace('{numRes}', articleResults.count.toString())
-                  .replace(
-                    '{searchInputValue}',
-                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                  )}
-              />
               {articles}
             </Tab>
           );
@@ -156,17 +150,6 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         case 'recipes': {
           tabs.push(
             <Tab view={view} key={view}>
-              <Text
-                className="search-listing__results-header"
-                // @ts-ignore
-                tag={TagName[`h${searchResultTitleLevel}`]}
-                text={content.searchListingContent.title
-                  .replace('{numRes}', recipeResults.count.toString())
-                  .replace(
-                    '{searchInputValue}',
-                    `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
-                  )}
-              />
               {recipes}
             </Tab>
           );
@@ -191,11 +174,12 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
 
-      {tabs.length ? (
+      {searchResultsText}
+      {tabs.length &&
+      (articleResults.list.length || recipeResults.list.length) ? (
         <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
       ) : (
         <>
-          {searchResultsText}
           <NullResult
             content={content.nullResultContent}
             className="search-listing__null-results"

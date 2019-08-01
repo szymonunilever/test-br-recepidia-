@@ -25,12 +25,8 @@ export const RecipeNurientsTable = ({
           ? nutrients.map((item, key) => (
               <tr key={key}>
                 <td>{item.displayUnit}</td>
-                <td>
-                  {nutrientsServing[key].rawValue} {item.unit}
-                </td>
-                <td>
-                  {item.rawValue} {item.unit}
-                </td>
+                <td>{nutrientsServing[key].rawValue}</td>
+                <td>{item.rawValue}</td>
               </tr>
             ))
           : null}

@@ -1,11 +1,11 @@
-import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
+import { sortBy as _sortBy, findIndex, filter } from 'lodash';
 import { RecipeSortingOptions } from '../partials';
 
 const sortByPreparationTime = (list: Internal.Recipe[]) =>
   _sortBy(list, ['recipeDetails.preperationTime']);
 
 const sortByCookingTime = (list: Internal.Recipe[]) =>
-  _sortBy(list, ['recipeDetails.totalTime']);
+  _sortBy(list, ['recipeDetails.cookTime']);
 
 const sortByAverageRating = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method

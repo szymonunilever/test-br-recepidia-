@@ -5,6 +5,7 @@ import { PreferenceButtonsProps } from '../../index';
 export interface PreferenceQuizProps {
   heading: string;
   questions: Question[];
+  answers: Answers;
   editingKey: string;
   setEditingKey: (preferenceEntryKey: string) => void;
   deleteQuestion: (key: string) => void;
@@ -14,6 +15,10 @@ export interface PreferenceQuizProps {
   noResultProps: NoPreferencesProps;
   entryUpdateProps: PreferenceEntryUpdateProps;
   buttonsContent: PreferenceButtonsProps;
+}
+
+export interface Answers {
+  [key: string]: string | string[];
 }
 
 export interface PreferenceEntryUpdateProps {
