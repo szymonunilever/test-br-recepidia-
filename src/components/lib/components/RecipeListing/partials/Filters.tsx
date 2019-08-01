@@ -86,6 +86,7 @@ const Filter = ({
             className="filter__sort"
             placeholder={sortSelectPlaceholder}
             changeHandler={sortingChange}
+            isSearchable={false}
           />
         </label>
       ) : null}
