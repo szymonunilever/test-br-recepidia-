@@ -23,6 +23,7 @@ const SearchInput = ({
   defaultSearchValue = '',
   onClickSearchResultsItem,
   autoFocus = false,
+  minLength = 3,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -53,10 +54,14 @@ const SearchInput = ({
       getSearchResults(searchInputValue, {
         from: 0,
         size: searchResultsCount,
-      }).then(() => {
-        setIsLoading(false);
-        setInputIsDirty(true);
-      });
+      })
+        .then(() => {
+          setIsLoading(false);
+          setInputIsDirty(true);
+        })
+        .catch(() => {
+          setIsLoading(false);
+        });
     } else {
       setData(filterData(list, searchInputValue));
       setInputIsDirty(true);
@@ -82,12 +87,15 @@ const SearchInput = ({
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    if (onSubmit) {
-      onSubmit(inputValue, {
-        from: 0,
-        size: searchResultsCount,
-      });
+    if (inputValue.length > 2) {
+      if (onSubmit) {
+        onSubmit(inputValue, {
+          from: 0,
+          size: searchResultsCount,
+        });
+      }
     }
+
     setInputIsDirty(false);
   };
 
@@ -119,26 +127,27 @@ const SearchInput = ({
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
-    clearTimeOut();
-    setInputIsDirty(false);
     setInputValue(value);
-    setTimerId(() =>
-      window.setTimeout(() => {
-        getResults(value);
-      }, debounceTimeout)
-    );
+
+    if (value.length >= minLength) {
+      clearTimeOut();
+      setInputIsDirty(false);
+      setTimerId(() =>
+        window.setTimeout(() => {
+          getResults(value);
+        }, debounceTimeout)
+      );
+    }
   };
 
-  const inputHasValue = !!inputValue;
-  const buttonReset = inputHasValue ? (
+  const inputHasValidValue = !!(inputValue.length >= minLength);
+  const buttonReset = inputValue.length ? (
     <button
       className="form__button-reset"
       type="button"
       onClick={resetForm}
       aria-label="reset"
-    >
-      {buttonResetIcon}
-    </button>
+    />
   ) : null;
 
   return (
@@ -166,15 +175,15 @@ const SearchInput = ({
           <button
             className="form__button-submit"
             onClick={submitHandler}
-            disabled={!inputHasValue}
             aria-label="submit"
+            disabled={!inputHasValidValue}
           >
             {buttonSubmitIcon}
           </button>
         </div>
       </form>
 
-      {inputIsDirty && inputHasValue && !isLoading ? (
+      {inputIsDirty && inputHasValidValue && !isLoading ? (
         <SearchResults
           navigateToItem={!!onClickSearchResultsItem}
           onClickHandler={onClickSearchResultsItemHandler}

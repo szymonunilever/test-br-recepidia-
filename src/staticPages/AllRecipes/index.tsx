@@ -25,7 +25,6 @@ import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 
 import keys from 'integrations/keys.json';
-import { SearchParams } from '../Search/models';
 import {
   RecipeSortingOptionsFieldsMappings,
   RecipeSortingOptions,
@@ -37,6 +36,7 @@ export interface QueryString {
 }
 
 const INITIAL_RECIPES_COUNT = 8;
+import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;

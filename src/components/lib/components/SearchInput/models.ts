@@ -1,4 +1,4 @@
-import { getSearchData } from 'src/staticPages/Search/models';
+import { getSearchData } from '../SearchListing/models';
 import { UnileverLibraryComponent } from '../globalModels';
 
 export interface SearchInputProps
@@ -15,6 +15,7 @@ export interface SearchInputProps
   onClickSearchResultsItem?: getSearchData;
   autoFocus?: boolean;
   searchResults?: string[];
+  minLength?: number;
 }
 
 export interface FilterData {
