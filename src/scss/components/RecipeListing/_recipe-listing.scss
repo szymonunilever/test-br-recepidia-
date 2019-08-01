@@ -6,12 +6,11 @@ $col-indent-medium: 8px;
 $col-indent-desktop: 8px;
 
 .recipe-list {
-
+  position: relative;
   &--blue-header {
-    .recipe-list__header{
+    .recipe-list__header {
       color: $fish-blue-darker;
     }
-
   }
 
   &__title {
@@ -86,8 +85,8 @@ $col-indent-desktop: 8px;
   &__item {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    &:nth-last-child(1){
-        margin-bottom: 0;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
     }
   }
 }
