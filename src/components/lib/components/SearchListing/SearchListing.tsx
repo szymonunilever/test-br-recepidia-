@@ -42,13 +42,19 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     }
   }, []);
 
-  const onLoadMoreRecipes = (size: number) => {
+  const onLoadMoreRecipes = (
+    tags: Internal.Tag[],
+    sorting: string,
+    size: number
+  ) => {
     if (recipeConfig.getRecipeSearchData) {
-      recipeConfig.getRecipeSearchData(defaultSearchValue, {
+      return recipeConfig.getRecipeSearchData(defaultSearchValue, {
         from: recipeResults.list.length,
         size,
       });
     }
+
+    return Promise.resolve();
   };
 
   const onLoadMoreArticles = (size: number) => {
