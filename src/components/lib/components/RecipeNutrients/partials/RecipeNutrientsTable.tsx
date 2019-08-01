@@ -16,7 +16,9 @@ export const RecipeNurientsTable = ({
       <thead>
         <tr>
           <th />
-          <th>{labelServing}</th>
+          {nutrientsServing && nutrientsServing.length && (
+            <th>{labelServing}</th>
+          )}
           <th>{labelTotal}</th>
         </tr>
       </thead>
@@ -25,7 +27,9 @@ export const RecipeNurientsTable = ({
           ? nutrients.map((item, key) => (
               <tr key={key}>
                 <td>{item.displayUnit}</td>
-                <td>{nutrientsServing[key].rawValue}</td>
+                {nutrientsServing && nutrientsServing.length && (
+                  <td>{nutrientsServing[key].rawValue}</td>
+                )}
                 <td>{item.rawValue}</td>
               </tr>
             ))

@@ -1,11 +1,12 @@
 import cx from 'classnames';
+import { get } from 'lodash';
 import React, { useState } from 'react';
 import Button, { ButtonViewType } from '../Button';
 import { Modal } from '../Modal';
+import { TagName } from '../Text/index';
 import { RecipeNutrientsProps, RecipeNutrientsViewType } from './models';
 import { RecipeNutrientsBody } from './partials';
 import theme from './RecipeNutrients.module.scss';
-import { TagName } from '../Text/index';
 
 export const RecipeNutrients = ({
   className,
@@ -22,7 +23,13 @@ export const RecipeNutrients = ({
   };
   const classWrapper = cx(theme.recipeNutrients, className);
 
-  const view =
+  const hasInfo = !!(
+    get(props.recipe, 'nutrients', []).toString() ||
+    get(props.recipe, 'nutrientsPerServing', []).toString() ||
+    get(props.recipe, 'nutrientsPer100g', []).toString()
+  );
+
+  return hasInfo ? (
     viewType === RecipeNutrientsViewType.Base ? (
       <RecipeNutrientsBody
         data-comonentname="recipeNutrients"
@@ -49,9 +56,10 @@ export const RecipeNutrients = ({
           <RecipeNutrientsBody className={classWrapper} {...props} />
         </Modal>
       </div>
-    );
-
-  return view;
+    )
+  ) : (
+    <></>
+  );
 };
 
 export default RecipeNutrients;
