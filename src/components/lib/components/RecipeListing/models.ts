@@ -3,7 +3,6 @@ import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
-import { triggerGetSearchData } from '../SearchListing/models';
 
 export enum RecipeListViewType {
   Trivial,
@@ -34,13 +33,19 @@ export interface RecipeListingProps
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
-  getSearchData?: getSearchData;
   imageSizes: string;
+  onViewChange?: onRecipeListingViewChanged;
 }
 
-export type getSearchData = (
-  searchQuery: string,
-  params: object
+export type onRecipeListingViewChanged = (
+  tags: Internal.Tag[],
+  sortingOption: string
+) => Promise<void>;
+
+export type onLoadMore = (
+  tags: Internal.Tag[],
+  sortingOption: string,
+  size: number
 ) => Promise<void>;
 
 export enum LoadMoreType {
@@ -50,7 +55,7 @@ export enum LoadMoreType {
 
 export interface LoadMoreConfig {
   type: LoadMoreType;
-  onLoadMore: triggerGetSearchData;
+  onLoadMore: onLoadMore;
   allCount: number;
 }
 
