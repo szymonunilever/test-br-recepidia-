@@ -1,171 +1,200 @@
-.modal--filter{ //set of tags is displayed in modal
-  .modal__content{
+.modal--filter {
+  //set of tags is displayed in modal
+  overflow: hidden;
+  .modal__content {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 26px 25px 0 25px;
+    bottom: 0;
+    overflow: initial;
+    border-radius: 5px;
+    margin-top: 5px;
+    @include respondTo(desktop) {
+      padding: 42px 55px 0 55px;
+      bottom: 0 !important;
+      margin-top: 0;
+    }
   }
-  .modal__header{
-    @extend .container;
+  .modal__header {
     width: 100%;
     box-sizing: border-box;
-    color:$fish-blue-darker;
-    >*{
+    color: $fish-blue-darker;
+    > * {
       font-size: 2.5rem;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 3.7rem;
       }
     }
   }
-  .filter-settings{
-    @extend .container;
+  #modal__description{
+    height: 100%;
+  }
+  .filter-settings {
     flex-basis: 100%;
     box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: column;
-    &__tagGroups{
+    height: 96%;
+    overflow-y: auto;
+    @include respondTo(desktop) {
+      height: 94.5%;
+    }
+    &__tagGroups {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      flex:1;
-      overflow-Y: auto;
-      @include respondTo(desktop){
+      height: 100%;
+      overflow-y: auto;
+      @include respondTo(desktop) {
+        overflow-y: auto;
+        position: relative;
         display: flex;
-        overflow-Y: hidden;
-        overflow-x: auto;
-        >li+li{
+        margin-top: 30px;
+        border-bottom: 1px solid $white-gray;
+        border-top: 1px solid $white-gray;
+        > li + li {
           margin-left: 30px;
         }
       }
     }
-    &__buttons{
-      flex-shrink: 0;
+    &__buttons {
       display: flex;
       justify-content: center;
       padding: 15px 0;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         padding: 30px 0;
       }
-      button + button{
+      button + button {
+        font-weight: bold;
         margin-left: 10px;
-        @include respondTo(desktop){
+        @include respondTo(desktop) {
           margin-left: 16px;
         }
       }
     }
-    &__reset{
+    &__reset {
       @extend .button;
       @extend .button--secondary;
       @extend .button--medium;
     }
-    &__apply{
+    &__apply {
       @extend .button;
       @extend .button--medium;
     }
 
-    &__category-item{
+    &__category-item {
       border-bottom: 1px solid $white-gray;
+      flex: 1;
       padding: 10px 0;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         border-bottom: 0;
       }
     }
-    &__category-header{
-      @include respondTo(desktop){
+    &__category-header {
+      @include respondTo(desktop) {
         height: 100%;
         display: flex;
         flex-direction: column;
-
       }
-      .accordion__title{
+      .accordion__title {
         @extend h4;
-        padding: 10px 0;
-        color:$fish-blue-darker;
+        color: $fish-blue-darker;
         display: flex;
         justify-content: space-between;
-        svg{
-          transition: transform .2s;
-          @include respondTo(desktop){
+        font-size: 1.8rem;
+        @include respondTo(desktop) {
+          position: fixed;
+          transform: translateY(-45px);
+        }
+
+        svg {
+          transition: transform 0.2s;
+          @include respondTo(desktop) {
             display: none;
           }
         }
       }
-      .accordion__body{
-        transition: max-height .2s;
+      .accordion__body {
+        transition: max-height 0.2s;
         height: auto;
-        max-height: 100px;
+        max-height: 80px;
         overflow: hidden;
-        // margin-right: -$paddings-container; 
-        padding-bottom: 10px;
-        @include respondTo(desktop){
+        // margin-right: -$paddings-container;
+        padding: 0;
+        @include respondTo(desktop) {
+          overflow: initial;
           max-height: none;
-          overflow-y: auto;
-          flex:1;
+          flex: 1;
           padding-bottom: 0;
         }
       }
-      &.is-opened{
-        .accordion__title{
-          svg{
+      &.is-opened {
+        .accordion__title {
+          svg {
             transform: rotate(180deg);
           }
         }
-        .accordion__body{
+        .accordion__body {
           max-height: 2000px;
         }
-        .tags__list{
+        .tags__list {
           white-space: normal;
+          overflow-x: initial;
+          flex-wrap: wrap;
+        }
+      }
+      .tags {
+        margin: 0;
+        padding: 10px 0 0 0;
+        transition: all 0.2s;
+        @include respondTo(desktop) {
+          padding: 0;
         }
 
-      }
-      .tags{
-        margin:0;
-        transition: all .2s; 
-      
-        &__list{
+        &__list {
           padding: 10px 0;
-          display: block;
-          white-space: nowrap;
+          display: flex;
+          flex-wrap: nowrap;
           overflow-x: auto;
-          @include respondTo(desktop){
+          @include respondTo(desktop) {
             display: flex;
             flex-direction: column;
             white-space: normal;
-            overflow-x:initial;
+            overflow-x: initial;
             margin: 0;
             padding: 0 10px 0 2px;
           }
         }
-        &__item{
+        &__item {
           display: inline-block;
-          @include respondTo(desktop){
+          @include respondTo(desktop) {
             margin: 5px 0;
           }
         }
-        &__link{
+        &__link {
           white-space: nowrap;
         }
       }
     }
-
   }
   //custom scrollbar
-  @include respondTo(desktop){
-    *::-webkit-scrollbar-track{
-      -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+  @include respondTo(desktop) {
+    *::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
       border-radius: 5px;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
     }
 
-    *::-webkit-scrollbar{
+    *::-webkit-scrollbar {
       width: 10px;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
       height: 10px;
     }
 
-    *::-webkit-scrollbar-thumb{
+    *::-webkit-scrollbar-thumb {
       border-radius: 5px;
-      -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);
+      -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
       background-color: $fish-blue-darker;
     }
   }

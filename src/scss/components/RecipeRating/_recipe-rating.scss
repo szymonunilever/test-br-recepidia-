@@ -52,6 +52,8 @@
   }
 
   &.recipe-rating--stars {
+    margin-bottom: 0;
+    min-height: 30px;
     .rr-widget-container {
       font-size: 0;
     }
