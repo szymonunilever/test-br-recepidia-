@@ -15,7 +15,7 @@ const SearchInput = ({
   labelIcon,
   buttonResetIcon,
   buttonSubmitIcon,
-  searchResultsCount,
+  searchResultsCount = 8,
   debounceTimeout = 300,
   onSubmit,
   getSearchResults,
@@ -103,15 +103,15 @@ const SearchInput = ({
     if (e.key === 'Enter') {
       submitHandler(e);
     } else if (e.key === 'ArrowDown') {
-      setInputValue(data[activeItemIndex]);
-      setActiveItemIndex(
-        activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0
-      );
+      let newActiveItemIndex =
+        activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0;
+      setInputValue(data[newActiveItemIndex]);
+      setActiveItemIndex(newActiveItemIndex);
     } else if (e.key === 'ArrowUp') {
-      setInputValue(data[activeItemIndex]);
-      setActiveItemIndex(
-        activeItemIndex <= 0 ? data.length - 1 : activeItemIndex - 1
-      );
+      let newActiveItemIndex =
+        activeItemIndex <= 0 ? data.length - 1 : activeItemIndex - 1;
+      setInputValue(data[newActiveItemIndex]);
+      setActiveItemIndex(newActiveItemIndex);
     }
   };
 

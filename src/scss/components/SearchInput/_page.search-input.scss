@@ -1,120 +1,33 @@
-.search {
-  &-input {
-    position: relative;
-    z-index: 2;
-    &__list {
-      margin: 0;
-      list-style-type: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      font-size: 1.4rem;
-      padding: 10px 0;
-      background-color: hsl(0, 0%, 100%);
-      box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),
-        0 4px 11px hsla(0, 0%, 0%, 0.1);
-      box-sizing: border-box;
-      @include respondTo(desktop) {
-        width: 384px;
-        left: 50%;
-        margin-left: -192px;
-      }
-    }
-
-    &__item {
-      padding: 5px 50px 5px 40px;
-      &:hover {
-        cursor: pointer;
-        background-color: rgba(88, 124, 148, 0.4);
-      }
-    }
-
-    &__title {
-      font-size: 3.4rem;
-      line-height: 1.06;
-      text-align: center;
-      color: $fish-blue-darker;
-      @include respondTo(desktop) {
-        font-size: 5.5rem;
-        line-height: 1;
-      }
-    }
-
-    &__message {
-      display: none;
-    }
-
-    .form {
-      @include respondTo(desktop) {
-        max-width: 384px;
-        margin: 0 auto;
-      }
-      &__group {
-        position: relative;
-      }
-      &__button-submit {
+.search-listing {
+  .search {
+    &-input {
+      position: relative;
+      z-index: 2;
+      &__list {
         position: absolute;
-        left: 0;
-        top: 50%;
-        width: 30px;
-        height: 100%;
-        transform: translateY(-50%);
-        padding: 0;
-        background-color: transparent;
-        border: none;
-        &:hover {
-          cursor: pointer;
-          svg {
-            stroke: $apple-green;
-          }
-        }
-        svg {
-          transition: all 0.2s ease-out;
-          stroke: $black-blue;
-          height: 23px;
-          width: 30px;
-        }
-      }
-      &__button-reset {
-        @extend .button;
-        @extend .button--flat;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        width: 50px;
-        height: 50px;
-        transform: translateY(-50%);
-        justify-content: flex-end;
-        padding: 0;
+        top: 100%;
+        left: $paddings-container;
+        width: calc(100% - #{2 * $paddings-container});
         @include respondTo(desktop) {
-          justify-content: center;
-          padding: 0 15px;
-        }
-        svg {
-          height: 12px;
-          width: 12px;
+          width: 384px;
+          left: 50%;
+          margin-left: -192px;
         }
       }
-      &__label {
-        @extend .sr-only;
-      }
-      &__input {
-        width: 100% !important;
-        background-color: transparent;
-        color: $black-blue;
-        height: 50px;
-        padding-left: 40px;
-        padding-right: 50px;
-        border: none;
-        border-bottom: 1px solid $black-blue;
-        font-size: 2rem;
-        letter-spacing: 0.4px;
-        line-height: 1.25;
-        border-radius: 0;
-        &::-ms-clear {
-          display: none;
+
+      &__title {
+        font-size: 3.4rem;
+        line-height: 1.06;
+        text-align: center;
+        color: $fish-blue-darker;
+        @include respondTo(desktop) {
+          font-size: 5.5rem;
+          line-height: 1;
         }
+      }
+
+      &__message {
+        display: none;
       }
     }
   }

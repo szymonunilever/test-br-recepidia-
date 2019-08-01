@@ -19,17 +19,17 @@ $bp-desktop: 1366px;
 \* ----------------------------------------------------------------------------- */
 $recepedia-orange: #ff7875;
 // $fish-blue: #587c94;
-$fish-blue-darker: #4C6B7F;
+$fish-blue-darker: #4c6b7f;
 $apple-green: #b6dc85;
 $luminous-yellow: #facc00;
-$black-blue:#363840;
-$white-gray:#f4f7f9;
-$white-gray-darker: #E4EAEF;
+$black-blue: #363840;
+$white-gray: #f4f7f9;
+$white-gray-darker: #e4eaef;
 $white: #ffffff;
-$blue-overlay-40: rgba(88,124,148,.4);
-$pink-overlay-80: rgba(255, 120, 117, .8);
+$blue-overlay-40: rgba(88, 124, 148, 0.4);
+$pink-overlay-80: rgba(255, 120, 117, 0.8);
 
-$gray: #C3C3C3;
+$gray: #c3c3c3;
 
 $primary-color: $recepedia-orange;
 $page-overlay-color: $blue-overlay-40;
@@ -46,9 +46,7 @@ $arial: Arial, Helvetica, sans-serif;
 /* ----------------------------------------------------------------------------- *\
    LAYOUT
 \* ----------------------------------------------------------------------------- */
-// $paddings-container: 24px;
-
-
+$paddings-container: 24px;
 
 /* ----------------------------------------------------------------------------- *\
    RECIPE CARD HEIGHT SIZES
