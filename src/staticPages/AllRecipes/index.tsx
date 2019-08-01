@@ -181,11 +181,28 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
                 'RecipeListing',
                 'AllRecipes'
               ),
+              optionLabels: {
+                preparationTime: 'Preparation time',
+                cookingTime: 'Cooking time',
+                averageRating: 'Average rating',
+                newest: 'Newest',
+                title: 'Title',
+              },
             }}
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
-            tags={{ tagGroups: allTagGroupings.nodes }}
+            tags={{
+              tagGroups: allTagGroupings.nodes,
+              displayCategories: [
+                'dishes',
+                'mainIngredient',
+                'cuisines',
+                'difficulties',
+                'dietary',
+                'budgets',
+              ],
+            }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
             FavoriteIcon={FavoriteIcon}
