@@ -15,6 +15,7 @@ export interface ResultCountLabelProps {
 
 export interface PreferenceEntryProps {
   preferenceEntry: Question;
+  selectedOptions: string | string[];
   editingKey: string;
   setEditEntryKey: (preferenceEntryKey: string) => void;
   deleteEntry: (preferenceEntryKey: string) => void;

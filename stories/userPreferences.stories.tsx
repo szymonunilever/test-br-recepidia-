@@ -3,8 +3,7 @@ import React from 'react';
 import { UserPreferences } from '../src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from '../src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
 import {
-  questions1,
-  questions2,
+  questionsMock as anotherQuestions,
   preferencesIntroDefault,
   preferencesIntro,
   preferencesIntroWithLinks,
@@ -13,6 +12,7 @@ import {
   resultLabelProps,
   entryUpdateProps,
 } from './mocks/userPreferencesQuestions';
+import questionsMock from './mocks/introQuiz';
 const content: AppContent.GeneratedForm.Content = {
   view: 'NewsletterSubscriptions',
   submitButton: {
@@ -34,6 +34,21 @@ const content: AppContent.GeneratedForm.Content = {
     },
   ],
 };
+const answers1 = {
+  question1: '1',
+  question2: ['1', '3', '5'],
+  question3: '2',
+  question4: '1457',
+};
+let answers2 = {};
+anotherQuestions.forEach(question => {
+  // @ts-ignore
+  answers2[question.key] =
+    question.type.control === 'radio'
+      ? question.options[0].value
+      : [question.options[1].value];
+});
+
 const deleteQuestion = (key: string) => {
   alert(`Deleted question with key ${key}`);
 };
@@ -61,7 +76,11 @@ storiesOf('Components/User preferences', module)
         newsletterSubscriptionsContent={content}
       >
         // @ts-ignore
-        <PreferencesQuiz questions={questions1} heading="Diet and stuff..." />
+        <PreferencesQuiz
+          questions={questionsMock}
+          answers={answers1}
+          heading="Diet and stuff..."
+        />
       </UserPreferences>
     ),
     { inline: false }
@@ -81,10 +100,15 @@ storiesOf('Components/User preferences', module)
         newsletterSubscriptionsContent={content}
       >
         // @ts-ignore
-        <PreferencesQuiz questions={questions1} heading="Diet and stuff..." />
+        <PreferencesQuiz
+          questions={questionsMock}
+          answers={answers1}
+          heading="Diet and stuff..."
+        />
         // @ts-ignore
         <PreferencesQuiz
-          questions={questions2}
+          questions={anotherQuestions}
+          answers={answers2}
           heading="Another quiz results"
         />
       </UserPreferences>
