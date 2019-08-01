@@ -60,7 +60,7 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
     <div className="preferences">
       <PreferencesIntro {...preferencesIntroProps} />
       <ResultCount count={totalCount} labelProps={resultLabelProps} />
-      <div>{enhancedChildren}</div>
+      <div className="preferences__form">{enhancedChildren}</div>
       <NewsletterSubscriptions
         onSubmit={onNewsletterFormSubmit}
         content={newsletterSubscriptionsContent}

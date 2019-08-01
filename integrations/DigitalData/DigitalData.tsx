@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { DigitalDataProps } from './models';
 import { isMobile } from './utils';
 import { findPageComponentContent } from 'src/utils';
-
+import { Helmet } from 'react-helmet';
+import keys from 'integrations/keys.json';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DigitalData = ({
   pageContext = { type: 'Page' },
@@ -44,7 +45,13 @@ const DigitalData = ({
       }
     }
   }, []);
-  return <></>;
+  return (
+    <Helmet
+      script={[
+        { src: keys.analytics.adobe.url, type: 'text/javascript', async: true },
+      ]}
+    />
+  );
 };
 
 export default DigitalData;

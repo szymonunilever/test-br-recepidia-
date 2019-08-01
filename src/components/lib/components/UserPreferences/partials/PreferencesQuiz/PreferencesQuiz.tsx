@@ -100,7 +100,7 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   return (
     <form>
       <div className="preferences__title">
-        <Text tag={TagName.h1} text={heading} />
+        <Text tag={TagName.h3} text={heading} />
       </div>
       <div className="preferences__content">
         {questions && questions.length ? (

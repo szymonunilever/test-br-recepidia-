@@ -29,7 +29,7 @@
       transition: stroke 0.2s ease-out;
       height: 26px;
     }
-    @media (hover) {
+    @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
       @include respondTo(medium) {
         &:hover {
           svg {

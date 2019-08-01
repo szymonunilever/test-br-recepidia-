@@ -147,7 +147,9 @@ const SearchInput = ({
       type="button"
       onClick={resetForm}
       aria-label="reset"
-    />
+    >
+      {buttonResetIcon}
+    </button>
   ) : null;
 
   return (
