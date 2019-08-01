@@ -15,7 +15,7 @@ const withLocation = <T extends WithLocationProps>(
           navigate={navigate}
           searchQuery={
             isBrowser()
-              ? new URLSearchParams(location.search).get('searchQuery')
+              ? new URLSearchParams(location.search).get('searchQuery') || ''
               : ''
           }
         />
