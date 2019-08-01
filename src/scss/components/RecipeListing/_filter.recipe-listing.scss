@@ -24,6 +24,8 @@
           font-size: 1.4rem;
         }
         [class*='menu'] {
+          margin: 0;
+          border: none;
           z-index: 2;
           & > div:first-child {
             padding: 0;
@@ -33,9 +35,13 @@
           border-radius: 0;
           padding: 0 10px;
           min-height: 43px;
+          line-height: 28px;
           margin: 0;
+          box-shadow: none;
           @include respondTo(desktop) {
             min-height: 46px;
+            // for ie aligning
+            line-height: 32px;
           }
           &:hover {
             cursor: pointer;
@@ -49,7 +55,6 @@
           font-size: 1.4rem;
           transition: background-color 0.2s ease-out;
           color: $black-blue;
-          border-radius: 5px;
           &.is-focused {
             background: $apple-green;
           }
@@ -86,7 +91,7 @@
       border: 1px solid $black-blue;
       border-radius: 20px;
       height: 32px;
-      @media (hover) {
+      @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
         &:hover {
           border-color: darken($apple-green , 10%);
           svg {

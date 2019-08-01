@@ -1,6 +1,6 @@
 $footer-color: $black-blue;
 
-%global--links{
+%global--links {
   display: inline-block;
   font-size: 1.5rem;
   font-family: $arial;
@@ -18,10 +18,11 @@ $footer-color: $black-blue;
     bottom: 0;
     width: 0;
     height: 1px;
+    line-height: 1px;
     background: $footer-color;
     transition: width 0.2s ease-out;
   }
-  @media (hover) {
+  @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
     &:hover {
       &:before {
         width: 100%;
