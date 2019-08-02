@@ -232,6 +232,15 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel"
             carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 1,
+                  visibleElementsAboveBreakpoint: 2,
+                },
+              ],
               arrowIcon: <ArrowIcon />,
             }}
             imageSizes={'(min-width: 768px) 50vw, 100vw'}
