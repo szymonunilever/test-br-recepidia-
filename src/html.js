@@ -13,14 +13,14 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            <link
-              rel="preload"
-              href="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-              as="script"
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
+        <link
+          rel="preload"
+          href="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+          as="script"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -39,11 +39,11 @@ export default function HTML(props) {
                     }, f);
                   })(window, document, "body {opacity: 0 !important}", 3e3);
                 `,
-              }}
-            />
+          }}
+        />
 
-            <link rel="preload" href={keys.analytics.adobe.url} as="script" />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+        <link rel="preload" href={keys.analytics.adobe.url} as="script" />
+        <link rel="preload" href={kritiqueWidgetSrc} as="script" />
           </>
         )}
         <meta charSet="utf-8" />

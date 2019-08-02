@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { DigitalDataProps } from './models';
 import { isMobile } from './utils';
 import { findPageComponentContent } from 'src/utils';
@@ -19,51 +19,56 @@ const DigitalData = ({
     : findPageComponentContent(pageContext.components, 'Text', 'PageTitle')
         .text;
 
-  const channelVal = isMobile() ? 'Mobile Site' : 'Brand Site';
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const dd: any = keys.digitalData;
-  dd.siteInfo['channel'] = channelVal;
-  dd.page.category = {
-    pageType,
-    primaryCategory: channelVal,
-  };
-  dd.privacy = { accessCategories: [{ domains: [] }] };
-  dd.page.pageInfo = {
-    pageName,
-    destinationURL: window.location.href,
-  };
-  dd.page.attributes.contentType = pageType;
-  if (type === 'ArticleDetail') {
-    dd.page.attributes.articleName = pageName;
-  }
   return process.env.NODE_ENV !== 'development' ? (
-    <Helmet
-      script={[
-        {
-          type: 'text/javascript',
-          innerHtml: `
-            window['digitalData'] = ${JSON.stringify(dd)};
-        `,
-        },
-        { src: keys.analytics.adobe.url, type: 'text/javascript', async: true },
-      ]}
-    />
+    <Helmet>
+      <script type="text/javascript">{`
+     
+      var channelVal = ${isMobile()} ? 'Mobile Site' : 'Brand Site';
+      var digitalData = ${JSON.stringify(keys.digitalData)};
+      digitalData.siteInfo['channel'] = channelVal;
+      digitalData.page.category = {
+         pageType: '${pageType}',
+         primaryCategory: channelVal,
+      };
+      digitalData.privacy = { accessCategories: [{ domains: [] }] };
+      digitalData.page.pageInfo = {
+        pageName: '${pageName}',
+        destinationURL: window.location.href,
+      };
+      digitalData.page.attributes.contentType = '${pageType}';
+      if (${type} === 'ArticleDetail') {
+        digitalData.page.attributes.articleName = '${pageName}';
+      }
+      `}</script>
+      <script type="text/javascript" src={keys.analytics.adobe.url} async />
+    </Helmet>
   ) : (
     <></>
   );
+
   // return (
-  //   <Helmet
-  //     script={[
-  //       {
-  //         type: 'text/javascript',
-  //         innerHtml: `
-  //           window['digitalData'] = ${JSON.stringify(dd)};
-  //       `,
-  //       },
-  //       { src: keys.analytics.adobe.url, type: 'text/javascript', async: true },
-  //     ]}
-  //   />
+  //   <Helmet>
+  //     <script type="text/javascript">{`
+  //
+  //     var channelVal = ${isMobile()} ? 'Mobile Site' : 'Brand Site';
+  //     var digitalData = ${JSON.stringify(keys.digitalData)};
+  //     digitalData.siteInfo['channel'] = channelVal;
+  //     digitalData.page.category = {
+  //        pageType: '${pageType}',
+  //        primaryCategory: channelVal,
+  //     };
+  //     digitalData.privacy = { accessCategories: [{ domains: [] }] };
+  //     digitalData.page.pageInfo = {
+  //       pageName: '${pageName}',
+  //       destinationURL: window.location.href,
+  //     };
+  //     digitalData.page.attributes.contentType = '${pageType}';
+  //     if (${type} === 'ArticleDetail') {
+  //       digitalData.page.attributes.articleName = '${pageName}';
+  //     }
+  //     `}</script>
+  //     <script type="text/javascript" src={keys.analytics.adobe.url} async />
+  //   </Helmet>
   // );
 };
 
