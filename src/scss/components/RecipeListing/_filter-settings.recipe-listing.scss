@@ -1,6 +1,4 @@
 .modal--filter {
-  //set of tags is displayed in modal
-  overflow: hidden;
   .modal__content {
     display: flex;
     flex-direction: column;
@@ -169,6 +167,10 @@
           display: inline-block;
           @include respondTo(desktop) {
             margin: 5px 0;
+          }
+          .tags__toggle {
+            width: auto;
+            padding: 0 20px;
           }
         }
         &__link {
