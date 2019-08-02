@@ -2,25 +2,37 @@
 @import 'src/scss/mixins';
 
 .contact-us {
-
+  padding: 20px 0 121px;
+  @include respondTo(desktop) {
+    padding: 50px 0 166px;
+  }
+  h1 {
+    margin-bottom: 5px;
+    @include respondTo(desktop) {
+      margin-bottom: 18px;
+    }
+  }
 }
 
 .cardholder {
+  margin-top: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 1rem 0;
   width: 100%;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  @include respondTo(desktop) {
+    margin-top: 30px;
+  }
 }
 
-.card {
-  padding: 2rem;
-  margin: 1rem;
-  background-color: $white-gray;
-  border-radius: 20px;
-  min-width: calc(100% - 2rem);
-  box-sizing: border-box;
+.cardholder-item {
+  width: 100%;
+  @include respondTo(desktop) {
+    width: calc(50% - 7.5px);
+  }
 }
 
-
+.cardStretch {
+  height: 100%;
+}
