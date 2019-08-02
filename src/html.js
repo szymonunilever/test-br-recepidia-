@@ -31,7 +31,12 @@ export default function HTML(props) {
                 `,
               }}
             />
-            <script type="text/javascript" src={keys.analytics.adobe.url} defer />
+            <script
+              type="text/javascript"
+              src={keys.analytics.adobe.url}
+              async
+              defer
+            />
           </>
         )}
         <meta charSet="utf-8" />
