@@ -1,23 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keys from 'integrations/keys.json';
 
 export default function HTML(props) {
-  const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
-    keys.kritique.brandId
-  }&localeid=${keys.kritique.localeId}&apikey=${
-    keys.kritique.apiKey
-  }&sitesource=${keys.kritique.siteSource}`;
   return (
     <html {...props.htmlAttributes}>
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            <link
-              rel="preload"
-              href="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-              as="script"
-            />
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -41,9 +30,6 @@ export default function HTML(props) {
                 `,
               }}
             />
-
-            <link rel="preload" href={keys.analytics.adobe.url} as="script" />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
           </>
         )}
         <meta charSet="utf-8" />
