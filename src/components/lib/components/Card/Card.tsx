@@ -54,7 +54,7 @@ export const Card = ({
             <Icon />
           </div>
         )}
-        <div className="card__title">{Title}</div>
+        {Title}
       </div>
       <div className="card__content">
         {withType(type, view)}
