@@ -52,7 +52,6 @@ export default function HTML(props) {
               type="text/javascript"
               src={keys.analytics.adobe.url}
               async
-              defer
             />
           </>
         )}
