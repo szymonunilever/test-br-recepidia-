@@ -48,13 +48,15 @@ export const Card = ({
 
   return (
     <div data-componentname="card" className={classWrapper}>
-      {Icon && (
-        <div className="card__icon">
-          <Icon />
-        </div>
-      )}
+      <div className="card__top">
+        {Icon && (
+          <div className="card__icon">
+            <Icon />
+          </div>
+        )}
+        <div className="card__title">{Title}</div>
+      </div>
       <div className="card__content">
-        {Title}
         {withType(type, view)}
         {cta && <Button className="card__button" content={cta} />}
       </div>
