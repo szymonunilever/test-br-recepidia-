@@ -8,6 +8,7 @@ const SearchResults = ({
   activeIndex,
   onClickHandler,
   navigateToItem,
+  onHoverHandler,
 }: SearchResultsProps) =>
   list.length ? (
     <ul className="search-input__list">
@@ -21,6 +22,7 @@ const SearchResults = ({
             key={index}
             onClick={() => onClickHandler(index)}
             className="search-input__item"
+            onMouseEnter={() => onHoverHandler(index)}
           >
             {navigateToItem ? (
               <a className={classNames}>{item}</a>
