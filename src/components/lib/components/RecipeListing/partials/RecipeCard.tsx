@@ -58,7 +58,12 @@ const RecipeCard = ({
     />
   );
   const view = enableSelectFavorite ? (
-    <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
+    <Link
+      to={slug}
+      data-componentname="recipeCard"
+      aria-label={title}
+      className={wrapClasses}
+    >
       <Button
         className="recipe-card__favorite"
         Icon={Icon}
@@ -73,7 +78,12 @@ const RecipeCard = ({
       {RatingWidget}
     </Link>
   ) : (
-    <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
+    <Link
+      to={slug}
+      data-componentname="recipeCard"
+      aria-label={title}
+      className={wrapClasses}
+    >
       {Image}
       <div className="recipe-card__info">
         {itemTitle}
