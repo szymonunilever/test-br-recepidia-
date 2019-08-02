@@ -106,6 +106,8 @@ p {
 .no-scroll {
   position: fixed;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .rr-box-wrapper:not(:first-child) {
   display: none;
