@@ -3,9 +3,9 @@
   position: relative;
 }
 
-.social-sharing{
-  &__dialog{
-    .social-sharing-in-modal{
+.social-sharing {
+  &__dialog {
+    .social-sharing-in-modal {
       position: relative;
       left: auto;
       bottom: auto;
@@ -15,11 +15,10 @@
   }
 
   &-in-modal {
-    button {
-      @extend .action-button;
-    }
-
-    .social-sharing{
+    .social-sharing {
+      &__dialog-open-button {
+        @extend .action-button;
+      }
       &__button {
         background-color: transparent;
         border: none;
@@ -28,8 +27,12 @@
         &:nth-last-child(1) {
           margin-right: 0;
         }
-        &:hover{
+        &:hover {
           background-color: transparent;
+          path {
+            fill: $black-blue;
+            stroke: $black-blue;
+          }
         }
         svg {
           width: 22px;
@@ -44,6 +47,7 @@
           }
         }
         path {
+          transition: all 0.2s ease-out;
           fill: $recepedia-orange;
           stroke: $recepedia-orange;
         }
@@ -51,5 +55,3 @@
     }
   }
 }
-
-
