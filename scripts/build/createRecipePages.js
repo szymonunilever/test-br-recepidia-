@@ -48,6 +48,21 @@ const RecipeFields = `
       unit
       value
     }
+    nutrientsPerServing {
+      description
+      displayUnit
+      dv
+      epercent
+      isCore
+      name
+      position
+      rawRiPercent
+      rawDvPercent
+      rawValue
+      ri
+      unit
+      value
+    }
     localImage {
       childImageSharp {
         fluid {

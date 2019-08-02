@@ -9,7 +9,6 @@
   &__button {
     @extend .button;
     width: 100%;
-    font-weight: bold;
     @include respondTo(medium) {
       max-width: 352px;
     }

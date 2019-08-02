@@ -41,6 +41,7 @@ const Select = ({
   changeHandler,
   defaultValue,
   formatOptionLabel,
+  isSearchable,
 }: SelectProps) => {
   className = cx(className, 'select');
   const props = {
@@ -52,6 +53,7 @@ const Select = ({
     formatOptionLabel,
     defaultValue,
     placeholder,
+    isSearchable,
   };
 
   changeHandler ? (props.onChange = changeHandler) : null;

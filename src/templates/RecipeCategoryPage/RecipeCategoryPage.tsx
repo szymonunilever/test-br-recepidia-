@@ -21,6 +21,7 @@ import { action } from '@storybook/addon-actions';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
+import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
@@ -118,7 +119,9 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             )}
             viewType={PageListingViewTypes.carousel}
             list={pageListingData}
-            initialCount={6}
+            carouselConfig={{
+              arrowIcon: <ArrowIcon />,
+            }}
           />
         </div>
       </section>

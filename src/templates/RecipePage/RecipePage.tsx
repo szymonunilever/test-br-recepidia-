@@ -34,7 +34,6 @@ import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 import attributes from 'src/components/data/dietaryAttributes.json';
 import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
-import dataRecipe from 'src/components/data/recipe.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
@@ -79,9 +78,6 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
     }
   `);
   const { components, recipe } = pageContext;
-  // TODO below fields should be fetched from back-end. Currenty missing in back-end response
-  recipe.nutrientsPer100g = dataRecipe.nutrientsPer100g as any;
-  recipe.nutrientsPerServing = dataRecipe.nutrientsPerServing as any;
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {

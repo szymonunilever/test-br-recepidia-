@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
     .filter {
       &__count {
         @extend h2;
@@ -38,6 +39,11 @@
           line-height: 28px;
           margin: 0;
           box-shadow: none;
+          div {
+            position: initial;
+            transform: none;
+            white-space: nowrap;
+          }
           @include respondTo(desktop) {
             min-height: 46px;
             // for ie aligning
@@ -62,9 +68,6 @@
             background: $black-blue;
             color: $white;
           }
-          &:last-child {
-            display: none;
-          }
         }
         &-label-text {
           @extend .sr-only;
@@ -85,15 +88,16 @@
       margin: 0;
       padding: 20px 0;
     }
-    .tags__item {
-    }
+
     .tags__removable {
       border: 1px solid $black-blue;
       border-radius: 20px;
       height: 32px;
-      @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
         &:hover {
-          border-color: darken($apple-green , 10%);
+          border-color: darken($apple-green, 10%);
           svg {
             fill: $black-blue;
           }

@@ -1,17 +1,34 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
 import Arrow from './partials/Arrow';
 import ProgressBar from './partials/ProgressBar';
-import { CarouselProps } from './models';
+import { CarouselProps, CarouselConfig } from './models';
 import styles from './Carousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
 import cx from 'classnames';
 
-const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
+export const defaultCarouselConfig = {
+  breakpoints: [
+    {
+      width: 768,
+      switchElementsBelowBreakpoint: 1,
+      switchElementsAfterBreakpoint: 1,
+      visibleElementsBelowBreakpoint: 3,
+      visibleElementsAboveBreakpoint: 4,
+    },
+  ],
+};
+
+const Carousel = ({
+  list,
+  createElementFunction,
+  config = defaultCarouselConfig,
+}: CarouselProps) => {
   const getNearestBreakpoint = (target: number) => {
-    return config.breakpoints.reduce((prev, curr) =>
-      Math.abs(curr.width - target) < Math.abs(prev.width - target)
-        ? curr
-        : prev
+    return (config.breakpoints || defaultCarouselConfig.breakpoints).reduce(
+      (prev, curr) =>
+        Math.abs(curr.width - target) < Math.abs(prev.width - target)
+          ? curr
+          : prev
     );
   };
   const [slideStep, setSlideStep] = useState();

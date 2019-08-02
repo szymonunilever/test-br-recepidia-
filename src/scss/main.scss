@@ -2,11 +2,8 @@
 @import 'theme';
 @import 'print';
 
-@import './components/text';
-@import './components/rich-text';
-@import './components/form';
-@import './components/Button/index';
-@import './components/Hero/index';
+@import 'components/Button/index';
+@import 'components/Hero/index';
 @import 'components/GlobalNavigation/index';
 @import 'components/GlobalFooter/index';
 @import 'components/BackToTop/index';
@@ -37,3 +34,4 @@
 @import 'components/VideoPlayer/index';
 @import 'components/MediaGallery/index';
 @import 'components/UserPreferences/index';
+@import 'components/Card/index';

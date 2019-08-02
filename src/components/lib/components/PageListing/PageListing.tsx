@@ -6,29 +6,21 @@ import { TagName, Text } from '../Text';
 import PageListingItem from './partials/PageListingItem';
 import PageListingCarousel from './PageListingCarousel';
 import { Button } from 'src/components/lib/components/Button';
+import { CarouselConfig } from '../Carousel/models';
+import { defaultCarouselConfig } from '../Carousel/Carousel';
 
 const PageListing = ({
   list,
   content: { title, subtitle, cta },
   viewType = PageListingViewTypes.default,
-  initialCount = 6,
+  initialCount,
   className,
   pagesPerLoad = 4,
   titleLevel = 2,
-  carouselConfig = {
-    breakpoints: [
-      {
-        width: 1366,
-        switchElementsBelowBreakpoint: 1,
-        switchElementsAfterBreakpoint: 2,
-        visibleElementsBelowBreakpoint: 2,
-        visibleElementsAboveBreakpoint: 4,
-      },
-    ],
-  },
+  carouselConfig,
 }: PageListingProps) => {
   const [pages, setPages] = useState({
-    list: list.slice(0, initialCount),
+    list: initialCount ? list : list.slice(0, initialCount),
   });
 
   const loadMore = () =>
@@ -76,6 +68,10 @@ const PageListing = ({
     </div>
   );
 
+  const resCarouselConfig: CarouselConfig = {
+    ...defaultCarouselConfig,
+    ...carouselConfig,
+  };
   if (viewType === PageListingViewTypes.carousel) {
     let classNames = cx('page-listing--carousel', className);
     view = (
@@ -92,7 +88,7 @@ const PageListing = ({
         <PageListingCarousel
           list={pages.list}
           content={{ title }}
-          config={carouselConfig}
+          config={resCarouselConfig as CarouselConfig}
         />
       </div>
     );

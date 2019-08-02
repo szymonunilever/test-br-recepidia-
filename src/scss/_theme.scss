@@ -14,8 +14,8 @@ main {
   display: block;
 }
 .container {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: $paddings-container;
+  padding-right: $paddings-container;
   margin-left: auto;
   margin-right: auto;
   max-width: 1140px;
@@ -104,7 +104,10 @@ p {
 }
 
 .no-scroll {
+  position: fixed;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .rr-box-wrapper:not(:first-child) {
   display: none;

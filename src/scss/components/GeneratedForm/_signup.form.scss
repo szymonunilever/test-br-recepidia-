@@ -87,7 +87,6 @@
     @extend .button--yellow;
     padding: 0 23px;
     font-size: 14px;
-    font-weight: bold;
     @include respondTo(desktop) {
       font-size: 16px;
       height: 46px;

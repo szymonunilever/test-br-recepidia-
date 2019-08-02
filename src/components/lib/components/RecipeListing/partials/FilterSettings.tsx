@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { remove } from 'lodash';
+import { remove, get } from 'lodash';
 import React from 'react';
 import { Accordion } from '../../Accordion';
 import { Button } from '../../Button';
@@ -35,10 +35,25 @@ const FilterSettings = ({
     onFilterChange([]);
   };
 
+  const displayGroups = get(allFilters.displayCategories, 'length')
+    ? allFilters.tagGroups.reduce(
+        (groups: Internal.TagGroup[], category: Internal.TagGroup) => {
+          if (
+            allFilters.displayCategories &&
+            allFilters.displayCategories.includes(category.name)
+          ) {
+            groups.push(category);
+          }
+
+          return groups;
+        },
+        []
+      )
+    : allFilters.tagGroups;
   return (
     <div className={classWrapper} hidden={hidden}>
       <ul className="filter-settings__tagGroups">
-        {allFilters.tagGroups.map((item: Internal.TagGroup, key) => (
+        {displayGroups.map((item: Internal.TagGroup, key) => (
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"

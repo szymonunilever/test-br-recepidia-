@@ -55,8 +55,8 @@ export enum LoadMoreType {
 
 export interface LoadMoreConfig {
   type: LoadMoreType;
-  onLoadMore: onLoadMore;
-  allCount: number;
+  onLoadMore?: onLoadMore;
+  allCount?: number;
 }
 
 export interface RecipeListingCarouselProps {
