@@ -203,7 +203,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
   return (
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
-      <DigitalData pageContext={pageContext} data={recipe} />
+      <DigitalData type="RecipeDetail" data={recipe} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
