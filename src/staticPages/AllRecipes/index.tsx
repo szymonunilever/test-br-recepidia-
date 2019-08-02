@@ -156,15 +156,6 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             viewType={PageListingViewTypes.carousel}
             titleLevel={2}
             carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 3,
-                  visibleElementsAboveBreakpoint: 4,
-                },
-              ],
               arrowIcon: <ArrowIcon />,
             }}
           />
@@ -194,14 +185,14 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             titleLevel={3}
             tags={{
               tagGroups: allTagGroupings.nodes,
-              displayCategories: [
-                'dishes',
-                'mainIngredient',
-                'cuisines',
-                'difficulties',
-                'dietary',
-                'budgets',
-              ],
+              // displayCategories: [
+              //   'dishes',
+              //   'mainIngredient',
+              //   'cuisines',
+              //   'difficulties',
+              //   'dietary',
+              //   'budgets',
+              // ],
             }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
@@ -241,15 +232,6 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel"
             carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 2,
-                  visibleElementsAboveBreakpoint: 2,
-                },
-              ],
               arrowIcon: <ArrowIcon />,
             }}
             imageSizes={'(min-width: 768px) 50vw, 100vw'}

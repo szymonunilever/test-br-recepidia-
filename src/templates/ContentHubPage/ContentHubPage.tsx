@@ -14,6 +14,7 @@ import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
 import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
@@ -89,7 +90,9 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
             )}
             viewType={PageListingViewTypes.carousel}
             list={pageListingData}
-            initialCount={6}
+            carouselConfig={{
+              arrowIcon: <ArrowIcon />,
+            }}
           />
         </div>
       </section>

@@ -14,8 +14,6 @@ import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
 import TagLinks from 'src/components/TagsLinks';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
-import PlaceholderIcon from 'src/svgs/inline/placeholder.svg';
-
 import keys from 'integrations/keys.json';
 
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
@@ -281,15 +279,6 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             viewType={PageListingViewTypes.carousel}
             titleLevel={2}
             carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 2,
-                  visibleElementsBelowBreakpoint: 3,
-                  visibleElementsAboveBreakpoint: 4,
-                },
-              ],
               arrowIcon: <ArrowIcon />,
             }}
           />
