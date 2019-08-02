@@ -43,7 +43,7 @@ const DigitalData = ({
         destinationURL: window.location.href,
       };
       digitalData.page.attributes.contentType = '${pageType}';
-      if (${type} === 'ArticleDetail') {
+      if ('${type}' === 'ArticleDetail') {
         digitalData.page.attributes.articleName = '${pageName}';
       }
       `}</script>
