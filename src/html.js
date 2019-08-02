@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keys from '../integrations/keys';
 
 export default function HTML(props) {
   return (
@@ -30,6 +31,7 @@ export default function HTML(props) {
                 `,
               }}
             />
+            <script type="text/javascript" src={keys.analytics.adobe.url} defer />
           </>
         )}
         <meta charSet="utf-8" />

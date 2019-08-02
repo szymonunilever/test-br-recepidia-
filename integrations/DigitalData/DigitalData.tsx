@@ -40,7 +40,6 @@ const DigitalData = ({
         digitalData.page.attributes.articleName = '${pageName}';
       }
       `}</script>
-      <script type="text/javascript" src={keys.analytics.adobe.url} defer />
     </Helmet>
   ) : (
     <></>
