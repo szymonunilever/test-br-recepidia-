@@ -14,6 +14,7 @@ import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
 import TagLinks from 'src/components/TagsLinks';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
+
 import keys from 'integrations/keys.json';
 
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
@@ -134,13 +135,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const getSearchSuggestionData = async (
     searchQuery: string,
-    params: SearchParams
+    { from, size }: SearchParams
   ) => {
-    const searchParams = {
+    const recipeSearchParams = {
       index: keys.elasticSearch.recipeIndex,
       body: {
-        from: params.from,
-        size: params.size,
+        from,
+        size,
         query: {
           // eslint-disable-next-line @typescript-eslint/camelcase
           query_string: {
@@ -156,10 +157,33 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       },
     };
 
-    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
+    const articleSearchParams = {
+      index: keys.elasticSearch.articleIndex,
+      body: {
+        from,
+        size,
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: `*${searchQuery}*`,
+            fields: ['title', 'articleText.text'],
+          },
+        },
+      },
+    };
+
+    Promise.all([
+      useElasticSearch<Internal.Recipe>(recipeSearchParams),
+      useElasticSearch<Internal.Article>(articleSearchParams),
+    ]).then(res => {
+      const [recipeSearchResponse, articleSearchResponse] = res;
+
       setSearchInputResults({
-        list: res.hits.hits.map(item => item._source.title),
-        count: res.hits.total,
+        ...searchInputResults,
+        list: [
+          ...recipeSearchResponse.hits.hits.map(item => item._source.title),
+          ...articleSearchResponse.hits.hits.map(item => item._source.title),
+        ],
       });
     });
   };
@@ -250,14 +274,16 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         />
       </section>
 
-      <section className="_pt--40 _pb--40">
-        <div className="container">
-          <TagLinks
-            list={allTag.nodes}
-            content={findPageComponentContent(components, 'Tags')}
-          />
-        </div>
-      </section>
+      {recipeResults.list.length || articleResults.list.length ? (
+        <section className="_pt--40 _pb--40">
+          <div className="container">
+            <TagLinks
+              list={allTag.nodes}
+              content={findPageComponentContent(components, 'Tags')}
+            />
+          </div>
+        </section>
+      ) : null}
 
       <section>
         <Hero
