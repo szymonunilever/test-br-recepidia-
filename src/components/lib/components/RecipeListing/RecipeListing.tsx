@@ -37,7 +37,7 @@ export const RecipeListing = ({
   initialCount = 4,
   onFavoriteChange,
   onViewChange,
-  loadMoreConfig,
+  loadMoreConfig = { type: LoadMoreType.sync },
   tags = { tagGroups: [] },
   carouselConfig = {
     breakpoints: [
@@ -52,28 +52,33 @@ export const RecipeListing = ({
   },
   imageSizes,
 }: RecipeListingProps) => {
+  const isAsyncLoadMore = () =>
+    get(loadMoreConfig, 'type') === LoadMoreType.async;
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
   const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
   const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
+  const [displayNumber, setDisplayNumber] = useState(initialCount);
+
   let listModified =
     viewType === RecipeListViewType.Advanced
       ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
       : listWithFavorites;
+  const getSlicedList = (list = listModified): Internal.Recipe[] =>
+    !isAsyncLoadMore() ? list.slice(0, displayNumber) : list;
 
-  const [displayNumber, setDisplayNumber] = useState(initialCount);
   const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
     RecipeSortingOptions.newest
   );
   const [filteringValue, setFilteringValue] = useState<Internal.Tag[]>([]);
-  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(listModified);
+  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(
+    getSlicedList()
+  );
+  const allCount = loadMoreConfig.allCount || recipeList.length;
 
   useEffect(() => {
-    setRecipeList(list);
+    setRecipeList(getSlicedList(list));
   }, [list]);
-
-  const isAsyncLoadMore = () =>
-    get(loadMoreConfig, 'type') === LoadMoreType.async;
 
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
@@ -93,8 +98,7 @@ export const RecipeListing = ({
       }
     } else {
       const recipeCount = displayNumber;
-      listModified = sortBy(sortingValue, listModified);
-      const filtered = applyFilters(filter, listModified);
+      const filtered = applyFilters(filter, sortBy(sortingValue, listModified));
       setRecipeList(
         recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered
       );
@@ -142,6 +146,8 @@ export const RecipeListing = ({
           : applyFilters(filteringValue, listModified)
       );
     }
+
+    setDisplayNumber(recipeCount);
   };
 
   const listHeader = title ? (
@@ -155,10 +161,10 @@ export const RecipeListing = ({
 
   const shouldLoadMoreAppear =
     loadMoreConfig && isAsyncLoadMore()
-      ? list.length < loadMoreConfig.allCount
+      ? list.length < allCount
       : recipeList.length > 0 &&
         initialCount !== 0 &&
-        displayNumber < recipeList.length;
+        displayNumber < list.length;
 
   const listing = (
     <RecipeListingTrivial
