@@ -98,7 +98,7 @@
     &__content {
       @extend %modal__content--small;
       background-color: $white-gray;
-      padding: 100px 25px;
+      padding: 100px 25px 25px;
       @include respondTo(desktop) {
         height: 475px;
         padding: 65px 90px;
@@ -110,6 +110,9 @@
         margin: 0;
       }
     }
+  }
+  #modal__description {
+    height: 100%;
   }
   .search-input {
     &__title {

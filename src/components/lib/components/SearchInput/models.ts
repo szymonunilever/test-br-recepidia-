@@ -12,7 +12,7 @@ export interface SearchInputProps
   defaultSearchValue?: string;
   onSubmit: getSearchData | Function;
   getSearchResults?: getSearchData;
-  onClickSearchResultsItem?: getSearchData;
+  onClickSearchResultsItem?: getSearchData | Function;
   autoFocus?: boolean;
   searchResults?: string[];
   minLength?: number;
