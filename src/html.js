@@ -8,6 +8,7 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
+  const { applicationID, licenseKey, locale } = keys.sitespeed;
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -21,6 +22,13 @@ export default function HTML(props) {
             <script
               dangerouslySetInnerHTML={{
                 __html: `
+                
+                var digitalData = {};
+                digitalData.sitespeed = [];
+                digitalData.sitespeed.applicationID = ${applicationID};
+                digitalData.sitespeed.licenseKey = "${licenseKey}";
+                digitalData.sitespeed.locale = "${locale}";
+                
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {

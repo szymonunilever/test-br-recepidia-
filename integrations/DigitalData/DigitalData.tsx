@@ -12,7 +12,6 @@ const DigitalData = ({
   title,
   type,
 }: DigitalDataProps) => {
-  const { applicationID, licenseKey, locale } = keys.sitespeed;
   const pageType = type ? type : pageContext.type; //TODO: When we will know where to get Title of the page, we need fix this and use only type instead get all components inside this integration.
   const pageName = title
     ? title
@@ -25,13 +24,9 @@ const DigitalData = ({
     <Helmet>
       <script type="text/javascript">{`
       var channelVal = 'Brand Site'; 
-      var digitalData = ${JSON.stringify(keys.digitalData)};
-      
-      digitalData.sitespeed = [];
-      digitalData.sitespeed.applicationID = ${applicationID};
-      digitalData.sitespeed.licenseKey = "${licenseKey}";
-      digitalData.sitespeed.locale = "${locale}";
-      
+      var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
+        keys.digitalData
+      )}) : ${JSON.stringify(keys.digitalData)};      
       digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
          pageType: '${pageType}',
