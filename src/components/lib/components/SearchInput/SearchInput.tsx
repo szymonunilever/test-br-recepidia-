@@ -115,6 +115,11 @@ const SearchInput = ({
     }
   };
 
+  const onHoverSearchResultsItemHandler = (index: number) => {
+    setInputValue(data[index]);
+    setActiveItemIndex(index);
+  };
+
   const onClickSearchResultsItemHandler = (index: number) => {
     setInputValue(data[index]);
 
@@ -191,6 +196,7 @@ const SearchInput = ({
           onClickHandler={onClickSearchResultsItemHandler}
           activeIndex={activeItemIndex}
           list={data}
+          onHoverHandler={onHoverSearchResultsItemHandler}
         />
       ) : null}
     </div>
