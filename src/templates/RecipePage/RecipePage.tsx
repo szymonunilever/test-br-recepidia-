@@ -70,7 +70,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
         }
       }
 
-      allRecipe(limit: 10) {
+      allRecipe(limit: 6) {
         nodes {
           ...RecipeFields
         }
