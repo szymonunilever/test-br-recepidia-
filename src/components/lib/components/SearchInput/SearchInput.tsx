@@ -131,7 +131,12 @@ const SearchInput = ({
 
   const inputHasValue = !!inputValue;
   const buttonReset = inputHasValue ? (
-    <button className="form__button-reset" type="button" onClick={resetForm}>
+    <button
+      className="form__button-reset"
+      type="button"
+      onClick={resetForm}
+      aria-label="reset"
+    >
       {buttonResetIcon}
     </button>
   ) : null;
@@ -143,6 +148,7 @@ const SearchInput = ({
       <form className="form">
         <div className="form__group">
           <label className="form__label" htmlFor="search-input">
+            <span className="form__label-text">search</span>
             {labelIcon}
           </label>
           <input
@@ -161,6 +167,7 @@ const SearchInput = ({
             className="form__button-submit"
             onClick={submitHandler}
             disabled={!inputHasValue}
+            aria-label="submit"
           >
             {buttonSubmitIcon}
           </button>

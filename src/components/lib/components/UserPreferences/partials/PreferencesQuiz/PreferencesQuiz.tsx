@@ -17,6 +17,7 @@ const successSaveMessageShowTime = 3000;
 
 const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   questions,
+  answers,
   heading,
   editingKey,
   setEditingKey,
@@ -54,6 +55,9 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
     key: string,
     selectedOptions: string | object | null
   ) => {
+    // @todo save logic should be called by saveQuestion method here. When done - remove fake manipulation with data below
+    // @ts-ignore
+    answers[key] = selectedOptions;
     // eslint-disable-next-line no-console
     console.log('Saved new entry', [key, selectedOptions]);
     // simulating response
@@ -113,6 +117,7 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
                 <PreferenceEntry
                   key={item.orderIndex}
                   preferenceEntry={item}
+                  selectedOptions={answers[item.key]}
                   editingKey={editingKey}
                   setEditEntryKey={setEditingKey}
                   deleteEntry={deleteThisEntry}
