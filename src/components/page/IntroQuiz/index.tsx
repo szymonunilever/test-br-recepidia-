@@ -12,8 +12,11 @@ import WizardQuiz from '../../lib/components/Wizard/partials/Quiz';
 import { IntroQuizProps } from './models';
 import WizardLogo from '../../../svgs/inline/wizard-logo.svg';
 import Logo from '../../lib/components/Logo';
-
-const userProfileKey = 'userProfile';
+import {
+  getUserProfileByKey,
+  saveUserProfileByKey,
+} from '../../../utils/browserStorage';
+import { ProfileKey } from '../../../utils/browserStorage/models';
 
 const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   questions,
@@ -21,17 +24,14 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   primaryButtonFinalLabel,
   secondaryButtonLabel,
 }) => {
-  const userProfileStoredValue = JSON.parse(
-    (typeof window !== 'undefined' &&
-      window.localStorage.getItem(userProfileKey)) ||
-      '{"initialQuiz": {}}'
-  );
   const [isQuizOpened, setIsQuizOpened] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState(false);
-  const [userProfile, setUserProfile] = useState(userProfileStoredValue);
+  const [userProfileIQ, setUserProfileIQ] = useState(
+    getUserProfileByKey(ProfileKey.initialQuiz)
+  );
 
   useEffect(() => {
-    !Object.keys(userProfile.initialQuiz).length &&
+    !Object.keys(userProfileIQ).length &&
       setTimeout(() => {
         !isQuizPassed && setIsQuizOpened(true);
       }, 3000);
@@ -40,20 +40,14 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   const wizardAction = useCallback(wizardData => {
     setIsQuizOpened(false);
     setIsQuizPassed(true);
-    const newProfile = Object.assign(userProfile, {
-      initialQuiz: wizardData.data.quiz,
-    });
-
-    setUserProfile(newProfile);
-    window.localStorage.setItem(userProfileKey, JSON.stringify(newProfile));
+    setUserProfileIQ(wizardData.data.quiz);
+    saveUserProfileByKey(wizardData.data.quiz, ProfileKey.initialQuiz);
   }, []);
 
-  const stepResultsCallback = useCallback(quizData => {
-    const newProfile = Object.assign(userProfile, {
-      initialQuiz: quizData.data,
-    });
-    window.localStorage.setItem(userProfileKey, JSON.stringify(newProfile));
-  }, []);
+  const stepResultsCallback = useCallback(
+    quizData => saveUserProfileByKey(quizData.data, ProfileKey.initialQuiz),
+    []
+  );
 
   const closeCallback = useCallback(() => setIsQuizOpened(false), []);
 
