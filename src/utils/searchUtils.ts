@@ -28,12 +28,13 @@ const recipeSearchParams = (
 
 const articleSearchParams = (
   searchQuery: string,
-  { from, size }: SearchParams
+  { from, size, _source }: SearchParams
 ) => ({
   index: keys.elasticSearch.articleIndex,
   body: {
     from,
     size,
+    _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
       query_string: {

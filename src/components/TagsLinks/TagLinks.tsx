@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { getTagSlug } from 'src/utils';
 import { TagVariant } from 'src/components/lib/components/Tags/models';
@@ -27,9 +27,17 @@ const TagLinks: React.SFC<TagLinksProps> = ({
     }
   `);
 
+  const [tagList, setTagList] = useState(
+    addSlugToTags(data.allPage.nodes[0].relativePath, list)
+  );
+
+  useEffect(() => {
+    setTagList(addSlugToTags(data.allPage.nodes[0].relativePath, list));
+  }, [list]);
+
   return (
     <Tags
-      list={addSlugToTags(data.allPage.nodes[0].relativePath, list)}
+      list={tagList}
       content={content}
       initialCount={initialCount}
       tagsPerLoad={tagsPerLoad}

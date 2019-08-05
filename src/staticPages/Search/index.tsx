@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -24,10 +24,12 @@ import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import useSearchResults from './useSearchResults';
+import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const { components } = pageContext;
   const { allTag } = data;
+
   const {
     getSearchData,
     getRecipeSearchData,
@@ -37,6 +39,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     articleResults,
     searchInputResults,
   } = useSearchResults(searchQuery);
+
+  const [tagList, setTagList] = useState<Internal.Tag[]>([]);
+
+  useEffect(() => {
+    setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
+  }, [recipeResults]);
 
   return (
     <Layout className={cx('search-page', theme.searchPage)}>
@@ -114,11 +122,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         />
       </section>
 
-      {recipeResults.list.length || articleResults.list.length ? (
+      {tagList.length ? (
         <section className="_pt--40 _pb--40">
           <div className="container">
             <TagLinks
-              list={allTag.nodes}
+              initialCount={tagList.length}
+              list={tagList}
               content={findPageComponentContent(components, 'Tags')}
             />
           </div>
@@ -166,7 +175,7 @@ export const pageQuery = graphql`
   }
 `;
 
-interface SearchPageProps {
+export interface SearchPageProps {
   data: {
     allTag: {
       nodes: Internal.Tag[];
