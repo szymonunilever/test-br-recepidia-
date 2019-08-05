@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { get } from 'lodash';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,
@@ -7,6 +8,7 @@ import {
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 
 const useSearchResults = (searchQuery: string) => {
   const [recipeResults, setRecipeResults] = useState<{
@@ -43,7 +45,7 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQeury, params) =>
       getRecipeResponse(searchQeury, params).then(res => {
         setRecipeResults({
-          list: recipeResults.list.length
+          list: params.from
             ? [
                 ...recipeResults.list,
                 ...res.hits.hits.map(resItem => resItem._source),
@@ -76,7 +78,7 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQeury, params) =>
       getArticleResponse(searchQeury, params).then(res => {
         setArticleResults({
-          list: articleResults.list.length
+          list: params.from
             ? [
                 ...articleResults.list,
                 ...res.hits.hits.map(resItem => resItem._source),
@@ -119,11 +121,10 @@ const useSearchResults = (searchQuery: string) => {
     });
   };
 
-  useEffect(() => {
-    getSearchData(searchQuery, {
-      size: 8,
-    });
-  }, []);
+  const initialRecipesCount = useResponsiveScreenInitialSearch(
+    (size: number) => getSearchData(searchQuery, { size }),
+    get(recipeResults, 'list.length', 0)
+  );
 
   return {
     getSearchData,
@@ -136,6 +137,7 @@ const useSearchResults = (searchQuery: string) => {
     articleResults,
     searchInputResults,
     resultsFetched,
+    initialRecipesCount,
   };
 };
 

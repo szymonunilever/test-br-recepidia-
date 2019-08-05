@@ -11,6 +11,16 @@
     margin-bottom: 20px;
   }
 }
+.hero-description-bold {
+  display: none;
+  @include respondTo(medium) {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: $black-blue;
+  }
+}
 .hero-bg {
   position: relative;
   &:before {

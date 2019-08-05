@@ -36,18 +36,19 @@
           border-radius: 0;
           padding: 0 10px;
           min-height: 43px;
-          line-height: 28px;
+          // for ie aligning
+          line-height: 37px;
           margin: 0;
           box-shadow: none;
-          div {
-            position: initial;
-            transform: none;
-            white-space: nowrap;
+          .css-1hwfws3 {
+            position: relative;
+            display: block;
+            z-index: 2;
           }
           @include respondTo(desktop) {
             min-height: 46px;
             // for ie aligning
-            line-height: 32px;
+            line-height: 40px;
           }
           &:hover {
             cursor: pointer;

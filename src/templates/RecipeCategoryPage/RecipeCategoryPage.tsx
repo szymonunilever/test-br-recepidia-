@@ -22,6 +22,7 @@ import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import useMedia from 'src/utils/useMedia';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
@@ -33,6 +34,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
     'RecipeListing',
     'RecipesByCategory'
   );
+  const initialRecipesCount = useMedia();
 
   return (
     <Layout className={classWrapper}>
@@ -49,6 +51,15 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       </section>
       <section>
         <div className="container">
+          <Text
+            className={theme.heroDescriptionBold}
+            tag={TagName['p']}
+            text={
+              tag.description ||
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
+            }
+          />
+
           <Text
             className={theme.heroDescription}
             tag={TagName['p']}
@@ -95,7 +106,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
             titleLevel={2}
-            initialCount={8}
+            initialCount={initialRecipesCount}
             recipePerLoad={4}
             withFavorite
             favorites={[]}

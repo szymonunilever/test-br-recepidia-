@@ -63,12 +63,17 @@ export const RecipeListing = ({
   const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
   const [displayNumber, setDisplayNumber] = useState(initialCount);
 
+  useEffect(() => {
+    setDisplayNumber(Math.max(initialCount, displayNumber));
+  }, [initialCount]);
+
   let listModified =
     viewType === RecipeListViewType.Advanced
       ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
       : listWithFavorites;
-  const getSlicedList = (recList = listModified): Internal.Recipe[] =>
-    !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
+  const getSlicedList = (recList = listModified): Internal.Recipe[] => {
+    return !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
+  };
 
   const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
     RecipeSortingOptions.newest
@@ -81,7 +86,7 @@ export const RecipeListing = ({
 
   useEffect(() => {
     setRecipeList(getSlicedList(list));
-  }, [list]);
+  }, [list, displayNumber]);
 
   ratingProvider === RatingAndReviewsProvider.kritique &&
     useKritiqueReload([recipeList]);
