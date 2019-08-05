@@ -38,10 +38,10 @@
   },
   "analytics": {
     "adobe": {
-      "url": "//assets.adobedtm.com/launch-EN8045c0029e784415a553806b3f4262a7-staging.min.js"
+      "url": "http://assets.adobedtm.com/launch-EN44f54226de934d4eb94899b7090e7c11.min.js"
     },
     "google": {
-      "trackingId": "UA-54293156-50",
+      "trackingId": "'UA-90851017-3",
       "head": false,
       "anonymize": true,
       "respectDNT": true,
@@ -52,7 +52,7 @@
       "variationId": "",
       "sampleRate": 5,
       "siteSpeedSampleRate": 10,
-      "cookieDomain": ""
+      "cookieDomain": ".br.recepedia.com"
     }
   },
   "digitalData": {
@@ -72,11 +72,11 @@
       }
     },
     "trackingInfo": {
-      "GID": "4ebd8def9711eb35147f0d6ba2244e47",
+      "GID": "2bc51b79249fd36e7ce05b425c3c4b0f",
       "tool": [
         {
           "ids": "",
-          "id": "UA-54293156-50"
+          "id": "'UA-90851017-3"
         }
       ]
     }
@@ -89,15 +89,15 @@
     "country": "Brazil",
     "sitetype": "Static First",
     "evq": [],
-    "gid": "4ebd8def9711eb35147f0d6ba2244e47",
-    "gaa": "UA-54293156-50"
+    "gid": "2bc51b79249fd36e7ce05b425c3c4b0f",
+    "gaa": "UA-90851017-3",
+    "dom": ".br.recepedia.com"
   },
   "sitespeed": {
     "applicationID": 352261058,
     "licenseKey": "23361156bc",
     "locale": "Brazil"
-  },
-  "formService": {
-    "url": "https://dcsng-qa-eu.unileversolutions.com/ts/public/form"
   }
 }
+
+
