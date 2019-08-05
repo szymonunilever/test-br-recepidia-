@@ -219,20 +219,28 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
 };
 
 exports.onPostBuild = async ({ getNodesByType }) => {
+  // To run ES update pass `es=true` as a build param
+  const args = process.argv.slice(2);
+  if (
+    !args ||
+    !args.some(item => {
+      const arg = item.split('=');
+      console.log(arg);
+      return arg && arg.length && arg[0] === 'es' && arg[1] === 'true';
+    })
+  ) {
+    return;
+  }
+
   // eslint-disable-next-line no-console
   console.log('updating ES');
 
   const hrstart = process.hrtime();
 
-  // Node types to update ES with, might be configured in future via parameters
-  const nodeTypesToUpdate = [
-    updateES.NODE_TYPES.RECIPE,
-    updateES.NODE_TYPES.ARTICLE,
+  const promises = [
+    updateES.updateRecipes(getNodesByType(updateES.NODE_TYPES.RECIPE)),
+    updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE)),
   ];
-
-  const promises = nodeTypesToUpdate.map(node =>
-    updateES.updateRecipes(getNodesByType(node))
-  );
 
   await Promise.all(promises).then(() => {
     const hrend = process.hrtime(hrstart);
