@@ -75,6 +75,7 @@ export type getSearchData = (
 export interface SearchParams {
   from?: number;
   size?: number;
+  _source?: string[];
 }
 
 export declare interface ResponseRecipeData<T> {

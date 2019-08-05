@@ -7,8 +7,7 @@ import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
 import SearchIcon from 'src/svgs/inline/search-icon.svg';
 import { SearchParams } from '../lib/components/SearchListing/models';
 import { SearchInputProps } from '../lib/components/SearchInput/models';
-import useElasticSearch from 'src/utils';
-import keys from 'integrations/keys.json';
+import { getSearchSuggestionResponse } from 'src/utils/searchUtils';
 
 const GlobalSearch = ({
   searchContent,
@@ -28,65 +27,11 @@ const GlobalSearch = ({
     setModalState(false);
   };
 
-  const getRecipeSearchData = async (
-    searchQuery: string,
-    params: SearchParams
-  ) => {
-    const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
-      body: {
-        from: params.from,
-        size: params.size,
-        _source: ['title'],
-        query: {
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          query_string: {
-            query: `*${searchQuery}*`,
-            fields: [
-              'title',
-              'description',
-              'tagGroups.tags.name',
-              'ingredients.description',
-            ],
-          },
-        },
-      },
-    };
-
-    return useElasticSearch<Internal.Recipe>(searchParams).then(res => res);
-  };
-
-  const getArticleSearchData = async (
-    searchQuery: string,
-    params: SearchParams
-  ) => {
-    const searchParams = {
-      index: keys.elasticSearch.articleIndex,
-      body: {
-        from: params.from,
-        size: params.size,
-        _source: ['title'],
-        query: {
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          query_string: {
-            query: `*${searchQuery}*`,
-            fields: ['title', 'articleText.text'],
-          },
-        },
-      },
-    };
-
-    return useElasticSearch<Internal.Article>(searchParams).then(res => res);
-  };
-
   const getSearchSuggestionData = async (
     searchQuery: string,
     params: SearchParams
   ) => {
-    Promise.all([
-      getRecipeSearchData(searchQuery, { size: params.size }),
-      getArticleSearchData(searchQuery, { size: params.size }),
-    ]).then(values => {
+    getSearchSuggestionResponse(searchQuery, params).then(values => {
       const [recipeRes, articleRes] = values;
 
       setSearchInputResults([
