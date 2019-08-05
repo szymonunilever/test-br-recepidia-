@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import keys from '../keys.json';
 import Helmet from 'react-helmet';
-import useKritiqueReload from '../../src/utils/useKritiqueReload';
+import { reloadKritiqueWidget } from '../../src/utils/useKritiqueReload';
 
 const Kritique = () => {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -14,8 +14,8 @@ const Kritique = () => {
 
   useEffect(() => {
     setLocationOrigin(window.location.origin);
+    reloadKritiqueWidget();
   }, []);
-  useKritiqueReload();
 
   return (
     <>

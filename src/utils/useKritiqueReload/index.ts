@@ -1,10 +1,16 @@
 import { useEffect } from 'react';
 import { get } from 'lodash';
 
+export const reloadKritiqueWidget = () => {
+  const kritiqueWidget = get(window, 'ratingReview.widget');
+  kritiqueWidget && kritiqueWidget.rrReloadWidget();
+};
+
 const useKritiqueReload = (trackedState: any = []) => {
   useEffect(() => {
-    const kritiqueWidget = get(window, 'ratingReview.widget');
-    kritiqueWidget && kritiqueWidget.rrReloadWidget();
+    setTimeout(() => {
+      reloadKritiqueWidget();
+    }, 50);
   }, [trackedState]);
 };
 

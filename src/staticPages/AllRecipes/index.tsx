@@ -91,11 +91,12 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     );
   }, []);
 
-  useEffect(() => {
-    const kritiqueWidget = get(window, 'ratingReview.widget');
-    kritiqueWidget && kritiqueWidget.rrReloadWidget();
-  }, [recipeResults]);
-  // useKritiqueReload(recipeResults);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     reloadKritiqueWidget();
+  //   }, 300);
+  // }, [recipeResults]);
+  useKritiqueReload(recipeResults);
 
   const getFilterQuery = (tags: Internal.Tag[]) =>
     tags.map(({ name }) => `(${name})`).join(' AND ') || '**';

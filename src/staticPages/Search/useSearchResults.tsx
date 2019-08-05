@@ -6,7 +6,6 @@ import {
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-import { get } from 'lodash';
 import useKritiqueReload from 'src/utils/useKritiqueReload';
 
 const useSearchResults = (searchQuery: string) => {
@@ -32,7 +31,7 @@ const useSearchResults = (searchQuery: string) => {
     count: 0,
   });
 
-  useKritiqueReload(recipeResults);
+  useKritiqueReload();
 
   const getRecipeSearchData = useCallback(
     async (searchQeury, params) => {
