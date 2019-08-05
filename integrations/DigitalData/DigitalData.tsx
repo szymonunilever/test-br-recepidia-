@@ -46,6 +46,6 @@ const DigitalData = ({
   ) : (
     <></>
   );
-};
+}; //TODO: test
 
 export default DigitalData;
