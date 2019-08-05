@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import keys from '../keys.json';
 import Helmet from 'react-helmet';
-import { get } from 'lodash';
+import useKritiqueReload from '../../src/utils/useKritiqueReload';
 
 const Kritique = () => {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -13,12 +13,9 @@ const Kritique = () => {
   const [locationOrigin, setLocationOrigin] = useState('');
 
   useEffect(() => {
-    const widget = get(window, 'ratingReview.widget');
-    if (widget) {
-      widget.rrReloadWidget();
-    }
     setLocationOrigin(window.location.origin);
   }, []);
+  useKritiqueReload();
 
   return (
     <>
