@@ -18,6 +18,7 @@ export const Button = ({
   toggleExternalManage = false,
   viewType = ButtonViewType.classic,
   content,
+  role,
   attributes = {},
 }: ButtonProps) => {
   const { label } = content || { label: '' };
@@ -49,6 +50,7 @@ export const Button = ({
     }
   };
   const props = {
+    role,
     type,
     'data-componentname': 'button',
     onClick: onButtonClick,
@@ -56,8 +58,13 @@ export const Button = ({
     hidden,
   };
 
-  // @ts-ignore
-  isToggle ? (props['aria-pressed'] = selected) : null;
+  if (role === 'tab') {
+    // @ts-ignore
+    isToggle ? (props['aria-selected'] = selected) : null;
+  } else {
+    // @ts-ignore
+    isToggle ? (props['aria-pressed'] = selected) : null;
+  }
 
   return (
     <button className={buttonClasses} {...props} {...attributes}>

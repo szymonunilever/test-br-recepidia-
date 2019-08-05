@@ -18,22 +18,17 @@ export const Tabs = ({
       key={tab.view}
       className="tabs__button"
       isToggle
+      role="tab"
       isSelected={active === tab.view}
       toggleExternalManage={true}
       onClick={() => setActive(tab.view)}
       attributes={
         active === tab.view
           ? {
-              role: 'tab',
-              'aria-selected': 'true',
-              tabIndex: 0,
               'aria-controls': `${tab.view}__tab`,
               id: `${tab.view}`,
             }
           : {
-              role: 'tab',
-              'aria-selected': 'false',
-              tabIndex: -1,
               'aria-controls': `${tab.view}__tab`,
               id: `${tab.view}`,
             }
@@ -50,13 +45,11 @@ export const Tabs = ({
         active === child.props.view
           ? {
               role: 'tabpanel',
-              tabIndex: 0,
               'aria-labelledby': `${child.props.view}`,
               id: `${child.props.view}__tab`,
             }
           : {
               role: 'tabpanel',
-              tabIndex: 0,
               'aria-labelledby': `${child.props.view}`,
               id: `${child.props.view}__tab`,
             }

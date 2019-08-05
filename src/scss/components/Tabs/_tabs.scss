@@ -36,7 +36,7 @@
         height: 2px;
         background: $fish-blue-darker;
       }
-      &[aria-pressed='false'] {
+      &[aria-selected='false'] {
         &:before{
           width: 0;
         }
