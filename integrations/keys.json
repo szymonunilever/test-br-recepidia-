@@ -57,7 +57,7 @@
   },
   "digitalData": {
     "siteInfo": {
-      "sitetype": "Digital 2.0 Starter Kit",
+      "sitetype": "Digital 2.0",
       "category": "Foods",
       "country": "Brazil",
       "globalbrand": "Recepedia",
@@ -82,8 +82,8 @@
     }
   },
   "sitespeed": {
-    "applicationID": 341201170,
-    "licenseKey": "1a89f35859",
+    "applicationID": 296746378,
+    "licenseKey": "1bac48aaaa",
     "locale": "Brazil"
   }
 }
