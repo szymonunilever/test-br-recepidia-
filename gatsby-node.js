@@ -230,22 +230,9 @@ exports.onPostBuild = async ({ getNodesByType }) => {
     updateES.NODE_TYPES.ARTICLE,
   ];
 
-  const promises = [];
-
-  nodeTypesToUpdate.forEach(node => {
-    switch (node) {
-      case updateES.NODE_TYPES.RECIPE:
-        promises.push(
-          updateES.updateRecipes(getNodesByType(updateES.NODE_TYPES.RECIPE))
-        );
-        break;
-      case updateES.NODE_TYPES.ARTICLE:
-        promises.push(
-          updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE))
-        );
-        break;
-    }
-  });
+  const promises = nodeTypesToUpdate.map(node =>
+    updateES.updateRecipes(getNodesByType(node))
+  );
 
   await Promise.all(promises).then(() => {
     const hrend = process.hrtime(hrstart);

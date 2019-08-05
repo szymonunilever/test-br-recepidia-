@@ -5,32 +5,24 @@ const BATCH_SIZE = 500;
 const NODE_TYPES = { RECIPE: 'Recipe', ARTICLE: 'Article' };
 
 const bulkPost = async (data, url) => {
-  try {
-    await axios.post(`${url}/_bulk`, data, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (err) {
-    throw new Error(err);
-  }
+  return await axios.post(`${url}/_bulk`, data, {
+    headers: { 'Content-Type': 'application/json' },
+  });
 };
 
 const clearIndex = async (url, index) => {
-  try {
-    await axios.post(
-      `${url}/${index}/_delete_by_query`,
-      {
-        query: {
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          match_all: {},
-        },
+  return await axios.post(
+    `${url}/${index}/_delete_by_query`,
+    {
+      query: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        match_all: {},
       },
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-  } catch (err) {
-    throw new Error(err);
-  }
+    },
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
 };
 
 const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
@@ -38,33 +30,35 @@ const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
   const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
   let startItem = 0;
 
-  for (let i = 0; i < noOfBatches; i++) {
-    const endItem = startItem + BATCH_SIZE;
-    const bulkRows = [];
+  promises.fill(
+    (async () => {
+      const endItem = startItem + BATCH_SIZE;
+      const bulkRows = items.slice(startItem, endItem).map(item => {
+        if (item) {
+          // each datarow requires a header row like the below
+          const headerRow = {
+            index: {
+              _index: esIndex,
+              _type: '_doc',
+              _id: item[idField],
+            },
+          };
 
-    for (const item of items.slice(startItem, endItem)) {
-      if (item) {
-        // each datarow requires a header row like the belwo
-        const headerRow = {
-          index: {
-            _index: esIndex,
-            _type: '_doc',
-            _id: item[idField],
-          },
-        };
+          // Delete unnecessary fields
+          fieldsToDelete.forEach(field => delete item[field]);
 
-        bulkRows.push(JSON.stringify(headerRow));
+          return `${JSON.stringify(headerRow)}\n${JSON.stringify(item)}`;
+        }
+      });
 
-        // Delete unnecessary fields
-        fieldsToDelete.forEach(field => delete item[field]);
+      startItem = endItem > items.length ? items.length : endItem;
 
-        bulkRows.push(JSON.stringify(item));
-      }
-    }
-    startItem = endItem > items.length ? items.length : endItem;
-    // format required by ES needs newline at end of each row
-    promises.push(bulkPost(bulkRows.join('\n') + '\n', esUrl));
-  }
+      // format required by ES needs newline at end of each row
+      return bulkPost(bulkRows.join('\n') + '\n', esUrl);
+    })(),
+    0,
+    noOfBatches
+  );
 
   return Promise.all(promises);
 };
