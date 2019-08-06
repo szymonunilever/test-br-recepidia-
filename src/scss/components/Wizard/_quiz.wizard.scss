@@ -277,8 +277,31 @@ $four-col-width: 100% / 4;
 
 //Home page quiz specific styles
 .wizard--quiz-initial {
-  position: absolute;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
   overflow: hidden;
+  .quiz__list {
+    max-height: 15vh;
+    @media screen and (min-height: 570px) {
+      max-height: 30vh;
+    }
+    @media screen and (min-height: 670px) {
+      max-height: 40vh;
+    }
+    @media screen and (min-height: 850px) {
+      max-height: 45vh;
+    }
+    @media screen and (min-height: 1100px) {
+      max-height: 55vh;
+    }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      max-height: 30vh;
+      flex: auto;
+    }
+  }
   form {
     .wizard__title {
       color: $black-blue;
@@ -299,6 +322,12 @@ $four-col-width: 100% / 4;
       @extend .button;
       @extend .button--secondary;
       @extend .button--medium;
+    }
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .wizard__content > form {
+      flex: auto;
     }
   }
 }
