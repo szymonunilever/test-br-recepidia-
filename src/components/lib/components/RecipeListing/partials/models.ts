@@ -1,5 +1,6 @@
 import { titleLevel, UnileverLibraryComponent } from '../../globalModels';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import { RecipeListingProps } from '../models';
 
 export interface RecipeCardFavoriteCallback {
   (selected: { id: string; val: boolean }): void;
@@ -29,6 +30,7 @@ export interface RecipeListingTrivialProps
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider?: RatingAndReviewsProvider;
   imageSizes: string;
+  dataFetched?: RecipeListingProps['dataFetched'];
 }
 
 export enum RecipeSortingOptions {
@@ -62,6 +64,7 @@ export interface RecipeFilterProps
   OpenIcon?: JSX.Element;
   FilterIcon?: JSX.Element;
   RemoveTagIcon?: JSX.Element;
+  dataFetched?: RecipeListingProps['dataFetched'];
 }
 
 export interface FilterSettingsProps

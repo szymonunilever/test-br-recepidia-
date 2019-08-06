@@ -29,9 +29,10 @@ const useSearchResults = (searchQuery: string) => {
     list: [],
     count: 0,
   });
+  const [resultsFetched, setResultsFetched] = useState(false);
 
   const getRecipeSearchData = useCallback(
-    async (searchQeury, params) => {
+    async (searchQeury, params) =>
       getRecipeResponse(searchQeury, params).then(res => {
         setRecipeResults({
           list: recipeResults.list.length
@@ -42,13 +43,12 @@ const useSearchResults = (searchQuery: string) => {
             : res.hits.hits.map(resItem => resItem._source),
           count: res.hits.total,
         });
-      });
-    },
+      }),
     [recipeResults]
   );
 
   const getArticleSearchData = useCallback(
-    async (searchQeury, params) => {
+    async (searchQeury, params) =>
       getArticleResponse(searchQeury, params).then(res => {
         setArticleResults({
           list: articleResults.list.length
@@ -59,43 +59,43 @@ const useSearchResults = (searchQuery: string) => {
             : res.hits.hits.map(resItem => resItem._source),
           count: res.hits.total,
         });
-      });
-    },
+      }),
     [articleResults]
   );
 
   const getSearchSuggestionData = useCallback(
     async (searchQuery, params) =>
-      getSearchSuggestionResponse(searchQuery, params).then(res => {
-        const [recipeSearchResponse, articleSearchResponse] = res;
+      getSearchSuggestionResponse(searchQuery, params)
+        .then(res => {
+          const [recipeSearchResponse, articleSearchResponse] = res;
 
-        setSearchInputResults({
-          ...searchInputResults,
-          list: [
-            ...recipeSearchResponse.hits.hits.map(item => item._source.title),
-            ...articleSearchResponse.hits.hits.map(item => item._source.title),
-          ],
-        });
-      }),
+          setSearchInputResults({
+            ...searchInputResults,
+            list: [
+              ...recipeSearchResponse.hits.hits.map(item => item._source.title),
+              ...articleSearchResponse.hits.hits.map(
+                item => item._source.title
+              ),
+            ],
+          });
+        })
+        .then(() => {
+          setResultsFetched(true);
+        }),
     []
   );
 
   const getSearchData = async (searchQeury: string, params: SearchParams) => {
-    getArticleSearchData(searchQeury, {
-      size: params.size,
-    });
-
-    getRecipeSearchData(searchQeury, {
-      size: params.size,
+    Promise.all([
+      getArticleSearchData(searchQeury, params),
+      getRecipeSearchData(searchQeury, params),
+    ]).then(() => {
+      setResultsFetched(true);
     });
   };
 
   useEffect(() => {
-    getArticleSearchData(searchQuery, {
-      size: 8,
-    });
-
-    getRecipeSearchData(searchQuery, {
+    getSearchData(searchQuery, {
       size: 8,
     });
   }, []);
@@ -108,6 +108,7 @@ const useSearchResults = (searchQuery: string) => {
     recipeResults,
     articleResults,
     searchInputResults,
+    resultsFetched,
   };
 };
 

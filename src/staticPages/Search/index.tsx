@@ -36,6 +36,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     recipeResults,
     articleResults,
     searchInputResults,
+    resultsFetched,
   } = useSearchResults(searchQuery);
 
   return (
@@ -50,6 +51,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             recipeResults,
             searchInputResults,
             articleResults,
+            resultsFetched,
           }}
           searchResultTitleLevel={3}
           config={{
