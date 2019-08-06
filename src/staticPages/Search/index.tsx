@@ -82,13 +82,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             articleContent: {
               title: 'Articles',
               cta: {
-                label: 'Load more',
+                label: 'Load more articles',
               },
             },
             recipesContent: {
               title: 'Recipes',
               cta: {
-                label: 'Load more',
+                label: 'Load more recipes',
               },
             },
             tabsContent: {
@@ -98,12 +98,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                   view: 'all',
                 },
                 {
-                  title: 'Articles',
-                  view: 'articles',
-                },
-                {
                   title: 'Recipes',
                   view: 'recipes',
+                },
+                {
+                  title: 'Articles',
+                  view: 'articles',
                 },
               ],
             },
