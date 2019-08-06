@@ -19,10 +19,8 @@ import {
 import { ProfileKey } from '../../../utils/browserStorage/models';
 
 const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
-  questions,
-  primaryButtonLabel,
-  primaryButtonFinalLabel,
-  secondaryButtonLabel,
+  introContent,
+  quizContent,
 }) => {
   const [isQuizOpened, setIsQuizOpened] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState(false);
@@ -67,19 +65,16 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
                 <div className="wizard__logo">
                   <Logo icon={<WizardLogo />} path="/" />
                 </div>
-                <h1>Hello ! Welcome to Recepedia</h1>
+                <h1>{introContent.title}</h1>
                 <p className="wizard__description">
-                  We want to know you better and feed you with recipes you love!
+                  {introContent.description}
                 </p>
               </div>
             </Fragment>
           }
           {...{
-            questions,
+            ...quizContent,
             stepResultsCallback,
-            primaryButtonLabel,
-            primaryButtonFinalLabel,
-            secondaryButtonLabel,
           }}
           containerClass="wizard--quiz wizard--quiz-initial"
           stepId="quiz"
