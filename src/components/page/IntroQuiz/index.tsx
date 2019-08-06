@@ -68,9 +68,9 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
                 <div className="wizard__logo">
                   <Logo icon={<WizardLogo />} path="/" />
                 </div>
-                <h1>Welcome to Recepedia</h1>
+                <h1>Hello ! Welcome to Recepedia</h1>
                 <p className="wizard__description">
-                  We want to know you better and feed you with recipes you love
+                  We want to know you better and feed you with recipes you love!
                 </p>
               </div>
             </Fragment>

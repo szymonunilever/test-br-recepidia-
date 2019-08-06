@@ -140,6 +140,7 @@
     &__content {
       @extend %modal__content--bordered;
       padding-top: 26px;
+      border-radius: 5px;
       @include respondTo(desktop) {
         padding-top: 42px;
       }
