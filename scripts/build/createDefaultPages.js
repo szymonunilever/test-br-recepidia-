@@ -38,7 +38,6 @@ module.exports = async ({ graphql, createPage }) => {
           seo {
             title
             description
-            lang
             meta {
               name
               content
@@ -71,7 +70,6 @@ module.exports = async ({ graphql, createPage }) => {
       ].includes(type)
     )
     .forEach(pageNode => {
-      console.log(pageNode);
       createPage(pageNode);
     });
 
