@@ -50,7 +50,8 @@ module.exports = async ({ graphql, createPage }) => {
         type === 'AllRecipes' ||
         type === 'Search' ||
         type === 'ContactUs' ||
-        type === 'ContactForm'
+        type === 'ContactForm' ||
+        type === 'NotFound'
     )
     .forEach(node => {
       createPage(node);

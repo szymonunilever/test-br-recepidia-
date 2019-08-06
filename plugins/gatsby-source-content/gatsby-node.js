@@ -7,6 +7,7 @@ const {
 } = createNodes;
 const contactUsPageMock = require('../../src/components/data/contactUsPageData.json');
 const contactUsFormMock = require('../../src/components/data/contactUsFormData.json');
+const notFoundMock = require('../../src/components/data/notFoundDataMock.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(
@@ -43,6 +44,7 @@ exports.sourceNodes = async (
     ...pagesResponse.data.pages,
     contactUsPageMock,
     contactUsFormMock,
+    notFoundMock,
   ];
   pagesData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
