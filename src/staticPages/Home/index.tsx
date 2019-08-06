@@ -30,7 +30,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       <SEO title="Recepedia Home" />
       <IntroQuiz
         questions={introQuizQuestions}
-        primaryButtonLabel={'Continue'}
+        primaryButtonLabel={'Next'}
         primaryButtonFinalLabel={'Finish'}
         secondaryButtonLabel={'Skip'}
       />

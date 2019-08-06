@@ -10,7 +10,11 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 66px;
+    @media screen and (max-height: 567px),
+      screen and (orientation: landscape) and (max-width: 959px) {
+      padding-top: 40px;
+    }
   }
   &__content {
     height: 100%;
@@ -26,22 +30,32 @@
   }
   &__description {
     padding-bottom: 20px;
+    font-size: 1.6rem;
   }
   &__logo {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    top: 14px;
-    left: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: -40px;
+    // quiz scroll for small screen height
+    @media screen and (max-height: 567px),
+      screen and (orientation: landscape) and (max-width: 959px) {
+      margin-top: 0;
+    }
+    @include respondTo(desktop) {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
     svg {
       width: 28px;
       height: 35px;
       display: block;
       margin: auto;
+      @include respondTo(desktop) {
+        width: 48px;
+        height: 58px;
+      }
     }
     .main-logo {
       &__text {
@@ -81,6 +95,10 @@
   &__title {
     color: $fish-blue-darker;
     width: 100%;
+    margin-bottom: 24px;
+    * {
+      @extend h2;
+    }
   }
   &__buttons {
     display: flex;
