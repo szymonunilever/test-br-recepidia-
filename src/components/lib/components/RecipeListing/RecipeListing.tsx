@@ -19,6 +19,8 @@ import {
   sortBy,
 } from './utils';
 import { get } from 'lodash';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import useKritiqueReload from '../../utils/useKritiqueReload';
 
 export const RecipeListing = ({
   className,
@@ -65,8 +67,8 @@ export const RecipeListing = ({
     viewType === RecipeListViewType.Advanced
       ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
       : listWithFavorites;
-  const getSlicedList = (list = listModified): Internal.Recipe[] =>
-    !isAsyncLoadMore() ? list.slice(0, displayNumber) : list;
+  const getSlicedList = (recList = listModified): Internal.Recipe[] =>
+    !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
 
   const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
     RecipeSortingOptions.newest
@@ -80,6 +82,9 @@ export const RecipeListing = ({
   useEffect(() => {
     setRecipeList(getSlicedList(list));
   }, [list]);
+
+  ratingProvider === RatingAndReviewsProvider.kritique &&
+    useKritiqueReload([recipeList]);
 
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
