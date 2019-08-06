@@ -41,10 +41,10 @@ const clearIndex = (url, index) => {
 
 const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
   const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
-  let startItem = 0;
 
-  const promises = _.times(noOfBatches, () => {
-    const endItem = startItem + BATCH_SIZE;
+  const promises = _.times(noOfBatches, i => {
+    const startItem = BATCH_SIZE * i;
+    const endItem = BATCH_SIZE * (i + 1);
 
     const bulkRows = items.slice(startItem, endItem).map(item => {
       if (item) {
@@ -63,8 +63,6 @@ const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
         return `${JSON.stringify(headerRow)}\n${JSON.stringify(item)}`;
       }
     });
-
-    startItem = endItem > items.length ? items.length : endItem;
 
     // format required by ES needs newline at end of each row
     return bulkPost(bulkRows.join('\n') + '\n', esUrl);

@@ -241,9 +241,9 @@ exports.onPostBuild = async ({ getNodesByType }) => {
     updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE)),
   ];
 
-  await Promise.all(promises).then(() => {
-    const hrend = process.hrtime(hrstart);
-    // eslint-disable-next-line no-console
-    console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
-  });
+  await Promise.all(promises);
+
+  const hrend = process.hrtime(hrstart);
+  // eslint-disable-next-line no-console
+  console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 };
