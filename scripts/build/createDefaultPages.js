@@ -53,6 +53,7 @@ module.exports = async ({ graphql, createPage }) => {
         'ContactForm',
         'UserProfile',
         'NotFound',
+        'AboutUs',
       ].includes(type)
     )
     .forEach(node => {
