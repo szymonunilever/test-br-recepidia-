@@ -91,11 +91,6 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     );
   }, []);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     reloadKritiqueWidget();
-  //   }, 300);
-  // }, [recipeResults]);
   useKritiqueReload(recipeResults);
 
   const getFilterQuery = (tags: Internal.Tag[]) =>
