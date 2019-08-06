@@ -6,12 +6,15 @@ export const reloadKritiqueWidget = () => {
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const useKritiqueReload = (trackedState: any = []) => {
+const useKritiqueReload = (trackedState: React.ComponentState = []) => {
+  let timerId;
+  window.clearTimeout(timerId);
+
   useEffect(() => {
-    setTimeout(() => {
+    timerId = setTimeout(() => {
       reloadKritiqueWidget();
     }, 50);
-  }, [trackedState]);
+  }, trackedState);
 };
 
 export default useKritiqueReload;

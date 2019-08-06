@@ -37,7 +37,6 @@ export interface QueryString {
 
 const INITIAL_RECIPES_COUNT = 8;
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-import useKritiqueReload from 'src/utils/useKritiqueReload';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
@@ -90,8 +89,6 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       { size: INITIAL_RECIPES_COUNT }
     );
   }, []);
-
-  useKritiqueReload(recipeResults);
 
   const getFilterQuery = (tags: Internal.Tag[]) =>
     tags.map(({ name }) => `(${name})`).join(' AND ') || '**';

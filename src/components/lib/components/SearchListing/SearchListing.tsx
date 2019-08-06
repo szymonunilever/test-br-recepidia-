@@ -13,6 +13,7 @@ import { get } from 'lodash';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,
@@ -110,6 +111,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         }}
         list={recipeResults.list}
         content={content.recipesContent}
+        ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
       />
     );
