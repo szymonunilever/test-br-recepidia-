@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { ResultSectionProps } from './models';
 import RecipeListingCarousel from '../../../RecipeListing/RecipeListingCarousel';
 import { TagName, Text } from '../../../Text';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const config = {
   breakpoints: [
@@ -35,6 +36,7 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
           titleLevel={1}
           onFavoriteChange={onFavoriteChange}
           imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          ratingProvider={RatingAndReviewsProvider.kritique}
         />
       </div>
     </Fragment>

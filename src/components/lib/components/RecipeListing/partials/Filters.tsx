@@ -24,6 +24,7 @@ const Filter = ({
   results,
   sortSelectPlaceholder,
   content: { resultLabelPlural, resultLabel, optionLabels, ...content },
+  dataFetched,
 }: RecipeFilterProps) => {
   const [state, setState] = useState<{
     showFilterSettings: boolean;
@@ -73,11 +74,19 @@ const Filter = ({
     onChangeFilter(filtered);
   };
 
+  const counter = (
+    <span className="filter__count">
+      {dataFetched ? (
+        <>
+          {results} {results > 1 ? resultLabelPlural : resultLabel}
+        </>
+      ) : null}
+    </span>
+  );
+
   return (
     <div className={classWrapper}>
-      <span className="filter__count">
-        {results} {results > 1 ? resultLabelPlural : resultLabel}
-      </span>
+      {counter}
       {optionLabels ? (
         <label className="filter__sort-label">
           <span className="filter__sort-label-text">sorting</span>

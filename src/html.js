@@ -8,19 +8,10 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
+  const { applicationID, licenseKey, locale } = keys.sitespeed;
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window['digitalData'] = ${JSON.stringify(
-              keys.digitalData
-            )};           
-        `,
-          }}
-        />
         {process.env.NODE_ENV !== 'development' && (
           <>
             <link
@@ -31,6 +22,13 @@ export default function HTML(props) {
             <script
               dangerouslySetInnerHTML={{
                 __html: `
+                
+                var digitalData = {};
+                digitalData.sitespeed = [];
+                digitalData.sitespeed.applicationID = ${applicationID};
+                digitalData.sitespeed.licenseKey = "${licenseKey}";
+                digitalData.sitespeed.locale = "${locale}";
+                
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -54,6 +52,15 @@ export default function HTML(props) {
 
             <link rel="preload" href={keys.analytics.adobe.url} as="script" />
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+            <link
+              rel="preconect"
+              href="https://d37k6lxrz24y4c.cloudfront.net"
+            />
+            <script
+              type="text/javascript"
+              src={keys.analytics.adobe.url}
+              async
+            />
           </>
         )}
         <meta charSet="utf-8" />

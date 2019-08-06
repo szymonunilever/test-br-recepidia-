@@ -1,105 +1,102 @@
 @import '../../scss/vars';
 @import '../../scss/mixins';
 
-.article{
-  &-social{
+.article {
+  &-social {
     position: absolute;
     right: 18px;
     bottom: 16px;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       right: 36px;
       bottom: 38px;
     }
-    :global(.social-sharing__dialog-open-button){
+    :global(.social-sharing__dialog-open-button) {
       width: 40px;
       height: 40px;
-      &:hover{
-        svg, path{
+      &:hover {
+        svg,
+        path {
           stroke: #363840;
           fill: #363840;
         }
       }
-      svg{
+      svg {
         width: 17px;
         height: 20px;
       }
-    }
-  }
-  
-  &-image{
-    background-color: #fff;
-    &:before{
-      bottom: 0;
-      top: 50%;
-      height: auto;
-      border-radius: 24px 24px 0 0;
-      @include respondTo(desktop){
-        border-radius: 0;
+      :global(.button__label) {
+        display: none;
       }
     }
-    :global(&__wrap){
+  }
+
+  &-image {
+    background-color: #fff;
+    :global(&__wrap) {
       border-radius: 5px;
       position: relative;
-      overflow: hidden; 
+      overflow: hidden;
       margin-bottom: 27px;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         margin-bottom: 44px;
       }
     }
-    :global(.adaptive-image__image){
+    :global(.adaptive-image__image) {
       height: 225px;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         height: 350px;
       }
     }
   }
 
-  &-title{
+  &-title {
     padding-top: 30px;
     padding-bottom: 10px;
     background-color: $white;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       padding-top: 60px;
       padding-bottom: 33px;
     }
-    h1{margin: 0;}
+    h1 {
+      margin: 0;
+    }
   }
 
-  &-text{
+  &-text {
     line-height: 1.29;
     color: $black-blue;
-    p{
+    p {
       margin-bottom: 30px;
     }
-    strong{
+    strong {
       font-size: 1.6rem;
       font-weight: 500;
       line-height: 1.25;
       color: $fish-blue-darker;
       font-family: $rubik;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 1.8rem;
         line-height: 1.22;
       }
     }
   }
 
-  &-video{
+  &-video {
     margin: 45px 0 36px;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       margin: 146px 0 36px;
     }
-    :global(.video-player){
+    :global(.video-player) {
       margin-bottom: 19px;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         width: 86%;
         margin: 0 auto 22px;
       }
-      & + p{
+      & + p {
         font-size: 1.2rem;
         line-height: 1.33;
         margin: 0;
-        @include respondTo(desktop){
+        @include respondTo(desktop) {
           font-size: 1.4rem;
           width: 86%;
           margin: 0 auto 22px;
@@ -108,13 +105,13 @@
     }
   }
 
-  &-next{
-    h2{
+  &-next {
+    h2 {
       font-size: 1.6rem;
       line-height: 1.88;
       color: $fish-blue-darker;
       margin-bottom: 17px;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 2.5rem;
         line-height: 1.2;
         text-align: center;
@@ -123,72 +120,72 @@
         margin: 0 auto;
       }
     }
-    a{
+    a {
       display: block;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         width: 86%;
         margin: 0 auto;
       }
     }
-    :global{
-      .hero{
-        overflow: hidden; 
+    :global {
+      .hero {
+        overflow: hidden;
         border-radius: 5px;
         position: relative;
         margin-bottom: 60px;
 
-        &__image{
-          .adaptive-image__image{
+        &__image {
+          .adaptive-image__image {
             height: 241px;
-            @include respondTo(desktop){
+            @include respondTo(desktop) {
               height: 347px;
             }
           }
         }
 
-        &__copy{
+        &__copy {
           position: absolute;
-          top: 0;  
+          top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(54, 56, 64, .4);
+          background-color: rgba(54, 56, 64, 0.4);
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
           padding: 0 18px 15px;
           color: $white;
-          @include respondTo(desktop){
+          @include respondTo(desktop) {
             padding: 0 18px 56px;
             text-align: center;
           }
         }
 
-        &__container{
+        &__container {
           display: flex;
           flex-direction: column-reverse;
           font-family: $rubik;
           font-weight: 500;
         }
 
-        &__short-subheader{
-          h3{
+        &__short-subheader {
+          h3 {
             margin: 0;
             font-size: 1.8rem;
             line-height: 1;
-            @include respondTo(desktop){
+            @include respondTo(desktop) {
               font-size: 3.7rem;
               line-height: 1.19;
             }
           }
         }
 
-        &__long-subheader{
-          p{
+        &__long-subheader {
+          p {
             margin: 0 0 5px 0;
             font-size: 1.2rem;
-            line-height: 1.67;   
-            @include respondTo(desktop){
+            line-height: 1.67;
+            @include respondTo(desktop) {
               margin: 0 0 11px 0;
               font-size: 2.5rem;
               line-height: 1.5;
@@ -199,9 +196,20 @@
     }
   }
 
-  &-wrap{
-    :global(#content){
+  &-wrap {
+    :global(#content) {
       background-color: $white-gray;
+    }
+    .article-image {
+      &:before {
+        bottom: 0;
+        top: 50%;
+        height: auto;
+        border-radius: 24px 24px 0 0;
+        @include respondTo(desktop) {
+          border-radius: 0;
+        }
+      }
     }
   }
 }

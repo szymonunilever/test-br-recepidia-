@@ -13,6 +13,7 @@ import { get } from 'lodash';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,
@@ -20,7 +21,12 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   searchQuery,
   className,
   searchResultTitleLevel = 3,
-  searchResults: { recipeResults, searchInputResults, articleResults },
+  searchResults: {
+    recipeResults,
+    searchInputResults,
+    articleResults,
+    resultsFetched = true,
+  },
 }) => {
   const classNames = cx('search-listing', className);
 
@@ -42,7 +48,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     }
   }, []);
 
-  const onLoadMoreRecipes = (
+  const onLoadMoreRecipes = async (
     tags: Internal.Tag[],
     sorting: string,
     size: number
@@ -79,7 +85,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     []
   );
 
-  const searchResultsText = (
+  const searchResultsText = resultsFetched ? (
     <Text
       className="search-listing__results-header"
       // @ts-ignore
@@ -94,7 +100,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
           `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
         )}
     />
-  );
+  ) : null;
 
   const recipes = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'recipes'
@@ -110,6 +116,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         }}
         list={recipeResults.list}
         content={content.recipesContent}
+        ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
       />
     );
@@ -162,6 +169,14 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     []
   );
 
+  const nullResult = resultsFetched ? (
+    <NullResult
+      content={content.nullResultContent}
+      className="search-listing__null-results"
+      titleLevel={3}
+    />
+  ) : null;
+
   return (
     <div className={classNames} data-componentname="search-listing">
       <SearchInput
@@ -179,13 +194,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
       (articleResults.list.length || recipeResults.list.length) ? (
         <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
       ) : (
-        <>
-          <NullResult
-            content={content.nullResultContent}
-            className="search-listing__null-results"
-            titleLevel={3}
-          />
-        </>
+        nullResult
       )}
     </div>
   );

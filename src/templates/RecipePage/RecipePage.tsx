@@ -70,7 +70,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
         }
       }
 
-      allRecipe(limit: 10) {
+      allRecipe(limit: 6) {
         nodes {
           ...RecipeFields
         }
@@ -203,7 +203,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
   return (
     <Layout className={classWrapper}>
       <SEO title="Recepedia Home" />
-      <DigitalData pageContext={pageContext} data={recipe} />
+      <DigitalData type="RecipeDetail" data={recipe} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 

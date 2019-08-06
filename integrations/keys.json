@@ -38,10 +38,10 @@
   },
   "analytics": {
     "adobe": {
-      "url": "//assets.adobedtm.com/launch-EN44f54226de934d4eb94899b7090e7c11.min.js"
+      "url": "//assets.adobedtm.com/launch-EN8045c0029e784415a553806b3f4262a7-staging.min.js"
     },
     "google": {
-      "trackingId": "",
+      "trackingId": "UA-54293156-50",
       "head": false,
       "anonymize": true,
       "respectDNT": true,
@@ -57,7 +57,7 @@
   },
   "digitalData": {
     "siteInfo": {
-      "sitetype": "Non-Avinash",
+      "sitetype": "Static First",
       "category": "Foods",
       "country": "Brazil",
       "globalbrand": "Recepedia",
@@ -71,19 +71,33 @@
         "localbrand": "Recipedia"
       }
     },
-    "sitespeed": {
-      "applicationID": 341201170,
-      "licenseKey": "1a89f35859",
-      "locale": "Brazil"
-    },
     "trackingInfo": {
-      "GID": "",
+      "GID": "4ebd8def9711eb35147f0d6ba2244e47",
       "tool": [
         {
           "ids": "",
-          "id": ""
+          "id": "UA-54293156-50"
         }
       ]
     }
+  },
+  "UDM": {
+    "globalbrand": "Recepedia",
+    "localbrand": "Recepedia",
+    "category": "Foods",
+    "channel": "Brand Site",
+    "country": "Brazil",
+    "sitetype": "Static First",
+    "evq": [],
+    "gid": "4ebd8def9711eb35147f0d6ba2244e47",
+    "gaa": "UA-54293156-50"
+  },
+  "sitespeed": {
+    "applicationID": 352261058,
+    "licenseKey": "23361156bc",
+    "locale": "Brazil"
+  },
+  "formService": {
+    "url": "https://dcsng-qa-eu.unileversolutions.com/ts/public/form"
   }
 }

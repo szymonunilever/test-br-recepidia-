@@ -8,6 +8,7 @@ const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
 const createArticlePages = require('./scripts/build/createArticlePages');
 const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
+const updateES = require('./scripts/build/updateElasticsearch');
 
 const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
 
@@ -215,4 +216,34 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   }
 
   actions.replaceWebpackConfig(config);
+};
+
+exports.onPostBuild = async ({ getNodesByType }) => {
+  // To run ES update pass `updateES=true` as a build param
+  const args = process.argv.slice(2);
+  if (
+    !args ||
+    !args.some(item => {
+      const arg = item.split('=');
+      return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
+    })
+  ) {
+    return;
+  }
+
+  // eslint-disable-next-line no-console
+  console.log('updating ES');
+
+  const hrstart = process.hrtime();
+
+  const promises = [
+    updateES.updateRecipes(getNodesByType(updateES.NODE_TYPES.RECIPE)),
+    updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE)),
+  ];
+
+  await Promise.all(promises);
+
+  const hrend = process.hrtime(hrstart);
+  // eslint-disable-next-line no-console
+  console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 };

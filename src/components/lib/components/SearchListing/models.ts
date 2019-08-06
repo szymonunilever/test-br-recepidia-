@@ -11,6 +11,7 @@ export declare interface SearchListingProps {
 }
 
 export declare interface SearchResults {
+  resultsFetched?: boolean;
   recipeResults: {
     list: Internal.Recipe[];
     count: number;
@@ -75,6 +76,7 @@ export type getSearchData = (
 export interface SearchParams {
   from?: number;
   size?: number;
+  _source?: string[];
 }
 
 export declare interface ResponseRecipeData<T> {

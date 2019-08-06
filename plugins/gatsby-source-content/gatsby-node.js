@@ -6,6 +6,7 @@ const {
   createArticleNodes,
 } = createNodes;
 const contactUsPageMock = require('../../src/components/data/contactUsPageData.json');
+const contactUsFormMock = require('../../src/components/data/contactUsFormData.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(
@@ -38,7 +39,11 @@ exports.sourceNodes = async (
 
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
-  const pagesData = [...pagesResponse.data.pages, contactUsPageMock];
+  const pagesData = [
+    ...pagesResponse.data.pages,
+    contactUsPageMock,
+    contactUsFormMock,
+  ];
   pagesData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });

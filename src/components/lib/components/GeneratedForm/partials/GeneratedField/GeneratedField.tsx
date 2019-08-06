@@ -123,7 +123,7 @@ const GeneratedField = ({
       break;
     case 'hidden':
       view = (
-        <Field name={name}>
+        <Field name={name} initialValue={content.value as string}>
           {({ input }) => (
             <input
               {...input}
