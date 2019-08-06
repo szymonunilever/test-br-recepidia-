@@ -92,7 +92,7 @@ exports.onCreateNode = async ({
 
     case 'Page': {
       await Promise.all(
-        node.components.map(async component => {
+        node.components.items.map(async component => {
           let fileNode;
           try {
             if (component.assets.length > 0) {
@@ -124,17 +124,16 @@ exports.onCreateNode = async ({
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const createPageFromTemplate = (edge, pageData, idPath = 'id', path) => {
+  const createPageFromTemplate = (edge, page, idPath = 'id', path) => {
     createPage({
       path: path || edge.node.fields.slug,
-      component: getPageTemplate(pageData.type),
+      component: getPageTemplate(page.type),
       context: {
+        page,
         id: get(edge.node, idPath),
         slug: edge.node.fields.slug,
-        components: pageData.components,
         nextSlug: get(edge, 'next.fields.slug'),
         previousSlug: get(edge, 'previous.fields.slug'),
-        type: pageData.type,
         edge,
       },
     });
@@ -142,15 +141,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const pages = await createDefaultPages({
     graphql,
-    createPage: node => {
+    createPage: page => {
       createPage({
-        path: node.relativePath,
-        component: getPageTemplate(node.type),
+        path: page.relativePath,
+        component: getPageTemplate(page.type),
         context: {
-          slug: node.relativePath,
-          title: node.title,
-          components: node.components,
-          type: node.type,
+          slug: page.relativePath,
+          page,
         },
       });
     },
@@ -166,7 +163,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRecipePages({
       graphql,
       createPage,
-      pageData: recipeDetailsData,
+      page: recipeDetailsData,
     }),
     createArticlePages({
       graphql,

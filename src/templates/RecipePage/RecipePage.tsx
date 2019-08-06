@@ -78,8 +78,15 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       }
     }
   `);
+<<<<<<< HEAD
 
   const { components, recipe } = pageContext;
+=======
+  const {
+    page: { components, seo },
+    recipe,
+  } = pageContext;
+>>>>>>> Refactoring for SEO
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
@@ -204,7 +211,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
 
   return (
     <Layout className={classWrapper}>
-      <SEO title="Recepedia Home" />
+      <SEO {...seo} title={recipe.title} description={recipe.description} />
       <DigitalData type="RecipeDetail" data={recipe} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
@@ -254,7 +261,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
                   }}
                   className="recipe-attributes"
                   content={findPageComponentContent(
-                    components,
+                    components.items,
                     'RecipeAttributes'
                   )}
                 />
@@ -271,7 +278,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
               viewType={RecipeCopyViewType.Ingredients}
               recipe={recipe}
               content={findPageComponentContent(
-                components,
+                components.items,
                 'RecipeCopy',
                 'Ingredients'
               )}
@@ -281,7 +288,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
               methodList={recipe.methods}
               className={theme.recipeCookingMethod}
               content={findPageComponentContent(
-                components,
+                components.items,
                 'RecipeCookingMethod'
               )}
             />
@@ -320,7 +327,10 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
           <RecipeNutrients
             recipe={recipe}
             modalTitle={'Nutritional information'}
-            content={findPageComponentContent(components, 'RecipeNutrients')}
+            content={findPageComponentContent(
+              components.items,
+              'RecipeNutrients'
+            )}
             viewType={RecipeNutrientsViewType.WithAction}
             CloseButton={CloseButton}
           />
@@ -338,14 +348,19 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <TagLinks
+<<<<<<< HEAD
             list={getTagsFromRecipes([recipe], tags)}
             content={findPageComponentContent(components, 'Tags')}
+=======
+            list={tags}
+            content={findPageComponentContent(components.items, 'Tags')}
+>>>>>>> Refactoring for SEO
           />
         </div>
       </section>
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components, 'Hero')}
+          content={findPageComponentContent(components.items, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -354,7 +369,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components,
+              components.items,
               'RecipeListing',
               'RelatedRecipes'
             )}
@@ -390,10 +405,7 @@ export default RecipePage;
 
 interface RecipePageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
     recipe: Internal.Recipe;
   };
 }

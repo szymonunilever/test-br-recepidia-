@@ -31,13 +31,16 @@ import relatedArticlesComponent from 'src/components/data/relatedArticlesForCont
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
-  let { components } = pageContext;
+  let {
+    page: { components, seo },
+  } = pageContext;
   components = [...components, relatedArticlesComponent];
   const { tag, allRecipe, allTag, allArticle } = data;
+
   const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
-    components,
+    components.items,
     'RecipeListing',
     'RecipesByCategory'
   );
@@ -63,7 +66,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.name}`} />
+      <SEO {...seo} title={tag.name} description={tag.description} />
       <DigitalData pageContext={pageContext} data={tag} />
       <Kritique />
       <section className="_pt--40">
@@ -170,7 +173,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
 
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components, 'Hero')}
+          content={findPageComponentContent(components.items, 'Hero')}
           viewType="Image"
           className={'hero--planner color--inverted'}
         />
@@ -180,7 +183,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         <div className="container">
           <PageListing
             content={findPageComponentContent(
-              components,
+              components.items,
               'PageListing',
               'RecipeCategories'
             )}
@@ -257,9 +260,6 @@ interface RecipeCategotyPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
 }

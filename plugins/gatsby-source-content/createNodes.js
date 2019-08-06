@@ -13,7 +13,7 @@ exports.createPagesNodes = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   const nodeId = createNodeId(`page-${page.type}`);
-  page.components = page.components.items.map(processComponent);
+  page.components.items = page.components.items.map(processComponent);
   const nodeContent = JSON.stringify(page);
   const nodeData = Object.assign({}, page, {
     id: nodeId,

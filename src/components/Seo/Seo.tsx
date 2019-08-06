@@ -9,7 +9,7 @@ import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title, children }: SeoProps) {
+function SEO({ description, meta, title, children }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,6 +18,7 @@ function SEO({ description, lang, meta, title, children }: SeoProps) {
             title
             description
             author
+            lang
           }
         }
       }
@@ -29,7 +30,7 @@ function SEO({ description, lang, meta, title, children }: SeoProps) {
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: site.siteMetadata.site,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

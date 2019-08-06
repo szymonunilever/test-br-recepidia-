@@ -24,7 +24,9 @@ import quizContent from '../../components/data/introQuiz.json';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
-  const { title, components } = pageContext;
+  const {
+    page: { seo, components },
+  } = pageContext;
   // introQuizTitle and IntroQuizDescription should come from pageContext properties
   const introQuizTitle = 'Hello ! Welcome to Recepedia';
   const introQuizDescription =
@@ -33,6 +35,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
     title: introQuizTitle,
     description: introQuizDescription,
   };
+
   const recipes = data.allRecipe.nodes;
 
   useEffect(() => {
@@ -51,7 +54,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
   return (
     <Layout className="header--bg">
-      <SEO title="Recepedia Home" />
+      <SEO {...seo} />
       {!searchAgent && (
         <IntroQuiz introContent={introContent} quizContent={quizContent} />
       )}
@@ -62,7 +65,8 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
           <Text
             tag={TagName['h1']}
             text={
-              findPageComponentContent(components, 'Text', 'PageTitle').text
+              findPageComponentContent(components.items, 'Text', 'PageTitle')
+                .text
             }
           />
         </div>
@@ -72,7 +76,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components,
+              components.items,
               'RecipeListing',
               'LatestAndGreatest'
             )}
@@ -105,7 +109,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components,
+              components.items,
               'RecipeListing',
               'TopRecipes'
             )}
@@ -136,7 +140,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components, 'Hero')}
+          content={findPageComponentContent(components.items, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -144,7 +148,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <PageListing
-            content={findPageComponentContent(components, 'PageListing')}
+            content={findPageComponentContent(components.items, 'PageListing')}
             list={pageListingData}
             initialCount={12}
           />
@@ -182,25 +186,6 @@ interface HomePageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
-}
-
-interface Edge<T> {
-  node: T;
-}
-
-interface PageNode {
-  components: {
-    items: {
-      name: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      content: any;
-    }[];
-  };
-  title: string;
-  type: string;
 }

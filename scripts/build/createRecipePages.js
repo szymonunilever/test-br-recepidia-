@@ -84,7 +84,7 @@ const RecipeFields = `
 
 const component = path.resolve(`./src/templates/RecipePage/RecipePage.tsx`);
 
-module.exports = async ({ graphql, createPage, pageData }) => {
+module.exports = async ({ graphql, createPage, page }) => {
   const result = await graphql(`
     {
       allRecipe {
@@ -100,7 +100,7 @@ module.exports = async ({ graphql, createPage, pageData }) => {
       path: node.fields.slug,
       component,
       context: {
-        components: pageData.components,
+        page,
         recipe: node,
       },
     });

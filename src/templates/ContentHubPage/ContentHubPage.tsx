@@ -28,12 +28,15 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   pageContext,
 }) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
-  let { components } = pageContext;
+  let {
+    page: { components, seo },
+  } = pageContext;
   components = [...components, relatedArticlesComponent];
   const { tag, allRecipe, allTag, allArticle } = data;
+
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
-    components,
+    components.items,
     'RecipeListing',
     'RecipesByCategory'
   );
@@ -41,7 +44,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.title}`} />
+      <SEO {...seo} title={tag.title} description={tag.description} />
       <DigitalData pageContext={pageContext} data={tag} />
       <Kritique />
 
@@ -88,14 +91,14 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         <div className="container">
           <TagLinks
             list={allTag.nodes}
-            content={findPageComponentContent(components, 'Tags')}
+            content={findPageComponentContent(components.items, 'Tags')}
           />
         </div>
       </section>
 
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components, 'Hero')}
+          content={findPageComponentContent(components.items, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -181,9 +184,6 @@ interface ContentHubPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
 }

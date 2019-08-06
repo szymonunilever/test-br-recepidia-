@@ -1,0 +1,513 @@
+{
+  "locale": "pt-br",
+  "pages": [
+    {
+      "type": "Home",
+      "relativePath": "/",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "PageTitle",
+              "text": "Hello ! Welcome to Recepedia"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "LatestAndGreatest",
+              "title": "The latest and greatest"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "TopRecipes",
+              "title": "Top Recipes"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "title": "What we offer"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "RecipeDetail",
+      "relativePath": "/recipes",
+      "components": {
+        "items": [
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RelatedRecipes",
+              "title": "Related recipes"
+            }
+          },
+          {
+            "name": "RecipeAttributes",
+            "content": {
+              "labels": {
+                "preparationTime": {
+                  "title": "Prep time",
+                  "units": "min",
+                  "unitsPlural": "mins"
+                },
+                "totalTime": {
+                  "title": "Total time",
+                  "units": "min",
+                  "unitsPlural": "mins"
+                },
+                "serves": {
+                  "title": "Feeds",
+                  "units": "person",
+                  "unitsPlural": "people"
+                },
+                "difficulties": {
+                  "title": "Difficulty"
+                }
+              }
+            }
+          },
+          {
+            "name": "RecipeCopy",
+            "content": {
+              "view": "Ingredients",
+              "title": "Ingredients"
+            }
+          },
+          {
+            "name": "RecipeCookingMethod",
+            "content": {
+              "title": "Cook"
+            }
+          },
+          {
+            "name": "RecipeNutrients",
+            "content": {
+              "buttonLabel": {
+                "label": "Nutritional information"
+              },
+              "titleTotal": "Total",
+              "titlePer100": "Per 100",
+              "titlePerServing": "Amount per Serving"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Similar tags",
+              "loadMoreButton": {
+                "label": "+ show more"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "RecipeCategory",
+      "relativePath": "/recipe-categories",
+      "components": {
+        "items": [
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RecipesByCategory",
+              "title": "{numRes} Results",
+              "cta": {
+                "label": "Load more recipes"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AllRecipes",
+      "relativePath": "/recipes",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "PageTitle",
+              "text": "Recipes"
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Daily fresh new recipes"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "AllRecipes",
+              "cta": {
+                "label": "Load more recipes"
+              },
+              "resultLabel": "recipe",
+              "resultLabelPlural": "recipes",
+              "sortSelectPlaceholder": "Sort By",
+              "filtersCta": {
+                "resetLabel": { "label": "Reset filters" },
+                "applyLabel": { "label": "Apply filters" }
+              },
+              "nullResult": {
+                "title": "Oops! No results",
+                "subtitle": "Maybe try the following:",
+                "textList": [
+                  "Don't use too many filters at once",
+                  "Try using only filters"
+                ]
+              },
+              "optionLabels": {
+                "preparationTime": "Preparation time",
+                "cookingTime": "Cooking time",
+                "averageRating": "Average rating",
+                "newest": "Newest",
+                "recentlyUpdated": "Recently updated"
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "SeasonalPromotionalRecipes",
+              "title": "Seasonal / Promotional Recipes"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "alt": "meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ContentHub",
+      "relativePath": "/content-hub",
+      "components": {
+        "items": [
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RecipesByCategory",
+              "title": "We found {numRes} results with: {categoryName}",
+              "cta": {
+                "label": "Load more recipes"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ArticleDetail",
+      "relativePath": "/articles",
+      "components": {
+        "items": [
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": "Share"
+              },
+              "modalTitle": "Share this recipe"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "text": "Next article",
+              "view": "NextTitle"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Search",
+      "relativePath": "/search",
+      "components": {
+        "items": [
+          {
+            "name": "SearchListing",
+            "content": {
+              "searchListingContent": {
+                "title": "We found {numRes} results with: {searchInputValue}"
+              },
+              "searchInputContent": { "title": "Looking for something?" },
+              "tabsContent": {
+                "tabs": [
+                  {
+                    "title": "All",
+                    "view": "all"
+                  },
+                  {
+                    "title": "Recipes",
+                    "view": "recipes"
+                  }
+                ]
+              },
+              "recipesContent": {
+                "cta": { "label": "Load more recipes" },
+                "nullResult": {
+                  "title": "Oops! No results",
+                  "subtitle": "Maybe try the following:",
+                  "textList": [
+                    "Don't use too many filters at once",
+                    "Try using only filters"
+                  ]
+                }
+              },
+              "nullResultContent": {
+                "subtitle": "Maybe try the following:",
+                "textList": [
+                  "Use short keywords in your search",
+                  "Try not to use too long phrases",
+                  "Don't use too many filter at once",
+                  "Try using only filters"
+                ]
+              }
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

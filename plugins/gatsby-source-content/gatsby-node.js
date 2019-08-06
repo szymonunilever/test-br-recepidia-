@@ -5,6 +5,7 @@ const {
   createComponentsNodes,
   createArticleNodes,
 } = createNodes;
+const pagesMock = require('../../src/components/data/pages.json');
 const contactUsPageMock = require('../../src/components/data/contactUsPageData.json');
 const contactUsFormMock = require('../../src/components/data/contactUsFormData.json');
 const notFoundMock = require('../../src/components/data/notFoundDataMock.json');
@@ -44,7 +45,7 @@ exports.sourceNodes = async (
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesData = [
-    ...pagesResponse.data.pages,
+    ...pagesMock.pages,
     contactUsPageMock,
     contactUsFormMock,
     notFoundMock,
