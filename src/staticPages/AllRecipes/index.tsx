@@ -49,6 +49,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     list: [],
     count: 0,
   });
+  const [dataFetched, setDataFetched] = useState(false);
 
   const getRecipeSearchData = async (
     queryString: QueryString = {
@@ -69,17 +70,21 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       },
     };
 
-    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
-      setRecipeResults({
-        list: params.from
-          ? [
-              ...recipeResults.list,
-              ...res.hits.hits.map(resItem => resItem._source),
-            ]
-          : res.hits.hits.map(resItem => resItem._source),
-        count: res.hits.total,
+    return useElasticSearch<Internal.Recipe>(searchParams)
+      .then(res => {
+        setRecipeResults({
+          list: params.from
+            ? [
+                ...recipeResults.list,
+                ...res.hits.hits.map(resItem => resItem._source),
+              ]
+            : res.hits.hits.map(resItem => resItem._source),
+          count: res.hits.total,
+        });
+      })
+      .then(() => {
+        setDataFetched(true);
       });
-    });
   };
 
   useEffect(() => {
@@ -165,6 +170,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
         <div className="container">
           <RecipeListing
+            dataFetched={dataFetched}
             viewType={RecipeListViewType.Advanced}
             content={{
               ...findPageComponentContent(

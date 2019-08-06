@@ -39,6 +39,7 @@ export const RecipeListing = ({
   onViewChange,
   loadMoreConfig = { type: LoadMoreType.sync },
   tags = { tagGroups: [] },
+  dataFetched = true,
   carouselConfig = {
     breakpoints: [
       {
@@ -168,6 +169,7 @@ export const RecipeListing = ({
 
   const listing = (
     <RecipeListingTrivial
+      dataFetched={dataFetched}
       list={recipeList}
       recipeCount={recipeList.length}
       FavoriteIcon={FavoriteIcon}
@@ -214,6 +216,7 @@ export const RecipeListing = ({
     ) : (
       <>
         <RecipeFilter
+          dataFetched={dataFetched}
           className="recipe-list__filter"
           allFilters={tags}
           OpenIcon={OpenIcon}
