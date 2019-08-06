@@ -4,6 +4,7 @@ import Button from '../Button';
 import { TagName, Text } from '../Text';
 import theme from './Card.module.scss';
 import { CardProps } from './models';
+import { navigate } from 'gatsby';
 
 export const Card = ({
   className,
@@ -46,6 +47,10 @@ export const Card = ({
       <Text key={key} tag={TagName.p} text={text} className="card__text" />
     ));
 
+  const ctaClickHandler = () => {
+    if (cta && cta.linkTo) navigate(cta.linkTo);
+  };
+
   return (
     <div data-componentname="card" className={classWrapper}>
       <div className="card__top">
@@ -58,7 +63,13 @@ export const Card = ({
       </div>
       <div className="card__content">
         {withType(type, view)}
-        {cta && <Button className="card__button" content={cta} />}
+        {cta && (
+          <Button
+            className="card__button"
+            content={cta}
+            onClick={ctaClickHandler}
+          />
+        )}
       </div>
     </div>
   );
