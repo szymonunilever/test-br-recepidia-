@@ -219,14 +219,13 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
 };
 
 exports.onPostBuild = async ({ getNodesByType }) => {
-  // To run ES update pass `es=true` as a build param
+  // To run ES update pass `updateES=true` as a build param
   const args = process.argv.slice(2);
   if (
     !args ||
     !args.some(item => {
       const arg = item.split('=');
-      console.log(arg);
-      return arg && arg.length && arg[0] === 'es' && arg[1] === 'true';
+      return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
     })
   ) {
     return;
