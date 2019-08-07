@@ -59,13 +59,24 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </div>
       </section>
 
-      {categoryImage && (
+      {/* {categoryImage && (
         <section className={theme.heroBg}>
           <div className="container">
             <AdaptiveImage localImage={categoryImage} alt={tag.title} />
           </div>
         </section>
-      )}
+      )} */}
+      {/* @todo remove hardcoded section below and uncomment section above */}
+      <section className={theme.heroBg}>
+        <div className="container">
+          <AdaptiveImage
+            localImage={
+              findPageComponentContent(components, 'Hero').image.localImage
+            }
+            alt={tag.title}
+          />
+        </div>
+      </section>
 
       <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
         <div className="container">
