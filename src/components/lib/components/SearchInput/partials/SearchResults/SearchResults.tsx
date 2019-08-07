@@ -35,8 +35,6 @@ const SearchResults = ({
         );
       })}
     </ul>
-  ) : (
-    <p className="search-input__message">no results</p>
-  );
+  ) : null;
 
 export default SearchResults;
