@@ -16,10 +16,10 @@ const recipeSearchParams = (
       query_string: {
         query: `*${searchQuery}*`,
         fields: [
-          'title',
-          'description',
-          'tagGroups.tags.name',
-          'ingredients.description',
+          'title^5',
+          'description^2',
+          'tagGroups.tags.name^4',
+          'ingredients.description^3',
         ],
       },
     },
@@ -39,7 +39,7 @@ const articleSearchParams = (
       // eslint-disable-next-line @typescript-eslint/camelcase
       query_string: {
         query: `*${searchQuery}*`,
-        fields: ['title', 'articleText.text'],
+        fields: ['title^5', 'articleText.text^2'],
       },
     },
   },
