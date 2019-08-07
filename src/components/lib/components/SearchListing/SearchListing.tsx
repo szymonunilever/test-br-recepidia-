@@ -134,39 +134,59 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     );
 
   const tabs = content.tabsContent.tabs.reduce(
-    (tabs: JSX.Element[], { view }) => {
+    (
+      tabs: {
+        list: JSX.Element[];
+        content: {
+          tabs: AppContent.Tabs.Tab[];
+        };
+      },
+      { view, title }
+    ) => {
       switch (view) {
         case 'all': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {recipes}
               {articles}
             </Tab>
           );
+          tabs.content.tabs.push({
+            title: `${title} (${recipeResults.count + articleResults.count})`,
+            view,
+          });
           break;
         }
 
         case 'articles': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {articles}
             </Tab>
           );
+          tabs.content.tabs.push({
+            title: `${title} (${articleResults.count})`,
+            view,
+          });
           break;
         }
         case 'recipes': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {recipes}
             </Tab>
           );
+          tabs.content.tabs.push({
+            title: `${title} (${recipeResults.count})`,
+            view,
+          });
           break;
         }
       }
 
       return tabs;
     },
-    []
+    { list: [], content: { tabs: [] } }
   );
 
   const nullResult = resultsFetched ? (
@@ -190,9 +210,9 @@ const SearchListing: React.SFC<SearchListingProps> = ({
       />
 
       {searchResultsText}
-      {tabs.length &&
+      {tabs.list.length &&
       (articleResults.list.length || recipeResults.list.length) ? (
-        <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
+        <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
       ) : (
         nullResult
       )}
