@@ -2,7 +2,7 @@ import React, { FormEvent } from 'react';
 import { Form } from '../../../Form';
 import { GeneratedFormProps } from '../../models';
 import { TagName, Text } from '../../../Text';
-import { groupBy } from 'lodash';
+import { groupBy, findIndex, map } from 'lodash';
 import GeneratedField from '../GeneratedField';
 import cx from 'classnames';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -30,11 +30,64 @@ const GeneratedFormInstance = ({
     />
   ) : null;
 
-  const formFields = groupBy(fields, field => field.fieldset);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formFields: { [key: string]: any[] } = groupBy(
+    fields,
+    field => field.fieldset
+  );
+  for (let fieldsetName in formFields) {
+    const checkableIndex = findIndex(
+      formFields[fieldsetName],
+      item => item.type === 'radio' || item.type === 'checkbox'
+    );
+
+    if (checkableIndex > -1) {
+      const name = formFields[fieldsetName][checkableIndex].name;
+      const lengthGroup = formFields[fieldsetName].filter(
+        item => item.name === name
+      ).length;
+      if (lengthGroup > 1) {
+        formFields[name] = formFields[fieldsetName].splice(
+          checkableIndex,
+          lengthGroup,
+          {
+            type: 'group',
+            name,
+          }
+        );
+      }
+    }
+  }
 
   const view = formFields.undefined.map((item, key) => {
     let innerItems: JSX.Element[] | undefined = undefined;
     if (item.type === 'fieldset') {
+      innerItems = formFields[item.name].map((item, key) => {
+        if (item.type === 'group') {
+          innerItems = formFields[item.name].map((item, key) => {
+            return (
+              <GeneratedField
+                shouldValidate={shouldValidate}
+                content={item}
+                key={key}
+                className="generated-form__item"
+                innerContent={innerItems}
+              />
+            );
+          });
+        }
+        return (
+          <GeneratedField
+            shouldValidate={shouldValidate}
+            content={item}
+            key={key}
+            className="generated-form__item"
+            innerContent={innerItems}
+          />
+        );
+      });
+    }
+    if (item.type === 'group') {
       innerItems = formFields[item.name].map((item, key) => {
         return (
           <GeneratedField
@@ -42,6 +95,7 @@ const GeneratedFormInstance = ({
             content={item}
             key={key}
             className="generated-form__item"
+            innerContent={innerItems}
           />
         );
       });

@@ -1,0 +1,100 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+
+.contact-form {
+  padding: 20px 0 121px;
+  @include respondTo(desktop) {
+    padding: 50px 0 166px;
+  }
+  :global {
+    .generated-form {
+      &__title {
+        font-size: 3.4rem;
+        color: $fish-blue-darker;
+        font-family: $rubik;
+        margin-bottom: 23px;
+        @include respondTo(desktop) {
+          font-size: 4.5rem;
+        }
+      }
+      &__fields {
+        @include respondTo(desktop) {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          & > .field {
+            width: 42%;
+            order: 1;
+            .field__label-text {
+              font-size: 1.6rem;
+              @include respondTo(desktop) {
+                font-size: 2.5rem;
+              }
+            }
+          }
+          & > .generated-form__item {
+            width: 42%;
+            &:nth-last-child(1) {
+              order: 2;
+              height: 0;
+            }
+            &:nth-last-child(2) {
+              order: 4;
+            }
+            &:nth-last-child(3) {
+              order: 3;
+              width: 100%;
+              .field__wrap {
+                width: 42%;
+              }
+            }
+          }
+        }
+      }
+      &__item {
+        align-items: flex-start;
+        &-legend {
+          display: block;
+          width: 100%;
+          font-size: 2.1rem;
+          font-family: $rubik;
+          margin-bottom: 18px;
+          @include respondTo(desktop) {
+            font-size: 2.4rem;
+          }
+        }
+        .field__group {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 30px;
+          & > div {
+            margin-right: 35px;
+            &:nth-last-child(1) {
+              margin-right: 0;
+            }
+          }
+        }
+        .checkable.valid .checkable__checkelem {
+          margin-right: 18px;
+          border-color: $black-blue;
+        }
+        .checkable.valid .checkable__checkelem .checkable__checkmark {
+          background: $black-blue;
+        }
+      }
+      &__button--primary {
+        width: 100%;
+        @include respondTo(desktop) {
+          display: block;
+          margin: 0 auto;
+          width: 352px;
+        }
+      }
+    }
+    .field {
+      margin-bottom: 44px;
+    }
+  }
+}
