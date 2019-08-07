@@ -141,8 +141,10 @@ const SearchListing: React.SFC<SearchListingProps> = ({
           tabs: AppContent.Tabs.Tab[];
         };
       },
-      { view, title }
+      tab
     ) => {
+      const { view } = tab;
+
       switch (view) {
         case 'all': {
           tabs.list.push(
@@ -152,8 +154,8 @@ const SearchListing: React.SFC<SearchListingProps> = ({
             </Tab>
           );
           tabs.content.tabs.push({
-            title: `${title} (${recipeResults.count + articleResults.count})`,
-            view,
+            ...tab,
+            resultsCount: recipeResults.count + articleResults.count,
           });
           break;
         }
@@ -165,9 +167,10 @@ const SearchListing: React.SFC<SearchListingProps> = ({
             </Tab>
           );
           tabs.content.tabs.push({
-            title: `${title} (${articleResults.count})`,
-            view,
+            ...tab,
+            resultsCount: articleResults.count,
           });
+
           break;
         }
         case 'recipes': {
@@ -177,8 +180,8 @@ const SearchListing: React.SFC<SearchListingProps> = ({
             </Tab>
           );
           tabs.content.tabs.push({
-            title: `${title} (${recipeResults.count})`,
-            view,
+            ...tab,
+            resultsCount: recipeResults.count,
           });
           break;
         }

@@ -16,30 +16,36 @@ export const Tabs = ({
   const classWrapper = cx(theme.tabs, className);
   const [active, setActive] = useState(tabs[0].view);
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
-  tabItems = tabs.map(tab => (
-    <Button
-      key={tab.view}
-      className="tabs__button"
-      isToggle
-      role="tab"
-      isSelected={active === tab.view}
-      toggleExternalManage={true}
-      onClick={() => setActive(tab.view)}
-      attributes={
-        active === tab.view
-          ? {
-              'aria-controls': `${tab.view}__tab`,
-              id: `${tab.view}`,
-            }
-          : {
-              'aria-controls': `${tab.view}__tab`,
-              id: `${tab.view}`,
-            }
-      }
-    >
-      {tab.title}
-    </Button>
-  ));
+  tabItems = tabs.map(tab => {
+    const title = `${tab.title}${
+      typeof tab.resultsCount !== 'undefined' ? ` (${tab.resultsCount})` : ''
+    }`;
+    return (
+      <Button
+        key={tab.view}
+        className="tabs__button"
+        isToggle
+        isDisabled={!tab.resultsCount}
+        role="tab"
+        isSelected={active === tab.view}
+        toggleExternalManage={true}
+        onClick={() => setActive(tab.view)}
+        attributes={
+          active === tab.view
+            ? {
+                'aria-controls': `${tab.view}__tab`,
+                id: `${tab.view}`,
+              }
+            : {
+                'aria-controls': `${tab.view}__tab`,
+                id: `${tab.view}`,
+              }
+        }
+      >
+        {title}
+      </Button>
+    );
+  });
   tabsContents = children.map(child => (
     <Tab
       key={child.props.view}
