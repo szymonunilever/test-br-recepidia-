@@ -60,6 +60,31 @@ const onNewsletterFormSubmit = (values: object) => {
   console.log('values', values);
 };
 
+const userPreferencesContent = {
+  preferencesIntro,
+  noResultContent: noResultProps,
+  updatePropsContent: entryUpdateProps,
+  buttonsContent,
+  resultLabelContent: resultLabelProps,
+  newsletterSubscriptionsContent: content,
+};
+const userPreferencesContentDefault = {
+  preferencesIntroDefault,
+  noResultContent: noResultProps,
+  updatePropsContent: entryUpdateProps,
+  buttonsContent,
+  resultLabelContent: resultLabelProps,
+  newsletterSubscriptionsContent: content,
+};
+const userPreferencesContentWithLinks = {
+  preferencesIntroWithLinks,
+  noResultContent: noResultProps,
+  updatePropsContent: entryUpdateProps,
+  buttonsContent,
+  resultLabelContent: resultLabelProps,
+  newsletterSubscriptionsContent: content,
+};
+
 storiesOf('Components/User preferences', module)
   .add(
     'User preferences default',
@@ -68,12 +93,7 @@ storiesOf('Components/User preferences', module)
         deleteQuestion={deleteQuestion}
         saveQuestion={saveQuestion}
         onNewsletterFormSubmit={onNewsletterFormSubmit}
-        preferencesIntroProps={preferencesIntroDefault}
-        noResultProps={noResultProps}
-        buttonsContent={buttonsContent}
-        resultLabelProps={resultLabelProps}
-        entryUpdateProps={entryUpdateProps}
-        newsletterSubscriptionsContent={content}
+        content={userPreferencesContent}
       >
         // @ts-ignore
         <PreferencesQuiz
@@ -92,12 +112,7 @@ storiesOf('Components/User preferences', module)
         deleteQuestion={deleteQuestion}
         saveQuestion={saveQuestion}
         onNewsletterFormSubmit={onNewsletterFormSubmit}
-        preferencesIntroProps={preferencesIntroDefault}
-        noResultProps={noResultProps}
-        buttonsContent={buttonsContent}
-        resultLabelProps={resultLabelProps}
-        entryUpdateProps={entryUpdateProps}
-        newsletterSubscriptionsContent={content}
+        content={userPreferencesContentDefault}
       >
         // @ts-ignore
         <PreferencesQuiz
@@ -121,13 +136,8 @@ storiesOf('Components/User preferences', module)
       <UserPreferences
         deleteQuestion={deleteQuestion}
         saveQuestion={saveQuestion}
-        preferencesIntroProps={preferencesIntro}
         onNewsletterFormSubmit={onNewsletterFormSubmit}
-        noResultProps={noResultProps}
-        buttonsContent={buttonsContent}
-        resultLabelProps={resultLabelProps}
-        entryUpdateProps={entryUpdateProps}
-        newsletterSubscriptionsContent={content}
+        content={userPreferencesContent}
       >
         // @ts-ignore
         <PreferencesQuiz questions={[]} />
@@ -143,13 +153,8 @@ storiesOf('Components/User preferences', module)
       <UserPreferences
         deleteQuestion={deleteQuestion}
         saveQuestion={saveQuestion}
-        preferencesIntroProps={preferencesIntroWithLinks}
         onNewsletterFormSubmit={onNewsletterFormSubmit}
-        noResultProps={noResultProps}
-        buttonsContent={buttonsContent}
-        resultLabelProps={resultLabelProps}
-        entryUpdateProps={entryUpdateProps}
-        newsletterSubscriptionsContent={content}
+        content={userPreferencesContentWithLinks}
       >
         // @ts-ignore
         <PreferencesQuiz questions={[]} />

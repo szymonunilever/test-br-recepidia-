@@ -25,8 +25,8 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   saveQuestion,
   lastInteraction,
   setLastInteraction,
-  noResultProps,
-  entryUpdateProps,
+  noResultContent,
+  updatePropsContent,
   buttonsContent,
 }) => {
   const deleteThisEntry = (key: string) => {
@@ -45,8 +45,8 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
           : PreferenceUpdateResultType.Error,
       message:
         rand % 2 === 0
-          ? entryUpdateProps.deleteProps.success
-          : entryUpdateProps.deleteProps.error,
+          ? updatePropsContent.deleteProps.success
+          : updatePropsContent.deleteProps.error,
       interactionType: PreferenceInteractionType.Delete,
     });
   };
@@ -73,8 +73,8 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
           : PreferenceUpdateResultType.Error,
       message:
         rand % 2 === 0
-          ? entryUpdateProps.saveProps.success
-          : entryUpdateProps.saveProps.error,
+          ? updatePropsContent.saveProps.success
+          : updatePropsContent.saveProps.error,
       interactionType: PreferenceInteractionType.Save,
     };
     setLastInteraction(mockResultFromSaveFunction);
@@ -99,9 +99,11 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
 
   return (
     <form>
-      <div className="preferences__title">
-        <Text tag={TagName.h3} text={heading} />
-      </div>
+      {(questions || {}).length > 0 && (
+        <div className="preferences__title">
+          <Text tag={TagName.h3} text={heading} />
+        </div>
+      )}
       <div className="preferences__content">
         {questions && questions.length ? (
           questions.sort(sortByOrderIndex).map(item => {
@@ -136,7 +138,7 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
           <PreferenceUpdateInfo
             show={true}
             resultType={PreferenceUpdateResultType.Warning}
-            {...noResultProps}
+            {...noResultContent}
           />
         )}
       </div>

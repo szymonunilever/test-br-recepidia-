@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,
+  getRecipeFavoritesResponse,
   getArticleResponse,
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
@@ -9,6 +10,13 @@ import { SearchParams } from 'src/components/lib/components/SearchListing/models
 
 const useSearchResults = (searchQuery: string) => {
   const [recipeResults, setRecipeResults] = useState<{
+    list: Internal.Recipe[];
+    count: number;
+  }>({
+    list: [],
+    count: 0,
+  });
+  const [recipeFavoritesResults, setRecipeFavoritesResults] = useState<{
     list: Internal.Recipe[];
     count: number;
   }>({
@@ -45,6 +53,23 @@ const useSearchResults = (searchQuery: string) => {
         });
       }),
     [recipeResults]
+  );
+
+  const getRecipeFavoritesData = useCallback(
+    async (searchQeury, params) => {
+      getRecipeFavoritesResponse(searchQeury, params).then(res => {
+        setRecipeFavoritesResults({
+          list: recipeFavoritesResults.list.length
+            ? [
+                ...recipeFavoritesResults.list,
+                ...res.hits.hits.map(resItem => resItem._source),
+              ]
+            : res.hits.hits.map(resItem => resItem._source),
+          count: res.hits.total,
+        });
+      });
+    },
+    [recipeFavoritesResults]
   );
 
   const getArticleSearchData = useCallback(
@@ -103,9 +128,11 @@ const useSearchResults = (searchQuery: string) => {
   return {
     getSearchData,
     getRecipeSearchData,
+    getRecipeFavoritesData,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,
+    recipeFavoritesResults,
     articleResults,
     searchInputResults,
     resultsFetched,
