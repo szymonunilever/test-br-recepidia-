@@ -136,6 +136,9 @@
   }
 }
 .modal--quiz {
+  #modal__description {
+    height: 100%;
+  }
   .modal {
     &__overlay {
       display: flex;
@@ -143,12 +146,14 @@
       align-items: center;
     }
     &__content {
-      max-width: calc(100% - 48px);
-      max-height: calc(100% - 48px);
+      width: calc(100% - 48px);
+      height: calc(100% - 48px);
       position: relative;
       border-radius: 5px;
       padding: 0;
       @include respondTo(desktop) {
+        max-height: calc(100% - 48px);
+        height: auto;
         width: 1188px;
       }
     }
