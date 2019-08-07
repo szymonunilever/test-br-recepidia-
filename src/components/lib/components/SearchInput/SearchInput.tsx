@@ -7,6 +7,7 @@ import React, {
 import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
+import { trim } from 'lodash';
 
 const SearchInput = ({
   list = [],
@@ -51,13 +52,12 @@ const SearchInput = ({
   const getResults = (searchInputValue: string) => {
     if (getSearchResults) {
       setIsLoading(true);
-      getSearchResults(searchInputValue, {
+      getSearchResults(trim(searchInputValue), {
         from: 0,
         size: searchResultsCount,
       })
         .then(() => {
           setIsLoading(false);
-          setInputIsDirty(true);
         })
         .catch(() => {
           setIsLoading(false);
@@ -86,17 +86,14 @@ const SearchInput = ({
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
+    setData([]);
 
-    if (inputValue.length > 2) {
-      if (onSubmit) {
-        onSubmit(inputValue, {
-          from: 0,
-          size: searchResultsCount,
-        });
-      }
+    if (trim(inputValue).length >= minLength && onSubmit) {
+      onSubmit(inputValue, {
+        from: 0,
+        size: searchResultsCount,
+      });
     }
-
-    setInputIsDirty(false);
   };
 
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -122,23 +119,27 @@ const SearchInput = ({
 
   const onClickSearchResultsItemHandler = (index: number) => {
     setInputValue(data[index]);
+    setInputIsDirty(false);
 
     if (onClickSearchResultsItem) {
-      setInputIsDirty(false);
+      setData([]);
       onClickSearchResultsItem(data[index], { size: searchResultsCount });
     }
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
+    const trimmedValue = trim(value);
 
     setInputValue(value);
+    setInputIsDirty(true);
+    setData([]);
 
-    if (value.length >= minLength) {
+    if (trimmedValue.length >= minLength && trimmedValue !== trim(inputValue)) {
       clearTimeOut();
       setTimerId(() =>
         window.setTimeout(() => {
-          getResults(value);
+          getResults(trimmedValue);
         }, debounceTimeout)
       );
     }
