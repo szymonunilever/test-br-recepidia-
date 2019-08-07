@@ -22,19 +22,19 @@ import IntroQuiz from '../../components/page/IntroQuiz';
 import introQuizQuestions from '../../../stories/mocks/introQuiz';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
-  const [state, setState] = useState(false);
+  const [searchAgent, setSearchAgent] = useState(false);
   const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
 
   useEffect(() => {
     //@ts-ignore
-    window && setState(window.searchAgentOnPage);
+    setSearchAgent(window.searchAgentOnPage);
   }, []);
 
   return (
     <Layout className="header--bg">
       <SEO title="Recepedia Home" />
-      {!state && (
+      {!searchAgent && (
         <IntroQuiz
           questions={introQuizQuestions}
           primaryButtonLabel={'Next'}
