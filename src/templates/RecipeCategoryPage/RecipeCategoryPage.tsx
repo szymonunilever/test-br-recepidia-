@@ -50,6 +50,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       <section>
         <div className="container">
           <Text
+            className={theme.heroDescription}
             tag={TagName['p']}
             text={
               tag.description ||
@@ -67,9 +68,10 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </section>
       )} */}
       {/* @todo remove hardcoded section below and uncomment section above */}
-      <section className={theme.heroBg}>
+      <section className={cx(theme.heroBg, '_pt--40 _pb--40')}>
         <div className="container">
           <AdaptiveImage
+            className={theme.heroBgImage}
             localImage={
               findPageComponentContent(components, 'Hero').image.localImage
             }

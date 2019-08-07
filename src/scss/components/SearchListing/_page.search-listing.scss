@@ -7,18 +7,18 @@
       padding-top: 60px;
     }
 
-    &__results-header {
-      @extend .container;
-      font-size: 2.4rem;
-      line-height: 1.17;
-      color: $black-blue;
-      margin-bottom: 27px;
-      white-space: pre;
-      @include respondTo(desktop) {
-        font-size: 2.5rem;
-        line-height: 1.12;
-      }
-    }
+        &__results-header{
+            @extend .container;
+            font-size: 2.4rem;
+            line-height: 1.5;
+            color: $black-blue;
+            margin-bottom: 27px;
+            white-space: pre-wrap;
+            @include respondTo(desktop){
+                font-size: 2.5rem;
+                line-height: 1.5;
+            }            
+        }
 
     &__null-results {
       @extend .container;
