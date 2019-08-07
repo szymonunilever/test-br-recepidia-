@@ -27,7 +27,9 @@ const DigitalData = ({
       var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
         keys.digitalData
       )}) : ${JSON.stringify(keys.digitalData)};    
-      var UDM = ${JSON.stringify(keys.UDM)};  
+      var UDM = UDM ? Object.assign(UDM, ${JSON.stringify(
+        keys.UDM
+      )}): ${JSON.stringify(keys.UDM)};  
       digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
          pageType: '${pageType}',
