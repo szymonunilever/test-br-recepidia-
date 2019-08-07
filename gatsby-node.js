@@ -2,7 +2,7 @@
 const url = require('url');
 const get = require('lodash').get;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
@@ -197,6 +197,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   // Add hashes to icons classNames
+  actions.setWebpackConfig({
+    plugins: [new MiniCssExtractPlugin({})],
+  });
   const config = getConfig();
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
@@ -208,13 +211,19 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       test: /react-hot-loader/,
       use: [loaders.js()],
     });
-  } else if (stage === 'build-html') {
+  }
+
+  if (stage === 'build-html') {
     config.module.rules.push({
       test: /elasticsearch-browser/,
       use: loaders.null(),
     });
   }
 
+  if (stage.includes('javascript')) {
+    let config = getConfig();
+    config.entry['main'] = './src/scss/main.scss';
+  }
   actions.replaceWebpackConfig(config);
 };
 

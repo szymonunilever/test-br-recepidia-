@@ -8,7 +8,22 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
+
   const { applicationID, licenseKey, locale } = keys.sitespeed;
+
+  let headComponents = props.headComponents;
+  let css;
+  if (process.env.NODE_ENV == `production`) {
+    headComponents = headComponents.filter(
+      component => component.type !== 'style'
+    );
+    css = (
+      <>
+        <link rel="stylesheet" href="/main.css" />
+      </>
+    );
+  }
+
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -69,7 +84,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {props.headComponents}
+        {headComponents}
+        {css}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

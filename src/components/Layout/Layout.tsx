@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-import 'src/scss/main.scss';
+// import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import ArrowUpIcon from 'src/svgs/inline/arrow-up.svg';
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
