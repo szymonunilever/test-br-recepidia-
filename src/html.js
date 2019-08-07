@@ -53,11 +53,11 @@ export default function HTML(props) {
               rel="preconect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
             />
-            <script
-              type="text/javascript"
-              src={keys.analytics.adobe.url}
-              defer
-            />
+            {/*<script*/}
+            {/*  type="text/javascript"*/}
+            {/*  src={keys.analytics.adobe.url}*/}
+            {/*  defer*/}
+            {/*/>*/}
           </>
         )}
         <meta charSet="utf-8" />
