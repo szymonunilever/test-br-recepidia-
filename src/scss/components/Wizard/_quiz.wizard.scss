@@ -289,7 +289,6 @@ $four-col-width: 100% / 4;
       max-height: 50vh;
     }
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      max-height: 30vh;
       flex: auto;
     }
   }
