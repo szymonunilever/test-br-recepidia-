@@ -11,3 +11,8 @@ phases:
   build:
     commands:
       - yarn build-storybook
+artifacts:
+  base-directory: storybook-static
+  files:
+    - '**/*'
+  discard-paths: no
