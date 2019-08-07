@@ -22,13 +22,13 @@ export default function HTML(props) {
             <script
               dangerouslySetInnerHTML={{
                 __html: `
-                
+
                 var digitalData = {};
                 digitalData.sitespeed = [];
                 digitalData.sitespeed.applicationID = ${applicationID};
                 digitalData.sitespeed.licenseKey = "${licenseKey}";
                 digitalData.sitespeed.locale = "${locale}";
-                
+
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -59,7 +59,7 @@ export default function HTML(props) {
             <script
               type="text/javascript"
               src={keys.analytics.adobe.url}
-              async
+              defer
             />
           </>
         )}
