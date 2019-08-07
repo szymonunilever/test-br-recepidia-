@@ -25,15 +25,20 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
   const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
 
+  // @ts-ignore
+  const { searchAgentOnPage } = window;
+
   return (
     <Layout className="header--bg">
       <SEO title="Recepedia Home" />
-      <IntroQuiz
-        questions={introQuizQuestions}
-        primaryButtonLabel={'Next'}
-        primaryButtonFinalLabel={'Finish'}
-        secondaryButtonLabel={'Skip'}
-      />
+      {!searchAgentOnPage && (
+        <IntroQuiz
+          questions={introQuizQuestions}
+          primaryButtonLabel={'Next'}
+          primaryButtonFinalLabel={'Finish'}
+          secondaryButtonLabel={'Skip'}
+        />
+      )}
       <Kritique />
       <DigitalData pageContext={pageContext} data={data} />
       <section className="_bg--main">

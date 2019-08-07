@@ -32,9 +32,8 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
 
   useEffect(() => {
     !Object.keys(userProfileIQ).length &&
-      setTimeout(() => {
-        !isQuizPassed && setIsQuizOpened(true);
-      }, 3000);
+      !isQuizPassed &&
+      setIsQuizOpened(true);
   }, [isQuizPassed]);
 
   const wizardAction = useCallback(wizardData => {
