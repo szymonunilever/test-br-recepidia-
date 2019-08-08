@@ -87,6 +87,8 @@ const SearchInput = ({
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
     setData([]);
+    setIsLoading(false);
+    setInputIsDirty(false);
 
     if (trim(inputValue).length >= minLength && onSubmit) {
       onSubmit(inputValue, {
