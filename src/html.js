@@ -8,7 +8,23 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
+
   const { applicationID, licenseKey, locale } = keys.sitespeed;
+
+  let headComponents = props.headComponents;
+  let css;
+  if (process.env.NODE_ENV == `production`) {
+    headComponents = headComponents.filter(
+      component => component.type !== 'style'
+    );
+    css = (
+      <>
+        <link rel="preload" as="style" href="/styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
+      </>
+    );
+  }
+
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -22,13 +38,13 @@ export default function HTML(props) {
             <script
               dangerouslySetInnerHTML={{
                 __html: `
-                
+
                 var digitalData = {};
                 digitalData.sitespeed = [];
                 digitalData.sitespeed.applicationID = ${applicationID};
                 digitalData.sitespeed.licenseKey = "${licenseKey}";
                 digitalData.sitespeed.locale = "${locale}";
-                
+
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -59,7 +75,7 @@ export default function HTML(props) {
             <script
               type="text/javascript"
               src={keys.analytics.adobe.url}
-              async
+              defer
             />
           </>
         )}
@@ -81,7 +97,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {props.headComponents}
+        {headComponents}
+        {css}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
