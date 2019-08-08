@@ -50,6 +50,7 @@ import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
+import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
 const RecipePage = ({ pageContext }: RecipePageProps) => {
   const {
@@ -77,6 +78,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       }
     }
   `);
+
   const { components, recipe } = pageContext;
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
@@ -336,7 +338,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <TagLinks
-            list={tags}
+            list={getTagsFromRecipes([recipe], tags)}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
