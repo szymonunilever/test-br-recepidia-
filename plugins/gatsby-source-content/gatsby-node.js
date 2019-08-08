@@ -46,13 +46,14 @@ exports.sourceNodes = async (
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesData = [
     ...pagesMock.pages,
-    contactUsPageMock,
-    contactUsFormMock,
-    notFoundMock,
-    userProfileMock,
-    aboutUsMock,
-    mealPlannerMock,
+    // contactUsPageMock,
+    // contactUsFormMock,
+    // notFoundMock,
+    // userProfileMock,
+    // aboutUsMock,
+    // mealPlannerMock,
   ];
+
   pagesData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });

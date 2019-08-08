@@ -27,7 +27,9 @@ import useSearchResults from './useSearchResults';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
-  const { components } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const { allTag } = data;
 
   const {
@@ -50,8 +52,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   return (
     <Layout className={cx('search-page', theme.searchPage)}>
-      <SEO title="Recepedia Search" />
-      <DigitalData pageContext={pageContext} data={data} />
+      <SEO {...seo} />
+      <DigitalData title={seo.title} type={type} />
       <Kritique />
       <section>
         <SearchListing
@@ -185,10 +187,7 @@ export interface SearchPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    };
+    page: AppContent.Page;
   };
   searchQuery: string;
 }

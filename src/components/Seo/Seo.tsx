@@ -9,7 +9,15 @@ import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, meta, title, children }: SeoProps) {
+function SEO({
+  description,
+  lang,
+  meta = [],
+  link = [],
+  title,
+  canonical,
+  children,
+}: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,7 +26,6 @@ function SEO({ description, meta, title, children }: SeoProps) {
             title
             description
             author
-            lang
           }
         }
       }
@@ -30,10 +37,16 @@ function SEO({ description, meta, title, children }: SeoProps) {
   return (
     <Helmet
       htmlAttributes={{
-        lang: site.siteMetadata.site,
+        lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[
+        {
+          rel: `canonical`,
+          href: canonical,
+        },
+      ].concat(link)}
       meta={[
         {
           name: `description`,
@@ -85,8 +98,10 @@ interface SeoProps {
   lang: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta: any;
+  link?: any;
   title?: string;
   children?: ReactNode | ReactNode[];
+  canonical?: string;
 }
 
 export default SEO;

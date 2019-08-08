@@ -5,10 +5,18 @@ import RichText from 'src/components/lib/components/RichText';
 import { findPageComponentContent } from 'src/utils';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
+import { WindowLocation } from '@reach/router';
+import DigitalData from '../../../integrations/DigitalData';
 
-const AboutUs = ({ pageContext: { title, components } }: AboutUsProps) => (
+const AboutUs = ({
+  pageContext: {
+    page: { seo, components, type },
+  },
+  location,
+}: AboutUsProps) => (
   <Layout>
-    <SEO title="About us" />
+    <SEO {...seo} canonical={location.href} />
+    <DigitalData title={seo.title} type={type} />
     <div className="about-us">
       <Text
         className="about-us__title"
@@ -36,9 +44,7 @@ export default AboutUs;
 
 interface AboutUsProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

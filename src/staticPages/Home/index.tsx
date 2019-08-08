@@ -21,11 +21,12 @@ import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import IntroQuiz from '../../components/page/IntroQuiz';
 import localImage from '../../../stories/assets/localImage';
 import quizContent from '../../components/data/introQuiz.json';
+import { WindowLocation } from '@reach/router';
 
-const HomePage = ({ data, pageContext }: HomePageProps) => {
+const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
   const {
-    page: { seo, components },
+    page: { seo, components, type },
   } = pageContext;
   // introQuizTitle and IntroQuizDescription should come from pageContext properties
   const introQuizTitle = 'Hello ! Welcome to Recepedia';
@@ -54,19 +55,18 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
   return (
     <Layout className="header--bg">
-      <SEO {...seo} />
+      <SEO {...seo} canonical={location.href} />
       {!searchAgent && (
         <IntroQuiz introContent={introContent} quizContent={quizContent} />
       )}
       <Kritique />
-      <DigitalData pageContext={pageContext} data={data} />
+      <DigitalData title={seo.title} type={type} />
       <section className="_bg--main">
         <div className="container">
           <Text
             tag={TagName['h1']}
             text={
-              findPageComponentContent(components.items, 'Text', 'PageTitle')
-                .text
+              findPageComponentContent(components, 'Text', 'PageTitle').text
             }
           />
         </div>
@@ -76,7 +76,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components.items,
+              components,
               'RecipeListing',
               'LatestAndGreatest'
             )}
@@ -109,7 +109,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components.items,
+              components,
               'RecipeListing',
               'TopRecipes'
             )}
@@ -140,7 +140,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components.items, 'Hero')}
+          content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -148,7 +148,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <PageListing
-            content={findPageComponentContent(components.items, 'PageListing')}
+            content={findPageComponentContent(components, 'PageListing')}
             list={pageListingData}
             initialCount={12}
           />
@@ -188,4 +188,5 @@ interface HomePageProps {
   pageContext: {
     page: AppContent.Page;
   };
+  location: WindowLocation;
 }

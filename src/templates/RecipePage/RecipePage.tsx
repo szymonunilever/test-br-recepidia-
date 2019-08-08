@@ -51,8 +51,9 @@ import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
+import { WindowLocation } from '@reach/router';
 
-const RecipePage = ({ pageContext }: RecipePageProps) => {
+const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     allTag,
     allRecipe,
@@ -78,15 +79,10 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       }
     }
   `);
-<<<<<<< HEAD
-
-  const { components, recipe } = pageContext;
-=======
   const {
-    page: { components, seo },
+    page: { components, seo, type },
     recipe,
   } = pageContext;
->>>>>>> Refactoring for SEO
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
@@ -209,10 +205,23 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
     </>
   );
 
+  if (recipe.localImage) {
+    const seoImage = seo.meta.find(item => {
+      return item.name == 'og:image';
+    });
+    seoImage &&
+      (seoImage.content = recipe.localImage.childImageSharp.fluid.src);
+  }
+
   return (
     <Layout className={classWrapper}>
-      <SEO {...seo} title={recipe.title} description={recipe.description} />
-      <DigitalData type="RecipeDetail" data={recipe} />
+      <SEO
+        {...seo}
+        title={recipe.title}
+        description={recipe.description}
+        canonical={location.href}
+      />
+      <DigitalData title={recipe.title} type={type} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
@@ -261,7 +270,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
                   }}
                   className="recipe-attributes"
                   content={findPageComponentContent(
-                    components.items,
+                    components,
                     'RecipeAttributes'
                   )}
                 />
@@ -278,7 +287,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
               viewType={RecipeCopyViewType.Ingredients}
               recipe={recipe}
               content={findPageComponentContent(
-                components.items,
+                components,
                 'RecipeCopy',
                 'Ingredients'
               )}
@@ -288,7 +297,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
               methodList={recipe.methods}
               className={theme.recipeCookingMethod}
               content={findPageComponentContent(
-                components.items,
+                components,
                 'RecipeCookingMethod'
               )}
             />
@@ -327,10 +336,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
           <RecipeNutrients
             recipe={recipe}
             modalTitle={'Nutritional information'}
-            content={findPageComponentContent(
-              components.items,
-              'RecipeNutrients'
-            )}
+            content={findPageComponentContent(components, 'RecipeNutrients')}
             viewType={RecipeNutrientsViewType.WithAction}
             CloseButton={CloseButton}
           />
@@ -348,19 +354,14 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <TagLinks
-<<<<<<< HEAD
             list={getTagsFromRecipes([recipe], tags)}
             content={findPageComponentContent(components, 'Tags')}
-=======
-            list={tags}
-            content={findPageComponentContent(components.items, 'Tags')}
->>>>>>> Refactoring for SEO
           />
         </div>
       </section>
       <section className="_pb--40">
         <Hero
-          content={findPageComponentContent(components.items, 'Hero')}
+          content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -369,7 +370,7 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
         <div className="container">
           <RecipeListing
             content={findPageComponentContent(
-              components.items,
+              components,
               'RecipeListing',
               'RelatedRecipes'
             )}
@@ -408,4 +409,5 @@ interface RecipePageProps {
     page: AppContent.Page;
     recipe: Internal.Recipe;
   };
+  location: WindowLocation;
 }
