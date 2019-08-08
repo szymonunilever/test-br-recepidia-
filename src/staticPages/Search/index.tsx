@@ -39,6 +39,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     articleResults,
     searchInputResults,
     resultsFetched,
+    initialRecipesCount,
   } = useSearchResults(searchQuery);
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
@@ -76,7 +77,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               viewType: RecipeListViewType.Base,
               FavoriteIcon,
               withFavorite: true,
-              initialCount: 2,
+              initialCount: initialRecipesCount,
               recipePerLoad: 4,
               favorites: [],
               onFavoriteChange: () => {},
