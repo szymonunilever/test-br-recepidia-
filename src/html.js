@@ -19,6 +19,7 @@ export default function HTML(props) {
     );
     css = (
       <>
+        <link rel="preload" as="style" href="/styles.css" />
         <link rel="stylesheet" href="/styles.css" />
       </>
     );
