@@ -1,0 +1,37 @@
+{
+   "type":"AboutUs",
+   "relativePath":"/about",
+   "components":{
+      "items":[
+         {
+            "name":"Text",
+            "content":{
+               "view":"Title",
+               "text":"About us"
+            }
+         },
+         {
+            "name":"Text",
+            "content":{
+               "view":"Subtitle",
+               "text":"Who is behind all this awesomeness?"
+            }
+         },
+         {
+            "name":"AdaptiveImage",
+            "content":{
+               "image":{
+                  "url":"https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                  "alt":"About us..."
+               }
+            }
+         },
+         {
+            "name":"RichText",
+            "content":{
+               "text":"It could be a lunch, a dinner, an early night snack, or even a last-minute happy hour. It can be a special meal or just a craving to get out of the rut and cook something different! Receipia presents perfect recipes for each of these moments. It is an interactive and inspiring site, made for both those who love cooking and those who are still learning. Delicious recipes are created by Chef Receppedia, also by the visitors themselves, who can share their own recipes! So, you know: whenever you are in doubt about what to do or how to do, access the Recepedia. In addition to delicious recipes, you will find the exact inspiration for what you are looking for."
+            }
+         }
+      ]
+   }
+}
