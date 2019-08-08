@@ -46,5 +46,6 @@ declare namespace AppContent.GeneratedForm {
     | 'select'
     | 'hidden'
     | 'fieldset'
+    | 'group'
     | 'captcha';
 }

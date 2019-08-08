@@ -93,6 +93,9 @@ const GeneratedField = ({
         </fieldset>
       );
       break;
+    case 'group':
+      view = <div className="field__group">{innerContent}</div>;
+      break;
     case 'text':
     case 'number':
     case 'tel':
