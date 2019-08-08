@@ -19,7 +19,7 @@ export default function HTML(props) {
     );
     css = (
       <>
-        <link rel="stylesheet" href="/main.css" />
+        <link rel="stylesheet" href="/styles.css" />
       </>
     );
   }
