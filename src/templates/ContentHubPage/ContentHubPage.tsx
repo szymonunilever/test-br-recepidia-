@@ -21,12 +21,22 @@ import { PageListingViewTypes } from '../../components/lib/components/PageListin
 import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -63,7 +73,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>
         <div className="container">
-          <RecipeListing
+          <RecipeListingWithFavorite
             content={{
               ...recipesListingContent,
               title: recipesListingContent.title
@@ -78,13 +88,9 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               onLoadMore: onLoadMoreRecipes,
               allCount: recipeResults.count,
             }}
-            FavoriteIcon={FavoriteIcon}
             initialCount={useMedia()}
             titleLevel={2}
             recipePerLoad={4}
-            withFavorite
-            favorites={[]}
-            onFavoriteChange={() => {}}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>

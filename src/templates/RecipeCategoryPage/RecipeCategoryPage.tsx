@@ -18,7 +18,6 @@ import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
-import { action } from '@storybook/addon-actions';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
@@ -31,6 +30,16 @@ import { get } from 'lodash';
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const RecipeCategotyPage = ({
   data,
@@ -127,7 +136,7 @@ const RecipeCategotyPage = ({
 
       <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
         <div className="container">
-          <RecipeListing
+          <RecipeListingWithFavorite
             content={{
               ...recipesListingContent,
               title: recipesListingContent.title.replace(
@@ -143,13 +152,9 @@ const RecipeCategotyPage = ({
               onLoadMore: onLoadMoreRecipes,
               allCount: recipeResults.count,
             }}
-            FavoriteIcon={FavoriteIcon}
             titleLevel={2}
             initialCount={initialRecipesCount}
             recipePerLoad={4}
-            withFavorite
-            favorites={[]}
-            onFavoriteChange={action('favorites were changed')}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>

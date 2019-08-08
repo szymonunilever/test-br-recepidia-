@@ -24,8 +24,9 @@ export function applyingFavorites(
 ) {
   return withFavorites && favorites.length > 0 && list.length > 0
     ? list.map(item => {
-        const inFavorite = !!findIndex(favorites, fav => fav === item.id);
-        return Object.assign(item, inFavorite);
+        const inFavorite =
+          findIndex(favorites, fav => fav === item.recipeId) > -1;
+        return Object.assign(item, { inFavorite: inFavorite });
       })
     : list;
 }

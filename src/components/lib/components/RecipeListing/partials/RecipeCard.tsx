@@ -33,7 +33,7 @@ const RecipeCard = ({
   ) : null;
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
-      onFavoriteChange({ id, val });
+      onFavoriteChange({ recipeId, val });
     }
   };
   const wrapClasses = cx(theme['recipe-card'], 'recipe-card', className);

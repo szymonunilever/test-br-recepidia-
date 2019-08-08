@@ -1,6 +1,10 @@
-import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
+import {
+  Question,
+  QuestionFilterPropNameKeys,
+} from 'src/components/lib/components/Wizard/partials/Quiz/models';
 import { LastInteraction } from '../models';
 import { PreferenceButtonsProps } from '../../../index';
+import { RecipeAttributesKeys } from 'src/components/lib/components/RecipeAttributes';
 
 export interface ResultCountProps {
   count: number;
@@ -15,11 +19,20 @@ export interface ResultCountLabelProps {
 
 export interface PreferenceEntryProps {
   preferenceEntry: Question;
-  selectedOptions: string | string[];
+  selectedOptions: {
+    value: string | string[];
+    filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
+  };
   editingKey: string;
   setEditEntryKey: (preferenceEntryKey: string) => void;
   deleteEntry: (preferenceEntryKey: string) => void;
-  saveEntry: (key: string, value: string | object | null) => void;
+  saveEntry: (
+    key: string,
+    selectedOptions: {
+      value: string | string[];
+      filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
+    }
+  ) => void;
   buttonsContent: PreferenceButtonsProps;
 }
 

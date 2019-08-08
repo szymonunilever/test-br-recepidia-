@@ -22,13 +22,46 @@ import keys from '../../../integrations/keys.json';
 import localImage from '../../../stories/assets/localImage';
 import IntroQuiz from '../../components/page/IntroQuiz';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
-import { getUserProfileByKey } from '../../utils/browserStorage';
-import { ProfileKey } from '../../utils/browserStorage/models';
 import generateQuery from '../../utils/queryGenerator';
 import theme from './home.module.scss';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 
 const RESULT_SIZE = 6;
 const FROM = 0;
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
+
+export const getPersonalizationSearchData = (
+  searchQuery: string,
+  {
+    from = FROM,
+    size = RESULT_SIZE,
+    sort = [],
+  }: { from: number; size: number; sort: any[] }
+) => {
+  const searchParams = {
+    index: keys.elasticSearch.recipeIndex,
+    body: {
+      from,
+      size,
+      sort,
+      query: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        query_string: {
+          query: `${searchQuery}`,
+        },
+      },
+    },
+  };
+  return useElasticSearch<Internal.Recipe>(searchParams);
+};
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
@@ -53,31 +86,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     ).text as string,
   };
 
-  const getSearchData = (
-    searchQuery: string,
-    {
-      from = FROM,
-      size = RESULT_SIZE,
-      sort = [],
-    }: { from: number; size: number; sort: any[] }
-  ) => {
-    const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
-      body: {
-        from,
-        size,
-        sort,
-        query: {
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          query_string: {
-            query: `${searchQuery}`,
-          },
-        },
-      },
-    };
-    return useElasticSearch<Internal.Recipe>(searchParams);
-  };
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getPersonalizedRecipes = (): Promise<any>[] => {
     const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
@@ -95,7 +103,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     if (queryString) {
       //TODO: When we will have rating we need to change query sorting params.
       promises.push(
-        getSearchData(queryString, {
+        getPersonalizationSearchData(queryString, {
           from: FROM,
           size: RESULT_SIZE,
           sort: [{ creationTime: { order: 'desc' } }],
@@ -104,7 +112,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
 
       //TODO: When we will have rating we need to change query sorting params.
       promises.push(
-        getSearchData(queryString, {
+        getPersonalizationSearchData(queryString, {
           from: FROM,
           size: RESULT_SIZE,
           sort: [],
@@ -199,7 +207,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       {recipesFound.latestAndGratesNodes.length > 0 && (
         <section className={cx(theme.homeTopSection, 'bg--half')}>
           <div className="container">
-            <RecipeListing
+            <RecipeListingWithFavorite
               content={findPageComponentContent(
                 components,
                 'RecipeListing',
@@ -210,9 +218,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
               className="recipe-list--blue-header recipe-list--carousel cards--2-4"
               viewType={RecipeListViewType.Carousel}
               titleLevel={2}
-              withFavorite
-              FavoriteIcon={FavoriteIcon}
-              favorites={[]}
               carouselConfig={{
                 breakpoints: [
                   {
@@ -233,16 +238,13 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       {recipesFound.topRecipesNodes.length > 0 && (
         <section className="_pt--40 _pb--40">
           <div className="container">
-            <RecipeListing
+            <RecipeListingWithFavorite
               content={findPageComponentContent(
                 components,
                 'RecipeListing',
                 'TopRecipes'
               )}
               list={recipesFound.topRecipesNodes}
-              withFavorite
-              FavoriteIcon={FavoriteIcon}
-              favorites={[]}
               ratingProvider={RatingAndReviewsProvider.kritique}
               viewType={RecipeListViewType.Carousel}
               className="recipe-list--carousel cards--1-2"

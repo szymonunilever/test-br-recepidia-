@@ -9,7 +9,7 @@ const questionsMock = [
   {
     orderIndex: 1,
     id: 1,
-    key: 'question1',
+    key: 'mealPlannerQuestion1',
     label: 'Favorite cuisines',
     type: {
       control: 'checkbox',
@@ -92,7 +92,7 @@ const questionsMock = [
   {
     orderIndex: 2,
     id: 2,
-    key: 'question2',
+    key: 'mealPlannerQuestion2',
     label: 'Time',
     type: {
       control: 'radio',
@@ -119,7 +119,7 @@ const questionsMock = [
   {
     orderIndex: 3,
     id: 3,
-    key: 'question3',
+    key: 'mealPlannerQuestion3',
     label: 'Budget',
     type: {
       control: 'radio',
@@ -153,7 +153,7 @@ const questionsMock = [
   {
     orderIndex: 4,
     id: 4,
-    key: 'question4',
+    key: 'mealPlannerQuestion4',
     label: 'Number of serving',
     type: {
       control: 'radio',

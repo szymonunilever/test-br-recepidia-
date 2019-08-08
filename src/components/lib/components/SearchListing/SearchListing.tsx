@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SearchInput from '../SearchInput';
 import { Tabs, Tab } from '../Tabs';
-import RecipeListing, {
-  LoadMoreType,
-  RecipeListViewType,
-} from '../RecipeListing';
+import RecipeListing, { LoadMoreType } from '../RecipeListing';
 import cx from 'classnames';
 
 import { Text, TagName } from '../Text';

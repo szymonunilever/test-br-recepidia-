@@ -3,6 +3,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
+  Fragment,
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
@@ -13,7 +14,6 @@ import Tabs, {
 } from 'src/components/lib/components/Tabs';
 import { UserPreferences } from 'src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
-import Kritique from 'integrations/Kritique';
 import Button from 'src/components/lib/components/Button';
 import { Link } from 'gatsby';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
@@ -26,27 +26,43 @@ import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
+import useSearchResults from '../Search/useSearchResults';
+import {
+  getUserProfileByKey,
+  saveUserProfileByKey,
+  updateFavorites,
+} from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
+import { Text, TagName } from 'src/components/lib/components/Text';
+import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+import Kritique from 'integrations/Kritique';
 
 // @todo remove hardcoded mocks
-import questionsMock from '../../../stories/mocks/wizardQuizQuestions';
-import useSearchResults from '../Search/useSearchResults';
-const answers = {
-  question1: '1',
-  question2: ['1', '3', '5'],
-  question3: '2',
-  question4: '1457',
-};
-questionsMock.forEach(
-  question =>
-    // @ts-ignore
-    (answers[question.key] =
-      question.type.control === 'radio'
-        ? question.options[0].value
-        : [question.options[0].value, question.options[1].value])
-);
+import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
+import questionsMock from 'src/components/data/introQuiz.json';
 
 // Screen width in px below which the view is switching to Carousel mode
 const mobileBreakpoint = 768;
+const carouselConfig = {
+  breakpoints: [
+    {
+      width: 1366,
+      switchElementsBelowBreakpoint: 1,
+      switchElementsAfterBreakpoint: 2,
+      visibleElementsBelowBreakpoint: 2,
+      visibleElementsAboveBreakpoint: 4,
+    },
+  ],
+};
+
+const ResponsiveListingWithFavorite = RecipeListingWithFavorites(
+  ResponsiveRecipeListing(RecipeListing, mobileBreakpoint),
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const FavoritesRecipeListingPage: FunctionComponent<
   FavoriteRecipeListingProps
@@ -64,106 +80,156 @@ const FavoritesRecipeListingPage: FunctionComponent<
   const tabsContent = findPageComponentContent(components, 'Tabs');
   const preferencesQuizContent = findPageComponentContent(
     components,
-    'PreferencesQuiz'
+    'PreferencesQuiz',
+    'IntroQuiz'
+  );
+  const mealPlannerQuizContent = findPageComponentContent(
+    components,
+    'PreferencesQuiz',
+    'MealPlanner'
   );
   const userPreferencesContent = findPageComponentContent(
     components,
     'UserPreferences'
   );
-
-  const deleteQuestion = (key: string) => {
-    alert(`Deleted question with key ${key}`);
-  };
-  const saveQuestion = (key: string, value: string | object | null) => {
-    alert(`Saved question with key '${key}' and new values '${value}'`);
-  };
-  const onNewsletterFormSubmit = (values: object) => {
-    // eslint-disable-next-line no-console
-    console.log('values', values);
-  };
+  const mealPlanResultsContent = findPageComponentContent(
+    components,
+    'RecipeListing',
+    'MealPlan'
+  );
+  const mealPlanButtonContent = findPageComponentContent(
+    components,
+    'Button',
+    'ChangeMealPlan'
+  );
+  const noMealPlanContent = findPageComponentContent(
+    components,
+    'Text',
+    'NoMealPlanResults'
+  );
 
   const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
     tabsContent.tabsHeaderContent
   );
-  // @todo remove mocked data
-  const recipeIds = [
-    '53976',
-    '35643',
-    '54184',
-    '164320',
-    '164322',
-    '165077',
-    '169780',
-    '170315',
-    '170318',
-    '173800',
-  ];
+  const { getRecipeDataByIds, recipeByIdsResults } = useSearchResults(
+    (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
+      ? getUserProfileByKey(ProfileKey.favorites)
+      : []
+    )
+      // @ts-ignore
+      .join(' OR ')
+  );
+  const {
+    getRecipeDataByIds: getMealPlannerResults,
+    recipeByIdsResults: mealPlannerResults,
+  } = useSearchResults(
+    (Array.isArray(getUserProfileByKey(ProfileKey.mealPlannerResults))
+      ? getUserProfileByKey(ProfileKey.mealPlannerResults)
+      : []
+    )
+      // @ts-ignore
+      .join(' OR ')
+  );
+  const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
+  const passedMealPlanner = mealPlannerResults && mealPlannerResults.count;
 
-  const { getRecipeFavoritesData, recipeFavoritesResults } = useSearchResults(
-    recipeIds.join(' OR ')
+  const onLoadMoreRecipes = useCallback(
+    (tags: Internal.Tag[], sortingOption: string, size: number) =>
+      getRecipeDataByIds(
+        (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
+          ? getUserProfileByKey(ProfileKey.favorites)
+          : []
+        )
+          // @ts-ignore
+          .join(' OR '),
+        {
+          from: recipeByIdsResults.list.length,
+          size,
+        }
+      ),
+    [recipeByIdsResults]
   );
 
-  const hasRecipes = recipeFavoritesResults && recipeFavoritesResults.count > 0;
+  const deleteQuestion = useCallback((quizKey: ProfileKey, key: string) => {
+    const quiz = getUserProfileByKey(quizKey);
+    // @ts-ignore
+    delete quiz[key];
+    saveUserProfileByKey(quiz, quizKey);
+  }, []);
+  const saveQuestion = useCallback(
+    (quizKey: ProfileKey, key: string, value: string | object | null) => {
+      const quiz = getUserProfileByKey(quizKey);
+      // @ts-ignore
+      quiz[key] = value;
+      saveUserProfileByKey(quiz, quizKey);
+    },
+    []
+  );
+  const onNewsletterFormSubmit = useCallback((values: object) => {
+    // @todo real call
+    // eslint-disable-next-line no-console
+    console.log('values', values);
+  }, []);
 
   useEffect(() => {
     // @todo add sorting: First sort by Rating. Entries equal by Rating are sorted by date.
-    getRecipeFavoritesData(recipeIds.join(' OR '), { from: 0, size: 8 });
+    getRecipeDataByIds(
+      (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
+        ? getUserProfileByKey(ProfileKey.favorites)
+        : []
+      )
+        // @ts-ignore
+        .join(' OR '),
+      { from: 0, size: 8 }
+    );
   }, []);
-  const onLoadMoreRecipes = useCallback(
-    (tags: Internal.Tag[], sortingOption: string, size: number) =>
-      getRecipeFavoritesData(recipeIds.join(' OR '), {
-        from: recipeFavoritesResults.list.length,
-        size,
-      }),
-    [recipeIds, recipeFavoritesResults]
-  );
-
-  const ResponsiveListing = ResponsiveRecipeListing(
-    RecipeListing,
-    mobileBreakpoint
-  );
-
+  useEffect(() => {
+    const query = (Array.isArray(
+      getUserProfileByKey(ProfileKey.mealPlannerResults)
+    )
+      ? getUserProfileByKey(ProfileKey.mealPlannerResults)
+      : []
+    )
+      // @ts-ignore
+      .join(' OR ');
+    if (query) {
+      getMealPlannerResults(query, { from: 0, size: 7 });
+    }
+  }, []);
   useEffect(() => {
     const newTabsHeaderContent = Object.assign({}, tabsHeaderContent);
     newTabsHeaderContent.contents.forEach((item: HeaderContent) => {
-      if (item.view === 'ProfileFavorites' && recipeFavoritesResults.count) {
-        item.subheading =
-          recipeFavoritesResults.count < 1
-            ? item.defaultSubheading || ''
-            : item.subheading.replace(
-                '{num}',
-                recipeFavoritesResults.count.toString()
-              );
+      if (item.view === 'ProfileFavorites' && recipeByIdsResults.count) {
+        item.subheading = recipeByIdsResults.count
+          ? (item.defaultSubheading || '').replace(
+              '{num}',
+              recipeByIdsResults.count.toString()
+            )
+          : item.subheading || '';
       }
     });
     setTabsHeaderContent(newTabsHeaderContent);
-  }, [recipeFavoritesResults.count]);
+  }, [recipeByIdsResults.count]);
 
   return (
     <Layout>
       <SEO {...seo} />
-      <DigitalData title={seo.title} type={type} />
+      <Kritique />
+      <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
       >
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
-            <Kritique />
-            <ResponsiveListing
+            <ResponsiveListingWithFavorite
               content={recipeContent}
-              list={recipeFavoritesResults.list}
+              list={recipeByIdsResults.list}
               ratingProvider={RatingAndReviewsProvider.kritique}
               className="recipe-list favorites"
               initialCount={8}
               titleLevel={2}
               viewType={RecipeListViewType.Base}
-              withFavorite={true}
-              FavoriteIcon={FavoriteIcon}
-              favorites={
-                recipeFavoritesResults.list &&
-                recipeFavoritesResults.list.map(item => item.id)
-              }
               carouselConfig={{
                 breakpoints: [
                   {
@@ -179,11 +245,11 @@ const FavoritesRecipeListingPage: FunctionComponent<
               loadMoreConfig={{
                 type: LoadMoreType.async,
                 onLoadMore: onLoadMoreRecipes,
-                allCount: recipeFavoritesResults.count,
+                allCount: recipeByIdsResults.count,
               }}
               imageSizes={'(min-width: 768px) 25vw, 50vw'}
             />
-            {!hasRecipes && (
+            {!hasFavorites && (
               <Button>
                 <Link to={'/recipes'}>{buttonContent.label}</Link>
               </Button>
@@ -199,11 +265,46 @@ const FavoritesRecipeListingPage: FunctionComponent<
           >
             // @ts-ignore
             <PreferencesQuiz
-              questions={questionsMock}
-              answers={answers}
+              questions={questionsMock.questions as Question[]}
+              answers={getUserProfileByKey(ProfileKey.initialQuiz)}
               heading={preferencesQuizContent.quizTitle}
+              quizKey={ProfileKey.initialQuiz}
+            />
+            // @ts-ignore
+            <PreferencesQuiz
+              questions={
+                // @ts-ignore
+                mealPlannerQuestionsMock.components.items.find(
+                  component => component.name === 'Wizard'
+                ).content.wizardQuiz.questions as Question[]
+              }
+              answers={getUserProfileByKey(ProfileKey.mealPlannerAnswers)}
+              heading={mealPlannerQuizContent.quizTitle}
+              quizKey={ProfileKey.mealPlannerAnswers}
             />
           </UserPreferences>
+        </Tab>
+        <Tab view="MealPlanner">
+          <Fragment>
+            {passedMealPlanner ? (
+              <Fragment>
+                <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
+                <RecipeListingCarousel
+                  list={mealPlannerResults.list}
+                  config={carouselConfig}
+                  titleLevel={1}
+                  onFavoriteChange={() => {}}
+                  imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                />
+              </Fragment>
+            ) : (
+              <Text tag={TagName.h3} text={noMealPlanContent.text} />
+            )}
+            <Button>
+              <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
+            </Button>
+          </Fragment>
         </Tab>
       </Tabs>
     </Layout>

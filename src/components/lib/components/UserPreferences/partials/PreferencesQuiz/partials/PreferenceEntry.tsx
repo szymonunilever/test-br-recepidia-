@@ -26,11 +26,11 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
 
   useEffect(() => {
     // if another entry is chosen -> reset input data
-    setVal(selectedOptions);
+    setVal(selectedOptions && selectedOptions.value);
   }, [editingKey]);
 
   const cancelEditing = useCallback(() => {
-    setVal(selectedOptions);
+    setVal(selectedOptions && selectedOptions.value);
     setEditEntryKey('');
   }, [preferenceEntry]);
 
@@ -40,7 +40,10 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
 
   const saveChanges = useCallback(() => {
     cancelEditing();
-    saveEntry(preferenceEntry.key, val);
+    saveEntry(preferenceEntry.key, {
+      value: val,
+      filterPropName: preferenceEntry.filterPropName,
+    });
   }, [preferenceEntry, val]);
 
   const deleteThisPreference = useCallback(() => {
@@ -57,16 +60,16 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
       {editingThis ? (
         <Question
           question={preferenceEntry}
-          selectedOptions={selectedOptions}
+          selectedOptions={selectedOptions && selectedOptions.value}
           onChangeCallback={updateAnswers}
         />
       ) : (
         <div className="preferences__content-item-info">
           <QuestionLabel label={preferenceEntry.label} />
-          {selectedOptions && (
+          {selectedOptions && selectedOptions.value && (
             <div className="preferences__item-answers">
               {preferenceEntry.options
-                .filter(option => selectedOptions.includes(option.value))
+                .filter(option => selectedOptions.value.includes(option.value))
                 .map(option => (
                   <span
                     className="preferences__item-answer"

@@ -7,10 +7,8 @@ import WizardResultSection from '../../components/lib/components/Wizard/partials
 import localImage from '../../../stories/assets/localImage';
 import WizardLogo from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';
-import { useElasticSearch } from '../../utils';
 import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
-import keys from '../../../integrations/keys.json';
 import ArrowIcon from '../../svgs/inline/arrow-down.svg';
 import {
   saveUserProfileByKey,
@@ -22,26 +20,10 @@ import { findPageComponentContent } from '../../utils';
 import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
 import theme from './mealPlanner.module.scss';
-
-const generateQueryString = (data: any) => {
-  let finalQuery: string[] = [];
-  for (let prop in data) {
-    const value = data[prop].value;
-    if (Array.isArray(value)) {
-      let queryPart: string[] = [];
-      value.forEach(item =>
-        queryPart.push(item.includes(';') ? item.replace(/;/g, ' OR ') : item)
-      );
-      const joined = queryPart.join(' OR ');
-      finalQuery.push(queryPart.length < 2 ? joined : '(' + joined + ')');
-    } else {
-      finalQuery.push(
-        value.includes(';') ? '(' + value.replace(/;/g, ' OR ') + ')' : value
-      );
-    }
-  }
-  return finalQuery.join(' AND ');
-};
+import Kritique from 'integrations/Kritique';
+import generateQuery from '../../utils/queryGenerator';
+import { RecipePersonalizationFormula } from 'src/constants';
+import { getPersonalizationSearchData } from 'src/staticPages/Home';
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
@@ -64,33 +46,13 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   //@ts-ignore
   componentContent.wizardIntroductionPanel.image.localImage = localImage;
 
-  const getSearchData = (searchQuery: string, { from = 0, size = 7 }) => {
-    const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
-      body: {
-        from,
-        size,
-        query: {
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          query_string: {
-            query: `*${searchQuery}*`,
-            fields: [
-              'title',
-              'description',
-              'tagGroups.tags.name',
-              'ingredients.description',
-            ],
-          },
-        },
-      },
-    };
-
-    return useElasticSearch<Internal.Recipe>(searchParams);
-  };
-
   const processSearchData = useCallback(
     (query: string) => {
-      getSearchData(query, { from: 0, size: 7 }).then(data => {
+      getPersonalizationSearchData(query, {
+        from: 0,
+        size: 7,
+        sort: [{ creationTime: { order: 'desc' } }],
+      }).then(data => {
         const result = data.hits.hits.map(hit => hit._source);
         if (data.hits.total >= 7) {
           // @ts-ignore
@@ -99,7 +61,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             result.map(item => item.recipeId),
             ProfileKey.mealPlannerResults
           );
-          // console.log(result);
           return;
         }
         const index = query.lastIndexOf('AND');
@@ -119,28 +80,27 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       Object.keys(quizData.data).length ===
       componentContent.wizardQuiz.questions.length
     ) {
-      const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
-      let query = [];
-      if (introQuizAnswers) {
-        query.push(generateQueryString(introQuizAnswers));
-      }
-      query.push(generateQueryString(quizData.data));
-      const finalQuery = query.join(' AND ');
+      const queryString = generateQuery(
+        getUserProfileByKey(ProfileKey.initialQuiz),
+        getUserProfileByKey(ProfileKey.mealPlannerAnswers),
+        RecipePersonalizationFormula
+      );
 
       saveUserProfileByKey(quizData.data, ProfileKey.mealPlannerAnswers);
 
-      processSearchData(finalQuery);
+      processSearchData(queryString);
     }
   }, []);
 
   return (
     <div className={theme.mealPlanner}>
       <SEO {...seo} canonical={location.href} />
-      <DigitalData title={seo.title} type={type} />
+      <DigitalData title={seo && seo.title} type={type} />
       <div className="wizard__logo">
         <Logo icon={<WizardLogo />} path="/" />
       </div>
       <section>
+        <Kritique />
         <div className="container">
           <Wizard actionCallback={() => true}>
             {/*

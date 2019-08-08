@@ -1,6 +1,11 @@
-import { Question } from '../../../Wizard/partials/Quiz/models';
+import {
+  Question,
+  QuestionFilterPropNameKeys,
+} from '../../../Wizard/partials/Quiz/models';
 import { PreferenceUpdateResultType } from './partials/index';
 import { PreferenceButtonsProps } from '../../index';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
 
 export interface PreferenceQuizProps {
   heading: string;
@@ -8,17 +13,28 @@ export interface PreferenceQuizProps {
   answers: Answers;
   editingKey: string;
   setEditingKey: (preferenceEntryKey: string) => void;
-  deleteQuestion: (key: string) => void;
-  saveQuestion: (key: string, value: string | object | null) => void;
+  deleteQuestion: (quizKey: ProfileKey, key: string) => void;
+  saveQuestion: (
+    quizKey: ProfileKey,
+    key: string,
+    selectedOptions: {
+      value: string | object | null;
+      filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
+    }
+  ) => void;
   lastInteraction: LastInteraction;
   setLastInteraction: (lastInteraction: LastInteraction | {}) => void;
   noResultContent: NoPreferencesProps;
   updatePropsContent: PreferenceEntryUpdateProps;
   buttonsContent: PreferenceButtonsProps;
+  quizKey: ProfileKey;
 }
 
 export interface Answers {
-  [key: string]: string | string[];
+  [key: string]: {
+    value: string | string[];
+    filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
+  };
 }
 
 export interface PreferenceEntryUpdateProps {
