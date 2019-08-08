@@ -265,3 +265,20 @@
     }
   }
 }
+
+.contact-form--result {
+  @extend .social-sharing__dialog;
+  .modal {
+    &__content {
+      @extend %modal__content--flex;
+      padding: 28px;
+      @include respondTo(medium) {
+        padding: 56px 92px 56px;
+      }
+    }
+  }
+  #modal__description {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
