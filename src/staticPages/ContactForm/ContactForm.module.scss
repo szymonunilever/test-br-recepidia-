@@ -114,8 +114,29 @@
     }
     .field {
       margin-bottom: 23px;
+      &__hint {
+        margin: 13px 0 0;
+        font-size: 1.2rem;
+      }
+      &__group--label {
+        margin: 0 0 14px;
+        @include respondTo(desktop) {
+          margin: 0 0 19px;
+        }
+      }
+      &__textarea {
+        padding: 12px 18px;
+      }
       @include respondTo(desktop) {
         margin-bottom: 28px;
+      }
+      &__input {
+        padding: 12px 18px;
+        @include respondTo(desktop) {
+          height: 46px;
+          line-height: 1.6rem;
+          padding: 15px 18px;
+        }
       }
     }
   }

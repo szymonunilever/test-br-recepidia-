@@ -17,7 +17,8 @@
   margin-bottom: 20px;
   &__label {
   }
-  &__label-text {
+  &__label-text,
+  &__group--label {
     font-family: $rubik;
     font-size: 1.6rem;
     font-weight: 500;
