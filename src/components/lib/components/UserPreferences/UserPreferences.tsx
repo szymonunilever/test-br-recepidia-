@@ -12,15 +12,17 @@ import { LastInteraction } from './partials/PreferencesQuiz/index';
 
 const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
   children,
-  preferencesIntroProps,
   deleteQuestion,
   saveQuestion,
   onNewsletterFormSubmit,
-  noResultProps,
-  entryUpdateProps,
-  buttonsContent,
-  resultLabelProps,
-  newsletterSubscriptionsContent,
+  content: {
+    preferencesIntroContent,
+    noResultContent,
+    updatePropsContent,
+    buttonsContent,
+    resultLabelContent,
+    newsletterSubscriptionsContent,
+  },
 }) => {
   const [editingKey, setEditingKey] = useState('');
   const [totalCount, setTotalCount] = useState(0);
@@ -36,8 +38,8 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
         saveQuestion,
         lastInteraction,
         setLastInteraction,
-        noResultProps,
-        entryUpdateProps,
+        noResultContent,
+        updatePropsContent,
         buttonsContent,
         key: Math.random(),
       };
@@ -58,8 +60,10 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
 
   return (
     <div className="preferences">
-      <PreferencesIntro {...preferencesIntroProps} />
-      <ResultCount count={totalCount} labelProps={resultLabelProps} />
+      <PreferencesIntro {...preferencesIntroContent} />
+      {totalCount === 0 && (
+        <ResultCount count={totalCount} labelProps={resultLabelContent} />
+      )}
       <div className="preferences__form">{enhancedChildren}</div>
       <NewsletterSubscriptions
         onSubmit={onNewsletterFormSubmit}

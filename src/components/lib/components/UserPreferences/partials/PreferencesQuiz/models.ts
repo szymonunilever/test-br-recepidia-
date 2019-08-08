@@ -12,8 +12,8 @@ export interface PreferenceQuizProps {
   saveQuestion: (key: string, value: string | object | null) => void;
   lastInteraction: LastInteraction;
   setLastInteraction: (lastInteraction: LastInteraction | {}) => void;
-  noResultProps: NoPreferencesProps;
-  entryUpdateProps: PreferenceEntryUpdateProps;
+  noResultContent: NoPreferencesProps;
+  updatePropsContent: PreferenceEntryUpdateProps;
   buttonsContent: PreferenceButtonsProps;
 }
 

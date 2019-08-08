@@ -283,22 +283,12 @@ $four-col-width: 100% / 4;
   right: auto;
   bottom: auto;
   overflow: hidden;
+  height: 100%;
   .quiz__list {
-    max-height: 15vh;
-    @media screen and (min-height: 570px) {
-      max-height: 30vh;
-    }
-    @media screen and (min-height: 670px) {
-      max-height: 40vh;
-    }
-    @media screen and (min-height: 850px) {
-      max-height: 45vh;
-    }
-    @media screen and (min-height: 1100px) {
-      max-height: 55vh;
+    @include respondTo(desktop) {
+      max-height: 50vh;
     }
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      max-height: 30vh;
       flex: auto;
     }
   }
