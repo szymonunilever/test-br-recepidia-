@@ -9,7 +9,7 @@ import cx from 'classnames';
 
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
-import { get } from 'lodash';
+import { get, trim } from 'lodash';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
@@ -37,14 +37,15 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   }, [searchQuery]);
 
   const onSubmit = useCallback(async (searchQuery: string) => {
+    const trimmedSearchQuery = trim(searchQuery);
     setDefaultSearchValue(searchQuery);
 
     if (recipeConfig.getRecipeSearchData) {
-      recipeConfig.getRecipeSearchData(searchQuery, { size: 8 });
+      recipeConfig.getRecipeSearchData(trimmedSearchQuery, { size: 8 });
     }
 
     if (articleConfig.getArticleSearchData) {
-      articleConfig.getArticleSearchData(searchQuery, { size: 8 });
+      articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
     }
   }, []);
 
@@ -97,7 +98,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         )
         .replace(
           '{searchInputValue}',
-          `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+          `${defaultSearchValue ? `"${trim(defaultSearchValue)}"` : '" "'}`
         )}
     />
   ) : null;
@@ -173,6 +174,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
 
           break;
         }
+
         case 'recipes': {
           tabs.list.push(
             <Tab view={view} key={view}>
