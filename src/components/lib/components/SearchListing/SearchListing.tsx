@@ -98,7 +98,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         )
         .replace(
           '{searchInputValue}',
-          `${defaultSearchValue ? `"${trim(defaultSearchValue)}"` : '" "'}`
+          `${defaultSearchValue ? `\n${trim(defaultSearchValue)}` : '" "'}`
         )}
     />
   ) : null;

@@ -13,6 +13,15 @@
       justify-content: space-between;
       align-items: flex-start;
     }
+    .review-block{
+      border-bottom: 1px solid #d8d8d8;
+      &:first-child{
+        border-top: 1px solid #d8d8d8;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+    }
   }
   .rr-product-reviews {
     margin: 0;
@@ -119,9 +128,16 @@
       padding-left: 0;
       padding-right: 0;
       width: 100%;
+      @include respondTo(medium) {
+        display: flex;
+      }
 
       .review-rightBlock {
         width: 100%;
+        @include respondTo(medium) {
+          padding-top: 25px;
+          max-width: 480px;
+        }
       }
       .review-leftBlock {
         width: 100%;
@@ -129,6 +145,11 @@
         flex-wrap: wrap;
         align-items: center;
         text-align: center;
+        @include respondTo(medium) {
+          width: 29%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
         & > * {
           margin: 0;
           padding: 0;
@@ -148,6 +169,11 @@
           color: $black-blue;
           margin-bottom: 14px;
           font-family: $rubik;
+          @include respondTo(medium) {
+            order: 1;
+            margin-top: 0;
+            margin-bottom: 5px;
+          }
         }
         .rating-container {
           display: flex;
@@ -172,7 +198,9 @@
           line-height: 1.13;
           color: $fish-blue-darker;
           @include respondTo(medium) {
-            margin-left: 29px;
+            order: 1;
+            margin-left: 0;
+            margin-bottom: 10px;
           }
         }
         .reviewDate {
@@ -186,7 +214,9 @@
           right: 0;
           text-align: right;
           @include respondTo(medium) {
-            margin-left: 29px;
+            position: absolute;
+            right: 0;
+            top: 60px;
           }
         }
       }
