@@ -34,18 +34,18 @@ export interface RecipeListingTrivialProps
 }
 
 export enum RecipeSortingOptions {
+  newest,
   preparationTime,
   cookingTime,
   averageRating,
-  newest,
   title,
 }
 
 export const RecipeSortingOptionsFieldsMappings = {
+  [RecipeSortingOptions.newest]: 'creationTime',
   [RecipeSortingOptions.preparationTime]: 'recipeDetails.preperationTime',
   [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
   [RecipeSortingOptions.averageRating]: 'rating.averageRating',
-  [RecipeSortingOptions.newest]: 'creationTime',
   [RecipeSortingOptions.title]: 'title.keyword',
 };
 

@@ -33,8 +33,8 @@ const Modal = ({
         describedby: 'modal__description',
       }}
     >
-      <div className="modal__header">
-        {title && (
+      {title && (
+        <div className="modal__header">
           <Text
             //@ts-ignore
             tag={TagName[`h${titleLevel}`]}
@@ -42,8 +42,9 @@ const Modal = ({
             className="modal__title"
             id="modal__heading"
           />
-        )}
-      </div>
+        </div>
+      )}
+
       <div id="modal__description">{props.children}</div>
       <button onClick={close} aria-label="Close" className="modal__btn-close">
         {closeBtn}

@@ -3,7 +3,6 @@ import React, {
   useEffect,
   useCallback,
   FunctionComponent,
-  Fragment,
 } from 'react';
 import { PreferenceEntryProps } from './models';
 import Button from 'src/components/lib/components/Button';

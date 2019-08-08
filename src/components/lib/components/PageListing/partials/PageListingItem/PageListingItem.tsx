@@ -14,7 +14,7 @@ const PageListingItem = ({ page }: PageProps) => {
 
   return (
     <div className="page-listing-item">
-      <Link to={path} className="page-listing-item__link">
+      <Link to={path} aria-label={title} className="page-listing-item__link">
         <AdaptiveImage
           className="page-listing-item__image"
           localImage={localImage}

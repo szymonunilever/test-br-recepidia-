@@ -17,15 +17,16 @@ export const Tabs = ({
   const [active, setActive] = useState(tabs[0].view);
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabItems = tabs.map(tab => {
+    const hasResultCount = typeof tab.resultsCount !== 'undefined';
     const title = `${tab.title}${
-      typeof tab.resultsCount !== 'undefined' ? ` (${tab.resultsCount})` : ''
+      hasResultCount ? ` (${tab.resultsCount})` : ''
     }`;
     return (
       <Button
         key={tab.view}
         className="tabs__button"
         isToggle
-        isDisabled={!tab.resultsCount}
+        isDisabled={hasResultCount && !tab.resultsCount}
         role="tab"
         isSelected={active === tab.view}
         toggleExternalManage={true}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import { get } from 'lodash';
@@ -35,13 +35,13 @@ export interface QueryString {
   fields?: string[];
 }
 
-const INITIAL_RECIPES_COUNT = 8;
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 
 const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
   const { components } = pageContext;
   const { promotionalRecipes, allTagGroupings } = data;
-
+  // different count for different screens
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
     count: number;
@@ -69,7 +69,6 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         sort,
       },
     };
-
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
         setRecipeResults({
@@ -87,13 +86,15 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       });
   };
 
-  useEffect(() => {
-    getRecipeSearchData(
-      undefined,
-      RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
-      { size: INITIAL_RECIPES_COUNT }
-    );
-  }, []);
+  const initialRecipesCount = useResponsiveScreenInitialSearch(
+    (size: number) =>
+      getRecipeSearchData(
+        undefined,
+        RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
+        { size }
+      ),
+    get(recipeResults, 'list.length', 0)
+  );
 
   const getFilterQuery = (tags: Internal.Tag[]) =>
     tags.map(({ name }) => `(${name})`).join(' AND ') || '**';
@@ -118,6 +119,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
 
   const onViewChange = (tags: Internal.Tag[], sort: string) => {
     const recipeCount = get(recipeResults, 'list.length', 0);
+
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
@@ -125,10 +127,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       },
       sort,
       {
-        size:
-          recipeCount > INITIAL_RECIPES_COUNT
-            ? recipeCount
-            : INITIAL_RECIPES_COUNT,
+        size: recipeCount,
       }
     );
   };
@@ -179,10 +178,10 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
                 'AllRecipes'
               ),
               optionLabels: {
+                newest: 'Newest',
                 preparationTime: 'Preparation time',
                 cookingTime: 'Cooking time',
                 averageRating: 'Average rating',
-                newest: 'Newest',
                 title: 'Title',
               },
             }}
@@ -231,7 +230,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={2}
             withFavorite
-            initialCount={6}
+            initialCount={initialRecipesCount}
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
             onFavoriteChange={() => {}}

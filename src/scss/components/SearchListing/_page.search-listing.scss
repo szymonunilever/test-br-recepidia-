@@ -1,32 +1,33 @@
-.search{
-    &-listing{
-        position: relative;
-        z-index: 1;
-        padding-top: 30px;
-        @include respondTo(desktop){
-            padding-top: 60px;
-        }
+.search {
+  &-listing {
+    position: relative;
+    z-index: 1;
+    padding-top: 30px;
+    @include respondTo(desktop) {
+      padding-top: 60px;
+    }
 
         &__results-header{
             @extend .container;
             font-size: 2.4rem;
-            line-height: 1.17;
+            line-height: 1.5;
             color: $black-blue;
             margin-bottom: 27px;
+            white-space: pre-wrap;
             @include respondTo(desktop){
                 font-size: 2.5rem;
-                line-height: 1.12;
+                line-height: 1.5;
             }            
         }
 
-        &__null-results{
-            @extend .container;
-        }
-
-        .recommendations{
-            &__subtitle{
-                margin-top: 40px;
-            }
-        }
+    &__null-results {
+      @extend .container;
     }
+
+    .recommendations {
+      &__subtitle {
+        margin-top: 40px;
+      }
+    }
+  }
 }

@@ -16,7 +16,11 @@ export interface QuestionOption {
   value: string;
   label: {
     text: string;
-    image: AdaptiveImageProps;
+    image: {
+      localImage?: Internal.LocalImage;
+      alt: string;
+      url?: string;
+    };
   };
 }
 
