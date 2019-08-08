@@ -30,7 +30,7 @@ $four-col-width: 100% / 4;
         }
       }
       // quiz scroll for small screen height
-      @media screen and (max-height: 567px),
+      @media screen and (max-height: 550px),
         screen and (orientation: landscape) and (max-width: 959px) {
         display: block;
         overflow-y: auto;
@@ -109,7 +109,10 @@ $four-col-width: 100% / 4;
         font-size: 1.6rem;
         color: $black-blue;
         font-family: $rubik;
-        margin: 15px 0;
+        margin: 10px 0 20px;
+        @include respondTo(desktop) {
+          margin: 14px 0 28px;
+        }
       }
     }
     &__item-input {
@@ -285,8 +288,14 @@ $four-col-width: 100% / 4;
   overflow: hidden;
   height: 100%;
   .quiz__list {
-    @include respondTo(desktop) {
+    @include respondTo(medium) {
       max-height: 50vh;
+    }
+    @media screen and (min-height: 740px) and (min-width: 1366px) {
+      max-height: 40vh;
+    }
+    @media screen and (max-height: 739px) and (min-width: 768px) {
+      max-height: 25vh;
     }
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       flex: auto;
