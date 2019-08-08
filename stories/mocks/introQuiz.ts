@@ -1,7 +1,7 @@
 import localImage from '../assets/localImage';
 
 const image = {
-  localImage,
+  url: '',
   alt: '',
 };
 const questionsMock = [

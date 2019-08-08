@@ -19,11 +19,20 @@ import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import IntroQuiz from '../../components/page/IntroQuiz';
-import introQuizQuestions from '../../../stories/mocks/introQuiz';
+import localImage from '../../../stories/assets/localImage';
+import quizContent from '../../components/data/introQuiz.json';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
   const { title, components } = pageContext;
+  // introQuizTitle and IntroQuizDescription should come from pageContext properties
+  const introQuizTitle = 'Hello ! Welcome to Recepedia';
+  const introQuizDescription =
+    'We want to know you better and feed you with recipes you love!';
+  const introContent = {
+    title: introQuizTitle,
+    description: introQuizDescription,
+  };
   const recipes = data.allRecipe.nodes;
 
   useEffect(() => {
@@ -31,16 +40,20 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
     setSearchAgent(window.searchAgentOnPage);
   }, []);
 
+  //@ts-ignore
+  quizContent.questions.forEach(item => {
+    //@ts-ignore
+    item.options.forEach(option => {
+      //@ts-ignore
+      option.label.image.localImage = localImage;
+    });
+  });
+
   return (
     <Layout className="header--bg">
       <SEO title="Recepedia Home" />
       {!searchAgent && (
-        <IntroQuiz
-          questions={introQuizQuestions}
-          primaryButtonLabel={'Next'}
-          primaryButtonFinalLabel={'Finish'}
-          secondaryButtonLabel={'Skip'}
-        />
+        <IntroQuiz introContent={introContent} quizContent={quizContent} />
       )}
       <Kritique />
       <DigitalData pageContext={pageContext} data={data} />
