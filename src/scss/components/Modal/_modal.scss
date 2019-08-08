@@ -151,9 +151,11 @@
       position: relative;
       border-radius: 5px;
       padding: 0;
-      @include respondTo(desktop) {
+      @include respondTo(medium) {
         max-height: calc(100% - 48px);
         height: auto;
+      }
+      @include respondTo(desktop) {
         width: 1188px;
       }
     }
