@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import { Text, TagName } from 'src/components/lib/components/Text';
@@ -22,18 +22,26 @@ import IntroQuiz from '../../components/page/IntroQuiz';
 import introQuizQuestions from '../../../stories/mocks/introQuiz';
 
 const HomePage = ({ data, pageContext }: HomePageProps) => {
+  const [searchAgent, setSearchAgent] = useState(false);
   const { title, components } = pageContext;
   const recipes = data.allRecipe.nodes;
+
+  useEffect(() => {
+    //@ts-ignore
+    setSearchAgent(window.searchAgentOnPage);
+  }, []);
 
   return (
     <Layout className="header--bg">
       <SEO title="Recepedia Home" />
-      <IntroQuiz
-        questions={introQuizQuestions}
-        primaryButtonLabel={'Next'}
-        primaryButtonFinalLabel={'Finish'}
-        secondaryButtonLabel={'Skip'}
-      />
+      {!searchAgent && (
+        <IntroQuiz
+          questions={introQuizQuestions}
+          primaryButtonLabel={'Next'}
+          primaryButtonFinalLabel={'Finish'}
+          secondaryButtonLabel={'Skip'}
+        />
+      )}
       <Kritique />
       <DigitalData pageContext={pageContext} data={data} />
       <section className="_bg--main">
