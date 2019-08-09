@@ -69,6 +69,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
         sort,
       },
     };
+
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
         setRecipeResults({
@@ -107,7 +108,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: ['tagGroups.tags.name'],
+        fields: tags.length ? ['tagGroups.tags.name'] : [],
       },
       sort,
       {
@@ -123,7 +124,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: ['tagGroups.tags.name'],
+        fields: tags.length ? ['tagGroups.tags.name'] : [],
       },
       sort,
       {

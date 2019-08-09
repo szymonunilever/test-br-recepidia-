@@ -23,6 +23,7 @@ export const query = graphql`
       preperationTime
       serves
       totalTime
+      cookTime
     }
     recipeId
     tagGroups {

@@ -71,6 +71,7 @@ export const RecipeListing = ({
     viewType === RecipeListViewType.Advanced
       ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
       : listWithFavorites;
+
   const getSlicedList = (recList = listModified): Internal.Recipe[] => {
     return !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
   };

@@ -242,13 +242,13 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
                   recipe={recipe}
                   visible={[
                     RecipeAttributesKeys.serves,
-                    RecipeAttributesKeys.totalTime,
-                    RecipeAttributesKeys.preparationTime,
+                    RecipeAttributesKeys.cookTime,
+                    RecipeAttributesKeys.preperationTime,
                     RecipeAttributesKeys.difficulties,
                   ]}
                   icons={{
-                    preparationTime: RecipeKnife,
-                    totalTime: RecipeClock,
+                    preperationTime: RecipeKnife,
+                    cookTime: RecipeClock,
                     serves: RecipePeople,
                     difficulties: RecipeDifficulty,
                   }}
