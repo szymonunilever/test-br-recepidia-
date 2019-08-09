@@ -51,8 +51,9 @@ import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
+import { WindowLocation } from '@reach/router';
 
-const RecipePage = ({ pageContext }: RecipePageProps) => {
+const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     allTag,
     allRecipe,
@@ -78,8 +79,10 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       }
     }
   `);
-
-  const { components, recipe } = pageContext;
+  const {
+    page: { components, seo, type },
+    recipe,
+  } = pageContext;
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
@@ -202,10 +205,23 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
     </>
   );
 
+  if (recipe.localImage) {
+    const seoImage = seo.meta.find(item => {
+      return item.name == 'og:image';
+    });
+    seoImage &&
+      (seoImage.content = recipe.localImage.childImageSharp.fluid.src);
+  }
+
   return (
     <Layout className={classWrapper}>
-      <SEO title="Recepedia Home" />
-      <DigitalData type="RecipeDetail" data={recipe} />
+      <SEO
+        {...seo}
+        title={recipe.title}
+        description={recipe.description}
+        canonical={location.href}
+      />
+      <DigitalData title={recipe.title} type={type} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
@@ -390,10 +406,8 @@ export default RecipePage;
 
 interface RecipePageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
     recipe: Internal.Recipe;
   };
+  location: WindowLocation;
 }

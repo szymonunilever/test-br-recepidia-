@@ -21,10 +21,13 @@ import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import IntroQuiz from '../../components/page/IntroQuiz';
 import localImage from '../../../stories/assets/localImage';
 import quizContent from '../../components/data/introQuiz.json';
+import { WindowLocation } from '@reach/router';
 
-const HomePage = ({ data, pageContext }: HomePageProps) => {
+const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
-  const { title, components } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   // introQuizTitle and IntroQuizDescription should come from pageContext properties
   const introQuizTitle = 'Hello ! Welcome to Recepedia';
   const introQuizDescription =
@@ -33,6 +36,7 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
     title: introQuizTitle,
     description: introQuizDescription,
   };
+
   const recipes = data.allRecipe.nodes;
 
   useEffect(() => {
@@ -51,12 +55,12 @@ const HomePage = ({ data, pageContext }: HomePageProps) => {
 
   return (
     <Layout className="header--bg">
-      <SEO title="Recepedia Home" />
+      <SEO {...seo} canonical={location.href} />
       {!searchAgent && (
         <IntroQuiz introContent={introContent} quizContent={quizContent} />
       )}
       <Kritique />
-      <DigitalData pageContext={pageContext} data={data} />
+      <DigitalData title={seo.title} type={type} />
       <section className="_bg--main">
         <div className="container">
           <Text
@@ -182,25 +186,7 @@ interface HomePageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
-}
-
-interface Edge<T> {
-  node: T;
-}
-
-interface PageNode {
-  components: {
-    items: {
-      name: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      content: any;
-    }[];
-  };
-  title: string;
-  type: string;
+  location: WindowLocation;
 }

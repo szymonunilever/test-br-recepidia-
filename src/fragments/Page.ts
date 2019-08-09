@@ -5,19 +5,21 @@ export const query = graphql`
     type
     relativePath
     components {
-      name
-      assets {
-        url
-        alt
-        localImage {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
+      items {
+        name
+        assets {
+          url
+          alt
+          localImage {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
             }
           }
         }
+        content
       }
-      content
     }
   }
 `;

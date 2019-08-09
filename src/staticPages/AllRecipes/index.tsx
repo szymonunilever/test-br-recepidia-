@@ -37,9 +37,16 @@ export interface QueryString {
 
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
+import { WindowLocation } from '@reach/router';
 
-const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
-  const { components } = pageContext;
+const AllRecipesPage = ({
+  data,
+  pageContext,
+  location,
+}: AllRecipesPageProps) => {
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const { promotionalRecipes, allTagGroupings } = data;
   // different count for different screens
   const [recipeResults, setRecipeResults] = useState<{
@@ -135,8 +142,8 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
 
   return (
     <Layout className={theme.allRecipes}>
-      <SEO title="All Recipes" />
-      <DigitalData pageContext={pageContext} data={data} />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData title={seo.title} type={type} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
@@ -304,9 +311,7 @@ interface AllRecipesPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

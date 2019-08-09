@@ -8,10 +8,15 @@ import GeneratedForm from '../../components/lib/components/GeneratedForm';
 import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/form.service';
 import { Modal } from '../../components/lib/components/Modal';
+import { WindowLocation } from '@reach/router';
+
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,
+  location,
 }) => {
-  const { components } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const [modalState, setModalState] = useState({
     isOpen: false,
     text: '',
@@ -45,9 +50,9 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   };
   return (
     <Layout>
-      <SEO title="Contact form" />
+      <SEO {...seo} canonical={location.href} />
       <DigitalData
-        type="ContactForm"
+        type={type}
         title={
           findPageComponentContent(components, 'GeneratedForm', 'ContactForm')
             .title
@@ -76,9 +81,7 @@ export default ContactFormPage;
 
 export interface ContactFormPageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

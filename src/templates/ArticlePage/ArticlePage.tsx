@@ -20,6 +20,7 @@ import SocialSharing, {
 } from '../../components/lib/components/SocialSharing';
 import { VideoPlayer } from '../../components/lib/components/VideoPlayer';
 import DigitalData from '../../../integrations/DigitalData';
+import { WindowLocation } from '@reach/router';
 
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
@@ -28,7 +29,11 @@ const socialIcons: SocialIcons = {
 const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
   data: { article, next },
   pageContext,
+  location,
 }) => {
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const mainImage = article.assets.find(
     item => get(item, 'content.role') === 'main'
   );
@@ -50,10 +55,22 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
     'content'
   ) as AppContent.ImageContent;
 
+  if (mainImageHero) {
+    const seoImage = seo.meta.find(item => {
+      return item.name == 'og:image';
+    });
+    seoImage && (seoImage.content = mainImageHero.image.url);
+  }
+
   return (
     <Layout className={theme.articleWrap}>
-      <SEO title={article.title} description={article.shortDescription} />
-      <DigitalData pageContext={pageContext} data={article} />
+      <SEO
+        {...seo}
+        canonical={location.href}
+        title={article.title}
+        description={article.shortDescription}
+      />
+      <DigitalData title={article.title} type={type} />
       <section className={theme.articleTitle}>
         <div className="container">
           <Text tag={TagName.h1} text={article.title} />
@@ -65,10 +82,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
             <div className="article-image__wrap">
               <Hero viewType="Image" content={mainImageHero} />
               <SocialSharing
-                content={findPageComponentContent(
-                  pageContext.components,
-                  'SocialSharing'
-                )}
+                content={findPageComponentContent(components, 'SocialSharing')}
                 className={theme.articleSocial}
                 icons={socialIcons}
                 viewType={SocialSharingViewType.Modal}
@@ -100,11 +114,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
             <Text
               tag={TagName.h2}
               text={
-                findPageComponentContent(
-                  pageContext.components,
-                  'Text',
-                  'NextTitle'
-                ).text
+                findPageComponentContent(components, 'Text', 'NextTitle').text
               }
             />
             <Link to={next.fields.slug}>
@@ -123,7 +133,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       )}
       <section>
         <Hero
-          content={findPageComponentContent(pageContext.components, 'Hero')}
+          content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
         />
@@ -153,11 +163,10 @@ interface ArticlePageProps {
   pageContext: {
     id: string;
     slug: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    };
+    page: AppContent.Page;
     nextSlug: string | null;
     previousSlug: string | null;
     edge: object;
   };
+  location: WindowLocation;
 }

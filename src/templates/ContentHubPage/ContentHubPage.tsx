@@ -19,6 +19,7 @@ import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
+import { WindowLocation } from '@reach/router';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
@@ -26,11 +27,13 @@ import relatedArticlesComponent from 'src/components/data/relatedArticlesForCont
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
   pageContext,
+  location,
 }) => {
-  //TODO: remove object assign and replace let to const when main page json will be fixed
-  let { components } = pageContext;
-  components = [...components, relatedArticlesComponent];
+  const {
+    page: { components, seo, type },
+  } = pageContext;
   const { tag, allRecipe, allTag, allArticle } = data;
+
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -41,8 +44,13 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.title}`} />
-      <DigitalData pageContext={pageContext} data={tag} />
+      <SEO
+        {...seo}
+        title={tagLabel}
+        description={tag.description}
+        canonical={location.href}
+      />
+      <DigitalData title={tagLabel} type={type} />
       <Kritique />
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>
@@ -72,11 +80,12 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         <section className="_pb--40 _pt--40">
           <div className="container">
             <MediaGallery
-              content={findPageComponentContent(
-                components,
-                'MediaGallery',
-                'RelatedArticles'
-              )}
+              // content={findPageComponentContent(
+              //   components,
+              //   'MediaGallery',
+              //   'RelatedArticles'
+              // )}
+              content={relatedArticlesComponent.content}
               list={allArticle.nodes}
               allCount={allArticle.nodes.length}
               onLoadMore={() => {}}
@@ -181,9 +190,7 @@ interface ContentHubPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

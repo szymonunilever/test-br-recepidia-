@@ -19,6 +19,8 @@ import {
 import { ProfileKey } from '../../utils/browserStorage/models';
 import Button from '../../components/lib/components/Button';
 import { findPageComponentContent } from '../../utils';
+import { WindowLocation } from '@reach/router';
+import DigitalData from 'integrations/DigitalData';
 
 const generateQueryString = (data: any) => {
   let finalQuery: string[] = [];
@@ -40,11 +42,11 @@ const generateQueryString = (data: any) => {
   return finalQuery.join(' AND ');
 };
 
-const MealPlannerPage = ({ pageContext }: MealPlannerProps) => {
-  const componentContent = findPageComponentContent(
-    pageContext.components,
-    'Wizard'
-  );
+const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
+  const {
+    page: { seo, components, type },
+  } = pageContext;
+  const componentContent = findPageComponentContent(components, 'Wizard');
   const [answers, setAnswers] = useState({});
   const [recipes, setRecipes] = useState([]);
 
@@ -131,7 +133,8 @@ const MealPlannerPage = ({ pageContext }: MealPlannerProps) => {
 
   return (
     <div>
-      <SEO title="Meal planner" />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData title={seo.title} type={type} />
       <div className="wizard__logo">
         <Logo icon={<WizardLogo />} path="/" />
       </div>
@@ -203,11 +206,9 @@ const MealPlannerPage = ({ pageContext }: MealPlannerProps) => {
 
 interface MealPlannerProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }
 
 export default MealPlannerPage;

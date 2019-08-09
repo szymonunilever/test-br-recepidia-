@@ -9,6 +9,7 @@ module.exports = {
     author: 'Unilever',
     description: 'Recipedia application',
     siteUrl: 'https://recipedia.netlify.com/',
+    lang: 'pt-br',
   },
   plugins: [
     'gatsby-transformer-sharp',

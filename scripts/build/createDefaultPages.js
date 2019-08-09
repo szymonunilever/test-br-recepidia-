@@ -1,5 +1,5 @@
 const parseComponents = components =>
-  components.map(component => ({
+  components.items.map(component => ({
     ...component,
     content: JSON.parse(component.content),
   }));
@@ -10,22 +10,24 @@ module.exports = async ({ graphql, createPage }) => {
       allPage {
         nodes {
           components {
-            name
-            content
-            assets {
-              url
-              alt
-              localImage {
-                id
-                childImageSharp {
-                  fluid {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                    srcSetWebp
-                    srcWebp
+            items {
+              name
+              content
+              assets {
+                url
+                alt
+                localImage {
+                  id
+                  childImageSharp {
+                    fluid {
+                      aspectRatio
+                      base64
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                    }
                   }
                 }
               }
@@ -33,6 +35,14 @@ module.exports = async ({ graphql, createPage }) => {
           }
           type
           relativePath
+          seo {
+            title
+            description
+            meta {
+              name
+              content
+            }
+          }
         }
       }
     }
@@ -40,7 +50,9 @@ module.exports = async ({ graphql, createPage }) => {
 
   const pages = result.data.allPage.nodes.map(node => ({
     ...node,
-    components: parseComponents(node.components),
+    components: {
+      items: parseComponents(node.components),
+    },
   }));
 
   pages
@@ -57,8 +69,8 @@ module.exports = async ({ graphql, createPage }) => {
         'MealPlanner',
       ].includes(type)
     )
-    .forEach(node => {
-      createPage(node);
+    .forEach(pageNode => {
+      createPage(pageNode);
     });
 
   return pages;
