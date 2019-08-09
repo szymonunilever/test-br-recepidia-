@@ -135,9 +135,9 @@ const SearchInput = ({
 
     setInputValue(value);
     setInputIsDirty(true);
-    setData([]);
 
     if (trimmedValue.length >= minLength && trimmedValue !== trim(inputValue)) {
+      setData([]);
       clearTimeOut();
       setTimerId(() =>
         window.setTimeout(() => {

@@ -18,9 +18,7 @@ export const Tabs = ({
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabItems = tabs.map(tab => {
     const hasResultCount = typeof tab.resultsCount !== 'undefined';
-    const title = `${tab.title}${
-      hasResultCount ? ` (${tab.resultsCount})` : ''
-    }`;
+
     return (
       <Button
         key={tab.view}
@@ -43,7 +41,8 @@ export const Tabs = ({
               }
         }
       >
-        {title}
+        {tab.title}
+        {hasResultCount ? ` (${tab.resultsCount})` : null}
       </Button>
     );
   });
