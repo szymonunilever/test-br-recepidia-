@@ -1,0 +1,7 @@
+{
+  "name": "MediaGallery",
+  "content": {
+    "view": "RelatedArticles",
+    "title": "Related Articles"
+  }
+}
