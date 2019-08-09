@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import { get } from 'lodash';
@@ -23,11 +23,11 @@ import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
+import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   const { components } = pageContext;
   const { tag, allRecipe, allTag } = data;
-  const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -35,6 +35,24 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
     'RecipesByCategory'
   );
   const initialRecipesCount = useMedia();
+
+  const [recipeResults, setRecipeResults] = useState<{
+    list: Internal.Recipe[];
+    count: number;
+  }>({
+    list: allRecipe.nodes,
+    count: 0,
+  });
+
+  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(
+    allRecipe.nodes
+  );
+
+  const [tagList, setTagList] = useState<Internal.Tag[]>([]);
+
+  useEffect(() => {
+    setTagList(getTagsFromRecipes(recipeList, allTag.nodes));
+  }, [recipeList]);
 
   return (
     <Layout className={classWrapper}>
@@ -101,7 +119,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
                 allRecipe.nodes.length
               ),
             }}
-            list={allRecipe.nodes}
+            list={recipeList}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
@@ -119,7 +137,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       <section>
         <div className="container">
           <TagLinks
-            list={allTag.nodes}
+            list={tagList}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
@@ -179,44 +197,6 @@ export const query = graphql`
     }
   }
 `;
-
-// export const query = graphql`
-//   query($slug: String!, $id: Int!) {
-//     tag(fields: { slug: { eq: $slug } }) {
-//       name
-//       description
-//       title
-//       tagId
-//       assets {
-//         url
-//         alt
-//         localImage {
-//           childImageSharp {
-//             fluid(maxWidth: 1200) {
-//               ...GatsbyImageSharpFluid_withWebp
-//             }
-//           }
-//         }
-//       }
-//     }
-
-//     allRecipe(
-//       filter: {
-//         tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-//       }
-//     ) {
-//       nodes {
-//         ...RecipeFields
-//       }
-//     }
-
-//     allTag {
-//       nodes {
-//         ...TagFields
-//       }
-//     }
-//   }
-// `;
 
 interface RecipeCategotyPageProps {
   data: {

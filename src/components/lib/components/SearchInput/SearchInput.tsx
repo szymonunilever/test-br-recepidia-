@@ -87,6 +87,8 @@ const SearchInput = ({
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
     setData([]);
+    setIsLoading(false);
+    setInputIsDirty(false);
 
     if (trim(inputValue).length >= minLength && onSubmit) {
       onSubmit(inputValue, {
@@ -133,9 +135,9 @@ const SearchInput = ({
 
     setInputValue(value);
     setInputIsDirty(true);
-    setData([]);
 
     if (trimmedValue.length >= minLength && trimmedValue !== trim(inputValue)) {
+      setData([]);
       clearTimeOut();
       setTimerId(() =>
         window.setTimeout(() => {

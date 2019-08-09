@@ -109,7 +109,6 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     !!recipeResults.list.length && (
       <RecipeListing
         initialCount={8}
-        viewType={RecipeListViewType.Advanced}
         loadMoreConfig={{
           type: LoadMoreType.async,
           onLoadMore: onLoadMoreRecipes,
