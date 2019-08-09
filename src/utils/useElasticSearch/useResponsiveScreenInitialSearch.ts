@@ -4,6 +4,7 @@ import useMedia from '../useMedia';
 function useResponsiveScreenInitialSearch(
   searchQuery: (size: number) => Promise<void>,
   listSize: number = 0,
+  statesToWatch: string[] = [],
   mediaQueries?: string[],
   values?: number[]
 ): number {
@@ -13,7 +14,7 @@ function useResponsiveScreenInitialSearch(
     if (initialRecipesCount > listSize) {
       searchQuery(initialRecipesCount);
     }
-  }, [initialRecipesCount]);
+  }, [initialRecipesCount, ...statesToWatch]);
 
   return initialRecipesCount;
 }
