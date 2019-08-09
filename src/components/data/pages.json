@@ -991,7 +991,8 @@
                   "url": "",
                   "alt": ""
                 },
-                "primaryButtonLabel": "Get started"
+                "primaryButtonLabel": "Get started",
+                "bottomContent": ""
               },
               "wizardQuiz": {
                 "questions": [
