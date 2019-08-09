@@ -62,6 +62,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       <section className="_pt--40">
         <div className="container">
           <Text
+            className={theme.heroTitle}
             tag={TagName['h1']}
             text={tag.title || fromCamelCase(tag.name)}
           />

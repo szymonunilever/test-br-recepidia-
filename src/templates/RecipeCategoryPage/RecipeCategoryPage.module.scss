@@ -4,6 +4,14 @@
   position: relative;
   background: $white-gray;
 }
+.heroTitle {
+  margin-bottom: 0;
+  line-height: 0.8;
+  @include respondTo(medium) {
+    margin: 0 0 0.67em 0;
+    line-height: 1.19;
+  }
+}
 .hero-description {
   display: none;
   @include respondTo(medium) {
@@ -42,9 +50,9 @@
     border-radius: 5px;
   }
   & div > div {
-    padding-bottom: 50% !important;
+    padding-bottom: 66% !important;
     @include respondTo(desktop) {
-      padding-bottom: 30% !important;
+      padding-bottom: 31% !important;
     }
   }
 }
