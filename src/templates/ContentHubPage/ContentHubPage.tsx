@@ -12,6 +12,7 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
+import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
@@ -19,12 +20,17 @@ import { PageListingViewTypes } from '../../components/lib/components/PageListin
 import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
 
-const ContentHubPage: React.SFC<ContentHubPageProps> = ({
+//TODO: add this part to main page json and remove this import
+import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
+
+const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
   pageContext,
 }) => {
-  const { components } = pageContext;
-  const { tag, allRecipe, allTag } = data;
+  //TODO: remove object assign and replace let to const when main page json will be fixed
+  let { components } = pageContext;
+  components = [...components, relatedArticlesComponent];
+  const { tag, allRecipe, allTag, allArticle } = data;
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -62,7 +68,22 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
           />
         </div>
       </section>
-
+      {allArticle.nodes.length > 0 && (
+        <section className="_pb--40 _pt--40">
+          <div className="container">
+            <MediaGallery
+              content={findPageComponentContent(
+                components,
+                'MediaGallery',
+                'RelatedArticles'
+              )}
+              list={allArticle.nodes}
+              allCount={allArticle.nodes.length}
+              onLoadMore={() => {}}
+            />
+          </div>
+        </section>
+      )}
       <section>
         <div className="container">
           <TagLinks
@@ -118,6 +139,17 @@ export const query = graphql`
         ...RecipeFields
       }
     }
+    allArticle(
+      filter: {
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+      }
+      limit: 4
+      sort: { order: DESC, fields: id }
+    ) {
+      nodes {
+        ...ArticleFields
+      }
+    }
 
     allTag {
       nodes {
@@ -143,6 +175,9 @@ interface ContentHubPageProps {
     };
     allTag: {
       nodes: Internal.Tag[];
+    };
+    allArticle: {
+      nodes: Internal.Article[];
     };
   };
   pageContext: {

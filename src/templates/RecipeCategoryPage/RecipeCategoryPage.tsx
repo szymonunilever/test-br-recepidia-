@@ -14,6 +14,7 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
+import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
@@ -25,9 +26,15 @@ import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
+//TODO: add this part to main page json and remove this import
+import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
+
 const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
-  const { components } = pageContext;
-  const { tag, allRecipe, allTag } = data;
+  //TODO: remove object assign and replace let to const when main page json will be fixed
+  let { components } = pageContext;
+  components = [...components, relatedArticlesComponent];
+  const { tag, allRecipe, allTag, allArticle } = data;
+  const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -62,6 +69,7 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
       <section className="_pt--40">
         <div className="container">
           <Text
+            className={theme.heroTitle}
             tag={TagName['h1']}
             text={tag.title || fromCamelCase(tag.name)}
           />
@@ -134,6 +142,23 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         </div>
       </section>
 
+      {allArticle.nodes.length > 0 && (
+        <section className="_pb--40 _pt--40">
+          <div className="container">
+            <MediaGallery
+              content={findPageComponentContent(
+                components,
+                'MediaGallery',
+                'RelatedArticles'
+              )}
+              list={allArticle.nodes}
+              allCount={allArticle.nodes.length}
+              onLoadMore={() => {}}
+            />
+          </div>
+        </section>
+      )}
+
       <section>
         <div className="container">
           <TagLinks
@@ -190,6 +215,18 @@ export const query = graphql`
       }
     }
 
+    allArticle(
+      filter: {
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+      }
+      limit: 4
+      sort: { order: DESC, fields: id }
+    ) {
+      nodes {
+        ...ArticleFields
+      }
+    }
+
     allTag {
       nodes {
         ...TagFields
@@ -211,6 +248,9 @@ interface RecipeCategotyPageProps {
     };
     allRecipe: {
       nodes: Internal.Recipe[];
+    };
+    allArticle: {
+      nodes: Internal.Article[];
     };
     allTag: {
       nodes: Internal.Tag[];
