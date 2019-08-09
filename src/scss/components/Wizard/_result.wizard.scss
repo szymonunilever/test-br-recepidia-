@@ -1,5 +1,12 @@
-.wizard--result{
-  .wizard{
-    
+.wizard--result {
+  .wizard {
+    &__title {
+      h2 {
+        margin-bottom: 12px;
+      }
+      .subheading {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

@@ -32,11 +32,13 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
         onClick={actionCallback}
         content={{ label: primaryButtonLabel }}
       />
-      <Button
-        className="wizard__button wizard__button--secondary"
-        onClick={console.log}
-        content={{ label: secondaryButtonLabel }}
-      />
+      {secondaryButtonLabel && (
+        <Button
+          className="wizard__button wizard__button--secondary"
+          onClick={console.log}
+          content={{ label: secondaryButtonLabel }}
+        />
+      )}
     </div>
   </Fragment>
 );
