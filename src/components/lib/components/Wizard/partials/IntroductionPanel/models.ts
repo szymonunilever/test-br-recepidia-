@@ -6,7 +6,7 @@ export interface IntroductionPanelProps {
   description: string;
   image: AdaptiveImageProps;
   primaryButtonLabel: string;
-  secondaryButtonLabel: string;
+  secondaryButtonLabel?: string;
   actionCallback?: () => void;
   resultsStore: ResultsStore;
   containerClass: string;

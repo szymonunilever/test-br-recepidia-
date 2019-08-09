@@ -31,7 +31,8 @@ export interface QuizProps {
   questions: Question[];
   primaryButtonLabel: string;
   primaryButtonFinalLabel?: string;
-  secondaryButtonLabel: string;
+  secondaryButtonLabel?: string;
+  bottomContent?: JSX.Element;
   actionCallback: (answers: object) => void;
   stepResultsCallback?: (answers: object) => void;
 }

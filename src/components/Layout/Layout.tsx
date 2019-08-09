@@ -29,15 +29,15 @@ const Layout = ({ children, className }: LayoutProps) => {
   useEffect(() => {
     smartOutline.init();
   });
-  const components = allCommonComponent.nodes;
+  const componentNodes = allCommonComponent.nodes;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  components.forEach((component: any) => {
+  componentNodes.forEach((component: any) => {
     component.content =
       typeof component.content === 'string'
         ? JSON.parse(component.content)
         : component.content;
   });
-
+  const components = { items: componentNodes };
   // eslint-disable-next-line no-console
   const onSignUpCallback = () => console.log('onsignup callback');
 

@@ -24,6 +24,8 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import SEO from 'src/components/Seo';
+import DigitalData from '../../../integrations/DigitalData';
 
 // @todo remove hardcoded mocks
 import questionsMock from '../../../stories/mocks/introQuiz';
@@ -48,7 +50,11 @@ const mobileBreakpoint = 768;
 
 const FavoritesRecipeListingPage: FunctionComponent<
   FavoriteRecipeListingProps
-> = ({ pageContext: { components, title } }) => {
+> = ({
+  pageContext: {
+    page: { components, seo, type },
+  },
+}) => {
   const recipeContent = findPageComponentContent(components, 'RecipeListing');
   const buttonContent = findPageComponentContent(
     components,
@@ -135,6 +141,8 @@ const FavoritesRecipeListingPage: FunctionComponent<
 
   return (
     <Layout>
+      <SEO {...seo} />
+      <DigitalData title={seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
@@ -206,9 +214,6 @@ export default FavoritesRecipeListingPage;
 
 interface FavoriteRecipeListingProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
 }

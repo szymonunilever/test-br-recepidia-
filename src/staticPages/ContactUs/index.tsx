@@ -9,13 +9,16 @@ import { TagName, Text } from '../../components/lib/components/Text';
 import theme from './ContactUs.module.scss';
 import Phone from 'src/svgs/inline/phone.svg';
 import MapMarker from 'src/svgs/inline/map-marker.svg';
+import { WindowLocation } from '@reach/router';
 
-const ContactUsPage = ({ pageContext }: ContactUsPageProps) => {
-  const { components } = pageContext;
+const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   return (
     <Layout>
-      <SEO title="Contact us" />
-      <DigitalData pageContext={pageContext} />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData title={seo.title} type={type} />
       <section className={theme.contactUs}>
         <div className="container">
           <Text
@@ -72,9 +75,7 @@ const ContactUsPage = ({ pageContext }: ContactUsPageProps) => {
 export default ContactUsPage;
 export interface ContactUsPageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

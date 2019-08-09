@@ -25,15 +25,22 @@ import DigitalData from '../../../integrations/DigitalData';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
+import { WindowLocation } from '@reach/router';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 
-const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
+const RecipeCategotyPage = ({
+  data,
+  pageContext,
+  location,
+}: RecipeCategotyPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
-  let { components } = pageContext;
-  components = [...components, relatedArticlesComponent];
+  const {
+    page: { components, seo, type },
+  } = pageContext;
   const { tag, allRecipe, allTag, allArticle } = data;
+
   const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
@@ -60,11 +67,23 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeList, allTag.nodes));
   }, [recipeList]);
+  if (categoryImage) {
+    const seoImage = seo.meta.find(item => {
+      return item.name == 'og:image';
+    });
+    seoImage && (seoImage.content = categoryImage.childImageSharp.fluid.src);
+  }
+  const title = tag.title || fromCamelCase(tag.name);
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.name}`} />
-      <DigitalData pageContext={pageContext} data={tag} />
+      <SEO
+        {...seo}
+        title={title}
+        description={tag.description}
+        canonical={location.href}
+      />
+      <DigitalData title={title} type={type} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
@@ -146,11 +165,12 @@ const RecipeCategotyPage = ({ data, pageContext }: RecipeCategotyPageProps) => {
         <section className="_pb--40 _pt--40">
           <div className="container">
             <MediaGallery
-              content={findPageComponentContent(
-                components,
-                'MediaGallery',
-                'RelatedArticles'
-              )}
+              // content={findPageComponentContent(
+              //   components,
+              //   'MediaGallery',
+              //   'RelatedArticles'
+              // )}
+              content={relatedArticlesComponent.content}
               list={allArticle.nodes}
               allCount={allArticle.nodes.length}
               onLoadMore={() => {}}
@@ -257,9 +277,7 @@ interface RecipeCategotyPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

@@ -2,24 +2,10 @@ import React from 'react';
 import { DigitalDataProps } from './models';
 // import { isMobile } from './utils';
 // TODO: maybe we need to use isMobile, but will see.
-import { findPageComponentContent } from 'src/utils';
 import { Helmet } from 'react-helmet';
 import keys from 'integrations/keys.json';
 
-const DigitalData = ({
-  pageContext = { type: 'Page' },
-  data,
-  title,
-  type,
-}: DigitalDataProps) => {
-  const pageType = type ? type : pageContext.type; //TODO: When we will know where to get Title of the page, we need fix this and use only type instead get all components inside this integration.
-  const pageName = title
-    ? title
-    : /Detail$/.test(pageType)
-    ? data.title
-    : findPageComponentContent(pageContext.components, 'Text', 'PageTitle')
-        .text;
-
+const DigitalData = ({ title, type }: DigitalDataProps) => {
   return process.env.NODE_ENV !== 'development' ? (
     <Helmet>
       <script type="text/javascript">{`
@@ -30,17 +16,17 @@ const DigitalData = ({
       var UDM = ${JSON.stringify(keys.UDM)};  
       digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
-         pageType: '${pageType}',
+         pageType: '${type}',
          primaryCategory: channelVal,
       };
       digitalData.privacy = { accessCategories: [{ domains: [] }] };
       digitalData.page.pageInfo = {
-        pageName: '${pageName}',
+        pageName: '${title}',
         destinationURL: window.location.href,
       };
-      digitalData.page.attributes.contentType = '${pageType}';
+      digitalData.page.attributes.contentType = '${type}';
       if ('${type}' === 'ArticleDetail') {
-        digitalData.page.attributes.articleName = '${pageName}';
+        digitalData.page.attributes.articleName = '${title}';
       }
       `}</script>
     </Helmet>

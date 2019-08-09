@@ -1,19 +1,25 @@
 declare namespace AppContent {
   interface Page {
     // title: string;
-    type: 'Home' | 'RecipeCategory' | 'Search' | 'ContactUs' | 'ContactForm';
+    type: string;
     components: {
       items: AppContent.BaseComponent[];
     };
     seo: {
-      keywords: string[];
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      meta: any;
+      title: string;
+      description: string;
+      meta: MetaTag[];
+      lang: string;
     };
 
     /**
      * Gatsby should use this dynamic value for page URL
      */
     relativePath: string;
+  }
+
+  interface MetaTag {
+    [key: string]: string;
+    content: string;
   }
 }

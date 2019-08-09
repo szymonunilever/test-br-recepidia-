@@ -15,7 +15,7 @@ import content from 'src/components/data/recipeAttributes.json';
 const config: RecipeAttributesKeys[] = [
   RecipeAttributesKeys.serves,
   RecipeAttributesKeys.totalTime,
-  RecipeAttributesKeys.preparationTime,
+  RecipeAttributesKeys.preperationTime,
   RecipeAttributesKeys.difficulties,
 ];
 
