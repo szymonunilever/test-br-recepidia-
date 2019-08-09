@@ -123,7 +123,8 @@ const useSearchResults = (searchQuery: string) => {
 
   const initialRecipesCount = useResponsiveScreenInitialSearch(
     (size: number) => getSearchData(searchQuery, { size }),
-    get(recipeResults, 'list.length', 0)
+    get(recipeResults, 'list.length', 0),
+    [searchQuery]
   );
 
   return {
