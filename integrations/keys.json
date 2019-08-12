@@ -27,6 +27,10 @@
       "whatsUp": "whatsapp"
     }
   },
+  "AemAssetsCredentials": {
+    "user": "artem.linenko@dataart.com",
+    "password": "C\"XL/#-(PwngQ8uQ"
+  },
   "ReCaptcha": {
     "version": "3",
     "clientKey": "6Lem4qsUAAAAAApC-AZb3GprO-3Bj8Pi7YXTLyCo"
