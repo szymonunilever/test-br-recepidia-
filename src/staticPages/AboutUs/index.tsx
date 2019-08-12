@@ -7,6 +7,8 @@ import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import { WindowLocation } from '@reach/router';
 import DigitalData from '../../../integrations/DigitalData';
+import theme from './AboutUs.module.scss';
+import cx from 'classnames';
 
 const AboutUs = ({
   pageContext: {
@@ -17,23 +19,23 @@ const AboutUs = ({
   <Layout>
     <SEO {...seo} canonical={location.href} />
     <DigitalData title={seo.title} type={type} />
-    <div className="about-us">
+    <div className={cx(theme.aboutUs, 'container')}>
       <Text
-        className="about-us__title"
-        tag={TagName.h2}
+        className={theme.aboutUs__title}
+        tag={TagName.h1}
         text={findPageComponentContent(components, 'Text', 'Title').text}
       />
       <Text
-        className="about-us__subtitle"
-        tag={TagName.h3}
+        className={theme.aboutUs__subtitle}
+        tag={TagName.p}
         text={findPageComponentContent(components, 'Text', 'Subtitle').text}
       />
       <AdaptiveImage
-        className="about-us__image"
+        className={theme.aboutUs__image}
         {...findPageComponentContent(components, 'AdaptiveImage').image}
       />
       <RichText
-        className="about-us__text"
+        className={theme.aboutUs__text}
         content={findPageComponentContent(components, 'RichText')}
       />
     </div>
