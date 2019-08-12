@@ -78,5 +78,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: integrations.analytics.google,
     },
+    `gatsby-plugin-netlify`,
   ],
 };

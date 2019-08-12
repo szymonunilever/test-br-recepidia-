@@ -12,6 +12,7 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   primaryButtonLabel,
   secondaryButtonLabel,
   actionCallback,
+  bottomContent,
 }) => (
   <Fragment>
     <div className="wizard__info">
@@ -38,6 +39,9 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
           onClick={console.log}
           content={{ label: secondaryButtonLabel }}
         />
+      )}
+      {bottomContent != undefined && (
+        <div className="wizard__button-placeholder">{bottomContent}</div>
       )}
     </div>
   </Fragment>

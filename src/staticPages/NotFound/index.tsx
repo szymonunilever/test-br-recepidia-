@@ -8,6 +8,8 @@ import AdaptiveImage from 'src/components/lib/components/AdaptiveImage';
 import Button from 'src/components/lib/components/Button';
 import DigitalData from 'integrations/DigitalData';
 import { findPageComponentContent } from 'src/utils';
+import theme from './NotFound.module.scss';
+import cx from 'classnames';
 
 const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
   const {
@@ -21,23 +23,27 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
     >
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <Text
-        tag={TagName.h1}
-        text={findPageComponentContent(components, 'Text', 'Title').text}
-      />
-      <Text
-        tag={TagName.p}
-        text={findPageComponentContent(components, 'Text', 'Subtitle').text}
-      />
-      <AdaptiveImage
-        className="not-found__image"
-        {...findPageComponentContent(components, 'AdaptiveImage').image}
-      />
-      <Button className="not-found__recipes-link">
-        <Link to={'/recipes'}>
-          {findPageComponentContent(components, 'Button').label}
-        </Link>
-      </Button>
+      <div className={cx(theme.notFound, 'container')}>
+        <Text
+          className={theme.notFound__title}
+          tag={TagName.h1}
+          text={findPageComponentContent(components, 'Text', 'Title').text}
+        />
+        <Text
+          className={theme.notFound__subtitle}
+          tag={TagName.p}
+          text={findPageComponentContent(components, 'Text', 'Subtitle').text}
+        />
+        <AdaptiveImage
+          className={theme.notFound__image}
+          {...findPageComponentContent(components, 'AdaptiveImage').image}
+        />
+        <Button className={cx(theme.notFound__recipesLink, 'button')}>
+          <Link to={'/recipes'}>
+            {findPageComponentContent(components, 'Button').label}
+          </Link>
+        </Button>
+      </div>
     </Layout>
   );
 };

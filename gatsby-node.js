@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 const url = require('url');
 const get = require('lodash').get;
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
 const createArticlePages = require('./scripts/build/createArticlePages');
+const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
 const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 
@@ -54,28 +54,24 @@ exports.onCreateNode = async ({
         node.assets.map(async asset => {
           const { type, content } = asset;
           if (type === 'Image' && content.url) {
-            const imgNode = await createRemoteFileNode({
-              url: content.url,
-              parentNodeId: node.id,
+            const imgNode = await createRemoteImageNode(content.url, node.id, {
               store,
               cache,
               createNode,
               createNodeId,
-              ext: '.jpg',
-              name: 'image',
             });
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
-            const imgNode = await createRemoteFileNode({
-              url: get(content, 'preview.url'),
-              parentNodeId: node.id,
-              store,
-              cache,
-              createNode,
-              createNodeId,
-              ext: '.jpg',
-              name: 'image',
-            });
+            const imgNode = await createRemoteImageNode(
+              get(content, 'preview.url'),
+              node.id,
+              {
+                store,
+                cache,
+                createNode,
+                createNodeId,
+              }
+            );
             asset.content.preview['previewImage___NODE'] = imgNode.id;
           }
           return asset;
@@ -96,21 +92,20 @@ exports.onCreateNode = async ({
           let fileNode;
           try {
             if (component.assets.length > 0) {
-              fileNode = await createRemoteFileNode({
-                url: component.assets[0].url,
-                parentNodeId: node.id,
-                store,
-                cache,
-                createNode,
-                createNodeId,
-                ext: '.jpg',
-                name: 'image',
-              });
+              fileNode = await createRemoteImageNode(
+                component.assets[0].url,
+                node.id,
+                {
+                  store,
+                  cache,
+                  createNode,
+                  createNodeId,
+                }
+              );
             }
           } catch (error) {
             console.error(error);
           }
-
           if (fileNode) {
             component.assets[0][`localImage___NODE`] = fileNode.id;
           }

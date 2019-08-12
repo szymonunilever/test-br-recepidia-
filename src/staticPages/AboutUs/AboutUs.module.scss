@@ -1,0 +1,48 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+
+.about-us {
+  padding-top: 20px;
+  padding-bottom: 96px;
+  @include respondTo(desktop) {
+    padding-top: 50px;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    @include respondTo(desktop) {
+      font-size: 4.5rem;
+      margin-bottom: 17px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 24px;
+    @include respondTo(desktop) {
+      font-size: 2rem;
+      margin-bottom: 37px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 31px;
+    @include respondTo(desktop) {
+      margin-bottom: 71px;
+    }
+
+    :global {
+      .gatsby-image-wrapper > div {
+        padding-bottom: 0 !important;
+        height: 225px;
+        @include respondTo(desktop) {
+          height: 290px;
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    line-height: 1.29;
+  }
+}

@@ -49,14 +49,7 @@ const RecipeCategotyPage = ({
     'RecipesByCategory'
   );
   const initialRecipesCount = useMedia();
-
-  const [recipeResults, setRecipeResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: allRecipe.nodes,
-    count: 0,
-  });
+  const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(
     allRecipe.nodes
@@ -67,12 +60,14 @@ const RecipeCategotyPage = ({
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeList, allTag.nodes));
   }, [recipeList]);
+
   if (categoryImage) {
     const seoImage = seo.meta.find(item => {
       return item.name == 'og:image';
     });
     seoImage && (seoImage.content = categoryImage.childImageSharp.fluid.src);
   }
+
   const title = tag.title || fromCamelCase(tag.name);
 
   return (
@@ -182,8 +177,12 @@ const RecipeCategotyPage = ({
       <section>
         <div className="container">
           <TagLinks
+            initialCount={initialTagsCount}
             list={tagList}
-            content={findPageComponentContent(components, 'Tags')}
+            content={{
+              ...findPageComponentContent(components, 'Tags'),
+              loadMoreButton: { label: '+ show more' },
+            }}
           />
         </div>
       </section>
