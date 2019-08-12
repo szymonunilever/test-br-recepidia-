@@ -91,6 +91,7 @@ const SearchInput = ({
 
       setInputValue(value);
       setInputIsDirty(true);
+      setData([]);
 
       if (
         trimmedValue.length >= minLength &&
