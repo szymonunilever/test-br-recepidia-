@@ -1,5 +1,6 @@
 import { ResultsStore } from '../../models';
 import { AdaptiveImageProps } from '../../../AdaptiveImage/models';
+import { ReactNode } from 'react';
 
 export interface IntroductionPanelProps {
   title: string;
@@ -11,4 +12,5 @@ export interface IntroductionPanelProps {
   resultsStore: ResultsStore;
   containerClass: string;
   stepId: string;
+  bottomContent: ReactNode | ReactNode[];
 }
