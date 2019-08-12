@@ -33,9 +33,12 @@ const Tags = ({
   useEffect(() => {
     setTags({
       list: list,
-      displayList: initialCount !== 'all' ? list.slice(0, initialCount) : list,
+      displayList:
+        initialCount !== 'all'
+          ? list.slice(0, Math.max(tags.displayList.length, initialCount))
+          : list,
     });
-  }, [list]);
+  }, [list, initialCount]);
 
   const loadMore = () => {
     const newCount = tags.displayList.length + tagsPerLoad;
