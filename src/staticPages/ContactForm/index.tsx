@@ -17,6 +17,12 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   const {
     page: { seo, components, type },
   } = pageContext;
+  const сontactFormComponent = findPageComponentContent(
+    components,
+    'GeneratedForm',
+    'ContactForm'
+  );
+  const { title, formMessages } = сontactFormComponent;
   const [modalState, setModalState] = useState({
     isOpen: false,
     text: '',
@@ -30,7 +36,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         if (result && result.status === 'Ok')
           setModalState({
             isOpen: true,
-            text: "Thank you. We've get your message.",
+            text: formMessages && formMessages.confirmSubmitMessage,
             className: cx('contact-form--result', 'success'),
           });
         setTimeout(() => {
@@ -51,13 +57,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   return (
     <Layout>
       <SEO {...seo} canonical={location.href} />
-      <DigitalData
-        type={type}
-        title={
-          findPageComponentContent(components, 'GeneratedForm', 'ContactForm')
-            .title
-        }
-      />
+      <DigitalData type={type} title={title} />
       <Modal isOpen={modalState.isOpen} className={modalState.className}>
         <div>{modalState.text}</div>
       </Modal>
@@ -65,11 +65,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         <div className="container">
           <GeneratedForm
             onSubmit={submitHandler}
-            content={findPageComponentContent(
-              components,
-              'GeneratedForm',
-              'ContactForm'
-            )}
+            content={сontactFormComponent}
           />
         </div>
       </section>

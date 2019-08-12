@@ -185,13 +185,6 @@ const AllRecipesPage = ({
                 'RecipeListing',
                 'AllRecipes'
               ),
-              optionLabels: {
-                newest: 'Newest',
-                preparationTime: 'Preparation time',
-                cookingTime: 'Cooking time',
-                averageRating: 'Average rating',
-                title: 'Title',
-              },
             }}
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
