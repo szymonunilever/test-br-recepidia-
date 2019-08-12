@@ -89,8 +89,10 @@
             }
           }
         }
-        .checkable.valid .checkable__checkelem {
+        .checkable .checkable__checkelem {
           margin-right: 18px;
+        }
+        .checkable.valid .checkable__checkelem {
           border-color: $black-blue;
         }
         .checkable.valid .checkable__checkelem .checkable__checkmark {
@@ -136,6 +138,13 @@
           height: 46px;
           line-height: 1.6rem;
           padding: 15px 18px;
+        }
+      }
+      @include respondTo(desktop) {
+        @media (hover) {
+          .select [class*='control']:hover {
+            cursor: pointer;
+          }
         }
       }
     }
