@@ -135,7 +135,7 @@ const AllRecipesPage = ({
       },
       sort,
       {
-        size: recipeCount,
+        size: Math.max(initialRecipesCount, recipeCount),
       }
     );
   };
