@@ -23,6 +23,7 @@ import { WindowLocation } from '@reach/router';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
+import useMedia from 'src/utils/useMedia';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -41,6 +42,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipesByCategory'
   );
   const tagLabel = tag.title || fromCamelCase(tag.name);
+  const initialRecipeCount = useMedia();
 
   return (
     <Layout className={classWrapper}>
@@ -67,7 +69,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
             titleLevel={2}
-            initialCount={8}
+            initialCount={initialRecipeCount}
             recipePerLoad={4}
             withFavorite
             favorites={[]}
