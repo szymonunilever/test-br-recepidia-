@@ -26,7 +26,7 @@ import theme from './mealPlanner.module.scss';
 const generateQueryString = (data: any) => {
   let finalQuery: string[] = [];
   for (let prop in data) {
-    const value = data[prop];
+    const value = data[prop].value;
     if (Array.isArray(value)) {
       let queryPart: string[] = [];
       value.forEach(item =>

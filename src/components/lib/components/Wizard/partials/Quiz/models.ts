@@ -1,4 +1,9 @@
-import { AdaptiveImageProps } from '../../../AdaptiveImage/models';
+import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
+
+export enum QuestionFilterPropNameKeys {
+  tags = 'tags',
+  empty = '',
+}
 
 export interface Question {
   orderIndex: number;
@@ -9,6 +14,7 @@ export interface Question {
     control: string;
     labelPosition: string;
   };
+  filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
   options: QuestionOption[];
 }
 

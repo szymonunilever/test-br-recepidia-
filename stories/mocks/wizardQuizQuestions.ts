@@ -1,4 +1,5 @@
 import localImage from '../assets/localImage';
+import { QuestionFilterPropNameKeys } from '../../src/components/lib/components/Wizard/partials/Quiz/models';
 
 const image = {
   localImage,
@@ -14,6 +15,7 @@ const questionsMock = [
       control: 'checkbox',
       labelPosition: 'bottom',
     },
+    filterPropName: QuestionFilterPropNameKeys.tags,
     options: [
       {
         value: '1503;1484',
@@ -96,6 +98,7 @@ const questionsMock = [
       control: 'radio',
       labelPosition: 'bottom',
     },
+    filterPropName: QuestionFilterPropNameKeys.empty,
     options: [
       {
         value: '20',
@@ -122,6 +125,7 @@ const questionsMock = [
       control: 'radio',
       labelPosition: 'bottom',
     },
+    filterPropName: QuestionFilterPropNameKeys.tags,
     options: [
       {
         value: '1371',
@@ -155,6 +159,7 @@ const questionsMock = [
       control: 'radio',
       labelPosition: 'bottom',
     },
+    filterPropName: QuestionFilterPropNameKeys.empty,
     options: [
       {
         value: '2',
