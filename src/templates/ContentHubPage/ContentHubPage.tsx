@@ -23,6 +23,7 @@ import { WindowLocation } from '@reach/router';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
+import useMedia from 'src/utils/useMedia';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -97,7 +98,11 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         <div className="container">
           <TagLinks
             list={allTag.nodes}
-            content={findPageComponentContent(components, 'Tags')}
+            content={{
+              ...findPageComponentContent(components, 'Tags'),
+              loadMoreButton: { label: '+ show more' }, //TODO remove when data will be fixed
+            }}
+            initialCount={useMedia(undefined, [9, 5])}
           />
         </div>
       </section>
