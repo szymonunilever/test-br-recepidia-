@@ -78,13 +78,13 @@
           color: $black-blue;
           font-family: $rubik;
           background: none;
-          margin-right: 10px;
+          margin-right: 20px;
           padding: 0;
           position: relative;
           &:after {
             content: '';
             height: 35px;
-            padding-left: 25px;
+            padding-left: 20px;
             border-right: 1px solid $black-blue;
           }
         }
@@ -137,6 +137,9 @@
       @include respondTo(medium) {
         display: flex;
       }
+      .reviewDate{
+        font-size: 1.2rem;
+      }
 
       .review-rightBlock {
         width: 100%;
@@ -170,7 +173,7 @@
           text-align: left;
           margin-top: 21px;
           font-size: 2.1rem;
-          font-weight: 500;
+          font-weight: bold;
           line-height: 1.33;
           color: $black-blue;
           margin-bottom: 14px;
@@ -202,7 +205,7 @@
           order: 2;
           font-size: 1.6rem;
           line-height: 1.13;
-          color: $fish-blue-darker;
+          color: $black-blue;
           @include respondTo(medium) {
             order: 1;
             margin-left: 0;
@@ -225,6 +228,15 @@
             top: 60px;
           }
         }
+      }
+      .agRatingDeSelect{
+        img {
+          height: 17px;
+          width: auto;
+        }
+      }
+      .aggRtng{
+        display: none;
       }
       .rr-comments {
         font-size: 1.4rem;

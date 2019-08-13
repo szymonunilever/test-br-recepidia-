@@ -20,7 +20,6 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import IntroQuiz from '../../components/page/IntroQuiz';
 import localImage from '../../../stories/assets/localImage';
-import quizContent from '../../components/data/introQuiz.json';
 import { WindowLocation } from '@reach/router';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
@@ -28,13 +27,16 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  // introQuizTitle and IntroQuizDescription should come from pageContext properties
-  const introQuizTitle = 'Hello ! Welcome to Recepedia';
-  const introQuizDescription =
-    'We want to know you better and feed you with recipes you love!';
+
+  const quizContent = findPageComponentContent(components, 'Wizard');
   const introContent = {
-    title: introQuizTitle,
-    description: introQuizDescription,
+    title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
+      .text as string,
+    description: findPageComponentContent(
+      components,
+      'Text',
+      'IntroQuizDescription'
+    ).text as string,
   };
 
   const recipes = data.allRecipe.nodes;
@@ -44,14 +46,15 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     setSearchAgent(window.searchAgentOnPage);
   }, []);
 
-  //@ts-ignore
-  quizContent.questions.forEach(item => {
+  quizContent &&
     //@ts-ignore
-    item.options.forEach(option => {
+    quizContent.questions.forEach(item => {
       //@ts-ignore
-      option.label.image.localImage = localImage;
+      item.options.forEach(option => {
+        //@ts-ignore
+        option.label.image.localImage = localImage;
+      });
     });
-  });
 
   return (
     <Layout className="header--bg">

@@ -92,37 +92,6 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           }}
           content={{
             ...findPageComponentContent(components, 'SearchListing'),
-            articleContent: {
-              title: 'Articles',
-              cta: {
-                label: 'Load more articles',
-              },
-            },
-            recipesContent: {
-              title: 'Recipes',
-              cta: {
-                label: 'Load more recipes',
-              },
-            },
-            tabsContent: {
-              tabs: [
-                {
-                  title: 'All',
-                  view: 'all',
-                },
-                {
-                  title: 'Recipes',
-                  view: 'recipes',
-                },
-                {
-                  title: 'Articles',
-                  view: 'articles',
-                },
-              ],
-            },
-            searchInputContent: {
-              placeholderText: 'Enter minimum 3 characters',
-            },
           }}
         />
       </section>

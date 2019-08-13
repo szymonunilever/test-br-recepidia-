@@ -35,6 +35,15 @@
         }
       }
     }
+    &__title {
+      h2 {
+        font-size: 2.1rem;
+        color: $black-blue;
+        @include respondTo(desktop) {
+          font-size: 2.5rem;
+        }
+      }
+    }
   }
 
   .quiz__list {

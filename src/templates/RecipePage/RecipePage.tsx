@@ -52,6 +52,7 @@ import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
+import useMedia from 'src/utils/useMedia';
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
@@ -145,22 +146,24 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
 
   const relatedRecipes = allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
-  const tabsContent = {
-    tabs: [
-      {
-        title: 'Ingredients',
-        view: 'recipeTabIngredients',
-      },
-      {
-        title: 'Cook',
-        view: 'recipeTabCookingMethod',
-      },
-    ],
-  };
+  // const tabsContent = {
+  //   tabs: [
+  //     {
+  //       title: 'Ingredients',
+  //       view: 'recipeTabIngredients',
+  //     },
+  //     {
+  //       title: 'Cook',
+  //       view: 'recipeTabCookingMethod',
+  //     },
+  //   ],
+  // };
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
   };
+
+  const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const recipeHero = (
     <>
@@ -304,7 +307,10 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </div>
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
-          <Tabs className="tabs" content={tabsContent}>
+          <Tabs
+            className="tabs"
+            content={findPageComponentContent(components, 'Tabs')}
+          >
             <Tab view="recipeTabIngredients">
               <RecipeCopy
                 viewType={RecipeCopyViewType.Ingredients}
@@ -354,6 +360,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <TagLinks
+            initialCount={initialTagsCount}
             list={getTagsFromRecipes([recipe], tags)}
             content={findPageComponentContent(components, 'Tags')}
           />

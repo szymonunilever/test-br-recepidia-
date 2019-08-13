@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import useElasticSearch, { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, useElasticSearch } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -135,7 +135,7 @@ const AllRecipesPage = ({
       },
       sort,
       {
-        size: recipeCount,
+        size: Math.max(initialRecipesCount, recipeCount),
       }
     );
   };
@@ -185,27 +185,20 @@ const AllRecipesPage = ({
                 'RecipeListing',
                 'AllRecipes'
               ),
-              optionLabels: {
-                newest: 'Newest',
-                preparationTime: 'Preparation time',
-                cookingTime: 'Cooking time',
-                averageRating: 'Average rating',
-                title: 'Title',
-              },
             }}
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             tags={{
               tagGroups: allTagGroupings.nodes,
-              // displayCategories: [
-              //   'dishes',
-              //   'mainIngredient',
-              //   'cuisines',
-              //   'difficulties',
-              //   'dietary',
-              //   'budgets',
-              // ],
+              displayCategories: [
+                'dishes',
+                'mainIngredient',
+                'cuisines',
+                'difficulties',
+                'dietary',
+                'budgets',
+              ],
             }}
             className="recipe-list--carousel cards--2-4"
             withFavorite

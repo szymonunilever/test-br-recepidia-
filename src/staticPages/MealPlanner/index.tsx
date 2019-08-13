@@ -7,7 +7,7 @@ import WizardResultSection from '../../components/lib/components/Wizard/partials
 import localImage from '../../../stories/assets/localImage';
 import WizardLogo from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';
-import useElasticSearch from '../../utils/useElasticSearch';
+import { useElasticSearch } from '../../utils';
 import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
 import keys from '../../../integrations/keys.json';
@@ -21,6 +21,7 @@ import Button from '../../components/lib/components/Button';
 import { findPageComponentContent } from '../../utils';
 import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
+import theme from './mealPlanner.module.scss';
 
 const generateQueryString = (data: any) => {
   let finalQuery: string[] = [];
@@ -132,7 +133,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={theme.mealPlanner}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       <div className="wizard__logo">
