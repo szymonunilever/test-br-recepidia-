@@ -50,10 +50,22 @@
             }
           },
           {
-            "name": "IntroQuiz",
+            "name": "Text",
             "content": {
-              "introQuizTitle": "Hello ! Welcome to Recepedia",
-              "introQuizDescription": "We want to know you better and feed you with recipes you love!",
+              "view": "IntroQuizTitle",
+              "text": "Hello ! Welcome to Recepedia"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "IntroQuizDescription",
+              "text": "We want to know you better and feed you with recipes you love!"
+            }
+          },
+          {
+            "name": "Wizard",
+            "content": {
               "questions": [
                 {
                   "orderIndex": 1,
