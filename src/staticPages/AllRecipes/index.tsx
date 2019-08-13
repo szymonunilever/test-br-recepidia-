@@ -191,14 +191,14 @@ const AllRecipesPage = ({
             titleLevel={3}
             tags={{
               tagGroups: allTagGroupings.nodes,
-              // displayCategories: [
-              //   'dishes',
-              //   'mainIngredient',
-              //   'cuisines',
-              //   'difficulties',
-              //   'dietary',
-              //   'budgets',
-              // ],
+              displayCategories: [
+                'dishes',
+                'mainIngredient',
+                'cuisines',
+                'difficulties',
+                'dietary',
+                'budgets',
+              ],
             }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
