@@ -1,4 +1,4 @@
-import useElasticSearch from './useElasticSearch/index';
+import { useElasticSearch } from '../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import keys from 'integrations/keys.json';
 

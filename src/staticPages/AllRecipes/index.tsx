@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import useElasticSearch, { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, useElasticSearch } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
