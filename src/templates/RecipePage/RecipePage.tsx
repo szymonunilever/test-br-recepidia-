@@ -146,18 +146,18 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
 
   const relatedRecipes = allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
-  const tabsContent = {
-    tabs: [
-      {
-        title: 'Ingredients',
-        view: 'recipeTabIngredients',
-      },
-      {
-        title: 'Cook',
-        view: 'recipeTabCookingMethod',
-      },
-    ],
-  };
+  // const tabsContent = {
+  //   tabs: [
+  //     {
+  //       title: 'Ingredients',
+  //       view: 'recipeTabIngredients',
+  //     },
+  //     {
+  //       title: 'Cook',
+  //       view: 'recipeTabCookingMethod',
+  //     },
+  //   ],
+  // };
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
@@ -307,7 +307,10 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </div>
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
-          <Tabs className="tabs" content={tabsContent}>
+          <Tabs
+            className="tabs"
+            content={findPageComponentContent(components, 'Tabs')}
+          >
             <Tab view="recipeTabIngredients">
               <RecipeCopy
                 viewType={RecipeCopyViewType.Ingredients}

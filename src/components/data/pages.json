@@ -48,6 +48,306 @@
             "content": {
               "title": "What we offer"
             }
+          },
+          {
+            "name": "IntroQuiz",
+            "content": {
+              "introQuizTitle": "Hello ! Welcome to Recepedia",
+              "introQuizDescription": "We want to know you better and feed you with recipes you love!",
+              "questions": [
+                {
+                  "orderIndex": 1,
+                  "id": 1,
+                  "key": "question1",
+                  "label": "Select the recipes that appeal to you",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "I like to try new foods",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Heart of palm pie",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Chocolate cake",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Burger",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "5",
+                      "label": {
+                        "text": "Kids Food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "6",
+                      "label": {
+                        "text": "Barbecue",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "7",
+                      "label": {
+                        "text": "Quinoa and Organic Dish",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "8",
+                      "label": {
+                        "text": "Salad with chicken",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "9",
+                      "label": {
+                        "text": "Christmas Food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 2,
+                  "id": 2,
+                  "key": "question2",
+                  "label": "Any allergies or diets?",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "No restriction",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Vegan",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Vegetarian",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Sugar Free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "5",
+                      "label": {
+                        "text": "Lactose Free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "6",
+                      "label": {
+                        "text": "Gluten free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "7",
+                      "label": {
+                        "text": "No sea food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "8",
+                      "label": {
+                        "text": "No soy",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 3,
+                  "id": 3,
+                  "key": "question3",
+                  "label": "What is your perfect dinner like?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "Friends",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Romantic dinner",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Family Fun",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Calm dinner with partner",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 4,
+                  "id": 4,
+                  "key": "question4",
+                  "label": "How do you see yourself in the kitchen?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1457",
+                      "label": {
+                        "text": "I only know how to make ice",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1460",
+                      "label": {
+                        "text": "I can survive",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1458;1459",
+                      "label": {
+                        "text": "I am a master chef",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "primaryButtonLabel": "Next",
+              "secondaryButtonLabel": "Skip",
+              "primaryButtonFinalLabel": "Finish"
+            }
           }
         ]
       },
@@ -94,13 +394,13 @@
             "name": "RecipeAttributes",
             "content": {
               "labels": {
-                "preparationTime": {
+                "preperationTime": {
                   "title": "Prep time",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
-                "totalTime": {
-                  "title": "Total time",
+                "cookTime": {
+                  "title": "Cooking time",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
@@ -126,6 +426,21 @@
             "name": "RecipeCookingMethod",
             "content": {
               "title": "Cook"
+            }
+          },
+          {
+            "name": "Tabs",
+            "content": {
+              "tabs": [
+                {
+                  "title": "Ingredients",
+                  "view": "recipeTabIngredients"
+                },
+                {
+                  "title": "Cook",
+                  "view": "recipeTabCookingMethod"
+                }
+              ]
             }
           },
           {
@@ -184,7 +499,8 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Look by tags"
+              "title": "Look by tags",
+              "loadMoreButton": { "label": "+ show more" }
             }
           },
           {
@@ -258,11 +574,11 @@
                 ]
               },
               "optionLabels": {
+                "newest": "Newest",
                 "preparationTime": "Preparation time",
                 "cookingTime": "Cooking time",
                 "averageRating": "Average rating",
-                "newest": "Newest",
-                "recentlyUpdated": "Recently updated"
+                "title": "Title"
               }
             }
           },
@@ -430,7 +746,10 @@
               "searchListingContent": {
                 "title": "We found {numRes} results with: {searchInputValue}"
               },
-              "searchInputContent": { "title": "Looking for something?" },
+              "searchInputContent": {
+                "title": "Looking for something?",
+                "placeholderText": "Enter minimum 3 characters"
+              },
               "tabsContent": {
                 "tabs": [
                   {
@@ -440,19 +759,15 @@
                   {
                     "title": "Recipes",
                     "view": "recipes"
+                  },
+                  {
+                    "title": "Articles",
+                    "view": "articles"
                   }
                 ]
               },
               "recipesContent": {
-                "cta": { "label": "Load more recipes" },
-                "nullResult": {
-                  "title": "Oops! No results",
-                  "subtitle": "Maybe try the following:",
-                  "textList": [
-                    "Don't use too many filters at once",
-                    "Try using only filters"
-                  ]
-                }
+                "cta": { "label": "Load more recipes" }
               },
               "nullResultContent": {
                 "subtitle": "Maybe try the following:",
@@ -462,6 +777,10 @@
                   "Don't use too many filter at once",
                   "Try using only filters"
                 ]
+              },
+              "articleContent": {
+                "title": "Articles",
+                "cta": { "label": "Load more articles" }
               }
             }
           },
@@ -584,11 +903,13 @@
             "name": "GeneratedForm",
             "content": {
               "view": "ContactForm",
+              "title": "Contact form",
               "submitButton": {
                 "label": "Submit"
               },
-
-              "title": "Contact form",
+              "formMessages": {
+                "confirmSubmitMessage": "Thank you. We've gоt your message."
+              },
               "fields": [
                 {
                   "name": "brand",
