@@ -28,11 +28,15 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     page: { seo, components, type },
   } = pageContext;
 
-  const quizContent = findPageComponentContent(components, 'IntroQuiz');
-  const { introQuizTitle, introQuizDescription } = quizContent;
+  const quizContent = findPageComponentContent(components, 'Wizard');
   const introContent = {
-    title: introQuizTitle,
-    description: introQuizDescription,
+    title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
+      .text as string,
+    description: findPageComponentContent(
+      components,
+      'Text',
+      'IntroQuizDescription'
+    ).text as string,
   };
 
   const recipes = data.allRecipe.nodes;
