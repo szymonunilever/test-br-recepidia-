@@ -19,9 +19,11 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
       <div className="wizard__title">
         <Text className="" tag={TagName.h1} text={title} />
       </div>
-      <div className="wizard__description">
-        <Text className="" tag={TagName.p} text={description} />
-      </div>
+      <Text
+        className="wizard__description"
+        tag={TagName.p}
+        text={description}
+      />
     </div>
 
     <div className="wizard__image">
