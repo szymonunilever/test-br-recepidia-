@@ -6,6 +6,7 @@ import Kritique from 'integrations/Kritique';
 import { findPageComponentContent, fromCamelCase } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
+  LoadMoreType,
 } from 'src/components/lib/components/RecipeListing';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Hero from 'src/components/lib/components/Hero';
@@ -24,16 +25,21 @@ import { WindowLocation } from '@reach/router';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
+import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
   pageContext,
   location,
+  tagList,
+  recipeResults,
+  onLoadMoreRecipes,
 }) => {
   const {
     page: { components, seo, type },
   } = pageContext;
-  const { tag, allRecipe, allTag, allArticle } = data;
+  const { tag, allArticle } = data;
 
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
@@ -61,15 +67,20 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             content={{
               ...recipesListingContent,
               title: recipesListingContent.title
-                .replace('{numRes}', allRecipe.nodes.length)
+                .replace('{numRes}', recipeResults.count)
                 .replace('{categoryName}', tagLabel),
             }}
-            list={allRecipe.nodes}
+            list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
+            loadMoreConfig={{
+              type: LoadMoreType.async,
+              onLoadMore: onLoadMoreRecipes,
+              allCount: recipeResults.count,
+            }}
             FavoriteIcon={FavoriteIcon}
+            initialCount={useMedia()}
             titleLevel={2}
-            initialCount={initialRecipeCount}
             recipePerLoad={4}
             withFavorite
             favorites={[]}
@@ -98,11 +109,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       <section>
         <div className="container">
           <TagLinks
-            list={allTag.nodes}
-            content={{
-              ...findPageComponentContent(components, 'Tags'),
-              loadMoreButton: { label: '+ show more' }, //TODO remove when data will be fixed
-            }}
+            list={tagList}
+            content={findPageComponentContent(components, 'Tags')}
             initialCount={useMedia(undefined, [9, 5])}
           />
         </div>
@@ -136,7 +144,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   );
 };
 
-export default ContentHubPage;
+export default withRecipeSearchResults<ContentHubPageProps>(ContentHubPage);
 
 export const query = graphql`
   query($slug: String!, $id: Int) {
@@ -146,6 +154,7 @@ export const query = graphql`
     }
 
     allRecipe(
+      limit: 8
       filter: {
         tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
       }
@@ -174,7 +183,7 @@ export const query = graphql`
   }
 `;
 
-interface ContentHubPageProps {
+interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
     tag: {
       name: string;
