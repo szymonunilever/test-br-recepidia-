@@ -21,6 +21,7 @@ import { ProfileKey } from '../../../utils/browserStorage/models';
 const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   introContent,
   quizContent,
+  onClose,
 }) => {
   const [isQuizOpened, setIsQuizOpened] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState(false);
@@ -32,6 +33,8 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     !Object.keys(userProfileIQ).length &&
       !isQuizPassed &&
       setIsQuizOpened(true);
+
+    isQuizPassed && onClose && onClose();
   }, [isQuizPassed]);
 
   const wizardAction = useCallback(wizardData => {
@@ -46,7 +49,10 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     []
   );
 
-  const closeCallback = useCallback(() => setIsQuizOpened(false), []);
+  const closeCallback = useCallback(() => {
+    onClose && onClose();
+    return setIsQuizOpened(false);
+  }, []);
 
   return (
     <Modal
