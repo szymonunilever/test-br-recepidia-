@@ -21,6 +21,7 @@ import Button from '../../components/lib/components/Button';
 import { findPageComponentContent } from '../../utils';
 import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
+import theme from './mealPlanner.module.scss';
 
 const generateQueryString = (data: any) => {
   let finalQuery: string[] = [];
@@ -132,7 +133,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={theme.mealPlanner}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       <div className="wizard__logo">

@@ -19,10 +19,11 @@
   &__info {
     h1 {
       font-size: 3rem;
-      color: $black-blue;
+      // color: $black-blue;
       margin-bottom: 10px;
       @include respondTo(desktop) {
         margin-bottom: 18px;
+        font-size: 5.2rem;
       }
     }
   }
@@ -94,16 +95,20 @@
     color: $fish-blue-darker;
     width: 100%;
     margin-bottom: 13px;
+    h2 {
+      font-size: 3rem;
+      line-height: 1.07;
+      color: $fish-blue-darker;
+      @include respondTo(desktop) {
+        font-size: 5.2rem;
+      }
+    }
     .subheading {
+      @extend .subheading;
       color: $black-blue;
     }
     @include respondTo(desktop) {
       margin-bottom: 25px;
-    }
-    * {
-      @extend h2;
-      margin: 0;
-      line-height: 1.14;
     }
   }
   &__buttons {
@@ -112,7 +117,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 0 15px;
   }
   &__button {
     &--primary {
@@ -145,15 +150,5 @@
     font-size: 1.2rem;
     color: $alert-color;
     margin-bottom: 12px;
-  }
-}
-
-.wizard:not(.wizard--quiz-initial) {
-  h1,
-  h2 {
-    @extend %h1--smaller;
-    @include respondTo(desktop) {
-      font-size: 5.2rem;
-    }
   }
 }
