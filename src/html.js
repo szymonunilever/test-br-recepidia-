@@ -70,18 +70,11 @@ export default function HTML(props) {
                 `,
               }}
             />
-
-            {/*<link rel="preload" href={keys.analytics.adobe.url} as="script" />*/}
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
             <link
               rel="preconect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
             />
-            {/*<script*/}
-            {/*  type="text/javascript"*/}
-            {/*  src={keys.analytics.adobe.url}*/}
-            {/*  defer*/}
-            {/*/>*/}
           </>
         )}
         <script
