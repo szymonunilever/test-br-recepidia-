@@ -9,6 +9,7 @@
         "control": "radio",
         "labelPosition": "bottom"
       },
+      "filterPropName": "",
       "options": [
         {
           "value": "1",
@@ -111,6 +112,7 @@
         "control": "checkbox",
         "labelPosition": "bottom"
       },
+      "filterPropName": "",
       "options": [
         {
           "value": "1",
@@ -203,6 +205,7 @@
         "control": "radio",
         "labelPosition": "bottom"
       },
+      "filterPropName": "",
       "options": [
         {
           "value": "1",
@@ -255,6 +258,7 @@
         "control": "radio",
         "labelPosition": "bottom"
       },
+      "filterPropName": "tags",
       "options": [
         {
           "value": "1457",

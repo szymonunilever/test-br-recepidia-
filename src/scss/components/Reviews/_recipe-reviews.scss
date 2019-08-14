@@ -137,7 +137,7 @@
       @include respondTo(medium) {
         display: flex;
       }
-      .reviewDate{
+      .reviewDate {
         font-size: 1.2rem;
       }
 
@@ -229,13 +229,13 @@
           }
         }
       }
-      .agRatingDeSelect{
+      .aggregateRating {
         img {
           height: 17px;
           width: auto;
         }
       }
-      .aggRtng{
+      .aggRtng {
         display: none;
       }
       .rr-comments {
@@ -246,54 +246,40 @@
         margin: 0;
       }
       .socialBtn {
-        display: none;
+        margin-top: 20px;
+        font-size: 1.4rem;
+        color: $black-blue;
+        bottom: 10px;
+        @include respondTo(medium) {
+          margin-top: 42px;
+        }
+        span {
+          margin: 0 0 0 25px;
+        }
       }
       .feedback-container {
         width: 100%;
         margin: 25px 0 0 0;
         padding: 0;
         background: none;
-        display: flex;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        justify-content: space-between;
-        align-items: center;
         font-size: 1.2rem;
-        @include respondTo(medium) {
-          justify-content: flex-start;
-        }
         dd,
         dt {
-          flex: 2 2 auto;
-          float: none;
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: space-around;
+          display: inline-block;
           background-image: none;
-          @include respondTo(medium) {
-            flex: 0 1 auto;
-          }
         }
         dt {
-          flex: 1 1 auto;
-          justify-content: flex-start;
+          display: block;
+          margin-bottom: 15px;
           @include respondTo(medium) {
-            flex: 0 1 auto;
-          }
-        }
-        dd:nth-last-child(1) {
-          flex: 1 1 auto;
-          justify-content: flex-end;
-          @include respondTo(medium) {
-            flex: 0 1 auto;
+            display: inline-block;
+            margin-bottom: 0;
           }
         }
         a {
           @extend .button;
           @extend .button--secondary;
           font-size: 1.2rem;
-          display: flex;
-          align-items: center;
           border-radius: 20px;
           background-image: none;
           height: 31px;

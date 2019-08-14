@@ -258,7 +258,7 @@ const RecipeCategotyPage = ({
             list={tagList}
             content={{
               ...findPageComponentContent(components, 'Tags'),
-              loadMoreButton: { label: '+ show more' },
+              loadMoreButton: { label: '+ show more' }, //TODO remove when data will be fixed
             }}
           />
         </div>

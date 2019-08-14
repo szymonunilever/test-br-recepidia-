@@ -9,7 +9,7 @@ import { default as WizardQuiz } from '../src/components/lib/components/Wizard/p
 import { default as WizardSignUp } from '../src/components/lib/components/Wizard/partials/SignUp';
 import { default as WizardResultSection } from '../src/components/lib/components/Wizard/partials/ResultSection';
 import IntroQuiz from '../src/components/page/IntroQuiz';
-import quizContent from '../src/components/data/introQuiz.json';
+import questions from './mocks/wizardQuizQuestions';
 import recipes from './mocks/recipes';
 import localImage from './assets/localImage';
 import RecipeListingCarousel from '../src/components/lib/components/RecipeListing/RecipeListingCarousel';
@@ -32,62 +32,10 @@ const introProps = {
   secondaryButtonLabel: 'Already have a login?',
 };
 const quizProps = {
-  questions: [
-    {
-      orderIndex: 1,
-      id: 1,
-      key: 'question1',
-      label: 'What do you like?',
-      type: {
-        control: 'checkbox',
-        labelPosition: 'bottom',
-      },
-      options: [
-        {
-          value: 'meat',
-          label: {
-            text: 'Some text about meat',
-            image,
-          },
-        },
-        {
-          value: 'bread',
-          label: {
-            text: 'Some text about bread',
-            image,
-          },
-        },
-      ],
-    },
-    {
-      orderIndex: 2,
-      id: 2,
-      key: 'question2',
-      label: 'Choose your favourite dish?',
-      type: {
-        control: 'checkbox',
-        labelPosition: 'bottom',
-      },
-      options: [
-        {
-          value: 'meat',
-          label: {
-            text: 'Some text about meat',
-            image,
-          },
-        },
-        {
-          value: 'bread',
-          label: {
-            text: 'Some text about bread',
-            image,
-          },
-        },
-      ],
-    },
-  ],
+  questions,
   primaryButtonLabel: 'Continue',
   secondaryButtonLabel: 'Skip',
+  primaryButtonFinalLabel: 'Continue',
 };
 const finishProps = {
   title: 'Congrats!',
@@ -163,11 +111,6 @@ const signUpProps = {
   title:
     'Ready to dig in the new recipes and start cooking? Save your preferences and create your profile!',
 };
-
-quizContent.questions.forEach(item => {
-  //@ts-ignore
-  item.options.forEach(option => (option.label.image.localImage = localImage));
-});
 
 storiesOf('Diagnostic tools (components)', module)
   .add(
@@ -382,7 +325,7 @@ storiesOf('Diagnostic tools (components)', module)
         >
           Clear saved values and reload page
         </Button>
-        <IntroQuiz introContent={introContent} quizContent={quizContent} />
+        <IntroQuiz introContent={introContent} quizContent={quizProps} />
       </div>
     ),
     {

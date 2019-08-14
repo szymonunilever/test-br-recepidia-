@@ -76,6 +76,7 @@
                     "control": "radio",
                     "labelPosition": "bottom"
                   },
+                  "filterPropName": "",
                   "options": [
                     {
                       "value": "1",
@@ -178,6 +179,7 @@
                     "control": "checkbox",
                     "labelPosition": "bottom"
                   },
+                  "filterPropName": "",
                   "options": [
                     {
                       "value": "1",
@@ -270,6 +272,7 @@
                     "control": "radio",
                     "labelPosition": "bottom"
                   },
+                  "filterPropName": "",
                   "options": [
                     {
                       "value": "1",
@@ -322,6 +325,7 @@
                     "control": "radio",
                     "labelPosition": "bottom"
                   },
+                  "filterPropName": "tags",
                   "options": [
                     {
                       "value": "1457",
@@ -612,7 +616,7 @@
                 "label": "Sign me up!"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
                 "alt": "meal planner"
               }
             }
@@ -1097,7 +1101,7 @@
             "name": "AdaptiveImage",
             "content": {
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
                 "alt": "Page not found..."
               }
             }
@@ -1285,7 +1289,7 @@
             "name": "AdaptiveImage",
             "content": {
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
                 "alt": "About us..."
               }
             }
@@ -1338,6 +1342,7 @@
                       "control": "checkbox",
                       "labelPosition": "bottom"
                     },
+                    "filterPropName": "tags",
                     "options": [
                       {
                         "value": "1503;1484",
@@ -1450,9 +1455,10 @@
                       "control": "radio",
                       "labelPosition": "bottom"
                     },
+                    "filterPropName": "cookTime",
                     "options": [
                       {
-                        "value": "20",
+                        "value": "< 20",
                         "label": {
                           "text": "Quick recipe (Total time < 20 min)",
                           "image": {
@@ -1462,7 +1468,7 @@
                         }
                       },
                       {
-                        "value": "999",
+                        "value": "< 999",
                         "label": {
                           "text": "I have a lot of time",
                           "image": {
@@ -1482,6 +1488,7 @@
                       "control": "radio",
                       "labelPosition": "bottom"
                     },
+                    "filterPropName": "tags",
                     "options": [
                       {
                         "value": "1371",
@@ -1524,9 +1531,10 @@
                       "control": "radio",
                       "labelPosition": "bottom"
                     },
+                    "filterPropName": "serves",
                     "options": [
                       {
-                        "value": "2",
+                        "value": "< 3",
                         "label": {
                           "text": "1-2 people",
                           "image": {
@@ -1536,7 +1544,7 @@
                         }
                       },
                       {
-                        "value": "5",
+                        "value": "< 6",
                         "label": {
                           "text": "3-5 people",
                           "image": {
@@ -1546,7 +1554,7 @@
                         }
                       },
                       {
-                        "value": "999",
+                        "value": "< 999",
                         "label": {
                           "text": "5+ people",
                           "image": {

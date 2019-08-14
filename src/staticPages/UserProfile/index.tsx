@@ -28,7 +28,7 @@ import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
 
 // @todo remove hardcoded mocks
-import questionsMock from '../../../stories/mocks/introQuiz';
+import questionsMock from '../../../stories/mocks/wizardQuizQuestions';
 import useSearchResults from '../Search/useSearchResults';
 const answers = {
   question1: '1',

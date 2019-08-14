@@ -28,11 +28,18 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const progress = Math.round(
     ((currentQuestionIndex + 1) / questions.length) * 100
   );
+  const isAnswerProvided = useCallback(
+    () => !!currentAnswer && !!currentAnswer.length,
+    [currentAnswer]
+  );
 
   const putCurrentAnswer = useCallback(() => {
     const updatedAnswers = { ...answers };
     // @ts-ignore
-    updatedAnswers[question.key] = currentAnswer;
+    updatedAnswers[question.key] = {
+      value: currentAnswer,
+      filterPropName: question.filterPropName,
+    };
     setAnswers(updatedAnswers);
   }, [question, answers, currentAnswer]);
   const continueAction = useCallback(
@@ -89,7 +96,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
           <Button
             className="wizard__button wizard__button--primary"
             onClick={putCurrentAnswer}
-            isDisabled={!isFormDirty}
+            isDisabled={!isFormDirty || !isAnswerProvided()}
             content={{
               label:
                 progress === 100 && primaryButtonFinalLabel

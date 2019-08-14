@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'integrations/keys.json';
-
+const { applicationID, licenseKey, locale } = keys.sitespeed;
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
-
-  const { applicationID, licenseKey, locale } = keys.sitespeed;
-
   let headComponents = props.headComponents;
   let css;
   if (process.env.NODE_ENV == `production`) {
@@ -30,6 +27,19 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
+            <link rel="preload" href="/config/newRelic.js" as="script" />
+            <script
+              type="text/javascript"
+              src="/config/newRelic.js"
+              id="newRelic"
+            />
+            <script
+              id="newRelicConfig"
+              type="text/javascript"
+              dangerouslySetInnerHTML={{
+                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
+              }}
+            />
             <link
               rel="preload"
               href="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
@@ -37,14 +47,7 @@ export default function HTML(props) {
             />
             <script
               dangerouslySetInnerHTML={{
-                __html: `
-
-                var digitalData = {};
-                digitalData.sitespeed = [];
-                digitalData.sitespeed.applicationID = ${applicationID};
-                digitalData.sitespeed.licenseKey = "${licenseKey}";
-                digitalData.sitespeed.locale = "${locale}";
-
+                __html: `                               
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -65,17 +68,10 @@ export default function HTML(props) {
                 `,
               }}
             />
-
-            <link rel="preload" href={keys.analytics.adobe.url} as="script" />
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
             <link
               rel="preconect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
-            />
-            <script
-              type="text/javascript"
-              src={keys.analytics.adobe.url}
-              defer
             />
           </>
         )}

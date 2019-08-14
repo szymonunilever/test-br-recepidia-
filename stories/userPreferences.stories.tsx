@@ -12,7 +12,7 @@ import {
   resultLabelProps,
   entryUpdateProps,
 } from './mocks/userPreferencesQuestions';
-import questionsMock from './mocks/introQuiz';
+import questionsMock from './mocks/wizardQuizQuestions';
 const content: AppContent.GeneratedForm.Content = {
   view: 'NewsletterSubscriptions',
   submitButton: {
