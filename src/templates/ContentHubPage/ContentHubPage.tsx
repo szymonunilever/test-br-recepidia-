@@ -99,7 +99,11 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         <div className="container">
           <TagLinks
             list={allTag.nodes}
-            content={findPageComponentContent(components, 'Tags')}
+            content={{
+              ...findPageComponentContent(components, 'Tags'),
+              loadMoreButton: { label: '+ show more' }, //TODO remove when data will be fixed
+            }}
+            initialCount={useMedia(undefined, [9, 5])}
           />
         </div>
       </section>
