@@ -137,7 +137,7 @@
       @include respondTo(medium) {
         display: flex;
       }
-      .reviewDate{
+      .reviewDate {
         font-size: 1.2rem;
       }
 
@@ -229,13 +229,13 @@
           }
         }
       }
-      .agRatingDeSelect{
+      .aggregateRating {
         img {
           height: 17px;
           width: auto;
         }
       }
-      .aggRtng{
+      .aggRtng {
         display: none;
       }
       .rr-comments {
