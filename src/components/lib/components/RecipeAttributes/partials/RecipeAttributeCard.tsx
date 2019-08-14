@@ -20,7 +20,9 @@ const RecipeAttributeCard = ({
       <span className="recipe-attribute-card__units">
         {label.unitsPlural || label.units}
       </span>
-    ) : null
+    ) : (
+      <span className="recipe-attribute-card__units">{label.units}</span>
+    )
   ) : null;
 
   const IconImg = Icon ? (

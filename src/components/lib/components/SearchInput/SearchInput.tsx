@@ -3,10 +3,12 @@ import React, {
   SyntheticEvent,
   KeyboardEvent,
   useEffect,
+  useCallback,
 } from 'react';
 import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
+import { trim } from 'lodash';
 
 const SearchInput = ({
   list = [],
@@ -48,16 +50,14 @@ const SearchInput = ({
       : [];
   };
 
-  const getResults = (searchInputValue: string) => {
+  const getResults = useCallback((searchInputValue: string, e) => {
     if (getSearchResults) {
-      setIsLoading(true);
-      getSearchResults(searchInputValue, {
+      getSearchResults(trim(searchInputValue), {
         from: 0,
         size: searchResultsCount,
       })
         .then(() => {
           setIsLoading(false);
-          setInputIsDirty(true);
         })
         .catch(() => {
           setIsLoading(false);
@@ -66,7 +66,7 @@ const SearchInput = ({
       setData(filterData(list, searchInputValue));
       setInputIsDirty(true);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (searchResults) {
@@ -84,20 +84,49 @@ const SearchInput = ({
     setActiveItemIndex(0);
   };
 
-  const submitHandler = (e: SyntheticEvent) => {
-    e.preventDefault();
+  const onChangeHandler = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      const trimmedValue = trim(value);
 
-    if (inputValue.length > 2) {
-      if (onSubmit) {
+      setInputValue(value);
+      setInputIsDirty(true);
+      setData([]);
+
+      if (
+        trimmedValue.length >= minLength &&
+        trimmedValue !== trim(inputValue)
+      ) {
+        clearTimeOut();
+        setIsLoading(true);
+        setTimerId(() =>
+          window.setTimeout(() => {
+            getResults(trimmedValue, e);
+          }, debounceTimeout)
+        );
+      }
+    },
+    [inputValue]
+  );
+
+  const submitHandler = useCallback(
+    (e: SyntheticEvent) => {
+      e.preventDefault();
+      setData([]);
+      setInputIsDirty(false);
+
+      if (trim(inputValue).length >= minLength && onSubmit) {
+        clearTimeOut();
         onSubmit(inputValue, {
           from: 0,
           size: searchResultsCount,
+        }).then(() => {
+          setIsLoading(false);
         });
       }
-    }
-
-    setInputIsDirty(false);
-  };
+    },
+    [isLoading, inputValue, onSubmit]
+  );
 
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -122,26 +151,11 @@ const SearchInput = ({
 
   const onClickSearchResultsItemHandler = (index: number) => {
     setInputValue(data[index]);
+    setInputIsDirty(false);
 
     if (onClickSearchResultsItem) {
-      setInputIsDirty(false);
+      setData([]);
       onClickSearchResultsItem(data[index], { size: searchResultsCount });
-    }
-  };
-
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-
-    setInputValue(value);
-
-    if (value.length >= minLength) {
-      clearTimeOut();
-      setInputIsDirty(false);
-      setTimerId(() =>
-        window.setTimeout(() => {
-          getResults(value);
-        }, debounceTimeout)
-      );
     }
   };
 
@@ -156,6 +170,8 @@ const SearchInput = ({
       {buttonResetIcon}
     </button>
   ) : null;
+
+  const showSearchResults = inputIsDirty && inputHasValidValue && !isLoading;
 
   return (
     <div className={classNames} data-componentname="search-input">
@@ -190,7 +206,7 @@ const SearchInput = ({
         </div>
       </form>
 
-      {inputIsDirty && inputHasValidValue && !isLoading ? (
+      {showSearchResults ? (
         <SearchResults
           navigateToItem={!!onClickSearchResultsItem}
           onClickHandler={onClickSearchResultsItemHandler}

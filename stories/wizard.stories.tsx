@@ -9,14 +9,19 @@ import { default as WizardQuiz } from '../src/components/lib/components/Wizard/p
 import { default as WizardSignUp } from '../src/components/lib/components/Wizard/partials/SignUp';
 import { default as WizardResultSection } from '../src/components/lib/components/Wizard/partials/ResultSection';
 import IntroQuiz from '../src/components/page/IntroQuiz';
-import introQuizQuestions from './mocks/introQuiz';
+import quizContent from '../src/components/data/introQuiz.json';
 import recipes from './mocks/recipes';
 import localImage from './assets/localImage';
+import RecipeListingCarousel from '../src/components/lib/components/RecipeListing/RecipeListingCarousel';
 
 const wizardAction = () => alert('wizard has finished his work');
 const image = {
   localImage,
   alt: '',
+};
+const introContent = {
+  title: 'Hello ! Welcome to Recepedia',
+  description: 'We want to know you better and feed you with recipes you love!',
 };
 const introProps = {
   title: 'Meal Planner',
@@ -159,6 +164,11 @@ const signUpProps = {
     'Ready to dig in the new recipes and start cooking? Save your preferences and create your profile!',
 };
 
+quizContent.questions.forEach(item => {
+  //@ts-ignore
+  item.options.forEach(option => (option.label.image.localImage = localImage));
+});
+
 storiesOf('Diagnostic tools (components)', module)
   .add(
     'Introduction Panel',
@@ -265,10 +275,27 @@ storiesOf('Diagnostic tools (components)', module)
         <WizardResultSection
           containerClass="wizard--result"
           stepId="result"
-          items={recipes}
           subheading={'Your 7 recipes for the week'}
           title={'My meal plan'}
-        />
+        >
+          <RecipeListingCarousel
+            list={recipes}
+            config={{
+              breakpoints: [
+                {
+                  width: 1366,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+            }}
+            titleLevel={1}
+            onFavoriteChange={() => alert('favorite change')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
+        </WizardResultSection>
       </Wizard>
     ),
     {
@@ -312,10 +339,27 @@ storiesOf('Diagnostic tools (components)', module)
         <WizardResultSection
           containerClass="wizard--result"
           stepId="result"
-          items={recipes}
           subheading={'Your 7 recipes for the week'}
           title={'My meal plan'}
-        />
+        >
+          <RecipeListingCarousel
+            list={recipes}
+            config={{
+              breakpoints: [
+                {
+                  width: 1366,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 2,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+            }}
+            titleLevel={1}
+            onFavoriteChange={() => alert('favorite change')}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
+        </WizardResultSection>
       </Wizard>
     ),
     {
@@ -338,12 +382,7 @@ storiesOf('Diagnostic tools (components)', module)
         >
           Clear saved values and reload page
         </Button>
-        <IntroQuiz
-          questions={introQuizQuestions}
-          primaryButtonLabel={'Continue'}
-          primaryButtonFinalLabel={'Finish'}
-          secondaryButtonLabel={'Skip'}
-        />
+        <IntroQuiz introContent={introContent} quizContent={quizContent} />
       </div>
     ),
     {

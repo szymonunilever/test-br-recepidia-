@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StaticQuery, graphql, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
 import SearchInput from '../lib/components/SearchInput/SearchInput';
 import { Modal } from 'src/components/lib/components/Modal';
 import { Button } from '../lib/components/Button';
@@ -42,60 +42,39 @@ const GlobalSearch = ({
   };
 
   return (
-    <StaticQuery
-      query={graphql`
-        {
-          allRecipe {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                id
-                recipeId
-              }
-            }
-          }
-        }
-      `}
-      render={() => {
-        return (
-          <>
-            <Button
-              className="searchBar"
-              onClick={openModal}
-              attributes={{ 'aria-label': 'search' }}
-            >
-              <SearchIcon className="searchBar__icon" />
-            </Button>
-            <Modal
-              className="modal--search"
-              isOpen={modalState}
-              close={closeModal}
-              closeBtn={<ButtonCloseIcon />}
-            >
-              <SearchInput
-                getSearchResults={getSearchSuggestionData}
-                onClickSearchResultsItem={(value: string) => {
-                  navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
-                  setModalState(false);
-                }}
-                content={searchContent}
-                searchResults={searchInputResults}
-                labelIcon={<SearchIcon />}
-                buttonResetIcon={<ButtonCloseIcon />}
-                buttonSubmitIcon={<SearchIcon />}
-                onSubmit={value => {
-                  navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
-                  setModalState(false);
-                }}
-                autoFocus
-              />
-            </Modal>
-          </>
-        );
-      }}
-    />
+    <>
+      <Button
+        className="searchBar"
+        onClick={openModal}
+        attributes={{ 'aria-label': 'search' }}
+      >
+        <SearchIcon className="searchBar__icon" />
+      </Button>
+      <Modal
+        className="modal--search"
+        isOpen={modalState}
+        close={closeModal}
+        closeBtn={<ButtonCloseIcon />}
+      >
+        <SearchInput
+          getSearchResults={getSearchSuggestionData}
+          onClickSearchResultsItem={(value: string) => {
+            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            setModalState(false);
+          }}
+          content={searchContent}
+          searchResults={searchInputResults}
+          labelIcon={<SearchIcon />}
+          buttonResetIcon={<ButtonCloseIcon />}
+          buttonSubmitIcon={<SearchIcon />}
+          onSubmit={async value => {
+            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            setModalState(false);
+          }}
+          autoFocus
+        />
+      </Modal>
+    </>
   );
 };
 

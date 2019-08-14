@@ -12,19 +12,29 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
+import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
+import { WindowLocation } from '@reach/router';
 
-const ContentHubPage: React.SFC<ContentHubPageProps> = ({
+//TODO: add this part to main page json and remove this import
+import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
+import useMedia from 'src/utils/useMedia';
+
+const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
   pageContext,
+  location,
 }) => {
-  const { components } = pageContext;
-  const { tag, allRecipe, allTag } = data;
+  const {
+    page: { components, seo, type },
+  } = pageContext;
+  const { tag, allRecipe, allTag, allArticle } = data;
+
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -32,11 +42,17 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
     'RecipesByCategory'
   );
   const tagLabel = tag.title || fromCamelCase(tag.name);
+  const initialRecipeCount = useMedia();
 
   return (
     <Layout className={classWrapper}>
-      <SEO title={`Recipe category: ${tag.title}`} />
-      <DigitalData pageContext={pageContext} data={tag} />
+      <SEO
+        {...seo}
+        title={tagLabel}
+        description={tag.description}
+        canonical={location.href}
+      />
+      <DigitalData title={tagLabel} type={type} />
       <Kritique />
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>
@@ -53,7 +69,7 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
             viewType={RecipeListViewType.Base}
             FavoriteIcon={FavoriteIcon}
             titleLevel={2}
-            initialCount={8}
+            initialCount={initialRecipeCount}
             recipePerLoad={4}
             withFavorite
             favorites={[]}
@@ -62,7 +78,23 @@ const ContentHubPage: React.SFC<ContentHubPageProps> = ({
           />
         </div>
       </section>
-
+      {allArticle.nodes.length > 0 && (
+        <section className="_pb--40 _pt--40">
+          <div className="container">
+            <MediaGallery
+              // content={findPageComponentContent(
+              //   components,
+              //   'MediaGallery',
+              //   'RelatedArticles'
+              // )}
+              content={relatedArticlesComponent.content}
+              list={allArticle.nodes}
+              allCount={allArticle.nodes.length}
+              onLoadMore={() => {}}
+            />
+          </div>
+        </section>
+      )}
       <section>
         <div className="container">
           <TagLinks
@@ -118,6 +150,17 @@ export const query = graphql`
         ...RecipeFields
       }
     }
+    allArticle(
+      filter: {
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+      }
+      limit: 4
+      sort: { order: DESC, fields: id }
+    ) {
+      nodes {
+        ...ArticleFields
+      }
+    }
 
     allTag {
       nodes {
@@ -144,11 +187,12 @@ interface ContentHubPageProps {
     allTag: {
       nodes: Internal.Tag[];
     };
+    allArticle: {
+      nodes: Internal.Article[];
+    };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

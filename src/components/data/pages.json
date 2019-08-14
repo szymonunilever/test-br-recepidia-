@@ -1,0 +1,1584 @@
+{
+  "locale": "pt-br",
+  "pages": [
+    {
+      "type": "Home",
+      "relativePath": "/",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "PageTitle",
+              "text": "Hello ! Welcome to Recepedia"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "LatestAndGreatest",
+              "title": "The latest and greatest"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "TopRecipes",
+              "title": "Top Recipes"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "title": "What we offer"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "IntroQuizTitle",
+              "text": "Hello ! Welcome to Recepedia"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "IntroQuizDescription",
+              "text": "We want to know you better and feed you with recipes you love!"
+            }
+          },
+          {
+            "name": "Wizard",
+            "content": {
+              "questions": [
+                {
+                  "orderIndex": 1,
+                  "id": 1,
+                  "key": "question1",
+                  "label": "Select the recipes that appeal to you",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "I like to try new foods",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Heart of palm pie",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Chocolate cake",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Burger",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "5",
+                      "label": {
+                        "text": "Kids Food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "6",
+                      "label": {
+                        "text": "Barbecue",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "7",
+                      "label": {
+                        "text": "Quinoa and Organic Dish",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "8",
+                      "label": {
+                        "text": "Salad with chicken",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "9",
+                      "label": {
+                        "text": "Christmas Food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 2,
+                  "id": 2,
+                  "key": "question2",
+                  "label": "Any allergies or diets?",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "No restriction",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Vegan",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Vegetarian",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Sugar Free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "5",
+                      "label": {
+                        "text": "Lactose Free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "6",
+                      "label": {
+                        "text": "Gluten free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "7",
+                      "label": {
+                        "text": "No sea food",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "8",
+                      "label": {
+                        "text": "No soy",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 3,
+                  "id": 3,
+                  "key": "question3",
+                  "label": "What is your perfect dinner like?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "Friends",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Romantic dinner",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Family Fun",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Calm dinner with partner",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 4,
+                  "id": 4,
+                  "key": "question4",
+                  "label": "How do you see yourself in the kitchen?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "options": [
+                    {
+                      "value": "1457",
+                      "label": {
+                        "text": "I only know how to make ice",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1460",
+                      "label": {
+                        "text": "I can survive",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1458;1459",
+                      "label": {
+                        "text": "I am a master chef",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "primaryButtonLabel": "Next",
+              "secondaryButtonLabel": "Skip",
+              "primaryButtonFinalLabel": "Finish"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "RecipeDetail",
+      "relativePath": "/recipes",
+      "components": {
+        "items": [
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RelatedRecipes",
+              "title": "Related recipes"
+            }
+          },
+          {
+            "name": "RecipeAttributes",
+            "content": {
+              "labels": {
+                "preperationTime": {
+                  "title": "Prep time",
+                  "units": "min",
+                  "unitsPlural": "mins"
+                },
+                "cookTime": {
+                  "title": "Cooking time",
+                  "units": "min",
+                  "unitsPlural": "mins"
+                },
+                "serves": {
+                  "title": "Feeds",
+                  "units": "person",
+                  "unitsPlural": "people"
+                },
+                "difficulties": {
+                  "title": "Difficulty"
+                }
+              }
+            }
+          },
+          {
+            "name": "RecipeCopy",
+            "content": {
+              "view": "Ingredients",
+              "title": "Ingredients"
+            }
+          },
+          {
+            "name": "RecipeCookingMethod",
+            "content": {
+              "title": "Cook"
+            }
+          },
+          {
+            "name": "Tabs",
+            "content": {
+              "tabs": [
+                {
+                  "title": "Ingredients",
+                  "view": "recipeTabIngredients"
+                },
+                {
+                  "title": "Cook",
+                  "view": "recipeTabCookingMethod"
+                }
+              ]
+            }
+          },
+          {
+            "name": "RecipeNutrients",
+            "content": {
+              "buttonLabel": {
+                "label": "Nutritional information"
+              },
+              "titleTotal": "Total",
+              "titlePer100": "Per 100",
+              "titlePerServing": "Amount per Serving"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Similar tags",
+              "loadMoreButton": {
+                "label": "+ show more"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "RecipeCategory",
+      "relativePath": "/recipe-categories",
+      "components": {
+        "items": [
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RecipesByCategory",
+              "title": "{numRes} Results",
+              "cta": {
+                "label": "Load more recipes"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags",
+              "loadMoreButton": { "label": "+ show more" }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AllRecipes",
+      "relativePath": "/recipes",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "PageTitle",
+              "text": "Recipes"
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Daily fresh new recipes"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "AllRecipes",
+              "cta": {
+                "label": "Load more recipes"
+              },
+              "resultLabel": "recipe",
+              "resultLabelPlural": "recipes",
+              "sortSelectPlaceholder": "Sort By",
+              "filtersCta": {
+                "resetLabel": { "label": "Reset filters" },
+                "applyLabel": { "label": "Apply filters" }
+              },
+              "nullResult": {
+                "title": "Oops! No results",
+                "subtitle": "Maybe try the following:",
+                "textList": [
+                  "Don't use too many filters at once",
+                  "Try using only filters"
+                ]
+              },
+              "optionLabels": {
+                "newest": "Newest",
+                "preparationTime": "Preparation time",
+                "cookingTime": "Cooking time",
+                "averageRating": "Average rating",
+                "title": "Title"
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "SeasonalPromotionalRecipes",
+              "title": "Seasonal / Promotional Recipes"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "alt": "meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "AllRecipes",
+        "description": "Recepedia AllRecipes description",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ContentHub",
+      "relativePath": "/content-hub",
+      "components": {
+        "items": [
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "RecipesByCategory",
+              "title": "We found {numRes} results with: {categoryName}",
+              "cta": {
+                "label": "Load more recipes"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ArticleDetail",
+      "relativePath": "/articles",
+      "components": {
+        "items": [
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": "Share"
+              },
+              "modalTitle": "Share this recipe"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "text": "Next article",
+              "view": "NextTitle"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Search",
+      "relativePath": "/search",
+      "components": {
+        "items": [
+          {
+            "name": "SearchListing",
+            "content": {
+              "searchListingContent": {
+                "title": "We found {numRes} results with: {searchInputValue}"
+              },
+              "searchInputContent": {
+                "title": "Looking for something?",
+                "placeholderText": "Enter minimum 3 characters"
+              },
+              "tabsContent": {
+                "tabs": [
+                  {
+                    "title": "All",
+                    "view": "all"
+                  },
+                  {
+                    "title": "Recipes",
+                    "view": "recipes"
+                  },
+                  {
+                    "title": "Articles",
+                    "view": "articles"
+                  }
+                ]
+              },
+              "recipesContent": {
+                "cta": { "label": "Load more recipes" }
+              },
+              "nullResultContent": {
+                "subtitle": "Maybe try the following:",
+                "textList": [
+                  "Use short keywords in your search",
+                  "Try not to use too long phrases",
+                  "Don't use too many filter at once",
+                  "Try using only filters"
+                ]
+              },
+              "articleContent": {
+                "title": "Articles",
+                "cta": { "label": "Load more articles" }
+              }
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/meal-planner-sign-up/",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "alt": "Meal planner"
+              }
+            }
+          },
+          {
+            "name": "PageListing",
+            "content": {
+              "view": "RecipeCategories",
+              "title": "Take a look at our categories"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ContactUs",
+      "relativePath": "/contact-us",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "PageTitle",
+              "text": "Contact us"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Description",
+              "text": "If you need anything, get in touch with us!"
+            }
+          },
+          {
+            "name": "Card",
+            "content": {
+              "view": "Phone",
+              "title": "Phone number",
+              "texts": ["+31654234567"],
+              "type": "phone"
+            }
+          },
+          {
+            "name": "Card",
+            "content": {
+              "view": "Address",
+              "title": "Address",
+              "texts": [
+                "Unilever UK Limited.",
+                "Registered in England & Wales No. 334527"
+              ],
+              "type": "address"
+            }
+          },
+          {
+            "name": "Card",
+            "content": {
+              "view": "Contact",
+              "title": "Fill out contact form",
+              "texts": [
+                "If you wish to get in touch further or send us anything please fill in the form."
+              ],
+              "type": "text",
+              "cta": {
+                "label": "Fill in the contact form",
+                "linkTo": "/contact-form"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ContactForm",
+      "relativePath": "/contact-form",
+      "components": {
+        "items": [
+          {
+            "name": "GeneratedForm",
+            "content": {
+              "view": "ContactForm",
+              "title": "Contact form",
+              "submitButton": {
+                "label": "Submit"
+              },
+              "formMessages": {
+                "confirmSubmitMessage": "Thank you. We've gоt your message."
+              },
+              "fields": [
+                {
+                  "name": "brand",
+                  "type": "hidden",
+                  "value": "Recepedia"
+                },
+                {
+                  "name": "locale",
+                  "type": "hidden",
+                  "value": "pt-BR"
+                },
+                {
+                  "name": "formType",
+                  "type": "hidden",
+                  "value": "contactUs"
+                },
+                {
+                  "name": "formUrl",
+                  "type": "hidden",
+                  "value": "/contact-form"
+                },
+                {
+                  "name": "inquiryType",
+                  "type": "select",
+                  "label": "Do you have a question?",
+                  "placeholder": "How can we help?",
+                  "options": [
+                    { "label": "Product Concern", "value": "Product Concern" },
+                    { "label": "Product Question", "value": "Product Question" }
+                  ],
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "This field is required."
+                    }
+                  ]
+                },
+                {
+                  "name": "recipeDetails",
+                  "type": "fieldset",
+                  "label": "Recipes details"
+                },
+
+                {
+                  "name": "regardingSpecificRecipe",
+                  "type": "radio",
+                  "label": "Yes",
+                  "hint": "Is it regarding a specific recipes?",
+                  "value": "Yes",
+                  "fieldset": "recipeDetails",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "This field is required."
+                    }
+                  ]
+                },
+                {
+                  "name": "regardingSpecificRecipe",
+                  "type": "radio",
+                  "label": "No",
+                  "value": "No",
+                  "hint": "Is it regarding a specific recipes?",
+                  "fieldset": "recipeDetails",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "This field is required."
+                    }
+                  ]
+                },
+                {
+                  "name": "recipe",
+                  "type": "text",
+                  "label": "Recipe Name",
+                  "fieldset": "recipeDetails"
+                },
+                {
+                  "name": "commentsFieldset",
+                  "type": "fieldset",
+                  "label": "Comments"
+                },
+                {
+                  "name": "comments",
+                  "type": "textarea",
+                  "label": "What would you like to say?",
+                  "fieldset": "commentsFieldset"
+                },
+
+                {
+                  "name": "contact",
+                  "type": "fieldset",
+                  "label": "Personal details"
+                },
+                {
+                  "name": "givenName",
+                  "type": "text",
+                  "label": "First Name",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "familyName",
+                  "type": "text",
+                  "label": "Last Name",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "email",
+                  "type": "email",
+                  "label": "Email",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "phoneNumber",
+                  "type": "tel",
+                  "label": "Phone number",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "brand",
+                  "type": "hidden",
+                  "value": "Recepedia",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "languagePref",
+                  "type": "hidden",
+                  "value": "pt",
+                  "fieldset": "contact"
+                },
+                {
+                  "name": "country",
+                  "type": "hidden",
+                  "value": "BR",
+                  "fieldset": "contact"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "NotFound",
+      "relativePath": "/404",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "404 Oops! Page not found!"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Subtitle",
+              "text": "Maybe we can offer you another treat"
+            }
+          },
+          {
+            "name": "AdaptiveImage",
+            "content": {
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "alt": "Page not found..."
+              }
+            }
+          },
+          {
+            "name": "Button",
+            "content": {
+              "label": "Take me back to recipes"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "title": "User Profile",
+      "type": "UserProfile",
+      "relativePath": "/profile",
+      "components": {
+        "items": [
+          {
+            "name": "UserPreferences",
+            "content": {
+              "newsletterSubscriptionsContent": {
+                "submitButton": {
+                  "label": "Update my preferences"
+                },
+                "title": "Newsletter subscriptions",
+                "fields": [
+                  {
+                    "name": "Subscribe to newsletter",
+                    "type": "checkbox",
+                    "label": "Subscribe to newsletter",
+                    "value": "Subscribe to newsletter"
+                  },
+                  {
+                    "name": "Subscribe to whitelabel newsletter",
+                    "type": "checkbox",
+                    "label": "Subscribe to whitelabel newsletter",
+                    "value": "Subscribe to whitelabel newsletter"
+                  }
+                ]
+              },
+              "preferencesIntroContent": {
+                "heading": "My personalisation preferences",
+                "content": "Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
+              },
+              "updatePropsContent": {
+                "deleteProps": {
+                  "success": "1 answer deleted.",
+                  "error": "We're sorry, we couldn't delete this answer. Please try again later."
+                },
+                "saveProps": {
+                  "success": "New answer saved.",
+                  "error": "We're sorry, we couldn't save this answer. Please try again later."
+                }
+              },
+              "noResultContent": {
+                "heading": "Personalise your experience!",
+                "message": "Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
+              },
+              "buttonsContent": {
+                "editButton": {
+                  "label": "Edit"
+                },
+                "deleteButton": {
+                  "label": "Delete"
+                },
+                "cancelButton": {
+                  "label": "Cancel"
+                },
+                "saveButton": {
+                  "label": "Save"
+                }
+              },
+              "resultLabelContent": {
+                "showResultLabel": "Show answers count",
+                "savedResultsTemplateSingle": "{quantity} answer found",
+                "savedResultsTemplatePlural": "{quantity} answers found"
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "title": "Your favorite recipes",
+              "resultLabel": "recipe",
+              "resultLabelPlural": "recipes",
+              "cta": {
+                "label": "Load More recipes"
+              },
+              "nullResult": {
+                "title": "You don’t have favourite recipes yet.",
+                "textList": []
+              }
+            }
+          },
+          {
+            "name": "Button",
+            "view": "ProfileFavorites",
+            "content": {
+              "label": "Start saving recipes"
+            }
+          },
+          {
+            "name": "Tabs",
+            "content": {
+              "tabsContent": {
+                "tabs": [
+                  {
+                    "title": "Favorites",
+                    "view": "ProfileFavorites"
+                  },
+                  {
+                    "title": "Preferences",
+                    "view": "UserPreferences"
+                  }
+                ]
+              },
+              "tabsHeaderContent": {
+                "contents": [
+                  {
+                    "heading": "Favorites",
+                    "subheading": "You have {num} favorite recipes",
+                    "defaultSubheading": "Control everything about your eat.com account",
+                    "view": "ProfileFavorites"
+                  },
+                  {
+                    "heading": "My preferences",
+                    "subheading": "Control everything about your eat.com account",
+                    "view": "UserPreferences"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "PreferencesQuiz",
+            "content": {
+              "quizTitle": "Diet and stuff..."
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AboutUs",
+      "relativePath": "/about-us",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "About us"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Subtitle",
+              "text": "Who is behind all this awesomeness?"
+            }
+          },
+          {
+            "name": "AdaptiveImage",
+            "content": {
+              "image": {
+                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/d4ae1ef9-bfba-401d-bdc8-89ccb70a8e4f.jpg",
+                "alt": "About us..."
+              }
+            }
+          },
+          {
+            "name": "RichText",
+            "content": {
+              "text": "It could be a lunch, a dinner, an early night snack, or even a last-minute happy hour. It can be a special meal or just a craving to get out of the rut and cook something different! Receipia presents perfect recipes for each of these moments. It is an interactive and inspiring site, made for both those who love cooking and those who are still learning. Delicious recipes are created by Chef Receppedia, also by the visitors themselves, who can share their own recipes! So, you know: whenever you are in doubt about what to do or how to do, access the Recepedia. In addition to delicious recipes, you will find the exact inspiration for what you are looking for."
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "MealPlanner",
+      "relativePath": "/meal-planner",
+      "components": {
+        "items": [
+          {
+            "name": "Wizard",
+            "content": {
+              "wizardIntroductionPanel": {
+                "title": "Meal Planner",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                "image": {
+                  "url": "",
+                  "alt": ""
+                },
+                "primaryButtonLabel": "Get started",
+                "bottomContent": ""
+              },
+              "wizardQuiz": {
+                "questions": [
+                  {
+                    "orderIndex": 1,
+                    "id": 1,
+                    "key": "question1",
+                    "label": "Favorite cuisines",
+                    "type": {
+                      "control": "checkbox",
+                      "labelPosition": "bottom"
+                    },
+                    "options": [
+                      {
+                        "value": "1503;1484",
+                        "label": {
+                          "text": "Chicken",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1397;1467;1315;1466;1469;1481;693;1319;1317;1478",
+                        "label": {
+                          "text": "Desserts",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1464;1313;1314",
+                        "label": {
+                          "text": "Drinks",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1475;1490;1321",
+                        "label": {
+                          "text": "Fish",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1477;1488;1465;1497",
+                        "label": {
+                          "text": "Hamburguer & Sandwiches",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1479;1492;1499",
+                        "label": {
+                          "text": "Meat",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "664;1480;699",
+                        "label": {
+                          "text": "Pasta",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1483;665;1485",
+                        "label": {
+                          "text": "Pies & Pizza",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1487;1108;1476;1495;1473;organic;healthy",
+                        "label": {
+                          "text": "Healthy",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1491",
+                        "label": {
+                          "text": "Soups",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orderIndex": 2,
+                    "id": 2,
+                    "key": "question2",
+                    "label": "Time",
+                    "type": {
+                      "control": "radio",
+                      "labelPosition": "bottom"
+                    },
+                    "options": [
+                      {
+                        "value": "20",
+                        "label": {
+                          "text": "Quick recipe (Total time < 20 min)",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "999",
+                        "label": {
+                          "text": "I have a lot of time",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orderIndex": 3,
+                    "id": 3,
+                    "key": "question3",
+                    "label": "Budget",
+                    "type": {
+                      "control": "radio",
+                      "labelPosition": "bottom"
+                    },
+                    "options": [
+                      {
+                        "value": "1371",
+                        "label": {
+                          "text": "High",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1369",
+                        "label": {
+                          "text": "Medium",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "1370",
+                        "label": {
+                          "text": "Economic",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orderIndex": 4,
+                    "id": 4,
+                    "key": "question4",
+                    "label": "Number of serving",
+                    "type": {
+                      "control": "radio",
+                      "labelPosition": "bottom"
+                    },
+                    "options": [
+                      {
+                        "value": "2",
+                        "label": {
+                          "text": "1-2 people",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "5",
+                        "label": {
+                          "text": "3-5 people",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      },
+                      {
+                        "value": "999",
+                        "label": {
+                          "text": "5+ people",
+                          "image": {
+                            "url": "",
+                            "alt": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "primaryButtonLabel": "Continue",
+                "bottomContent": "Your preferences can be changed later"
+              },
+              "wizardResultSection": {
+                "title": "My meal plan",
+                "subheading": "Your 7 recipes for the week"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

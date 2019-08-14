@@ -19,6 +19,8 @@ import {
   sortBy,
 } from './utils';
 import { get } from 'lodash';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import useKritiqueReload from '../../utils/useKritiqueReload';
 
 export const RecipeListing = ({
   className,
@@ -39,6 +41,7 @@ export const RecipeListing = ({
   onViewChange,
   loadMoreConfig = { type: LoadMoreType.sync },
   tags = { tagGroups: [] },
+  dataFetched = true,
   carouselConfig = {
     breakpoints: [
       {
@@ -60,12 +63,18 @@ export const RecipeListing = ({
   const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
   const [displayNumber, setDisplayNumber] = useState(initialCount);
 
+  useEffect(() => {
+    setDisplayNumber(Math.max(initialCount, displayNumber));
+  }, [initialCount]);
+
   let listModified =
     viewType === RecipeListViewType.Advanced
       ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
       : listWithFavorites;
-  const getSlicedList = (list = listModified): Internal.Recipe[] =>
-    !isAsyncLoadMore() ? list.slice(0, displayNumber) : list;
+
+  const getSlicedList = (recList = listModified): Internal.Recipe[] => {
+    return !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
+  };
 
   const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
     RecipeSortingOptions.newest
@@ -78,7 +87,10 @@ export const RecipeListing = ({
 
   useEffect(() => {
     setRecipeList(getSlicedList(list));
-  }, [list]);
+  }, [list, displayNumber]);
+
+  ratingProvider === RatingAndReviewsProvider.kritique &&
+    useKritiqueReload([recipeList]);
 
   const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
     val ? favorites.push(id) : remove(favorites, n => n === id);
@@ -168,6 +180,7 @@ export const RecipeListing = ({
 
   const listing = (
     <RecipeListingTrivial
+      dataFetched={dataFetched}
       list={recipeList}
       recipeCount={recipeList.length}
       FavoriteIcon={FavoriteIcon}
@@ -214,6 +227,7 @@ export const RecipeListing = ({
     ) : (
       <>
         <RecipeFilter
+          dataFetched={dataFetched}
           className="recipe-list__filter"
           allFilters={tags}
           OpenIcon={OpenIcon}

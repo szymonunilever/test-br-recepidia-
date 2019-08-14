@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
 const url = require('url');
 const get = require('lodash').get;
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
 const createArticlePages = require('./scripts/build/createArticlePages');
+const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
 const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
+const updateES = require('./scripts/build/updateElasticsearch');
 
 const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
 
@@ -53,28 +54,24 @@ exports.onCreateNode = async ({
         node.assets.map(async asset => {
           const { type, content } = asset;
           if (type === 'Image' && content.url) {
-            const imgNode = await createRemoteFileNode({
-              url: content.url,
-              parentNodeId: node.id,
+            const imgNode = await createRemoteImageNode(content.url, node.id, {
               store,
               cache,
               createNode,
               createNodeId,
-              ext: '.jpg',
-              name: 'image',
             });
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
-            const imgNode = await createRemoteFileNode({
-              url: get(content, 'preview.url'),
-              parentNodeId: node.id,
-              store,
-              cache,
-              createNode,
-              createNodeId,
-              ext: '.jpg',
-              name: 'image',
-            });
+            const imgNode = await createRemoteImageNode(
+              get(content, 'preview.url'),
+              node.id,
+              {
+                store,
+                cache,
+                createNode,
+                createNodeId,
+              }
+            );
             asset.content.preview['previewImage___NODE'] = imgNode.id;
           }
           return asset;
@@ -91,25 +88,24 @@ exports.onCreateNode = async ({
 
     case 'Page': {
       await Promise.all(
-        node.components.map(async component => {
+        node.components.items.map(async component => {
           let fileNode;
           try {
             if (component.assets.length > 0) {
-              fileNode = await createRemoteFileNode({
-                url: component.assets[0].url,
-                parentNodeId: node.id,
-                store,
-                cache,
-                createNode,
-                createNodeId,
-                ext: '.jpg',
-                name: 'image',
-              });
+              fileNode = await createRemoteImageNode(
+                component.assets[0].url,
+                node.id,
+                {
+                  store,
+                  cache,
+                  createNode,
+                  createNodeId,
+                }
+              );
             }
           } catch (error) {
             console.error(error);
           }
-
           if (fileNode) {
             component.assets[0][`localImage___NODE`] = fileNode.id;
           }
@@ -123,17 +119,16 @@ exports.onCreateNode = async ({
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const createPageFromTemplate = (edge, pageData, idPath = 'id', path) => {
+  const createPageFromTemplate = (edge, page, idPath = 'id', path) => {
     createPage({
       path: path || edge.node.fields.slug,
-      component: getPageTemplate(pageData.type),
+      component: getPageTemplate(page.type),
       context: {
+        page,
         id: get(edge.node, idPath),
         slug: edge.node.fields.slug,
-        components: pageData.components,
         nextSlug: get(edge, 'next.fields.slug'),
         previousSlug: get(edge, 'previous.fields.slug'),
-        type: pageData.type,
         edge,
       },
     });
@@ -141,15 +136,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const pages = await createDefaultPages({
     graphql,
-    createPage: node => {
+    createPage: page => {
       createPage({
-        path: node.relativePath,
-        component: getPageTemplate(node.type),
+        path: page.relativePath,
+        component: getPageTemplate(page.type),
         context: {
-          slug: node.relativePath,
-          title: node.title,
-          components: node.components,
-          type: node.type,
+          slug: page.relativePath,
+          page,
         },
       });
     },
@@ -165,7 +158,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRecipePages({
       graphql,
       createPage,
-      pageData: recipeDetailsData,
+      page: recipeDetailsData,
     }),
     createArticlePages({
       graphql,
@@ -196,6 +189,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   // Add hashes to icons classNames
+  actions.setWebpackConfig({
+    plugins: [new MiniCssExtractPlugin({})],
+  });
   const config = getConfig();
   const svgLoaderRule = config.module.rules.find(
     rule => get(rule, 'use.loader') === 'svg-react-loader'
@@ -207,12 +203,48 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       test: /react-hot-loader/,
       use: [loaders.js()],
     });
-  } else if (stage === 'build-html') {
+  }
+
+  if (stage === 'build-html') {
     config.module.rules.push({
       test: /elasticsearch-browser/,
       use: loaders.null(),
     });
   }
 
+  if (stage.includes('javascript')) {
+    let config = getConfig();
+    config.entry['main'] = './src/scss/main.scss';
+  }
   actions.replaceWebpackConfig(config);
+};
+
+exports.onPostBuild = async ({ getNodesByType }) => {
+  // To run ES update pass `updateES=true` as a build param
+  const args = process.argv.slice(2);
+  if (
+    !args ||
+    !args.some(item => {
+      const arg = item.split('=');
+      return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
+    })
+  ) {
+    return;
+  }
+
+  // eslint-disable-next-line no-console
+  console.log('updating ES');
+
+  const hrstart = process.hrtime();
+
+  const promises = [
+    updateES.updateRecipes(getNodesByType(updateES.NODE_TYPES.RECIPE)),
+    updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE)),
+  ];
+
+  await Promise.all(promises);
+
+  const hrend = process.hrtime(hrstart);
+  // eslint-disable-next-line no-console
+  console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 };

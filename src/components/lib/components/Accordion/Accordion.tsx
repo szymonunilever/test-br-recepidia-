@@ -32,6 +32,7 @@ export const Accordion = ({
         onClick={onToggle}
         tabIndex={0}
         aria-expanded={state}
+        aria-label={title}
         onKeyUp={onToggleKeyboard}
       >
         {title ? title : null}

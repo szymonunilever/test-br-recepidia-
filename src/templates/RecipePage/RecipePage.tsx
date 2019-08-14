@@ -50,8 +50,11 @@ import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
+import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
+import { WindowLocation } from '@reach/router';
+import useMedia from 'src/utils/useMedia';
 
-const RecipePage = ({ pageContext }: RecipePageProps) => {
+const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     allTag,
     allRecipe,
@@ -77,7 +80,10 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       }
     }
   `);
-  const { components, recipe } = pageContext;
+  const {
+    page: { components, seo, type },
+    recipe,
+  } = pageContext;
   const tags = allTag.nodes;
   const dietaryAttributesIcons = [
     {
@@ -140,22 +146,24 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
 
   const relatedRecipes = allRecipe.nodes;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
-  const tabsContent = {
-    tabs: [
-      {
-        title: 'Ingredients',
-        view: 'recipeTabIngredients',
-      },
-      {
-        title: 'Cook',
-        view: 'recipeTabCookingMethod',
-      },
-    ],
-  };
+  // const tabsContent = {
+  //   tabs: [
+  //     {
+  //       title: 'Ingredients',
+  //       view: 'recipeTabIngredients',
+  //     },
+  //     {
+  //       title: 'Cook',
+  //       view: 'recipeTabCookingMethod',
+  //     },
+  //   ],
+  // };
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
   };
+
+  const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const recipeHero = (
     <>
@@ -200,10 +208,23 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
     </>
   );
 
+  if (recipe.localImage) {
+    const seoImage = seo.meta.find(item => {
+      return item.name == 'og:image';
+    });
+    seoImage &&
+      (seoImage.content = recipe.localImage.childImageSharp.fluid.src);
+  }
+
   return (
     <Layout className={classWrapper}>
-      <SEO title="Recepedia Home" />
-      <DigitalData type="RecipeDetail" data={recipe} />
+      <SEO
+        {...seo}
+        title={recipe.title}
+        description={recipe.description}
+        canonical={location.href}
+      />
+      <DigitalData title={recipe.title} type={type} />
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
@@ -240,13 +261,13 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
                   recipe={recipe}
                   visible={[
                     RecipeAttributesKeys.serves,
-                    RecipeAttributesKeys.totalTime,
-                    RecipeAttributesKeys.preparationTime,
+                    RecipeAttributesKeys.cookTime,
+                    RecipeAttributesKeys.preperationTime,
                     RecipeAttributesKeys.difficulties,
                   ]}
                   icons={{
-                    preparationTime: RecipeKnife,
-                    totalTime: RecipeClock,
+                    preperationTime: RecipeKnife,
+                    cookTime: RecipeClock,
                     serves: RecipePeople,
                     difficulties: RecipeDifficulty,
                   }}
@@ -286,7 +307,10 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
           </div>
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
-          <Tabs className="tabs" content={tabsContent}>
+          <Tabs
+            className="tabs"
+            content={findPageComponentContent(components, 'Tabs')}
+          >
             <Tab view="recipeTabIngredients">
               <RecipeCopy
                 viewType={RecipeCopyViewType.Ingredients}
@@ -336,7 +360,8 @@ const RecipePage = ({ pageContext }: RecipePageProps) => {
       <section className="_pt--40 _pb--40">
         <div className="container">
           <TagLinks
-            list={tags}
+            initialCount={initialTagsCount}
+            list={getTagsFromRecipes([recipe], tags)}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
@@ -388,10 +413,8 @@ export default RecipePage;
 
 interface RecipePageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
     recipe: Internal.Recipe;
   };
+  location: WindowLocation;
 }

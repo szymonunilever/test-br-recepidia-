@@ -8,10 +8,21 @@ import GeneratedForm from '../../components/lib/components/GeneratedForm';
 import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/form.service';
 import { Modal } from '../../components/lib/components/Modal';
+import { WindowLocation } from '@reach/router';
+
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,
+  location,
 }) => {
-  const { components } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
+  const сontactFormComponent = findPageComponentContent(
+    components,
+    'GeneratedForm',
+    'ContactForm'
+  );
+  const { title, formMessages } = сontactFormComponent;
   const [modalState, setModalState] = useState({
     isOpen: false,
     text: '',
@@ -25,7 +36,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         if (result && result.status === 'Ok')
           setModalState({
             isOpen: true,
-            text: "Thank you. We've get your message.",
+            text: formMessages && formMessages.confirmSubmitMessage,
             className: cx('contact-form--result', 'success'),
           });
         setTimeout(() => {
@@ -45,14 +56,8 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   };
   return (
     <Layout>
-      <SEO title="Contact form" />
-      <DigitalData
-        type="ContactForm"
-        title={
-          findPageComponentContent(components, 'GeneratedForm', 'ContactForm')
-            .title
-        }
-      />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData type={type} title={title} />
       <Modal isOpen={modalState.isOpen} className={modalState.className}>
         <div>{modalState.text}</div>
       </Modal>
@@ -60,11 +65,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         <div className="container">
           <GeneratedForm
             onSubmit={submitHandler}
-            content={findPageComponentContent(
-              components,
-              'GeneratedForm',
-              'ContactForm'
-            )}
+            content={сontactFormComponent}
           />
         </div>
       </section>
@@ -76,9 +77,7 @@ export default ContactFormPage;
 
 export interface ContactFormPageProps {
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

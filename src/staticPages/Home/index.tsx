@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import { Text, TagName } from 'src/components/lib/components/Text';
@@ -19,23 +19,51 @@ import theme from './home.module.scss';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import IntroQuiz from '../../components/page/IntroQuiz';
-import introQuizQuestions from '../../../stories/mocks/introQuiz';
+import localImage from '../../../stories/assets/localImage';
+import { WindowLocation } from '@reach/router';
 
-const HomePage = ({ data, pageContext }: HomePageProps) => {
-  const { title, components } = pageContext;
+const HomePage = ({ data, pageContext, location }: HomePageProps) => {
+  const [searchAgent, setSearchAgent] = useState(false);
+  const {
+    page: { seo, components, type },
+  } = pageContext;
+
+  const quizContent = findPageComponentContent(components, 'Wizard');
+  const introContent = {
+    title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
+      .text as string,
+    description: findPageComponentContent(
+      components,
+      'Text',
+      'IntroQuizDescription'
+    ).text as string,
+  };
+
   const recipes = data.allRecipe.nodes;
+
+  useEffect(() => {
+    //@ts-ignore
+    setSearchAgent(window.searchAgentOnPage);
+  }, []);
+
+  quizContent &&
+    //@ts-ignore
+    quizContent.questions.forEach(item => {
+      //@ts-ignore
+      item.options.forEach(option => {
+        //@ts-ignore
+        option.label.image.localImage = localImage;
+      });
+    });
 
   return (
     <Layout className="header--bg">
-      <SEO title="Recepedia Home" />
-      <IntroQuiz
-        questions={introQuizQuestions}
-        primaryButtonLabel={'Continue'}
-        primaryButtonFinalLabel={'Finish'}
-        secondaryButtonLabel={'Skip'}
-      />
+      <SEO {...seo} canonical={location.href} />
+      {!searchAgent && (
+        <IntroQuiz introContent={introContent} quizContent={quizContent} />
+      )}
       <Kritique />
-      <DigitalData pageContext={pageContext} data={data} />
+      <DigitalData title={seo.title} type={type} />
       <section className="_bg--main">
         <div className="container">
           <Text
@@ -161,25 +189,7 @@ interface HomePageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
-}
-
-interface Edge<T> {
-  node: T;
-}
-
-interface PageNode {
-  components: {
-    items: {
-      name: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      content: any;
-    }[];
-  };
-  title: string;
-  type: string;
+  location: WindowLocation;
 }

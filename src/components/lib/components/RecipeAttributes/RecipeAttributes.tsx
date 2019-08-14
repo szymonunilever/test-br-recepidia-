@@ -10,8 +10,8 @@ export const RecipeAttributes = ({
   content: { labels },
   recipe,
   visible = [
-    RecipeAttributesKeys.preparationTime,
-    RecipeAttributesKeys.cookingTime,
+    RecipeAttributesKeys.preperationTime,
+    RecipeAttributesKeys.cookTime,
     RecipeAttributesKeys.serves,
     RecipeAttributesKeys.difficulties,
   ],

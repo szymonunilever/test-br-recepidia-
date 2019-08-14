@@ -16,7 +16,11 @@ export interface QuestionOption {
   value: string;
   label: {
     text: string;
-    image: AdaptiveImageProps;
+    image: {
+      localImage?: Internal.LocalImage;
+      alt: string;
+      url?: string;
+    };
   };
 }
 
@@ -27,7 +31,8 @@ export interface QuizProps {
   questions: Question[];
   primaryButtonLabel: string;
   primaryButtonFinalLabel?: string;
-  secondaryButtonLabel: string;
+  secondaryButtonLabel?: string;
+  bottomContent?: JSX.Element;
   actionCallback: (answers: object) => void;
   stepResultsCallback?: (answers: object) => void;
 }

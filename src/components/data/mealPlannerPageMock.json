@@ -1,0 +1,261 @@
+{
+  "type": "MealPlanner",
+  "relativePath": "/meal-planner",
+  "components": {
+    "items": [
+      {
+        "name": "Wizard",
+        "content": {
+          "wizardIntroductionPanel": {
+            "title": "Meal Planner",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            "image": {
+              "url": "",
+              "alt": ""
+            },
+            "primaryButtonLabel": "Get started",
+            "bottomContent": ""
+          },
+          "wizardQuiz": {
+            "questions": [
+              {
+                "orderIndex": 1,
+                "id": 1,
+                "key": "question1",
+                "label": "Favorite cuisines",
+                "type": {
+                  "control": "checkbox",
+                  "labelPosition": "bottom"
+                },
+                "options": [
+                  {
+                    "value": "1503;1484",
+                    "label": {
+                      "text": "Chicken",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1397;1467;1315;1466;1469;1481;693;1319;1317;1478",
+                    "label": {
+                      "text": "Desserts",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1464;1313;1314",
+                    "label": {
+                      "text": "Drinks",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1475;1490;1321",
+                    "label": {
+                      "text": "Fish",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1477;1488;1465;1497",
+                    "label": {
+                      "text": "Hamburguer & Sandwiches",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1479;1492;1499",
+                    "label": {
+                      "text": "Meat",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "664;1480;699",
+                    "label": {
+                      "text": "Pasta",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1483;665;1485",
+                    "label": {
+                      "text": "Pies & Pizza",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1487;1108;1476;1495;1473;organic;healthy",
+                    "label": {
+                      "text": "Healthy",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1491",
+                    "label": {
+                      "text": "Soups",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "orderIndex": 2,
+                "id": 2,
+                "key": "question2",
+                "label": "Time",
+                "type": {
+                  "control": "radio",
+                  "labelPosition": "bottom"
+                },
+                "options": [
+                  {
+                    "value": "20",
+                    "label": {
+                      "text": "Quick recipe (Total time < 20 min)",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "999",
+                    "label": {
+                      "text": "I have a lot of time",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "orderIndex": 3,
+                "id": 3,
+                "key": "question3",
+                "label": "Budget",
+                "type": {
+                  "control": "radio",
+                  "labelPosition": "bottom"
+                },
+                "options": [
+                  {
+                    "value": "1371",
+                    "label": {
+                      "text": "High",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1369",
+                    "label": {
+                      "text": "Medium",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "1370",
+                    "label": {
+                      "text": "Economic",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "orderIndex": 4,
+                "id": 4,
+                "key": "question4",
+                "label": "Number of serving",
+                "type": {
+                  "control": "radio",
+                  "labelPosition": "bottom"
+                },
+                "options": [
+                  {
+                    "value": "2",
+                    "label": {
+                      "text": "1-2 people",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "5",
+                    "label": {
+                      "text": "3-5 people",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  },
+                  {
+                    "value": "999",
+                    "label": {
+                      "text": "5+ people",
+                      "image": {
+                        "url": "",
+                        "alt": ""
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "primaryButtonLabel": "Continue",
+            "bottomContent": "Your preferences can be changed later"
+          },
+          "wizardResultSection": {
+            "title": "My meal plan",
+            "subheading": "Your 7 recipes for the week"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -12,15 +12,18 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   primaryButtonLabel,
   secondaryButtonLabel,
   actionCallback,
+  bottomContent,
 }) => (
   <Fragment>
     <div className="wizard__info">
       <div className="wizard__title">
         <Text className="" tag={TagName.h1} text={title} />
       </div>
-      <div className="wizard__description">
-        <Text className="" tag={TagName.p} text={description} />
-      </div>
+      <Text
+        className="wizard__description"
+        tag={TagName.p}
+        text={description}
+      />
     </div>
 
     <div className="wizard__image">
@@ -32,11 +35,16 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
         onClick={actionCallback}
         content={{ label: primaryButtonLabel }}
       />
-      <Button
-        className="wizard__button wizard__button--secondary"
-        onClick={console.log}
-        content={{ label: secondaryButtonLabel }}
-      />
+      {secondaryButtonLabel && (
+        <Button
+          className="wizard__button wizard__button--secondary"
+          onClick={console.log}
+          content={{ label: secondaryButtonLabel }}
+        />
+      )}
+      {bottomContent != undefined && (
+        <div className="wizard__button-placeholder">{bottomContent}</div>
+      )}
     </div>
   </Fragment>
 );

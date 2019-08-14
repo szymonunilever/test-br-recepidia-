@@ -10,7 +10,7 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 80px;
   }
   &__content {
     height: 100%;
@@ -18,30 +18,43 @@
   }
   &__info {
     h1 {
-      margin-bottom: 12px;
+      font-size: 3rem;
+      // color: $black-blue;
+      margin-bottom: 10px;
       @include respondTo(desktop) {
         margin-bottom: 18px;
+        font-size: 5.2rem;
       }
     }
   }
   &__description {
-    padding-bottom: 20px;
+    margin-bottom: 27px;
+    font-size: 1.4rem;
+    @include respondTo(desktop) {
+      font-size: 1.6rem;
+    }
   }
   &__logo {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    top: 14px;
-    left: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    @include respondTo(desktop) {
+      left: 38px;
+      top: 38px;
+    }
     svg {
-      width: 28px;
-      height: 35px;
+      width: 29px;
+      height: 36px;
       display: block;
       margin: auto;
+      @include respondTo(desktop) {
+        width: 48px;
+        height: 58px;
+      }
     }
     .main-logo {
       &__text {
@@ -81,6 +94,22 @@
   &__title {
     color: $fish-blue-darker;
     width: 100%;
+    margin-bottom: 13px;
+    h2 {
+      font-size: 3rem;
+      line-height: 1.07;
+      color: $fish-blue-darker;
+      @include respondTo(desktop) {
+        font-size: 5.2rem;
+      }
+    }
+    .subheading {
+      @extend .subheading;
+      color: $black-blue;
+    }
+    @include respondTo(desktop) {
+      margin-bottom: 25px;
+    }
   }
   &__buttons {
     display: flex;
@@ -88,7 +117,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 0 15px;
   }
   &__button {
     &--primary {
@@ -103,6 +132,23 @@
     }
     &-placeholder {
       height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      a {
+        color: inherit;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: $apple-green;
+          color: $black-blue;
+        }
+      }
     }
+  }
+  &__warning {
+    font-size: 1.2rem;
+    color: $alert-color;
+    margin-bottom: 12px;
   }
 }

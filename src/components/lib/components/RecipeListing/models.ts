@@ -35,6 +35,7 @@ export interface RecipeListingProps
   loadMoreConfig?: LoadMoreConfig;
   imageSizes: string;
   onViewChange?: onRecipeListingViewChanged;
+  dataFetched?: boolean;
 }
 
 export type onRecipeListingViewChanged = (

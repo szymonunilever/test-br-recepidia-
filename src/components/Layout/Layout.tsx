@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-import 'src/scss/main.scss';
+// import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import ArrowUpIcon from 'src/svgs/inline/arrow-up.svg';
 import FacebookIcon from 'src/svgs/inline/facebook.svg';
@@ -29,15 +29,15 @@ const Layout = ({ children, className }: LayoutProps) => {
   useEffect(() => {
     smartOutline.init();
   });
-  const components = allCommonComponent.nodes;
+  const componentNodes = allCommonComponent.nodes;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  components.forEach((component: any) => {
+  componentNodes.forEach((component: any) => {
     component.content =
       typeof component.content === 'string'
         ? JSON.parse(component.content)
         : component.content;
   });
-
+  const components = { items: componentNodes };
   // eslint-disable-next-line no-console
   const onSignUpCallback = () => console.log('onsignup callback');
 

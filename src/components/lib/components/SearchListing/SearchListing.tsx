@@ -9,10 +9,11 @@ import cx from 'classnames';
 
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
-import { get } from 'lodash';
+import { get, trim } from 'lodash';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,
@@ -20,7 +21,12 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   searchQuery,
   className,
   searchResultTitleLevel = 3,
-  searchResults: { recipeResults, searchInputResults, articleResults },
+  searchResults: {
+    recipeResults,
+    searchInputResults,
+    articleResults,
+    resultsFetched = true,
+  },
 }) => {
   const classNames = cx('search-listing', className);
 
@@ -31,18 +37,19 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   }, [searchQuery]);
 
   const onSubmit = useCallback(async (searchQuery: string) => {
+    const trimmedSearchQuery = trim(searchQuery);
     setDefaultSearchValue(searchQuery);
 
     if (recipeConfig.getRecipeSearchData) {
-      recipeConfig.getRecipeSearchData(searchQuery, { size: 8 });
+      recipeConfig.getRecipeSearchData(trimmedSearchQuery, { size: 8 });
     }
 
     if (articleConfig.getArticleSearchData) {
-      articleConfig.getArticleSearchData(searchQuery, { size: 8 });
+      articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
     }
   }, []);
 
-  const onLoadMoreRecipes = (
+  const onLoadMoreRecipes = async (
     tags: Internal.Tag[],
     sorting: string,
     size: number
@@ -79,7 +86,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     []
   );
 
-  const searchResultsText = (
+  const searchResultsText = resultsFetched ? (
     <Text
       className="search-listing__results-header"
       // @ts-ignore
@@ -91,10 +98,10 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         )
         .replace(
           '{searchInputValue}',
-          `${defaultSearchValue ? `"${defaultSearchValue}"` : '" "'}`
+          `${defaultSearchValue ? `\n${trim(defaultSearchValue)}` : '" "'}`
         )}
     />
-  );
+  ) : null;
 
   const recipes = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'recipes'
@@ -102,7 +109,6 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     !!recipeResults.list.length && (
       <RecipeListing
         initialCount={8}
-        viewType={RecipeListViewType.Advanced}
         loadMoreConfig={{
           type: LoadMoreType.async,
           onLoadMore: onLoadMoreRecipes,
@@ -110,6 +116,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         }}
         list={recipeResults.list}
         content={content.recipesContent}
+        ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
       />
     );
@@ -127,40 +134,72 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     );
 
   const tabs = content.tabsContent.tabs.reduce(
-    (tabs: JSX.Element[], { view }) => {
+    (
+      tabs: {
+        list: JSX.Element[];
+        content: {
+          tabs: AppContent.Tabs.Tab[];
+        };
+      },
+      tab
+    ) => {
+      const { view } = tab;
+
       switch (view) {
         case 'all': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {recipes}
               {articles}
             </Tab>
           );
+          tabs.content.tabs.push({
+            ...tab,
+            resultsCount: recipeResults.count + articleResults.count,
+          });
           break;
         }
 
         case 'articles': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {articles}
             </Tab>
           );
+          tabs.content.tabs.push({
+            ...tab,
+            resultsCount: articleResults.count,
+          });
+
           break;
         }
+
         case 'recipes': {
-          tabs.push(
+          tabs.list.push(
             <Tab view={view} key={view}>
               {recipes}
             </Tab>
           );
+          tabs.content.tabs.push({
+            ...tab,
+            resultsCount: recipeResults.count,
+          });
           break;
         }
       }
 
       return tabs;
     },
-    []
+    { list: [], content: { tabs: [] } }
   );
+
+  const nullResult = resultsFetched ? (
+    <NullResult
+      content={content.nullResultContent}
+      className="search-listing__null-results"
+      titleLevel={3}
+    />
+  ) : null;
 
   return (
     <div className={classNames} data-componentname="search-listing">
@@ -175,17 +214,11 @@ const SearchListing: React.SFC<SearchListingProps> = ({
       />
 
       {searchResultsText}
-      {tabs.length &&
+      {tabs.list.length &&
       (articleResults.list.length || recipeResults.list.length) ? (
-        <Tabs content={content.tabsContent}>{tabs.map(tab => tab)}</Tabs>
+        <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
       ) : (
-        <>
-          <NullResult
-            content={content.nullResultContent}
-            className="search-listing__null-results"
-            titleLevel={3}
-          />
-        </>
+        nullResult
       )}
     </div>
   );

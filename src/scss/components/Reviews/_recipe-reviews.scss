@@ -13,6 +13,15 @@
       justify-content: space-between;
       align-items: flex-start;
     }
+    .review-block {
+      border-bottom: 1px solid #d8d8d8;
+      &:first-child {
+        border-top: 1px solid #d8d8d8;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
   }
   .rr-product-reviews {
     margin: 0;
@@ -44,13 +53,10 @@
     }
 
     .average-rating {
-      text-align: left;
+      display: flex;
+      align-items: center;
       .aggregateRating {
-        height: 0;
-        transform: translateX(82px) translateY(4px);
-        @include respondTo(medium) {
-          transform: translateX(82px) translateY(0px);
-        }
+        margin-right: 25px;
         img {
           height: 17px;
           width: auto;
@@ -60,9 +66,11 @@
       .total-reviews {
         margin: 0;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         line-height: 1;
         font-size: 14px;
+        position: relative;
+
         .aggRtng {
           font-size: 4.8rem;
           font-weight: 500;
@@ -70,8 +78,15 @@
           color: $black-blue;
           font-family: $rubik;
           background: none;
+          margin-right: 20px;
           padding: 0;
-          margin-right: 9px;
+          position: relative;
+          &:after {
+            content: '';
+            height: 35px;
+            padding-left: 20px;
+            border-right: 1px solid $black-blue;
+          }
         }
         .tRtng {
           margin-left: 0;
@@ -119,9 +134,19 @@
       padding-left: 0;
       padding-right: 0;
       width: 100%;
+      @include respondTo(medium) {
+        display: flex;
+      }
+      .reviewDate {
+        font-size: 1.2rem;
+      }
 
       .review-rightBlock {
         width: 100%;
+        @include respondTo(medium) {
+          padding-top: 25px;
+          max-width: 480px;
+        }
       }
       .review-leftBlock {
         width: 100%;
@@ -129,6 +154,11 @@
         flex-wrap: wrap;
         align-items: center;
         text-align: center;
+        @include respondTo(medium) {
+          width: 29%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
         & > * {
           margin: 0;
           padding: 0;
@@ -143,11 +173,16 @@
           text-align: left;
           margin-top: 21px;
           font-size: 2.1rem;
-          font-weight: 500;
+          font-weight: bold;
           line-height: 1.33;
           color: $black-blue;
           margin-bottom: 14px;
           font-family: $rubik;
+          @include respondTo(medium) {
+            order: 1;
+            margin-top: 0;
+            margin-bottom: 5px;
+          }
         }
         .rating-container {
           display: flex;
@@ -170,9 +205,11 @@
           order: 2;
           font-size: 1.6rem;
           line-height: 1.13;
-          color: $fish-blue-darker;
+          color: $black-blue;
           @include respondTo(medium) {
-            margin-left: 29px;
+            order: 1;
+            margin-left: 0;
+            margin-bottom: 10px;
           }
         }
         .reviewDate {
@@ -186,9 +223,20 @@
           right: 0;
           text-align: right;
           @include respondTo(medium) {
-            margin-left: 29px;
+            position: absolute;
+            right: 0;
+            top: 60px;
           }
         }
+      }
+      .aggregateRating {
+        img {
+          height: 17px;
+          width: auto;
+        }
+      }
+      .aggRtng {
+        display: none;
       }
       .rr-comments {
         font-size: 1.4rem;

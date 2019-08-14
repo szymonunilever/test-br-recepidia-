@@ -11,6 +11,7 @@ export declare interface SearchListingProps {
 }
 
 export declare interface SearchResults {
+  resultsFetched?: boolean;
   recipeResults: {
     list: Internal.Recipe[];
     count: number;

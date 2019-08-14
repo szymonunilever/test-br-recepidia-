@@ -8,7 +8,7 @@ export const findPageComponentContent = (
 ) => {
   const component =
     find(
-      components,
+      components.items,
       ({ name: compName, content }) =>
         compName === name &&
         (!get(content, 'view') || get(content, 'view') === view)

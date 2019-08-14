@@ -1,5 +1,33 @@
-.wizard--result{
-  .wizard{
-    
+.wizard--result {
+  @media screen and (max-height: 550px),
+    screen and (orientation: landscape) and (max-width: 959px) {
+    display: block;
+    overflow-y: auto;
+  }
+  .wizard {
+    &__logo {
+      @media screen and (max-height: 567px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        width: 100%;
+        position: fixed;
+        height: 80px;
+        background-color: white;
+        left: 0;
+        top: 0;
+        .main-logo {
+          position: absolute;
+          left: 24px;
+          top: 24px;
+        }
+      }
+    }
+    &__title {
+      h2 {
+        margin-bottom: 12px;
+      }
+      .subheading {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

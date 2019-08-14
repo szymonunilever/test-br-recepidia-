@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import { get } from 'lodash';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import useElasticSearch, { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, useElasticSearch } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -35,13 +35,20 @@ export interface QueryString {
   fields?: string[];
 }
 
-const INITIAL_RECIPES_COUNT = 8;
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
+import { WindowLocation } from '@reach/router';
 
-const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
-  const { components } = pageContext;
+const AllRecipesPage = ({
+  data,
+  pageContext,
+  location,
+}: AllRecipesPageProps) => {
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const { promotionalRecipes, allTagGroupings } = data;
-
+  // different count for different screens
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
     count: number;
@@ -49,6 +56,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     list: [],
     count: 0,
   });
+  const [dataFetched, setDataFetched] = useState(false);
 
   const getRecipeSearchData = async (
     queryString: QueryString = {
@@ -69,26 +77,32 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       },
     };
 
-    return useElasticSearch<Internal.Recipe>(searchParams).then(res => {
-      setRecipeResults({
-        list: params.from
-          ? [
-              ...recipeResults.list,
-              ...res.hits.hits.map(resItem => resItem._source),
-            ]
-          : res.hits.hits.map(resItem => resItem._source),
-        count: res.hits.total,
+    return useElasticSearch<Internal.Recipe>(searchParams)
+      .then(res => {
+        setRecipeResults({
+          list: params.from
+            ? [
+                ...recipeResults.list,
+                ...res.hits.hits.map(resItem => resItem._source),
+              ]
+            : res.hits.hits.map(resItem => resItem._source),
+          count: res.hits.total,
+        });
+      })
+      .then(() => {
+        setDataFetched(true);
       });
-    });
   };
 
-  useEffect(() => {
-    getRecipeSearchData(
-      undefined,
-      RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
-      { size: INITIAL_RECIPES_COUNT }
-    );
-  }, []);
+  const initialRecipesCount = useResponsiveScreenInitialSearch(
+    (size: number) =>
+      getRecipeSearchData(
+        undefined,
+        RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
+        { size }
+      ),
+    get(recipeResults, 'list.length', 0)
+  );
 
   const getFilterQuery = (tags: Internal.Tag[]) =>
     tags.map(({ name }) => `(${name})`).join(' AND ') || '**';
@@ -101,7 +115,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: ['tagGroups.tags.name'],
+        fields: tags.length ? ['tagGroups.tags.name'] : [],
       },
       sort,
       {
@@ -113,25 +127,23 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
 
   const onViewChange = (tags: Internal.Tag[], sort: string) => {
     const recipeCount = get(recipeResults, 'list.length', 0);
+
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: ['tagGroups.tags.name'],
+        fields: tags.length ? ['tagGroups.tags.name'] : [],
       },
       sort,
       {
-        size:
-          recipeCount > INITIAL_RECIPES_COUNT
-            ? recipeCount
-            : INITIAL_RECIPES_COUNT,
+        size: Math.max(initialRecipesCount, recipeCount),
       }
     );
   };
 
   return (
     <Layout className={theme.allRecipes}>
-      <SEO title="All Recipes" />
-      <DigitalData pageContext={pageContext} data={data} />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData title={seo.title} type={type} />
       <Kritique />
       <section className="_pt--40">
         <div className="container">
@@ -165,6 +177,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
       <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
         <div className="container">
           <RecipeListing
+            dataFetched={dataFetched}
             viewType={RecipeListViewType.Advanced}
             content={{
               ...findPageComponentContent(
@@ -172,27 +185,20 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
                 'RecipeListing',
                 'AllRecipes'
               ),
-              optionLabels: {
-                preparationTime: 'Preparation time',
-                cookingTime: 'Cooking time',
-                averageRating: 'Average rating',
-                newest: 'Newest',
-                title: 'Title',
-              },
             }}
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={3}
             tags={{
               tagGroups: allTagGroupings.nodes,
-              // displayCategories: [
-              //   'dishes',
-              //   'mainIngredient',
-              //   'cuisines',
-              //   'difficulties',
-              //   'dietary',
-              //   'budgets',
-              // ],
+              displayCategories: [
+                'dishes',
+                'mainIngredient',
+                'cuisines',
+                'difficulties',
+                'dietary',
+                'budgets',
+              ],
             }}
             className="recipe-list--carousel cards--2-4"
             withFavorite
@@ -225,7 +231,7 @@ const AllRecipesPage = ({ data, pageContext }: AllRecipesPageProps) => {
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={2}
             withFavorite
-            initialCount={6}
+            initialCount={initialRecipesCount}
             FavoriteIcon={FavoriteIcon}
             favorites={[]}
             onFavoriteChange={() => {}}
@@ -298,9 +304,7 @@ interface AllRecipesPageProps {
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    }[];
+    page: AppContent.Page;
   };
+  location: WindowLocation;
 }

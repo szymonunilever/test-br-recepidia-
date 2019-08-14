@@ -9,14 +9,18 @@ import { ResultCountLabelProps } from './partials/PreferencesQuiz/partials/index
 
 export interface UserPreferencesProps {
   children: ReactNode | ReactNode[];
-  preferencesIntroProps?: PreferencesIntroProps;
   deleteQuestion: (key: string) => void;
   saveQuestion: (key: string, value: string | object | null) => void;
   onNewsletterFormSubmit: (values: object) => void;
-  noResultProps: NoPreferencesProps;
-  entryUpdateProps: PreferenceEntryUpdateProps;
+  content: UserPreferencesContent;
+}
+
+export interface UserPreferencesContent {
+  preferencesIntroContent?: PreferencesIntroProps;
+  noResultContent: NoPreferencesProps;
+  updatePropsContent: PreferenceEntryUpdateProps;
   buttonsContent: PreferenceButtonsProps;
-  resultLabelProps: ResultCountLabelProps;
+  resultLabelContent: ResultCountLabelProps;
   newsletterSubscriptionsContent: AppContent.GeneratedForm.Content;
 }
 

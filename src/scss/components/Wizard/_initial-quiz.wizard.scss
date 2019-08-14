@@ -1,0 +1,100 @@
+.wizard--quiz-initial {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  overflow: hidden;
+  height: 100%;
+  .wizard {
+    &__container {
+      @media screen and (max-height: 567px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        padding-top: 40px;
+      }
+    }
+    &__logo {
+      position: static;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+      margin-top: -40px;
+      @media screen and (max-height: 567px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        margin-top: 0;
+      }
+      @include respondTo(desktop) {
+        margin-top: 0;
+        margin-bottom: 14px;
+      }
+    }
+    &__info {
+      h1 {
+        @include respondTo(desktop) {
+          font-size: 5.2rem;
+          color: $fish-blue-darker;
+        }
+      }
+    }
+    &__title {
+      h2 {
+        font-size: 2.1rem;
+        color: $black-blue;
+        @include respondTo(desktop) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .quiz__list {
+    @include respondTo(medium) {
+      max-height: 50vh;
+    }
+    @media screen and (min-height: 1200px) {
+      max-height: 63vh;
+    }
+    @media screen and (max-height: 960px) and (min-width: 1366px) {
+      max-height: 40vh;
+      &.quiz__multi {
+        max-height: 57vh;
+      }
+    }
+    @media screen and (max-height: 739px) and (min-width: 768px) {
+      max-height: 25vh;
+    }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      flex: auto;
+    }
+  }
+  form {
+    .wizard__title {
+      color: $black-blue;
+      & > p {
+        @extend h2;
+      }
+    }
+  }
+  .wizard__progress {
+    display: none;
+  }
+  .wizard__buttons {
+    button + button {
+      margin-right: 16px;
+    }
+    flex-direction: row-reverse;
+    .wizard__button--primary {
+      @extend .button--medium;
+    }
+    .wizard__button--secondary {
+      @extend .button;
+      @extend .button--secondary;
+      @extend .button--medium;
+    }
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .wizard__content > form {
+      flex: auto;
+    }
+  }
+}

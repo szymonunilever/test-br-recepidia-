@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -24,10 +24,14 @@ import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import useSearchResults from './useSearchResults';
+import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
-  const { components } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
   const { allTag } = data;
+
   const {
     getSearchData,
     getRecipeSearchData,
@@ -36,12 +40,20 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     recipeResults,
     articleResults,
     searchInputResults,
+    resultsFetched,
+    initialRecipesCount,
   } = useSearchResults(searchQuery);
+
+  const [tagList, setTagList] = useState<Internal.Tag[]>([]);
+
+  useEffect(() => {
+    setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
+  }, [recipeResults]);
 
   return (
     <Layout className={cx('search-page', theme.searchPage)}>
-      <SEO title="Recepedia Search" />
-      <DigitalData pageContext={pageContext} data={data} />
+      <SEO {...seo} />
+      <DigitalData title={seo.title} type={type} />
       <Kritique />
       <section>
         <SearchListing
@@ -50,6 +62,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             recipeResults,
             searchInputResults,
             articleResults,
+            resultsFetched,
           }}
           searchResultTitleLevel={3}
           config={{
@@ -66,7 +79,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               viewType: RecipeListViewType.Base,
               FavoriteIcon,
               withFavorite: true,
-              initialCount: 2,
+              initialCount: initialRecipesCount,
               recipePerLoad: 4,
               favorites: [],
               onFavoriteChange: () => {},
@@ -79,46 +92,16 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           }}
           content={{
             ...findPageComponentContent(components, 'SearchListing'),
-            articleContent: {
-              title: 'Articles',
-              cta: {
-                label: 'Load more',
-              },
-            },
-            recipesContent: {
-              title: 'Recipes',
-              cta: {
-                label: 'Load more',
-              },
-            },
-            tabsContent: {
-              tabs: [
-                {
-                  title: 'All',
-                  view: 'all',
-                },
-                {
-                  title: 'Articles',
-                  view: 'articles',
-                },
-                {
-                  title: 'Recipes',
-                  view: 'recipes',
-                },
-              ],
-            },
-            searchInputContent: {
-              placeholderText: 'Enter minimum 3 characters',
-            },
           }}
         />
       </section>
 
-      {recipeResults.list.length || articleResults.list.length ? (
+      {tagList.length ? (
         <section className="_pt--40 _pb--40">
           <div className="container">
             <TagLinks
-              list={allTag.nodes}
+              initialCount={tagList.length}
+              list={tagList}
               content={findPageComponentContent(components, 'Tags')}
             />
           </div>
@@ -166,17 +149,14 @@ export const pageQuery = graphql`
   }
 `;
 
-interface SearchPageProps {
+export interface SearchPageProps {
   data: {
     allTag: {
       nodes: Internal.Tag[];
     };
   };
   pageContext: {
-    title: string;
-    components: {
-      [key: string]: string | number | boolean | object | null;
-    };
+    page: AppContent.Page;
   };
   searchQuery: string;
 }
