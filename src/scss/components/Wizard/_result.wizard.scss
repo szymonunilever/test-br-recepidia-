@@ -1,9 +1,6 @@
 .wizard--result {
-  @media screen and (max-height: 550px),
-    screen and (orientation: landscape) and (max-width: 959px) {
-    display: block;
-    overflow-y: auto;
-  }
+  display: block;
+  overflow-y: auto;
   .wizard {
     &__logo {
       @media screen and (max-height: 567px),
