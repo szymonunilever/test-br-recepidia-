@@ -32,7 +32,10 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const putCurrentAnswer = useCallback(() => {
     const updatedAnswers = { ...answers };
     // @ts-ignore
-    updatedAnswers[question.key] = currentAnswer;
+    updatedAnswers[question.key] = {
+      value: currentAnswer,
+      filterPropName: question.filterPropName,
+    };
     setAnswers(updatedAnswers);
   }, [question, answers, currentAnswer]);
   const continueAction = useCallback(

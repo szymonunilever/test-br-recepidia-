@@ -1,5 +1,5 @@
 /* eslint-disable */
-import questionsMock from './introQuiz';
+import questionsMock from './wizardQuizQuestions';
 import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
 
 const clone = (obj: Question) => {
