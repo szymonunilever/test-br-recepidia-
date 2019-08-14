@@ -53,9 +53,7 @@ const Navigation: React.SFC<NavigationProps> = ({
   return (
     <GlobalNavigation
       logo={{
-        icon: (
-          <LogoIcon style={{ height: '40px' }} className="main-logo__icon" />
-        ),
+        icon: <LogoIcon className="main-logo__icon" />,
         path: '/',
       }}
       dropDownIcon={<ArrowDownIcon className="dropdown-icon" />}
