@@ -31,6 +31,7 @@ $button-disabled-color: #636363 !default;
   line-height: normal;
   padding: $button-padding;
   text-transform: none;
+  text-decoration: none;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
   background-color: $button-background;
@@ -38,7 +39,9 @@ $button-disabled-color: #636363 !default;
   fill: currentColor;
   transition: all 0.2s ease-out;
 
-  @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
     &:hover {
       background-color: $button-background-hover;
       color: $button-color-hover;
@@ -56,7 +59,9 @@ $button-disabled-color: #636363 !default;
     color: $button-disabled-color;
     cursor: default;
 
-    @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
       &:hover {
         background-color: $button-disabled-background !important;
         color: $button-disabled-color !important;
@@ -83,7 +88,9 @@ $button-disabled-color: #636363 !default;
     color: $black-blue;
     fill: currentColor;
 
-    @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
       &:hover {
         background-color: $button-background-hover;
         color: $white;
@@ -96,7 +103,9 @@ $button-disabled-color: #636363 !default;
     color: $black-blue;
     border: none;
 
-    @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
       &:hover {
         background-color: transparent;
         color: $apple-green;
@@ -183,7 +192,9 @@ $button-disabled-color: #636363 !default;
   background: $white;
   color: $fish-blue-darker;
   border: 1px solid $fish-blue-darker;
-  @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
     &:hover {
       background-color: $apple-green;
       color: $black-blue;

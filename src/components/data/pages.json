@@ -34,8 +34,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -76,10 +76,10 @@
                     "control": "radio",
                     "labelPosition": "bottom"
                   },
-                  "filterPropName": "",
+                  "filterPropName": "tags",
                   "options": [
                     {
-                      "value": "1",
+                      "value": "1523;1525;1552;1414;1424;1427;1433;1411;1441;1295;1296;1415;1298;1419;1299;1300;1304;1306;1307;1405;1409;1412;1413;1449;1416;1417;1425;1428;1430;1434;1435;1438;1443;1445;1446;1287;1451",
                       "label": {
                         "text": "I like to try new foods",
                         "image": {
@@ -89,7 +89,7 @@
                       }
                     },
                     {
-                      "value": "2",
+                      "value": "1527;1408;1422;1483;1485;665;1491",
                       "label": {
                         "text": "Heart of palm pie",
                         "image": {
@@ -99,7 +99,7 @@
                       }
                     },
                     {
-                      "value": "3",
+                      "value": "1466;1397;1467;1315;1481;693;1319;1317;1478;1469;1504",
                       "label": {
                         "text": "Chocolate cake",
                         "image": {
@@ -109,7 +109,7 @@
                       }
                     },
                     {
-                      "value": "4",
+                      "value": "1477;1488;1465;1497;1501;1431",
                       "label": {
                         "text": "Burger",
                         "image": {
@@ -119,7 +119,7 @@
                       }
                     },
                     {
-                      "value": "5",
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;",
                       "label": {
                         "text": "Kids Food",
                         "image": {
@@ -129,7 +129,7 @@
                       }
                     },
                     {
-                      "value": "6",
+                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073;",
                       "label": {
                         "text": "Barbecue",
                         "image": {
@@ -139,7 +139,7 @@
                       }
                     },
                     {
-                      "value": "7",
+                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053",
                       "label": {
                         "text": "Quinoa and Organic Dish",
                         "image": {
@@ -149,7 +149,7 @@
                       }
                     },
                     {
-                      "value": "8",
+                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;1053;2082",
                       "label": {
                         "text": "Salad with chicken",
                         "image": {
@@ -179,10 +179,10 @@
                     "control": "checkbox",
                     "labelPosition": "bottom"
                   },
-                  "filterPropName": "",
+                  "filterPropName": "tags",
                   "options": [
                     {
-                      "value": "1",
+                      "value": "",
                       "label": {
                         "text": "No restriction",
                         "image": {
@@ -192,7 +192,7 @@
                       }
                     },
                     {
-                      "value": "2",
+                      "value": "10",
                       "label": {
                         "text": "Vegan",
                         "image": {
@@ -202,7 +202,7 @@
                       }
                     },
                     {
-                      "value": "3",
+                      "value": "11",
                       "label": {
                         "text": "Vegetarian",
                         "image": {
@@ -212,7 +212,7 @@
                       }
                     },
                     {
-                      "value": "4",
+                      "value": "12",
                       "label": {
                         "text": "Sugar Free",
                         "image": {
@@ -222,7 +222,7 @@
                       }
                     },
                     {
-                      "value": "5",
+                      "value": "4",
                       "label": {
                         "text": "Lactose Free",
                         "image": {
@@ -232,7 +232,7 @@
                       }
                     },
                     {
-                      "value": "6",
+                      "value": "3",
                       "label": {
                         "text": "Gluten free",
                         "image": {
@@ -242,7 +242,7 @@
                       }
                     },
                     {
-                      "value": "7",
+                      "value": "13",
                       "label": {
                         "text": "No sea food",
                         "image": {
@@ -252,7 +252,7 @@
                       }
                     },
                     {
-                      "value": "8",
+                      "value": "14",
                       "label": {
                         "text": "No soy",
                         "image": {
@@ -272,10 +272,10 @@
                     "control": "radio",
                     "labelPosition": "bottom"
                   },
-                  "filterPropName": "",
+                  "filterPropName": "serves",
                   "options": [
                     {
-                      "value": "1",
+                      "value": "<=2",
                       "label": {
                         "text": "Friends",
                         "image": {
@@ -285,7 +285,7 @@
                       }
                     },
                     {
-                      "value": "2",
+                      "value": "<3",
                       "label": {
                         "text": "Romantic dinner",
                         "image": {
@@ -295,7 +295,7 @@
                       }
                     },
                     {
-                      "value": "3",
+                      "value": ">3",
                       "label": {
                         "text": "Family Fun",
                         "image": {
@@ -305,7 +305,7 @@
                       }
                     },
                     {
-                      "value": "4",
+                      "value": "2",
                       "label": {
                         "text": "Calm dinner with partner",
                         "image": {
@@ -390,8 +390,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -526,8 +526,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -612,8 +612,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -659,7 +659,10 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Look by tags"
+              "title": "Look by tags",
+              "loadMoreButton": {
+                "label": "+ show more"
+              }
             }
           },
           {
@@ -669,8 +672,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -729,8 +732,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -813,8 +816,8 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner-sign-up/",
-                "label": "Sign me up!"
+                "linkTo": "/meal-planner",
+                "label": "Create your Meal Plan"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -1126,134 +1129,174 @@
       }
     },
     {
-      "title": "User Profile",
-      "type": "UserProfile",
-      "relativePath": "/profile",
-      "components": {
-        "items": [
-          {
-            "name": "UserPreferences",
-            "content": {
-              "newsletterSubscriptionsContent": {
-                "submitButton": {
-                  "label": "Update my preferences"
-                },
-                "title": "Newsletter subscriptions",
-                "fields": [
-                  {
-                    "name": "Subscribe to newsletter",
-                    "type": "checkbox",
-                    "label": "Subscribe to newsletter",
-                    "value": "Subscribe to newsletter"
+      "title":"User Profile",
+      "type":"UserProfile",
+      "relativePath":"/profile",
+      "components":{
+         "items":[
+            {
+               "name": "UserPreferences",
+               "content":{
+                  "newsletterSubscriptionsContent":{
+                     "submitButton":{
+                        "label":"Update my preferences"
+                     },
+                     "title":"Newsletter subscriptions",
+                     "fields":[
+                        {
+                           "name":"Subscribe to newsletter",
+                           "type":"checkbox",
+                           "label":"Subscribe to newsletter",
+                           "value":"Subscribe to newsletter"
+                        },
+                        {
+                           "name":"Subscribe to whitelabel newsletter",
+                           "type":"checkbox",
+                           "label":"Subscribe to whitelabel newsletter",
+                           "value":"Subscribe to whitelabel newsletter"
+                        }
+                     ]
                   },
-                  {
-                    "name": "Subscribe to whitelabel newsletter",
-                    "type": "checkbox",
-                    "label": "Subscribe to whitelabel newsletter",
-                    "value": "Subscribe to whitelabel newsletter"
-                  }
-                ]
-              },
-              "preferencesIntroContent": {
-                "heading": "My personalisation preferences",
-                "content": "Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
-              },
-              "updatePropsContent": {
-                "deleteProps": {
-                  "success": "1 answer deleted.",
-                  "error": "We're sorry, we couldn't delete this answer. Please try again later."
-                },
-                "saveProps": {
-                  "success": "New answer saved.",
-                  "error": "We're sorry, we couldn't save this answer. Please try again later."
-                }
-              },
-              "noResultContent": {
-                "heading": "Personalise your experience!",
-                "message": "Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
-              },
-              "buttonsContent": {
-                "editButton": {
-                  "label": "Edit"
-                },
-                "deleteButton": {
-                  "label": "Delete"
-                },
-                "cancelButton": {
-                  "label": "Cancel"
-                },
-                "saveButton": {
-                  "label": "Save"
-                }
-              },
-              "resultLabelContent": {
-                "showResultLabel": "Show answers count",
-                "savedResultsTemplateSingle": "{quantity} answer found",
-                "savedResultsTemplatePlural": "{quantity} answers found"
-              }
-            }
-          },
-          {
-            "name": "RecipeListing",
-            "content": {
-              "title": "Your favorite recipes",
-              "resultLabel": "recipe",
-              "resultLabelPlural": "recipes",
-              "cta": {
-                "label": "Load More recipes"
-              },
-              "nullResult": {
-                "title": "You don’t have favourite recipes yet.",
-                "textList": []
-              }
-            }
-          },
-          {
-            "name": "Button",
-            "view": "ProfileFavorites",
-            "content": {
-              "label": "Start saving recipes"
-            }
-          },
-          {
-            "name": "Tabs",
-            "content": {
-              "tabsContent": {
-                "tabs": [
-                  {
-                    "title": "Favorites",
-                    "view": "ProfileFavorites"
+                  "preferencesIntroContent":{
+                     "heading":"My personalisation preferences",
+                     "content":"Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
                   },
-                  {
-                    "title": "Preferences",
-                    "view": "UserPreferences"
-                  }
-                ]
-              },
-              "tabsHeaderContent": {
-                "contents": [
-                  {
-                    "heading": "Favorites",
-                    "subheading": "You have {num} favorite recipes",
-                    "defaultSubheading": "Control everything about your eat.com account",
-                    "view": "ProfileFavorites"
+                  "updatePropsContent":{
+                     "deleteProps":{
+                        "success":"1 answer deleted.",
+                        "error":"We're sorry, we couldn't delete this answer. Please try again later."
+                     },
+                     "saveProps":{
+                        "success":"New answer saved.",
+                        "error":"We're sorry, we couldn't save this answer. Please try again later."
+                     }
                   },
-                  {
-                    "heading": "My preferences",
-                    "subheading": "Control everything about your eat.com account",
-                    "view": "UserPreferences"
+                  "noResultContent":{
+                     "heading":"Personalise your experience!",
+                     "message":"Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
+                  },
+                  "buttonsContent":{
+                     "editButton":{
+                        "label":"Edit"
+                     },
+                     "deleteButton":{
+                        "label":"Delete"
+                     },
+                     "cancelButton":{
+                        "label":"Cancel"
+                     },
+                     "saveButton":{
+                        "label":"Save"
+                     }
+                  },
+                  "resultLabelContent":{
+                     "showResultLabel":"Show answers count",
+                     "savedResultsTemplateSingle":"{quantity} answer found",
+                     "savedResultsTemplatePlural":"{quantity} answers found"
                   }
-                ]
-              }
+               }
+            },
+            {
+               "name":"RecipeListing",
+               "content":{
+                  "title":"Favorite recipes",
+                  "resultLabel":"recipe",
+                  "resultLabelPlural":"recipes",
+                  "cta":{
+                     "label":"Load More recipes"
+                  },
+                  "nullResult":{
+                     "title":"You don’t have favourite recipes yet.",
+                     "textList":[
+   
+                     ]
+                  }
+               }
+            },
+            {
+               "name":"Button",
+               "content":{
+                  "label":"Start saving recipes",
+                  "view":"ProfileFavorites"
+               }
+            },
+            {
+               "name":"Tabs",
+               "content":{
+                  "tabsContent": {
+                     "tabs":[
+                        {
+                           "title":"Favorites",
+                           "view":"ProfileFavorites"
+                        },
+                        {
+                           "title":"Preferences",
+                           "view":"UserPreferences"
+                        },
+                        {
+                           "title":"Your meal plan",
+                           "view":"MealPlanner"
+                        }
+                     ]
+                  },
+                  "tabsHeaderContent": {
+                     "contents": [
+                        {
+                           "heading": "Favorites",
+                           "subheading": "Control everything about your eat.com account",
+                           "defaultSubheading": "You have {num} favorite recipes",
+                           "view": "ProfileFavorites"
+                        },
+                        {
+                           "heading": "My preferences",
+                           "subheading": "Control everything about your eat.com account",
+                           "view": "UserPreferences"
+                        },
+                        {
+                           "heading":"Your meal plan",
+                           "subheading": "Control everything about your eat.com account",
+                           "view":"MealPlanner"
+                        }
+                     ]
+                  }
+               }
+            },
+            {
+               "name": "PreferencesQuiz",
+               "content": {
+                  "quizTitle": "Intro quiz",
+                  "view": "IntroQuiz"
+               }
+            },
+            {
+               "name": "PreferencesQuiz",
+               "content": {
+                  "quizTitle": "Meal planner",
+                  "view": "MealPlanner"
+               }
+            },
+            {
+               "name": "RecipeListing",
+               "content": {
+                  "title": "Meal plan",
+                  "view": "MealPlan"
+               }
+            },
+            {
+               "name": "Button",
+               "content": {
+                  "label": "Change my meal plan",
+                  "view": "ChangeMealPlan"
+               }
+            },
+            {
+               "name": "Text",
+               "content": {
+                  "text": "Your meal plan is not set up yet",
+                  "view": "NoMealPlanResults"
+               }
             }
-          },
-          {
-            "name": "PreferencesQuiz",
-            "content": {
-              "quizTitle": "Diet and stuff..."
-            }
-          }
-        ]
+         ]
       },
       "seo": {
         "title": "Recepedia - E sua receita, qual é?",
@@ -1336,7 +1379,7 @@
                   {
                     "orderIndex": 1,
                     "id": 1,
-                    "key": "question1",
+                    "key": "mealPlannerQuestion1",
                     "label": "Favorite cuisines",
                     "type": {
                       "control": "checkbox",
@@ -1449,7 +1492,7 @@
                   {
                     "orderIndex": 2,
                     "id": 2,
-                    "key": "question2",
+                    "key": "mealPlannerQuestion2",
                     "label": "Time",
                     "type": {
                       "control": "radio",
@@ -1482,7 +1525,7 @@
                   {
                     "orderIndex": 3,
                     "id": 3,
-                    "key": "question3",
+                    "key": "mealPlannerQuestion3",
                     "label": "Budget",
                     "type": {
                       "control": "radio",
@@ -1525,7 +1568,7 @@
                   {
                     "orderIndex": 4,
                     "id": 4,
-                    "key": "question4",
+                    "key": "mealPlannerQuestion4",
                     "label": "Number of serving",
                     "type": {
                       "control": "radio",
@@ -1571,7 +1614,8 @@
               },
               "wizardResultSection": {
                 "title": "My meal plan",
-                "subheading": "Your 7 recipes for the week"
+                "subheading": "Your 7 recipes for the week",
+                "primaryButtonLabel": "See my Meal Plan"
               }
             }
           }

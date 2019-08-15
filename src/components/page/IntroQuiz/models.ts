@@ -11,4 +11,5 @@ export interface IntroQuizProps {
     primaryButtonFinalLabel: string;
     secondaryButtonLabel: string;
   };
+  onClose?: () => void;
 }

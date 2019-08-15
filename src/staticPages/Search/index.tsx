@@ -25,6 +25,8 @@ import { WithLocationProps } from 'src/components/lib/components/WithLocation/mo
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import useSearchResults from './useSearchResults';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -81,8 +83,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               withFavorite: true,
               initialCount: initialRecipesCount,
               recipePerLoad: 4,
-              favorites: [],
-              onFavoriteChange: () => {},
+              // @ts-ignore
+              favorites: Array.isArray(
+                getUserProfileByKey(ProfileKey.favorites)
+              )
+                ? getUserProfileByKey(ProfileKey.favorites)
+                : [],
+              onFavoriteChange: updateFavorites,
               imageSizes: '(min-width: 768px) 25vw, 50vw',
               ratingProvider: RatingAndReviewsProvider.kritique,
             },

@@ -3,7 +3,7 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import { RecipeListingProps } from '../models';
 
 export interface RecipeCardFavoriteCallback {
-  (selected: { id: string; val: boolean }): void;
+  (selected: { recipeId: string; val: boolean }): void;
 }
 
 export interface RecipeCardProps

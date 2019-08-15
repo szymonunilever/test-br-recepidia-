@@ -23,9 +23,14 @@ const Option: FunctionComponent<OptionProps> = ({ question, option }) => {
             <OptionLabel label={option.label.text} />
           )}
         </div>
-        {/*
-          // @ts-ignore */}
-        <AdaptiveImage className="quiz__label-image" {...option.label.image} />
+
+        {option.label.image && option.label.image.localImage && (
+          // @ts-ignore
+          <AdaptiveImage
+            className="quiz__label-image"
+            {...option.label.image}
+          />
+        )}
       </div>
       {labelPosition === 'bottom' && <OptionLabel label={option.label.text} />}
     </div>

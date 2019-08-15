@@ -38,6 +38,16 @@ export interface QueryString {
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 import { WindowLocation } from '@reach/router';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const AllRecipesPage = ({
   data,
@@ -176,7 +186,7 @@ const AllRecipesPage = ({
 
       <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
         <div className="container">
-          <RecipeListing
+          <RecipeListingWithFavorite
             dataFetched={dataFetched}
             viewType={RecipeListViewType.Advanced}
             content={{
@@ -201,10 +211,6 @@ const AllRecipesPage = ({
               ],
             }}
             className="recipe-list--carousel cards--2-4"
-            withFavorite
-            FavoriteIcon={FavoriteIcon}
-            favorites={[]}
-            onFavoriteChange={() => {}}
             OpenIcon={OpenIcon}
             FilterIcon={FilterIcon}
             RemoveTagIcon={RemoveTagIcon}
@@ -221,7 +227,7 @@ const AllRecipesPage = ({
 
       <section className="_pt--40 _pb--40">
         <div className="container">
-          <RecipeListing
+          <RecipeListingWithFavorite
             content={findPageComponentContent(
               components,
               'RecipeListing',
@@ -230,11 +236,7 @@ const AllRecipesPage = ({
             list={promotionalRecipes.nodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             titleLevel={2}
-            withFavorite
             initialCount={initialRecipesCount}
-            FavoriteIcon={FavoriteIcon}
-            favorites={[]}
-            onFavoriteChange={() => {}}
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel"
             carouselConfig={{
