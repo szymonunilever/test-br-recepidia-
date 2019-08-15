@@ -68,7 +68,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               ...recipesListingContent,
               title: recipesListingContent.title
                 .replace('{numRes}', recipeResults.count)
-                .replace('{categoryName}', tagLabel),
+                .replace('{categoryName}', '\n' + tagLabel),
             }}
             list={recipeResults.list}
             ratingProvider={RatingAndReviewsProvider.kritique}
