@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import {
-  useElasticSearch,
-  findPageComponentContent,
-  fromCamelCase,
-} from 'src/utils';
+import { findPageComponentContent, fromCamelCase } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -28,25 +24,27 @@ import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
-import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
-import keys from 'integrations/keys.json';
 import { get } from 'lodash';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
-import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
 
 const RecipeCategotyPage = ({
   data,
   pageContext,
   location,
+  tagList,
+  recipeResults,
+  onLoadMoreRecipes,
 }: RecipeCategotyPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
   const {
     page: { components, seo, type },
   } = pageContext;
-  const { tag, allRecipe, allTag, allArticle } = data;
+  const { tag, allArticle } = data;
   const categoryImage = get(tag.assets, '[0].localImage');
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
@@ -56,82 +54,6 @@ const RecipeCategotyPage = ({
   );
   const initialRecipesCount = useMedia();
   const initialTagsCount = useMedia(undefined, [9, 5]);
-
-  const [recipeResults, setRecipeResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: allRecipe.nodes,
-    count: 0,
-  });
-
-  const getRecipeSearchData = async (params: SearchParams = {}) => {
-    const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
-      body: {
-        ...params,
-        query: {
-          bool: {
-            must: [
-              {
-                // eslint-disable-next-line @typescript-eslint/camelcase
-                query_string: {
-                  query: tag.name,
-                  fields: ['tagGroups.tags.name'],
-                },
-              },
-            ],
-            // eslint-disable-next-line @typescript-eslint/camelcase
-            must_not: [
-              {
-                terms: {
-                  recipeId: allRecipe.nodes.map(({ recipeId }) => recipeId),
-                },
-              },
-            ],
-          },
-        },
-      },
-    };
-
-    return useElasticSearch<Internal.Recipe>(searchParams);
-  };
-
-  const onLoadMoreRecipes = async (
-    tags: Internal.Tag[],
-    sorting: string,
-    size: number
-  ) => {
-    getRecipeSearchData({
-      from: recipeResults.list.length - allRecipe.nodes.length,
-      size,
-    }).then(res => {
-      setRecipeResults({
-        ...recipeResults,
-        list: [
-          ...recipeResults.list,
-          ...res.hits.hits.map(item => item._source),
-        ],
-      });
-    });
-  };
-
-  const [tagList, setTagList] = useState<Internal.Tag[]>([]);
-
-  useEffect(() => {
-    getRecipeSearchData({
-      size: 0,
-    }).then(res => {
-      setRecipeResults({
-        ...recipeResults,
-        count: res.hits.total + recipeResults.list.length,
-      });
-    });
-  }, []);
-
-  useEffect(() => {
-    setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
-  }, [recipeResults]);
 
   if (categoryImage) {
     const seoImage = seo.meta.find(item => {
@@ -256,10 +178,7 @@ const RecipeCategotyPage = ({
           <TagLinks
             initialCount={initialTagsCount}
             list={tagList}
-            content={{
-              ...findPageComponentContent(components, 'Tags'),
-              loadMoreButton: { label: '+ show more' }, //TODO remove when data will be fixed
-            }}
+            content={findPageComponentContent(components, 'Tags')}
           />
         </div>
       </section>
@@ -292,7 +211,7 @@ const RecipeCategotyPage = ({
   );
 };
 
-export default RecipeCategotyPage;
+export default withRecipeSearchResults(RecipeCategotyPage);
 
 export const query = graphql`
   query($slug: String!, $id: Int) {
@@ -332,7 +251,7 @@ export const query = graphql`
   }
 `;
 
-interface RecipeCategotyPageProps {
+interface RecipeCategotyPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
     tag: {
       name: string;

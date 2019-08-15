@@ -659,7 +659,10 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Look by tags"
+              "title": "Look by tags",
+              "loadMoreButton": {
+                "label": "+ show more"
+              }
             }
           },
           {

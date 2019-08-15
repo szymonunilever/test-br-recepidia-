@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { get } from 'lodash';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
