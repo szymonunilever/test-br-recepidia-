@@ -11,9 +11,11 @@ declare module '*.scss' {
 }
 
 declare module '*.svg' {
+  import React = require('react');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const content: any;
-  export default content;
+  export const ReactComponent: any;
+  const src: string;
+  export default src;
 }
 
 declare module 'smart-outline' {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
-import LogoIcon from 'src/svgs/inline/logo.svg';
-import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as LogoIcon } from 'src/svgs/inline/logo.svg';
+import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg';
 import Search from 'src/components/Search/Search';
 import { constructMenu } from './utils';
 

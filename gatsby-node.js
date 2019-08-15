@@ -205,10 +205,18 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     ...config.resolve,
     alias: { ...config.resolve.alias, lodash: 'lodash-es' },
   };
-  const svgLoaderRule = config.module.rules.find(
-    rule => get(rule, 'use.loader') === 'svg-react-loader'
-  );
-  svgLoaderRule.use.options.classIdPrefix = true;
+  const svgLoaderRule = config.module.rules.find(rule => {
+    if (
+      rule.test === /\.svg$/ && Array.isArray(rule.use)
+        ? rule.use.length === 2
+        : false
+    ) {
+      return rule;
+    }
+  });
+  svgLoaderRule &&
+    svgLoaderRule.use &&
+    (svgLoaderRule.use[0].options.classIdPrefix = true);
 
   if (stage === 'develop') {
     config.module.rules.push({

@@ -7,10 +7,10 @@ import {
 } from '../src/components/lib/components/RecipeListing';
 import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
-import FavoriteIcon from 'src/svgs/inline/favorite.svg';
-import OpenIcon from 'src/svgs/inline/arrow-down.svg';
-import RemoveTagIcon from 'src/svgs/inline/x-mark.svg';
-import FilterIcon from 'src/svgs/inline/filter.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 
 const contents: AppContent.RecipeListing.Content[] = [

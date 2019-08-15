@@ -1,8 +1,8 @@
 import React, { useState, FunctionComponent, useCallback } from 'react';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { ResultCountProps } from './index';
-import ArrowUp from 'src/svgs/inline/arrow-up.svg';
-import ArrowDown from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowUp } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as ArrowDown } from 'src/svgs/inline/arrow-down.svg';
 
 const ResultCount: FunctionComponent<ResultCountProps> = ({
   count,

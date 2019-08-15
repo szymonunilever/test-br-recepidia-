@@ -1,5 +1,6 @@
 import React, { useState, useEffect, CSSProperties, useCallback } from 'react';
 import Arrow from './partials/Arrow';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import ProgressBar from './partials/ProgressBar';
 import { CarouselProps, BreakpointProps } from './models';
 import styles from './Carousel.module.scss';
@@ -16,6 +17,7 @@ export const defaultCarouselConfig = {
       visibleElementsAboveBreakpoint: 4,
     },
   ],
+  arrowIcon: <ArrowIcon />,
 };
 
 const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
@@ -165,7 +167,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const carouselItemStyle = useCallback(
     (visible: boolean): CSSProperties => {
       return {
-        flexBasis: `${100 / visibleElements}%`,
+        flexBasis: `${100 / visibleElements ? 100 / visibleElements : 0}%`,
         visibility: visible ? 'visible' : 'hidden',
         transition: 'all .5s',
       };
@@ -174,7 +176,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   );
 
   const trackerStyle = {
-    width: `${(100 * list.length) / visibleElements}%`,
+    width: `${
+      (100 * list.length) / visibleElements
+        ? (100 * list.length) / visibleElements
+        : 0
+    }%`,
     transform: `translateX(${translateValue}%)`,
   };
 

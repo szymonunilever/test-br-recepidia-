@@ -6,7 +6,7 @@ import cx from 'classnames';
 import Hero from 'src/components/lib/components/Hero';
 import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
 import pageListingData from 'src/components/data/pageListing.json';
 import DigitalData from '../../../integrations/DigitalData';
@@ -14,12 +14,10 @@ import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
 import TagLinks from 'src/components/TagsLinks';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
-
-import SearchIcon from 'src/svgs/inline/search-icon.svg';
-
-import CloseSvg from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
+import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { RecipeListViewType } from 'src/components/lib/components/RecipeListing';
-import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';

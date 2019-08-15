@@ -66,6 +66,7 @@ module.exports = ({ config }) => {
     rule.test.test('.svg')
   );
   fileLoaderRule.exclude = pathToInlineSvg;
+  // @todo externalize svg loader config
   config.module.rules.push({
     test: /\.svg$/,
     include: pathToInlineSvg,
@@ -75,6 +76,9 @@ module.exports = ({ config }) => {
         options: {
           icon: true,
         },
+      },
+      {
+        loader: 'url-loader',
       },
     ],
   });

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { OptionProps } from './models';
-import CheckMark from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
+import { ReactComponent as CheckMark } from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
 import OptionLabel from '../OptionLabel';
 import AdaptiveImage from '../../../../../AdaptiveImage/AdaptiveImage';
 import cx from 'classnames';

@@ -22,8 +22,8 @@ import RecipeListing, {
   LoadMoreType,
   ResponsiveRecipeListing,
 } from 'src/components/lib/components/RecipeListing';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
-import FavoriteIcon from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
 import useSearchResults from '../Search/useSearchResults';
@@ -55,6 +55,7 @@ const carouselConfig = {
       visibleElementsAboveBreakpoint: 4,
     },
   ],
+  arrowIcon: <ArrowIcon />,
 };
 
 const ResponsiveListingWithFavorite = RecipeListingWithFavorites(
