@@ -8,7 +8,7 @@ export interface SelectProps {
   options: Option[] | LanguageEntry[];
   placeholder?: string;
   className?: string;
-  isSearchable?: boolean;
+  searchable?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   changeHandler?: (val: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
