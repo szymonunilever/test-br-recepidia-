@@ -63,7 +63,7 @@ const articleSearchParams = (
   },
 });
 
-export const getRecipeFavoritesResponse = async (
+export const getRecipesByIdsResponse = async (
   searchQuery: string,
   params: SearchParams
 ) =>

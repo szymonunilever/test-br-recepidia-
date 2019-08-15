@@ -92,8 +92,14 @@ export const RecipeListing = ({
   ratingProvider === RatingAndReviewsProvider.kritique &&
     useKritiqueReload([recipeList]);
 
-  const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
-    val ? favorites.push(id) : remove(favorites, n => n === id);
+  const changeFavorites = ({
+    recipeId,
+    val,
+  }: {
+    recipeId: string;
+    val: boolean;
+  }) => {
+    val ? favorites.push(recipeId) : remove(favorites, n => n === recipeId);
     if (onFavoriteChange) {
       onFavoriteChange(favorites);
     }

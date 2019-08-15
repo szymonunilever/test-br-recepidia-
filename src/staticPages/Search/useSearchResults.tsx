@@ -3,7 +3,7 @@ import { get } from 'lodash';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,
-  getRecipeFavoritesResponse,
+  getRecipesByIdsResponse,
   getArticleResponse,
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
@@ -18,7 +18,7 @@ const useSearchResults = (searchQuery: string) => {
     list: [],
     count: 0,
   });
-  const [recipeFavoritesResults, setRecipeFavoritesResults] = useState<{
+  const [recipeByIdsResults, setRecipeByIdsResults] = useState<{
     list: Internal.Recipe[];
     count: number;
   }>({
@@ -57,13 +57,13 @@ const useSearchResults = (searchQuery: string) => {
     [recipeResults]
   );
 
-  const getRecipeFavoritesData = useCallback(
+  const getRecipeDataByIds = useCallback(
     async (searchQeury, params) => {
-      getRecipeFavoritesResponse(searchQeury, params).then(res => {
-        setRecipeFavoritesResults({
-          list: recipeFavoritesResults.list.length
+      getRecipesByIdsResponse(searchQeury, params).then(res => {
+        setRecipeByIdsResults({
+          list: recipeByIdsResults.list.length
             ? [
-                ...recipeFavoritesResults.list,
+                ...recipeByIdsResults.list,
                 ...res.hits.hits.map(resItem => resItem._source),
               ]
             : res.hits.hits.map(resItem => resItem._source),
@@ -71,7 +71,7 @@ const useSearchResults = (searchQuery: string) => {
         });
       });
     },
-    [recipeFavoritesResults]
+    [recipeByIdsResults]
   );
 
   const getArticleSearchData = useCallback(
@@ -130,11 +130,11 @@ const useSearchResults = (searchQuery: string) => {
   return {
     getSearchData,
     getRecipeSearchData,
-    getRecipeFavoritesData,
+    getRecipeDataByIds,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,
-    recipeFavoritesResults,
+    recipeByIdsResults,
     articleResults,
     searchInputResults,
     resultsFetched,

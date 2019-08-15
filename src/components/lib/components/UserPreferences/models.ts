@@ -6,11 +6,16 @@ import {
 } from './partials/PreferencesQuiz/index';
 import { ButtonContent } from '../Button/index';
 import { ResultCountLabelProps } from './partials/PreferencesQuiz/partials/index';
+import { ProfileKey } from 'src/utils/browserStorage/models';
 
 export interface UserPreferencesProps {
   children: ReactNode | ReactNode[];
-  deleteQuestion: (key: string) => void;
-  saveQuestion: (key: string, value: string | object | null) => void;
+  deleteQuestion: (quizKey: ProfileKey, key: string) => void;
+  saveQuestion: (
+    quizKey: ProfileKey,
+    key: string,
+    value: string | object | null
+  ) => void;
   onNewsletterFormSubmit: (values: object) => void;
   content: UserPreferencesContent;
 }

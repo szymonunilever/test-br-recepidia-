@@ -11,7 +11,9 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
     <Fragment>
       <div className="wizard__title">
         <Text className="" tag={TagName.h2} text={title} />
-        <Text className="subheading" tag={TagName.p} text={subheading} />
+        {subheading && (
+          <Text className="subheading" tag={TagName.p} text={subheading} />
+        )}
       </div>
       {children}
     </Fragment>

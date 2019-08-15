@@ -9,8 +9,12 @@ import { Text, TagName } from 'src/components/lib/components/Text';
 import sortByOrderIndex from 'src/components/lib/utils/sortByOrderIndex';
 import PreferenceUpdateInfo from './partials/PreferenceUpdateInfo';
 import { PreferenceUpdateResultType } from './partials/index';
-import { Question } from '../../../Wizard/partials/Quiz/models';
+import {
+  Question,
+  QuestionFilterPropNameKeys,
+} from '../../../Wizard/partials/Quiz/models';
 import PreferenceUpdateBlock from './partials/PreferenceUpdateBlock';
+import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
 
 // According to the requirements: "successful update message near the updated Q&A is displayed for 3 sec"
 const successSaveMessageShowTime = 3000;
@@ -28,53 +32,34 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   noResultContent,
   updatePropsContent,
   buttonsContent,
+  quizKey,
 }) => {
   const deleteThisEntry = (key: string) => {
-    // eslint-disable-next-line no-console
-    console.log('Deleted preference entry with key', key);
-    // @todo place actual delete logic (remove from storage) here
-    deleteQuestion(key);
-    const rand = Math.floor(Math.random() * (10 - 1)) + 1;
+    deleteQuestion(quizKey, key);
+    // @ts-ignore
+    answers[key] = {};
     setLastInteraction({
       key: key,
-      // simulating response
-      // @todo actually should depend on result of saving - remove later
-      resultType:
-        rand % 2 === 0
-          ? PreferenceUpdateResultType.Success
-          : PreferenceUpdateResultType.Error,
-      message:
-        rand % 2 === 0
-          ? updatePropsContent.deleteProps.success
-          : updatePropsContent.deleteProps.error,
+      resultType: PreferenceUpdateResultType.Success,
+      message: updatePropsContent.deleteProps.success,
       interactionType: PreferenceInteractionType.Delete,
     });
   };
 
   const saveThisEntry = (
     key: string,
-    selectedOptions: string | object | null
+    selectedOptions: {
+      value: string | object | null;
+      filterPropName: RecipeAttributesKeys | QuestionFilterPropNameKeys;
+    }
   ) => {
-    // @todo save logic should be called by saveQuestion method here. When done - remove fake manipulation with data below
     // @ts-ignore
     answers[key] = selectedOptions;
-    // eslint-disable-next-line no-console
-    console.log('Saved new entry', [key, selectedOptions]);
-    // simulating response
-    // @todo place actual save logic (write to storage) here.
-    saveQuestion(key, selectedOptions);
-    const rand = Math.floor(Math.random() * (10 - 1)) + 1;
+    saveQuestion(quizKey, key, selectedOptions);
     const mockResultFromSaveFunction: LastInteraction = {
       key: key,
-      // @todo actually should depend on result of saving - remove later
-      resultType:
-        rand % 2 === 0
-          ? PreferenceUpdateResultType.Success
-          : PreferenceUpdateResultType.Error,
-      message:
-        rand % 2 === 0
-          ? updatePropsContent.saveProps.success
-          : updatePropsContent.saveProps.error,
+      resultType: PreferenceUpdateResultType.Success,
+      message: updatePropsContent.saveProps.success,
       interactionType: PreferenceInteractionType.Save,
     };
     setLastInteraction(mockResultFromSaveFunction);

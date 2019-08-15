@@ -13,6 +13,7 @@ import {
   entryUpdateProps,
 } from './mocks/userPreferencesQuestions';
 import questionsMock from './mocks/wizardQuizQuestions';
+import { QuestionFilterPropNameKeys } from 'src/components/lib/components/Wizard/partials/Quiz/models';
 const content: AppContent.GeneratedForm.Content = {
   view: 'NewsletterSubscriptions',
   submitButton: {
@@ -35,10 +36,13 @@ const content: AppContent.GeneratedForm.Content = {
   ],
 };
 const answers1 = {
-  question1: '1',
-  question2: ['1', '3', '5'],
-  question3: '2',
-  question4: '1457',
+  question1: { value: '1', filterPropName: QuestionFilterPropNameKeys.tags },
+  question2: {
+    value: ['1', '3', '5'],
+    filterPropName: QuestionFilterPropNameKeys.tags,
+  },
+  question3: { value: '2', filterPropName: QuestionFilterPropNameKeys.tags },
+  question4: { value: '1457', filterPropName: QuestionFilterPropNameKeys.tags },
 };
 let answers2 = {};
 anotherQuestions.forEach(question => {

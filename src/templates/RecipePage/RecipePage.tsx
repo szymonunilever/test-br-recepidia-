@@ -53,6 +53,21 @@ import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
 import useMedia from 'src/utils/useMedia';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+import {
+  updateFavorites,
+  getUserProfileByKey,
+  saveUserProfileByKey,
+} from 'src/utils/browserStorage';
+import { ProfileKey } from 'src/utils/browserStorage/models';
+import { remove } from 'lodash';
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
@@ -189,6 +204,28 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         <div>
           <Button
             Icon={FavoriteIcon}
+            isSelected={(Array.isArray(
+              getUserProfileByKey(ProfileKey.favorites)
+            )
+              ? getUserProfileByKey(ProfileKey.favorites)
+              : []
+            )
+              // @ts-ignore
+              .includes(recipe.recipeId)}
+            onClick={() => {
+              // @ts-ignore
+              const favorites: string[] = Array.isArray(
+                getUserProfileByKey(ProfileKey.favorites)
+              )
+                ? getUserProfileByKey(ProfileKey.favorites)
+                : [];
+              if (favorites.includes(recipe.recipeId)) {
+                remove(favorites, n => n === recipe.recipeId);
+              } else {
+                favorites.push(recipe.recipeId);
+              }
+              saveUserProfileByKey(favorites, ProfileKey.favorites);
+            }}
             isToggle={true}
             className="action-button"
             attributes={{ 'aria-label': 'favourite toggle' }}
@@ -375,7 +412,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
       </section>
       <section className="_pt--40 _pb--40">
         <div className="container">
-          <RecipeListing
+          <RecipeListingWithFavorite
             content={findPageComponentContent(
               components,
               'RecipeListing',
@@ -386,9 +423,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
             viewType={RecipeListViewType.Carousel}
             className="recipe-list--carousel cards--2-4"
             titleLevel={2}
-            withFavorite
-            FavoriteIcon={FavoriteIcon}
-            favorites={[]}
             carouselConfig={{
               breakpoints: [
                 {
