@@ -47,8 +47,7 @@ const AllRecipesPage = ({
   const {
     page: { seo, components, type },
   } = pageContext;
-  const { promotionalRecipes, allTagGroupings } = data;
-  // different count for different screens
+  let { promotionalRecipes, allTagGroupings } = data;
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
     count: number;
@@ -104,8 +103,28 @@ const AllRecipesPage = ({
     get(recipeResults, 'list.length', 0)
   );
 
-  const getFilterQuery = (tags: Internal.Tag[]) =>
-    tags.map(({ name }) => `(${name})`).join(' AND ') || '**';
+  const getFilterQuery = (tags: Internal.Tag[]) => {
+    const tagsWithCategories = tags.map(tag => {
+      const category = allTagGroupings.nodes.find(
+        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+      );
+      let tagWithCategory: Internal.Tag & { category?: string } = tag;
+      category && (tagWithCategory.category = category.name);
+      return tagWithCategory;
+    });
+
+    return tagsWithCategories.reduce((result, current, i, tags) => {
+      const nextCategory = tags[i + 1] ? tags[i + 1].category : null;
+      const { category, name } = current;
+      if (i === tags.length - 1) {
+        return result + `(${name})**`;
+      } else {
+        return category === nextCategory
+          ? result + `(${name}) OR `
+          : result + `(${name}) AND `;
+      }
+    }, '');
+  };
 
   const onRecipeLoadMore = (
     tags: Internal.Tag[],
