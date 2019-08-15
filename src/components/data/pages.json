@@ -1571,7 +1571,8 @@
               },
               "wizardResultSection": {
                 "title": "My meal plan",
-                "subheading": "Your 7 recipes for the week"
+                "subheading": "Your 7 recipes for the week",
+                "primaryButtonLabel": "See my Meal Plan"
               }
             }
           }

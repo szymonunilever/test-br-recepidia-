@@ -28,6 +28,14 @@ $four-col-width: 100% / 4;
             padding: 0 $col-indent-medium;
           }
         }
+        .wizard__buttons {
+          padding-left: $col-indent-mobile;
+          padding-right: $col-indent-mobile;
+          @include respondTo(medium) {
+            padding-left: $col-indent-medium;
+            padding-right: $col-indent-medium;
+          }
+        }
       }
       // quiz scroll for small screen height
       @media screen and (max-height: 550px),

@@ -17,7 +17,7 @@ import {
   getUserProfileByKey,
 } from '../../utils/browserStorage';
 import { ProfileKey } from '../../utils/browserStorage/models';
-import Button from '../../components/lib/components/Button';
+import { Link } from 'gatsby';
 import { findPageComponentContent } from '../../utils';
 import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
@@ -50,6 +50,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const componentContent = findPageComponentContent(components, 'Wizard');
   const [answers, setAnswers] = useState({});
   const [recipes, setRecipes] = useState([]);
+  const wizardResultSection = componentContent.wizardResultSection;
 
   // @todo remove this workaround once we store images in graphql
   // @ts-ignore
@@ -162,7 +163,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             <WizardResultSection
               containerClass="wizard--result recipe-list--carousel"
               stepId="result"
-              {...componentContent.wizardResultSection}
+              {...wizardResultSection}
             >
               {recipes.length ? (
                 <div>
@@ -186,12 +187,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     ratingProvider={RatingAndReviewsProvider.kritique}
                   />
                   <div className="wizard__buttons">
-                    <Button
+                    <Link
                       className="wizard__button wizard__button--primary"
-                      onClick={() => alert('goto profile')}
+                      to={'/profile'}
                     >
-                      See my meal plan
-                    </Button>
+                      {wizardResultSection.primaryButtonLabel}
+                    </Link>
                   </div>
                 </div>
               ) : (
