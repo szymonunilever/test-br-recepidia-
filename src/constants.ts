@@ -12,7 +12,7 @@ export const RecipePersonalizationFormula: RecipePersonalizationFormulaProps = {
   template: 'Q#2^4 AND (MP#1^3 OR MP#3^3 OR MP#2^2 OR Q#4^2 OR MP#4)',
   searchAttributes: {
     tags: 'tagGroups.tags.id',
-    cookTime: 'recipeDetails.totalTime',
+    cookTime: 'recipeDetails.cookTime',
     serves: 'recipeDetails.serves',
   },
 };
