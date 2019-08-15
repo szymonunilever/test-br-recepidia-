@@ -46,7 +46,8 @@ const RecipeCategotyPage = ({
   pageContext,
   location,
   tagList,
-  recipeResults,
+  recipeResultsList,
+  recipeResultsCount,
   onLoadMoreRecipes,
 }: RecipeCategotyPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
@@ -61,7 +62,6 @@ const RecipeCategotyPage = ({
     'RecipeListing',
     'RecipesByCategory'
   );
-  const initialRecipesCount = useMedia();
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   if (categoryImage) {
@@ -141,19 +141,18 @@ const RecipeCategotyPage = ({
               ...recipesListingContent,
               title: recipesListingContent.title.replace(
                 '{numRes}',
-                recipeResults.count
+                recipeResultsCount
               ),
             }}
-            list={recipeResults.list}
+            list={recipeResultsList}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             loadMoreConfig={{
               type: LoadMoreType.async,
               onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResults.count,
+              allCount: recipeResultsCount,
             }}
             titleLevel={2}
-            initialCount={initialRecipesCount}
             recipePerLoad={4}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
