@@ -91,6 +91,7 @@ $four-col-width: 100% / 4;
     &__item-label {
       cursor: pointer;
       display: block;
+      -webkit-tap-highlight-color: transparent;
     }
     &__label {
       &-image-wrap {

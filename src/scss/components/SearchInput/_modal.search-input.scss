@@ -20,6 +20,9 @@
       }
       &__input {
         font-size: 1.6rem;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+        }
       }
     }
   }

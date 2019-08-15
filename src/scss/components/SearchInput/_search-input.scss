@@ -1,7 +1,7 @@
 .search {
   &-input {
     &__list {
-      margin: 0;
+      margin: 15px 0 0;
       list-style-type: none;
       font-size: 1.4rem;
       padding: 0;
@@ -9,6 +9,7 @@
       box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),
         0 4px 11px hsla(0, 0%, 0%, 0.1);
       box-sizing: border-box;
+      border-radius: 5px;
       @include respondTo(desktop) {
         overflow: auto;
         &::-webkit-scrollbar-track {
@@ -38,7 +39,7 @@
     }
     &__link {
       display: block;
-      padding: 10px 40px;
+      padding: 14px 18px;
       text-decoration: none;
       color: $black-blue;
       font-size: 1.4rem;
@@ -47,6 +48,9 @@
       &:hover,
       &.active {
         background-color: $apple-green;
+      }
+      @include respondTo(desktop) {
+        padding: 7px 15px;
       }
     }
     .form {
