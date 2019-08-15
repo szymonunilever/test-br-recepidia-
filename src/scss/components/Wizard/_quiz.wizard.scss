@@ -124,11 +124,7 @@ $four-col-width: 100% / 4;
       }
     }
     &__item-input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
+      display: none;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
           display: flex;
