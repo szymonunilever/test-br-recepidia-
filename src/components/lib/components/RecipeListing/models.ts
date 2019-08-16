@@ -12,7 +12,7 @@ export enum RecipeListViewType {
 }
 
 export interface OnFavoriteChange {
-  (favorites: string[]): void;
+  (favorites: number[]): void;
 }
 
 export interface RecipeListingProps
@@ -25,7 +25,7 @@ export interface RecipeListingProps
   OpenIcon?: JSX.Element;
   RemoveTagIcon?: JSX.Element;
   FilterIcon?: JSX.Element;
-  favorites?: string[];
+  favorites?: number[];
   list: Internal.Recipe[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
