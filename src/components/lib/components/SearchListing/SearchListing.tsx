@@ -33,18 +33,23 @@ const SearchListing: React.SFC<SearchListingProps> = ({
     setDefaultSearchValue(searchQuery);
   }, [searchQuery]);
 
-  const onSubmit = useCallback(async (searchQuery: string) => {
-    const trimmedSearchQuery = trim(searchQuery);
-    setDefaultSearchValue(searchQuery);
+  const onSubmit = useCallback(
+    async (searchQuery: string) => {
+      const trimmedSearchQuery = trim(searchQuery);
+      setDefaultSearchValue(searchQuery);
 
-    if (recipeConfig.getRecipeSearchData) {
-      recipeConfig.getRecipeSearchData(trimmedSearchQuery, { size: 8 });
-    }
+      if (recipeConfig.getRecipeSearchData) {
+        recipeConfig.getRecipeSearchData(trimmedSearchQuery, {
+          size: recipeConfig.initialCount,
+        });
+      }
 
-    if (articleConfig.getArticleSearchData) {
-      articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
-    }
-  }, []);
+      if (articleConfig.getArticleSearchData) {
+        articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
+      }
+    },
+    [recipeConfig.initialCount]
+  );
 
   const onLoadMoreRecipes = async (
     tags: Internal.Tag[],
@@ -105,7 +110,6 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   ) &&
     !!recipeResults.list.length && (
       <RecipeListing
-        initialCount={8}
         loadMoreConfig={{
           type: LoadMoreType.async,
           onLoadMore: onLoadMoreRecipes,
