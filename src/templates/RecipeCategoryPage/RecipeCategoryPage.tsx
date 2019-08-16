@@ -160,7 +160,7 @@ const RecipeCategotyPage = ({
         </div>
       </section>
 
-      {allArticle.nodes.length > 0 && (
+      {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
           <div className="container">
             <MediaGallery
@@ -224,7 +224,6 @@ export const query = graphql`
       name
       tagId
     }
-
     allRecipe(
       limit: 8
       filter: {
@@ -235,19 +234,6 @@ export const query = graphql`
         ...RecipeFields
       }
     }
-
-    allArticle(
-      filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-      }
-      limit: 4
-      sort: { order: DESC, fields: id }
-    ) {
-      nodes {
-        ...ArticleFields
-      }
-    }
-
     allTag {
       nodes {
         ...TagFields
@@ -255,6 +241,19 @@ export const query = graphql`
     }
   }
 `;
+
+// @todo use when articles are there
+// allArticle(
+//   filter: {
+//     tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+//   }
+//   limit: 4
+//   sort: { order: DESC, fields: id }
+// ) {
+//   nodes {
+//     ...ArticleFields
+//   }
+// }
 
 interface RecipeCategotyPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {

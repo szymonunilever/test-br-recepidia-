@@ -7,18 +7,19 @@
       padding-top: 60px;
     }
 
-        &__results-header{
-            @extend .container;
-            font-size: 2.4rem;
-            line-height: 1.5;
-            color: $black-blue;
-            margin-bottom: 27px;
-            white-space: pre-wrap;
-            @include respondTo(desktop){
-                font-size: 2.5rem;
-                line-height: 1.5;
-            }            
-        }
+    &__results-header {
+      @extend .container;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      color: $black-blue;
+      // margin-bottom: 27px;
+      margin-bottom: 10px; // @todo remove this line and uncomment the a line above when articles are there
+      white-space: pre-wrap;
+      @include respondTo(desktop) {
+        font-size: 2.5rem;
+        line-height: 1.5;
+      }
+    }
 
     &__null-results {
       @extend .container;
