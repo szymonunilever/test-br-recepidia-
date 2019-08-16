@@ -3,7 +3,7 @@ exports.createRecipeNodes = (
   { createNodeId, createContentDigest, createNode }
 ) => {
   // Temporary solution to re-use existing components data structure
-  // Should be reviewed as soon as we agree a common aproach and data structures to work with images
+  // Should be reviewed as soon as we agree a common approach and data structures to work with images
   recipe.localImage = {
     childImageSharp: { fluid: recipe.assets.images.default },
   };
