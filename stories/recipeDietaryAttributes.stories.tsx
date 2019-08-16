@@ -11,55 +11,59 @@ const config = {
   className: 'custom-class',
   icons: [
     {
-      id: 'vegetarian',
+      id: 11,
       active: <icons.VegeterianActive />,
       inActive: <icons.VegeterianInactive />,
     },
     {
-      id: 'vegan',
+      id: 10,
       active: <icons.VeganActive />,
       inActive: <icons.VeganInactive />,
     },
     {
-      id: 'nutFree',
+      id: 5,
       active: <icons.NutFreeActive />,
       inActive: <icons.NutFreeInactive />,
     },
     {
-      id: 'pregnancySafe',
+      id: 7,
       active: <icons.PregnancySafeActive />,
       inActive: <icons.PregnancySafeInactive />,
     },
     {
-      id: 'glutenFree',
+      id: 3,
       active: <icons.GlutenFreeActive />,
       inActive: <icons.GlutenFreeInactive />,
     },
     {
-      id: 'lactoseFree',
+      id: 4,
       active: <icons.LactoseFreeActive />,
       inActive: <icons.LactoseFreeInactive />,
     },
     {
-      id: 'rawFood',
+      id: 8,
       active: <icons.RawFoodActive />,
       inActive: <icons.RawFoodInactive />,
     },
     {
-      id: 'eggFree',
+      id: 2,
       active: <icons.EggFreeActive />,
       inActive: <icons.EggFreeInactive />,
     },
     {
-      id: 'paleoFree',
+      id: 6,
       active: <icons.PaleoDietActive />,
       inActive: <icons.PaleoDietInactive />,
     },
     {
-      id: 'wheatFree',
+      id: 1,
+      active: <icons.DairyFreeActive />,
+      inActive: <icons.DairyFreeInactive />,
     },
     {
-      id: 'dairyProductFree',
+      id: 9,
+      active: <icons.WheatFreeActive />,
+      inActive: <icons.WheatFreeInactive />,
     },
   ],
 };
