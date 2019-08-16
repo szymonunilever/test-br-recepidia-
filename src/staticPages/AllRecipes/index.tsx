@@ -123,17 +123,19 @@ const AllRecipesPage = ({
       return tagWithCategory;
     });
 
-    return tagsWithCategories.reduce((result, current, i, tags) => {
-      const nextCategory = tags[i + 1] ? tags[i + 1].category : null;
-      const { category, name } = current;
-      if (i === tags.length - 1) {
-        return result + `(${name})**`;
-      } else {
-        return category === nextCategory
-          ? result + `(${name}) OR `
-          : result + `(${name}) AND `;
-      }
-    }, '');
+    return (
+      tagsWithCategories.reduce((result, current, i, tags) => {
+        const nextCategory = tags[i + 1] ? tags[i + 1].category : null;
+        const { category, name } = current;
+        if (i === tags.length - 1) {
+          return result + `(${name})**`;
+        } else {
+          return category === nextCategory
+            ? result + `(${name}) OR `
+            : result + `(${name}) AND `;
+        }
+      }, '') || '**'
+    );
   };
 
   const onRecipeLoadMore = (
