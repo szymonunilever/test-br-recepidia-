@@ -1,4 +1,9 @@
 .modal--filter {
+  .modal__overlay{
+    top: auto;
+    width: 100%;
+    height: 100%;
+  }
   .modal__content {
     display: flex;
     flex-direction: column;
@@ -33,11 +38,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 96%;
+    height:100%;
     overflow-y: auto;
-    @include respondTo(desktop) {
-      height: 94.5%;
-    }
     &__tagGroups {
       list-style-type: none;
       margin: 0;

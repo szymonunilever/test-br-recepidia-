@@ -6,6 +6,7 @@ import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
 import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
 import localImage from '../../../stories/assets/localImage';
 import WizardLogo from '../../svgs/inline/wizard-logo.svg';
+import Spinner from '../../svgs/inline/spinner.svg';
 import Logo from '../../components/lib/components/Logo';
 import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
@@ -164,7 +165,9 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                   </div>
                 </div>
               ) : (
-                'Loading....'
+                <div className={theme.spinner}>
+                  <Spinner />
+                </div>
               )}
             </WizardResultSection>
           </Wizard>
