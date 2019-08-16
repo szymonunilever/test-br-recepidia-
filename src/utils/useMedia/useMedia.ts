@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useMedia = (
-  queries: string[] = ['(min-width: 768px)'],
+  queries: string[] = ['(min-width: 768px)', '(min-width: 767px)'],
   values: number[] = [8, 6],
   debounceTimeout: number = 200
 ) => {

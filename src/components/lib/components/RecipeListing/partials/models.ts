@@ -9,7 +9,7 @@ export interface RecipeCardFavoriteCallback {
 export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
-  recipeId: string;
+  recipeId: number;
   enableSelectFavorite?: boolean;
   localImage?: Internal.LocalImage;
   titleLevel?: titleLevel;

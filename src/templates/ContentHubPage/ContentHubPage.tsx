@@ -43,7 +43,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   pageContext,
   location,
   tagList,
-  recipeResults,
+  recipeResultsList,
+  recipeResultsCount,
   onLoadMoreRecipes,
 }) => {
   const {
@@ -58,7 +59,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipesByCategory'
   );
   const tagLabel = tag.title || fromCamelCase(tag.name);
-  const initialRecipeCount = useMedia();
 
   return (
     <Layout className={classWrapper}>
@@ -77,16 +77,16 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             content={{
               ...recipesListingContent,
               title: recipesListingContent.title
-                .replace('{numRes}', recipeResults.count)
-                .replace('{categoryName}', '\n' + tagLabel),
+                .replace('{numRes}', recipeResultsCount)
+                .replace('{categoryName}', tagLabel),
             }}
-            list={recipeResults.list}
+            list={recipeResultsList}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             loadMoreConfig={{
               type: LoadMoreType.async,
               onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResults.count,
+              allCount: recipeResultsCount,
             }}
             initialCount={useMedia()}
             titleLevel={2}
