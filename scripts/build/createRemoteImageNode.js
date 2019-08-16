@@ -3,8 +3,7 @@ const keys = require('../../integrations/keys.json');
 
 module.exports = async (url, id, staticParams) => {
   const imgNode = await createRemoteFileNode({
-    url:
-      'https://d37k6lxrz24y4c.cloudfront.net/v2/e9dc924f238fa6cc29465942875fe8f0/00fd0884-670e-4df4-adbb-ec517ee965c0-600.jpg',
+    url: 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
     // 'https://author-dev-headless.unileversolutions.com/api/assets/aem-headless-cms/headless-demo/br/pt/homepage-content/teaser-content/images/teaser-image.png',
     parentNodeId: id,
     ext: '.jpg',
