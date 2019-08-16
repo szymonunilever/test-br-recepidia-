@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getTagsFromRecipes } from '../../utils/getTagsFromRecipes';
-import { useElasticSearch } from '../../utils/index';
+import { useElasticSearch } from '../../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 
 import keys from 'integrations/keys.json';
 import { onLoadMore } from '../lib/components/RecipeListing/models';
+import useMedia from 'src/utils/useMedia';
 
 const withInitialDataAndAsyncLoadMore = <T extends any>(
   Component: React.ComponentType<T>
@@ -14,44 +15,60 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       data: { tag, allRecipe, allTag },
     } = props;
 
-    const [recipeResults, setRecipeResults] = useState<{
-      list: Internal.Recipe[];
-      count: number;
-    }>({
-      list: allRecipe.nodes,
-      count: 0,
-    });
+    const initialRecipesCount = useMedia();
+
+    const [recipeResultsList, setRecipeResultsList] = useState<
+      Internal.Recipe[]
+    >(allRecipe.nodes.slice(0, initialRecipesCount));
+
+    const [recipeResultsCount, setRecipeResultsCount] = useState<number>(0);
+
+    useEffect(() => {
+      if (initialRecipesCount > setRecipeResultsList.length) {
+        setRecipeResultsList(allRecipe.nodes.slice(0, initialRecipesCount));
+      }
+    }, [initialRecipesCount]);
 
     const [tagList, setTagList] = useState<Internal.Tag[]>([]);
 
-    const getRecipeSearchData = async (params: SearchParams = {}) => {
+    const getRecipeSearchData = async (
+      params: SearchParams = {},
+      getOnlyRecipeCount = false
+    ) => {
+      const queryString = {
+        query: tag.tagId,
+        fields: ['tagGroups.tags.id'],
+      };
+
       const searchParams = {
         index: keys.elasticSearch.recipeIndex,
         body: {
           ...params,
-          query: {
-            bool: {
-              must: [
-                {
+          query: getOnlyRecipeCount
+            ? {
+                // eslint-disable-next-line @typescript-eslint/camelcase
+                query_string: queryString,
+              }
+            : {
+                bool: {
+                  must: [
+                    {
+                      // eslint-disable-next-line @typescript-eslint/camelcase
+                      query_string: queryString,
+                    },
+                  ],
                   // eslint-disable-next-line @typescript-eslint/camelcase
-                  query_string: {
-                    query: tag.name,
-                    fields: ['tagGroups.tags.name'],
-                  },
+                  must_not: [
+                    {
+                      terms: {
+                        recipeId: recipeResultsList.map(
+                          ({ recipeId }) => recipeId
+                        ),
+                      },
+                    },
+                  ],
                 },
-              ],
-              // eslint-disable-next-line @typescript-eslint/camelcase
-              must_not: [
-                {
-                  terms: {
-                    recipeId: allRecipe.nodes.map(
-                      ({ recipeId }: { recipeId: number }) => recipeId
-                    ),
-                  },
-                },
-              ],
-            },
-          },
+              },
         },
       };
 
@@ -64,39 +81,32 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       size: number
     ) => {
       getRecipeSearchData({
-        from: recipeResults.list.length - allRecipe.nodes.length,
         size,
       }).then(res => {
-        setRecipeResults({
-          ...recipeResults,
-          list: [
-            ...recipeResults.list,
-            ...res.hits.hits.map(item => item._source),
-          ],
-        });
+        setRecipeResultsList([
+          ...recipeResultsList,
+          ...res.hits.hits.map(item => item._source),
+        ]);
       });
     };
 
     useEffect(() => {
-      setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
-    }, [recipeResults]);
+      setTagList(getTagsFromRecipes(recipeResultsList, allTag.nodes));
+    }, [recipeResultsList]);
 
     useEffect(() => {
-      getRecipeSearchData({
-        size: 0,
-      }).then(res => {
-        setRecipeResults({
-          ...recipeResults,
-          count: res.hits.total + recipeResults.list.length,
-        });
+      getRecipeSearchData({ size: 0 }, true).then(res => {
+        setRecipeResultsCount(res.hits.total);
       });
     }, []);
 
     return (
       <Component
         {...props}
+        initialRecipesCount={initialRecipesCount}
         tagList={tagList}
-        recipeResults={recipeResults}
+        recipeResultsList={recipeResultsList}
+        recipeResultsCount={recipeResultsCount}
         onLoadMoreRecipes={onLoadMoreRecipes}
       />
     );
@@ -109,9 +119,7 @@ export default withInitialDataAndAsyncLoadMore;
 
 export interface WithInitialDataAndAsyncLoadMore {
   tagList: Internal.Tag[];
-  recipeResults: {
-    list: Internal.Recipe[];
-    count: number;
-  };
+  recipeResultsList: Internal.Recipe[];
+  recipeResultsCount: number;
   onLoadMoreRecipes: onLoadMore;
 }

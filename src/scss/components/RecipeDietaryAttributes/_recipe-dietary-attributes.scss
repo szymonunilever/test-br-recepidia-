@@ -17,8 +17,11 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
+    @include respondTo(medium){
+      margin: 0 -17px;
+    }
   }
 
   &__item{

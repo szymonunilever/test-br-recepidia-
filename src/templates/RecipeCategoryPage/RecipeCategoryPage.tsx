@@ -46,7 +46,8 @@ const RecipeCategotyPage = ({
   pageContext,
   location,
   tagList,
-  recipeResults,
+  recipeResultsList,
+  recipeResultsCount,
   onLoadMoreRecipes,
 }: RecipeCategotyPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
@@ -61,7 +62,6 @@ const RecipeCategotyPage = ({
     'RecipeListing',
     'RecipesByCategory'
   );
-  const initialRecipesCount = useMedia();
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   if (categoryImage) {
@@ -141,26 +141,25 @@ const RecipeCategotyPage = ({
               ...recipesListingContent,
               title: recipesListingContent.title.replace(
                 '{numRes}',
-                recipeResults.count
+                recipeResultsCount
               ),
             }}
-            list={recipeResults.list}
+            list={recipeResultsList}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             loadMoreConfig={{
               type: LoadMoreType.async,
               onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResults.count,
+              allCount: recipeResultsCount,
             }}
             titleLevel={2}
-            initialCount={initialRecipesCount}
             recipePerLoad={4}
             imageSizes={'(min-width: 768px) 25vw, 50vw'}
           />
         </div>
       </section>
 
-      {allArticle.nodes.length > 0 && (
+      {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
           <div className="container">
             <MediaGallery
@@ -224,7 +223,6 @@ export const query = graphql`
       name
       tagId
     }
-
     allRecipe(
       limit: 8
       filter: {
@@ -235,19 +233,6 @@ export const query = graphql`
         ...RecipeFields
       }
     }
-
-    allArticle(
-      filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-      }
-      limit: 4
-      sort: { order: DESC, fields: id }
-    ) {
-      nodes {
-        ...ArticleFields
-      }
-    }
-
     allTag {
       nodes {
         ...TagFields
@@ -255,6 +240,19 @@ export const query = graphql`
     }
   }
 `;
+
+// @todo use when articles are there
+// allArticle(
+//   filter: {
+//     tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+//   }
+//   limit: 4
+//   sort: { order: DESC, fields: id }
+// ) {
+//   nodes {
+//     ...ArticleFields
+//   }
+// }
 
 interface RecipeCategotyPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {

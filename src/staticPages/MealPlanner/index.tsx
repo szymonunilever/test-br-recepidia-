@@ -6,6 +6,7 @@ import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
 import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
 import localImage from '../../../stories/assets/localImage';
 import WizardLogo from '../../svgs/inline/wizard-logo.svg';
+import Spinner from '../../svgs/inline/spinner.svg';
 import Logo from '../../components/lib/components/Logo';
 import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
@@ -22,8 +23,16 @@ import DigitalData from 'integrations/DigitalData';
 import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
-import { RecipePersonalizationFormula } from 'src/constants';
+import { MealPlannerPersonalizationFormula } from 'src/constants';
 import { getPersonalizationSearchData } from 'src/staticPages/Home';
+
+const refineQuery = (query: string): string => {
+  if (query.trim().startsWith('AND')) {
+    // in case when "no restrictions" option with empty value is choosen OR if intro quiz is not passed
+    return refineQuery(query.trim().replace('AND', ''));
+  }
+  return query;
+};
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
@@ -82,13 +91,13 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     ) {
       const queryString = generateQuery(
         getUserProfileByKey(ProfileKey.initialQuiz),
-        getUserProfileByKey(ProfileKey.mealPlannerAnswers),
-        RecipePersonalizationFormula
+        quizData.data,
+        MealPlannerPersonalizationFormula
       );
 
       saveUserProfileByKey(quizData.data, ProfileKey.mealPlannerAnswers);
 
-      processSearchData(queryString);
+      processSearchData(refineQuery(queryString));
     }
   }, []);
 
@@ -156,7 +165,9 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                   </div>
                 </div>
               ) : (
-                'Loading....'
+                <div className={theme.spinner}>
+                  <Spinner />
+                </div>
               )}
             </WizardResultSection>
           </Wizard>

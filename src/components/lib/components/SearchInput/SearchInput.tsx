@@ -125,7 +125,7 @@ const SearchInput = ({
         });
       }
     },
-    [isLoading, inputValue, onSubmit]
+    [isLoading, inputValue, onSubmit, searchResultsCount]
   );
 
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {

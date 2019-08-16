@@ -43,7 +43,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   pageContext,
   location,
   tagList,
-  recipeResults,
+  recipeResultsList,
+  recipeResultsCount,
   onLoadMoreRecipes,
 }) => {
   const {
@@ -58,7 +59,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipesByCategory'
   );
   const tagLabel = tag.title || fromCamelCase(tag.name);
-  const initialRecipeCount = useMedia();
 
   return (
     <Layout className={classWrapper}>
@@ -77,16 +77,16 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             content={{
               ...recipesListingContent,
               title: recipesListingContent.title
-                .replace('{numRes}', recipeResults.count)
-                .replace('{categoryName}', '\n' + tagLabel),
+                .replace('{numRes}', recipeResultsCount)
+                .replace('{categoryName}', tagLabel),
             }}
-            list={recipeResults.list}
+            list={recipeResultsList}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Base}
             loadMoreConfig={{
               type: LoadMoreType.async,
               onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResults.count,
+              allCount: recipeResultsCount,
             }}
             initialCount={useMedia()}
             titleLevel={2}
@@ -95,7 +95,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           />
         </div>
       </section>
-      {allArticle.nodes.length > 0 && (
+      {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
           <div className="container">
             <MediaGallery
@@ -169,17 +169,6 @@ export const query = graphql`
         ...RecipeFields
       }
     }
-    allArticle(
-      filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-      }
-      limit: 4
-      sort: { order: DESC, fields: id }
-    ) {
-      nodes {
-        ...ArticleFields
-      }
-    }
 
     allTag {
       nodes {
@@ -188,6 +177,18 @@ export const query = graphql`
     }
   }
 `;
+// @todo use when articles are there
+// allArticle(
+//   filter: {
+//     tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+//   }
+//   limit: 4
+//   sort: { order: DESC, fields: id }
+// ) {
+//   nodes {
+//     ...ArticleFields
+//   }
+// }
 
 interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {

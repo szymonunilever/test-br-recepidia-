@@ -806,7 +806,10 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Look by tags"
+              "title": "Look by tags",
+              "loadMoreButton": {
+                "label": "+ show more"
+              }
             }
           },
           {
@@ -1129,174 +1132,172 @@
       }
     },
     {
-      "title":"User Profile",
-      "type":"UserProfile",
-      "relativePath":"/profile",
-      "components":{
-         "items":[
-            {
-               "name": "UserPreferences",
-               "content":{
-                  "newsletterSubscriptionsContent":{
-                     "submitButton":{
-                        "label":"Update my preferences"
-                     },
-                     "title":"Newsletter subscriptions",
-                     "fields":[
-                        {
-                           "name":"Subscribe to newsletter",
-                           "type":"checkbox",
-                           "label":"Subscribe to newsletter",
-                           "value":"Subscribe to newsletter"
-                        },
-                        {
-                           "name":"Subscribe to whitelabel newsletter",
-                           "type":"checkbox",
-                           "label":"Subscribe to whitelabel newsletter",
-                           "value":"Subscribe to whitelabel newsletter"
-                        }
-                     ]
+      "title": "User Profile",
+      "type": "UserProfile",
+      "relativePath": "/profile",
+      "components": {
+        "items": [
+          {
+            "name": "UserPreferences",
+            "content": {
+              "newsletterSubscriptionsContent": {
+                "submitButton": {
+                  "label": "Update my preferences"
+                },
+                "title": "Newsletter subscriptions",
+                "fields": [
+                  {
+                    "name": "Subscribe to newsletter",
+                    "type": "checkbox",
+                    "label": "Subscribe to newsletter",
+                    "value": "Subscribe to newsletter"
                   },
-                  "preferencesIntroContent":{
-                     "heading":"My personalisation preferences",
-                     "content":"Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
-                  },
-                  "updatePropsContent":{
-                     "deleteProps":{
-                        "success":"1 answer deleted.",
-                        "error":"We're sorry, we couldn't delete this answer. Please try again later."
-                     },
-                     "saveProps":{
-                        "success":"New answer saved.",
-                        "error":"We're sorry, we couldn't save this answer. Please try again later."
-                     }
-                  },
-                  "noResultContent":{
-                     "heading":"Personalise your experience!",
-                     "message":"Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
-                  },
-                  "buttonsContent":{
-                     "editButton":{
-                        "label":"Edit"
-                     },
-                     "deleteButton":{
-                        "label":"Delete"
-                     },
-                     "cancelButton":{
-                        "label":"Cancel"
-                     },
-                     "saveButton":{
-                        "label":"Save"
-                     }
-                  },
-                  "resultLabelContent":{
-                     "showResultLabel":"Show answers count",
-                     "savedResultsTemplateSingle":"{quantity} answer found",
-                     "savedResultsTemplatePlural":"{quantity} answers found"
+                  {
+                    "name": "Subscribe to whitelabel newsletter",
+                    "type": "checkbox",
+                    "label": "Subscribe to whitelabel newsletter",
+                    "value": "Subscribe to whitelabel newsletter"
                   }
-               }
-            },
-            {
-               "name":"RecipeListing",
-               "content":{
-                  "title":"Favorite recipes",
-                  "resultLabel":"recipe",
-                  "resultLabelPlural":"recipes",
-                  "cta":{
-                     "label":"Load More recipes"
-                  },
-                  "nullResult":{
-                     "title":"You don’t have favourite recipes yet.",
-                     "textList":[
-   
-                     ]
-                  }
-               }
-            },
-            {
-               "name":"Button",
-               "content":{
-                  "label":"Start saving recipes",
-                  "view":"ProfileFavorites"
-               }
-            },
-            {
-               "name":"Tabs",
-               "content":{
-                  "tabsContent": {
-                     "tabs":[
-                        {
-                           "title":"Favorites",
-                           "view":"ProfileFavorites"
-                        },
-                        {
-                           "title":"Preferences",
-                           "view":"UserPreferences"
-                        },
-                        {
-                           "title":"Your meal plan",
-                           "view":"MealPlanner"
-                        }
-                     ]
-                  },
-                  "tabsHeaderContent": {
-                     "contents": [
-                        {
-                           "heading": "Favorites",
-                           "subheading": "Control everything about your eat.com account",
-                           "defaultSubheading": "You have {num} favorite recipes",
-                           "view": "ProfileFavorites"
-                        },
-                        {
-                           "heading": "My preferences",
-                           "subheading": "Control everything about your eat.com account",
-                           "view": "UserPreferences"
-                        },
-                        {
-                           "heading":"Your meal plan",
-                           "subheading": "Control everything about your eat.com account",
-                           "view":"MealPlanner"
-                        }
-                     ]
-                  }
-               }
-            },
-            {
-               "name": "PreferencesQuiz",
-               "content": {
-                  "quizTitle": "Intro quiz",
-                  "view": "IntroQuiz"
-               }
-            },
-            {
-               "name": "PreferencesQuiz",
-               "content": {
-                  "quizTitle": "Meal planner",
-                  "view": "MealPlanner"
-               }
-            },
-            {
-               "name": "RecipeListing",
-               "content": {
-                  "title": "Meal plan",
-                  "view": "MealPlan"
-               }
-            },
-            {
-               "name": "Button",
-               "content": {
-                  "label": "Change my meal plan",
-                  "view": "ChangeMealPlan"
-               }
-            },
-            {
-               "name": "Text",
-               "content": {
-                  "text": "Your meal plan is not set up yet",
-                  "view": "NoMealPlanResults"
-               }
+                ]
+              },
+              "preferencesIntroContent": {
+                "heading": "My personalisation preferences",
+                "content": "Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
+              },
+              "updatePropsContent": {
+                "deleteProps": {
+                  "success": "1 answer deleted.",
+                  "error": "We're sorry, we couldn't delete this answer. Please try again later."
+                },
+                "saveProps": {
+                  "success": "New answer saved.",
+                  "error": "We're sorry, we couldn't save this answer. Please try again later."
+                }
+              },
+              "noResultContent": {
+                "heading": "Personalise your experience!",
+                "message": "Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
+              },
+              "buttonsContent": {
+                "editButton": {
+                  "label": "Edit"
+                },
+                "deleteButton": {
+                  "label": "Delete"
+                },
+                "cancelButton": {
+                  "label": "Cancel"
+                },
+                "saveButton": {
+                  "label": "Save"
+                }
+              },
+              "resultLabelContent": {
+                "showResultLabel": "Show answers count",
+                "savedResultsTemplateSingle": "{quantity} answer found",
+                "savedResultsTemplatePlural": "{quantity} answers found"
+              }
             }
-         ]
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "title": "Favorite recipes",
+              "resultLabel": "recipe",
+              "resultLabelPlural": "recipes",
+              "cta": {
+                "label": "Load More recipes"
+              },
+              "nullResult": {
+                "title": "You don’t have favourite recipes yet.",
+                "textList": []
+              }
+            }
+          },
+          {
+            "name": "Button",
+            "content": {
+              "label": "Start saving recipes",
+              "view": "ProfileFavorites"
+            }
+          },
+          {
+            "name": "Tabs",
+            "content": {
+              "tabsContent": {
+                "tabs": [
+                  {
+                    "title": "Favorites",
+                    "view": "ProfileFavorites"
+                  },
+                  {
+                    "title": "Preferences",
+                    "view": "UserPreferences"
+                  },
+                  {
+                    "title": "Your meal plan",
+                    "view": "MealPlanner"
+                  }
+                ]
+              },
+              "tabsHeaderContent": {
+                "contents": [
+                  {
+                    "heading": "Favorites",
+                    "subheading": "Control everything about your eat.com account",
+                    "defaultSubheading": "You have {num} favorite recipes",
+                    "view": "ProfileFavorites"
+                  },
+                  {
+                    "heading": "My preferences",
+                    "subheading": "Control everything about your eat.com account",
+                    "view": "UserPreferences"
+                  },
+                  {
+                    "heading": "Your meal plan",
+                    "subheading": "Control everything about your eat.com account",
+                    "view": "MealPlanner"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "PreferencesQuiz",
+            "content": {
+              "quizTitle": "Intro quiz",
+              "view": "IntroQuiz"
+            }
+          },
+          {
+            "name": "PreferencesQuiz",
+            "content": {
+              "quizTitle": "Meal planner",
+              "view": "MealPlanner"
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "title": "Meal plan",
+              "view": "MealPlan"
+            }
+          },
+          {
+            "name": "Button",
+            "content": {
+              "label": "Change my meal plan",
+              "view": "ChangeMealPlan"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "text": "Your meal plan is not set up yet",
+              "view": "NoMealPlanResults"
+            }
+          }
+        ]
       },
       "seo": {
         "title": "Recepedia - E sua receita, qual é?",

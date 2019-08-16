@@ -135,7 +135,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   useEffect(() => {
     //@ts-ignore
     setSearchAgent(window.searchAgentOnPage);
-    if (introDone && isQuizStored() && !recipesFound.personal) {
+    if (!recipesFound.personal) {
       const promises = getPersonalizedRecipes();
       promises &&
         Promise.all(promises)

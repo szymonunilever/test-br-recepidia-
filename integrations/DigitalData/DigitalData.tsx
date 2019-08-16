@@ -12,9 +12,7 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       var channelVal = 'Brand Site'; 
       var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
         keys.digitalData
-      )}) : ${JSON.stringify(keys.digitalData)};    
-      var UDM = ${JSON.stringify(keys.UDM)};  
-      )}) : ${JSON.stringify(keys.digitalData)};    
+      )}) : ${JSON.stringify(keys.digitalData)};      
       var UDM = UDM ? Object.assign(UDM, ${JSON.stringify(
         keys.UDM
       )}): ${JSON.stringify(keys.UDM)};  

@@ -12,14 +12,28 @@ const updateES = require('./scripts/build/updateElasticsearch');
 
 const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
 
-const getSlugFromPath = (path, node) =>
-  url.resolve(
-    path,
-    ((node.title && node.title.replace(/[&,+()$~%.'":*?<>{}]/g, '')) || node.id)
-      .toLowerCase()
-      .split(' ')
-      .join('-')
-  );
+const urlPartialsByTypeMap = {
+  Article: 'title',
+  Recipe: 'title',
+  Tag: 'name',
+};
+
+const getSlugFromPath = (path, node) => {
+  const urlPartial = urlPartialsByTypeMap[node.internal.type] || 'id';
+
+  return url
+    .resolve(
+      path,
+      node[urlPartial] &&
+        node[urlPartial]
+          .replace(/[&,+()$~%.'":*?<>{}]/g, '')
+          .toLowerCase()
+          .split(' ')
+          .join('-')
+    )
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+};
 
 const createSlugFor = ({ path, node, createNodeField }) => {
   const slug = getSlugFromPath(path, node);
@@ -48,7 +62,7 @@ exports.onCreateNode = async ({
       createSlugFor({ path: '/', node, createNodeField });
       break;
     case 'Article': {
-      const slug = getSlugFromPath('/articles/', node);
+      createSlugFor({ path: '/articles/', node, createNodeField });
 
       await Promise.all(
         node.assets.map(async asset => {
@@ -77,12 +91,6 @@ exports.onCreateNode = async ({
           return asset;
         })
       );
-
-      createNodeField({
-        node,
-        name: 'slug',
-        value: slug,
-      });
       break;
     }
 

@@ -9,6 +9,7 @@ import {
 } from 'src/utils/searchUtils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
+import useMedia from 'src/utils/useMedia';
 
 const useSearchResults = (searchQuery: string) => {
   const [recipeResults, setRecipeResults] = useState<{
@@ -40,6 +41,7 @@ const useSearchResults = (searchQuery: string) => {
     count: 0,
   });
   const [resultsFetched, setResultsFetched] = useState(false);
+  const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const getRecipeSearchData = useCallback(
     async (searchQeury, params) =>
@@ -94,15 +96,16 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQuery, params) =>
       getSearchSuggestionResponse(searchQuery, params)
         .then(res => {
-          const [recipeSearchResponse, articleSearchResponse] = res;
+          // const [recipeSearchResponse, articleSearchResponse] = res;
+          const [recipeSearchResponse] = res; // @todo remove this line and uncomment the a line above when articles are there
 
           setSearchInputResults({
             ...searchInputResults,
             list: [
               ...recipeSearchResponse.hits.hits.map(item => item._source.title),
-              ...articleSearchResponse.hits.hits.map(
-                item => item._source.title
-              ),
+              // ...articleSearchResponse.hits.hits.map(  // @todo uncomment these lines when articles are there
+              //   item => item._source.title
+              // ),
             ],
           });
         })
@@ -114,7 +117,7 @@ const useSearchResults = (searchQuery: string) => {
 
   const getSearchData = async (searchQeury: string, params: SearchParams) => {
     Promise.all([
-      getArticleSearchData(searchQeury, params),
+      // getArticleSearchData(searchQeury, params),
       getRecipeSearchData(searchQeury, params),
     ]).then(() => {
       setResultsFetched(true);
@@ -139,6 +142,7 @@ const useSearchResults = (searchQuery: string) => {
     searchInputResults,
     resultsFetched,
     initialRecipesCount,
+    initialTagsCount,
   };
 };
 
