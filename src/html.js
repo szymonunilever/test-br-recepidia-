@@ -16,6 +16,7 @@ export default function HTML(props) {
     );
     css = (
       <>
+        {/* <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin /> */}
         <link rel="preload" as="style" href="/styles.css" />
         <link rel="stylesheet" href="/styles.css" />
       </>
@@ -95,6 +96,15 @@ export default function HTML(props) {
         />
         {headComponents}
         {css}
+        <link
+          rel="preconnect"
+          crossOrigin="true"
+          href="https://fonts.gstatic.com/"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Rubik:500&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
