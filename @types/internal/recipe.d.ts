@@ -5,6 +5,6 @@ declare namespace Internal {
     fields: {
       slug: string;
     };
-    recipeId: string;
+    recipeId: number;
   }
 }

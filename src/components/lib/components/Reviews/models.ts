@@ -4,5 +4,5 @@ export interface ReviewsProps {
   provider: RatingAndReviewsProvider;
   className?: string;
   linkTo?: string;
-  recipeId: string;
+  recipeId: number;
 }
