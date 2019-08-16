@@ -12,12 +12,12 @@ module.exports = async (url, id, staticParams) => {
     parentNodeId: id,
     ext: '.jpg',
     name: 'image',
-    auth: {
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      htaccess_pass: keys.AemAssetsCredentials.password,
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      htaccess_user: keys.AemAssetsCredentials.user,
-    },
+    // auth: {
+    //   // eslint-disable-next-line @typescript-eslint/camelcase
+    //   htaccess_pass: keys.AemAssetsCredentials.password,
+    //   // eslint-disable-next-line @typescript-eslint/camelcase
+    //   htaccess_user: keys.AemAssetsCredentials.user,
+    // },
     ...staticParams,
   });
   return imgNode;
