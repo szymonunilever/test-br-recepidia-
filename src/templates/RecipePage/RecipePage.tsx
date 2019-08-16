@@ -32,8 +32,6 @@ import Reviews from 'src/components/lib/components/Reviews';
 import { findPageComponentContent } from 'src/utils';
 import FavoriteIcon from '../../svgs/inline/favorite.svg';
 import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
-import attributes from 'src/components/data/dietaryAttributes.json';
-import activeAttributes from 'src/components/data/dietaryAttributesActive.json';
 import * as icons from 'src/svgs/attributes';
 import CloseButton from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
@@ -60,7 +58,7 @@ import {
   saveUserProfileByKey,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import { remove } from 'lodash';
+import { remove, get } from 'lodash';
 
 const RecipeListingWithFavorite = RecipeListingWithFavorites(
   RecipeListing,
@@ -73,6 +71,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     allTag,
     allRecipe,
+    dietaryTagGroup,
   }: {
     allTag: {
       nodes: Internal.Tag[];
@@ -80,11 +79,20 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     allRecipe: {
       nodes: Internal.Recipe[];
     };
+    dietaryTagGroup: RMSData.TagGroupings;
   } = useStaticQuery(graphql`
     {
       allTag {
         nodes {
           ...TagFields
+        }
+      }
+
+      dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
+        id
+        tags {
+          id
+          name
         }
       }
 
@@ -100,60 +108,69 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     recipe,
   } = pageContext;
   const tags = allTag.nodes;
+
+  const allDietaryList = (dietaryTagGroup && dietaryTagGroup.tags) || [];
+
+  const currentRecipeDietaryList = get(
+    recipe.tagGroups.find(tags => tags.label === 'dietary'),
+    'tags',
+    []
+  );
+
   const dietaryAttributesIcons = [
     {
-      id: 'vegetarian',
+      id: 11,
       active: <icons.VegeterianActive />,
       inActive: <icons.VegeterianInactive />,
     },
     {
-      id: 'vegan',
+      id: 10,
       active: <icons.VeganActive />,
       inActive: <icons.VeganInactive />,
     },
     {
-      id: 'nutFree',
+      id: 5,
       active: <icons.NutFreeActive />,
       inActive: <icons.NutFreeInactive />,
     },
     {
-      id: 'pregnancySafe',
+      id: 7,
       active: <icons.PregnancySafeActive />,
       inActive: <icons.PregnancySafeInactive />,
     },
     {
-      id: 'glutenFree',
+      id: 3,
       active: <icons.GlutenFreeActive />,
       inActive: <icons.GlutenFreeInactive />,
     },
     {
-      id: 'lactoseFree',
+      id: 4,
       active: <icons.LactoseFreeActive />,
       inActive: <icons.LactoseFreeInactive />,
     },
     {
-      id: 'rawFood',
+      id: 8,
       active: <icons.RawFoodActive />,
       inActive: <icons.RawFoodInactive />,
     },
     {
-      id: 'eggFree',
+      id: 2,
       active: <icons.EggFreeActive />,
       inActive: <icons.EggFreeInactive />,
     },
     {
-      id: 'paleoFree',
+      id: 6,
       active: <icons.PaleoDietActive />,
       inActive: <icons.PaleoDietInactive />,
     },
     // TODO replace below icons with proper onesafter
     {
-      id: 'wheatFree',
+      id: 1,
       active: <icons.DairyFreeActive />,
       inActive: <icons.DairyFreeInactive />,
     },
     {
-      id: 'dairyProductFree',
+      id: 9,
       active: <icons.WheatFreeActive />,
       inActive: <icons.WheatFreeInactive />,
     },
@@ -370,10 +387,10 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         <div className="container">
           <Text text={'Nutritional'} tag={TagName.h2} />
         </div>
-        <div className="container-fluid">
+        <div className="container">
           <RecipeDietaryAttributes
-            activeAttributes={activeAttributes}
-            attributes={attributes}
+            activeAttributes={currentRecipeDietaryList}
+            attributes={allDietaryList}
             icons={dietaryAttributesIcons}
           />
           <RecipeNutrients

@@ -10,6 +10,8 @@
 
   &__image {
     margin-bottom: 24px;
+    border-radius: 5px;
+    overflow: hidden;
     @include respondTo(desktop) {
       margin-bottom: 37px;
     }
@@ -28,7 +30,7 @@
   &__recipes-link {
     display: block;
     width: 100%;
-    color: $fish-blue-darker;
+    color: $black-blue;
     @include respondTo(medium) {
       width: 352px;
       margin: 0 auto;
@@ -51,6 +53,7 @@
     margin-bottom: 35px;
     @include respondTo(desktop) {
       margin-bottom: 30px;
+      font-size: 2rem;
     }
   }
 }
