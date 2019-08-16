@@ -46,20 +46,48 @@ const generateQueryString = (
   let mp = mealPlaner && objectToArray(mealPlaner);
   q && arrayToQueryPart(q);
   mp && arrayToQueryPart(mp);
+  const operator = template.match(/AND|OR/g);
+  const parts = template.replace(/\(|\)/g, '').split(/AND|OR/);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let params: { param: any; weight: string }[];
 
-  let formula = template.replace(/Q#(.)(\^.\sOR|AND\s)?/g, '${q[$1-1]}$2');
-  formula =
-    mp && mp.length > 0
-      ? formula.replace(/MP#(.)(\^.\sOR|AND\s)?/g, '${mp[$1-1]}$2')
-      : formula.replace(/MP#.(\^.\sOR|AND\s)?/g, '');
-  formula = formula.replace(/(OR|AND)(\s)? (\)|$)/, '$3').replace(/\s\s/g, '');
-  let res = eval('`' + formula + '`');
-  res = res
-    .replace(/\S+:\(\)(\^\d+\sAND|OR\s)?/g, '')
-    .replace(/(\()?(\s)?undefined(\^\d+(\sAND|OR\s)?)?(\))?/g, '')
-    .replace(/^(\s)+?\)/, '');
+  params = parts.map(str => {
+    const arr = str.split('^');
+    return { param: arr[0], weight: arr[1] };
+  });
 
-  return res === '' ? undefined : res;
+
+  return params.reduce((prev, { param, weight }, i, params) => {
+    const realAnswer = eval(
+      '`' +
+        param.replace(/Q#(.)/, '${q[$1-1]}').replace(/MP#(.)/, '${mp[$1-1]}') +
+        '`'
+    );
+    const nextAnswer = params[i + 1]
+      ? eval(
+          '`' +
+            params[i + 1].param
+              .replace(/Q#(.)/, '${q[$1-1]}')
+              .replace(/MP#(.)/, '${mp[$1-1]}') +
+            '`'
+        )
+      : undefined;
+
+    const isUndefined = /undefined|\S+:\(\)/.test(realAnswer);
+    const nextUndefined = /undefined|\S+:\(\)/.test(nextAnswer);
+
+    if (!isUndefined && weight && operator && operator[i] && !nextUndefined) {
+      return prev + `(${realAnswer})^${weight} ${operator[i]} `;
+    } else if (!isUndefined && operator && operator[i] && !nextUndefined) {
+      return prev + `(${realAnswer}) ${operator[i]} `;
+    } else if (!isUndefined && weight) {
+      return prev + `(${realAnswer})^${weight}`;
+    } else if (!isUndefined) {
+      return prev + `(${realAnswer})`;
+    } else {
+      return prev;
+    }
+  }, '');
 };
 
 export default generateQueryString;
