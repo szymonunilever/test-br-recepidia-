@@ -56,7 +56,6 @@ const generateQueryString = (
     return { param: arr[0], weight: arr[1] };
   });
 
-
   return params.reduce((prev, { param, weight }, i, params) => {
     const realAnswer = eval(
       '`' +
