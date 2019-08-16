@@ -10,11 +10,11 @@ module.exports = async (url, id, staticParams) => {
     name: 'image',
     auth: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      htaccess_pass: 'unilever',
-      // htaccess_pass: keys.AemAssetsCredentials.password,
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      htaccess_user: '@@Brazil!@@',
+      htaccess_user: 'unilever',
       // htaccess_user: keys.AemAssetsCredentials.user,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      htaccess_pass: '@@Brazil!@@',
+      // htaccess_pass: keys.AemAssetsCredentials.password,
     },
     ...staticParams,
   });
