@@ -9,6 +9,7 @@ import {
 } from 'src/utils/searchUtils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
+import useMedia from 'src/utils/useMedia';
 
 const useSearchResults = (searchQuery: string) => {
   const [recipeResults, setRecipeResults] = useState<{
@@ -40,6 +41,7 @@ const useSearchResults = (searchQuery: string) => {
     count: 0,
   });
   const [resultsFetched, setResultsFetched] = useState(false);
+  const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const getRecipeSearchData = useCallback(
     async (searchQeury, params) =>
@@ -140,6 +142,7 @@ const useSearchResults = (searchQuery: string) => {
     searchInputResults,
     resultsFetched,
     initialRecipesCount,
+    initialTagsCount,
   };
 };
 

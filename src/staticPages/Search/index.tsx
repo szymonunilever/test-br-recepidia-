@@ -44,6 +44,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     searchInputResults,
     resultsFetched,
     initialRecipesCount,
+    initialTagsCount,
   } = useSearchResults(searchQuery);
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
@@ -107,7 +108,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         <section className="_pt--40 _pb--40">
           <div className="container">
             <TagLinks
-              initialCount={tagList.length}
+              initialCount={initialTagsCount}
               list={tagList}
               content={findPageComponentContent(components, 'Tags')}
             />
