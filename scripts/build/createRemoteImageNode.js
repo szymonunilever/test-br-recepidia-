@@ -3,7 +3,8 @@ const keys = require('../../integrations/keys.json');
 
 module.exports = async (url, id, staticParams) => {
   const imgNode = await createRemoteFileNode({
-    url: 'https://develop--br-recepedia-com.netlify.com/Recipe-image.jpg',
+    url:
+      'https://unilever:@@Brazil!@@@develop--br-recepedia-com.netlify.com/Recipe-image.jpg',
     // 'https://author-dev-headless.unileversolutions.com/api/assets/aem-headless-cms/headless-demo/br/pt/homepage-content/teaser-content/images/teaser-image.png',
     parentNodeId: id,
     ext: '.jpg',
