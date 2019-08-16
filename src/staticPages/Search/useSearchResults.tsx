@@ -94,15 +94,16 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQuery, params) =>
       getSearchSuggestionResponse(searchQuery, params)
         .then(res => {
-          const [recipeSearchResponse, articleSearchResponse] = res;
+          // const [recipeSearchResponse, articleSearchResponse] = res;
+          const [recipeSearchResponse] = res; // @todo remove this line and uncomment the a line above when articles are there
 
           setSearchInputResults({
             ...searchInputResults,
             list: [
               ...recipeSearchResponse.hits.hits.map(item => item._source.title),
-              ...articleSearchResponse.hits.hits.map(
-                item => item._source.title
-              ),
+              // ...articleSearchResponse.hits.hits.map(  // @todo uncomment these lines when articles are there
+              //   item => item._source.title
+              // ),
             ],
           });
         })
@@ -114,7 +115,7 @@ const useSearchResults = (searchQuery: string) => {
 
   const getSearchData = async (searchQeury: string, params: SearchParams) => {
     Promise.all([
-      getArticleSearchData(searchQeury, params),
+      // getArticleSearchData(searchQeury, params),
       getRecipeSearchData(searchQeury, params),
     ]).then(() => {
       setResultsFetched(true);
