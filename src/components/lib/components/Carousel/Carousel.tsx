@@ -140,6 +140,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
 
   useEffect(() => {
     const newBreakpoint = getNearestBreakpoint(window.innerWidth);
+    setCarouselSettings(newBreakpoint);
+  }, [list]);
+
+  useEffect(() => {
+    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
     if (shouldUpdate(newBreakpoint)) {
       setCarouselSettings(newBreakpoint);
     }

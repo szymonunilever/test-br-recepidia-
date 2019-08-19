@@ -1907,12 +1907,6 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-dom@*":
-  version "16.8.4"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.4.tgz#7fb7ba368857c7aa0f4e4511c4710ca2c5a12a88"
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-flag-icon-css@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-flag-icon-css/-/react-flag-icon-css-1.0.2.tgz#ad758931ddf70a46e36ddf845791dc9233ea2b53"
@@ -1932,23 +1926,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-select@^2.0.19":
-  version "2.0.19"
-  resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-2.0.19.tgz#59a80ef81a4a5cb37f59970c53a4894d15065199"
-  dependencies:
-    "@types/react" "*"
-    "@types/react-dom" "*"
-    "@types/react-transition-group" "*"
-
 "@types/react-test-renderer@^16.8.1":
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.8.1.tgz#96f3ce45a3a41c94eca532a99103dd3042c9d055"
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-transition-group@*":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-2.9.2.tgz#c48cf2a11977c8b4ff539a1c91d259eaa627028d"
   dependencies:
     "@types/react" "*"
 
@@ -5688,10 +5668,6 @@ eslint@^5.16.0, eslint@^5.6.0:
     strip-json-comments "^2.0.1"
     table "^5.2.3"
     text-table "^0.2.0"
-
-esm@^3.2.25:
-  version "3.2.25"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
 
 espree@^5.0.1:
   version "5.0.1"
