@@ -18,10 +18,15 @@ module.exports = {
       resolve: 'gatsby-plugin-zopfli',
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: 'gatsby-plugin-svgr',
       options: {
-        rule: {
-          include: /inline/,
+        prettier: false,
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false,
+            cleanupNumericValues: true,
+            prefixIds: true,
+          },
         },
       },
     },

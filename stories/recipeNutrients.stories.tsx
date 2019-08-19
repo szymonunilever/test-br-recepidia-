@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import dataRecipe from 'src/components/data/recipe.json';
-import CloseButton from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
 } from 'src/components/lib/components/RecipeNutrients';

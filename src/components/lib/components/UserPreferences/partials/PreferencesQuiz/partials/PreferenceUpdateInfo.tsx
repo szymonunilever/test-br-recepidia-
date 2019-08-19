@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { PreferenceUpdateProps, PreferenceUpdateResultType } from './models';
-import SuccessIcon from 'src/svgs/inline/checkmark-bigger.svg';
-import ErrorIcon from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as SuccessIcon } from 'src/svgs/inline/checkmark-bigger.svg';
+import { ReactComponent as ErrorIcon } from 'src/svgs/inline/x-mark.svg';
 import { TagName, Text } from 'src/components/lib/components/Text';
 
 const classNameMap = {

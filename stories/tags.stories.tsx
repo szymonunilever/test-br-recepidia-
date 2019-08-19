@@ -7,7 +7,7 @@ import {
   TagViewType,
   TagVariant,
 } from '../src/components/lib/components/Tags/models';
-import RemoveIcon from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as RemoveIcon } from 'src/svgs/inline/x-mark.svg';
 const content: AppContent.TagsContent = {
   title: 'Custom title text',
   loadMoreButton: {

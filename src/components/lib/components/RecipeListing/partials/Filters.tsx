@@ -10,7 +10,7 @@ import { FilterSettings } from './index';
 import map from 'lodash/map';
 import remove from 'lodash/remove';
 import { Modal } from 'src/components/lib/components/Modal';
-import CloseSvg from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { TagVariant } from '../../Tags/models';
 
 const Filter = ({

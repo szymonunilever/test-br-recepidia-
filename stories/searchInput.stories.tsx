@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import PlaceholderIcon from '../src/svgs/inline/placeholder.svg';
+import { ReactComponent as PlaceholderIcon } from '../src/svgs/inline/placeholder.svg';
 
 import SeachInput from 'src/components/lib/components/SearchInput';
 import searchData from 'src/components/data/search.json';
 import { Modal } from 'src/components/lib/components/Modal';
-import CloseSvg from 'src/svgs/inline/x-mark.svg';
-import SearchSvg from 'src/svgs/inline/search-icon.svg';
+import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as SearchSvg } from 'src/svgs/inline/search-icon.svg';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ModalStateControl = (props: any) => {

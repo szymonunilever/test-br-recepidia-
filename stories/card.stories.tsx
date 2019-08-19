@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import Card, { CardProps } from 'src/components/lib/components/Card';
-import Phone from 'src/svgs/inline/unilever-logo.svg';
+import { ReactComponent as Phone } from 'src/svgs/inline/unilever-logo.svg';
 
 const cards: CardProps[] = [
   {

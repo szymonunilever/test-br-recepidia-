@@ -11,10 +11,10 @@ import RecipeCopy, {
 import RecipeAttributes, {
   RecipeAttributesKeys,
 } from 'src/components/lib/components/RecipeAttributes';
-import RecipeClock from 'src/svgs/inline/recipe-clock.svg';
-import RecipeDifficulty from 'src/svgs/inline/recipe-difficulty.svg';
-import RecipePeople from 'src/svgs/inline/recipe-people.svg';
-import RecipeKnife from 'src/svgs/inline/recipe-chop.svg';
+import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
+import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
+import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
+import { ReactComponent as RecipeKnife } from 'src/svgs/inline/recipe-chop.svg';
 import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
@@ -22,7 +22,7 @@ import RecipeNutrients, {
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { Tabs } from 'src/components/lib/components/Tabs';
@@ -30,10 +30,10 @@ import { Tab } from '../../components/lib/components/Tabs/partials';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Reviews from 'src/components/lib/components/Reviews';
 import { findPageComponentContent } from 'src/utils';
-import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 import * as icons from 'src/svgs/attributes';
-import CloseButton from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
 import { Text, TagName } from 'src/components/lib/components/Text';
 import Button from '../../components/lib/components/Button';
 import SocialSharing, {
@@ -42,8 +42,8 @@ import SocialSharing, {
 } from 'src/components/lib/components/SocialSharing';
 import AddThis from '../../../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
-import FacebookIcon from 'src/svgs/inline/facebook.svg';
-import TwitterIcon from 'src/svgs/inline/twitter.svg';
+import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
+import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';

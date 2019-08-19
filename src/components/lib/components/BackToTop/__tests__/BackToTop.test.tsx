@@ -1,8 +1,7 @@
 /* global describe, it, expect */
 import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
-// @ts-ignore
-import Icon from 'src/svgs/inline/plus.svg';
+import { ReactComponent as Icon } from 'src/svgs/inline/plus.svg';
 import { ButtonViewType } from '../../Button';
 import { BackToTop } from '../index';
 

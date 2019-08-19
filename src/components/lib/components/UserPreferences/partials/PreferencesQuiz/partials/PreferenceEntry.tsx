@@ -8,8 +8,8 @@ import { PreferenceEntryProps } from './models';
 import Button from 'src/components/lib/components/Button';
 import Question from 'src/components/lib/components/Wizard/partials/Quiz/partials/Question';
 import QuestionLabel from 'src/components/lib/components/Wizard/partials/Quiz/partials/QuestionLabel';
-import IconEdit from 'src/svgs/inline/edit.svg';
-import IconDelete from 'src/svgs/inline/delete.svg';
+import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
+import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
 
 const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
   preferenceEntry,

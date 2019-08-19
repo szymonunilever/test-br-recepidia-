@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-// @ts-ignore
-import Icon from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as Icon } from 'src/svgs/inline/arrow-up.svg';
 import { BackToTop } from '../src/components/lib/components/BackToTop';
 
 const page = {
