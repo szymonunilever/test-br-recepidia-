@@ -20,7 +20,7 @@ const sortByTitle = (list: Internal.Recipe[]) => _sortBy(list, ['title']);
 export function applyingFavorites(
   list: Internal.Recipe[],
   withFavorites: boolean,
-  favorites: string[]
+  favorites: number[]
 ) {
   return withFavorites && favorites.length > 0 && list.length > 0
     ? list.map(item => {

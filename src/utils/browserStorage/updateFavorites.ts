@@ -1,7 +1,7 @@
 import { ProfileKey } from './models';
 import saveUserProfileByKey from './saveUserProfileByKey';
 
-const updateFavorites = (favorites: string[]) => {
+const updateFavorites = (favorites: number[]) => {
   saveUserProfileByKey(favorites, ProfileKey.favorites);
 };
 

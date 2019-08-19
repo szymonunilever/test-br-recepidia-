@@ -96,7 +96,7 @@ export const RecipeListing = ({
     recipeId,
     val,
   }: {
-    recipeId: string;
+    recipeId: number;
     val: boolean;
   }) => {
     val ? favorites.push(recipeId) : remove(favorites, n => n === recipeId);

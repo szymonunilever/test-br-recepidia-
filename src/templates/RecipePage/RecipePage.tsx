@@ -231,7 +231,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
               .includes(recipe.recipeId)}
             onClick={() => {
               // @ts-ignore
-              const favorites: string[] = Array.isArray(
+              const favorites: number[] = Array.isArray(
                 getUserProfileByKey(ProfileKey.favorites)
               )
                 ? getUserProfileByKey(ProfileKey.favorites)
