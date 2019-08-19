@@ -15,8 +15,11 @@
       }
       &__sort {
         width: calc(100px + 5vw);
+        min-height: 43px;
+        border-radius: 0;
         @include respondTo(desktop) {
           width: 180px;
+          min-height: 46px;
         }
         &:hover {
           cursor: pointer;
@@ -24,54 +27,27 @@
         & > * {
           font-size: 1.4rem;
         }
-        [class*='menu'] {
-          margin: 0;
-          border: none;
-          z-index: 2;
-          & > div:first-child {
-            padding: 0;
-          }
-        }
-        [class*='control'] {
-          border-radius: 0;
-          padding: 0 10px;
-          min-height: 43px;
-          // for ie aligning
-          line-height: 37px;
-          margin: 0;
-          box-shadow: none;
-          .css-1hwfws3 {
-            position: relative;
-            display: block;
-            z-index: 2;
-          }
-          @include respondTo(desktop) {
-            min-height: 46px;
-            // for ie aligning
-            line-height: 40px;
-          }
-          &:hover {
-            cursor: pointer;
-          }
-          //temporary
-        }
-        [class*='placeholder'] {
-          color: $black-blue;
-        }
-        .option {
-          font-size: 1.4rem;
-          transition: background-color 0.2s ease-out;
-          color: $black-blue;
-          &.is-focused {
-            background: $apple-green;
-          }
-          &.is-selected {
-            background: $black-blue;
-            color: $white;
-          }
-        }
         &-label-text {
           @extend .sr-only;
+        }
+        .react-dropdown-select {
+          &-input {
+            color: inherit;
+          }
+          &-content {
+            flex-wrap: nowrap;
+            max-width: calc(100% - 20px);
+            > span {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              width: 100%;
+              overflow: hidden;
+            }
+          }
+          &-item {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
         }
       }
       &__button {

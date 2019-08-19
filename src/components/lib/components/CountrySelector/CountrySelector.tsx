@@ -29,8 +29,8 @@ const CountrySelector = ({
     <div data-componentname="country-selector" className={selectClassName}>
       <Select
         options={list}
-        placeholder={'Select'}
-        className={'country-dropdown-select'}
+        placeholder="Select"
+        className="country-dropdown-select"
         changeHandler={changeHandler}
         formatOptionLabel={formatOptionLabel}
         defaultValue={selected}

@@ -43,9 +43,9 @@ const Filter = ({
       }))
     : [];
 
-  const sortingChange = (val: Option) => {
-    if (val && onChangeSorting) {
-      onChangeSorting(parseInt(val.value));
+  const sortingChange = (val: Option[]) => {
+    if (val.length && onChangeSorting) {
+      onChangeSorting(parseInt(val[0].value));
     }
   };
 
@@ -95,7 +95,6 @@ const Filter = ({
             className="filter__sort"
             placeholder={sortSelectPlaceholder}
             changeHandler={sortingChange}
-            isSearchable={false}
           />
         </label>
       ) : null}

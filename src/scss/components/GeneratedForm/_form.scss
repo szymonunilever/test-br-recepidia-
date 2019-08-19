@@ -91,40 +91,51 @@
 }
 
 // Select component styles
-.select {
-  &:hover {
-    cursor: pointer;
-  }
-  [class*='control'] {
+body {
+  //body is used to override default styles
+  .react-dropdown-select {
     @extend %input-general;
-    padding: 0;
     min-height: 40px;
+    cursor: pointer;
+    color: $black-blue;
+    padding-left: 18px;
     &:hover {
       border-color: inherit;
     }
-  }
-  [class*='indicatorSeparator'] {
-    display: none;
-  }
-  [class*='indicatorContainer'] {
-    color: inherit;
-  }
-  input {
-    height: 0;
-  }
-  .option {
-    padding: 6px 8px;
-    font-size: 1.4rem;
-    font-family: inherit;
-    &:hover {
-      background-color: $blue-overlay-40;
+    &-input {
+      font-size: inherit;
+      margin: 0;
     }
-    &.is-selected {
-      background-color: $black-blue;
-      color: $white;
+    &-separator {
+      display: none;
     }
-    &.is-focused {
-      background-color: $blue-overlay-40;
+    &-dropdown {
+      border: 0;
+      &-handle {
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .option {
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        @include respondTo(desktop) {
+          padding: 10px 18px;
+        }
+        &.is-selected {
+          background-color: $black-blue;
+          color: $white;
+        }
+        &.active {
+          background-color: $blue-overlay-40;
+        }
+        &:hover {
+          color: $black-blue;
+          background-color: $apple-green;
+        }
+      }
     }
   }
 }
