@@ -59,15 +59,21 @@ module.exports = ({ config }) => {
 
   const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
   fileLoaderRule.exclude = pathToInlineSvg;
+  // @todo externalize svg loader config
   config.module.rules.push({
     test: /\.svg$/,
     include: pathToInlineSvg,
-    use: [{
-      loader: '@svgr/webpack',
-      options: {
-        icon: true,
+    use: [
+      {
+        loader: '@svgr/webpack',
+        options: {
+          icon: true,
+        },
       },
-    }],
+      {
+        loader: 'url-loader',
+      },
+    ],
   });
 
   return config;

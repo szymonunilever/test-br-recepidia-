@@ -1,6 +1,6 @@
 const keys = require('../../integrations/keys.json');
 const axios = require('axios');
-const _ = require('lodash');
+const times = require('lodash/times');
 
 const BATCH_SIZE = 300;
 const NODE_TYPES = { RECIPE: 'Recipe', ARTICLE: 'Article' };
@@ -42,7 +42,7 @@ const clearIndex = (url, index) => {
 const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
   const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
 
-  const promises = _.times(noOfBatches, i => {
+  const promises = times(noOfBatches, i => {
     const startItem = BATCH_SIZE * i;
     const endItem = BATCH_SIZE * (i + 1);
 

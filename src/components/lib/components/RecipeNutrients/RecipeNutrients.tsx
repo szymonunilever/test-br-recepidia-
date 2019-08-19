@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import React, { useState } from 'react';
 import Button, { ButtonViewType } from '../Button';
 import { Modal } from '../Modal';

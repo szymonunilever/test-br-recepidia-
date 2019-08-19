@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import { map } from 'lodash';
 import React, { useState } from 'react';
 import { Option, Select } from '../../Select';
 import { Tags } from '../../Tags';
@@ -8,9 +7,10 @@ import { RecipeFilterProps, RecipeSortingOptions } from './models';
 import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../Button';
 import { FilterSettings } from './index';
-import { remove } from 'lodash';
+import map from 'lodash/map';
+import remove from 'lodash/remove';
 import { Modal } from 'src/components/lib/components/Modal';
-import CloseSvg from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { TagVariant } from '../../Tags/models';
 
 const Filter = ({
@@ -43,9 +43,9 @@ const Filter = ({
       }))
     : [];
 
-  const sortingChange = (val: Option) => {
-    if (val && onChangeSorting) {
-      onChangeSorting(parseInt(val.value));
+  const sortingChange = (val: Option[]) => {
+    if (val.length && onChangeSorting) {
+      onChangeSorting(parseInt(val[0].value));
     }
   };
 
@@ -95,7 +95,6 @@ const Filter = ({
             className="filter__sort"
             placeholder={sortSelectPlaceholder}
             changeHandler={sortingChange}
-            isSearchable={false}
           />
         </label>
       ) : null}

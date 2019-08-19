@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const url = require('url');
-const get = require('lodash').get;
+const get = require('lodash/get');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
@@ -201,10 +201,22 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     plugins: [new MiniCssExtractPlugin({})],
   });
   const config = getConfig();
-  const svgLoaderRule = config.module.rules.find(
-    rule => get(rule, 'use.loader') === 'svg-react-loader'
-  );
-  svgLoaderRule.use.options.classIdPrefix = true;
+  config.resolve = {
+    ...config.resolve,
+    alias: { ...config.resolve.alias, lodash: 'lodash-es' },
+  };
+  const svgLoaderRule = config.module.rules.find(rule => {
+    if (
+      rule.test === /\.svg$/ && Array.isArray(rule.use)
+        ? rule.use.length === 2
+        : false
+    ) {
+      return rule;
+    }
+  });
+  svgLoaderRule &&
+    svgLoaderRule.use &&
+    (svgLoaderRule.use[0].options.classIdPrefix = true);
 
   if (stage === 'develop') {
     config.module.rules.push({

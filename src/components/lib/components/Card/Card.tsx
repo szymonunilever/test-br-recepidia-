@@ -34,6 +34,8 @@ export const Card = ({
           return <a href={`tel:${content[0]}`}>{view}</a>;
         case 'address':
           return <address>{view}</address>;
+        case 'email':
+          return <a href={`mailto:${content[0]}`}>{view}</a>;
         default:
           return view;
       }

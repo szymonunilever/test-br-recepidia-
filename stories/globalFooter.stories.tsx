@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import LogoIcon from 'src/svgs/inline/unilever-logo.svg';
+import { ReactComponent as LogoIcon } from 'src/svgs/inline/unilever-logo.svg';
 
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import content from 'src/components/data/globalFooterMenu.json';

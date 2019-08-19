@@ -1,5 +1,6 @@
 import cx from 'classnames';
-import { remove, get } from 'lodash';
+import remove from 'lodash/remove';
+import get from 'lodash/get';
 import React from 'react';
 import { Accordion } from '../../Accordion';
 import { Button } from '../../Button';

@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import { fromCamelCase, getTagSlug } from 'src/utils';
 
 export const constructMenu = (

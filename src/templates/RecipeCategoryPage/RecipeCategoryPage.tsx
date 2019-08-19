@@ -16,15 +16,15 @@ import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
 import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
-import FavoriteIcon from '../../svgs/inline/favorite.svg';
+import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';

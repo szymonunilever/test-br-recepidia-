@@ -7,7 +7,7 @@ import {
 import PageListing from '../src/components/lib/components/PageListing/PageListing';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
-import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 
 const recipesList: Internal.Recipe[] = recipes.data.allRecipe.edges.map(

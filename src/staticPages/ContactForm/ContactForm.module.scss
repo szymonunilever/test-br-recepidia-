@@ -132,7 +132,8 @@
       @include respondTo(desktop) {
         margin-bottom: 28px;
       }
-      &__input {
+      &__input,
+      &__select {
         padding: 12px 18px;
         @include respondTo(desktop) {
           height: 46px;

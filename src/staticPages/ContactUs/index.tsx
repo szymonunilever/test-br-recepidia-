@@ -7,8 +7,8 @@ import Layout from '../../components/Layout/Layout';
 import Card from '../../components/lib/components/Card';
 import { TagName, Text } from '../../components/lib/components/Text';
 import theme from './ContactUs.module.scss';
-import Phone from 'src/svgs/inline/phone.svg';
-import MapMarker from 'src/svgs/inline/map-marker.svg';
+import { ReactComponent as Email } from 'src/svgs/inline/email.svg';
+import { ReactComponent as MapMarker } from 'src/svgs/inline/map-marker.svg';
 import { WindowLocation } from '@reach/router';
 
 const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
@@ -38,8 +38,8 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
               <Card
                 className="card"
                 titleLevel={2}
-                content={findPageComponentContent(components, 'Card', 'Phone')}
-                Icon={Phone}
+                content={findPageComponentContent(components, 'Card', 'Email')}
+                Icon={Email}
               />
 
               <Card

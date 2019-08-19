@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,
@@ -77,18 +77,19 @@ const useSearchResults = (searchQuery: string) => {
   );
 
   const getArticleSearchData = useCallback(
-    async (searchQeury, params) =>
-      getArticleResponse(searchQeury, params).then(res => {
-        setArticleResults({
-          list: params.from
-            ? [
-                ...articleResults.list,
-                ...res.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
-      }),
+    // async (searchQeury, params) =>
+    //   getArticleResponse(searchQeury, params).then(res => {
+    //     setArticleResults({
+    //       list: params.from
+    //         ? [
+    //             ...articleResults.list,
+    //             ...res.hits.hits.map(resItem => resItem._source),
+    //           ]
+    //         : res.hits.hits.map(resItem => resItem._source),
+    //       count: res.hits.total,
+    //     });
+    //   }),
+    async (searchQeury, params) => {}, // @todo remove this line and uncomment the a lines above when articles are there
     [articleResults]
   );
 

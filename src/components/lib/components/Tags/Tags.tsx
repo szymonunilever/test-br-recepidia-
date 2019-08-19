@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'src/components/lib/components/Button';
 import { TagsProps, TagViewType } from './models';
 import Tag from './partials/Tag';
-import { includes } from 'lodash';
+import includes from 'lodash/includes';
 import { TagName, Text } from '../Text';
 
 const Tags = ({

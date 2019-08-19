@@ -4,8 +4,8 @@ import SocialSharing, {
   SocialIcons,
   SocialSharingViewType,
 } from 'src/components/lib/components/SocialSharing';
-import CloseButton from 'src/svgs/inline/x-mark.svg';
-import Icon from 'src/svgs/inline/placeholder.svg';
+import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as Icon } from 'src/svgs/inline/placeholder.svg';
 import AddThis from '../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
 

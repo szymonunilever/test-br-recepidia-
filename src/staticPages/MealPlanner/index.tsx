@@ -5,12 +5,12 @@ import WizardIntroductionPanel from '../../components/lib/components/Wizard/part
 import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
 import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
 import localImage from '../../../stories/assets/localImage';
-import WizardLogo from '../../svgs/inline/wizard-logo.svg';
-import Spinner from '../../svgs/inline/spinner.svg';
+import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
+import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';
 import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
-import ArrowIcon from '../../svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 import {
   saveUserProfileByKey,
   getUserProfileByKey,

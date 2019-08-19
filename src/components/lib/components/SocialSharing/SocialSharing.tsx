@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useState } from 'react';
 import Button from '../Button/index';
-import Icon from 'src/svgs/inline/social-sharing.svg';
+import { ReactComponent as Icon } from 'src/svgs/inline/social-sharing.svg';
 import { ButtonViewType } from '../Button';
 import { Modal } from '../Modal';
 import { SocialSharingProps, SocialSharingViewType } from './models';

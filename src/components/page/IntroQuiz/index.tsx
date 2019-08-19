@@ -6,11 +6,11 @@ import React, {
   useEffect,
 } from 'react';
 import { Modal } from '../../lib/components/Modal';
-import CloseSvg from '../../../svgs/inline/x-mark.svg';
+import { ReactComponent as CloseSvg } from '../../../svgs/inline/x-mark.svg';
 import Wizard from '../../lib/components/Wizard';
 import WizardQuiz from '../../lib/components/Wizard/partials/Quiz';
 import { IntroQuizProps } from './models';
-import WizardLogo from '../../../svgs/inline/wizard-logo.svg';
+import { ReactComponent as WizardLogo } from '../../../svgs/inline/wizard-logo.svg';
 import Logo from '../../lib/components/Logo';
 import {
   getUserProfileByKey,

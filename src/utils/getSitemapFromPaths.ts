@@ -1,4 +1,5 @@
-import { partition, capitalize } from 'lodash';
+import partition from 'lodash/partition';
+import capitalize from 'lodash/capitalize';
 import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
 
 const nestPaths = (

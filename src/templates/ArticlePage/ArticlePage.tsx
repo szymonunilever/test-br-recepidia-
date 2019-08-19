@@ -2,10 +2,10 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import SEO from 'src/components/Seo/Seo';
-import FacebookIcon from 'src/svgs/inline/facebook.svg';
-import TwitterIcon from 'src/svgs/inline/twitter.svg';
-import CloseButton from 'src/svgs/inline/x-mark.svg';
-import PlayIcon from 'src/svgs/inline/arrow-right.svg';
+import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
+import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
+import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as PlayIcon } from 'src/svgs/inline/arrow-right.svg';
 import theme from 'src/templates/ArticlePage/ArticlePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
@@ -13,7 +13,7 @@ import AddThis from '../../../integrations/AddThis';
 import Layout from '../../components/Layout/Layout';
 import Hero from '../../components/lib/components/Hero';
 import RichText from '../../components/lib/components/RichText';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import SocialSharing, {
   SocialIcons,
   SocialSharingViewType,

@@ -1,4 +1,5 @@
-import { find, get } from 'lodash';
+import find from 'lodash/find';
+import get from 'lodash/get';
 
 export const findPageComponentContent = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

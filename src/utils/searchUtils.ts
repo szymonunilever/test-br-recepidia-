@@ -2,6 +2,48 @@ import { useElasticSearch } from '../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import keys from 'integrations/keys.json';
 
+const filteredRecipeSearchParams = (
+  query: string,
+  queryStringToExclude: number[] | undefined,
+  params: SearchParams,
+  getOnlyRecipeCount = false
+) => {
+  const queryString = {
+    query,
+    fields: ['tagGroups.tags.id'],
+  };
+
+  return {
+    index: keys.elasticSearch.recipeIndex,
+    body: {
+      ...params,
+      query: getOnlyRecipeCount
+        ? {
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            query_string: queryString,
+          }
+        : {
+            bool: {
+              must: [
+                {
+                  // eslint-disable-next-line @typescript-eslint/camelcase
+                  query_string: queryString,
+                },
+              ],
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              must_not: [
+                {
+                  terms: {
+                    recipeId: queryStringToExclude,
+                  },
+                },
+              ],
+            },
+          },
+    },
+  };
+};
+
 const recipeSearchParams = (
   searchQuery: string,
   { from, size, _source }: SearchParams
@@ -93,3 +135,13 @@ export const getSearchSuggestionResponse = async (
     ),
   ]);
 };
+
+export const getFilteredRecipeResponse = async (
+  query: string,
+  queryToExclude?: number[],
+  params: SearchParams = {},
+  getOnlyCount = false
+) =>
+  useElasticSearch<Internal.Recipe>(
+    filteredRecipeSearchParams(query, queryToExclude, params, getOnlyCount)
+  );
