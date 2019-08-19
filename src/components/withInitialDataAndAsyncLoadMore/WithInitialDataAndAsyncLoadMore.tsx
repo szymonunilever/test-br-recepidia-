@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getTagsFromRecipes } from '../../utils/getTagsFromRecipes';
-import { useElasticSearch } from '../../utils';
-import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-
-import keys from 'integrations/keys.json';
 import { onLoadMore } from '../lib/components/RecipeListing/models';
 import useMedia from 'src/utils/useMedia';
+import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 
 const withInitialDataAndAsyncLoadMore = <T extends any>(
   Component: React.ComponentType<T>
@@ -31,58 +28,16 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
 
     const [tagList, setTagList] = useState<Internal.Tag[]>([]);
 
-    const getRecipeSearchData = async (
-      params: SearchParams = {},
-      getOnlyRecipeCount = false
-    ) => {
-      const queryString = {
-        query: tag.tagId,
-        fields: ['tagGroups.tags.id'],
-      };
-
-      const searchParams = {
-        index: keys.elasticSearch.recipeIndex,
-        body: {
-          ...params,
-          query: getOnlyRecipeCount
-            ? {
-                // eslint-disable-next-line @typescript-eslint/camelcase
-                query_string: queryString,
-              }
-            : {
-                bool: {
-                  must: [
-                    {
-                      // eslint-disable-next-line @typescript-eslint/camelcase
-                      query_string: queryString,
-                    },
-                  ],
-                  // eslint-disable-next-line @typescript-eslint/camelcase
-                  must_not: [
-                    {
-                      terms: {
-                        recipeId: recipeResultsList.map(
-                          ({ recipeId }) => recipeId
-                        ),
-                      },
-                    },
-                  ],
-                },
-              },
-        },
-      };
-
-      return useElasticSearch<Internal.Recipe>(searchParams);
-    };
-
     const onLoadMoreRecipes = async (
       tags: Internal.Tag[],
       sorting: string,
       size: number
     ) => {
-      getRecipeSearchData({
-        size,
-      }).then(res => {
+      getFilteredRecipeResponse(
+        tag.tagId,
+        recipeResultsList.map(({ recipeId }) => recipeId),
+        { size }
+      ).then(res => {
         setRecipeResultsList([
           ...recipeResultsList,
           ...res.hits.hits.map(item => item._source),
@@ -95,9 +50,11 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
     }, [recipeResultsList]);
 
     useEffect(() => {
-      getRecipeSearchData({ size: 0 }, true).then(res => {
-        setRecipeResultsCount(res.hits.total);
-      });
+      getFilteredRecipeResponse(tag.tagId, undefined, { size: 0 }, true).then(
+        res => {
+          setRecipeResultsCount(res.hits.total);
+        }
+      );
     }, []);
 
     return (

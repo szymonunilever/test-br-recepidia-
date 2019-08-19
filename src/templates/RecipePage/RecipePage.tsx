@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql, useStaticQuery } from 'gatsby';
 import SEO from 'src/components/Seo';
@@ -60,6 +60,7 @@ import {
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import get from 'lodash/get';
 import remove from 'lodash/remove';
+import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 
 const RecipeListingWithFavorite = RecipeListingWithFavorites(
   RecipeListing,
@@ -71,7 +72,6 @@ const RecipeListingWithFavorite = RecipeListingWithFavorites(
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     allTag,
-    allRecipe,
     dietaryTagGroup,
   }: {
     allTag: {
@@ -94,12 +94,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         tags {
           id
           name
-        }
-      }
-
-      allRecipe(limit: 6) {
-        nodes {
-          ...RecipeFields
         }
       }
     }
@@ -177,7 +171,8 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     },
   ];
 
-  const relatedRecipes = allRecipe.nodes;
+  const [relatedRecipes, setRelatedRecipes] = useState<Internal.Recipe[]>([]);
+
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   // const tabsContent = {
   //   tabs: [
@@ -197,6 +192,18 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   };
 
   const initialTagsCount = useMedia(undefined, [9, 5]);
+
+  const tagList = getTagsFromRecipes([recipe], tags);
+
+  useEffect(() => {
+    getFilteredRecipeResponse(
+      tagList.map(tag => tag.tagId).join(' OR '),
+      [recipe.recipeId],
+      { size: 6 }
+    ).then(recipes => {
+      setRelatedRecipes(recipes.hits.hits.map(recipe => recipe._source));
+    });
+  }, []);
 
   const recipeHero = (
     <>
@@ -416,7 +423,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         <div className="container">
           <TagLinks
             initialCount={initialTagsCount}
-            list={getTagsFromRecipes([recipe], tags)}
+            list={tagList}
             content={findPageComponentContent(components, 'Tags')}
           />
         </div>
