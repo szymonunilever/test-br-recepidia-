@@ -4,8 +4,8 @@ import { AdaptiveImageProps } from '../../models';
 
 const WithLink = (Component: React.ComponentType<AdaptiveImageProps>) => {
   const Composition = (props: AdaptiveImageProps) =>
-    props.url ? (
-      <GatsbyLink className="adaptive-image__link" to={props.url}>
+    props.link ? (
+      <GatsbyLink className="adaptive-image__link" to={props.link}>
         <Component {...props} />
       </GatsbyLink>
     ) : (
