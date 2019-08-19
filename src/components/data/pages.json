@@ -870,10 +870,10 @@
           {
             "name": "Card",
             "content": {
-              "view": "Phone",
-              "title": "Phone number",
-              "texts": ["+31654234567"],
-              "type": "phone"
+              "view": "Email",
+              "title": "Our email",
+              "texts": ["sac@atendimentounilever.com"],
+              "type": "email"
             }
           },
           {
