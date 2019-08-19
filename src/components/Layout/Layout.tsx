@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
-import { ReactComponent as UnileverLogoIcon } from 'src/svgs/inline/unilever-logo.svg';
 // import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
@@ -70,7 +69,6 @@ const Layout = ({ children, className }: LayoutProps) => {
         className="general-signup"
       />
       <GlobalFooter
-        logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
         content={findPageComponentContent(components, 'GlobalFooter')}
       >
         <BrandSocialChannels

@@ -22,7 +22,9 @@ $footer-color: $black-blue;
     background: $footer-color;
     transition: width 0.2s ease-out;
   }
-  @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
     &:hover {
       &:before {
         width: 100%;
@@ -149,11 +151,13 @@ $footer-color: $black-blue;
     display: inline-block;
     width: 45px;
     height: 50px;
+    background: url(../svgs/unilever-logo.svg);
+    background-size: cover;
     @include respondTo(desktop) {
       display: block;
       margin: 0 auto;
-      width: 65px;
-      height: 70px;
+      width: 60px;
+      height: 66.7px;
     }
     svg {
       width: 100%;
