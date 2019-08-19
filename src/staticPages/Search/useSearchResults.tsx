@@ -77,18 +77,19 @@ const useSearchResults = (searchQuery: string) => {
   );
 
   const getArticleSearchData = useCallback(
-    async (searchQeury, params) =>
-      getArticleResponse(searchQeury, params).then(res => {
-        setArticleResults({
-          list: params.from
-            ? [
-                ...articleResults.list,
-                ...res.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
-      }),
+    // async (searchQeury, params) =>
+    //   getArticleResponse(searchQeury, params).then(res => {
+    //     setArticleResults({
+    //       list: params.from
+    //         ? [
+    //             ...articleResults.list,
+    //             ...res.hits.hits.map(resItem => resItem._source),
+    //           ]
+    //         : res.hits.hits.map(resItem => resItem._source),
+    //       count: res.hits.total,
+    //     });
+    //   }),
+    async (searchQeury, params) => {}, // @todo remove this line and uncomment the a lines above when articles are there
     [articleResults]
   );
 
