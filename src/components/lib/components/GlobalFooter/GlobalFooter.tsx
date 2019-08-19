@@ -6,7 +6,7 @@ import { GlobalFooterProps } from './models';
 const GlobalFooter = ({
   content: { lists, copyrightText },
   children,
-  logoIcon,
+  logoIcon = null,
   className,
 }: GlobalFooterProps) => {
   const classNames = cx('global-footer', className);
@@ -18,17 +18,13 @@ const GlobalFooter = ({
           <Menu list={list} key={index} />
         ))}
         {children}
-        {logoIcon && (
-          <a
-            className="global-footer__logo"
-            href="//www.unilever.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="www.unilever.com"
-          >
-            {logoIcon}
-          </a>
-        )}
+        <a
+          className="global-footer__logo"
+          href="//www.unilever.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="www.unilever.com"
+        />
         <span className="global-footer__copyright">
           {' '}
           &copy; {copyrightText} {new Date().getFullYear()}
