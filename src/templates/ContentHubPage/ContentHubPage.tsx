@@ -11,7 +11,7 @@ import RecipeListing, {
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
-import pageListingData from 'src/components/data/pageListing.json';
+
 import cx from 'classnames';
 import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
@@ -43,13 +43,18 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   const {
     page: { components, seo, type },
   } = pageContext;
-  const { tag, allArticle } = data;
+  const { tag, allArticle, allCategory } = data;
   const RecipeListingWithFavorite = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
     updateFavorites,
     RecipeListing,
     FavoriteIcon
   );
+
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -165,6 +170,11 @@ export const query = graphql`
         ...TagFields
       }
     }
+    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+      nodes {
+        ...CategoryFields
+      }
+    }
   }
 `;
 // @todo use when articles are there
@@ -199,6 +209,9 @@ interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
     };
     allArticle: {
       nodes: Internal.Article[];
+    };
+    allCategory: {
+      nodes: Internal.Category[];
     };
   };
   pageContext: {

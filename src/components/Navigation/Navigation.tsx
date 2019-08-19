@@ -12,43 +12,25 @@ interface NavigationProps {
   searchContent: AppContent.SearchInput.Content;
 }
 
-const Navigation: React.SFC<NavigationProps> = ({
+const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigationContent,
   searchContent,
 }) => {
   const data = useStaticQuery(graphql`
     {
-      allTagGroupings {
+      allCategory(
+        filter: { parent: { id: { eq: null } } }
+        sort: { order: ASC, fields: categoryId }
+      ) {
         nodes {
-          children {
-            ... on Tag {
-              id
-              name
-              fields {
-                slug
-              }
-            }
-          }
-          name
-          id
-        }
-      }
-
-      allPage(filter: { type: { eq: "RecipeCategory" } }) {
-        nodes {
-          relativePath
+          ...CategoryNavigationFields
         }
       }
     }
   `);
 
-  const tagGroups = data.allTagGroupings.nodes;
-  const recipeCategoryPath = data.allPage.nodes[0].relativePath;
-  const menuItems = constructMenu(
-    tagGroups,
-    navigationContent,
-    recipeCategoryPath
-  );
+  const categories = data.allCategory.nodes;
+  const menuItems = constructMenu(categories, navigationContent);
 
   return (
     <GlobalNavigation

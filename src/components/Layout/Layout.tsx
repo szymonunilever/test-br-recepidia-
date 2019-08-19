@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
+import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
 // import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
@@ -12,9 +13,10 @@ import BrandSocialChannels from 'src/components/lib/components/BrandSocialChanne
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
+import find from 'lodash/find';
 
 const Layout = ({ children, className }: LayoutProps) => {
-  const { allCommonComponent } = useStaticQuery(graphql`
+  const { allCommonComponent, allCategory } = useStaticQuery(graphql`
     {
       allCommonComponent {
         nodes {
@@ -22,12 +24,21 @@ const Layout = ({ children, className }: LayoutProps) => {
           name
         }
       }
+      allCategory(filter: { inFooter: { eq: true } }) {
+        nodes {
+          title
+          inFooter
+          fields {
+            slug
+          }
+        }
+      }
     }
   `);
 
   useEffect(() => {
     smartOutline.init();
-  });
+  }, []);
   const componentNodes = allCommonComponent.nodes;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentNodes.forEach((component: any) => {
@@ -37,9 +48,32 @@ const Layout = ({ children, className }: LayoutProps) => {
         : component.content;
   });
   const components = { items: componentNodes };
+
+  const footerCategoryLinks: AppContent.GlobalFooter.MenuItem[] = allCategory.nodes.map(
+    (category: Partial<Internal.Category>) => ({
+      path: category.fields && category.fields.slug,
+      name: category.title,
+    })
+  );
+
+  const footerNavLists: AppContent.GlobalFooter.Content = findPageComponentContent(
+    components,
+    'GlobalFooter'
+  );
+  const footerCategoryList: AppContent.GlobalFooter.MenuList = {
+    items: footerCategoryLinks,
+  };
+
+  const categoryLinksInFooter = find(footerNavLists.lists, footerCategoryList);
+
+  if (!categoryLinksInFooter) {
+    footerNavLists.lists.unshift(footerCategoryList);
+  }
+
   // eslint-disable-next-line no-console
   const onSignUpCallback = () => console.log('onsignup callback');
 
+  // @ts-ignore
   return (
     <div className={cx('global-container', className)}>
       <BackToTop content={{}} Icon={ArrowUpIcon} />
@@ -68,9 +102,7 @@ const Layout = ({ children, className }: LayoutProps) => {
         content={findPageComponentContent(components, 'Form', 'SignUpForm')}
         className="general-signup"
       />
-      <GlobalFooter
-        content={findPageComponentContent(components, 'GlobalFooter')}
-      >
+      <GlobalFooter logoIcon={<UnileverLogoIcon />} content={footerNavLists}>
         <BrandSocialChannels
           content={findPageComponentContent(components, 'BrandSocialChannels')}
           listIcons={{
