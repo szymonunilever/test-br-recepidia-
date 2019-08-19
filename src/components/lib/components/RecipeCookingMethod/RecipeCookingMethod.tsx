@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { sortBy } from 'lodash';
+import sortBy from 'lodash/sortBy';
 import React from 'react';
 import { TagName, Text } from '../Text';
 import { RecipeCookingMethodProps } from './models';

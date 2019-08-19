@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { remove } from 'lodash';
+import remove from 'lodash/remove';
 import React, { useState, useEffect } from 'react';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
@@ -18,7 +18,7 @@ import {
   applyingFavorites,
   sortBy,
 } from './utils';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 import useKritiqueReload from '../../utils/useKritiqueReload';
 

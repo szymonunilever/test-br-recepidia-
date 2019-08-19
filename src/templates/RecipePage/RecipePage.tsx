@@ -58,7 +58,8 @@ import {
   saveUserProfileByKey,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import { remove, get } from 'lodash';
+import get from 'lodash/get';
+import remove from 'lodash/remove';
 
 const RecipeListingWithFavorite = RecipeListingWithFavorites(
   RecipeListing,

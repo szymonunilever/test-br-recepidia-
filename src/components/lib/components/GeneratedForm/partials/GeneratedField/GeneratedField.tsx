@@ -6,7 +6,7 @@ import cx from 'classnames';
 import { CheckElem, checkElemTypes } from '../../../CheckElem';
 import { Select } from '../../../Select';
 import { FieldMetaState } from 'react-final-form';
-import { forEach } from 'lodash';
+import forEach from 'lodash/forEach';
 import Input from '../Input/';
 
 const GeneratedField = ({

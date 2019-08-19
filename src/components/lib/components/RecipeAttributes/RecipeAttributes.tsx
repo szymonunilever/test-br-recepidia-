@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { RecipeAttributesKeys, RecipeAttributesProps } from './models';
 import theme from './RecipeAttributes.module.scss';
 import { RecipeAttributeCard } from './partials';

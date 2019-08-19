@@ -8,7 +8,7 @@ import React, {
 import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
-import { trim } from 'lodash';
+import trim from 'lodash/trim';
 
 const SearchInput = ({
   list = [],

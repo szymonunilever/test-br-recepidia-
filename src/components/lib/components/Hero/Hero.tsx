@@ -5,7 +5,7 @@ import theme from './Hero.modules.scss';
 import Text from '../Text/Text';
 import { TagName } from '../Text';
 import { navigate } from 'gatsby';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
 

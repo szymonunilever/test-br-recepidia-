@@ -24,7 +24,7 @@ import DigitalData from '../../../integrations/DigitalData';
 import ArrowIcon from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';

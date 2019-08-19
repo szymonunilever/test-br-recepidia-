@@ -6,7 +6,8 @@ import cx from 'classnames';
 
 import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
-import { get, trim } from 'lodash';
+import get from 'lodash/get';
+import trim from 'lodash/trim';
 import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';

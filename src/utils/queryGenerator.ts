@@ -1,4 +1,5 @@
-import { map } from 'lodash';
+import map from 'lodash/map';
+
 import { RecipePersonalizationFormulaProps } from '../constants';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const objectToArray = (obj: any): any[] => {

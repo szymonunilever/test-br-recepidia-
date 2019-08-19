@@ -1,4 +1,6 @@
-import { sortBy as _sortBy, findIndex, filter } from 'lodash';
+import _sortBy from 'lodash/sortBy';
+import findIndex from 'lodash/findIndex';
+import filter from 'lodash/filter';
 import { RecipeSortingOptions } from '../partials';
 
 const sortByPreparationTime = (list: Internal.Recipe[]) =>

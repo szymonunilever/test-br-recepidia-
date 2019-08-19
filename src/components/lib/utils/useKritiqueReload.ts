@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import isBrowser from './isBrowser';
 
 export const reloadKritiqueWidget = () => {

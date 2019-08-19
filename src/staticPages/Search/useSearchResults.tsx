@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,

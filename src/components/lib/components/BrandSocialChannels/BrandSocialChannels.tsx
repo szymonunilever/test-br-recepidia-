@@ -2,7 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import SocialChannel from './partials/index';
 import { BrandSocialChannelsProps } from './models';
-import { map, get } from 'lodash';
+import map from 'lodash/map';
+import get from 'lodash/get';
 
 const BrandSocialChannels = ({
   listIcons,

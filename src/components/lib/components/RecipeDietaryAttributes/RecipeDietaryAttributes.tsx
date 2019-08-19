@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import cx from 'classnames';
 import Attribute from './partials/Attribute';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { RecipeDietaryAttributesProps } from './models';
 
 const RecipeDietaryAttributes = ({

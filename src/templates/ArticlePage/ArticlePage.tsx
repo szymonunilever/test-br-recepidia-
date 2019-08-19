@@ -13,7 +13,7 @@ import AddThis from '../../../integrations/AddThis';
 import Layout from '../../components/Layout/Layout';
 import Hero from '../../components/lib/components/Hero';
 import RichText from '../../components/lib/components/RichText';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import SocialSharing, {
   SocialIcons,
   SocialSharingViewType,
