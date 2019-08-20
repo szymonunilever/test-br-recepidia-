@@ -41,8 +41,6 @@ export default function HTML(props) {
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
               }}
             />
-            <link rel="preload" href="/libs/jquery.min.js" as="script" />
-
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -91,9 +89,9 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link href="/assets/fonts/Rubik.css" rel="preload" as="style" />
         {headComponents}
         {css}
+        <link href="/assets/fonts/Rubik.css" rel="stylesheet" />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
