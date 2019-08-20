@@ -143,7 +143,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                         {
                           width: 1366,
                           switchElementsBelowBreakpoint: 1,
-                          switchElementsAfterBreakpoint: 2,
+                          switchElementsAfterBreakpoint: 1,
                           visibleElementsBelowBreakpoint: 2,
                           visibleElementsAboveBreakpoint: 4,
                         },
