@@ -1207,11 +1207,14 @@
               "resultLabelPlural": "recipes",
               "cta": {
                 "label": "Load More recipes"
-              },
-              "nullResult": {
-                "title": "You don’t have favourite recipes yet.",
-                "textList": []
               }
+            }
+          },
+          {
+            "name": "NullResult",
+            "content": {
+              "title": "You don’t have favourite recipes yet.",
+              "textList": []
             }
           },
           {
