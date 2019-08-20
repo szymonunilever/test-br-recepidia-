@@ -7,7 +7,6 @@
     padding: 60px 0 40px;
   }
 
-
   :global {
     .recipe-list__load-more {
       margin: 40px auto 0;
@@ -27,7 +26,7 @@
       @include respondTo(medium) {
         border-radius: 0;
         height: auto;
-        top: 270px;
+        top: 290px;
       }
       @include respondTo(desktop) {
         height: auto;
