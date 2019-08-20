@@ -41,14 +41,10 @@ export default function HTML(props) {
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
               }}
             />
-            <link
-              rel="preload"
-              href="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-              as="script"
-            />
+            <link rel="preload" href="/libs/jquery.min.js" as="script" />
             <script
               dangerouslySetInnerHTML={{
-                __html: `                               
+                __html: `
                   (function(g, b, d, f) {
                     (function(a, c, d) {
                       if (a) {
@@ -82,7 +78,7 @@ export default function HTML(props) {
             __html: `
           (function(a, h){
             var botsRegexp = /aolbuild|baidu|bingbot|bingpreview|msnbot|duckduckgo|adsbot-google|googlebot|mediapartners-google|teoma|slurp|yandex/gi;
-            window.searchAgentOnPage = h && h==='#noquiz' || botsRegexp.test(a);            
+            window.searchAgentOnPage = h && h==='#noquiz' || botsRegexp.test(a);
           })(navigator.userAgent, location.hash);
           `,
           }}
@@ -94,17 +90,9 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link href="/assets/fonts/Rubik.css" rel="preload" as="style" />
         {headComponents}
         {css}
-        <link
-          rel="preconnect"
-          crossOrigin="true"
-          href="https://fonts.gstatic.com/"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Rubik:500&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
