@@ -38,6 +38,7 @@ import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import Kritique from 'integrations/Kritique';
+import theme from './UserProfile.module.scss';
 
 // @todo remove hardcoded mocks
 import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
@@ -213,13 +214,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
   }, [recipeByIdsResults.count]);
 
   return (
-    <Layout>
+    <Layout className="header--bg">
       <SEO {...seo} />
       <Kritique />
       <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
+        className={theme.userProfile}
       >
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
