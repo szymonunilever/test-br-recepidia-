@@ -34,7 +34,7 @@ const questionsMock = [
       {
         value: '1464;1313;1314',
         label: {
-          text: 'Drinks',
+          text: 'Pizza',
           image,
         },
       },
@@ -69,7 +69,7 @@ const questionsMock = [
       {
         value: '1483;665;1485',
         label: {
-          text: 'Pies & Pizza',
+          text: 'Pies',
           image,
         },
       },
@@ -138,13 +138,6 @@ const questionsMock = [
         value: '1369',
         label: {
           text: 'Medium',
-          image,
-        },
-      },
-      {
-        value: '1370',
-        label: {
-          text: 'Economic',
           image,
         },
       },

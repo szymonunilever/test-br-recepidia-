@@ -80,26 +80,6 @@
               "alt": ""
             }
           }
-        },
-        {
-          "value": "8",
-          "label": {
-            "text": "Salad with chicken",
-            "image": {
-              "url": "",
-              "alt": ""
-            }
-          }
-        },
-        {
-          "value": "9",
-          "label": {
-            "text": "Christmas Food",
-            "image": {
-              "url": "",
-              "alt": ""
-            }
-          }
         }
       ]
     },
@@ -127,7 +107,7 @@
         {
           "value": "10",
           "label": {
-            "text": "Vegan",
+            "text": "No products of animal origin",
             "image": {
               "url": "",
               "alt": ""
@@ -137,7 +117,27 @@
         {
           "value": "11",
           "label": {
-            "text": "Vegetarian",
+            "text": "Meet free",
+            "image": {
+              "url": "",
+              "alt": ""
+            }
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+            "text": "No egg",
+            "image": {
+              "url": "",
+              "alt": ""
+            }
+          }
+        },
+        {
+          "value": "1",
+          "label": {
+            "text": "No dairy",
             "image": {
               "url": "",
               "alt": ""

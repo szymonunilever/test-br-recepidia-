@@ -62,20 +62,6 @@ const questionsMock = [
           image,
         },
       },
-      {
-        value: '8',
-        label: {
-          text: 'Salad with chicken',
-          image,
-        },
-      },
-      {
-        value: '9',
-        label: {
-          text: 'Christmas Food',
-          image,
-        },
-      },
     ],
   },
   {
@@ -98,14 +84,14 @@ const questionsMock = [
       {
         value: '2',
         label: {
-          text: 'Vegan',
+          text: 'No products of animal origin',
           image,
         },
       },
       {
         value: '3',
         label: {
-          text: 'Vegetarian',
+          text: 'Meat free',
           image,
         },
       },
@@ -141,6 +127,20 @@ const questionsMock = [
         value: '8',
         label: {
           text: 'No soy',
+          image,
+        },
+      },
+      {
+        value: '9',
+        label: {
+          text: 'No egg',
+          image,
+        },
+      },
+      {
+        value: '10',
+        label: {
+          text: 'No diary',
           image,
         },
       },

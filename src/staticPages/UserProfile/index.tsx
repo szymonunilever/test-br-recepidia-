@@ -304,9 +304,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             ) : (
               <Text tag={TagName.h3} text={noMealPlanContent.text} />
             )}
-            <Button>
-              <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
-            </Button>
+            <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
           </Fragment>
         </Tab>
       </Tabs>
