@@ -1,8 +1,6 @@
 .recipe-hero {
   &__image {
     width: 100%;
-    border-radius: 5px;
-    overflow: hidden;
     max-height: 540px;
     .adaptive-image__image.gatsby-image-wrapper > div {
       padding-bottom: 82% !important;

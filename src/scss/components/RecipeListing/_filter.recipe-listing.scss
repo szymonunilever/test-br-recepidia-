@@ -14,7 +14,7 @@
         }
       }
       &__sort {
-        width: calc(100px + 5vw);
+        width: calc(100px + 4.3vw);
         min-height: 43px;
         border-radius: 0;
         @include respondTo(desktop) {

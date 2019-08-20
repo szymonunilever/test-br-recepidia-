@@ -33,9 +33,7 @@
   &-image {
     background-color: #fff;
     :global(&__wrap) {
-      border-radius: 5px;
       position: relative;
-      overflow: hidden;
       margin-bottom: 27px;
       @include respondTo(desktop) {
         margin-bottom: 44px;
@@ -129,8 +127,6 @@
     }
     :global {
       .hero {
-        overflow: hidden;
-        border-radius: 5px;
         position: relative;
         margin-bottom: 60px;
 

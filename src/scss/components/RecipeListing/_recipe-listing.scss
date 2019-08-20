@@ -7,6 +7,10 @@ $col-indent-desktop: 8px;
 
 .recipe-list {
   position: relative;
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
   &--blue-header {
     .recipe-list__header {
       color: $fish-blue-darker;

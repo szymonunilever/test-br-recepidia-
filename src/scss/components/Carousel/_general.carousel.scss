@@ -38,23 +38,3 @@ $carouselItemPaddingDesktop: 8px;
     }
   }
 }
-.cards--2-4 {
-  .gatsby-image-wrapper {
-    & > div {
-      padding-bottom: 142% !important;
-      @include respondTo(medium) {
-        padding-bottom: 123% !important;
-      }
-    }
-  }
-}
-.cards--1-2 {
-  .gatsby-image-wrapper {
-    & > div {
-      padding-bottom: 69% !important;
-      @include respondTo(medium) {
-        padding-bottom: 59% !important;
-      }
-    }
-  }
-}

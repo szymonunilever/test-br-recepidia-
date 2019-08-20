@@ -8,7 +8,6 @@ $submenu-text-color: $fish-blue-darker;
 
 .global-navigation {
   &__inner {
-    @extend .container;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,8 +17,7 @@ $submenu-text-color: $fish-blue-darker;
     height: $header-height;
     padding: 0 25px;
     @include respondTo(desktop) {
-      justify-content: initial;
-      padding: 0 25px;
+      padding: 0 $layout-indent;
     }
 
     .navigation {

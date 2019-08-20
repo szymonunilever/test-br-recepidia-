@@ -1,4 +1,8 @@
 .page-listing--carousel {
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
   .gatsby-image-wrapper {
     & > div {
       padding-bottom: $page-listing-card-height--mobile !important;

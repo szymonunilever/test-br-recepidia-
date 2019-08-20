@@ -193,77 +193,69 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       )}
       <Kritique />
       <DigitalData title={seo.title} type={type} />
-      <section className="_bg--main">
-        <div className="container">
-          <Text
-            tag={TagName['h1']}
-            text={
-              findPageComponentContent(components, 'Text', 'PageTitle').text
-            }
-          />
-        </div>
+      <section className={cx(theme.homeTitle, '_bg--main')}>
+        <Text
+          tag={TagName['h1']}
+          text={findPageComponentContent(components, 'Text', 'PageTitle').text}
+        />
       </section>
 
       {recipesFound.latestAndGratesNodes.length > 0 && (
         <section className={cx(theme.homeTopSection, 'bg--half')}>
-          <div className="container">
-            <RecipeListingWithFavorite
-              content={findPageComponentContent(
-                components,
-                'RecipeListing',
-                'LatestAndGreatest'
-              )}
-              list={recipesFound.latestAndGratesNodes}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              className="recipe-list--blue-header recipe-list--carousel cards--2-4"
-              viewType={RecipeListViewType.Carousel}
-              titleLevel={2}
-              carouselConfig={{
-                breakpoints: [
-                  {
-                    width: 768,
-                    switchElementsBelowBreakpoint: 1,
-                    switchElementsAfterBreakpoint: 1,
-                    visibleElementsBelowBreakpoint: 2,
-                    visibleElementsAboveBreakpoint: 4,
-                  },
-                ],
-                arrowIcon: <ArrowIcon />,
-              }}
-              imageSizes={'(min-width: 768px) 25vw, 50vw'}
-            />
-          </div>
+          <RecipeListingWithFavorite
+            content={findPageComponentContent(
+              components,
+              'RecipeListing',
+              'LatestAndGreatest'
+            )}
+            list={recipesFound.latestAndGratesNodes}
+            ratingProvider={RatingAndReviewsProvider.kritique}
+            className="recipe-list--blue-header recipe-list--carousel cards--2-4"
+            viewType={RecipeListViewType.Carousel}
+            titleLevel={2}
+            carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+              arrowIcon: <ArrowIcon />,
+            }}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
         </section>
       )}
       {recipesFound.topRecipesNodes.length > 0 && (
         <section className="_pt--40 _pb--40">
-          <div className="container">
-            <RecipeListingWithFavorite
-              content={findPageComponentContent(
-                components,
-                'RecipeListing',
-                'TopRecipes'
-              )}
-              list={recipesFound.topRecipesNodes}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              viewType={RecipeListViewType.Carousel}
-              className="recipe-list--carousel cards--1-2"
-              titleLevel={2}
-              carouselConfig={{
-                breakpoints: [
-                  {
-                    width: 768,
-                    switchElementsBelowBreakpoint: 1,
-                    switchElementsAfterBreakpoint: 1,
-                    visibleElementsBelowBreakpoint: 1,
-                    visibleElementsAboveBreakpoint: 2,
-                  },
-                ],
-                arrowIcon: <ArrowIcon />,
-              }}
-              imageSizes={'(min-width: 768px) 50vw, 100vw'}
-            />
-          </div>
+          <RecipeListingWithFavorite
+            content={findPageComponentContent(
+              components,
+              'RecipeListing',
+              'TopRecipes'
+            )}
+            list={recipesFound.topRecipesNodes}
+            ratingProvider={RatingAndReviewsProvider.kritique}
+            viewType={RecipeListViewType.Carousel}
+            className="recipe-list--carousel cards--1-2"
+            titleLevel={2}
+            carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 1,
+                  visibleElementsAboveBreakpoint: 2,
+                },
+              ],
+              arrowIcon: <ArrowIcon />,
+            }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          />
         </section>
       )}
       <section className="_pb--40">
@@ -274,13 +266,11 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         />
       </section>
       <section className="_pt--40 _pb--40">
-        <div className="container">
-          <PageListing
-            content={findPageComponentContent(components, 'PageListing')}
-            list={pageListingData}
-            initialCount={12}
-          />
-        </div>
+        <PageListing
+          content={findPageComponentContent(components, 'PageListing')}
+          list={pageListingData}
+          initialCount={12}
+        />
       </section>
     </Layout>
   );

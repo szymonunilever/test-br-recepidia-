@@ -13,23 +13,21 @@ const GlobalFooter = ({
 
   return (
     <footer className={classNames} data-componentname="global-footer">
-      <div className="global-footer__container">
-        {lists.map((list, index) => (
-          <Menu list={list} key={index} />
-        ))}
-        {children}
-        <a
-          className="global-footer__logo"
-          href="//www.unilever.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="www.unilever.com"
-        />
-        <span className="global-footer__copyright">
-          {' '}
-          &copy; {copyrightText} {new Date().getFullYear()}
-        </span>
-      </div>
+      {lists.map((list, index) => (
+        <Menu list={list} key={index} />
+      ))}
+      {children}
+      <a
+        className="global-footer__logo"
+        href="//www.unilever.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="www.unilever.com"
+      />
+      <span className="global-footer__copyright">
+        {' '}
+        &copy; {copyrightText} {new Date().getFullYear()}
+      </span>
     </footer>
   );
 };
