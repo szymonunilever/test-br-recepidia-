@@ -1235,7 +1235,7 @@
                     "view": "UserPreferences"
                   },
                   {
-                    "title": "Your meal plan",
+                    "title": "Meal plan",
                     "view": "MealPlanner"
                   }
                 ]

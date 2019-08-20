@@ -1,0 +1,56 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.user-profile {
+  :global {
+    .tabs {
+      &-header {
+        background-color: $primary-bg-color;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        &__heading {
+          @extend %container;
+          h2 {
+            font-size: 3rem; // @extend %h1--smaller;
+            line-height: 1.07;
+            color: $fish-blue-darker;
+            margin-bottom: 12px;
+            @include respondTo(desktop) {
+              font-size: 4.5rem;
+            }
+          }
+          &-subheading {
+            @extend %container;
+            h3 {
+              font-size: 1.4rem;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      &__buttons {
+        @include respondTo(desktop) {
+          padding-left: calc(50% - 544px);
+          padding-right: calc(50% - 544px);
+        }
+      }
+      &__button {
+        font-size: 1.3rem;
+        padding: 10px;
+        flex-basis: 33.33%;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+        }
+      }
+      &__items {
+        padding-top: 28px;
+        padding-bottom: 55px;
+        @include respondTo(desktop) {
+          padding-top: 50px;
+        }
+      }
+    }
+    .user-profile-favorites {
+    }
+  }
+}
