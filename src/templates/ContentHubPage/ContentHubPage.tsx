@@ -80,6 +80,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               .replace('{categoryName}', `\n${tagLabel}`),
           }}
           list={recipeResultsList}
+          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{

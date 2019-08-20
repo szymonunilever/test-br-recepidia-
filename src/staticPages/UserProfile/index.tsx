@@ -232,6 +232,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 content={recipeContent}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
+                favorites={
+                  getUserProfileByKey(ProfileKey.favorites) as string[]
+                }
                 className="recipe-list favorites"
                 initialCount={8}
                 titleLevel={2}

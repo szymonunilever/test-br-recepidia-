@@ -135,6 +135,7 @@ const RecipeCategotyPage = ({
               recipeResultsCount
             ),
           }}
+          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}

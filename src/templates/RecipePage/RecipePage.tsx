@@ -431,6 +431,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
             'RelatedRecipes'
           )}
           list={relatedRecipes}
+          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
