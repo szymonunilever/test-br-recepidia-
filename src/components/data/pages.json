@@ -147,26 +147,6 @@
                           "alt": ""
                         }
                       }
-                    },
-                    {
-                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;1053;2082",
-                      "label": {
-                        "text": "Salad with chicken",
-                        "image": {
-                          "url": "",
-                          "alt": ""
-                        }
-                      }
-                    },
-                    {
-                      "value": "9",
-                      "label": {
-                        "text": "Christmas Food",
-                        "image": {
-                          "url": "",
-                          "alt": ""
-                        }
-                      }
                     }
                   ]
                 },
@@ -194,7 +174,7 @@
                     {
                       "value": "10",
                       "label": {
-                        "text": "Vegan",
+                        "text": "No products of animal origin",
                         "image": {
                           "url": "",
                           "alt": ""
@@ -204,7 +184,27 @@
                     {
                       "value": "11",
                       "label": {
-                        "text": "Vegetarian",
+                        "text": "Meat free",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "No egg",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "No dairy",
                         "image": {
                           "url": "",
                           "alt": ""
@@ -1411,7 +1411,7 @@
                       {
                         "value": "1464;1313;1314",
                         "label": {
-                          "text": "Drinks",
+                          "text": "Pizza",
                           "image": {
                             "url": "",
                             "alt": ""
@@ -1461,7 +1461,7 @@
                       {
                         "value": "1483;665;1485",
                         "label": {
-                          "text": "Pies & Pizza",
+                          "text": "Pies",
                           "image": {
                             "url": "",
                             "alt": ""
@@ -1548,16 +1548,6 @@
                         "value": "1369",
                         "label": {
                           "text": "Medium",
-                          "image": {
-                            "url": "",
-                            "alt": ""
-                          }
-                        }
-                      },
-                      {
-                        "value": "1370",
-                        "label": {
-                          "text": "Economic",
                           "image": {
                             "url": "",
                             "alt": ""
