@@ -27,8 +27,6 @@
     &__image {
       flex: 1;
       width: 100%;
-      overflow: hidden;
-      border-radius: 5px;
       @include respondTo(desktop) {
         position: absolute;
         width: calc(50% + 103px);

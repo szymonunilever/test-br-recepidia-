@@ -1,4 +1,8 @@
 .recipe-list--carousel {
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
   .carousel {
     .slide-arrow {
       &.right {

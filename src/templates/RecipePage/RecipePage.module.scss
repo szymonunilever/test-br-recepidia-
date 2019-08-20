@@ -2,6 +2,10 @@
 
 .recipe-page {
   .topBg {
+    padding: 0 25px;
+    @include respondTo(desktop) {
+      padding: 0 $layout-indent;
+    }
     @include respondTo(desktop) {
       margin-bottom: 60px;
     }
@@ -79,7 +83,7 @@
   .recipeIngredientsCooking {
     display: none;
     @include respondTo(desktop) {
-      display: block;
+      padding: 40px $layout-indent 0;
     }
     @include respondTo(desktop) {
       display: flex;
@@ -120,5 +124,18 @@
         }
       }
     }
+  }
+}
+
+.reviews{
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
+}
+.tag-list {
+  padding: 20px 25px;
+  @include respondTo(desktop) {
+    padding: 30px $layout-indent;
   }
 }
