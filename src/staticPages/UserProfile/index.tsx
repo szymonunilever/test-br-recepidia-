@@ -14,13 +14,11 @@ import Tabs, {
 } from 'src/components/lib/components/Tabs';
 import { UserPreferences } from 'src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
-import Button from 'src/components/lib/components/Button';
 import { Link } from 'gatsby';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
-  ResponsiveRecipeListing,
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
@@ -45,8 +43,6 @@ import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.js
 import questionsMock from 'src/components/data/introQuiz.json';
 import NullResult from 'src/components/lib/components/NullResult';
 
-// Screen width in px below which the view is switching to Carousel mode
-const mobileBreakpoint = 768;
 const carouselConfig = {
   breakpoints: [
     {
@@ -60,8 +56,8 @@ const carouselConfig = {
   arrowIcon: <ArrowIcon />,
 };
 
-const ResponsiveListingWithFavorite = RecipeListingWithFavorites(
-  ResponsiveRecipeListing(RecipeListing, mobileBreakpoint),
+const ListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
   updateFavorites,
   getUserProfileByKey(ProfileKey.favorites) as string[],
   FavoriteIcon
@@ -228,7 +224,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
             {hasFavorites ? (
-              <ResponsiveListingWithFavorite
+              <ListingWithFavorite
                 content={recipeContent}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
@@ -239,18 +235,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 initialCount={8}
                 titleLevel={2}
                 viewType={RecipeListViewType.Base}
-                carouselConfig={{
-                  breakpoints: [
-                    {
-                      width: 768,
-                      switchElementsBelowBreakpoint: 1,
-                      switchElementsAfterBreakpoint: 1,
-                      visibleElementsBelowBreakpoint: 2,
-                      visibleElementsAboveBreakpoint: 4,
-                    },
-                  ],
-                  arrowIcon: <ArrowIcon />,
-                }}
                 loadMoreConfig={{
                   type: LoadMoreType.async,
                   onLoadMore: onLoadMoreRecipes,
