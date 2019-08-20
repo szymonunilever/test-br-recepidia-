@@ -42,6 +42,7 @@ export default function HTML(props) {
               }}
             />
             <link rel="preload" href="/libs/jquery.min.js" as="script" />
+
             <script
               dangerouslySetInnerHTML={{
                 __html: `
