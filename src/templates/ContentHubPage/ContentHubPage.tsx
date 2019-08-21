@@ -23,20 +23,13 @@ import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -51,7 +44,12 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     page: { components, seo, type },
   } = pageContext;
   const { tag, allArticle } = data;
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -80,7 +78,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               .replace('{categoryName}', `\n${tagLabel}`),
           }}
           list={recipeResultsList}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{

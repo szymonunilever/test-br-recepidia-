@@ -1,7 +1,7 @@
 export const userProfileKey = 'userProfile';
 export const userProfileDefaultStructure = {
   initialQuiz: {},
-  favorites: {},
+  favorites: [],
   mealPlannerAnswers: {},
   mealPlannerResults: {},
 };
