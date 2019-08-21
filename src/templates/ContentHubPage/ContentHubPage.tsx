@@ -72,54 +72,48 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       <Kritique />
 
       <section className={cx(theme.contenthubRecipes, 'bg--half')}>
-        <div className="container">
-          <RecipeListingWithFavorite
-            content={{
-              ...recipesListingContent,
-              title: recipesListingContent.title
-                .replace('{numRes}', recipeResultsCount)
-                .replace('{categoryName}', tagLabel),
-            }}
-            list={recipeResultsList}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            viewType={RecipeListViewType.Base}
-            loadMoreConfig={{
-              type: LoadMoreType.async,
-              onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResultsCount,
-            }}
-            initialCount={useMedia()}
-            titleLevel={2}
-            recipePerLoad={4}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        </div>
+        <RecipeListingWithFavorite
+          content={{
+            ...recipesListingContent,
+            title: recipesListingContent.title
+              .replace('{numRes}', recipeResultsCount)
+              .replace('{categoryName}', `\n${tagLabel}`),
+          }}
+          list={recipeResultsList}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          viewType={RecipeListViewType.Base}
+          loadMoreConfig={{
+            type: LoadMoreType.async,
+            onLoadMore: onLoadMoreRecipes,
+            allCount: recipeResultsCount,
+          }}
+          initialCount={useMedia()}
+          titleLevel={2}
+          recipePerLoad={4}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
-          <div className="container">
-            <MediaGallery
-              // content={findPageComponentContent(
-              //   components,
-              //   'MediaGallery',
-              //   'RelatedArticles'
-              // )}
-              content={relatedArticlesComponent.content}
-              list={allArticle.nodes}
-              allCount={allArticle.nodes.length}
-              onLoadMore={() => {}}
-            />
-          </div>
+          <MediaGallery
+            // content={findPageComponentContent(
+            //   components,
+            //   'MediaGallery',
+            //   'RelatedArticles'
+            // )}
+            content={relatedArticlesComponent.content}
+            list={allArticle.nodes}
+            allCount={allArticle.nodes.length}
+            onLoadMore={() => {}}
+          />
         </section>
       )}
-      <section>
-        <div className="container">
-          <TagLinks
-            list={tagList}
-            content={findPageComponentContent(components, 'Tags')}
-            initialCount={useMedia(undefined, [9, 5])}
-          />
-        </div>
+      <section className={theme.tagList}>
+        <TagLinks
+          list={tagList}
+          content={findPageComponentContent(components, 'Tags')}
+          initialCount={useMedia(undefined, [9, 5])}
+        />
       </section>
 
       <section className="_pb--40">
@@ -131,20 +125,18 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       </section>
 
       <section className="_pb--40 _pt--40">
-        <div className="container">
-          <PageListing
-            content={findPageComponentContent(
-              components,
-              'PageListing',
-              'RecipeCategories'
-            )}
-            viewType={PageListingViewTypes.carousel}
-            list={pageListingData}
-            carouselConfig={{
-              arrowIcon: <ArrowIcon />,
-            }}
-          />
-        </div>
+        <PageListing
+          content={findPageComponentContent(
+            components,
+            'PageListing',
+            'RecipeCategories'
+          )}
+          viewType={PageListingViewTypes.carousel}
+          list={pageListingData}
+          carouselConfig={{
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
       </section>
     </Layout>
   );

@@ -8,12 +8,12 @@ import localImage from '../../../stories/assets/localImage';
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';
-import RecipeListingCarousel from '../../components/lib/components/RecipeListing/RecipeListingCarousel';
 import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
 import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 import {
   saveUserProfileByKey,
   getUserProfileByKey,
+  updateFavorites,
 } from '../../utils/browserStorage';
 import { ProfileKey } from '../../utils/browserStorage/models';
 import { Link } from 'gatsby';
@@ -25,6 +25,18 @@ import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
 import { getPersonalizationSearchData } from 'src/staticPages/Home';
+import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+import RecipeListing, {
+  RecipeListViewType,
+} from 'src/components/lib/components/RecipeListing';
+import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
+
+const RecipeListingWithFavorite = RecipeListingWithFavorites(
+  RecipeListing,
+  updateFavorites,
+  getUserProfileByKey(ProfileKey.favorites) as string[],
+  FavoriteIcon
+);
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
@@ -136,24 +148,25 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             >
               {recipes.length ? (
                 <div>
-                  <RecipeListingCarousel
+                  <RecipeListingWithFavorite
+                    content={findPageComponentContent(components, 'Wizard')}
                     list={recipes}
-                    config={{
+                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    viewType={RecipeListViewType.Carousel}
+                    className="recipe-list--wizard"
+                    carouselConfig={{
                       breakpoints: [
                         {
                           width: 1366,
                           switchElementsBelowBreakpoint: 1,
-                          switchElementsAfterBreakpoint: 2,
+                          switchElementsAfterBreakpoint: 1,
                           visibleElementsBelowBreakpoint: 2,
                           visibleElementsAboveBreakpoint: 4,
                         },
                       ],
                       arrowIcon: <ArrowIcon />,
                     }}
-                    onFavoriteChange={() => true}
-                    withFavorite={false}
                     imageSizes={'(min-width: 768px) 25vw, 50vw'}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
                   />
                   <div className="wizard__buttons">
                     <Link

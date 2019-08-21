@@ -37,6 +37,7 @@
   }
 }
 
+
 %modal__content--small {
   //fullscreen mobile, small window on desktop
   top: 0px;
@@ -55,41 +56,6 @@
     overflow: hidden;
     max-height: 96vh;
   }
-}
-
-%modal__content--bordered {
-  top: 28px;
-  left: 24px;
-  right: 24px;
-  bottom: 28px;
-  max-height: 100%;
-  box-sizing: border-box;
-  background-color: $white;
-  @include respondTo(desktop) {
-    top: 50px;
-    left: 70px;
-    right: 70px;
-    bottom: 50px;
-    max-width: none;
-  }
-}
-%modal__content--desktop-bordered {
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  max-height: 100%;
-  box-sizing: border-box;
-  background-color: $white;
-  @include respondTo(desktop) {
-    top: 50px;
-    left: 70px;
-    right: 70px;
-    bottom: 50px;
-    max-width: none;
-  }
-}
-%modal__content--grounded {
 }
 
 .modal--search {
@@ -123,18 +89,7 @@
     }
   }
 }
-.modal--filter {
-  .modal {
-    &__content {
-      @extend %modal__content--desktop-bordered;
-    }
-    &__btn-close {
-      svg {
-        margin: 0;
-      }
-    }
-  }
-}
+
 .modal--quiz {
   #modal__description {
     height: 100%;
@@ -165,12 +120,6 @@
       }
     }
   }
-}
-
-.modal--medium {
-}
-
-.modal--fullscreen {
 }
 
 %modal__overlay--flex {

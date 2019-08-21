@@ -10,8 +10,6 @@
 
   &__image {
     margin-bottom: 24px;
-    border-radius: 5px;
-    overflow: hidden;
     @include respondTo(desktop) {
       margin-bottom: 37px;
     }

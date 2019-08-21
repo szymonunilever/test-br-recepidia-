@@ -38,10 +38,12 @@ import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import Kritique from 'integrations/Kritique';
+import theme from './UserProfile.module.scss';
 
 // @todo remove hardcoded mocks
 import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
 import questionsMock from 'src/components/data/introQuiz.json';
+import NullResult from 'src/components/lib/components/NullResult';
 
 // Screen width in px below which the view is switching to Carousel mode
 const mobileBreakpoint = 768;
@@ -108,6 +110,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
     'Text',
     'NoMealPlanResults'
   );
+  const nullResultContent = findPageComponentContent(components, 'NullResult');
 
   const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
     tabsContent.tabsHeaderContent
@@ -213,47 +216,56 @@ const FavoritesRecipeListingPage: FunctionComponent<
   }, [recipeByIdsResults.count]);
 
   return (
-    <Layout>
+    <Layout className="header--bg">
       <SEO {...seo} />
       <Kritique />
       <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
+        className={theme.userProfile}
       >
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
-            <ResponsiveListingWithFavorite
-              content={recipeContent}
-              list={recipeByIdsResults.list}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              className="recipe-list favorites"
-              initialCount={8}
-              titleLevel={2}
-              viewType={RecipeListViewType.Base}
-              carouselConfig={{
-                breakpoints: [
-                  {
-                    width: 768,
-                    switchElementsBelowBreakpoint: 1,
-                    switchElementsAfterBreakpoint: 1,
-                    visibleElementsBelowBreakpoint: 2,
-                    visibleElementsAboveBreakpoint: 4,
-                  },
-                ],
-                arrowIcon: <ArrowIcon />,
-              }}
-              loadMoreConfig={{
-                type: LoadMoreType.async,
-                onLoadMore: onLoadMoreRecipes,
-                allCount: recipeByIdsResults.count,
-              }}
-              imageSizes={'(min-width: 768px) 25vw, 50vw'}
-            />
-            {!hasFavorites && (
-              <Button>
-                <Link to={'/recipes'}>{buttonContent.label}</Link>
-              </Button>
+            {hasFavorites ? (
+              <ResponsiveListingWithFavorite
+                content={recipeContent}
+                list={recipeByIdsResults.list}
+                ratingProvider={RatingAndReviewsProvider.kritique}
+                className="recipe-list favorites"
+                initialCount={8}
+                titleLevel={2}
+                viewType={RecipeListViewType.Base}
+                carouselConfig={{
+                  breakpoints: [
+                    {
+                      width: 768,
+                      switchElementsBelowBreakpoint: 1,
+                      switchElementsAfterBreakpoint: 1,
+                      visibleElementsBelowBreakpoint: 2,
+                      visibleElementsAboveBreakpoint: 4,
+                    },
+                  ],
+                  arrowIcon: <ArrowIcon />,
+                }}
+                loadMoreConfig={{
+                  type: LoadMoreType.async,
+                  onLoadMore: onLoadMoreRecipes,
+                  allCount: recipeByIdsResults.count,
+                }}
+                imageSizes={'(min-width: 768px) 25vw, 50vw'}
+              />
+            ) : (
+              <Fragment>
+                <NullResult
+                  content={nullResultContent}
+                  className="recipe-list__null-results"
+                  titleLevel={2}
+                />
+                <Link className="favorites__button" to={'/recipes'}>
+                  {buttonContent.label}
+                </Link>
+              </Fragment>
             )}
           </div>
         </Tab>
@@ -302,9 +314,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             ) : (
               <Text tag={TagName.h3} text={noMealPlanContent.text} />
             )}
-            <Button>
-              <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
-            </Button>
+            <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
           </Fragment>
         </Tab>
       </Tabs>

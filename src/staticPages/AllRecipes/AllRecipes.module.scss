@@ -14,3 +14,9 @@
     background: $white-gray;
   }
 }
+.themeTitle{
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
+}

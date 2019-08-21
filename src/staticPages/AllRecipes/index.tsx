@@ -177,104 +177,95 @@ const AllRecipesPage = ({
       <DigitalData title={seo.title} type={type} />
       <Kritique />
       <section className="_pt--40">
-        <div className="container">
-          <Text
-            tag={TagName['h1']}
-            text={
-              findPageComponentContent(components, 'Text', 'PageTitle').text
-            }
-          />
-        </div>
+        <Text
+          className={theme.themeTitle}
+          tag={TagName['h1']}
+          text={findPageComponentContent(components, 'Text', 'PageTitle').text}
+        />
       </section>
 
       <section className="_pb--40">
-        <div className="container">
-          <PageListing
-            content={findPageComponentContent(
-              components,
-              'PageListing',
-              'RecipeCategories'
-            )}
-            list={pageListingData}
-            viewType={PageListingViewTypes.carousel}
-            titleLevel={2}
-            carouselConfig={{
-              arrowIcon: <ArrowIcon />,
-            }}
-          />
-        </div>
+        <PageListing
+          content={findPageComponentContent(
+            components,
+            'PageListing',
+            'RecipeCategories'
+          )}
+          list={pageListingData}
+          viewType={PageListingViewTypes.carousel}
+          titleLevel={2}
+          carouselConfig={{
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
       </section>
 
       <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
-        <div className="container">
-          <RecipeListingWithFavorite
-            dataFetched={dataFetched}
-            viewType={RecipeListViewType.Advanced}
-            content={{
-              ...findPageComponentContent(
-                components,
-                'RecipeListing',
-                'AllRecipes'
-              ),
-            }}
-            list={recipeResults.list}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            titleLevel={3}
-            tags={{
-              tagGroups: allTagGroupings.nodes,
-              displayCategories: [
-                'dishes',
-                'mainIngredient',
-                'cuisines',
-                'difficulties',
-                'dietary',
-                'budgets',
-              ],
-            }}
-            className="recipe-list--carousel cards--2-4"
-            OpenIcon={OpenIcon}
-            FilterIcon={FilterIcon}
-            RemoveTagIcon={RemoveTagIcon}
-            loadMoreConfig={{
-              type: LoadMoreType.async,
-              allCount: recipeResults.count,
-              onLoadMore: onRecipeLoadMore,
-            }}
-            onViewChange={onViewChange}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        </div>
+        <RecipeListingWithFavorite
+          dataFetched={dataFetched}
+          viewType={RecipeListViewType.Advanced}
+          content={{
+            ...findPageComponentContent(
+              components,
+              'RecipeListing',
+              'AllRecipes'
+            ),
+          }}
+          list={recipeResults.list}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          titleLevel={3}
+          tags={{
+            tagGroups: allTagGroupings.nodes,
+            displayCategories: [
+              'dishes',
+              'mainIngredient',
+              'cuisines',
+              'difficulties',
+              'dietary',
+              'budgets',
+            ],
+          }}
+          className="recipe-list--carousel cards--2-4"
+          OpenIcon={OpenIcon}
+          FilterIcon={FilterIcon}
+          RemoveTagIcon={RemoveTagIcon}
+          loadMoreConfig={{
+            type: LoadMoreType.async,
+            allCount: recipeResults.count,
+            onLoadMore: onRecipeLoadMore,
+          }}
+          onViewChange={onViewChange}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        />
       </section>
 
       <section className="_pt--40 _pb--40">
-        <div className="container">
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'SeasonalPromotionalRecipes'
-            )}
-            list={promotionalRecipes.nodes}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            titleLevel={2}
-            initialCount={initialRecipesCount}
-            viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel"
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 1,
-                  visibleElementsAboveBreakpoint: 2,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 50vw, 100vw'}
-          />
-        </div>
+        <RecipeListingWithFavorite
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'SeasonalPromotionalRecipes'
+          )}
+          list={promotionalRecipes.nodes}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          titleLevel={2}
+          initialCount={initialRecipesCount}
+          viewType={RecipeListViewType.Carousel}
+          className="recipe-list--carousel"
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 1,
+                visibleElementsAboveBreakpoint: 2,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+        />
       </section>
 
       <section className="_pt--40">

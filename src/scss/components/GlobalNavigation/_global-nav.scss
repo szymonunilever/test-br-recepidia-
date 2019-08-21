@@ -8,7 +8,6 @@ $submenu-text-color: $fish-blue-darker;
 
 .global-navigation {
   &__inner {
-    @extend .container;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,8 +17,7 @@ $submenu-text-color: $fish-blue-darker;
     height: $header-height;
     padding: 0 25px;
     @include respondTo(desktop) {
-      justify-content: initial;
-      padding: 0 25px;
+      padding: 0 $layout-indent;
     }
 
     .navigation {
@@ -69,7 +67,7 @@ $submenu-text-color: $fish-blue-darker;
         visibility: visible;
         top: auto;
         margin-right: auto;
-        min-height: initial;
+        min-height: 0px;
         &.active {
           visibility: visible;
           transform: none;
@@ -182,7 +180,9 @@ $submenu-text-color: $fish-blue-darker;
       width: 48px;
       height: 48px;
       transition: all 0.2s ease-out;
-      @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
         &:hover {
           color: $black-blue;
           stroke: $black-blue;

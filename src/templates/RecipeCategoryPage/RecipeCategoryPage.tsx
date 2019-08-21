@@ -84,107 +84,93 @@ const RecipeCategotyPage = ({
       <DigitalData title={title} type={type} />
       <Kritique />
       <section className="_pt--40">
-        <div className="container">
-          <Text
-            className={theme.heroTitle}
-            tag={TagName['h1']}
-            text={tag.title || fromCamelCase(tag.name)}
-          />
-        </div>
+        <Text
+          className={theme.heroTitle}
+          tag={TagName['h1']}
+          text={tag.title || fromCamelCase(tag.name)}
+        />
       </section>
       <section>
-        <div className="container">
-          <Text
-            className={theme.heroDescriptionBold}
-            tag={TagName['p']}
-            text={
-              tag.description ||
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
-            }
-          />
+        <Text
+          className={theme.heroDescriptionBold}
+          tag={TagName['p']}
+          text={
+            tag.description ||
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
+          }
+        />
 
-          <Text
-            className={theme.heroDescription}
-            tag={TagName['p']}
-            text={
-              tag.description ||
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
-            }
-          />
-        </div>
+        <Text
+          className={theme.heroDescription}
+          tag={TagName['p']}
+          text={
+            tag.description ||
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
+          }
+        />
       </section>
 
       {/* {categoryImage && (
         <section className={theme.heroBg}>
-          <div className="container">
             <AdaptiveImage localImage={categoryImage} alt={tag.title} />
-          </div>
         </section>
       )} */}
       {/* @todo remove hardcoded section below and uncomment section above */}
-      <section className={cx(theme.heroBg, '_pt--40 _pb--40')}>
-        <div className="container">
-          <AdaptiveImage
-            className={theme.heroBgImage}
-            localImage={
-              findPageComponentContent(components, 'Hero').image.localImage
-            }
-            alt={tag.title}
-          />
-        </div>
+      <section className={cx(theme.heroBg)}>
+        <AdaptiveImage
+          className={theme.heroBgImage}
+          localImage={
+            findPageComponentContent(components, 'Hero').image.localImage
+          }
+          alt={tag.title}
+        />
       </section>
 
       <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
-        <div className="container">
-          <RecipeListingWithFavorite
-            content={{
-              ...recipesListingContent,
-              title: recipesListingContent.title.replace(
-                '{numRes}',
-                recipeResultsCount
-              ),
-            }}
-            list={recipeResultsList}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            viewType={RecipeListViewType.Base}
-            loadMoreConfig={{
-              type: LoadMoreType.async,
-              onLoadMore: onLoadMoreRecipes,
-              allCount: recipeResultsCount,
-            }}
-            titleLevel={2}
-            recipePerLoad={4}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        </div>
+        <RecipeListingWithFavorite
+          content={{
+            ...recipesListingContent,
+            title: recipesListingContent.title.replace(
+              '{numRes}',
+              recipeResultsCount
+            ),
+          }}
+          list={recipeResultsList}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          viewType={RecipeListViewType.Base}
+          loadMoreConfig={{
+            type: LoadMoreType.async,
+            onLoadMore: onLoadMoreRecipes,
+            allCount: recipeResultsCount,
+          }}
+          titleLevel={2}
+          recipePerLoad={4}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        />
       </section>
 
       {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
-          <div className="container">
-            <MediaGallery
-              // content={findPageComponentContent(
-              //   components,
-              //   'MediaGallery',
-              //   'RelatedArticles'
-              // )}
-              content={relatedArticlesComponent.content}
-              list={allArticle.nodes}
-              allCount={allArticle.nodes.length}
-              onLoadMore={() => {}}
-            />
-          </div>
+          <MediaGallery
+            // content={findPageComponentContent(
+            //   components,
+            //   'MediaGallery',
+            //   'RelatedArticles'
+            // )}
+            content={relatedArticlesComponent.content}
+            list={allArticle.nodes}
+            allCount={allArticle.nodes.length}
+            onLoadMore={() => {}}
+          />
         </section>
       )}
 
-      <section>
-        <div className="container">
-          <TagLinks
-            initialCount={initialTagsCount}
-            list={tagList}
-            content={findPageComponentContent(components, 'Tags')}
-          />
-        </div>
+      <section className={theme.tagList}>
+        <TagLinks
+          initialCount={initialTagsCount}
+          list={tagList}
+          content={findPageComponentContent(components, 'Tags')}
+        />
       </section>
 
       <section className="_pb--40">
@@ -196,20 +182,18 @@ const RecipeCategotyPage = ({
       </section>
 
       <section className="_pb--40 _pt--40">
-        <div className="container">
-          <PageListing
-            content={findPageComponentContent(
-              components,
-              'PageListing',
-              'RecipeCategories'
-            )}
-            viewType={PageListingViewTypes.carousel}
-            list={pageListingData}
-            carouselConfig={{
-              arrowIcon: <ArrowIcon />,
-            }}
-          />
-        </div>
+        <PageListing
+          content={findPageComponentContent(
+            components,
+            'PageListing',
+            'RecipeCategories'
+          )}
+          viewType={PageListingViewTypes.carousel}
+          list={pageListingData}
+          carouselConfig={{
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
       </section>
     </Layout>
   );

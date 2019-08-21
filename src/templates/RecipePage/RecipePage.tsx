@@ -291,82 +291,78 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
       <RecipeMicrodata recipe={recipe} />
 
       <section className={cx(theme.topBg, '_bg--main')}>
-        <div className="container">
-          <div className={theme.recipeTopBlock}>
-            <div className={theme.recipeTopBlockItem}>
-              <div className={theme.recipeHeroDesktop}>{recipeHero}</div>
+        <div className={theme.recipeTopBlock}>
+          <div className={theme.recipeTopBlockItem}>
+            <div className={theme.recipeHeroDesktop}>{recipeHero}</div>
+          </div>
+          <div className={theme.recipeTopBlockItem}>
+            <div className={theme.recipeHeroMobile}>{recipeHero}</div>
+            <div className={theme.recipeBlockTitle}>
+              <RecipeCopy
+                viewType={RecipeCopyViewType.Title}
+                recipe={recipe}
+                content={{}}
+                className="recipe-copy__title"
+              />
+              <Rating
+                recipeId={recipe.recipeId}
+                provider={RatingAndReviewsProvider.kritique}
+                linkTo={recipe.fields.slug}
+              />
             </div>
-            <div className={theme.recipeTopBlockItem}>
-              <div className={theme.recipeHeroMobile}>{recipeHero}</div>
-              <div className={theme.recipeBlockTitle}>
-                <RecipeCopy
-                  viewType={RecipeCopyViewType.Title}
-                  recipe={recipe}
-                  content={{}}
-                  className="recipe-copy__title"
-                />
-                <Rating
-                  recipeId={recipe.recipeId}
-                  provider={RatingAndReviewsProvider.kritique}
-                  linkTo={recipe.fields.slug}
-                />
-              </div>
-              <div className={theme.recipeBlockDescription}>
-                <RecipeCopy
-                  viewType={RecipeCopyViewType.Description}
-                  recipe={recipe}
-                  content={{}}
-                  className="recipe-copy__description"
-                />
-                <RecipeAttributes
-                  //@ts-ignore
-                  recipe={recipe}
-                  visible={[
-                    RecipeAttributesKeys.serves,
-                    RecipeAttributesKeys.cookTime,
-                    RecipeAttributesKeys.preperationTime,
-                    RecipeAttributesKeys.difficulties,
-                  ]}
-                  icons={{
-                    preperationTime: RecipeKnife,
-                    cookTime: RecipeClock,
-                    serves: RecipePeople,
-                    difficulties: RecipeDifficulty,
-                  }}
-                  className="recipe-attributes"
-                  content={findPageComponentContent(
-                    components,
-                    'RecipeAttributes'
-                  )}
-                />
-              </div>
+            <div className={theme.recipeBlockDescription}>
+              <RecipeCopy
+                viewType={RecipeCopyViewType.Description}
+                recipe={recipe}
+                content={{}}
+                className="recipe-copy__description"
+              />
+              <RecipeAttributes
+                //@ts-ignore
+                recipe={recipe}
+                visible={[
+                  RecipeAttributesKeys.serves,
+                  RecipeAttributesKeys.cookTime,
+                  RecipeAttributesKeys.preperationTime,
+                  RecipeAttributesKeys.difficulties,
+                ]}
+                icons={{
+                  preperationTime: RecipeKnife,
+                  cookTime: RecipeClock,
+                  serves: RecipePeople,
+                  difficulties: RecipeDifficulty,
+                }}
+                className="recipe-attributes"
+                content={findPageComponentContent(
+                  components,
+                  'RecipeAttributes'
+                )}
+              />
             </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div className="container">
-          <div className={cx(theme.recipeIngredientsCooking, '_pt--40')}>
-            <RecipeCopy
-              viewType={RecipeCopyViewType.Ingredients}
-              recipe={recipe}
-              content={findPageComponentContent(
-                components,
-                'RecipeCopy',
-                'Ingredients'
-              )}
-              className={theme.recipeCopyIngredients}
-            />
-            <RecipeCookingMethod
-              methodList={recipe.methods}
-              className={theme.recipeCookingMethod}
-              content={findPageComponentContent(
-                components,
-                'RecipeCookingMethod'
-              )}
-            />
-          </div>
+        <div className={cx(theme.recipeIngredientsCooking)}>
+          <RecipeCopy
+            viewType={RecipeCopyViewType.Ingredients}
+            recipe={recipe}
+            content={findPageComponentContent(
+              components,
+              'RecipeCopy',
+              'Ingredients'
+            )}
+            className={theme.recipeCopyIngredients}
+          />
+          <RecipeCookingMethod
+            methodList={recipe.methods}
+            className={theme.recipeCookingMethod}
+            content={findPageComponentContent(
+              components,
+              'RecipeCookingMethod'
+            )}
+          />
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
           <Tabs
@@ -392,41 +388,33 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         </div>
       </section>
       <section className="recipe-dietary-attributes__wrapper">
-        <div className="container">
-          <Text text={'Nutritional'} tag={TagName.h2} />
-        </div>
-        <div className="container">
-          <RecipeDietaryAttributes
-            activeAttributes={currentRecipeDietaryList}
-            attributes={allDietaryList}
-            icons={dietaryAttributesIcons}
-          />
-          <RecipeNutrients
-            recipe={recipe}
-            modalTitle={'Nutritional information'}
-            content={findPageComponentContent(components, 'RecipeNutrients')}
-            viewType={RecipeNutrientsViewType.WithAction}
-            CloseButton={CloseButton}
-          />
-        </div>
+        <Text text={'Nutritional'} tag={TagName.h2} />
+        <RecipeDietaryAttributes
+          activeAttributes={currentRecipeDietaryList}
+          attributes={allDietaryList}
+          icons={dietaryAttributesIcons}
+        />
+        <RecipeNutrients
+          recipe={recipe}
+          modalTitle={'Nutritional information'}
+          content={findPageComponentContent(components, 'RecipeNutrients')}
+          viewType={RecipeNutrientsViewType.WithAction}
+          CloseButton={CloseButton}
+        />
       </section>
-      <section className="_pt--40">
-        <div className="container">
-          <Reviews
-            recipeId={recipe.recipeId}
-            provider={RatingAndReviewsProvider.kritique}
-            linkTo={recipe.fields.slug}
-          />
-        </div>
+      <section className={theme.reviews}>
+        <Reviews
+          recipeId={recipe.recipeId}
+          provider={RatingAndReviewsProvider.kritique}
+          linkTo={recipe.fields.slug}
+        />
       </section>
-      <section className="_pt--40 _pb--40">
-        <div className="container">
-          <TagLinks
-            initialCount={initialTagsCount}
-            list={tagList}
-            content={findPageComponentContent(components, 'Tags')}
-          />
-        </div>
+      <section className={theme.tagList}>
+        <TagLinks
+          initialCount={initialTagsCount}
+          list={tagList}
+          content={findPageComponentContent(components, 'Tags')}
+        />
       </section>
       <section className="_pb--40">
         <Hero
@@ -436,33 +424,31 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         />
       </section>
       <section className="_pt--40 _pb--40">
-        <div className="container">
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'RelatedRecipes'
-            )}
-            list={relatedRecipes}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel cards--2-4"
-            titleLevel={2}
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 2,
-                  visibleElementsAboveBreakpoint: 4,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        </div>
+        <RecipeListingWithFavorite
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'RelatedRecipes'
+          )}
+          list={relatedRecipes}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          viewType={RecipeListViewType.Carousel}
+          className="recipe-list--carousel"
+          titleLevel={2}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 2,
+                visibleElementsAboveBreakpoint: 4,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        />
       </section>
     </Layout>
   );

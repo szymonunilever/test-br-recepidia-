@@ -1,33 +1,32 @@
 .recipe-dietary-attributes__wrapper {
   background-color: $white-gray;
-  padding: 30px 0 36px;
   border-radius: 20px;
-  h2{
-    margin-bottom: 35px;
+  padding: 36px 25px;
+  @include respondTo(desktop) {
+    padding: 36px $layout-indent;
   }
-  .container-fluid{
-    @extend .container;
-    max-width: 100%;
+  h2 {
+    margin-bottom: 35px;
   }
 }
 
 .recipe-dietary-attributes {
-  &__list{
+  &__list {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    @include respondTo(medium){
+    @include respondTo(medium) {
       margin: 0 -17px;
     }
   }
 
-  &__item{
-    width: calc(99.9%/3);
+  &__item {
+    width: calc(99.9% / 3);
     margin-bottom: 17px;
-    @include respondTo(medium){
+    @include respondTo(medium) {
       padding-left: 16px;
       padding-right: 16px;
       width: auto;
@@ -37,24 +36,25 @@
     }
   }
 
-  &__icon{
-    text-align: center; 
-    svg{
-      height: 75px;
-      width: 85px;
+  &__icon {
+    text-align: center;
+    width: 74px;
+    height: 74px;
+    svg {
+      height: 100%;
+      width: 100%;
     }
   }
-  
-  &__text{
+
+  &__text {
     font-size: 1.4rem;
     line-height: 1.2;
     text-align: center;
-    color: $fish-blue-darker; 
+    color: $fish-blue-darker;
     margin-top: 13px;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       margin-top: 15px;
       max-width: 80px;
     }
   }
-
 }
