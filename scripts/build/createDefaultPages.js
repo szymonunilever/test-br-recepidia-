@@ -1,9 +1,23 @@
-const parseComponents = components =>
-  components.items.map(component => ({
-    ...component,
-    content: JSON.parse(component.content),
-  }));
+const recursiveCallback = require('./recursiveCallback');
 
+const parseComponents = components => {
+  const contentHandler = (contentString, assets) => {
+    let contentObject = JSON.parse(contentString);
+    const assetsMap = {};
+    assets.forEach(asset => (assetsMap[asset.url] = asset.localImage));
+
+    return recursiveCallback(contentObject, 'image', capturedProp => {
+      return {
+        ...capturedProp,
+        localImage: assetsMap[capturedProp.url],
+      };
+    });
+  };
+  return components.items.map(component => ({
+    ...component,
+    content: contentHandler(component.content, component.assets),
+  }));
+};
 module.exports = async ({ graphql, createPage }) => {
   const result = await graphql(`
     {

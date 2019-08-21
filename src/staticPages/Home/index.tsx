@@ -171,16 +171,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     }
   });
 
-  quizContent &&
-    //@ts-ignore
-    quizContent.questions.forEach(item => {
-      //@ts-ignore
-      item.options.forEach(option => {
-        //@ts-ignore
-        option.label.image.localImage = localImage;
-      });
-    });
-
   return (
     <Layout className="header--bg">
       <SEO {...seo} canonical={location.href} />
