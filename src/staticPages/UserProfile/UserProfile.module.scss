@@ -8,14 +8,14 @@
         background-color: $primary-bg-color;
         padding: 22px 25px;
         @include respondTo(desktop) {
-          padding: 22px $layout-indent;
+          padding: 0 $layout-indent;
         }
         &__heading {
           h2 {
             font-size: 3rem; // @extend %h1--smaller;
             line-height: 1.07;
             color: $fish-blue-darker;
-            margin-bottom: 12px;
+            margin-bottom: 25px;
             @include respondTo(desktop) {
               font-size: 4.5rem;
             }
@@ -23,14 +23,19 @@
           &-subheading {
             h3 {
               font-size: 1.4rem;
-              margin-bottom: 0;
+              font-family: $arial;
+              margin: 0;
+
+              @include respondTo(desktop) {
+                padding-bottom: 25px;
+              }
             }
           }
         }
       }
       &__buttons {
         @include respondTo(desktop) {
-          padding: 0 $layout-indent;
+         padding: 0 $layout-indent;
         }
       }
       &__button {
@@ -49,5 +54,11 @@
         }
       }
     }
+  }
+  .mealPlannerBtnWrap{
+    text-align: center;
+  }
+  .mealPlannerBtn {
+    margin-top: 25px;
   }
 }

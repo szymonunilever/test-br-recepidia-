@@ -13,9 +13,7 @@ body {
 main {
   display: block;
 }
-.container {
-  @extend %container;
-}
+
 h1,
 h2,
 h3,
@@ -241,8 +239,7 @@ progress::-ms-fill {
   background: $fish-blue-darker;
 }
 
-.adaptive-image{
+.adaptive-image {
   border-radius: 5px;
   overflow: hidden;
 }
-

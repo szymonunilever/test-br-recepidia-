@@ -2,10 +2,9 @@
 @import 'src/scss/mixins';
 
 .about-us {
-  padding-top: 20px;
-  padding-bottom: 96px;
+  padding: 22px 25px 100px 25px;
   @include respondTo(desktop) {
-    padding-top: 50px;
+    padding: 50px $layout-indent 100px;
   }
 
   &__title {
@@ -44,5 +43,8 @@
   &__text {
     font-size: 1.4rem;
     line-height: 1.29;
+    div{
+      margin-bottom: 20px;
+    }
   }
 }

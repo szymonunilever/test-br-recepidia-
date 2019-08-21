@@ -103,14 +103,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       </section>
 
       {tagList.length ? (
-        <section className="_pt--40 _pb--40">
-          <div className="container">
-            <TagLinks
-              initialCount={initialTagsCount}
-              list={tagList}
-              content={findPageComponentContent(components, 'Tags')}
-            />
-          </div>
+        <section className={theme.tagList}>
+          <TagLinks
+            initialCount={initialTagsCount}
+            list={tagList}
+            content={findPageComponentContent(components, 'Tags')}
+          />
         </section>
       ) : null}
 
@@ -123,21 +121,19 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       </section>
 
       <section className="_pt--40 _pb--40">
-        <div className="container _pt--40 _pb--40">
-          <PageListing
-            content={findPageComponentContent(
-              components,
-              'PageListing',
-              'RecipeCategories'
-            )}
-            list={pageListingData}
-            viewType={PageListingViewTypes.carousel}
-            titleLevel={2}
-            carouselConfig={{
-              arrowIcon: <ArrowIcon />,
-            }}
-          />
-        </div>
+        <PageListing
+          content={findPageComponentContent(
+            components,
+            'PageListing',
+            'RecipeCategories'
+          )}
+          list={pageListingData}
+          viewType={PageListingViewTypes.carousel}
+          titleLevel={2}
+          carouselConfig={{
+            arrowIcon: <ArrowIcon />,
+          }}
+        />
       </section>
     </Layout>
   );

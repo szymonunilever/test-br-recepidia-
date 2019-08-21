@@ -78,18 +78,16 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       </section>
       {mainImageHero && (
         <section className={cx(theme.articleImage, 'bg--half')}>
-          <div className="container ">
-            <div className="article-image__wrap">
-              <Hero viewType="Image" content={mainImageHero} />
-              <SocialSharing
-                content={findPageComponentContent(components, 'SocialSharing')}
-                className={theme.articleSocial}
-                icons={socialIcons}
-                viewType={SocialSharingViewType.Modal}
-                CloseButtonIcon={CloseButton}
-                WidgetScript={AddThis}
-              />
-            </div>
+          <div className="article-image__wrap">
+            <Hero viewType="Image" content={mainImageHero} />
+            <SocialSharing
+              content={findPageComponentContent(components, 'SocialSharing')}
+              className={theme.articleSocial}
+              icons={socialIcons}
+              viewType={SocialSharingViewType.Modal}
+              CloseButtonIcon={CloseButton}
+              WidgetScript={AddThis}
+            />
           </div>
         </section>
       )}

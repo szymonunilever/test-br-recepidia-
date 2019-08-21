@@ -59,7 +59,6 @@
 }
 
 .modal--search {
-  @extend .container;
   .modal {
     &__content {
       @extend %modal__content--small;

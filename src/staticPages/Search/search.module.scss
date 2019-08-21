@@ -73,3 +73,10 @@
     }
   }
 }
+
+.tag-list {
+  padding: 20px 25px;
+  @include respondTo(desktop) {
+    padding: 30px $layout-indent;
+  }
+}

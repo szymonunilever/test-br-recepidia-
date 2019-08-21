@@ -12,9 +12,6 @@ const PreferencesIntro: FunctionComponent<PreferencesIntroProps> = ({
     <div className="preferences__header-heading">
       <Text tag={TagName.h2} text={heading} />
     </div>
-    <div className="preferences__header-subheading">
-      <Text tag={TagName.h3} text={heading} />
-    </div>
     <div className="preferences__header-content">
       <Text tag={TagName.p} text={content} />
     </div>
