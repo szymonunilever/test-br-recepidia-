@@ -1,0 +1,24 @@
+.user-profile-favorites {
+  padding-bottom: 54px;
+  .recipe-list {
+    padding: 0;
+    &__null-results {
+      .recommendations__subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 46px;
+      }
+    }
+    &__header {
+      margin-bottom: 20px;
+    }
+  }
+  .favorites__button {
+    @extend .button;
+    @extend .button--fullwidth;
+    margin: 0 auto;
+    display: flex;
+    @include respondTo(desktop) {
+      height: 46px;
+    }
+  }
+}
