@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import remove from 'lodash/remove';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
@@ -259,4 +259,4 @@ export const RecipeListing = ({
   );
 };
 
-export default RecipeListing;
+export default memo(RecipeListing);

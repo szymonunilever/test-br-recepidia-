@@ -1093,7 +1093,7 @@
             "name": "Text",
             "content": {
               "view": "Title",
-              "text": "404 Oops! Page not found!"
+              "text": "404 \n Oops! Page not found!"
             }
           },
           {
@@ -1203,6 +1203,7 @@
             "name": "RecipeListing",
             "content": {
               "title": "Favorite recipes",
+              "view": "Favorites",
               "resultLabel": "recipe",
               "resultLabelPlural": "recipes",
               "cta": {
@@ -1213,7 +1214,8 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "You don’t have favourite recipes yet.",
+              "title": "Favorite recipes",
+              "subtitle": "You don’t have favourite recipes yet.",
               "textList": []
             }
           },
@@ -1344,7 +1346,7 @@
           {
             "name": "RichText",
             "content": {
-              "text": "It could be a lunch, a dinner, an early night snack, or even a last-minute happy hour. It can be a special meal or just a craving to get out of the rut and cook something different! Receipia presents perfect recipes for each of these moments. It is an interactive and inspiring site, made for both those who love cooking and those who are still learning. Delicious recipes are created by Chef Receppedia, also by the visitors themselves, who can share their own recipes! So, you know: whenever you are in doubt about what to do or how to do, access the Recepedia. In addition to delicious recipes, you will find the exact inspiration for what you are looking for."
+              "text": "<div> It could be a lunch, a dinner, an early night snack, or even a last-minute happy hour. It can be a special meal or just a craving to get out of the rut and cook something different! Recepedia presents perfect recipes for each of these moments. </div> <div> It is an interactive and inspiring site, made for both those who love cooking and those who are still learning. Delicious recipes are created by Chef Recepedia, also by the visitors themselves, who can share their own recipes! </div> <div> So, you know: whenever you are in doubt about what to do or how to do, access the Recepedia. In addition to delicious recipes, you will find the exact inspiration for what you are looking for. </div>"
             }
           }
         ]

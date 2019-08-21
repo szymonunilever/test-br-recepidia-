@@ -51,7 +51,6 @@ import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
 import useMedia from 'src/utils/useMedia';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import {
   updateFavorites,
   getUserProfileByKey,
@@ -61,13 +60,7 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import get from 'lodash/get';
 import remove from 'lodash/remove';
 import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
@@ -111,7 +104,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     'tags',
     []
   );
-
   const dietaryAttributesIcons = [
     {
       id: 11,
@@ -172,7 +164,12 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   ];
 
   const [relatedRecipes, setRelatedRecipes] = useState<Internal.Recipe[]>([]);
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   // const tabsContent = {
   //   tabs: [

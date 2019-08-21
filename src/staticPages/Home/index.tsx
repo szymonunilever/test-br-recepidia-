@@ -26,17 +26,10 @@ import generateQuery from '../../utils/queryGenerator';
 import theme from './home.module.scss';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+import useFavorite from 'src/utils/useFavorite';
 
 const RESULT_SIZE = 6;
 const FROM = 0;
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
 
 export const getPersonalizationSearchData = (
   searchQuery: string,
@@ -171,15 +164,12 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     }
   });
 
-  quizContent &&
-    //@ts-ignore
-    quizContent.questions.forEach(item => {
-      //@ts-ignore
-      item.options.forEach(option => {
-        //@ts-ignore
-        option.label.image.localImage = localImage;
-      });
-    });
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
 
   return (
     <Layout className="header--bg">
@@ -210,8 +200,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             )}
             list={recipesFound.latestAndGratesNodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
-            favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
-            className="recipe-list--blue-header recipe-list--carousel cards--2-4"
+            className="recipe-list--blue-header recipe-list--carousel"
             viewType={RecipeListViewType.Carousel}
             titleLevel={2}
             carouselConfig={{
@@ -239,10 +228,9 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
               'TopRecipes'
             )}
             list={recipesFound.topRecipesNodes}
-            favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel cards--1-2"
+            className="recipe-list--carousel"
             titleLevel={2}
             carouselConfig={{
               breakpoints: [

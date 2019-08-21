@@ -15,7 +15,7 @@ const RecipeListingWithFavorites = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Component: any,
   updateFavorites: OnFavoriteChange,
-  favorites: string[],
+  favorites: number[],
   favoriteIcon: JSX.Element
   // eslint-disable-next-line react/display-name
 ) => ({ ...props }) => (

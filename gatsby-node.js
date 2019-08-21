@@ -97,25 +97,24 @@ exports.onCreateNode = async ({
     case 'Page': {
       await Promise.all(
         node.components.items.map(async component => {
-          let fileNode;
-          try {
-            if (component.assets.length > 0) {
-              fileNode = await createRemoteImageNode(
-                component.assets[0].url,
-                node.id,
-                {
-                  store,
-                  cache,
-                  createNode,
-                  createNodeId,
-                }
-              );
+          const createRemoteImageCallback = async index => {
+            let fileNode;
+            const asset = component.assets[index];
+            try {
+              fileNode = await createRemoteImageNode(asset.url, node.id, {
+                store,
+                cache,
+                createNode,
+                createNodeId,
+              });
+              component.assets[index][`localImage___NODE`] = fileNode.id;
+            } catch (error) {
+              console.error(error);
             }
-          } catch (error) {
-            console.error(error);
-          }
-          if (fileNode) {
-            component.assets[0][`localImage___NODE`] = fileNode.id;
+          };
+
+          for (let index = 0; index < component.assets.length; index++) {
+            await createRemoteImageCallback(index);
           }
         })
       );

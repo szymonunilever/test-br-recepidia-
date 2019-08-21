@@ -25,18 +25,11 @@ import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
 import { getPersonalizationSearchData } from 'src/staticPages/Home';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
@@ -54,7 +47,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const [answers, setAnswers] = useState({});
   const [recipes, setRecipes] = useState([]);
   const wizardResultSection = componentContent.wizardResultSection;
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   // @todo remove this workaround once we store images in graphql
   // @ts-ignore
   componentContent.wizardQuiz.questions.forEach(item => {
@@ -122,69 +120,67 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       </div>
       <section>
         <Kritique />
-        <div className="container">
-          <Wizard actionCallback={() => true}>
-            {/*
+        <Wizard actionCallback={() => true}>
+          {/*
           // @ts-ignore */}
-            <WizardIntroductionPanel
-              {...componentContent.wizardIntroductionPanel}
-              containerClass="wizard--intro"
-              stepId="intro"
-            />
-            {/*
+          <WizardIntroductionPanel
+            {...componentContent.wizardIntroductionPanel}
+            containerClass="wizard--intro"
+            stepId="intro"
+          />
+          {/*
           // @ts-ignore */}
-            <WizardQuiz
-              {...componentContent.wizardQuiz}
-              {...{ stepResultsCallback }}
-              containerClass="wizard--quiz"
-              stepId="quiz"
-            />
-            {/*
+          <WizardQuiz
+            {...componentContent.wizardQuiz}
+            {...{ stepResultsCallback }}
+            containerClass="wizard--quiz"
+            stepId="quiz"
+          />
+          {/*
           // @ts-ignore */}
-            <WizardResultSection
-              containerClass="wizard--result recipe-list--carousel"
-              stepId="result"
-              {...wizardResultSection}
-            >
-              {recipes.length ? (
-                <div>
-                  <RecipeListingWithFavorite
-                    content={findPageComponentContent(components, 'Wizard')}
-                    list={recipes}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
-                    viewType={RecipeListViewType.Carousel}
-                    className="recipe-list--wizard"
-                    carouselConfig={{
-                      breakpoints: [
-                        {
-                          width: 1366,
-                          switchElementsBelowBreakpoint: 1,
-                          switchElementsAfterBreakpoint: 1,
-                          visibleElementsBelowBreakpoint: 2,
-                          visibleElementsAboveBreakpoint: 4,
-                        },
-                      ],
-                      arrowIcon: <ArrowIcon />,
-                    }}
-                    imageSizes={'(min-width: 768px) 25vw, 50vw'}
-                  />
-                  <div className="wizard__buttons">
-                    <Link
-                      className="wizard__button wizard__button--primary"
-                      to={'/profile'}
-                    >
-                      {wizardResultSection.primaryButtonLabel}
-                    </Link>
-                  </div>
+          <WizardResultSection
+            containerClass="wizard--result recipe-list--carousel"
+            stepId="result"
+            {...wizardResultSection}
+          >
+            {recipes.length ? (
+              <div>
+                <RecipeListingWithFavorite
+                  content={findPageComponentContent(components, 'Wizard')}
+                  list={recipes}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  viewType={RecipeListViewType.Carousel}
+                  className="recipe-list--wizard"
+                  carouselConfig={{
+                    breakpoints: [
+                      {
+                        width: 1366,
+                        switchElementsBelowBreakpoint: 1,
+                        switchElementsAfterBreakpoint: 1,
+                        visibleElementsBelowBreakpoint: 2,
+                        visibleElementsAboveBreakpoint: 4,
+                      },
+                    ],
+                    arrowIcon: <ArrowIcon />,
+                  }}
+                  imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                />
+                <div className="wizard__buttons">
+                  <Link
+                    className="wizard__button wizard__button--primary"
+                    to={'/profile'}
+                  >
+                    {wizardResultSection.primaryButtonLabel}
+                  </Link>
                 </div>
-              ) : (
-                <div className={theme.spinner}>
-                  <Spinner />
-                </div>
-              )}
-            </WizardResultSection>
-          </Wizard>
-        </div>
+              </div>
+            ) : (
+              <div className={theme.spinner}>
+                <Spinner />
+              </div>
+            )}
+          </WizardResultSection>
+        </Wizard>
       </section>
     </div>
   );

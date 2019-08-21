@@ -24,6 +24,9 @@ export const RecipeAttributes = ({
         item => item.name === RecipeAttributesKeys[value]
       );
       const difficultyVal = get(difficulties, 'tags[0].name', '');
+      if (!difficultyVal) {
+        return null;
+      }
 
       return (
         <RecipeAttributeCard

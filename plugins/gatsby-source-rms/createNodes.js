@@ -30,7 +30,7 @@ const processTag = (
   parentNodeId,
   { createNodeId, createContentDigest, createNode }
 ) => {
-  const nodeId = createNodeId(`tag-${tag.name}`);
+  const nodeId = createNodeId(`tag-${tag.id}`);
 
   createNode({
     ...tag,

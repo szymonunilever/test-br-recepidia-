@@ -1,5 +1,12 @@
+const recursiveCallback = require('../../scripts/build/recursiveCallback');
 const processComponent = component => {
-  const assets = component.content.image ? [component.content.image] : [];
+  const assets = [];
+
+  recursiveCallback(component.content, 'image', capturedProp => {
+    assets.push({ ...capturedProp });
+
+    return { ...capturedProp };
+  });
 
   return {
     name: component.name,
