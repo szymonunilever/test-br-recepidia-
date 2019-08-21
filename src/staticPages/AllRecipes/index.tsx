@@ -211,6 +211,7 @@ const AllRecipesPage = ({
               'AllRecipes'
             ),
           }}
+          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={recipeResults.list}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={3}
@@ -246,6 +247,7 @@ const AllRecipesPage = ({
             'RecipeListing',
             'SeasonalPromotionalRecipes'
           )}
+          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={promotionalRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={2}
