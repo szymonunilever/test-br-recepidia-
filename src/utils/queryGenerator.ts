@@ -57,20 +57,23 @@ const generateQueryString = (
     return { param: arr[0], weight: arr[1] };
   });
 
+  const formAnswer = (param: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let [quiz, mealPlaner]: [any, any] = [
+      param.match(/Q#(.)/),
+      param.match(/MP#(.)/),
+    ];
+    quiz && (quiz = parseInt(quiz[1]));
+    mealPlaner && (mealPlaner = parseInt(mealPlaner[1]));
+    quiz = q[quiz - 1];
+    mealPlaner = mp[mealPlaner - 1];
+    return quiz || mealPlaner;
+  };
+
   return params.reduce((prev, { param, weight }, i, params) => {
-    const realAnswer = eval(
-      '`' +
-        param.replace(/Q#(.)/, '${q[$1-1]}').replace(/MP#(.)/, '${mp[$1-1]}') +
-        '`'
-    );
+    const realAnswer = formAnswer(param);
     const nextAnswer = params[i + 1]
-      ? eval(
-          '`' +
-            params[i + 1].param
-              .replace(/Q#(.)/, '${q[$1-1]}')
-              .replace(/MP#(.)/, '${mp[$1-1]}') +
-            '`'
-        )
+      ? formAnswer(params[i + 1].param)
       : undefined;
 
     const isUndefined = /undefined|\S+:\(\)/.test(realAnswer);
