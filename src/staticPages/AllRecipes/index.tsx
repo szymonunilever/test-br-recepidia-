@@ -40,14 +40,7 @@ import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResp
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const AllRecipesPage = ({
   data,
@@ -66,7 +59,12 @@ const AllRecipesPage = ({
     count: 0,
   });
   const [dataFetched, setDataFetched] = useState(false);
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   const getRecipeSearchData = async (
     queryString: QueryString = {
       query: '**',
@@ -211,7 +209,6 @@ const AllRecipesPage = ({
               'AllRecipes'
             ),
           }}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={recipeResults.list}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={3}
@@ -247,7 +244,6 @@ const AllRecipesPage = ({
             'RecipeListing',
             'SeasonalPromotionalRecipes'
           )}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={promotionalRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={2}

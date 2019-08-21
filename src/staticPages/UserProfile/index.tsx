@@ -34,7 +34,6 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
 import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import Kritique from 'integrations/Kritique';
 import theme from './UserProfile.module.scss';
 
@@ -43,6 +42,7 @@ import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.js
 import questionsMock from 'src/components/data/introQuiz.json';
 import NullResult from 'src/components/lib/components/NullResult';
 import cx from 'classnames';
+import useFavorite from 'src/utils/useFavorite';
 
 const carouselConfig = {
   breakpoints: [
@@ -56,13 +56,6 @@ const carouselConfig = {
   ],
   arrowIcon: <ArrowIcon />,
 };
-
-const ListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
 
 const FavoritesRecipeListingPage: FunctionComponent<
   FavoriteRecipeListingProps
@@ -137,7 +130,12 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
   const passedMealPlanner = mealPlannerResults && mealPlannerResults.count;
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
       getRecipeDataByIds(
@@ -229,13 +227,10 @@ const FavoritesRecipeListingPage: FunctionComponent<
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
             {hasFavorites ? (
-              <ListingWithFavorite
+              <RecipeListingWithFavorite
                 content={recipeContent}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
-                favorites={
-                  getUserProfileByKey(ProfileKey.favorites) as string[]
-                }
                 className="recipe-list favorites"
                 initialCount={8}
                 titleLevel={2}
@@ -268,14 +263,13 @@ const FavoritesRecipeListingPage: FunctionComponent<
             onNewsletterFormSubmit={onNewsletterFormSubmit}
             content={userPreferencesContent}
           >
-            // @ts-ignore
             <PreferencesQuiz
               questions={questionsMock.questions as Question[]}
+              // @ts-ignore
               answers={getUserProfileByKey(ProfileKey.initialQuiz)}
               heading={preferencesQuizContent.quizTitle}
               quizKey={ProfileKey.initialQuiz}
             />
-            // @ts-ignore
             <PreferencesQuiz
               questions={
                 // @ts-ignore
@@ -283,6 +277,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   component => component.name === 'Wizard'
                 ).content.wizardQuiz.questions as Question[]
               }
+              // @ts-ignore
               answers={getUserProfileByKey(ProfileKey.mealPlannerAnswers)}
               heading={mealPlannerQuizContent.quizTitle}
               quizKey={ProfileKey.mealPlannerAnswers}

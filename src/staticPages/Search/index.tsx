@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -46,7 +46,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   } = useSearchResults(searchQuery);
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
-
+  const [favorites, setFavorites] = useState(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || []
+  );
+  const updateFavoriteState = useCallback((favorites: number[]) => {
+    updateFavorites(favorites);
+    setFavorites(favorites);
+  }, []);
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
   }, [recipeResults]);
@@ -82,13 +88,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               withFavorite: true,
               initialCount: initialRecipesCount,
               recipePerLoad: 4,
-              // @ts-ignore
-              favorites: Array.isArray(
-                getUserProfileByKey(ProfileKey.favorites)
-              )
-                ? getUserProfileByKey(ProfileKey.favorites)
-                : [],
-              onFavoriteChange: updateFavorites,
+              favorites: favorites,
+              onFavoriteChange: updateFavoriteState,
               imageSizes: '(min-width: 768px) 25vw, 50vw',
               ratingProvider: RatingAndReviewsProvider.kritique,
             },

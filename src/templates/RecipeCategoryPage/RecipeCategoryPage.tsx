@@ -32,14 +32,7 @@ import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadM
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const RecipeCategotyPage = ({
   data,
@@ -63,7 +56,12 @@ const RecipeCategotyPage = ({
     'RecipesByCategory'
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   if (categoryImage) {
     const seoImage = seo.meta.find(item => {
       return item.name == 'og:image';
@@ -135,7 +133,6 @@ const RecipeCategotyPage = ({
               recipeResultsCount
             ),
           }}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}

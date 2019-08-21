@@ -25,18 +25,11 @@ import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
 import { getPersonalizationSearchData } from 'src/staticPages/Home';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-
-const RecipeListingWithFavorite = RecipeListingWithFavorites(
-  RecipeListing,
-  updateFavorites,
-  getUserProfileByKey(ProfileKey.favorites) as string[],
-  FavoriteIcon
-);
+import useFavorite from 'src/utils/useFavorite';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
@@ -54,7 +47,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const [answers, setAnswers] = useState({});
   const [recipes, setRecipes] = useState([]);
   const wizardResultSection = componentContent.wizardResultSection;
-
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
   // @todo remove this workaround once we store images in graphql
   // @ts-ignore
   componentContent.wizardQuiz.questions.forEach(item => {
