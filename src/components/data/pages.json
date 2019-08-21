@@ -1213,7 +1213,8 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "You don’t have favourite recipes yet.",
+              "title": "Favorite recipes",
+              "subtitle": "You don’t have favourite recipes yet.",
               "textList": []
             }
           },
