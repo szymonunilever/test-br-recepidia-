@@ -6,8 +6,6 @@
       &__list {
         position: absolute;
         top: 100%;
-        left: $paddings-container;
-        width: calc(100% - #{2 * $paddings-container});
         @include respondTo(desktop) {
           width: 384px;
           left: 50%;
@@ -36,7 +34,10 @@
 section {
   .search {
     &-input {
-      @extend .container;
+      padding: 0 25px;
+      @include respondTo(desktop) {
+        padding: 0 $layout-indent;
+      }
     }
   }
 }

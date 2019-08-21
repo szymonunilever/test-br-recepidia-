@@ -211,7 +211,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             list={recipesFound.latestAndGratesNodes}
             ratingProvider={RatingAndReviewsProvider.kritique}
             favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
-            className="recipe-list--blue-header recipe-list--carousel cards--2-4"
+            className="recipe-list--blue-header recipe-list--carousel"
             viewType={RecipeListViewType.Carousel}
             titleLevel={2}
             carouselConfig={{
@@ -242,7 +242,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
             ratingProvider={RatingAndReviewsProvider.kritique}
             viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel cards--1-2"
+            className="recipe-list--carousel"
             titleLevel={2}
             carouselConfig={{
               breakpoints: [

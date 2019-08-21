@@ -132,7 +132,6 @@
         height: auto;
         max-height: 80px;
         overflow: hidden;
-        // margin-right: -$paddings-container;
         padding: 0;
         @include respondTo(desktop) {
           overflow: initial;

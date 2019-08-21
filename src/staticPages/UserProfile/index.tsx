@@ -42,13 +42,14 @@ import theme from './UserProfile.module.scss';
 import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
 import questionsMock from 'src/components/data/introQuiz.json';
 import NullResult from 'src/components/lib/components/NullResult';
+import cx from 'classnames';
 
 const carouselConfig = {
   breakpoints: [
     {
       width: 1366,
       switchElementsBelowBreakpoint: 1,
-      switchElementsAfterBreakpoint: 2,
+      switchElementsAfterBreakpoint: 1,
       visibleElementsBelowBreakpoint: 2,
       visibleElementsAboveBreakpoint: 4,
     },
@@ -70,7 +71,11 @@ const FavoritesRecipeListingPage: FunctionComponent<
     page: { components, seo, type },
   },
 }) => {
-  const recipeContent = findPageComponentContent(components, 'RecipeListing');
+  const recipeContent = findPageComponentContent(
+    components,
+    'RecipeListing',
+    'Favorites'
+  );
   const buttonContent = findPageComponentContent(
     components,
     'Button',
@@ -256,7 +261,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             )}
           </div>
         </Tab>
-        <Tab view="UserPreferences">
+        <Tab view="UserPreferences" className={theme.userPreferences}>
           <UserPreferences
             deleteQuestion={deleteQuestion}
             saveQuestion={saveQuestion}
@@ -301,7 +306,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
             ) : (
               <Text tag={TagName.h3} text={noMealPlanContent.text} />
             )}
-            <Link to={'/meal-planner'}>{mealPlanButtonContent.label}</Link>
+            <div className={theme.mealPlannerBtnWrap}>
+              <Link
+                className={cx(theme.mealPlannerBtn, 'button')}
+                to={'/meal-planner'}
+              >
+                {mealPlanButtonContent.label}
+              </Link>
+            </div>
           </Fragment>
         </Tab>
       </Tabs>

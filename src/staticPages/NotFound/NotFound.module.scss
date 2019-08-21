@@ -2,10 +2,9 @@
 @import 'src/scss/mixins';
 
 .not-found {
-  padding-top: 20px;
-  padding-bottom: 31px;
+  padding: 20px 25px 30px 20px;
   @include respondTo(desktop) {
-    padding-top: 50px;
+    padding: 50px $layout-indent 30px $layout-indent;
   }
 
   &__image {
@@ -41,7 +40,8 @@
 
   &__title {
     font-size: 4.8rem;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+    white-space: pre-line;
     @include respondTo(desktop) {
       font-size: 4.5rem;
     }

@@ -23,7 +23,7 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
     >
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <div className={cx(theme.notFound, 'container')}>
+      <div className={theme.notFound}>
         <Text
           className={theme.notFound__title}
           tag={TagName.h1}

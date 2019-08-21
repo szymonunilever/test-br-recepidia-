@@ -21,8 +21,9 @@
       }
     }
     &__container {
-      @extend .container;
+      padding: 0 25px;
       @include respondTo(desktop) {
+        padding: 0 $layout-indent;
         width: 100%;
         & > div {
           width: 50%;
@@ -74,9 +75,6 @@
         @extend .button;
         @extend .button--medium;
         @extend .button--yellow;
-        @include respondTo(desktop) {
-          font-size: 1.6rem;
-        }
       }
     }
   }

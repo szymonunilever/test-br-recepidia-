@@ -2,10 +2,11 @@
 @import 'src/scss/mixins';
 
 .contact-us {
-  padding: 20px 0 121px;
+  padding: 22px 25px 100px 25px;
   @include respondTo(desktop) {
-    padding: 50px 0 166px;
+    padding: 50px $layout-indent 100px;
   }
+
   h1 {
     margin-bottom: 5px;
     @include respondTo(desktop) {

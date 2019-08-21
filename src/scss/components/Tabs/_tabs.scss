@@ -20,7 +20,10 @@
     border-radius: 0 0 20px 20px;
     height: 62px;
     justify-content: space-around;
-    @extend .container;
+    padding: 0 25px;
+    @include respondTo(desktop) {
+      padding: 0 $layout-indent;
+    }
     button {
       @extend %global--links;
       padding: 20px;
@@ -31,6 +34,7 @@
       font-family: $rubik;
       color: $black-blue;
       text-align: center;
+
       &:before {
         width: 100%;
         height: 2px;
@@ -44,9 +48,10 @@
     }
   }
   &__items {
-    @extend .container;
-    padding-top: 10px;
-    padding-bottom: 10px;
     display: block;
+    padding: 10px 25px;
+    @include respondTo(desktop) {
+      padding: 0 $layout-indent;
+    }
   }
 }
