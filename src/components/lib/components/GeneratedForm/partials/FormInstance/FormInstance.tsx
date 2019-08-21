@@ -4,7 +4,6 @@ import { GeneratedFormProps } from '../../models';
 import { TagName, Text } from '../../../Text';
 import groupBy from 'lodash/groupBy';
 import findIndex from 'lodash/findIndex';
-import map from 'lodash/map';
 import GeneratedField from '../GeneratedField';
 import cx from 'classnames';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -16,12 +15,17 @@ const GeneratedFormInstance = ({
   content: { title, subtitle, fields, submitButton, resetButton },
   onSubmit,
   shouldValidate = false,
+  titleLevel,
 }: GeneratedFormProps) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const classWrapper = cx('generated-form', className);
   const Title = title ? (
-    // @ts-ignore
-    <Text tag={TagName[`div`]} className="generated-form__title" text={title} />
+    <Text
+      // @ts-ignore
+      tag={TagName[titleLevel ? `h${titleLevel}` : `div`]}
+      className="generated-form__title"
+      text={title}
+    />
   ) : null;
   const Subtitle = subtitle ? (
     // @ts-ignore
