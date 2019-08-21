@@ -126,13 +126,13 @@ const AllRecipesPage = ({
     return (
       tagsWithCategories.reduce((result, current, i, tags) => {
         const nextCategory = tags[i + 1] ? tags[i + 1].category : null;
-        const { category, name } = current;
+        const { category, tagId } = current;
         if (i === tags.length - 1) {
-          return result + `(${name})**`;
+          return result + `${tagId}`;
         } else {
           return category === nextCategory
-            ? result + `(${name}) OR `
-            : result + `(${name}) AND `;
+            ? result + `${tagId} OR `
+            : result + `${tagId} AND `;
         }
       }, '') || '**'
     );
@@ -146,7 +146,7 @@ const AllRecipesPage = ({
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.name'] : [],
+        fields: tags.length ? ['tagGroups.tags.id'] : [],
       },
       sort,
       {
@@ -162,7 +162,7 @@ const AllRecipesPage = ({
     return getRecipeSearchData(
       {
         query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.name'] : [],
+        fields: tags.length ? ['tagGroups.tags.id'] : [],
       },
       sort,
       {
