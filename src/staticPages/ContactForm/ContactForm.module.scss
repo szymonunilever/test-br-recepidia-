@@ -8,6 +8,12 @@
   }
   :global {
     .generated-form {
+      padding: 0 25px;
+      @include respondTo(desktop) {
+        padding: 0 $layout-indent;
+      }
+      @include respondTo(desktop) {
+      }
       &__title {
         font-size: 3.4rem;
         color: $fish-blue-darker;
