@@ -225,7 +225,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
                 style={carouselItemStyle(isSlideVisible(index))}
                 aria-hidden={!isSlideVisible(index)}
               >
-                {createElementFunction(item)}
+                {isSlideVisible(index) && createElementFunction(item)}
               </div>
             ))}
           </div>

@@ -5,6 +5,7 @@
     "key": "OoGWuczivUaCal94EbmZQ1fcjn4mxNyq9NBxALHq"
   },
   "kritique": {
+    "baseUrl": "https://eu-stage-kritique.unileversolutions.com",
     "url": "https://eu-stage-kritique.unileversolutions.com/widget/resources/js/RR_widget.js",
     "brandId": "117",
     "localeId": "532",

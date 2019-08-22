@@ -23,13 +23,11 @@ const Kritique = () => {
             {
               src: '/libs/jquery.min.js',
               defer: true,
-              async: true,
             },
             {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
               defer: true,
-              async: true,
             },
           ]}
         />

@@ -3,8 +3,13 @@
   .recipe-list {
     padding: 0;
     &__null-results {
+      .recommendations__title {
+        @extend h2;
+      }
       .recommendations__subtitle {
+        font-family: $arial;
         font-size: 1.4rem;
+        line-height: 1.29;
         margin-bottom: 46px;
       }
     }

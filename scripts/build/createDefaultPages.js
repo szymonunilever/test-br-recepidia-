@@ -81,6 +81,7 @@ module.exports = async ({ graphql, createPage }) => {
         'NotFound',
         'AboutUs',
         'MealPlanner',
+        'Sitemap',
       ].includes(type)
     )
     .forEach(pageNode => {
