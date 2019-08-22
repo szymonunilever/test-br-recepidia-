@@ -29,6 +29,7 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
           />
           <Text
             tag={TagName.p}
+            className="contact-us__description"
             text={
               findPageComponentContent(components, 'Text', 'Description').text
             }
