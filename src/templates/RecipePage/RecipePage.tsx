@@ -250,7 +250,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
             }}
             isToggle={true}
             className="action-button"
-            attributes={{ 'aria-label': 'favourite toggle' }}
+            attributes={{ 'aria-label': 'favorite toggle' }}
           />
         </div>
         <>
@@ -287,7 +287,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
       <Kritique />
       <RecipeMicrodata recipe={recipe} />
 
-      <section className={cx(theme.topBg, '_bg--main')}>
+      <section className={cx(theme.recipePageHero, '_bg--main wrapper')}>
         <div className={theme.recipeTopBlock}>
           <div className={theme.recipeTopBlockItem}>
             <div className={theme.recipeHeroDesktop}>{recipeHero}</div>
@@ -339,9 +339,13 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </div>
         </div>
       </section>
-
       <section>
-        <div className={cx(theme.recipeIngredientsCooking)}>
+        <div
+          className={cx(
+            theme.recipeIngredientsCooking,
+            '_pb--40 , _pt--40 wrapper'
+          )}
+        >
           <RecipeCopy
             viewType={RecipeCopyViewType.Ingredients}
             recipe={recipe}
@@ -363,10 +367,13 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
           <Tabs
-            className="tabs"
+            className={cx(theme.recipeIngredientsCookingTabs, 'tabs')}
             content={findPageComponentContent(components, 'Tabs')}
           >
-            <Tab view="recipeTabIngredients">
+            <Tab
+              className={cx(theme.recipeIngredientsTab)}
+              view="recipeTabIngredients"
+            >
               <RecipeCopy
                 viewType={RecipeCopyViewType.Ingredients}
                 recipe={recipe}
@@ -374,7 +381,10 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
                 className={theme.recipeCopyIngredients}
               />
             </Tab>
-            <Tab view="recipeTabCookingMethod">
+            <Tab
+              className={cx(theme.recipeCookingTab)}
+              view="recipeTabCookingMethod"
+            >
               <RecipeCookingMethod
                 methodList={recipe.methods}
                 className={theme.recipeCookingMethod}
@@ -384,7 +394,9 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section className="recipe-dietary-attributes__wrapper">
+      <section
+        className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
+      >
         <Text text={'Nutritional'} tag={TagName.h2} />
         <RecipeDietaryAttributes
           activeAttributes={currentRecipeDietaryList}
@@ -399,7 +411,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           CloseButton={CloseButton}
         />
       </section>
-      <section className={theme.reviews}>
+      <section className={cx(theme.reviews, 'wrapper')}>
         <Reviews
           recipeId={recipe.recipeId}
           provider={RatingAndReviewsProvider.kritique}
@@ -420,7 +432,12 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           className="hero--planner color--inverted"
         />
       </section>
-      <section className="_pt--40 _pb--40">
+      <section
+        className={cx(
+          theme.recipePageBottomCarousel,
+          '_pt--40 _pb--40 wrapper'
+        )}
+      >
         <RecipeListingWithFavorite
           content={findPageComponentContent(
             components,

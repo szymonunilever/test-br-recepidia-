@@ -31,6 +31,7 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
     </div>
     <div className="wizard__buttons">
       <Button
+        attributes={{ 'aria-label': 'Start the Meal Planner quiz' }}
         className="wizard__button wizard__button--primary"
         onClick={actionCallback}
         content={{ label: primaryButtonLabel }}

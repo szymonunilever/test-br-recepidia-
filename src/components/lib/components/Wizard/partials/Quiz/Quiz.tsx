@@ -94,6 +94,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
           {/*
           // @ts-ignore */}
           <Button
+            attributes={{ 'aria-label': 'Continue quiz' }}
             className="wizard__button wizard__button--primary"
             onClick={putCurrentAnswer}
             isDisabled={!isFormDirty || !isAnswerProvided()}
@@ -109,6 +110,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
               className="wizard__button wizard__button--secondary"
               onClick={skipCallback}
               content={{ label: secondaryButtonLabel }}
+              attributes={{ 'aria-label': 'Skip quiz step' }}
             />
           )}
           <div className="wizard__button-placeholder">{bottomContent}</div>

@@ -1162,7 +1162,9 @@
               },
               "preferencesIntroContent": {
                 "heading": "My personalisation preferences",
-                "content": "Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. Feel free to edit your answers and keep your personalised experience at eat.com up to date."
+                "subheading": {
+                  "text": "<p>Your answers to surveys and Meal Planner are used to personalise your experience with eat.com and help you find the most relevant recipes. Below are the answers you provided to us previously. </p> <p> Feel free to edit your answers and keep your personalised experience at eat.com up to date. </p>"
+                }
               },
               "updatePropsContent": {
                 "deleteProps": {
@@ -1215,7 +1217,7 @@
             "name": "NullResult",
             "content": {
               "title": "Favorite recipes",
-              "subtitle": "You don’t have favourite recipes yet.",
+              "subtitle": "You don’t have favorite recipes yet.",
               "textList": []
             }
           },

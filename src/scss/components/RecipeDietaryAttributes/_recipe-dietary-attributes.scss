@@ -1,15 +1,3 @@
-.recipe-dietary-attributes__wrapper {
-  background-color: $white-gray;
-  border-radius: 20px;
-  padding: 36px 25px;
-  @include respondTo(desktop) {
-    padding: 36px $layout-indent;
-  }
-  h2 {
-    margin-bottom: 35px;
-  }
-}
-
 .recipe-dietary-attributes {
   &__list {
     list-style: none;

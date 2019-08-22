@@ -2,7 +2,7 @@
 @import 'src/scss/mixins';
 
 .about-us {
-  padding: 22px 25px 100px 25px;
+  padding: 22px $layout-indent-sm 100px $layout-indent-sm;
   @include respondTo(desktop) {
     padding: 50px $layout-indent 100px;
   }
@@ -43,7 +43,7 @@
   &__text {
     font-size: 1.4rem;
     line-height: 1.29;
-    div{
+    div {
       margin-bottom: 20px;
     }
   }

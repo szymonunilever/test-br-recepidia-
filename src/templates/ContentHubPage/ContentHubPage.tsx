@@ -69,7 +69,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       <DigitalData title={tagLabel} type={type} />
       <Kritique />
 
-      <section className={cx(theme.contenthubRecipes, 'bg--half')}>
+      <section className={cx(theme.contentHubRecipes, 'bg--half wrapper')}>
         <RecipeListingWithFavorite
           content={{
             ...recipesListingContent,
@@ -92,7 +92,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (
-        <section className="_pb--40 _pt--40">
+        <section className="_pb--40 _pt--40 wrapper">
           <MediaGallery
             // content={findPageComponentContent(
             //   components,
@@ -122,7 +122,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         />
       </section>
 
-      <section className="_pb--40 _pt--40">
+      <section className="_pb--40 _pt--40 wrapper">
         <PageListing
           content={findPageComponentContent(
             components,

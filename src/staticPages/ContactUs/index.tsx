@@ -20,52 +20,40 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       <section className={theme.contactUs}>
-        <div className="container">
-          <Text
-            tag={TagName['h1']}
-            text={
-              findPageComponentContent(components, 'Text', 'PageTitle').text
-            }
-          />
-          <Text
-            tag={TagName.p}
-            className="contact-us__description"
-            text={
-              findPageComponentContent(components, 'Text', 'Description').text
-            }
-          />
-          <div className={theme.cardholder}>
-            <div className={theme.cardholderItem}>
-              <Card
-                className="card"
-                titleLevel={2}
-                content={findPageComponentContent(components, 'Card', 'Email')}
-                Icon={Email}
-              />
+        <Text
+          tag={TagName['h1']}
+          text={findPageComponentContent(components, 'Text', 'PageTitle').text}
+        />
+        <Text
+          tag={TagName.p}
+          className="contact-us__description"
+          text={
+            findPageComponentContent(components, 'Text', 'Description').text
+          }
+        />
+        <div className={theme.cardholder}>
+          <div className={theme.cardholderItem}>
+            <Card
+              className="card"
+              titleLevel={2}
+              content={findPageComponentContent(components, 'Card', 'Email')}
+              Icon={Email}
+            />
 
-              <Card
-                className="card"
-                titleLevel={2}
-                content={findPageComponentContent(
-                  components,
-                  'Card',
-                  'Address'
-                )}
-                Icon={MapMarker}
-              />
-            </div>
-            <div className={theme.cardholderItem}>
-              <Card
-                className={cx(theme.cardStretch, 'card')}
-                titleLevel={2}
-                content={findPageComponentContent(
-                  components,
-                  'Card',
-                  'Contact'
-                )}
-                Icon={MapMarker}
-              />
-            </div>
+            <Card
+              className="card"
+              titleLevel={2}
+              content={findPageComponentContent(components, 'Card', 'Address')}
+              Icon={MapMarker}
+            />
+          </div>
+          <div className={theme.cardholderItem}>
+            <Card
+              className={cx(theme.cardStretch, 'card')}
+              titleLevel={2}
+              content={findPageComponentContent(components, 'Card', 'Contact')}
+              Icon={MapMarker}
+            />
           </div>
         </div>
       </section>

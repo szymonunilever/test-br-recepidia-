@@ -83,7 +83,7 @@ export const Tabs = ({
             <Text tag={TagName.h2} text={headerInfo.heading} />
           </div>
           <div className="tabs-header__heading-subheading">
-            <Text tag={TagName.h3} text={headerInfo.subheading} />
+            <Text tag={TagName.h3} text={' '} />
           </div>
         </div>
       )}

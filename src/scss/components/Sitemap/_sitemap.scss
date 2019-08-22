@@ -1,53 +1,52 @@
-.sitemap{
-  padding: 40px 0;
+.sitemap {
 
-  &__categories{
-    @include respondTo(medium){
+  &__categories {
+    @include respondTo(medium) {
       display: flex;
       flex-wrap: wrap;
     }
 
-    & > .sitemap__category{
+    & > .sitemap__category {
       margin: 0 0 32px 0;
       text-align: center;
-      @include respondTo(medium){
+      @include respondTo(medium) {
         text-align: left;
         box-sizing: border-box;
-        width: calc(100%/2);
+        width: calc(100% / 2);
         padding: 0 24px 0 0;
       }
-      @include respondTo(desktop){
-        width: calc(100%/3);
+      @include respondTo(desktop) {
+        width: calc(100% / 3);
       }
     }
   }
 
-  &__category{
-    &-title{
+  &__category {
+    &-title {
       font-size: 1.4rem;
       margin: 0 0 10px;
       text-transform: uppercase;
       line-height: 1.6;
       font-weight: 700;
-      @include respondTo(medium){
+      @include respondTo(medium) {
         font-size: 2.4rem;
       }
     }
 
-    &-items{
-      a{
+    &-items {
+      a {
         font-size: 1.2rem;
         line-height: 1;
         text-transform: none;
         font-weight: 400;
-        @include respondTo(medium){
+        @include respondTo(medium) {
           font-size: 1.4rem;
         }
       }
     }
   }
 
-  a{
+  a {
     display: block;
     line-height: 1.4;
     text-decoration: none;
@@ -55,12 +54,12 @@
     font-family: $rubik;
     color: $header-color-mobile;
     transition: color 0.2s ease-out;
-    &:hover{
+    &:hover {
       color: $apple-green;
     }
   }
 
-  ul{
+  ul {
     list-style: none;
     padding: 0;
   }
