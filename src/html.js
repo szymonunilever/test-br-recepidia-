@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'integrations/keys.json';
-const { applicationID, licenseKey, locale } = keys.sitespeed;
+const { applicationID, licenseKey } = keys.sitespeed;
+
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
@@ -16,8 +17,6 @@ export default function HTML(props) {
     );
     css = (
       <>
-        {/* <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin /> */}
-        <link rel="preload" as="style" href="/styles.css" />
         <link rel="stylesheet" href="/styles.css" />
       </>
     );
@@ -29,6 +28,30 @@ export default function HTML(props) {
         {process.env.NODE_ENV !== 'development' && (
           <>
             <link rel="preload" href="/config/newRelic.js" as="script" />
+            <link rel="preload" href="/styles.css" as="style" />
+            <link rel="preload" href="/assets/fonts/Rubik.css" as="style" />
+            <link
+              rel="preload"
+              href="/assets/fonts/iJWHBXyIfDnIV7Eyjmmd8WA.woff2"
+              as="font"
+              type="font/woff2"
+              crossOrigin="anonymous"
+            />
+            <link rel="preload" href="/libs/jquery.min.js" as="script" />
+            <link
+              rel="preload"
+              href={`${
+                keys.kritique.baseUrl
+              }/widget/resources/css/RR_widget.css`}
+              as="style"
+            />
+            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+            <link
+              rel="preconnect"
+              href="https://d37k6lxrz24y4c.cloudfront.net"
+            />
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+            <link rel="preconnect" href="https://js-agent.newrelic.com" />
             <script
               type="text/javascript"
               src="/config/newRelic.js"
@@ -63,11 +86,6 @@ export default function HTML(props) {
                   })(window, document, "body {opacity: 0 !important}", 3e3);
                 `,
               }}
-            />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
-            <link
-              rel="preconect"
-              href="https://d37k6lxrz24y4c.cloudfront.net"
             />
           </>
         )}
