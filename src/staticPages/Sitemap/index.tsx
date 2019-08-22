@@ -5,9 +5,17 @@ import SEO from 'src/components/Seo';
 import { Sitemap } from 'src/components/lib/components/Sitemap';
 import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
 import { getSitemapFromPaths } from 'src/utils/getSitemapFromPaths';
-import DigitalData from '../../integrations/DigitalData';
+import DigitalData from '../../../integrations/DigitalData';
+import { WindowLocation } from '@reach/router';
+import { TagName, Text } from 'src/components/lib/components/Text';
+import { findPageComponentContent } from 'src/utils';
 
-const SitemapPage = () => {
+const SitemapPage = ({
+  pageContext: {
+    page: { components, seo, type },
+  },
+  location,
+}: SitemapPageProps) => {
   const data: SipeMapPageData = useStaticQuery(graphql`
     {
       allSitePage {
@@ -26,8 +34,14 @@ const SitemapPage = () => {
 
   return (
     <Layout>
-      <SEO title="Sitemap" />
-      <DigitalData type="Sitemap" title="Sitemap" />
+      <SEO {...seo} canonical={location.href} />
+      <DigitalData title={seo.title} type={type} />
+      <section className="_pt--40">
+        <Text
+          tag={TagName['h1']}
+          text={findPageComponentContent(components, 'Text', 'Title').text}
+        />
+      </section>
       <section>
         <div className="container">
           <Sitemap content={sitemap} />
@@ -47,4 +61,10 @@ interface SipeMapPageData {
   };
 }
 
+interface SitemapPageProps {
+  pageContext: {
+    page: AppContent.Page;
+  };
+  location: WindowLocation;
+}
 export default SitemapPage;
