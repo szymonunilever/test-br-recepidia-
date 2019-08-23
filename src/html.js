@@ -29,14 +29,14 @@ export default function HTML(props) {
           <>
             <link rel="preload" href="/config/newRelic.js" as="script" />
             <link rel="preload" href="/styles.css" as="style" />
-            <link rel="preload" href="/assets/fonts/Rubik.css" as="style" />
-            <link
+            {/* <link rel="preload" href="/assets/fonts/Rubik.css" as="style" /> */}
+            {/* <link
               rel="preload"
               href="/assets/fonts/iJWHBXyIfDnIV7Eyjmmd8WA.woff2"
               as="font"
               type="font/woff2"
               crossOrigin="anonymous"
-            />
+            /> */}
             <link rel="preload" href="/libs/jquery.min.js" as="script" />
             <link
               rel="preload"
@@ -86,7 +86,7 @@ export default function HTML(props) {
         />
         {headComponents}
         {css}
-        <link href="/assets/fonts/Rubik.css" rel="stylesheet" />
+        {/* <link href="/assets/fonts/Rubik.css" rel="stylesheet" /> */}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

@@ -47,6 +47,7 @@
     "react-swipeable": "^5.3.0",
     "smart-outline": "^0.0.5",
     "smoothscroll-polyfill": "^0.4.4",
+    "typeface-rubik": "^0.0.72",
     "url-search-params-polyfill": "^7.0.0",
     "whatwg-fetch": "^3.0.0"
   },
