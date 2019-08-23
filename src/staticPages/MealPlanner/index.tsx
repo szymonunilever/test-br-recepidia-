@@ -73,7 +73,8 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
         sort: [{ creationTime: { order: 'desc' } }],
       }).then(data => {
         const result = data.hits.hits.map(hit => hit._source);
-        if (data.hits.total >= 7) {
+        const index = query.lastIndexOf('AND');
+        if (data.hits.total >= 7 || index < 0) {
           // @ts-ignore
           setRecipes(result);
           saveUserProfileByKey(
@@ -82,8 +83,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           );
           return;
         }
-        const index = query.lastIndexOf('AND');
-        if (index !== -1) {
+        if (index > -1) {
           query = query.substring(0, index);
           processSearchData(query);
         }
@@ -141,7 +141,15 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           <WizardResultSection
             containerClass="wizard--result recipe-list--carousel"
             stepId="result"
-            {...wizardResultSection}
+            title={wizardResultSection.title}
+            subheading={
+              recipes.length
+                ? wizardResultSection.subheading.replace(
+                    '[[counter]]',
+                    recipes.length
+                  )
+                : ''
+            }
           >
             {recipes.length ? (
               <div>
