@@ -100,17 +100,19 @@
         }
       }
       &__button--primary {
+        display: block;
         width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
         @include respondTo(desktop) {
           display: block;
-          margin: 0 auto;
           width: 352px;
         }
       }
       .buttons {
         margin-top: 31px;
         @include respondTo(desktop) {
-          margin-top: 150px;
+          margin-top: 50px;
         }
       }
     }
@@ -128,6 +130,9 @@
       }
       &__textarea {
         padding: 12px 18px;
+        @include respondTo(desktop) {
+          height: 230px;
+        }
       }
       @include respondTo(desktop) {
         margin-bottom: 0;

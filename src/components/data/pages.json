@@ -1048,7 +1048,7 @@
                     },
                     {
                       "type": "pattern",
-                      "value":"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+                      "value": "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
                       "errorMessage": "Please enter valid email"
                     },
                     {
@@ -1225,7 +1225,7 @@
           {
             "name": "RecipeListing",
             "content": {
-              "title": "Favorite recipes",
+              "title": "Favorite Recipes",
               "view": "Favorites",
               "resultLabel": "recipe",
               "resultLabelPlural": "recipes",
@@ -1237,7 +1237,7 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "Favorite recipes",
+              "title": "Favorite Recipes",
               "subtitle": "You don’t have favorite recipes yet.",
               "textList": []
             }
