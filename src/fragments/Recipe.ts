@@ -8,16 +8,22 @@ export const query = graphql`
     }
     id
     ingredients {
-      description
-      measurementUnit
-      multiple
-      originalProductId
-      productId
-      quantity
+      title
+      list {
+        description
+        measurementUnit
+        multiple
+        originalProductId
+        productId
+        quantity
+      }
     }
     methods {
-      description
-      position
+      title
+      list {
+        description
+        position
+      }
     }
     recipeDetails {
       preperationTime
