@@ -2,9 +2,9 @@
 @import 'src/scss/mixins';
 
 .contact-us {
-  padding: 22px 25px 100px 25px;
+  padding: 22px $layout-indent-sm 100px $layout-indent-sm;
   @include respondTo(desktop) {
-    padding: 50px $layout-indent 100px;
+    padding: 50px $layout-indent 100px $layout-indent;
   }
 
   h1 {

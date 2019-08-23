@@ -44,12 +44,17 @@ const Multi: FunctionComponent<QuestionProps> = ({
       <ul className="quiz__list quiz__multi">
         {question.options.map(option => (
           <li className="quiz__item" key={option.value}>
-            <label className="quiz__item-label">
+            <label
+              tabIndex={0}
+              aria-label={option.label.text}
+              className="quiz__item-label"
+            >
               <input
                 type="checkbox"
                 className="quiz__item-input"
                 name={question.key}
                 value={option.value}
+                aria-label={option.label.text + ' checkbox'}
                 checked={val.includes(option.value)}
                 onChange={onChange}
               />

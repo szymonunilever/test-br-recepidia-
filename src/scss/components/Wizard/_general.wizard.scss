@@ -9,7 +9,7 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 80px 0 0 0;
+    padding: 80px $layout-indent-sm 0 $layout-indent-sm;
     @include respondTo(desktop) {
       padding: 80px $layout-indent 0 $layout-indent;
     }

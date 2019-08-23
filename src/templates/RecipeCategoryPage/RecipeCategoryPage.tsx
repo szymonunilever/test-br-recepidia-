@@ -83,14 +83,14 @@ const RecipeCategotyPage = ({
       <Kritique />
       <section className="_pt--40">
         <Text
-          className={theme.heroTitle}
+          className={cx(theme.heroTitle, 'wrapper')}
           tag={TagName['h1']}
           text={tag.title || fromCamelCase(tag.name)}
         />
       </section>
       <section>
         <Text
-          className={theme.heroDescriptionBold}
+          className={cx(theme.heroDescriptionBold, 'wrapper')}
           tag={TagName['p']}
           text={
             tag.description ||
@@ -99,7 +99,7 @@ const RecipeCategotyPage = ({
         />
 
         <Text
-          className={theme.heroDescription}
+          className={cx(theme.heroDescription, 'wrapper')}
           tag={TagName['p']}
           text={
             tag.description ||
@@ -114,7 +114,7 @@ const RecipeCategotyPage = ({
         </section>
       )} */}
       {/* @todo remove hardcoded section below and uncomment section above */}
-      <section className={cx(theme.heroBg)}>
+      <section className={cx(theme.heroBg, 'wrapper')}>
         <AdaptiveImage
           className={theme.heroBgImage}
           localImage={
@@ -124,7 +124,9 @@ const RecipeCategotyPage = ({
         />
       </section>
 
-      <section className={cx(theme.greyBg, '_pt--40 _pb--40')}>
+      <section
+        className={cx(theme.recipeCategoryListing, '_pt--40 _pb--40 wrapper')}
+      >
         <RecipeListingWithFavorite
           content={{
             ...recipesListingContent,
@@ -179,7 +181,9 @@ const RecipeCategotyPage = ({
         />
       </section>
 
-      <section className="_pb--40 _pt--40">
+      <section
+        className={cx(theme.recipeBottomCarousel, '_pt--40 _pb--40 wrapper')}
+      >
         <PageListing
           content={findPageComponentContent(
             components,

@@ -2,10 +2,14 @@ import React, { FunctionComponent } from 'react';
 import { Text, TagName } from 'src/components/lib/components/Text';
 import { PreferencesIntroProps } from './models';
 import { Link } from 'gatsby';
+import { RichText } from '../../RichText';
 
 const PreferencesIntro: FunctionComponent<PreferencesIntroProps> = ({
   heading = '',
-  content = '',
+  subheading = {
+    text: ' ',
+  },
+  content,
   availableQuizLinks,
 }) => (
   <div className="preferences__header">
@@ -13,7 +17,7 @@ const PreferencesIntro: FunctionComponent<PreferencesIntroProps> = ({
       <Text tag={TagName.h2} text={heading} />
     </div>
     <div className="preferences__header-content">
-      <Text tag={TagName.p} text={content} />
+      <RichText content={subheading} className="rich-text" />
     </div>
     {availableQuizLinks && (
       <ul className="preferences__header-links">

@@ -105,7 +105,8 @@ $four-col-width: 100% / 4;
       }
     }
     &__item-input {
-      display: none;
+      z-index: -1;
+      height: 0;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
           display: flex;

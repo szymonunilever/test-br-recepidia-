@@ -1,22 +1,17 @@
 @import '../../scss/vars';
 @import '../../scss/mixins';
 
-.all-recipes{
-  :global{
-    .page-listing__title{
+.all-recipes {
+  :global {
+    .page-listing__title {
       font-size: 1.4rem;
-      @include respondTo(desktop){
+      @include respondTo(desktop) {
         font-size: 2rem;
       }
     }
   }
-  .all-recipes-listing{
+  .allRecipesSortListing {
     background: $white-gray;
   }
 }
-.themeTitle{
-  padding: 0 25px;
-  @include respondTo(desktop) {
-    padding: 0 $layout-indent;
-  }
-}
+

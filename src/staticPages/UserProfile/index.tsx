@@ -43,6 +43,7 @@ import questionsMock from 'src/components/data/introQuiz.json';
 import NullResult from 'src/components/lib/components/NullResult';
 import cx from 'classnames';
 import useFavorite from 'src/utils/useFavorite';
+import GeneratedForm from '../ContactForm';
 
 const carouselConfig = {
   breakpoints: [
@@ -222,7 +223,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
       <Tabs
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
-        className={theme.userProfile}
+        className={cx(theme.userProfile, '')}
       >
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">

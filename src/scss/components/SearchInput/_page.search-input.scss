@@ -34,9 +34,11 @@
 section {
   .search {
     &-input {
-      padding: 0 25px;
+      padding-left: $layout-indent-sm;
+      padding-right: $layout-indent-sm;
       @include respondTo(desktop) {
-        padding: 0 $layout-indent;
+        padding-left: $layout-indent;
+        padding-right: $layout-indent;
       }
     }
   }
