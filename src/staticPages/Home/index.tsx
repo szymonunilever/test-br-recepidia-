@@ -20,7 +20,6 @@ import { findPageComponentContent, useElasticSearch } from 'src/utils';
 import keys from '../../../integrations/keys.json';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import localImage from '../../../stories/assets/localImage';
 import IntroQuiz from '../../components/page/IntroQuiz';
 import generateQuery from '../../utils/queryGenerator';
 import theme from './home.module.scss';
