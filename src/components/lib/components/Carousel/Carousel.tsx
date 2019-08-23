@@ -41,7 +41,10 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
 
   const mayGoLeft = translateValue < 0;
   const mayGoRight =
-    translateValue > -(list.length - visibleElements) * (100 / list.length);
+    translateValue >
+    (list.length % 2 === 0
+      ? -(list.length - visibleElements) * (100 / list.length)
+      : (-(list.length - visibleElements) * (100 / list.length)).toFixed(6));
 
   const adjustSizing = useCallback(
     (currentlyVisibleElements: number, currentTranslateValue: number) => {
