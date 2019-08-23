@@ -1,15 +1,8 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
-.homeTitle{
-  padding: 0 25px;
-  @include respondTo(desktop) {
-    padding: 0 $layout-indent;
-  }
-}
-.home-top-section:global(.bg--half){
-  &:before{
+
+.home-hero-carousel:global(.bg--half) {
+  &:before {
     background-color: $white-gray;
-    @include respondTo(medium){
-    }
   }
 }

@@ -1,10 +1,11 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
 
-.contenthub-recipes {
-  padding: 20px 0 40px;
+.contentHubRecipes {
+  padding-top: 20px;
+  padding-bottom: 40px;
   @include respondTo(medium) {
-    padding: 60px 0 40px;
+    padding-top: 60px;
   }
 
   :global {

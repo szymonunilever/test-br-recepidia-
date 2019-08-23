@@ -20,10 +20,6 @@
     border-radius: 0 0 20px 20px;
     height: 62px;
     justify-content: space-around;
-    padding: 0 25px;
-    @include respondTo(desktop) {
-      padding: 0 $layout-indent;
-    }
     button {
       @extend %global--links;
       padding: 20px;
@@ -48,10 +44,6 @@
     }
   }
   &__items {
-    display: block;
-    padding: 10px 25px;
-    @include respondTo(desktop) {
-      padding: 0 $layout-indent;
-    }
+    padding: 10px 0;
   }
 }

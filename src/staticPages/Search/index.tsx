@@ -62,7 +62,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <Kritique />
-      <section>
+      <section className={theme.searchListingWrap}>
         <SearchListing
           searchQuery={searchQuery}
           searchResults={{
@@ -121,7 +121,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         />
       </section>
 
-      <section className="_pt--40 _pb--40">
+      <section className={cx(theme.searchBottomCarousel, '_pb--40 _pt--40')}>
         <PageListing
           content={findPageComponentContent(
             components,

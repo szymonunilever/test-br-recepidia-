@@ -30,8 +30,11 @@
         color: $black-blue;
       }
     }
-    &-content{
-      margin-bottom: 20px;
+    &-content {
+      padding-bottom: 10px;
+      p {
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -79,7 +82,7 @@
         }
         &__title {
           margin-bottom: 15px;
-          h2{
+          h2 {
             color: $black-blue;
             font-size: 1.4rem;
             font-weight: normal;

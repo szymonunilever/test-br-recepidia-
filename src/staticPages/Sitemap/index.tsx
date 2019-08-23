@@ -36,16 +36,14 @@ const SitemapPage = ({
     <Layout>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <section className="_pt--40">
+      <section className="_pt--40 wrapper">
         <Text
           tag={TagName['h1']}
           text={findPageComponentContent(components, 'Text', 'Title').text}
         />
       </section>
-      <section>
-        <div className="container">
-          <Sitemap content={sitemap} />
-        </div>
+      <section className="wrapper _pt--40 _pb--40">
+        <Sitemap content={sitemap} />
       </section>
     </Layout>
   );

@@ -71,7 +71,7 @@ const RecipeCard = ({
         onClick={onFavoriteToggle}
         isToggle={true}
         viewType={ButtonViewType.icon}
-        attributes={{ 'aria-label': 'favourite toggle' }}
+        attributes={{ 'aria-label': 'favorite toggle' }}
       />
       {Image}
       {itemTitle}

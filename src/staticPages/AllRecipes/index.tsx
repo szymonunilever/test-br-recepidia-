@@ -176,13 +176,13 @@ const AllRecipesPage = ({
       <Kritique />
       <section className="_pt--40">
         <Text
-          className={theme.themeTitle}
+          className={cx(theme.themeTitle, 'wrapper')}
           tag={TagName['h1']}
           text={findPageComponentContent(components, 'Text', 'PageTitle').text}
         />
       </section>
 
-      <section className="_pb--40">
+      <section className={cx(theme.allRecipesHeroCarousel, '_pb--40 wrapper')}>
         <PageListing
           content={findPageComponentContent(
             components,
@@ -198,7 +198,9 @@ const AllRecipesPage = ({
         />
       </section>
 
-      <section className={cx(theme.allRecipesListing, '_pt--40 _pb--40')}>
+      <section
+        className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
+      >
         <RecipeListingWithFavorite
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
@@ -237,7 +239,12 @@ const AllRecipesPage = ({
         />
       </section>
 
-      <section className="_pt--40 _pb--40">
+      <section
+        className={cx(
+          theme.allRecipesBottomCarousel,
+          '_pt--40 _pb--40 wrapper'
+        )}
+      >
         <RecipeListingWithFavorite
           content={findPageComponentContent(
             components,

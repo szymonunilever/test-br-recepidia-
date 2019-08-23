@@ -15,10 +15,7 @@ $submenu-text-color: $fish-blue-darker;
     z-index: 15;
     background: transparent;
     height: $header-height;
-    padding: 0 25px;
-    @include respondTo(desktop) {
-      padding: 0 $layout-indent;
-    }
+    @extend .wrapper;
 
     .navigation {
       position: absolute;

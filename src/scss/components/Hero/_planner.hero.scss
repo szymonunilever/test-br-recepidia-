@@ -21,9 +21,8 @@
       }
     }
     &__container {
-      padding: 0 25px;
+      @extend .wrapper;
       @include respondTo(desktop) {
-        padding: 0 $layout-indent;
         width: 100%;
         & > div {
           width: 50%;

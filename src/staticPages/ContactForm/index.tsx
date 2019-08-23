@@ -63,6 +63,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
       </Modal>
       <section className={theme.contactForm}>
         <GeneratedForm
+          className={cx(theme.contactGeneratedForm, 'wrapper')}
           onSubmit={submitHandler}
           content={сontactFormComponent}
           titleLevel={1}

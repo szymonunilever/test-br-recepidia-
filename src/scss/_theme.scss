@@ -191,10 +191,6 @@ p {
     }
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 //custom scrollbar
@@ -242,4 +238,13 @@ progress::-ms-fill {
 .adaptive-image {
   border-radius: 5px;
   overflow: hidden;
+}
+
+.wrapper{
+  padding-left: $layout-indent-sm;
+  padding-right: $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding-left: $layout-indent;
+    padding-right: $layout-indent;
+  }
 }

@@ -183,7 +183,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       )}
       <Kritique />
       <DigitalData title={seo.title} type={type} />
-      <section className={cx(theme.homeTitle, '_bg--main')}>
+      <section className={cx(theme.homeTitle, '_bg--main wrapper')}>
         <Text
           tag={TagName['h1']}
           text={findPageComponentContent(components, 'Text', 'PageTitle').text}
@@ -191,7 +191,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       </section>
 
       {recipesFound.latestAndGratesNodes.length > 0 && (
-        <section className={cx(theme.homeTopSection, 'bg--half')}>
+        <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
           <RecipeListingWithFavorite
             content={findPageComponentContent(
               components,
@@ -220,7 +220,9 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         </section>
       )}
       {recipesFound.topRecipesNodes.length > 0 && (
-        <section className="_pt--40 _pb--40">
+        <section
+          className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
+        >
           <RecipeListingWithFavorite
             content={findPageComponentContent(
               components,
@@ -255,7 +257,9 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           className="hero--planner color--inverted"
         />
       </section>
-      <section className="_pt--40 _pb--40">
+      <section
+        className={cx(theme.homeBottomCarousel, '_pt--40 _pb--40 wrapper')}
+      >
         <PageListing
           content={findPageComponentContent(components, 'PageListing')}
           list={pageListingData}

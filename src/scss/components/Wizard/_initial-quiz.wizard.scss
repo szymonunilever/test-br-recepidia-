@@ -9,6 +9,8 @@
   .wizard {
     &__container {
       padding-top: 68px;
+      padding-left: 25px;
+      padding-right: 25px;
       @media screen and (max-height: 567px),
         screen and (orientation: landscape) and (max-width: 959px) {
         padding-top: 40px;

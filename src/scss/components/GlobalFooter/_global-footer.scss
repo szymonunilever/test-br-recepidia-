@@ -42,9 +42,9 @@ $footer-color: $black-blue;
 .global-footer {
   background-color: $primary-bg-color;
   border-top: 1px solid $footer-color;
-  padding: 0 25px;
+  @extend .wrapper;
   @include respondTo(desktop) {
-    padding: 0 $layout-indent 50px;
+    padding-bottom: 50px;
   }
 
   .footer-menu {

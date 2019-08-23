@@ -2,13 +2,14 @@
 @import '../../scss/mixins';
 
 .user-profile {
+ padding-bottom: 60px;
   :global {
     .tabs {
       &-header {
         background-color: $primary-bg-color;
         padding: 22px 25px;
         @include respondTo(desktop) {
-          padding: 0 $layout-indent;
+          padding: 30px $layout-indent 0;
         }
         &__heading {
           h2 {
@@ -34,8 +35,10 @@
         }
       }
       &__buttons {
+        padding-left: $layout-indent-sm;
+        padding-right: $layout-indent-sm;
         @include respondTo(desktop) {
-         padding: 0 $layout-indent;
+          padding: 0 $layout-indent;
         }
       }
       &__button {
@@ -47,15 +50,14 @@
         }
       }
       &__items {
-        padding-top: 28px;
-        padding-bottom: 55px;
+        padding: 28px $layout-indent-sm 55px;
         @include respondTo(desktop) {
-          padding-top: 50px;
+          padding: 50px $layout-indent 0;
         }
       }
     }
   }
-  .mealPlannerBtnWrap{
+  .mealPlannerBtnWrap {
     text-align: center;
   }
   .mealPlannerBtn {

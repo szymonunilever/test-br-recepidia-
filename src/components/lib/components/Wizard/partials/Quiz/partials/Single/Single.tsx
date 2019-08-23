@@ -31,7 +31,11 @@ const Single: FunctionComponent<QuestionProps> = ({
       <ul className="quiz__list quiz__single">
         {question.options.map(option => (
           <li className="quiz__item" key={option.value}>
-            <label className="quiz__item-label">
+            <label
+              tabIndex={0}
+              aria-label={option.label.text}
+              className="quiz__item-label"
+            >
               <input
                 type="radio"
                 name={question.key}
@@ -39,6 +43,7 @@ const Single: FunctionComponent<QuestionProps> = ({
                 checked={val === option.value}
                 onChange={onChange}
                 className="quiz__item-input"
+                aria-label={option.label.text + ' radio'}
               />
               <Option {...{ option, question }} />
             </label>
