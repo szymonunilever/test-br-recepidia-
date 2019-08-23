@@ -1,3 +1,6 @@
+$alert-msg-height: 28px;
+$validation-icon-size: 18px;
+
 %input-general {
   border: 1px solid $black-blue;
   border-radius: 5px;
@@ -27,20 +30,23 @@
   }
   &__wrap {
     position: relative;
+    padding-bottom: 28px;
     &:after {
       display: flex;
       border-radius: 100%;
-      width: 18px;
-      height: 18px;
+      width: $validation-icon-size;
+      height: $validation-icon-size;
       color: $white;
       justify-content: center;
       align-items: center;
       position: absolute;
       right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: calc(50% - #{$validation-icon-size/2} - #{$alert-msg-height/2});
       font-size: 12px;
       line-height: 1.17;
+      @include respondTo(desktop) {
+        right: -35px;
+      }
     }
     &--inline {
       display: flex;
@@ -64,6 +70,9 @@
   &__error {
     font-size: 1.2rem;
     color: $alert-color;
+    height: $alert-msg-height;
+    display: flex;
+    align-items: flex-end;
   }
 }
 
@@ -71,7 +80,7 @@
   %input-general {
     border-color: $apple-green;
   }
-  .field__wrap {
+  &.field__wrap {
     &:after {
       content: '\2713';
       background-color: $apple-green;
@@ -82,12 +91,16 @@
   %input-general {
     border-color: $alert-color;
   }
-  .field__wrap {
+  &.field__wrap {
+    padding-bottom: 0;
     &:after {
       content: '!';
       background-color: $alert-color;
     }
   }
+}
+::placeholder {
+  color: $gray;
 }
 
 // Select component styles

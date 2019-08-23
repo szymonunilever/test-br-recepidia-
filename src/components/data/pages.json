@@ -956,7 +956,7 @@
                 {
                   "name": "inquiryType",
                   "type": "select",
-                  "label": "Do you have a question?",
+                  "label": "Do you have a question?*",
                   "placeholder": "How can we help?",
                   "options": [
                     { "label": "Product Concern", "value": "Product Concern" },
@@ -965,7 +965,7 @@
                   "validationRules": [
                     {
                       "type": "required",
-                      "errorMessage": "This field is required."
+                      "errorMessage": "Please select the question type"
                     }
                   ]
                 },
@@ -973,35 +973,6 @@
                   "name": "recipeDetails",
                   "type": "fieldset",
                   "label": "Recipes details"
-                },
-
-                {
-                  "name": "regardingSpecificRecipe",
-                  "type": "radio",
-                  "label": "Yes",
-                  "hint": "Is it regarding a specific recipes?",
-                  "value": "Yes",
-                  "fieldset": "recipeDetails",
-                  "validationRules": [
-                    {
-                      "type": "required",
-                      "errorMessage": "This field is required."
-                    }
-                  ]
-                },
-                {
-                  "name": "regardingSpecificRecipe",
-                  "type": "radio",
-                  "label": "No",
-                  "value": "No",
-                  "hint": "Is it regarding a specific recipes?",
-                  "fieldset": "recipeDetails",
-                  "validationRules": [
-                    {
-                      "type": "required",
-                      "errorMessage": "This field is required."
-                    }
-                  ]
                 },
                 {
                   "name": "recipe",
@@ -1017,10 +988,15 @@
                 {
                   "name": "comments",
                   "type": "textarea",
-                  "label": "What would you like to say?",
-                  "fieldset": "commentsFieldset"
+                  "label": "What would you like to say?*",
+                  "fieldset": "commentsFieldset",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Please fill out this field"
+                    }
+                  ]
                 },
-
                 {
                   "name": "contact",
                   "type": "fieldset",
@@ -1029,26 +1005,71 @@
                 {
                   "name": "givenName",
                   "type": "text",
-                  "label": "First Name",
-                  "fieldset": "contact"
+                  "label": "First Name*",
+                  "fieldset": "contact",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Please enter the first name"
+                    },
+                    {
+                      "type": "pattern",
+                      "value": "^.{2,50}$",
+                      "errorMessage": "First name length should be between 2 and 50 characters"
+                    }
+                  ]
                 },
                 {
                   "name": "familyName",
                   "type": "text",
-                  "label": "Last Name",
-                  "fieldset": "contact"
+                  "label": "Last Name*",
+                  "fieldset": "contact",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Please enter the last name"
+                    },
+                    {
+                      "type": "pattern",
+                      "value": "^.{2,50}$",
+                      "errorMessage": "Last name length should be between 2 and 50 characters"
+                    }
+                  ]
                 },
                 {
                   "name": "email",
-                  "type": "email",
-                  "label": "Email",
-                  "fieldset": "contact"
+                  "type": "text",
+                  "label": "Email*",
+                  "fieldset": "contact",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Please enter the email address"
+                    },
+                    {
+                      "type": "pattern",
+                      "value":"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+                      "errorMessage": "Please enter valid email"
+                    },
+                    {
+                      "type": "pattern",
+                      "value": "^.{1,60}$",
+                      "errorMessage": "Email length should be between 2 and 50 characters"
+                    }
+                  ]
                 },
                 {
                   "name": "phoneNumber",
                   "type": "tel",
                   "label": "Phone number",
-                  "fieldset": "contact"
+                  "fieldset": "contact",
+                  "validationRules": [
+                    {
+                      "type": "pattern",
+                      "value": "^(\\(?\\+?[0-9]*\\)?)?[0-9- \\*\\#\\.\\(\\)]*$",
+                      "errorMessage": "Please enter a valid phone number"
+                    }
+                  ]
                 },
                 {
                   "name": "brand",
