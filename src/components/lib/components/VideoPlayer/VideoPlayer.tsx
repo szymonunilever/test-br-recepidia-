@@ -59,6 +59,7 @@ const VideoPlayer = ({
           height={height}
           allowFullScreen={allowFullScreen}
           allow="autoplay"
+          title="article video content"
         />
       </Tab>
     </div>
