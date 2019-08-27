@@ -927,7 +927,7 @@
               "view": "ContactForm",
               "title": "Contact form",
               "submitButton": {
-                "label": "Submit"
+                "label": "Submit form"
               },
               "formMessages": {
                 "confirmSubmitMessage": "Thank you. We've gоt your message."
