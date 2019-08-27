@@ -17,7 +17,6 @@ const Kritique = () => {
 
   useEffect(() => {
     setLocationOrigin(window.location.origin);
-
     setTimeout(() => setinjectScript(true), 10000);
   }, []);
 
