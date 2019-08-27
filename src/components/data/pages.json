@@ -73,7 +73,7 @@
                   "key": "question1",
                   "label": "Select the recipes that appeal to you",
                   "type": {
-                    "control": "radio",
+                    "control": "checkbox",
                     "labelPosition": "bottom"
                   },
                   "filterPropName": "tags",
@@ -927,7 +927,7 @@
               "view": "ContactForm",
               "title": "Contact form",
               "submitButton": {
-                "label": "Submit"
+                "label": "Submit form"
               },
               "formMessages": {
                 "confirmSubmitMessage": "Thank you. We've gоt your message."
@@ -1530,7 +1530,7 @@
                     "filterPropName": "cookTime",
                     "options": [
                       {
-                        "value": "< 20",
+                        "value": "<21",
                         "label": {
                           "text": "Quick recipe (Total time < 20 min)",
                           "image": {
@@ -1540,7 +1540,7 @@
                         }
                       },
                       {
-                        "value": "< 999",
+                        "value": "<999",
                         "label": {
                           "text": "I have a lot of time",
                           "image": {
@@ -1573,7 +1573,7 @@
                         }
                       },
                       {
-                        "value": "1369",
+                        "value": "1369;1370",
                         "label": {
                           "text": "Medium",
                           "image": {
@@ -1596,7 +1596,7 @@
                     "filterPropName": "serves",
                     "options": [
                       {
-                        "value": "< 3",
+                        "value": "[1 TO 2]",
                         "label": {
                           "text": "1-2 people",
                           "image": {
@@ -1606,7 +1606,7 @@
                         }
                       },
                       {
-                        "value": "< 6",
+                        "value": "[3 TO 5]",
                         "label": {
                           "text": "3-5 people",
                           "image": {
@@ -1616,7 +1616,7 @@
                         }
                       },
                       {
-                        "value": "< 999",
+                        "value": "[5 TO *]",
                         "label": {
                           "text": "5+ people",
                           "image": {

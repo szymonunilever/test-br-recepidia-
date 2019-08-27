@@ -86,7 +86,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             allCount: recipeResultsCount,
           }}
           initialCount={useMedia()}
-          titleLevel={2}
+          titleLevel={1}
           recipePerLoad={4}
           imageSizes={'(min-width: 768px) 25vw, 50vw'}
         />

@@ -74,18 +74,17 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       }).then(data => {
         const result = data.hits.hits.map(hit => hit._source);
         const index = query.lastIndexOf('AND');
-        if (data.hits.total >= 7 || index < 0) {
+        // if we have no results and can simplify query
+        if (data.hits.total === 0 && index > -1) {
+          query = query.substring(0, index);
+          processSearchData(query);
+        } else {
           // @ts-ignore
           setRecipes(result);
           saveUserProfileByKey(
             result.map(item => item.recipeId),
             ProfileKey.mealPlannerResults
           );
-          return;
-        }
-        if (index > -1) {
-          query = query.substring(0, index);
-          processSearchData(query);
         }
       });
     },
@@ -176,7 +175,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                 <div className="wizard__buttons">
                   <Link
                     className="wizard__button wizard__button--primary"
-                    to={'/profile'}
+                    to={'/profile?tabOpen=MealPlanner'}
                   >
                     {wizardResultSection.primaryButtonLabel}
                   </Link>

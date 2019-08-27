@@ -48,6 +48,7 @@
       }
     }
     &__button {
+      flex-shrink: 0;
       @include respondTo(desktop) {
         max-width: 352px;
       }
