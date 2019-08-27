@@ -8,7 +8,7 @@ import theme from './RecipeFilter.module.scss';
 import { Button, ButtonViewType } from '../../Button';
 import { FilterSettings } from './index';
 import map from 'lodash/map';
-import remove from 'lodash/remove';
+import filter from 'lodash/filter';
 import { Modal } from 'src/components/lib/components/Modal';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { TagVariant } from '../../Tags/models';
@@ -26,15 +26,19 @@ const Filter = ({
   content: { resultLabelPlural, resultLabel, optionLabels, ...content },
   dataFetched,
 }: RecipeFilterProps) => {
-  const [state, setState] = useState<{
-    showFilterSettings: boolean;
-    filterTags: Internal.Tag[];
-  }>({
-    showFilterSettings: false,
-    filterTags: [],
-  });
-
   const classWrapper = cx(theme.recipeFilter, className);
+
+  const [showFilterSettings, setShowFilterSettings] = useState<boolean>(false);
+  //tags applyed to filter query
+  const [filterTags, setFilterTags] = useState<Internal.Tag[]>([]);
+  //selected tags in filterSettings popup
+  const [selectedTags, setSelectedTags] = useState<Internal.Tag[]>([]);
+
+  const applySelectedTagsToFilter = () => {
+    setFilterTags(selectedTags);
+    setShowFilterSettings(!showFilterSettings);
+    onChangeFilter(selectedTags);
+  };
 
   const sortingOptions: Option[] = optionLabels
     ? map(enumToArray(RecipeSortingOptions), (item, key) => ({
@@ -50,28 +54,18 @@ const Filter = ({
   };
 
   const toggleFilterSettings = () => {
-    setState({
-      ...state,
-      showFilterSettings: !state.showFilterSettings,
-    });
-  };
-
-  const onFilterChange = (val: Internal.Tag[]) => {
-    setState({
-      ...state,
-      filterTags: val,
-    });
-    onChangeFilter(val);
+    setShowFilterSettings(!showFilterSettings);
   };
 
   const onTagRemoved = (val: Internal.Tag) => {
-    const filtered = [...state.filterTags];
-    remove(filtered, (item: Internal.Tag) => item.id === val.id);
-    setState({
-      ...state,
-      filterTags: filtered,
-    });
-    onChangeFilter(filtered);
+    const tagsAfterRemove = filter(
+      filterTags,
+      (item: Internal.Tag) => item.tagId !== val.tagId
+    );
+
+    setFilterTags(tagsAfterRemove);
+    setSelectedTags(tagsAfterRemove);
+    onChangeFilter(tagsAfterRemove);
   };
 
   const counter = (
@@ -99,7 +93,7 @@ const Filter = ({
         </label>
       ) : null}
       <Modal
-        isOpen={state.showFilterSettings}
+        isOpen={showFilterSettings}
         close={toggleFilterSettings}
         className="modal--filter"
         closeBtn={<CloseSvg />}
@@ -108,23 +102,26 @@ const Filter = ({
       >
         <FilterSettings
           allFilters={allFilters}
-          onFilterChange={onFilterChange}
+          onFilterChange={setSelectedTags}
           OpenIcon={OpenIcon}
-          filtersSelected={state.filterTags}
+          filtersSelected={selectedTags}
           // hidden={!state.showFilterSettings}
           content={content}
-          onApply={toggleFilterSettings}
+          onApply={applySelectedTagsToFilter}
         />
       </Modal>
       <Button
         className="filter__button"
         Icon={FilterIcon}
         viewType={ButtonViewType.classic}
-        onClick={toggleFilterSettings}
+        onClick={() => {
+          toggleFilterSettings();
+          setSelectedTags(filterTags);
+        }}
         attributes={{ 'aria-label': 'open modal with fiter settings' }}
       />
       <Tags
-        list={state.filterTags}
+        list={filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
         variant={TagVariant.removable}
         RemoveIcon={RemoveTagIcon}
