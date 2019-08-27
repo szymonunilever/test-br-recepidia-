@@ -1,6 +1,10 @@
 .meal-planner {
   :global {
     .wizard {
+      @media screen and (max-height: 567px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        overflow-y: auto;
+      }
       &__logo {
         @media screen and (max-height: 567px),
           screen and (orientation: landscape) and (max-width: 959px) {
@@ -20,11 +24,11 @@
     }
   }
 }
-.spinner{
+.spinner {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 158px;
   height: 158px;
 }
