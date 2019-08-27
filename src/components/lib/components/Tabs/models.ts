@@ -6,6 +6,8 @@ export interface TabsProps
   extends UnileverLibraryComponent<AppContent.Tabs.Content> {
   children: ReactComponentElement<typeof Tab>[];
   tabsHeaderContent?: TabsHeaderContent;
+  tabFromLocation?: boolean;
+  location?: Location;
 }
 
 export interface TabsHeaderContent {

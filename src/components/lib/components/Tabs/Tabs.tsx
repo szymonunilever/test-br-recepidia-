@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TabsProps, HeaderContent } from './models';
 import theme from './Tabs.module.scss';
 import cx from 'classnames';
@@ -12,12 +12,23 @@ export const Tabs = ({
   children = [],
   // @ts-ignore
   tabsHeaderContent,
+  tabFromLocation = false,
+  location,
 }: TabsProps) => {
   const classWrapper = cx(theme.tabs, className);
-  const [active, setActive] = useState(tabs[0].view);
+  const [active, setActive] = useState();
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabItems = tabs.map(tab => {
     const hasResultCount = typeof tab.resultsCount !== 'undefined';
+    useEffect(
+      () =>
+        setActive(
+          tabFromLocation
+            ? location && new URLSearchParams(location.search).get('tabOpen')
+            : tabs[0].view
+        ),
+      []
+    );
 
     return (
       <Button

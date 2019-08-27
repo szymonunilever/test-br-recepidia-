@@ -175,7 +175,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                 <div className="wizard__buttons">
                   <Link
                     className="wizard__button wizard__button--primary"
-                    to={'/profile'}
+                    to={'/profile?tabOpen=MealPlanner'}
                   >
                     {wizardResultSection.primaryButtonLabel}
                   </Link>

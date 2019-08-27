@@ -36,14 +36,15 @@ import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import Kritique from 'integrations/Kritique';
 import theme from './UserProfile.module.scss';
+import NullResult from 'src/components/lib/components/NullResult';
+import cx from 'classnames';
+import useFavorite from 'src/utils/useFavorite';
 
 // @todo remove hardcoded mocks
 import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
 import questionsMock from 'src/components/data/introQuiz.json';
-import NullResult from 'src/components/lib/components/NullResult';
-import cx from 'classnames';
-import useFavorite from 'src/utils/useFavorite';
-import GeneratedForm from '../ContactForm';
+import withLocation from 'src/components/lib/components/WithLocation';
+import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 
 const carouselConfig = {
   breakpoints: [
@@ -64,6 +65,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   pageContext: {
     page: { components, seo, type },
   },
+  location,
 }) => {
   const recipeContent = findPageComponentContent(
     components,
@@ -224,6 +226,8 @@ const FavoritesRecipeListingPage: FunctionComponent<
         content={tabsContent.tabsContent}
         tabsHeaderContent={tabsHeaderContent}
         className={cx(theme.userProfile, '')}
+        tabFromLocation
+        location={location}
       >
         <Tab view="ProfileFavorites">
           <div className="user-profile-favorites">
@@ -317,10 +321,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
 };
 
-export default FavoritesRecipeListingPage;
+export default withLocation<FavoriteRecipeListingProps & WithLocationProps>(
+  // @ts-ignore
+  FavoritesRecipeListingPage
+);
 
 interface FavoriteRecipeListingProps {
   pageContext: {
     page: AppContent.Page;
   };
+  location?: Location;
 }
