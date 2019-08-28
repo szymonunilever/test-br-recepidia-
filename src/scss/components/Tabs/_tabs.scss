@@ -22,12 +22,13 @@
     justify-content: space-around;
     button {
       @extend %global--links;
-      padding: 20px;
+      padding: 0 20px;
       width: auto;
       background: none;
       border: none;
       font-size: 1.8rem;
       font-family: $rubik;
+      font-weight: 500;
       color: $black-blue;
       text-align: center;
 

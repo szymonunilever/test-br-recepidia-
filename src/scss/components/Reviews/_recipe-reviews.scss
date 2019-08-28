@@ -26,14 +26,11 @@
   .rr-product-reviews {
     margin: 0;
     h2 {
-      font-size: 2.1rem;
-      font-weight: 500;
-      line-height: 1.33;
+      font: 500 2.1rem/1.33 $rubik;
       text-align: left;
       color: $black-blue;
       margin-bottom: 20px;
       padding: 0;
-      font-family: $rubik;
       @include respondTo(desktop) {
         font-size: 2.5rem;
       }
@@ -72,11 +69,8 @@
         position: relative;
 
         .aggRtng {
-          font-size: 4.8rem;
-          font-weight: 500;
-          line-height: 0.75;
+          font: 500 4.8rem/0.75 $rubik;
           color: $black-blue;
-          font-family: $rubik;
           background: none;
           margin-right: 20px;
           padding: 0;
@@ -168,16 +162,13 @@
           }
         }
         h3 {
+          font: 500 2.1rem/1.33 $rubik;
           order: 4;
           width: 100%;
           text-align: left;
           margin-top: 21px;
-          font-size: 2.1rem;
-          font-weight: bold;
-          line-height: 1.33;
           color: $black-blue;
           margin-bottom: 14px;
-          font-family: $rubik;
           @include respondTo(medium) {
             order: 1;
             margin-top: 0;

@@ -1,5 +1,4 @@
 .sitemap {
-
   &__categories {
     @include respondTo(medium) {
       display: flex;
@@ -52,6 +51,7 @@
     text-decoration: none;
     cursor: pointer;
     font-family: $rubik;
+    font-weight: 500;
     color: $header-color-mobile;
     transition: color 0.2s ease-out;
     &:hover {
