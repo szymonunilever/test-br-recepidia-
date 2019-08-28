@@ -12,6 +12,7 @@
         font-size: 3.4rem;
         color: $fish-blue-darker;
         font-family: $rubik;
+        font-weight: 500;
         margin-bottom: 23px;
         @include respondTo(desktop) {
           font-size: 4.5rem;

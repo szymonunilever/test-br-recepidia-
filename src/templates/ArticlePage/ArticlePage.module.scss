@@ -67,11 +67,8 @@
       margin-bottom: 30px;
     }
     strong {
-      font-size: 1.6rem;
-      font-weight: 500;
-      line-height: 1.25;
+      font: 500 1.6rem/1.25 $rubik;
       color: $fish-blue-darker;
-      font-family: $rubik;
       @include respondTo(desktop) {
         font-size: 1.8rem;
         line-height: 1.22;

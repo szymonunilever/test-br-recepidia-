@@ -6,10 +6,8 @@ $col-indent-desktop: 8px;
 .page-listing {
   overflow: hidden;
   &__title {
-    font-size: 2.1rem;
-    line-height: 3rem;
+    font: 500 2.1rem/3rem $rubik;
     color: $black-blue;
-    font-family: $rubik;
     margin: 0 0 20px 0;
     @include respondTo(desktop) {
       font-size: 2.5rem;
