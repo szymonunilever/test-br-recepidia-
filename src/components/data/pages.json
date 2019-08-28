@@ -1294,14 +1294,532 @@
             "name": "PreferencesQuiz",
             "content": {
               "quizTitle": "Intro quiz",
-              "view": "IntroQuiz"
+              "view": "IntroQuiz",
+              "questions": [
+                {
+                  "orderIndex": 1,
+                  "id": 1,
+                  "key": "question1",
+                  "label": "Você é do tipo que",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "1523;1525;1552;1414;1424;1427;1433;1411;1441;1295;1296;1415;1298;1419;1299;1300;1304;1306;1307;1405;1409;1412;1413;1449;1416;1417;1425;1428;1430;1434;1435;1438;1443;1445;1446;1287;1451",
+                      "label": {
+                        "text": "Experimenta de tudo",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1527;1408;1422;1483;1485;665;1491",
+                      "label": {
+                        "text": "Ama mais salgado do que doce",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1466;1397;1467;1315;1481;693;1319;1317;1478;1469;1504",
+                      "label": {
+                        "text": "Rouba os docinhos antes do parabéns",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1477;1488;1465;1497;1501;1431",
+                      "label": {
+                        "text": "Não divide o hambúrguer",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;",
+                      "label": {
+                        "text": "Chef preferido das crianças",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073;",
+                      "label": {
+                        "text": "Louco por carne",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053",
+                      "label": {
+                        "text": "Cuida da alimentação e do planeta",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 2,
+                  "id": 2,
+                  "key": "question2",
+                  "label": "Você tem uma dieta especial?",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "",
+                      "label": {
+                        "text": "Não",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "10",
+                      "label": {
+                        "text": "Sem produtos de origem animal",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "11",
+                      "label": {
+                        "text": "Sem carne",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Sem ovo",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1",
+                      "label": {
+                        "text": "Sem leite",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "12",
+                      "label": {
+                        "text": "Sem açúcar",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "4",
+                      "label": {
+                        "text": "Sem lactose",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "3",
+                      "label": {
+                        "text": "Sem glúten",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "13",
+                      "label": {
+                        "text": "Sem frutos do mar",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "14",
+                      "label": {
+                        "text": "Sem soja",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 3,
+                  "id": 3,
+                  "key": "question3",
+                  "label": "Como seria um jantar perfeito?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "serves",
+                  "options": [
+                    {
+                      "value": "<=2",
+                      "label": {
+                        "text": "Com a galera",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "<3",
+                      "label": {
+                        "text": "Com o crush",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": ">3",
+                      "label": {
+                        "text": "Com meus filhos",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "2",
+                      "label": {
+                        "text": "Com meus net",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 4,
+                  "id": 4,
+                  "key": "question4",
+                  "label": "Como você é na cozinha?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "1457",
+                      "label": {
+                        "text": "Só sei fazer gelo",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1460",
+                      "label": {
+                        "text": "Me viro bem",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1458;1459",
+                      "label": {
+                        "text": "Me chame de chef!",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
             "name": "PreferencesQuiz",
             "content": {
               "quizTitle": "Planejamento da semana",
-              "view": "MealPlanner"
+              "view": "MealPlanner",
+              "questions": [
+                {
+                  "orderIndex": 1,
+                  "id": 1,
+                  "key": "mealPlannerQuestion1",
+                  "label": "O que não pode faltar na sua semana?",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "1503;1484",
+                      "label": {
+                        "text": "Frango",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1397;1467;1315;1466;1469;1481;693;1319;1317;1478",
+                      "label": {
+                        "text": "Doces e Sobremesas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1464;1313;1314",
+                      "label": {
+                        "text": "Pizza",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1475;1490;1321",
+                      "label": {
+                        "text": "Peixe",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1477;1488;1465;1497",
+                      "label": {
+                        "text": "Lanches",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1479;1492;1499",
+                      "label": {
+                        "text": "Carne",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "664;1480;699",
+                      "label": {
+                        "text": "Massa",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1483;665;1485",
+                      "label": {
+                        "text": "Tortas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1487;1108;1476;1495;1473;organic;healthy",
+                      "label": {
+                        "text": "Comida saudável",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1491",
+                      "label": {
+                        "text": "Sopas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 2,
+                  "id": 2,
+                  "key": "mealPlannerQuestion2",
+                  "label": "Quanto tempo quer gastar na cozinha?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "cookTime",
+                  "options": [
+                    {
+                      "value": "<21",
+                      "label": {
+                        "text": "Quero ser rápido! (Total time < 20 min)",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "<999",
+                      "label": {
+                        "text": "Tenho tempo",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 3,
+                  "id": 3,
+                  "key": "mealPlannerQuestion3",
+                  "label": "Essa semana você quer",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "1371",
+                      "label": {
+                        "text": "Gastar um pouco mais",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "1369;1370",
+                      "label": {
+                        "text": "Algo bom, bonito e barato",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 4,
+                  "id": 4,
+                  "key": "mealPlannerQuestion4",
+                  "label": "Receitas para quantas pessoas?",
+                  "type": {
+                    "control": "radio",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "serves",
+                  "options": [
+                    {
+                      "value": "[1 TO 2]",
+                      "label": {
+                        "text": "1 ou 2 pessoas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "[3 TO 5]",
+                      "label": {
+                        "text": "3 a 5 pessoas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    },
+                    {
+                      "value": "[5 TO *]",
+                      "label": {
+                        "text": "Mais de 5 pessoas",
+                        "image": {
+                          "url": "",
+                          "alt": ""
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
