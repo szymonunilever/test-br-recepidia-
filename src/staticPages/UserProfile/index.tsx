@@ -31,7 +31,6 @@ import {
   updateFavorites,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import { Question } from 'src/components/lib/components/Wizard/partials/Quiz/models';
 import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import Kritique from 'integrations/Kritique';
@@ -39,10 +38,6 @@ import theme from './UserProfile.module.scss';
 import NullResult from 'src/components/lib/components/NullResult';
 import cx from 'classnames';
 import useFavorite from 'src/utils/useFavorite';
-
-// @todo remove hardcoded mocks
-import mealPlannerQuestionsMock from 'src/components/data/mealPlannerPageMock.json';
-import questionsMock from 'src/components/data/introQuiz.json';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 
@@ -271,19 +266,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
             content={userPreferencesContent}
           >
             <PreferencesQuiz
-              questions={questionsMock.questions as Question[]}
+              questions={preferencesQuizContent.questions}
               // @ts-ignore
               answers={getUserProfileByKey(ProfileKey.initialQuiz)}
               heading={preferencesQuizContent.quizTitle}
               quizKey={ProfileKey.initialQuiz}
             />
             <PreferencesQuiz
-              questions={
-                // @ts-ignore
-                mealPlannerQuestionsMock.components.items.find(
-                  component => component.name === 'Wizard'
-                ).content.wizardQuiz.questions as Question[]
-              }
+              questions={mealPlannerQuizContent.questions}
               // @ts-ignore
               answers={getUserProfileByKey(ProfileKey.mealPlannerAnswers)}
               heading={mealPlannerQuizContent.quizTitle}
