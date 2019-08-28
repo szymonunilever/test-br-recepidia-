@@ -24,7 +24,10 @@ export const Tabs = ({
       () =>
         setActive(
           tabFromLocation
-            ? location && new URLSearchParams(location.search).get('tabOpen')
+            ? location &&
+                (location.search
+                  ? new URLSearchParams(location.search).get('tabOpen')
+                  : tabs[0].view)
             : tabs[0].view
         ),
       []

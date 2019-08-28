@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
+import groupBy from 'lodash/groupBy';
+import map from 'lodash/map';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
@@ -121,18 +123,12 @@ const AllRecipesPage = ({
       return tagWithCategory;
     });
 
+    const grouped = map(
+      groupBy(tagsWithCategories, 'category'),
+      item => item
+    ).map(cat => cat.map(tag => tag.tagId));
     return (
-      tagsWithCategories.reduce((result, current, i, tags) => {
-        const nextCategory = tags[i + 1] ? tags[i + 1].category : null;
-        const { category, tagId } = current;
-        if (i === tags.length - 1) {
-          return result + `${tagId}`;
-        } else {
-          return category === nextCategory
-            ? result + `${tagId} OR `
-            : result + `${tagId} AND `;
-        }
-      }, '') || '**'
+      grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
     );
   };
 

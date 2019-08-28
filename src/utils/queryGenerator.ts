@@ -20,7 +20,8 @@ const generateQueryString = (
   quiz: any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mealPlaner: any,
-  { template, searchAttributes }: RecipePersonalizationFormulaProps
+  { template, searchAttributes }: RecipePersonalizationFormulaProps,
+  indexTry = 0
 ) => {
   const delimiter = /;/g;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -47,8 +48,8 @@ const generateQueryString = (
   let mp = mealPlaner && objectToArray(mealPlaner);
   q && arrayToQueryPart(q);
   mp && arrayToQueryPart(mp);
-  const operator = template.match(/AND|OR/g);
-  const parts = template.replace(/\(|\)/g, '').split(/AND|OR/);
+  const operator = template[indexTry].match(/AND|OR/g);
+  const parts = template[indexTry].replace(/[()]/g, '').split(/AND|OR/);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let params: { param: any; weight: string }[];
 
@@ -87,6 +88,8 @@ const generateQueryString = (
       return prev + `(${realAnswer})^${weight}`;
     } else if (!isUndefined) {
       return prev + `(${realAnswer})`;
+    } else if (isUndefined && !nextUndefined && operator && operator[i]) {
+      return prev + `${operator[i]} `;
     } else {
       return prev;
     }

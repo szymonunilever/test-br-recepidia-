@@ -37,7 +37,6 @@
   }
 }
 
-
 %modal__content--small {
   //fullscreen mobile, small window on desktop
   top: 0px;
@@ -91,7 +90,7 @@
 
 .modal--quiz {
   #modal__description {
-    height: 100%;
+    width: 100%;
   }
   .modal {
     &__overlay {
@@ -108,6 +107,7 @@
       @include respondTo(medium) {
         max-height: calc(100% - 48px);
         height: auto;
+        display: flex;
       }
       @include respondTo(desktop) {
         width: 1188px;

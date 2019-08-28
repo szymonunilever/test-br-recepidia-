@@ -79,15 +79,16 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getPersonalizedRecipes = (): Promise<any>[] => {
+  const getPersonalizedRecipes = (i = 0): Promise<any>[] => {
     const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
     const mealPlanerAnswers = getUserProfileByKey(
       ProfileKey.mealPlannerAnswers
     );
-    const queryString = generateQuery(
+    let queryString = generateQuery(
       introQuizAnswers,
       mealPlanerAnswers,
-      RecipePersonalizationFormula
+      RecipePersonalizationFormula,
+      i
     );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -127,8 +128,10 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   useEffect(() => {
     //@ts-ignore
     setSearchAgent(window.searchAgentOnPage);
-    if (!recipesFound.personal) {
-      const promises = getPersonalizedRecipes();
+
+    const searchRecipes = (i = 0) => {
+      let j = i;
+      let promises = getPersonalizedRecipes(i);
       promises &&
         Promise.all(promises)
           .then(data => {
@@ -141,11 +144,24 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             const topRecipesNodes =
               data[1].hits.total >= 6 ? result[1] : topRecipes.nodes;
 
-            setRecipesFound({
-              personal: true,
-              latestAndGratesNodes,
-              topRecipesNodes,
-            });
+            if (data[0].hits.total >= 6 && data[1].hits.total >= 6) {
+              setRecipesFound({
+                personal: true,
+                latestAndGratesNodes,
+                topRecipesNodes,
+              });
+            } else {
+              j = i + 1;
+              if (j < RecipePersonalizationFormula.template.length) {
+                searchRecipes(j);
+              } else {
+                setRecipesFound({
+                  personal: true,
+                  latestAndGratesNodes,
+                  topRecipesNodes,
+                });
+              }
+            }
           })
           .catch(() => {
             setRecipesFound({
@@ -154,6 +170,10 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
               topRecipesNodes: topRecipes.nodes,
             });
           });
+    };
+
+    if (!recipesFound.personal) {
+      searchRecipes();
     } else if (!recipesFound.personal) {
       setRecipesFound({
         personal: false,
