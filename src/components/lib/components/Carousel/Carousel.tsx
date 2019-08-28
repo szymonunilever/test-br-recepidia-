@@ -20,7 +20,12 @@ export const defaultCarouselConfig = {
   arrowIcon: <ArrowIcon />,
 };
 
-const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
+const Carousel = ({
+  list,
+  createElementFunction,
+  config,
+  onVisibleElementsChanged,
+}: CarouselProps) => {
   const getNearestBreakpoint = useCallback(
     (target: number) => {
       return (config.breakpoints || defaultCarouselConfig.breakpoints).reduce(
@@ -151,6 +156,10 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
       setVisibleElements(listSize);
     }
   }, [visibleElements]);
+
+  useEffect(() => {
+    onVisibleElementsChanged && onVisibleElementsChanged();
+  }, [trackingIndex]);
 
   useEffect(() => {
     const newBreakpoint = getNearestBreakpoint(window.innerWidth);

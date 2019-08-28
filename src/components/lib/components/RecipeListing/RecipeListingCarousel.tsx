@@ -3,6 +3,7 @@ import Carousel from '../Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import RecipeCard from './partials/RecipeCard';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import { reloadKritiqueWidget } from '../../utils/useKritiqueReload';
 
 const RecipeListingCarousel = ({
   withFavorite = true,
@@ -32,11 +33,19 @@ const RecipeListingCarousel = ({
       />
     );
   };
+
+  const handleVisibleElementsChanged = (visibleElements: number) => {
+    if (ratingProvider === RatingAndReviewsProvider.kritique) {
+      reloadKritiqueWidget();
+    }
+  };
+
   return (
     <Carousel
       list={list}
       createElementFunction={getCurrentItem}
       config={config}
+      onVisibleElementsChanged={handleVisibleElementsChanged}
     />
   );
 };

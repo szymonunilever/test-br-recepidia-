@@ -21,4 +21,5 @@ export interface CarouselProps {
   list: any;
   createElementFunction: CreateElement;
   config: CarouselConfig;
+  onVisibleElementsChanged?: Function;
 }
