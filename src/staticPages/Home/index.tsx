@@ -63,9 +63,9 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   // const isIntroDone = () => {
   //   setIntroDone(isQuizStored());
   // };
-  // const {
-  //   page: { seo, components, type },
-  // } = pageContext;
+  const {
+    page: { seo, components, type },
+  } = pageContext;
 
   // const quizContent = findPageComponentContent(components, 'Wizard');
   // const introContent = {
@@ -171,7 +171,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   // );
 
   return (
-    <div />
     // <Layout className="header--bg">
     //   <SEO {...seo} canonical={location.href} />
     //   {!searchAgent && (
@@ -250,13 +249,13 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     //       />
     //     </section>
     //   )}
-    //   <section className="_pb--40">
-    //     <Hero
-    //       content={findPageComponentContent(components, 'Hero')}
-    //       viewType="Image"
-    //       className="hero--planner color--inverted"
-    //     />
-    //   </section>
+    <section className="_pb--40">
+      <Hero
+        content={findPageComponentContent(components, 'Hero')}
+        viewType="Image"
+        className="hero--planner color--inverted"
+      />
+    </section>
     //   <section
     //     className={cx(theme.homeBottomCarousel, '_pt--40 _pb--40 wrapper')}
     //   >
