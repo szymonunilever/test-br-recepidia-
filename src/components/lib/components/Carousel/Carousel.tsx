@@ -32,6 +32,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
     },
     [config]
   );
+  const listSize = list.length;
   const [slideStep, setSlideStep] = useState();
   const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
@@ -39,17 +40,19 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   const [trackingIndex, setTrackingIndex] = useState(0);
   const [updateKey, setUpdateKey] = useState();
 
-  const mayGoLeft = translateValue < 0;
+  const mayGoLeft = listSize <= visibleElements ? false : translateValue < 0;
   const mayGoRight =
-    translateValue >
-    (list.length % 2 === 0
-      ? -(list.length - visibleElements) * (100 / list.length)
-      : (-(list.length - visibleElements) * (100 / list.length)).toFixed(6));
+    listSize <= visibleElements
+      ? false
+      : translateValue >
+        (listSize % 2 === 0
+          ? -(listSize - visibleElements) * (100 / listSize)
+          : (-(listSize - visibleElements) * (100 / listSize)).toFixed(6));
 
   const adjustSizing = useCallback(
     (currentlyVisibleElements: number, currentTranslateValue: number) => {
       const maxTranslate =
-        -(list.length - currentlyVisibleElements) * (100 / list.length);
+        -(listSize - currentlyVisibleElements) * (100 / listSize);
 
       let fixedTranslateValue = undefined;
       if (currentTranslateValue < maxTranslate) {
@@ -81,15 +84,18 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
       setSlideStep(newSlideStep);
       setVisibleElements(newVisibleElemenst);
 
-      const [newTranslateValue, maxTranslate] = adjustSizing(
-        newVisibleElemenst,
-        translateValue
-      );
-      const newPercentage = Math.abs(newTranslateValue / maxTranslate) * 100;
-      setPercentage(newPercentage);
-      const newTrackingIndex =
-        Math.abs(newTranslateValue) / (100 / list.length);
-      setTrackingIndex(newTrackingIndex);
+      if (listSize <= newVisibleElemenst) {
+        setTranslateValue(0);
+        setPercentage(100);
+        setTrackingIndex(0);
+      } else {
+        const [newTranslateValue, maxTranslate] = adjustSizing(
+          newVisibleElemenst,
+          translateValue
+        );
+        setPercentage(Math.abs(newTranslateValue / maxTranslate) * 100);
+        setTrackingIndex(Math.abs(newTranslateValue) / (100 / listSize));
+      }
     },
     [translateValue]
   );
@@ -106,7 +112,7 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
           Math.abs(actualCurrentTranslateValue / maxTranslate) * 100
         );
         const firstIndex =
-          Math.abs(actualCurrentTranslateValue) / (100 / list.length);
+          Math.abs(actualCurrentTranslateValue) / (100 / listSize);
         setTrackingIndex(firstIndex);
       }
     },
@@ -114,14 +120,11 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
   );
 
   const previousImage = useCallback(() => {
-    switchImages(mayGoLeft, translateValue + (100 * slideStep) / list.length);
+    switchImages(mayGoLeft, translateValue + (100 * slideStep) / listSize);
   }, [mayGoLeft, switchImages, translateValue, slideStep, list]);
 
   const nextImage = useCallback(() => {
-    switchImages(
-      mayGoRight,
-      translateValue + -((100 * slideStep) / list.length)
-    );
+    switchImages(mayGoRight, translateValue + -((100 * slideStep) / listSize));
   }, [mayGoRight, switchImages, translateValue, slideStep, list]);
 
   const shouldUpdate = useCallback(
@@ -140,6 +143,14 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
     },
     [slideStep, visibleElements]
   );
+
+  useEffect(() => {
+    // This effect checks if the list length is equal or less than visibleElements value.
+    // If so, the number of visible elements is adjusted to meet the number of elements in the list.
+    if (listSize <= visibleElements) {
+      setVisibleElements(listSize);
+    }
+  }, [visibleElements]);
 
   useEffect(() => {
     const newBreakpoint = getNearestBreakpoint(window.innerWidth);
@@ -185,8 +196,8 @@ const Carousel = ({ list, createElementFunction, config }: CarouselProps) => {
 
   const trackerStyle = {
     width: `${
-      (100 * list.length) / visibleElements
-        ? (100 * list.length) / visibleElements
+      (100 * listSize) / visibleElements
+        ? (100 * listSize) / visibleElements
         : 0
     }%`,
     transform: `translateX(${translateValue}%)`,
