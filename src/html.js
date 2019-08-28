@@ -45,7 +45,7 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
-            {/* <script
+            <script
               type="text/javascript"
               src="/config/newRelic.js"
               id="newRelic"
@@ -56,7 +56,7 @@ export default function HTML(props) {
               dangerouslySetInnerHTML={{
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
               }}
-            /> */}
+            />
           </>
         )}
         {/* <script
