@@ -107,6 +107,7 @@ $four-col-width: 100% / 4;
     &__item-input {
       z-index: -1;
       height: 0;
+      display: contents;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
           display: flex;
