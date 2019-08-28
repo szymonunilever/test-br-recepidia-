@@ -59,6 +59,22 @@ const carouselConfig = {
   arrowIcon: <ArrowIcon />,
 };
 
+const arrangeFavoritesOrder = (
+  x: Internal.Recipe,
+  y: Internal.Recipe,
+  savedFavorites: number[]
+) => {
+  const xIndex = savedFavorites.indexOf(x.recipeId);
+  const yIndex = savedFavorites.indexOf(y.recipeId);
+  if (xIndex > yIndex) {
+    return 1;
+  }
+  if (yIndex > xIndex) {
+    return -1;
+  }
+  return 0;
+};
+
 const FavoritesRecipeListingPage: FunctionComponent<
   FavoriteRecipeListingProps
 > = ({
@@ -109,16 +125,19 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
   const nullResultContent = findPageComponentContent(components, 'NullResult');
 
+  const savedFavorites: number[] = Array.isArray(
+    getUserProfileByKey(ProfileKey.favorites)
+  )
+    ? (getUserProfileByKey(ProfileKey.favorites) as number[])
+    : [];
   const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
     tabsContent.tabsHeaderContent
   );
   const { getRecipeDataByIds, recipeByIdsResults } = useSearchResults(
-    (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
-      ? getUserProfileByKey(ProfileKey.favorites)
-      : []
-    )
-      // @ts-ignore
-      .join(' OR ')
+    savedFavorites.join(' OR ')
+  );
+  recipeByIdsResults.list.sort((x, y) =>
+    arrangeFavoritesOrder(x, y, savedFavorites)
   );
   const {
     getRecipeDataByIds: getMealPlannerResults,
@@ -141,18 +160,10 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
-      getRecipeDataByIds(
-        (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
-          ? getUserProfileByKey(ProfileKey.favorites)
-          : []
-        )
-          // @ts-ignore
-          .join(' OR '),
-        {
-          from: recipeByIdsResults.list.length,
-          size,
-        }
-      ),
+      getRecipeDataByIds(savedFavorites.join(' OR '), {
+        from: recipeByIdsResults.list.length,
+        size,
+      }),
     [recipeByIdsResults]
   );
 
@@ -178,16 +189,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   }, []);
 
   useEffect(() => {
-    // @todo add sorting: First sort by Rating. Entries equal by Rating are sorted by date.
-    getRecipeDataByIds(
-      (Array.isArray(getUserProfileByKey(ProfileKey.favorites))
-        ? getUserProfileByKey(ProfileKey.favorites)
-        : []
-      )
-        // @ts-ignore
-        .join(' OR '),
-      { from: 0, size: 8 }
-    );
+    getRecipeDataByIds(savedFavorites.join(' OR '), { from: 0, size: 8 });
   }, []);
   useEffect(() => {
     const query = (Array.isArray(
