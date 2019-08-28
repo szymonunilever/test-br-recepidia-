@@ -25,41 +25,7 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        {process.env.NODE_ENV !== 'development' && (
-          <>
-            <link rel="preload" href="/config/newRelic.js" as="script" />
-            {/* <link rel="preload" href="/styles.css" as="style" /> */}
-            <link rel="preload" href="/libs/jquery.min.js" as="script" />
-            <link
-              rel="preload"
-              href={`${
-                keys.kritique.baseUrl
-              }/widget/resources/css/RR_widget.css`}
-              as="style"
-            />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
-            <link
-              rel="preconnect"
-              href="https://d37k6lxrz24y4c.cloudfront.net"
-            />
-            <link rel="preconnect" href="https://www.google-analytics.com" />
-            <link rel="preconnect" href="https://bam.nr-data.net" />
-            <link rel="preconnect" href="https://js-agent.newrelic.com" />
-            <script
-              type="text/javascript"
-              src="/config/newRelic.js"
-              id="newRelic"
-            />
-            <script
-              id="newRelicConfig"
-              type="text/javascript"
-              dangerouslySetInnerHTML={{
-                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
-              }}
-            />
-          </>
-        )}
-        <script
+        {/* <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
@@ -70,7 +36,7 @@ export default function HTML(props) {
           `,
           }}
           id="botDetector"
-        />
+        /> */}
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
