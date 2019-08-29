@@ -4,7 +4,6 @@ import { ProgressBarProps } from './models';
 
 const ProgressBar = ({ percentage = 0 }: ProgressBarProps) => {
   return (
-    // <div className={styles['progress-bar'] + ' progress-bar'}>
     <div className={styles.progressBar + ' progress-bar'}>
       <progress
         aria-label="progress"
