@@ -895,54 +895,241 @@
   "title": "Salada Francesa do @caio form 21.06.2019",
   "ingredients": [
     {
-      "productId": null,
-      "description": "alface lisa"
+      "title": "desagrupados",
+      "list": []
     },
     {
-      "productId": null,
-      "description": "alface roxa"
+      "title": "Massa",
+      "list": [
+        {
+          "description": "1 xícara de chá de nozes",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 0,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": true,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1 xícara de chá de tâmaras picadas",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 1,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": true,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1/2 xícara de chá de Gergelim Integral Mãe Terra",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 2,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1/2 xícara de chá de Aveia em Flocos Mãe Terra",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 3,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "Óleo de coco, se necessário para ajudar a processar",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 4,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        }
+      ]
     },
     {
-      "productId": null,
-      "description": "tomate"
-    },
-    {
-      "productId": null,
-      "description": "cenoura"
-    },
-    {
-      "productId": null,
-      "description": "beterraba"
-    },
-    {
-      "productId": null,
-      "description": "Queijo comte (mas pode ser o que quiser)"
-    },
-    {
-      "productId": null,
-      "description": "pão baguette"
-    },
-    {
-      "productId": null,
-      "description": "filé filé mignon"
+      "title": "Recheio",
+      "list": [
+        {
+          "description": "500g de tofu firme",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 0,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": true,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1 colher de sopa de essência de baunilha",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 1,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "200g de Cacau em Pó Mãe Terra",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 2,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "¾ xícara de chá de óleo de coco ou óleo vegetal",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 3,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1/3 xícara de chá de açúcar mascavo",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 4,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1 xícara de chá de água",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 5,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "2 colheres de sopa de conhaque ou licor",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 6,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": false,
+          "excluded_from_recipe_nutrition_calc": false
+        },
+        {
+          "description": "1 colher de sopa de fermento químico em pó",
+          "quantity": 1,
+          "multiple": 1,
+          "unit": null,
+          "position": 7,
+          "product_id": null,
+          "original_product_id": null,
+          "related_data": {},
+          "all_nutrition_complete": false,
+          "core_nutrition_complete": true,
+          "excluded_from_recipe_nutrition_calc": false
+        }
+      ]
     }
   ],
   "methods": [
     {
+      "title": "desagrupados",
+      "position": 0,
+      "list": [
+        {
+          "description": "Use uma forma pequena de fundo removível de 17,5cm de diâmetro. Molhe um papel manteiga (para ficar maleável) e forre a forma toda, inclusive as laterais.",
+          "position": 1
+        },
+        {
+          "description": "Pré-aqueça o forno à 200°C por 10 minutos.",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "title": "Base",
       "position": 1,
-      "description": "Assar a carne na frigideira, temperar com manteiga, sal e pimenta do reino"
+      "list": [
+        {
+          "description": "Pique as tâmaras e castanhas em pedaços pequenos. Em um processador, bata todos os ingredientes da base. Se necessário, adicione óleo de coco para bater. Retire a mistura do processador, pegue um pouco com as mãos, aperte para ficar mais compacto e vá forrando o fundo da forma, apertando bem com os dedos. A farofinha fica solta mesmo, mas no forno ela dá a liga. Reserve.",
+          "position": 3
+        }
+      ]
     },
     {
+      "title": "Recheio",
       "position": 2,
-      "description": "Cortar e lavar as alfaces, cenoura, beterraba e tomate"
+      "list": [
+        {
+          "description": "Leve a polpa de maracujá e o açúcar ao fogo alto. Quando começar a ferver, abaixe o fogo e mexa até engrossar levemente e dissolver o açúcar. Aproximadamente 7 minutos. Leve todos os ingredientes ao processador e bata até ficar homogêneo. \r\nLeve ao forno por 20 minutos. Deixe esfriar e leve ao congelador por 8 horas.",
+          "position": 4
+        }
+      ]
     },
     {
+      "title": "Ganache",
       "position": 3,
-      "description": "Assar a baguette no forno pra comer quentinha"
-    },
-    {
-      "position": 4,
-      "description": "Cortar o queijo em tiras"
+      "list": [
+        {
+          "description": "Prepare a ganache próximo do momento de servir. Prepare primeiro o creme de castanhas, batendo 1/4 xícara de chá de amêndoa ou castanha de caju com 1/2 xícara de chá de água. Você também pode usar o próprio leite de coco ou creme de leite de soja. Derreta o chocolate no microondas ou banho-maria.",
+          "position": 5
+        },
+        {
+          "description": "No micro-ondas, ajuste a potência para \"média\". Coloque o chocolate em uma tigela apropriada e aqueça por 1 minuto. Retire, mexa com uma colher para ir homogeneizando e leve novamente por mais 1 minuto ao micro-ondas, repetindo o processo até derreter por completo (2 ou 3 vezes, no máximo). Acrescente o creme de castanhas e misture bem, até virar um creme homogêneo. Você pode acrescentar um pouco de leite de coco para ficar mais fluída, porque a ganache tem textura bem densa.",
+          "position": 6
+        },
+        {
+          "description": "Cubra a torta com a ganache e decore como desejar. Eu usei lascas de chocolate 70%, mas você pode colocar gotas de chocolate, nibs de cacau, castanhas picadas ou servir assim mesmo ao que já fica bem bom.",
+          "position": 7
+        }
+      ]
     }
   ],
   "tagGroups": [

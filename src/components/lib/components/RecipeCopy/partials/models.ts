@@ -16,5 +16,5 @@ export interface RecipeCopyIngredientsProps {
   title?: string;
   subtitle?: string;
   titleLevel?: titleLevel;
-  ingredients: RMSData.Ingredient[];
+  ingredients: RMSData.IngredientGroup[];
 }

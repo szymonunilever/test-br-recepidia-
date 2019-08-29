@@ -1,10 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { RecipeCookingMethod } from '../src/components/lib/components/RecipeCookingMethod';
-import dataSource from 'src/components/data/recipes.json';
+import recipe from 'src/components/data/recipe.json';
 
-const methods: RMSData.CookingMethod[] =
-  dataSource.data.allRecipe.edges[0].node.methods;
+const methods: RMSData.CookingMethodGroup[] = recipe.methods;
 
 const content1: AppContent.RecipeCookingMethodContent = {
   title: undefined,
