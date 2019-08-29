@@ -143,8 +143,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 export default withRecipeSearchResults<ContentHubPageProps>(ContentHubPage);
 
 export const query = graphql`
-  query($slug: String!, $id: Int) {
-    tag(fields: { slug: { eq: $slug } }) {
+  query($id: Int) {
+    tag(tagId: { eq: $id }) {
       name
       tagId
     }
