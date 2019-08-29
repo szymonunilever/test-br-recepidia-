@@ -9,18 +9,18 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
-  let headComponents = props.headComponents;
-  let css;
-  if (process.env.NODE_ENV == `production`) {
-    headComponents = headComponents.filter(
-      component => component.type !== 'style'
-    );
-    css = (
-      <>
-        <link rel="stylesheet" href="/styles.css" />
-      </>
-    );
-  }
+  // let headComponents = props.headComponents;
+  // let css;
+  // if (process.env.NODE_ENV == `production`) {
+  //   headComponents = headComponents.filter(
+  //     component => component.type !== 'style'
+  //   );
+  //   css = (
+  //     <>
+  //       <link rel="stylesheet" href="/styles.css" />
+  //     </>
+  //   );
+  // }
 
   return (
     <html {...props.htmlAttributes}>
@@ -78,8 +78,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {css}
-        {headComponents}
+        {/* {css} */}
+        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
