@@ -28,7 +28,7 @@ export default function HTML(props) {
         {process.env.NODE_ENV !== 'development' && (
           <>
             <link rel="preload" href="/styles.css" as="style" />
-            <link rel="preload" href="/libs/jquery.min.js" as="script" />
+            {/* <link rel="preload" href="/libs/jquery.min.js" as="script" />
             <link
               rel="preload"
               href={`${
@@ -36,7 +36,7 @@ export default function HTML(props) {
               }/widget/resources/css/RR_widget.css`}
               as="style"
             />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+            <link rel="preload" href={kritiqueWidgetSrc} as="script" /> */}
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
