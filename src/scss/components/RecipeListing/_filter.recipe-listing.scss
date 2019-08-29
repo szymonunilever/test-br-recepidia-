@@ -17,9 +17,11 @@
         width: calc(100px + 4.3vw);
         min-height: 43px;
         border-radius: 0;
+        padding: 0 5px;
         @include respondTo(desktop) {
           width: 180px;
           min-height: 46px;
+          padding: 0 20px;
         }
         &:hover {
           cursor: pointer;
@@ -33,15 +35,21 @@
         .react-dropdown-select {
           &-input {
             color: inherit;
+            &::placeholder {
+              color: $black-blue;
+            }
           }
           &-content {
             flex-wrap: nowrap;
             max-width: calc(100% - 20px);
+            height: 40px;
+            align-items: center;
             > span {
               white-space: nowrap;
               text-overflow: ellipsis;
               width: 100%;
               overflow: hidden;
+              line-height: 2;
             }
           }
           &-item {
