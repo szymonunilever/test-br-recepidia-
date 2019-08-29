@@ -14,7 +14,6 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
-import pageListingData from 'src/components/data/pageListing.json';
 import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
@@ -52,7 +51,11 @@ const AllRecipesPage = ({
   const {
     page: { seo, components, type },
   } = pageContext;
-  let { promotionalRecipes, allTagGroupings } = data;
+  let { promotionalRecipes, allTagGroupings, allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
   const [recipeResults, setRecipeResults] = useState<{
     list: Internal.Recipe[];
     count: number;
@@ -290,6 +293,12 @@ export const query = graphql`
       }
     }
 
+    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+      nodes {
+        ...CategoryFields
+      }
+    }
+
     allTagGroupings {
       nodes {
         children {
@@ -316,6 +325,9 @@ interface AllRecipesPageProps {
     };
     allTagGroupings: {
       nodes: Internal.TagGroup[];
+    };
+    allCategory: {
+      nodes: Internal.Category[];
     };
   };
   pageContext: {

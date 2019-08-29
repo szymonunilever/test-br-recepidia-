@@ -79,3 +79,41 @@ exports.createComponentsNodes = (
   createNode(nodeData);
   return nodeData;
 };
+
+const createCategoryNodes = (
+  category,
+  { createNodeId, createContentDigest, createNode },
+  parentNodeId = null
+) => {
+  const nodeId = createNodeId(`category-${category.name}`);
+  const { categories } = category;
+  const nodeContent = JSON.stringify(category);
+
+  createNode({
+    ...category,
+    id: nodeId,
+    categoryId: category.id,
+    parent: parentNodeId,
+    children: categories
+      ? categories.map(category =>
+          createCategoryNodes(
+            category,
+            {
+              createNodeId,
+              createContentDigest,
+              createNode,
+            },
+            nodeId
+          )
+        )
+      : [],
+    internal: {
+      type: 'Category',
+      content: nodeContent,
+      contentDigest: createContentDigest(category),
+    },
+  });
+  return nodeId;
+};
+
+exports.createCategoryNodes = createCategoryNodes;

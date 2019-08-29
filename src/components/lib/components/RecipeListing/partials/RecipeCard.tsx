@@ -10,7 +10,6 @@ import AdaptiveImage from '../../AdaptiveImage';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 
 const RecipeCard = ({
-  id,
   recipeId,
   content: { title },
   localImage,

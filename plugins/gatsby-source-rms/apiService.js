@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function getCaterogyTags(configOptions) {
+async function getCategoryTags(configOptions) {
   return await axios.get(
     configOptions.endpoint.replace('{contentType}', 'categoryTags'),
     {
@@ -20,4 +20,4 @@ async function getRecipesByPage(configOptions, pageSize, page) {
 }
 
 exports.getRecipesByPage = getRecipesByPage;
-exports.getCaterogyTags = getCaterogyTags;
+exports.getCategoryTags = getCategoryTags;

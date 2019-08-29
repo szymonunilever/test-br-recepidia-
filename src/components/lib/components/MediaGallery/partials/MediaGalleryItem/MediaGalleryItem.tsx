@@ -4,7 +4,7 @@ import AdaptiveImage from '../../../AdaptiveImage';
 import { MediaGalleryItemProps } from './models';
 import pageListing from 'src/components/data/pageListing.json';
 
-const MediaGalleryItem = ({ title, fields, assets }: MediaGalleryItemProps) => {
+const MediaGalleryItem = ({ title, fields }: MediaGalleryItemProps) => {
   const localImage = () => pageListing[0].localImage;
   // assets.find(
   //   //@ts-ignore

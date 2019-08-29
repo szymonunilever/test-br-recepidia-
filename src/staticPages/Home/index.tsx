@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
 import React, { useEffect, useState } from 'react';
-import pageListingData from 'src/components/data/pageListing.json';
 import Layout from 'src/components/Layout/Layout';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
@@ -115,7 +114,11 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     }
     return [new Promise<any>((resolve, reject) => reject(''))];
   };
-  const { latestAndGrates, topRecipes } = data;
+  const { latestAndGrates, topRecipes, allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
   const [recipesFound, setRecipesFound] = useState<{
     personal: boolean;
     latestAndGratesNodes: Internal.Recipe[];
@@ -314,6 +317,11 @@ export const pageQuery = graphql`
         ...TagFields
       }
     }
+    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+      nodes {
+        ...CategoryFields
+      }
+    }
   }
 `;
 
@@ -327,6 +335,9 @@ interface HomePageProps {
     };
     allTag: {
       nodes: Internal.Tag[];
+    };
+    allCategory: {
+      nodes: Internal.Category[];
     };
   };
   pageContext: {

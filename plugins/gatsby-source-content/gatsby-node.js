@@ -4,6 +4,7 @@ const {
   createPagesNodes,
   createComponentsNodes,
   createArticleNodes,
+  createCategoryNodes,
 } = createNodes;
 const pagesMock = require('../../src/components/data/pages.json');
 
@@ -30,12 +31,13 @@ exports.sourceNodes = async (
     pagesResponse,
     componentsResponse,
     articlesResponse,
+    categoriesResponse,
   ] = await Promise.all([
     fetchContent(configOptions, 'pages'),
     fetchContent(configOptions, 'components'),
     fetchContent(configOptions, 'articles'),
+    fetchContent(configOptions, 'aem/categories'),
   ]);
-
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesData = [...pagesMock.pages];
@@ -59,4 +61,14 @@ exports.sourceNodes = async (
       createNode,
     });
   });
+
+  categoriesResponse.data.forEach(
+    item =>
+      item &&
+      createCategoryNodes(item, {
+        createNodeId,
+        createContentDigest,
+        createNode,
+      })
+  );
 };

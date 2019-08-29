@@ -60,6 +60,7 @@ const Select = ({
   };
 
   const onItemRenderer = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return ({ item, itemIndex, props, state, methods }: any) => {
       const Composition = (
         <CustomOption
