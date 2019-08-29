@@ -43,10 +43,17 @@ export type onRecipeListingViewChanged = (
   sortingOption: string
 ) => Promise<void>;
 
+export interface QueryString {
+  query: string;
+  fields?: string[];
+}
+
 export type onLoadMore = (
   tags: Internal.Tag[],
   sortingOption: string,
-  size: number
+  size: number,
+  from?: number,
+  queryString?: QueryString
 ) => Promise<void>;
 
 export enum LoadMoreType {
