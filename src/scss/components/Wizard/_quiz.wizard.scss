@@ -98,6 +98,7 @@ $four-col-width: 100% / 4;
         font-size: 1.6rem;
         color: $black-blue;
         font-family: $rubik;
+        font-weight: 500;
         margin: 10px 0 20px;
         @include respondTo(desktop) {
           margin: 14px 0 28px;
@@ -107,6 +108,7 @@ $four-col-width: 100% / 4;
     &__item-input {
       z-index: -1;
       height: 0;
+      display: contents;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
           display: flex;

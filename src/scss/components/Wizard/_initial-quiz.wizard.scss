@@ -50,21 +50,6 @@
   }
 
   .quiz__list {
-    @include respondTo(medium) {
-      max-height: 50vh;
-    }
-    @media screen and (min-height: 1200px) {
-      max-height: 63vh;
-    }
-    @media screen and (max-height: 960px) and (min-width: 1366px) {
-      max-height: 40vh;
-      &.quiz__multi {
-        max-height: 57vh;
-      }
-    }
-    @media screen and (max-height: 759px) and (min-width: 768px) {
-      max-height: 25vh;
-    }
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       flex: auto;
     }

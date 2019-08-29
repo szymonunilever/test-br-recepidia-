@@ -37,9 +37,7 @@
 
   &__title {
     flex: auto;
-    font-family: $rubik;
-    font-size: 1.6rem;
-    line-height: 1.25;
+    font: 500 1.6rem/1.25 $rubik;
     color: #37393f;
     margin: 0;
     @include respondTo(desktop) {
