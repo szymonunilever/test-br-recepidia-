@@ -113,11 +113,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
     'Button',
     'ChangeMealPlan'
   );
-  const noMealPlanContent = findPageComponentContent(
-    components,
-    'Text',
-    'NoMealPlanResults'
-  );
   const nullResultContent = findPageComponentContent(components, 'NullResult');
 
   const savedFavorites: number[] = Array.isArray(
@@ -146,7 +141,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
       .join(' OR ')
   );
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
-  const passedMealPlanner = mealPlannerResults && mealPlannerResults.count;
+  const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
   const RecipeListingWithFavorite = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
     updateFavorites,
@@ -281,23 +276,17 @@ const FavoritesRecipeListingPage: FunctionComponent<
             />
           </UserPreferences>
         </Tab>
-        <Tab view="MealPlanner">
+        <Tab view="MealPlanner" visible={passedMealPlanner}>
           <Fragment>
-            {passedMealPlanner ? (
-              <Fragment>
-                <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
-                <RecipeListingCarousel
-                  list={mealPlannerResults.list}
-                  config={carouselConfig}
-                  titleLevel={1}
-                  onFavoriteChange={() => {}}
-                  imageSizes={'(min-width: 768px) 25vw, 50vw'}
-                  ratingProvider={RatingAndReviewsProvider.kritique}
-                />
-              </Fragment>
-            ) : (
-              <Text tag={TagName.h3} text={noMealPlanContent.text} />
-            )}
+            <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
+            <RecipeListingCarousel
+              list={mealPlannerResults.list}
+              config={carouselConfig}
+              titleLevel={1}
+              onFavoriteChange={() => {}}
+              imageSizes={'(min-width: 768px) 25vw, 50vw'}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+            />
             <div className={theme.mealPlannerBtnWrap}>
               <Link
                 className={cx(theme.mealPlannerBtn, 'button')}
