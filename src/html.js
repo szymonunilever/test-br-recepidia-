@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'integrations/keys.json';
 const { applicationID, licenseKey } = keys.sitespeed;
-// import newRelic from '../static/config/newRelic';
-import isBrowser from '../src/utils/isBrowser';
 
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -11,26 +9,26 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
-  // let headComponents = props.headComponents;
-  // let css;
-  // if (process.env.NODE_ENV == `production`) {
-  //   headComponents = headComponents.filter(
-  //     component => component.type !== 'style'
-  //   );
-  //   css = (
-  //     <>
-  //       <link rel="stylesheet" href="/styles.css" />
-  //     </>
-  //   );
-  // }
+  let headComponents = props.headComponents;
+  let css;
+  if (process.env.NODE_ENV == `production`) {
+    headComponents = headComponents.filter(
+      component => component.type !== 'style'
+    );
+    css = (
+      <>
+        <link rel="stylesheet" href="/styles.css" />
+      </>
+    );
+  }
 
   return (
     <html {...props.htmlAttributes}>
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            {/* <link rel="preload" href="/config/newRelic.js" as="script" /> */}
-            {/* <link rel="preload" href="/styles.css" as="style" /> */}
+            <link rel="preload" href="/config/newRelic.js" as="script" />
+            <link rel="preload" href="/styles.css" as="style" />
             <link rel="preload" href="/libs/jquery.min.js" as="script" />
             <link
               rel="preload"
@@ -81,7 +79,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {props.headComponents}
+        {css}
+        {headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

@@ -56,216 +56,216 @@ export const getPersonalizationSearchData = (
 };
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
-  // const [searchAgent, setSearchAgent] = useState(false);
-  // const isQuizStored = () =>
-  //   !!Object.keys(getUserProfileByKey(ProfileKey.initialQuiz)).length;
-  // const [introDone, setIntroDone] = useState(isQuizStored());
-  // const isIntroDone = () => {
-  //   setIntroDone(isQuizStored());
-  // };
+  const [searchAgent, setSearchAgent] = useState(false);
+  const isQuizStored = () =>
+    !!Object.keys(getUserProfileByKey(ProfileKey.initialQuiz)).length;
+  const [introDone, setIntroDone] = useState(isQuizStored());
+  const isIntroDone = () => {
+    setIntroDone(isQuizStored());
+  };
   const {
     page: { seo, components, type },
   } = pageContext;
 
-  // const quizContent = findPageComponentContent(components, 'Wizard');
-  // const introContent = {
-  //   title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
-  //     .text as string,
-  //   description: findPageComponentContent(
-  //     components,
-  //     'Text',
-  //     'IntroQuizDescription'
-  //   ).text as string,
-  // };
+  const quizContent = findPageComponentContent(components, 'Wizard');
+  const introContent = {
+    title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
+      .text as string,
+    description: findPageComponentContent(
+      components,
+      'Text',
+      'IntroQuizDescription'
+    ).text as string,
+  };
 
-  // // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const getPersonalizedRecipes = (): Promise<any>[] => {
-  //   const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
-  //   const mealPlanerAnswers = getUserProfileByKey(
-  //     ProfileKey.mealPlannerAnswers
-  //   );
-  //   const queryString = generateQuery(
-  //     introQuizAnswers,
-  //     mealPlanerAnswers,
-  //     RecipePersonalizationFormula
-  //   );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getPersonalizedRecipes = (): Promise<any>[] => {
+    const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
+    const mealPlanerAnswers = getUserProfileByKey(
+      ProfileKey.mealPlannerAnswers
+    );
+    const queryString = generateQuery(
+      introQuizAnswers,
+      mealPlanerAnswers,
+      RecipePersonalizationFormula
+    );
 
-  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //   const promises: Promise<any>[] = [];
-  //   if (queryString) {
-  //     //TODO: When we will have rating we need to change query sorting params.
-  //     promises.push(
-  //       getPersonalizationSearchData(queryString, {
-  //         from: FROM,
-  //         size: RESULT_SIZE,
-  //         sort: [{ creationTime: { order: 'desc' } }],
-  //       })
-  //     );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const promises: Promise<any>[] = [];
+    if (queryString) {
+      //TODO: When we will have rating we need to change query sorting params.
+      promises.push(
+        getPersonalizationSearchData(queryString, {
+          from: FROM,
+          size: RESULT_SIZE,
+          sort: [{ creationTime: { order: 'desc' } }],
+        })
+      );
 
-  //     //TODO: When we will have rating we need to change query sorting params.
-  //     promises.push(
-  //       getPersonalizationSearchData(queryString, {
-  //         from: FROM,
-  //         size: RESULT_SIZE,
-  //         sort: [],
-  //       })
-  //     );
-  //     return promises;
-  //   }
-  //   return [new Promise<any>((resolve, reject) => reject(''))];
-  // };
-  // const { latestAndGrates, topRecipes } = data;
-  // const [recipesFound, setRecipesFound] = useState<{
-  //   personal: boolean;
-  //   latestAndGratesNodes: Internal.Recipe[];
-  //   topRecipesNodes: Internal.Recipe[];
-  // }>({
-  //   personal: false,
-  //   latestAndGratesNodes: [],
-  //   topRecipesNodes: [],
-  // });
-  // useEffect(() => {
-  //   //@ts-ignore
-  //   setSearchAgent(window.searchAgentOnPage);
-  //   if (!recipesFound.personal) {
-  //     const promises = getPersonalizedRecipes();
-  //     promises &&
-  //       Promise.all(promises)
-  //         .then(data => {
-  //           const result = data.map(res =>
-  //             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //             res.hits.hits.map((hit: any) => hit._source)
-  //           );
-  //           const latestAndGratesNodes =
-  //             data[0].hits.total >= 6 ? result[0] : latestAndGrates.nodes;
-  //           const topRecipesNodes =
-  //             data[1].hits.total >= 6 ? result[1] : topRecipes.nodes;
+      //TODO: When we will have rating we need to change query sorting params.
+      promises.push(
+        getPersonalizationSearchData(queryString, {
+          from: FROM,
+          size: RESULT_SIZE,
+          sort: [],
+        })
+      );
+      return promises;
+    }
+    return [new Promise<any>((resolve, reject) => reject(''))];
+  };
+  const { latestAndGrates, topRecipes } = data;
+  const [recipesFound, setRecipesFound] = useState<{
+    personal: boolean;
+    latestAndGratesNodes: Internal.Recipe[];
+    topRecipesNodes: Internal.Recipe[];
+  }>({
+    personal: false,
+    latestAndGratesNodes: [],
+    topRecipesNodes: [],
+  });
+  useEffect(() => {
+    //@ts-ignore
+    setSearchAgent(window.searchAgentOnPage);
+    if (!recipesFound.personal) {
+      const promises = getPersonalizedRecipes();
+      promises &&
+        Promise.all(promises)
+          .then(data => {
+            const result = data.map(res =>
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              res.hits.hits.map((hit: any) => hit._source)
+            );
+            const latestAndGratesNodes =
+              data[0].hits.total >= 6 ? result[0] : latestAndGrates.nodes;
+            const topRecipesNodes =
+              data[1].hits.total >= 6 ? result[1] : topRecipes.nodes;
 
-  //           setRecipesFound({
-  //             personal: true,
-  //             latestAndGratesNodes,
-  //             topRecipesNodes,
-  //           });
-  //         })
-  //         .catch(() => {
-  //           setRecipesFound({
-  //             personal: true,
-  //             latestAndGratesNodes: latestAndGrates.nodes,
-  //             topRecipesNodes: topRecipes.nodes,
-  //           });
-  //         });
-  //   } else if (!recipesFound.personal) {
-  //     setRecipesFound({
-  //       personal: false,
-  //       latestAndGratesNodes: latestAndGrates.nodes,
-  //       topRecipesNodes: topRecipes.nodes,
-  //     });
-  //   }
-  // });
+            setRecipesFound({
+              personal: true,
+              latestAndGratesNodes,
+              topRecipesNodes,
+            });
+          })
+          .catch(() => {
+            setRecipesFound({
+              personal: true,
+              latestAndGratesNodes: latestAndGrates.nodes,
+              topRecipesNodes: topRecipes.nodes,
+            });
+          });
+    } else if (!recipesFound.personal) {
+      setRecipesFound({
+        personal: false,
+        latestAndGratesNodes: latestAndGrates.nodes,
+        topRecipesNodes: topRecipes.nodes,
+      });
+    }
+  });
 
-  // const RecipeListingWithFavorite = useFavorite(
-  //   (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-  //   updateFavorites,
-  //   RecipeListing,
-  //   FavoriteIcon
-  // );
+  const RecipeListingWithFavorite = useFavorite(
+    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    updateFavorites,
+    RecipeListing,
+    FavoriteIcon
+  );
 
   return (
-    // <Layout className="header--bg">
-    //   <SEO {...seo} canonical={location.href} />
-    //   {!searchAgent && (
-    //     <IntroQuiz
-    //       introContent={introContent}
-    //       quizContent={quizContent}
-    //       onClose={isIntroDone}
-    //     />
-    //   )}
-    //   <Kritique />
-    //   <DigitalData title={seo.title} type={type} />
-    //   <section className={cx(theme.homeTitle, '_bg--main wrapper')}>
-    //     <Text
-    //       tag={TagName['h1']}
-    //       text={findPageComponentContent(components, 'Text', 'PageTitle').text}
-    //     />
-    //   </section>
+    <Layout className="header--bg">
+      <SEO {...seo} canonical={location.href} />
+      {!searchAgent && (
+        <IntroQuiz
+          introContent={introContent}
+          quizContent={quizContent}
+          onClose={isIntroDone}
+        />
+      )}
+      <Kritique />
+      <DigitalData title={seo.title} type={type} />
+      <section className={cx(theme.homeTitle, '_bg--main wrapper')}>
+        <Text
+          tag={TagName['h1']}
+          text={findPageComponentContent(components, 'Text', 'PageTitle').text}
+        />
+      </section>
 
-    //   {recipesFound.latestAndGratesNodes.length > 0 && (
-    //     <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
-    //       <RecipeListingWithFavorite
-    //         content={findPageComponentContent(
-    //           components,
-    //           'RecipeListing',
-    //           'LatestAndGreatest'
-    //         )}
-    //         list={recipesFound.latestAndGratesNodes}
-    //         ratingProvider={RatingAndReviewsProvider.kritique}
-    //         className="recipe-list--blue-header recipe-list--carousel"
-    //         viewType={RecipeListViewType.Carousel}
-    //         titleLevel={2}
-    //         carouselConfig={{
-    //           breakpoints: [
-    //             {
-    //               width: 768,
-    //               switchElementsBelowBreakpoint: 1,
-    //               switchElementsAfterBreakpoint: 1,
-    //               visibleElementsBelowBreakpoint: 2,
-    //               visibleElementsAboveBreakpoint: 4,
-    //             },
-    //           ],
-    //           arrowIcon: <ArrowIcon />,
-    //         }}
-    //         imageSizes={'(min-width: 768px) 25vw, 50vw'}
-    //       />
-    //     </section>
-    //   )}
-    //   {recipesFound.topRecipesNodes.length > 0 && (
-    //     <section
-    //       className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
-    //     >
-    //       <RecipeListingWithFavorite
-    //         content={findPageComponentContent(
-    //           components,
-    //           'RecipeListing',
-    //           'TopRecipes'
-    //         )}
-    //         list={recipesFound.topRecipesNodes}
-    //         ratingProvider={RatingAndReviewsProvider.kritique}
-    //         viewType={RecipeListViewType.Carousel}
-    //         className="recipe-list--carousel"
-    //         titleLevel={2}
-    //         carouselConfig={{
-    //           breakpoints: [
-    //             {
-    //               width: 768,
-    //               switchElementsBelowBreakpoint: 1,
-    //               switchElementsAfterBreakpoint: 1,
-    //               visibleElementsBelowBreakpoint: 1,
-    //               visibleElementsAboveBreakpoint: 2,
-    //             },
-    //           ],
-    //           arrowIcon: <ArrowIcon />,
-    //         }}
-    //         imageSizes={'(min-width: 768px) 50vw, 100vw'}
-    //       />
-    //     </section>
-    //   )}
-    <section className="_pb--40">
-      <Hero
-        content={findPageComponentContent(components, 'Hero')}
-        viewType="Image"
-        className="hero--planner color--inverted"
-      />
-    </section>
-    //   <section
-    //     className={cx(theme.homeBottomCarousel, '_pt--40 _pb--40 wrapper')}
-    //   >
-    //     <PageListing
-    //       content={findPageComponentContent(components, 'PageListing')}
-    //       list={pageListingData}
-    //       initialCount={12}
-    //     />
-    //   </section>
-    // </Layout>
+      {recipesFound.latestAndGratesNodes.length > 0 && (
+        <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
+          <RecipeListingWithFavorite
+            content={findPageComponentContent(
+              components,
+              'RecipeListing',
+              'LatestAndGreatest'
+            )}
+            list={recipesFound.latestAndGratesNodes}
+            ratingProvider={RatingAndReviewsProvider.kritique}
+            className="recipe-list--blue-header recipe-list--carousel"
+            viewType={RecipeListViewType.Carousel}
+            titleLevel={2}
+            carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 2,
+                  visibleElementsAboveBreakpoint: 4,
+                },
+              ],
+              arrowIcon: <ArrowIcon />,
+            }}
+            imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          />
+        </section>
+      )}
+      {recipesFound.topRecipesNodes.length > 0 && (
+        <section
+          className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
+        >
+          <RecipeListingWithFavorite
+            content={findPageComponentContent(
+              components,
+              'RecipeListing',
+              'TopRecipes'
+            )}
+            list={recipesFound.topRecipesNodes}
+            ratingProvider={RatingAndReviewsProvider.kritique}
+            viewType={RecipeListViewType.Carousel}
+            className="recipe-list--carousel"
+            titleLevel={2}
+            carouselConfig={{
+              breakpoints: [
+                {
+                  width: 768,
+                  switchElementsBelowBreakpoint: 1,
+                  switchElementsAfterBreakpoint: 1,
+                  visibleElementsBelowBreakpoint: 1,
+                  visibleElementsAboveBreakpoint: 2,
+                },
+              ],
+              arrowIcon: <ArrowIcon />,
+            }}
+            imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          />
+        </section>
+      )}
+      <section className="_pb--40">
+        <Hero
+          content={findPageComponentContent(components, 'Hero')}
+          viewType="Image"
+          className="hero--planner color--inverted"
+        />
+      </section>
+      <section
+        className={cx(theme.homeBottomCarousel, '_pt--40 _pb--40 wrapper')}
+      >
+        <PageListing
+          content={findPageComponentContent(components, 'PageListing')}
+          list={pageListingData}
+          initialCount={12}
+        />
+      </section>
+    </Layout>
   );
 };
 
