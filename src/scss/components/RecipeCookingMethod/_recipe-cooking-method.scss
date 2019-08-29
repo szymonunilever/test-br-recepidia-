@@ -41,3 +41,58 @@
     }
   }
 }
+.cooking-methods {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  @include respondTo(desktop) {
+    margin: 40px 0;
+  }
+  .cooking-methods__group {
+    position: relative;
+    margin: 35px 0;
+    counter-reset: dl;
+    &-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $black-blue;
+      margin-bottom: 15px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 15px;
+      color: $fish-blue-darker;
+      text-transform: capitalize;
+      @include respondTo(desktop) {
+        display: block;
+        margin-left: 40px;
+        margin-bottom: 25px;
+      }
+    }
+    &-subtitle {
+      font-size: 1.6rem;
+    }
+    &-item {
+      font-size: 1.4rem;
+      color: $black-blue;
+      margin: 0 0 15px 15px;
+      @include respondTo(desktop) {
+        margin-left: 40px;
+      }
+      &:before {
+        display: inline-block;
+        line-height: 0.8;
+        font-weight: bold;
+        color: $fish-blue-darker;
+        line-height: 1.2;
+        counter-increment: dl;
+        content: counter(dl);
+        position: absolute;
+        left: 0;
+        @include respondTo(desktop) {
+          line-height: 1;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

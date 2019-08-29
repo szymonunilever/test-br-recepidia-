@@ -30,17 +30,27 @@ export const RecipeCookingMethod = ({
       text={subtitle}
     />
   ) : null;
+
+  const items = list
+    .filter(item => item.list.length)
+    .map((method, index, filteredList) => (
+      <dl key={index} className="cooking-methods__group">
+        {filteredList.length > 1 ? (
+          <dt className="cooking-methods__group-title">{method.title}</dt>
+        ) : null}
+        {method.list.map((item, key) => (
+          <dd key={key} className="cooking-methods__group-item">
+            {item.description}
+          </dd>
+        ))}
+      </dl>
+    ));
+
   return (
     <div className={classWrapper} data-componentname="recipeCookingMethod">
       {Title}
       {Subtitle}
-      <ol className="recipe-cooking-method__list">
-        {list.map((item: RMSData.CookingMethod) => (
-          <li key={item.position} className="recipe-cooking-method__item">
-            {item.description}
-          </li>
-        ))}
-      </ol>
+      <div className="cooking-methods">{items}</div>
     </div>
   );
 };
