@@ -62,10 +62,10 @@ const arrangeFavoritesOrder = (
   const xIndex = savedFavorites.indexOf(x.recipeId);
   const yIndex = savedFavorites.indexOf(y.recipeId);
   if (xIndex > yIndex) {
-    return 1;
+    return -1;
   }
   if (yIndex > xIndex) {
-    return -1;
+    return 1;
   }
   return 0;
 };
