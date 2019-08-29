@@ -11,7 +11,7 @@ function useResponsiveScreenInitialSearch(
   const initialRecipesCount = useMedia(mediaQueries, values);
 
   useEffect(() => {
-    if (initialRecipesCount > listSize) {
+    if (initialRecipesCount) {
       searchQuery(initialRecipesCount);
     }
   }, [initialRecipesCount, ...statesToWatch]);
