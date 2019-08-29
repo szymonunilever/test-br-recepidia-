@@ -27,7 +27,6 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            <link rel="preload" href="/config/newRelic.js" as="script" />
             <link rel="preload" href="/styles.css" as="style" />
             <link rel="preload" href="/libs/jquery.min.js" as="script" />
             <link
