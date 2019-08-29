@@ -102,7 +102,7 @@ const Carousel = ({
         setTrackingIndex(Math.abs(newTranslateValue) / (100 / listSize));
       }
     },
-    [translateValue]
+    [translateValue, list]
   );
 
   const switchImages = useCallback(
