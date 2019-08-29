@@ -1,0 +1,42 @@
+{
+  "categories": [
+    {
+      "name": "Occasions",
+      "children": [
+        {
+          "id": 1520,
+          "name": "churrasco",
+          "fields": {
+            "slug": "churrasco"
+          }
+        },
+        {
+          "name": "Comida Para Crianças",
+          "children": [
+            {
+              "id": 1521,
+              "name": "para crianças",
+              "fields": {
+                "slug": "paraCrianças"
+              }
+            },
+            {
+              "id": 1522,
+              "name": "cozinhando com crianças",
+              "fields": {
+                "slug": "cozinhandoComCrianças"
+              }
+            },
+            {
+              "id": 1528,
+              "name": "festa infantil",
+              "fields": {
+                "slug": "/festaInfantil"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

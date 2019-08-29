@@ -1,6 +1,6 @@
 const createNodes = require('./createNodes');
 const { createRecipeNodes, createTagGroupingsNodes } = createNodes;
-const { getCaterogyTags, getRecipesByPage } = require('./apiService');
+const { getCategoryTags, getRecipesByPage } = require('./apiService');
 
 const RECIPE_PAGE_SIZE = 250;
 
@@ -37,7 +37,7 @@ exports.sourceNodes = async (
     recipePage++;
   }
 
-  const getTagsPromise = getCaterogyTags(configOptions).then(result =>
+  const getTagsPromise = getCategoryTags(configOptions).then(result =>
     result.data.forEach(
       item =>
         item &&
@@ -48,7 +48,6 @@ exports.sourceNodes = async (
         })
     )
   );
-
   promises.push(getTagsPromise);
 
   return await Promise.all(promises);

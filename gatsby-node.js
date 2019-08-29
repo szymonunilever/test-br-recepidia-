@@ -8,6 +8,7 @@ const createRecipePages = require('./scripts/build/createRecipePages');
 const createArticlePages = require('./scripts/build/createArticlePages');
 const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
 const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
+const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 
 const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
@@ -16,6 +17,7 @@ const urlPartialsByTypeMap = {
   Article: 'title',
   Recipe: 'title',
   Tag: 'name',
+  Category: 'name',
 };
 
 const getSlugFromPath = (path, node) => {
@@ -60,6 +62,19 @@ exports.onCreateNode = async ({
       break;
     case 'Tag':
       createSlugFor({ path: '/', node, createNodeField });
+      break;
+    case 'Category':
+      {
+        createSlugFor({ path: '/recipe-categories/', node, createNodeField });
+
+        const imgNode = await createRemoteImageNode(node.image.url, node.id, {
+          store,
+          cache,
+          createNode,
+          createNodeId,
+        });
+        node['localImage___NODE'] = imgNode.id;
+      }
       break;
     case 'Article': {
       createSlugFor({ path: '/articles/', node, createNodeField });
@@ -173,16 +188,14 @@ exports.createPages = async ({ graphql, actions }) => {
         createPageFromTemplate(edge, articleDetailsData);
       },
     }),
+    createCategoryPages({
+      graphql,
+      createPage,
+      page: recipeCategoryData,
+    }),
     createCategoryAndContentPages({
       graphql,
       createPage: edge => {
-        createPageFromTemplate(
-          edge,
-          recipeCategoryData,
-          'tagId',
-          getTagSlug(recipeCategoryData.relativePath, edge.node)
-        );
-
         createPageFromTemplate(
           edge,
           contentHubData,

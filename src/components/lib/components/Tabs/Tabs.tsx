@@ -17,71 +17,90 @@ export const Tabs = ({
 }: TabsProps) => {
   const classWrapper = cx(theme.tabs, className);
   const [active, setActive] = useState();
+  useEffect(
+    () =>
+      setActive(
+        tabFromLocation
+          ? location &&
+              (location.search
+                ? new URLSearchParams(location.search).get('tabOpen')
+                : tabs[0].view)
+          : tabs[0].view
+      ),
+    []
+  );
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
-  tabItems = tabs.map(tab => {
-    const hasResultCount = typeof tab.resultsCount !== 'undefined';
-    useEffect(
-      () =>
-        setActive(
-          tabFromLocation
-            ? location &&
-                (location.search
-                  ? new URLSearchParams(location.search).get('tabOpen')
-                  : tabs[0].view)
-            : tabs[0].view
-        ),
-      []
-    );
-
-    return (
-      <Button
-        key={tab.view}
-        className="tabs__button"
-        isToggle
-        isDisabled={hasResultCount && !tab.resultsCount}
-        role="tab"
-        isSelected={active === tab.view}
-        toggleExternalManage={true}
-        onClick={() => setActive(tab.view)}
-        attributes={
-          active === tab.view
-            ? {
-                'aria-controls': `${tab.view}__tab`,
-                id: `${tab.view}`,
-              }
-            : {
-                'aria-controls': `${tab.view}__tab`,
-                id: `${tab.view}`,
-              }
-        }
-      >
-        {tab.title}
-        {hasResultCount ? ` (${tab.resultsCount})` : null}
-      </Button>
-    );
-  });
-  tabsContents = children.map(child => (
-    <Tab
-      key={child.props.view}
-      active={active === child.props.view}
-      attributes={
-        active === child.props.view
-          ? {
-              role: 'tabpanel',
-              'aria-labelledby': `${child.props.view}`,
-              id: `${child.props.view}__tab`,
+  tabsContents = children.reduce(
+    (accum, child) => {
+      if (
+        typeof child.props.visible === 'undefined' ||
+        child.props.visible === true
+      ) {
+        const tab = (
+          <Tab
+            key={child.props.view}
+            active={active === child.props.view}
+            attributes={
+              active === child.props.view
+                ? {
+                    role: 'tabpanel',
+                    'aria-labelledby': `${child.props.view}`,
+                    id: `${child.props.view}__tab`,
+                  }
+                : {
+                    role: 'tabpanel',
+                    'aria-labelledby': `${child.props.view}`,
+                    id: `${child.props.view}__tab`,
+                  }
             }
-          : {
-              role: 'tabpanel',
-              'aria-labelledby': `${child.props.view}`,
-              id: `${child.props.view}__tab`,
-            }
+            {...child.props}
+          >
+            {child.props.children}
+          </Tab>
+        );
+        return [...accum, tab];
       }
-      {...child.props}
-    >
-      {child.props.children}
-    </Tab>
-  ));
+      return [...accum];
+    },
+    [] as JSX.Element[]
+  );
+  tabItems = tabs.reduce(
+    (accum, tab) => {
+      if (tabsContents.find(item => item.props.view === tab.view)) {
+        const hasResultCount = typeof tab.resultsCount !== 'undefined';
+
+        const tabItem = (
+          <Button
+            key={tab.view}
+            className="tabs__button"
+            isToggle
+            isDisabled={hasResultCount && !tab.resultsCount}
+            role="tab"
+            isSelected={active === tab.view}
+            toggleExternalManage={true}
+            onClick={() => setActive(tab.view)}
+            attributes={
+              active === tab.view
+                ? {
+                    'aria-controls': `${tab.view}__tab`,
+                    id: `${tab.view}`,
+                  }
+                : {
+                    'aria-controls': `${tab.view}__tab`,
+                    id: `${tab.view}`,
+                  }
+            }
+          >
+            {tab.title}
+            {hasResultCount ? ` (${tab.resultsCount})` : null}
+          </Button>
+        );
+        return [...accum, tabItem];
+      }
+      return [...accum];
+    },
+    [] as JSX.Element[]
+  );
 
   const headerInfo =
     tabsHeaderContent &&

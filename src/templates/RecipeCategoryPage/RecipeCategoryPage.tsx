@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent, fromCamelCase } from 'src/utils';
+import { findPageComponentContent } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -12,9 +12,9 @@ import RecipeListing, {
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
-import pageListingData from 'src/components/data/pageListing.json';
 import cx from 'classnames';
 import MediaGallery from '../../components/lib/components/MediaGallery';
+import RichText from '../../components/lib/components/RichText';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
@@ -24,7 +24,7 @@ import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import get from 'lodash/get';
+import includes from 'lodash/includes';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
@@ -34,21 +34,32 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 
-const RecipeCategotyPage = ({
+const RecipeCategoryPage = ({
   data,
   pageContext,
   location,
-  tagList,
   recipeResultsList,
   recipeResultsCount,
   onLoadMoreRecipes,
-}: RecipeCategotyPageProps) => {
+}: RecipeCategoryPageProps) => {
   //TODO: remove object assign and replace let to const when main page json will be fixed
   const {
     page: { components, seo, type },
+    category,
+    tags,
   } = pageContext;
-  const { tag, allArticle } = data;
-  const categoryImage = get(tag.assets, '[0].localImage');
+
+  const { localImage, title, description } = category;
+  const textDescription = {
+    text:
+      description ||
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n',
+  };
+  const { allTag, allArticle, allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
@@ -62,21 +73,20 @@ const RecipeCategotyPage = ({
     RecipeListing,
     FavoriteIcon
   );
-  if (categoryImage) {
+  if (localImage) {
     const seoImage = seo.meta.find(item => {
       return item.name == 'og:image';
     });
-    seoImage && (seoImage.content = categoryImage.childImageSharp.fluid.src);
+    seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
-
-  const title = tag.title || fromCamelCase(tag.name);
+  const categoryTags = allTag.nodes.filter(tag => includes(tags, tag.tagId));
 
   return (
     <Layout className={classWrapper}>
       <SEO
         {...seo}
         title={title}
-        description={tag.description}
+        description={description}
         canonical={location.href}
       />
       <DigitalData title={title} type={type} />
@@ -85,48 +95,24 @@ const RecipeCategotyPage = ({
         <Text
           className={cx(theme.heroTitle, 'wrapper')}
           tag={TagName['h1']}
-          text={tag.title || fromCamelCase(tag.name)}
+          text={title}
         />
       </section>
       <section>
-        <Text
-          className={cx(theme.heroDescriptionBold, 'wrapper')}
-          tag={TagName['p']}
-          text={
-            tag.description ||
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
-          }
-        />
-
-        <Text
-          className={cx(theme.heroDescription, 'wrapper')}
-          tag={TagName['p']}
-          text={
-            tag.description ||
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n'
-          }
-        />
+        <div className="container">
+          <RichText
+            type="html"
+            className={cx(theme.heroDescription, 'wrapper')}
+            content={textDescription}
+          />
+        </div>
       </section>
-
-      {/* {categoryImage && (
-        <section className={theme.heroBg}>
-            <AdaptiveImage localImage={categoryImage} alt={tag.title} />
+      {localImage && (
+        <section className={cx(theme.heroBg, 'wrapper')}>
+          <AdaptiveImage localImage={localImage} alt={title} />
         </section>
-      )} */}
-      {/* @todo remove hardcoded section below and uncomment section above */}
-      <section className={cx(theme.heroBg, 'wrapper')}>
-        <AdaptiveImage
-          className={theme.heroBgImage}
-          localImage={
-            findPageComponentContent(components, 'Hero').image.localImage
-          }
-          alt={tag.title}
-        />
-      </section>
-
-      <section
-        className={cx(theme.recipeCategoryListing, '_pt--40 _pb--40 wrapper')}
-      >
+      )}
+      <section className={cx(theme.greyBg, 'bg--half wrapper')}>
         <RecipeListingWithFavorite
           content={{
             ...recipesListingContent,
@@ -148,7 +134,6 @@ const RecipeCategotyPage = ({
           imageSizes={'(min-width: 768px) 25vw, 50vw'}
         />
       </section>
-
       {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
           <MediaGallery
@@ -164,14 +149,15 @@ const RecipeCategotyPage = ({
           />
         </section>
       )}
-
-      <section className={theme.tagList}>
-        <TagLinks
-          initialCount={initialTagsCount}
-          list={tagList}
-          content={findPageComponentContent(components, 'Tags')}
-        />
-      </section>
+      {categoryTags.length > 0 && (
+        <section className={theme.tagList}>
+          <TagLinks
+            initialCount={initialTagsCount}
+            list={categoryTags}
+            content={findPageComponentContent(components, 'Tags')}
+          />
+        </section>
+      )}
 
       <section className="_pb--40">
         <Hero
@@ -201,18 +187,14 @@ const RecipeCategotyPage = ({
   );
 };
 
-export default withRecipeSearchResults(RecipeCategotyPage);
+export default withRecipeSearchResults(RecipeCategoryPage);
 
 export const query = graphql`
-  query($slug: String!, $id: Int) {
-    tag(fields: { slug: { eq: $slug } }) {
-      name
-      tagId
-    }
+  query($tags: [Int]) {
     allRecipe(
       limit: 8
       filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
       }
     ) {
       nodes {
@@ -222,6 +204,11 @@ export const query = graphql`
     allTag {
       nodes {
         ...TagFields
+      }
+    }
+    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+      nodes {
+        ...CategoryFields
       }
     }
   }
@@ -240,17 +227,8 @@ export const query = graphql`
 //   }
 // }
 
-interface RecipeCategotyPageProps extends WithInitialDataAndAsyncLoadMore {
+interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
-    tag: {
-      name: string;
-      description: string;
-      title: string;
-      tagId: string;
-      assets: {
-        localImage: Internal.LocalImage;
-      }[];
-    };
     allRecipe: {
       nodes: Internal.Recipe[];
     };
@@ -260,9 +238,15 @@ interface RecipeCategotyPageProps extends WithInitialDataAndAsyncLoadMore {
     allTag: {
       nodes: Internal.Tag[];
     };
+    allCategory: {
+      nodes: Internal.Category[];
+    };
   };
   pageContext: {
     page: AppContent.Page;
+    category: Internal.Category;
+    tags: number[];
+    recipeDetails: AppContent.Category.RecipeDetails;
   };
   location: WindowLocation;
 }

@@ -411,7 +411,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           CloseButton={CloseButton}
         />
       </section>
-      <section className={cx(theme.reviews, 'wrapper')}>
+      <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
         <Reviews
           recipeId={recipe.recipeId}
           provider={RatingAndReviewsProvider.kritique}

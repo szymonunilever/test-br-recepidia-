@@ -1,5 +1,6 @@
 import React, { useCallback, FunctionComponent } from 'react';
 import { RecipeMicrodataProps } from './index';
+import flatten from 'lodash/flatten';
 
 const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
   recipe,
@@ -11,12 +12,27 @@ const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
       (recipe.nutrients.find(item => item.name === prop) || {}).description,
     [recipe]
   );
-  const ingredients = recipe.ingredients.map(rec => rec.description);
-  const instructions = recipe.methods
-    .sort((a, b) =>
-      a.position > b.position ? 1 : a.position < b.position ? -1 : 0
-    )
-    .map(method => method.description);
+
+  const ingredients = flatten(
+    recipe.ingredients
+      .filter(ingredientsGroup => ingredientsGroup.list.length)
+      .map(ingredientsGroup =>
+        ingredientsGroup.list.map(
+          ingredientsGroup => ingredientsGroup.description
+        )
+      )
+  );
+
+  const instructions = flatten(
+    recipe.methods
+      .filter(methodsGroup => methodsGroup.list.length)
+      .map(methodsGroup =>
+        methodsGroup.list
+          .sort((a, b) => a.position - b.position)
+          .map(method => method.description)
+      )
+  );
+
   const nutritions = {
     '@type': 'NutritionInformation',
     calories: getNutrientPropDescription('energy_kcal'),

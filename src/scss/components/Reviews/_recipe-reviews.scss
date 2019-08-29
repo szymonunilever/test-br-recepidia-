@@ -52,8 +52,11 @@
     .average-rating {
       display: flex;
       align-items: center;
+
       .aggregateRating {
+        margin-left: 0;
         margin-right: 25px;
+
         img {
           height: 17px;
           width: auto;
@@ -127,98 +130,28 @@
       border-top: none;
       padding-left: 0;
       padding-right: 0;
+      padding-bottom: 0;
       width: 100%;
       @include respondTo(medium) {
         display: flex;
       }
       .reviewDate {
         font-size: 1.2rem;
-      }
-
-      .review-rightBlock {
-        width: 100%;
+        position: absolute;
+        top: -1250%;
+        right: 0;
         @include respondTo(medium) {
-          padding-top: 25px;
-          max-width: 480px;
+          top: auto;
         }
       }
-      .review-leftBlock {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        text-align: center;
-        @include respondTo(medium) {
-          width: 29%;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        & > * {
-          margin: 0;
-          padding: 0;
-          flex: auto;
-          @include respondTo(medium) {
-            flex: 0 1 auto;
-          }
-        }
-        h3 {
-          font: 500 2.1rem/1.33 $rubik;
-          order: 4;
-          width: 100%;
-          text-align: left;
-          margin-top: 21px;
-          color: $black-blue;
-          margin-bottom: 14px;
-          @include respondTo(medium) {
-            order: 1;
-            margin-top: 0;
-            margin-bottom: 5px;
-          }
-        }
-        .rating-container {
-          display: flex;
-          order: 1;
-          align-items: center;
-          img {
-            height: 17px;
-            width: auto;
-          }
-          .aggRtng {
-            margin: 0;
-            padding: 0;
-            font-size: 1.4rem;
-            line-height: 1;
-            font-weight: normal;
-            margin-left: 10px;
-          }
-        }
-        .reviewer-name {
-          order: 2;
-          font-size: 1.6rem;
-          line-height: 1.13;
-          color: $black-blue;
-          @include respondTo(medium) {
-            order: 1;
-            margin-left: 0;
-            margin-bottom: 10px;
-          }
-        }
-        .reviewDate {
-          order: 3;
-          border-left: none;
-          font-size: 1.2rem;
-          line-height: 1.17;
-          color: $black-blue;
-          position: relative;
-          top: 0;
-          right: 0;
-          text-align: right;
-          @include respondTo(medium) {
-            position: absolute;
-            right: 0;
-            top: 60px;
-          }
-        }
+      h3 {
+        font: 500 2.1rem/1.33 $rubik;
+        color: $black-blue;
+      }
+      .reviewer-name {
+        font-family: $arial;
+        font-size: 1.6rem;
+        color: $black-blue;
       }
       .aggregateRating {
         img {
@@ -240,6 +173,7 @@
         margin-top: 20px;
         font-size: 1.4rem;
         color: $black-blue;
+        font-weight: bold;
         bottom: 10px;
         @include respondTo(medium) {
           margin-top: 42px;
@@ -247,13 +181,17 @@
         span {
           margin: 0 0 0 25px;
         }
+        img {
+          height: 21px;
+        }
       }
       .feedback-container {
         width: 100%;
         margin: 25px 0 0 0;
         padding: 0;
+        font-family: $arial;
         background: none;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         dd,
         dt {
           display: inline-block;
@@ -276,7 +214,7 @@
           height: 31px;
           padding: 0 15px;
           width: auto;
-          margin: 0;
+          margin: 0 30px 0 0;
           &:not(.report-btn) {
             &:before {
               display: inline-block;
@@ -288,6 +226,8 @@
               content: ')';
             }
             &.helpful {
+              font-family: $arial;
+              font-size: 1.4rem;
               @include respondTo(medium) {
                 margin-left: 29px;
               }
@@ -295,7 +235,13 @@
                 content: 'Yes (';
               }
             }
+            &.report-btn {
+              font-family: $arial;
+              font-size: 1.4rem;
+            }
             &.un-helpful {
+              font-family: $arial;
+              font-size: 1.4rem;
               @include respondTo(medium) {
                 margin-left: 29px;
               }
