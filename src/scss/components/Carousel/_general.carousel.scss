@@ -23,24 +23,16 @@ $carouselItemPaddingDesktop: 8px;
     z-index: 1;
     &.left {
       left: 0;
+      transform: translate(-50%, -50%);
       svg {
         transform: rotate(90deg);
-      }
-      top: calc(#{$recipe-card-height--mobile} / 2);
-      transform: translate(-50%, -50%);
-      @include respondTo(medium) {
-        top: calc(#{$recipe-card-height--desktop} / 2);
       }
     }
     &.right {
       right: 0;
+      transform: translate(50%, -50%);
       svg {
         transform: rotate(-90deg);
-      }
-      top: calc(#{$recipe-card-height--mobile} / 2);
-      transform: translate(50%, -50%);
-      @include respondTo(medium) {
-        top: calc(#{$recipe-card-height--desktop} / 2);
       }
     }
   }

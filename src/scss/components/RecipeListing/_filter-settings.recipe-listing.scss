@@ -134,7 +134,7 @@
         overflow: hidden;
         padding: 0;
         @include respondTo(desktop) {
-          overflow: initial;
+          overflow: visible;
           max-height: none;
           flex: 1;
           padding-bottom: 0;

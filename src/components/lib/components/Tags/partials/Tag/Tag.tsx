@@ -54,7 +54,7 @@ const Tag = ({
     case TagVariant.link:
       view = (
         <Link className="tags__link" to={path}>
-          {name}
+          <span>{name}</span>
         </Link>
       );
       break;

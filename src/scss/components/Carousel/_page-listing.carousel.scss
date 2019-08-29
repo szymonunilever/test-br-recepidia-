@@ -11,14 +11,12 @@
     .slide-arrow {
       &.right {
         top: calc(#{$page-listing-card-height--mobile} / 2);
-        transform: translate(50%, -50%);
         @include respondTo(medium) {
           top: calc(#{$page-listing-card-height--desktop} / 2);
         }
       }
       &.left {
         top: calc(#{$page-listing-card-height--mobile} / 2);
-        transform: translate(-50%, -50%);
         @include respondTo(medium) {
           top: calc(#{$page-listing-card-height--desktop} / 2);
         }

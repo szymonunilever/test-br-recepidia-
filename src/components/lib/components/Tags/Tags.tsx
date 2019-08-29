@@ -75,7 +75,7 @@ const Tags = ({
 
   const loadMoreBtn = shouldAppear ? (
     <Button onClick={loadMore} className="tags__button">
-      {loadMoreButton ? loadMoreButton.label : null}
+      <span>{loadMoreButton ? loadMoreButton.label : null}</span>
     </Button>
   ) : null;
 
