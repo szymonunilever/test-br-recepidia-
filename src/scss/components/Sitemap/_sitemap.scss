@@ -15,7 +15,7 @@
         padding: 0 24px 0 0;
       }
       @include respondTo(desktop) {
-        width: calc(100% / 3);
+        width: calc(99.9% / 3);
       }
     }
   }

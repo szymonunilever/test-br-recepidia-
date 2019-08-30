@@ -10,6 +10,9 @@
   }
   &__item {
     margin: 5px;
+    span::first-letter {
+      text-transform: capitalize;
+    }
   }
   &__link {
     display: table-cell;

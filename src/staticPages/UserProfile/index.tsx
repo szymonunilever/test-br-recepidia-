@@ -228,7 +228,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 content={recipeContent}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
-                className="recipe-list favorites"
+                className="recipe-list recipe-list--carousel favorites"
                 initialCount={8}
                 titleLevel={2}
                 viewType={RecipeListViewType.Base}
@@ -276,7 +276,11 @@ const FavoritesRecipeListingPage: FunctionComponent<
             />
           </UserPreferences>
         </Tab>
-        <Tab view="MealPlanner" visible={passedMealPlanner}>
+        <Tab
+          view="MealPlanner"
+          visible={passedMealPlanner}
+          className="recipe-list--carousel"
+        >
           <Fragment>
             <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
             <RecipeListingCarousel

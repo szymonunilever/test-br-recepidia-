@@ -138,7 +138,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           {/*
           // @ts-ignore */}
           <WizardResultSection
-            containerClass="wizard--result recipe-list--carousel"
+            containerClass="wizard--result"
             stepId="result"
             title={wizardResultSection.title}
             subheading={
@@ -157,7 +157,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                   list={recipes}
                   ratingProvider={RatingAndReviewsProvider.kritique}
                   viewType={RecipeListViewType.Carousel}
-                  className="recipe-list--wizard"
+                  className="recipe-list--wizard recipe-list--carousel"
                   carouselConfig={{
                     breakpoints: [
                       {

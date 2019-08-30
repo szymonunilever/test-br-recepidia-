@@ -73,8 +73,10 @@ const RecipeCard = ({
         attributes={{ 'aria-label': 'favorite toggle' }}
       />
       {Image}
-      {itemTitle}
-      {RatingWidget}
+      <div className="recipe-card__info">
+        {itemTitle}
+        {RatingWidget}
+      </div>
     </Link>
   ) : (
     <Link
