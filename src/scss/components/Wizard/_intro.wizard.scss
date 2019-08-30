@@ -27,6 +27,7 @@
     &__image {
       flex: 1;
       width: 100%;
+      position: relative;
       @include respondTo(desktop) {
         position: absolute;
         width: calc(50% + 103px);
@@ -37,6 +38,11 @@
       }
       .adaptive-image {
         height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         &__image {
           height: 100%;
         }
