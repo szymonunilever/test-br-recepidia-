@@ -38,6 +38,7 @@ const Carousel = ({
     [config]
   );
   const listSize = list.length;
+  const listEven = listSize % 2 === 0;
   const [slideStep, setSlideStep] = useState();
   const [visibleElements, setVisibleElements] = useState();
   const [translateValue, setTranslateValue] = useState(0);
@@ -45,14 +46,18 @@ const Carousel = ({
   const [trackingIndex, setTrackingIndex] = useState(0);
   const [updateKey, setUpdateKey] = useState();
 
-  const mayGoLeft = listSize <= visibleElements ? false : translateValue < 0;
+  const maxTranslatevalue = -(listSize - visibleElements) * (100 / listSize);
+  const mayGoLeft =
+    listSize <= visibleElements
+      ? false
+      : (listEven ? translateValue : new Number(translateValue.toFixed(6))) < 0;
   const mayGoRight =
     listSize <= visibleElements
       ? false
-      : translateValue >
-        (listSize % 2 === 0
-          ? -(listSize - visibleElements) * (100 / listSize)
-          : (-(listSize - visibleElements) * (100 / listSize)).toFixed(6));
+      : (listEven ? translateValue : new Number(translateValue.toFixed(6))) >
+        (listEven
+          ? maxTranslatevalue
+          : new Number(maxTranslatevalue.toFixed(6)));
 
   const adjustSizing = useCallback(
     (currentlyVisibleElements: number, currentTranslateValue: number) => {
