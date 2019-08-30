@@ -24,7 +24,7 @@ import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
-import { getPersonalizationSearchData } from 'src/staticPages/Home';
+import getPersonalizationSearchData from '../../utils/getPersonalizationSearchData';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';

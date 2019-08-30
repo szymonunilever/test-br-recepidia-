@@ -6,3 +6,11 @@
     background-color: $white-gray;
   }
 }
+
+.recipe-spinner{
+  position: relative;
+  padding: 1% 35%;
+  box-sizing: content-box;
+  max-width: 30%;
+  z-index: 10;
+}
