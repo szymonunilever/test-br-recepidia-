@@ -141,7 +141,7 @@
         top: -1250%;
         right: 0;
         @include respondTo(medium) {
-          top: auto;
+          top: 0;
         }
       }
       h3 {
@@ -170,13 +170,12 @@
         margin: 0;
       }
       .socialBtn {
-        margin-top: 20px;
         font-size: 1.4rem;
         color: $black-blue;
         font-weight: bold;
-        bottom: 10px;
         @include respondTo(medium) {
-          margin-top: 42px;
+          position: absolute;
+          bottom: 15px;
         }
         span {
           margin: 0 0 0 25px;
@@ -196,6 +195,7 @@
         dt {
           display: inline-block;
           background-image: none;
+          margin: 0;
         }
         dt {
           display: block;
@@ -214,7 +214,7 @@
           height: 31px;
           padding: 0 15px;
           width: auto;
-          margin: 0 30px 0 0;
+          margin: 0 15px 0 0;
           &:not(.report-btn) {
             &:before {
               display: inline-block;
@@ -228,9 +228,6 @@
             &.helpful {
               font-family: $arial;
               font-size: 1.4rem;
-              @include respondTo(medium) {
-                margin-left: 29px;
-              }
               &:before {
                 content: 'Yes (';
               }
@@ -242,9 +239,6 @@
             &.un-helpful {
               font-family: $arial;
               font-size: 1.4rem;
-              @include respondTo(medium) {
-                margin-left: 29px;
-              }
               &:before {
                 content: 'No (';
               }
