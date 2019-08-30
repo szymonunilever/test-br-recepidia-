@@ -24,7 +24,6 @@ import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
-import useSearchResults from '../Search/useSearchResults';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -40,6 +39,7 @@ import cx from 'classnames';
 import useFavorite from 'src/utils/useFavorite';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
+import useFavoritesSearch from './useFavoritesSearch';
 
 const carouselConfig = {
   breakpoints: [
@@ -52,22 +52,6 @@ const carouselConfig = {
     },
   ],
   arrowIcon: <ArrowIcon />,
-};
-
-const arrangeFavoritesOrder = (
-  x: Internal.Recipe,
-  y: Internal.Recipe,
-  savedFavorites: number[]
-) => {
-  const xIndex = savedFavorites.indexOf(x.recipeId);
-  const yIndex = savedFavorites.indexOf(y.recipeId);
-  if (xIndex > yIndex) {
-    return -1;
-  }
-  if (yIndex > xIndex) {
-    return 1;
-  }
-  return 0;
 };
 
 const FavoritesRecipeListingPage: FunctionComponent<
@@ -120,26 +104,19 @@ const FavoritesRecipeListingPage: FunctionComponent<
   )
     ? (getUserProfileByKey(ProfileKey.favorites) as number[])
     : [];
+  const savedMealPlannerResults = Array.isArray(
+    getUserProfileByKey(ProfileKey.mealPlannerResults)
+  )
+    ? getUserProfileByKey(ProfileKey.mealPlannerResults)
+    : [];
   const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
     tabsContent.tabsHeaderContent
   );
-  const { getRecipeDataByIds, recipeByIdsResults } = useSearchResults(
-    savedFavorites.join(' OR ')
-  );
-  recipeByIdsResults.list.sort((x, y) =>
-    arrangeFavoritesOrder(x, y, savedFavorites)
-  );
+  const { getRecipeDataByIds, recipeByIdsResults } = useFavoritesSearch();
   const {
     getRecipeDataByIds: getMealPlannerResults,
     recipeByIdsResults: mealPlannerResults,
-  } = useSearchResults(
-    (Array.isArray(getUserProfileByKey(ProfileKey.mealPlannerResults))
-      ? getUserProfileByKey(ProfileKey.mealPlannerResults)
-      : []
-    )
-      // @ts-ignore
-      .join(' OR ')
-  );
+  } = useFavoritesSearch();
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
   const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
   const RecipeListingWithFavorite = useFavorite(
@@ -150,7 +127,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
-      getRecipeDataByIds(savedFavorites.join(' OR '), {
+      getRecipeDataByIds(savedFavorites.join(' OR '), savedFavorites, {
         from: recipeByIdsResults.list.length,
         size,
       }),
@@ -179,19 +156,19 @@ const FavoritesRecipeListingPage: FunctionComponent<
   }, []);
 
   useEffect(() => {
-    getRecipeDataByIds(savedFavorites.join(' OR '), { from: 0, size: 8 });
+    getRecipeDataByIds(savedFavorites.join(' OR '), savedFavorites, {
+      from: 0,
+      size: 8,
+    });
   }, []);
   useEffect(() => {
-    const query = (Array.isArray(
-      getUserProfileByKey(ProfileKey.mealPlannerResults)
-    )
-      ? getUserProfileByKey(ProfileKey.mealPlannerResults)
-      : []
-    )
-      // @ts-ignore
-      .join(' OR ');
+    // @ts-ignore
+    const query = savedMealPlannerResults.join(' OR ');
     if (query) {
-      getMealPlannerResults(query, { from: 0, size: 7 });
+      getMealPlannerResults(query, [], {
+        from: 0,
+        size: 7,
+      });
     }
   }, []);
   useEffect(() => {
@@ -228,7 +205,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 content={recipeContent}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
-                className="recipe-list favorites"
+                className="recipe-list recipe-list--carousel favorites"
                 initialCount={8}
                 titleLevel={2}
                 viewType={RecipeListViewType.Base}
@@ -276,7 +253,11 @@ const FavoritesRecipeListingPage: FunctionComponent<
             />
           </UserPreferences>
         </Tab>
-        <Tab view="MealPlanner" visible={passedMealPlanner}>
+        <Tab
+          view="MealPlanner"
+          visible={passedMealPlanner}
+          className="recipe-list--carousel"
+        >
           <Fragment>
             <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
             <RecipeListingCarousel

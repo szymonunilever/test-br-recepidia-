@@ -21,7 +21,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
 
     const [recipeResultsList, setRecipeResultsList] = useState<
       Internal.Recipe[]
-    >(allRecipe.nodes.slice(0, initialRecipesCount));
+    >([]);
 
     const [recipeResultsCount, setRecipeResultsCount] = useState<number>(0);
     const [tagList, setTagList] = useState<Internal.Tag[]>([]);
@@ -54,7 +54,6 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         index: keys.elasticSearch.recipeIndex,
         body: {
           ...params,
-          size: 8,
           query: getOnlyRecipeCount
             ? {
                 // eslint-disable-next-line @typescript-eslint/camelcase
@@ -105,19 +104,19 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
 
     useEffect(() => {
       if (
-        !tags ||
+        (!tags && !tag) ||
         (tags &&
           tags.length === 0 &&
           recipeResultsList.length < initialRecipesCount)
       ) {
         getRecipeSearchData({
-          size: 8,
+          size: initialRecipesCount,
         })
           .then(res => {
-            setRecipeResultsList([...res.hits.hits.map(item => item._source)]);
+            setRecipeResultsList(res.hits.hits.map(item => item._source));
           })
           .catch(() => {});
-      } else if (initialRecipesCount > recipeResultsList.length) {
+      } else {
         setRecipeResultsList(allRecipe.nodes.slice(0, initialRecipesCount));
       }
     }, [initialRecipesCount]);

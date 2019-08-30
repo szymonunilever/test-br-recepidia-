@@ -24,7 +24,7 @@ import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
-import { getPersonalizationSearchData } from 'src/staticPages/Home';
+import getPersonalizationSearchData from '../../utils/getPersonalizationSearchData';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -138,7 +138,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           {/*
           // @ts-ignore */}
           <WizardResultSection
-            containerClass="wizard--result recipe-list--carousel"
+            containerClass="wizard--result"
             stepId="result"
             title={wizardResultSection.title}
             subheading={
@@ -157,7 +157,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                   list={recipes}
                   ratingProvider={RatingAndReviewsProvider.kritique}
                   viewType={RecipeListViewType.Carousel}
-                  className="recipe-list--wizard"
+                  className="recipe-list--wizard recipe-list--carousel"
                   carouselConfig={{
                     breakpoints: [
                       {

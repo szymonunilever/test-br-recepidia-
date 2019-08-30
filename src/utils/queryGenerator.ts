@@ -73,12 +73,16 @@ const generateQueryString = (
 
   return params.reduce((prev, { param, weight }, i, params) => {
     const realAnswer = formAnswer(param);
+    const previousAnswer = params[i - 1]
+      ? formAnswer(params[i - 1].param)
+      : undefined;
     const nextAnswer = params[i + 1]
       ? formAnswer(params[i + 1].param)
       : undefined;
 
     const isUndefined = /undefined|\S+:\(\)/.test(realAnswer);
     const nextUndefined = /undefined|\S+:\(\)/.test(nextAnswer);
+    const previousUndefined = /undefined|\S+:\(\)/.test(previousAnswer);
 
     if (!isUndefined && weight && operator && operator[i] && !nextUndefined) {
       return prev + `(${realAnswer})^${weight} ${operator[i]} `;
@@ -88,7 +92,13 @@ const generateQueryString = (
       return prev + `(${realAnswer})^${weight}`;
     } else if (!isUndefined) {
       return prev + `(${realAnswer})`;
-    } else if (isUndefined && !nextUndefined && operator && operator[i]) {
+    } else if (
+      isUndefined &&
+      !nextUndefined &&
+      !previousUndefined &&
+      operator &&
+      operator[i]
+    ) {
       return prev + `${operator[i]} `;
     } else {
       return prev;

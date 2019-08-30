@@ -3,7 +3,6 @@ import get from 'lodash/get';
 import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
 import {
   getRecipeResponse,
-  getRecipesByIdsResponse,
   getArticleResponse,
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
@@ -13,13 +12,6 @@ import useMedia from 'src/utils/useMedia';
 
 const useSearchResults = (searchQuery: string) => {
   const [recipeResults, setRecipeResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: [],
-    count: 0,
-  });
-  const [recipeByIdsResults, setRecipeByIdsResults] = useState<{
     list: Internal.Recipe[];
     count: number;
   }>({
@@ -57,23 +49,6 @@ const useSearchResults = (searchQuery: string) => {
         });
       }),
     [recipeResults]
-  );
-
-  const getRecipeDataByIds = useCallback(
-    async (searchQeury, params) => {
-      getRecipesByIdsResponse(searchQeury, params).then(res => {
-        setRecipeByIdsResults({
-          list: recipeByIdsResults.list.length
-            ? [
-                ...recipeByIdsResults.list,
-                ...res.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
-      });
-    },
-    [recipeByIdsResults]
   );
 
   const getArticleSearchData = useCallback(
@@ -134,11 +109,9 @@ const useSearchResults = (searchQuery: string) => {
   return {
     getSearchData,
     getRecipeSearchData,
-    getRecipeDataByIds,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,
-    recipeByIdsResults,
     articleResults,
     searchInputResults,
     resultsFetched,

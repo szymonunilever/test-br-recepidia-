@@ -24,6 +24,7 @@
     "gatsby-plugin-remote-images": "^1.0.3",
     "gatsby-plugin-sass": "2.1.3",
     "gatsby-plugin-sharp": "2.2.9",
+    "gatsby-plugin-sitemap": "^2.2.9",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-typescript": "2.1.2",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",

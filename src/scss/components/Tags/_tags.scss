@@ -10,11 +10,12 @@
   }
   &__item {
     margin: 5px;
+    span::first-letter {
+      text-transform: capitalize;
+    }
   }
   &__link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: table-cell;
     text-decoration: none;
     @extend .button;
     @extend .button--rounded;
@@ -25,6 +26,9 @@
     &:hover {
       background: $apple-green;
       color: $black-blue;
+    }
+    &:first-letter {
+      text-transform: uppercase;
     }
   }
 

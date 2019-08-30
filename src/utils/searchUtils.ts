@@ -70,6 +70,7 @@ const recipeSearchParams = (
 
 const recipeIdSearchParams = (
   searchQuery: string,
+  controlArray: number[],
   { from = 0, size = 8 }: SearchParams
 ) => ({
   index: keys.elasticSearch.recipeIndex,
@@ -78,11 +79,40 @@ const recipeIdSearchParams = (
     size,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: searchQuery,
-        fields: ['recipeId'],
+      function_score: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        query: {
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          query_string: {
+            query: searchQuery,
+            fields: ['recipeId'],
+          },
+        },
+        functions: [
+          {
+            filter: {
+              terms: {
+                recipeId: controlArray,
+              },
+            },
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            script_score: {
+              script: {
+                lang: 'painless',
+                params: {
+                  recipeIds: controlArray,
+                },
+                inline:
+                  "for ( int i = 0; i < params.recipeIds.size(); i++) {if (params['_source']['recipeId'] == params.recipeIds[i]) { return (params.recipeIds.size() + i)*1000;} }",
+              },
+            },
+          },
+        ],
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        boost_mode: 'replace',
       },
     },
+    sort: ['_score'],
   },
 });
 
@@ -107,9 +137,12 @@ const articleSearchParams = (
 
 export const getRecipesByIdsResponse = async (
   searchQuery: string,
+  controlArray: number[],
   params: SearchParams
 ) =>
-  useElasticSearch<Internal.Recipe>(recipeIdSearchParams(searchQuery, params));
+  useElasticSearch<Internal.Recipe>(
+    recipeIdSearchParams(searchQuery, controlArray, params)
+  );
 
 export const getRecipeResponse = async (
   searchQuery: string,
