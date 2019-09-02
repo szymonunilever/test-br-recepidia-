@@ -35,7 +35,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -46,7 +46,7 @@
           {
             "name": "PageListing",
             "content": {
-              "title": "Minhas preferidas"
+              "title": "Descubra novas categorias"
             }
           },
           {
@@ -391,7 +391,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -411,12 +411,12 @@
             "content": {
               "labels": {
                 "preperationTime": {
-                  "title": "Prep time",
+                  "title": "Pré-preparo",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
                 "cookTime": {
-                  "title": "Cooking time",
+                  "title": "Tempo de preparo",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
@@ -426,7 +426,7 @@
                   "unitsPlural": "pessoas"
                 },
                 "difficulties": {
-                  "title": "Difficulty"
+                  "title": "Dificuldade"
                 }
               }
             }
@@ -463,11 +463,11 @@
             "name": "RecipeNutrients",
             "content": {
               "buttonLabel": {
-                "label": "Nutritional information"
+                "label": "Informações nutricionais"
               },
               "titleTotal": "Total",
               "titlePer100": "Per 100",
-              "titlePerServing": "Amount per Serving"
+              "titlePerServing": "Rendimento"
             }
           },
           {
@@ -527,7 +527,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -574,12 +574,12 @@
               "cta": {
                 "label": "Ver mais receitas"
               },
-              "resultLabel": "receita",
-              "resultLabelPlural": "receitas",
+              "resultLabel": "receita encontrada",
+              "resultLabelPlural": "receitas encontradas",
               "sortSelectPlaceholder": "Procurar por",
               "filtersCta": {
-                "resetLabel": { "label": "Reset filters" },
-                "applyLabel": { "label": "Apply filters" }
+                "resetLabel": { "label": "Limpar filtros" },
+                "applyLabel": { "label": "Aplicar filtros" }
               },
               "nullResult": {
                 "title": "Busquei por toda cozinha mas não encontrei o que você procurava",
@@ -591,10 +591,10 @@
               },
               "optionLabels": {
                 "newest": "Newest",
-                "preparationTime": "Preparation time",
-                "cookingTime": "Cooking time",
-                "averageRating": "Average rating",
-                "title": "Title"
+                "preparationTime": "Pré-preparo",
+                "cookingTime": "Tempo de preparo",
+                "averageRating": "Avaliação média",
+                "title": "Título"
               }
             }
           },
@@ -613,7 +613,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -673,7 +673,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -733,7 +733,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -820,7 +820,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/meal-planner",
-                "label": "Começar"
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
                 "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
@@ -959,7 +959,7 @@
                   "label": "Qual a sua dúvida?*",
                   "placeholder": "Como podemos ajudar?",
                   "options": [
-                    { "label": "Product Concern", "value": "Product Concern" },
+                    { "label": "Dúvida sobre produtos", "value": "Dúvida sobre produtos" },
                     { "label": "Dúvida sobre produtos", "value": "Dúvida sobre produtos" }
                   ],
                   "validationRules": [
@@ -1170,13 +1170,13 @@
                   {
                     "name": "Subscribe to newsletter",
                     "type": "checkbox",
-                    "label": "Subscribe to newsletter",
+                    "label": "Inscreva-se",
                     "value": "Subscribe to newsletter"
                   },
                   {
                     "name": "Subscribe to whitelabel newsletter",
                     "type": "checkbox",
-                    "label": "Subscribe to whitelabel newsletter",
+                    "label": "Inscreva-se",
                     "value": "Subscribe to whitelabel newsletter"
                   }
                 ]
@@ -1189,17 +1189,17 @@
               },
               "updatePropsContent": {
                 "deleteProps": {
-                  "success": "1 answer deleted.",
-                  "error": "We're sorry, we couldn't delete this answer. Please try again later."
+                  "success": "1 resposta deletada.",
+                  "error": "Desculpe, a resposta não foi deletada. Tente novamente mais tarde."
                 },
                 "saveProps": {
-                  "success": "New answer saved.",
-                  "error": "We're sorry, we couldn't save this answer. Please try again later."
+                  "success": "Resposta salva.",
+                  "error": "Desculpe, a resposta não foi deletada. Tente novamente mais tarde."
                 }
               },
               "noResultContent": {
-                "heading": "Personalise your experience!",
-                "message": "Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
+                "heading": "Personalize!",
+                "message": "Conte um pouco mais sobre você e receba receitas, dicas e ofertas personalizadas!"
               },
               "buttonsContent": {
                 "editButton": {
@@ -1216,9 +1216,9 @@
                 }
               },
               "resultLabelContent": {
-                "showResultLabel": "Show answers count",
-                "savedResultsTemplateSingle": "{quantity} answer found",
-                "savedResultsTemplatePlural": "{quantity} answers found"
+                "showResultLabel": "Exibir respostas",
+                "savedResultsTemplateSingle": "{quantity} resposta encontrada",
+                "savedResultsTemplatePlural": "{quantity} respostas encontradas"
               }
             }
           },
@@ -1839,7 +1839,7 @@
           {
             "name": "Text",
             "content": {
-              "text": "Your meal plan is not set up yet",
+              "text": "Seu planejamento semanal ainda não foi finalizado",
               "view": "NoMealPlanResults"
             }
           }
@@ -2151,7 +2151,7 @@
               },
               "wizardResultSection": {
                 "title": "Cardápio semanal",
-                "subheading": "Your [[counter]] recipes for the week",
+                "subheading": "Você possu [[counter]] recipes for the week",
                 "primaryButtonLabel": "See my Meal Plan"
               }
             }
@@ -2178,13 +2178,13 @@
             "name": "Text",
             "content": {
               "view": "Title",
-              "text": "Sitemap"
+              "text": "Mapa do site"
             }
           }
         ]
       },
       "seo": {
-        "title": "Sitemap",
+        "title": "Mapa do site",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
