@@ -25,6 +25,7 @@ import useSearchResults from './useSearchResults';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -105,7 +106,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
       {tagList.length ? (
         <section className={theme.tagList}>
-          <TagLinks
+          <Tags
             initialCount={initialTagsCount}
             list={tagList}
             content={findPageComponentContent(components, 'Tags')}

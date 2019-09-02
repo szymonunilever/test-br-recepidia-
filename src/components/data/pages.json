@@ -380,7 +380,7 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
           {
@@ -960,7 +960,10 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     { "label": "Product Concern", "value": "Product Concern" },
-                    { "label": "Dúvida sobre produtos", "value": "Dúvida sobre produtos" }
+                    {
+                      "label": "Dúvida sobre produtos",
+                      "value": "Dúvida sobre produtos"
+                    }
                   ],
                   "validationRules": [
                     {
