@@ -7,10 +7,12 @@
   }
 }
 
-.recipe-spinner{
-  position: relative;
-  padding: 1% 35%;
-  box-sizing: content-box;
-  max-width: 30%;
-  z-index: 10;
+.recipe-hidden{
+  :global(.carousel){
+    background-color: $white-gray;
+    border-radius: 3rem;
+    *{
+      visibility: hidden;
+    }
+  }
 }

@@ -44,6 +44,7 @@
   }
   #modal__description {
     height: 100%;
+    position: relative;
   }
   .filter-settings {
     flex-basis: 100%;
@@ -53,6 +54,14 @@
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-bottom: 70px;
+    @include respondTo(desktop) {
+      padding-bottom: 0;
+    }
     &__tagGroups {
       list-style-type: none;
       margin: 0;
@@ -66,16 +75,22 @@
         margin-top: 30px;
         border-bottom: 1px solid $white-gray;
         border-top: 1px solid $white-gray;
-        > li + li {
-          margin-left: 30px;
-        }
+        overflow-x: hidden;
+        justify-content: space-between;
       }
     }
     &__buttons {
       display: flex;
       justify-content: center;
       padding: 15px 0;
+
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: $white;
       @include respondTo(desktop) {
+        position: static;
         padding: 30px 0;
       }
       button + button {

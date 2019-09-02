@@ -17,7 +17,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
+
 import IntroQuiz from '../../components/page/IntroQuiz';
 
 import theme from './home.module.scss';
@@ -50,61 +50,52 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const [searchAgent, setSearchAgent] = useState(false);
   const [introModalClosed, setintroModalClosed] = useState(false);
   const [topRecipesResult, setTopRecipesResult] = useState<Internal.Recipe[]>(
-    []
+    topRecipes.nodes
   );
   const [latestAndGratestResult, setLatestAndGratestResult] = useState<
     Internal.Recipe[]
-  >([]);
+  >(latestAndGrates.nodes);
+  const [loadedTop, setLoadedTop] = useState(false);
+  const [loadedLatest, setLoadedLatest] = useState(false);
 
   const isIntroDone = () => {
     setintroModalClosed(true);
   };
 
+  const searchRecipes = () => {
+    setLoadedLatest(false);
+    setLoadedTop(false);
+    Promise.all([
+      getLatestAndGratest(latestAndGrates.nodes),
+      getTopRecipes(topRecipes.nodes),
+    ])
+      .then(([latestResult, topResult]) => {
+        setLatestAndGratestResult(latestResult);
+        setLoadedLatest(true);
+        setTopRecipesResult(topResult);
+        setLoadedTop(true);
+      })
+      .catch();
+  };
+
   useEffect(() => {
     //@ts-ignore
     setSearchAgent(window.searchAgentOnPage);
-    if (isQuizesStored()) {
-      checkHash.saveToStorage(
-        getUserProfileByKey(ProfileKey.initialQuiz),
-        'quiz'
-      );
-      checkHash.saveToStorage(
-        getUserProfileByKey(ProfileKey.mealPlannerAnswers),
-        'mp'
-      );
+    //@ts-ignore
+    setLoadedLatest(window.searchAgentOnPage);
+    //@ts-ignore
+    setLoadedTop(window.searchAgentOnPage);
+    if (isQuizesStored() && !searchAgent) {
+      searchRecipes();
+    } else {
+      setLoadedLatest(true);
+      setLoadedTop(true);
     }
-    const init = async () => {
-      setTopRecipesResult(await getTopRecipes(topRecipes.nodes));
-      setLatestAndGratestResult(
-        await getLatestAndGratest(latestAndGrates.nodes)
-      );
-    };
-    init()
-      .then()
-      .catch();
   }, []);
 
   useEffect(() => {
-    const reSearch = async () => {
-      setTopRecipesResult(await getTopRecipes(topRecipes.nodes));
-      setLatestAndGratestResult(
-        await getLatestAndGratest(latestAndGrates.nodes)
-      );
-    };
-
     if (isQuizesStored()) {
-      const quiz = getUserProfileByKey(ProfileKey.initialQuiz);
-      const mp = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
-      if (
-        checkHash.differentWithSaved(quiz, 'quiz') ||
-        checkHash.differentWithSaved(mp, 'mp')
-      ) {
-        checkHash.saveToStorage(quiz, 'quiz');
-        checkHash.saveToStorage(mp, 'mp');
-        reSearch()
-          .then()
-          .catch();
-      }
+      searchRecipes();
     }
   }, [introModalClosed]);
 
@@ -135,69 +126,63 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       </section>
 
       <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
-        {latestAndGratestResult.length > 0 ? (
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'LatestAndGreatest'
-            )}
-            list={latestAndGratestResult}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            className="recipe-list--blue-header recipe-list--carousel"
-            viewType={RecipeListViewType.Carousel}
-            titleLevel={2}
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 2,
-                  visibleElementsAboveBreakpoint: 4,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        ) : (
-          <Spinner className={theme.recipeSpinner} />
-        )}
+        <RecipeListingWithFavorite
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'LatestAndGreatest'
+          )}
+          list={latestAndGratestResult}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          className={`${!loadedLatest &&
+            theme.recipeHidden} recipe-list--blue-header recipe-list--carousel`}
+          viewType={RecipeListViewType.Carousel}
+          titleLevel={2}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 2,
+                visibleElementsAboveBreakpoint: 4,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+        />
       </section>
 
       <section
         className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
       >
-        {topRecipesResult.length > 0 ? (
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'TopRecipes'
-            )}
-            list={topRecipesResult}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel"
-            titleLevel={2}
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 1,
-                  visibleElementsAboveBreakpoint: 2,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 50vw, 100vw'}
-          />
-        ) : (
-          <Spinner className={theme.recipeSpinner} />
-        )}
+        <RecipeListingWithFavorite
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'TopRecipes'
+          )}
+          list={topRecipesResult}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          viewType={RecipeListViewType.Carousel}
+          className={`${!loadedTop &&
+            theme.recipeHidden} recipe-list--carousel`}
+          titleLevel={2}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 1,
+                visibleElementsAboveBreakpoint: 2,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+        />
       </section>
 
       <section className="_pb--40">

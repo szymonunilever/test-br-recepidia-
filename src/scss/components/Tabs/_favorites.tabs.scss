@@ -1,5 +1,4 @@
 .user-profile-favorites {
-  padding-bottom: 54px;
   .recipe-list {
     padding: 0;
     &__null-results {
@@ -25,5 +24,8 @@
     @include respondTo(desktop) {
       height: 46px;
     }
+  }
+  .recipe-list__load-more {
+    margin-bottom: 0;
   }
 }
