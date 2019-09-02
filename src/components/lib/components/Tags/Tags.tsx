@@ -36,7 +36,7 @@ const Tags = ({
   const [tags, setTags] = useState({
     list: tagsList,
     displayList:
-      initialCount !== 'all' ? tagsList.slice(0, initialCount) : list,
+      initialCount !== 'all' ? tagsList.slice(0, initialCount) : tagsList,
   });
 
   useEffect(() => {

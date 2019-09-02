@@ -60,12 +60,15 @@ exports.onCreateNode = async ({
   createNodeId,
   getNodesByType,
 }) => {
-  const getPagePath = pageType =>
-    get(
+  const getPagePath = pageType => {
+    const path = get(
       findPageFromNodes(getNodesByType(constants.NODE_TYPES.PAGE), pageType),
       'relativePath',
       '/'
     );
+
+    return path[path.length - 1] === '/' ? path : `${path}/`;
+  };
 
   const { createNodeField, createNode } = actions;
 
