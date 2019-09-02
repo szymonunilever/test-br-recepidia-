@@ -6,40 +6,6 @@ import getPersonalizationSearchData, {
   FROM,
   RESULT_SIZE,
 } from '../../utils/getPersonalizationSearchData';
-export function getPersonalizedRecipes(i = 0): Promise<any>[] {
-  const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
-  const mealPlanerAnswers = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
-  let queryString = generateQuery(
-    introQuizAnswers,
-    mealPlanerAnswers,
-    RecipePersonalizationFormula,
-    i
-  );
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const promises: Promise<any>[] = [];
-  if (queryString) {
-    //TODO: When we will have rating we need to change query sorting params.
-    promises.push(
-      getPersonalizationSearchData(queryString, {
-        from: FROM,
-        size: RESULT_SIZE,
-        sort: [{ creationTime: { order: 'desc' } }],
-      })
-    );
-
-    //TODO: When we will have rating we need to change query sorting params.
-    promises.push(
-      getPersonalizationSearchData(queryString, {
-        from: FROM,
-        size: RESULT_SIZE,
-        sort: [],
-      })
-    );
-    return promises;
-  }
-  return [new Promise<any>((resolve, reject) => reject(''))];
-}
 
 export function isQuizesStored() {
   return (
@@ -50,7 +16,8 @@ export function isQuizesStored() {
 
 export async function searchTopRecipes(
   i = 0,
-  resultNumber = RESULT_SIZE
+  resultNumber = RESULT_SIZE,
+  defaults: Internal.Recipe[]
 ): Promise<Internal.Recipe[]> {
   let j = i;
   const maxTry = RecipePersonalizationFormula.template.length;
@@ -69,21 +36,26 @@ export async function searchTopRecipes(
     sort: [],
   });
 
-  if (hits.total < resultNumber && j < maxTry) {
+  if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;
-    return searchTopRecipes(j, resultNumber);
+    return searchTopRecipes(j, resultNumber, defaults);
+  } else if (hits.total < resultNumber && i >= maxTry - 1) {
+    return defaults;
   } else {
     return hits.hits.map(hit => hit._source);
   }
 }
 
 export async function getTopRecipes(defaults: Internal.Recipe[]) {
-  return isQuizesStored() ? await searchTopRecipes(0) : defaults;
+  return isQuizesStored()
+    ? await searchTopRecipes(0, RESULT_SIZE, defaults)
+    : defaults;
 }
 
 export async function searchLatestAndGratest(
   i = 0,
-  resultNumber = RESULT_SIZE
+  resultNumber = RESULT_SIZE,
+  defaults: Internal.Recipe[]
 ): Promise<Internal.Recipe[]> {
   let j = i;
   const maxTry = RecipePersonalizationFormula.template.length;
@@ -101,15 +73,18 @@ export async function searchLatestAndGratest(
     size: RESULT_SIZE,
     sort: [{ creationTime: { order: 'desc' } }],
   });
-
-  if (hits.total < resultNumber && j < maxTry) {
+  if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;
-    return searchTopRecipes(j, resultNumber);
+    return searchTopRecipes(j, resultNumber, defaults);
+  } else if (hits.total < resultNumber && i >= maxTry - 1) {
+    return defaults;
   } else {
     return hits.hits.map(hit => hit._source);
   }
 }
 
 export async function getLatestAndGratest(defaults: Internal.Recipe[]) {
-  return isQuizesStored() ? await searchLatestAndGratest(0) : defaults;
+  return isQuizesStored()
+    ? await searchLatestAndGratest(0, RESULT_SIZE, defaults)
+    : defaults;
 }
