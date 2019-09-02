@@ -83,16 +83,23 @@ exports.onCreateNode = async ({
         node.assets.map(async asset => {
           const { type, content } = asset;
           if (type === 'Image' && content.url) {
-            const imgNode = await createRemoteImageNode(content.url, node.id, {
-              store,
-              cache,
-              createNode,
-              createNodeId,
-            });
+            const imgNode = await createRemoteImageNode(
+              /*content.url*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+              node.id,
+              {
+                store,
+                cache,
+                createNode,
+                createNodeId,
+              }
+            );
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
             const imgNode = await createRemoteImageNode(
-              get(content, 'preview.url'),
+              get(
+                /*content*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+                'preview.url'
+              ),
               node.id,
               {
                 store,
