@@ -30,6 +30,7 @@ import useMedia from 'src/utils/useMedia';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -112,7 +113,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         </section>
       )}
       <section className={theme.tagList}>
-        <TagLinks
+        <Tags
           list={tagList}
           content={findPageComponentContent(components, 'Tags')}
           initialCount={useMedia(undefined, [9, 5])}
@@ -148,8 +149,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 export default withRecipeSearchResults<ContentHubPageProps>(ContentHubPage);
 
 export const query = graphql`
-  query($id: Int) {
-    tag(tagId: { eq: $id }) {
+  query($slug: String, $name: String) {
+    tag(fields: { slug: { eq: $slug } }) {
       name
       tagId
     }
@@ -157,7 +158,9 @@ export const query = graphql`
     allRecipe(
       limit: 8
       filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
+        tagGroups: {
+          elemMatch: { tags: { elemMatch: { name: { eq: $name } } } }
+        }
       }
     ) {
       nodes {
@@ -170,6 +173,7 @@ export const query = graphql`
         ...TagFields
       }
     }
+
     allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
       nodes {
         ...CategoryFields
