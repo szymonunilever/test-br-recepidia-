@@ -577,9 +577,12 @@
               "resultLabel": "receita",
               "resultLabelPlural": "receitas",
               "sortSelectPlaceholder": "Procurar por",
-              "filtersCta": {
-                "resetLabel": { "label": "Reset filters" },
-                "applyLabel": { "label": "Apply filters" }
+              "filtersPanel": {
+                "title": "Filtros",
+                "ctas": {
+                  "reset": { "label": "Limpar filtros" },
+                  "apply": { "label": "Aplicar filtros" }
+                }
               },
               "nullResult": {
                 "title": "Busquei por toda cozinha mas não encontrei o que você procurava",
@@ -960,7 +963,10 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     { "label": "Product Concern", "value": "Product Concern" },
-                    { "label": "Dúvida sobre produtos", "value": "Dúvida sobre produtos" }
+                    {
+                      "label": "Dúvida sobre produtos",
+                      "value": "Dúvida sobre produtos"
+                    }
                   ],
                   "validationRules": [
                     {
