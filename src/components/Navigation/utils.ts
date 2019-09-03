@@ -8,8 +8,7 @@ export const constructMenu = (
   const recipeNav = menuItems.list.find(({ name }) => name === 'Receitas'); //TODO: It strange that we use localized name as Navigation item ID
   if (recipeNav) {
     const prevRecipeNavChildren = recipeNav.children;
-    const categoriesInNav = categories.filter(cat => cat.inNavigation);
-    recipeNav.children = categoriesInNav.map((category: Internal.Category) => {
+    recipeNav.children = categories.map((category: Internal.Category) => {
       const categoriesInNav =
         category.children && category.children.filter(cat => cat.inNavigation);
       const recipesMenuItems: AppContent.GlobalNavigation.MenuItem = {
@@ -19,6 +18,9 @@ export const constructMenu = (
           : undefined,
         children:
           categoriesInNav &&
+          categoriesInNav.sort((a, b) =>
+            a.categoryOrder < b.categoryOrder ? -1 : 1
+          ) &&
           categoriesInNav.map((subCategory: Internal.Category) => ({
             name: subCategory.title,
             path: subCategory.fields.slug,
@@ -26,8 +28,9 @@ export const constructMenu = (
       };
       return recipesMenuItems;
     });
-
-    prevRecipeNavChildren && recipeNav.children.push(...prevRecipeNavChildren);
+    prevRecipeNavChildren &&
+      prevRecipeNavChildren.splice(1, 0, ...recipeNav.children) &&
+      (recipeNav.children = prevRecipeNavChildren);
   }
 
   return menuItems.list;

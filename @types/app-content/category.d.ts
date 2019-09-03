@@ -10,6 +10,8 @@ declare namespace AppContent.Category {
     recipeDetails?: RecipeDetails;
     inNavigation?: boolean;
     inFooter?: boolean;
+    showOnHomepage: number;
+    categoryOrder: number;
   }
   interface RecipeDetails {
     serves?: string | null;
