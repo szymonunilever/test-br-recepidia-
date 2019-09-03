@@ -16,7 +16,9 @@ const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
   children,
 }) => {
   const [isBurgerActive, setBurgerActive] = useState(false);
-  const classNames = cx('global-navigation', className);
+  const classNames = cx('global-navigation', className, {
+    open: isBurgerActive,
+  });
 
   const handleToggleNavigationClick = useCallback(
     () => setBurgerActive(!isBurgerActive),

@@ -154,9 +154,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         />
       </section>
 
-      <section
-        className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
-      >
+      <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
         <RecipeListingWithFavorite
           content={findPageComponentContent(
             components,

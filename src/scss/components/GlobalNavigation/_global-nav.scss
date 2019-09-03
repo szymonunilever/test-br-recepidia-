@@ -4,24 +4,41 @@ $header-color-mobile: $black-blue;
 $header-color-desktop: $black-blue;
 
 $submenu-bg-color: $white-gray-darker;
-$submenu-text-color: $fish-blue-darker;
+$submenu-text-color-mobile: $black-blue;
+$submenu-text-color-desktop: $fish-blue-darker;
 
 .global-navigation {
+  &.open {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    @include respondTo(desktop) {
+      position: static;
+    }
+  }
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    // position: relative;
     z-index: 15;
     background: transparent;
     height: $header-height;
     @extend .wrapper;
+    @include respondTo(desktop) {
+      position: relative;
+    }
 
     .navigation {
       position: absolute;
       top: $header-height;
       left: 0;
-      min-height: 100vh;
+      // min-height: 100vh;
+      bottom: 0;
       width: 100%;
       background: $white-gray;
       will-change: transform;
@@ -64,6 +81,12 @@ $submenu-text-color: $fish-blue-darker;
       &.active {
         visibility: visible;
         transform: translate3d(0, 0, 0);
+        .menu {
+          overflow-y: auto;
+          @include respondTo(desktop) {
+            overflow-y: visible;
+          }
+        }
       }
 
       @include respondTo(desktop) {
@@ -124,7 +147,7 @@ $submenu-text-color: $fish-blue-darker;
 
     .main-logo {
       position: absolute;
-      top: 50%;
+      top: #{$header-height/2};
       left: 50%;
       transform: translate(-50%, -50%);
       order: 1;
@@ -371,15 +394,15 @@ $submenu-text-color: $fish-blue-darker;
       justify-content: space-between;
       align-items: center;
       text-decoration: none;
-      color: $submenu-text-color;
+      color: $submenu-text-color-mobile;
       padding: 15px 0;
       transition: background-color 0.2s ease-out;
       border-radius: 5px;
 
       @include respondTo(desktop) {
-        font-size: 1.4rem;
-        color: $submenu-text-color;
-        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: $submenu-text-color-desktop;
+        padding: 6px 20px;
         &:hover {
           background-color: $apple-green;
           color: $black-blue;
