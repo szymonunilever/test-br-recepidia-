@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from 'react';
+import React, { Fragment, FunctionComponent, useCallback } from 'react';
 import PreferenceEntry from './partials/PreferenceEntry';
 import {
   PreferenceQuizProps,
@@ -15,9 +15,6 @@ import {
 } from '../../../Wizard/partials/Quiz/models';
 import PreferenceUpdateBlock from './partials/PreferenceUpdateBlock';
 import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
-
-// According to the requirements: "successful update message near the updated Q&A is displayed for 3 sec"
-const successSaveMessageShowTime = 3000;
 
 const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   questions,
@@ -46,6 +43,14 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
     });
   };
 
+  const setEditingKeyWithInteraction = useCallback(
+    (entryKey: string) => {
+      setEditingKey(entryKey);
+      setLastInteraction({});
+    },
+    [setEditingKey, setLastInteraction]
+  );
+
   const saveThisEntry = (
     key: string,
     selectedOptions: {
@@ -63,14 +68,6 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
       interactionType: PreferenceInteractionType.Save,
     };
     setLastInteraction(mockResultFromSaveFunction);
-    if (
-      mockResultFromSaveFunction.resultType ===
-      PreferenceUpdateResultType.Success
-    ) {
-      setTimeout(() => {
-        setLastInteraction({});
-      }, successSaveMessageShowTime);
-    }
   };
 
   const shouldRenderSuccessfullDelete = (item: Question) => {
@@ -106,7 +103,7 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
                   preferenceEntry={item}
                   selectedOptions={answers[item.key]}
                   editingKey={editingKey}
-                  setEditEntryKey={setEditingKey}
+                  setEditEntryKey={setEditingKeyWithInteraction}
                   deleteEntry={deleteThisEntry}
                   saveEntry={saveThisEntry}
                   buttonsContent={buttonsContent}
