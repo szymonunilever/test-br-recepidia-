@@ -28,7 +28,7 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
 
@@ -157,6 +157,7 @@ export const query = graphql`
 
     allRecipe(
       limit: 8
+      sort: { order: ASC, fields: creationTime }
       filter: {
         tagGroups: {
           elemMatch: { tags: { elemMatch: { name: { eq: $name } } } }
@@ -166,6 +167,7 @@ export const query = graphql`
       nodes {
         ...RecipeFields
       }
+      totalCount
     }
 
     allTag {

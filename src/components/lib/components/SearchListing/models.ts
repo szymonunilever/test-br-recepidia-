@@ -76,6 +76,7 @@ export type getSearchData = (
 export interface SearchParams {
   from?: number;
   size?: number;
+  sort?: string;
   _source?: string[];
 }
 
