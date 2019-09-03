@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
 import SEO from 'src/components/Seo';
@@ -26,10 +25,6 @@ import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 
 import keys from 'integrations/keys.json';
-import {
-  RecipeSortingOptionsFieldsMappings,
-  RecipeSortingOptions,
-} from 'src/components/lib/components/RecipeListing/partials';
 
 export interface QueryString {
   query: string;
@@ -37,39 +32,72 @@ export interface QueryString {
 }
 
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import useFavorite from 'src/utils/useFavorite';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 
 const AllRecipesPage = ({
   data,
   pageContext,
   location,
+  onLoadMoreRecipes,
+  recipeResultsCount,
+  recipeResultsList,
+  initialRecipesCount,
+  dataFetched,
+  setDataFetched,
+  setRecipeResultsList,
+  setRecipeResultsCount,
 }: AllRecipesPageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  let { promotionalRecipes, allTagGroupings, allCategory } = data;
+  const { promotionalRecipes, allTagGroupings, allCategory } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
   }));
-  const [recipeResults, setRecipeResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: [],
-    count: 0,
-  });
-  const [dataFetched, setDataFetched] = useState(false);
+
   const RecipeListingWithFavorite = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
     updateFavorites,
     RecipeListing,
     FavoriteIcon
   );
+
+  const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
+    const tagsWithCategories = tags.map(tag => {
+      const category = allTagGroupings.nodes.find(
+        // @ts-ignore
+        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+      );
+      let tagWithCategory: Internal.Tag & { category?: string } = tag;
+      category && (tagWithCategory.category = category.name);
+      return tagWithCategory;
+    });
+
+    const grouped = map(
+      groupBy(tagsWithCategories, 'category'),
+      item => item
+    ).map(cat => cat.map(tag => tag.tagId));
+    return (
+      grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
+    );
+  }, []);
+
+  const onLoadMore = useCallback(
+    (tags: Internal.Tag[], sort: string, size: number) => {
+      onLoadMoreRecipes(tags, sort, size, {
+        query: getFilterQuery(tags),
+        fields: tags.length ? ['tagGroups.tags.id'] : [],
+      });
+    },
+    [onLoadMoreRecipes]
+  );
+
   const getRecipeSearchData = async (
     queryString: QueryString = {
       query: '**',
@@ -91,82 +119,36 @@ const AllRecipesPage = ({
 
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
-        setRecipeResults({
-          list: params.from
+        setRecipeResultsList(
+          params.from
             ? [
-                ...recipeResults.list,
+                ...recipeResultsList,
                 ...res.hits.hits.map(resItem => resItem._source),
               ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
+            : res.hits.hits.map(resItem => resItem._source)
+        );
+        setRecipeResultsCount(res.hits.total);
       })
       .then(() => {
         setDataFetched(true);
       });
   };
 
-  const initialRecipesCount = useResponsiveScreenInitialSearch(
-    (size: number) =>
-      getRecipeSearchData(
-        undefined,
-        RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
-        { size }
-      ),
-    get(recipeResults, 'list.length', 0)
-  );
-
-  const getFilterQuery = (tags: Internal.Tag[]) => {
-    const tagsWithCategories = tags.map(tag => {
-      const category = allTagGroupings.nodes.find(
-        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+  const onViewChange = useCallback(
+    (tags: Internal.Tag[], sort: string) => {
+      return getRecipeSearchData(
+        {
+          query: getFilterQuery(tags),
+          fields: tags.length ? ['tagGroups.tags.id'] : [],
+        },
+        sort,
+        {
+          size: Math.max(initialRecipesCount, recipeResultsList.length),
+        }
       );
-      let tagWithCategory: Internal.Tag & { category?: string } = tag;
-      category && (tagWithCategory.category = category.name);
-      return tagWithCategory;
-    });
-
-    const grouped = map(
-      groupBy(tagsWithCategories, 'category'),
-      item => item
-    ).map(cat => cat.map(tag => tag.tagId));
-    return (
-      grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
-    );
-  };
-
-  const onRecipeLoadMore = (
-    tags: Internal.Tag[],
-    sort: string,
-    size: number
-  ) => {
-    return getRecipeSearchData(
-      {
-        query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.id'] : [],
-      },
-      sort,
-      {
-        from: recipeResults.list.length,
-        size,
-      }
-    );
-  };
-
-  const onViewChange = (tags: Internal.Tag[], sort: string) => {
-    const recipeCount = get(recipeResults, 'list.length', 0);
-
-    return getRecipeSearchData(
-      {
-        query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.id'] : [],
-      },
-      sort,
-      {
-        size: Math.max(initialRecipesCount, recipeCount),
-      }
-    );
-  };
+    },
+    [initialRecipesCount, recipeResultsList.length]
+  );
 
   return (
     <Layout className={theme.allRecipes}>
@@ -210,7 +192,7 @@ const AllRecipesPage = ({
               'AllRecipes'
             ),
           }}
-          list={recipeResults.list}
+          list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={3}
           tags={{
@@ -230,8 +212,8 @@ const AllRecipesPage = ({
           RemoveTagIcon={RemoveTagIcon}
           loadMoreConfig={{
             type: LoadMoreType.async,
-            allCount: recipeResults.count,
-            onLoadMore: onRecipeLoadMore,
+            allCount: recipeResultsCount,
+            onLoadMore,
           }}
           onViewChange={onViewChange}
           imageSizes={'(min-width: 768px) 25vw, 50vw'}
@@ -283,7 +265,9 @@ const AllRecipesPage = ({
   );
 };
 
-export default AllRecipesPage;
+export default withInitialDataAndAsyncLoadMore<AllRecipesPageProps>(
+  AllRecipesPage
+);
 
 export const query = graphql`
   {
@@ -291,6 +275,13 @@ export const query = graphql`
       nodes {
         ...RecipeFields
       }
+    }
+
+    allRecipe(limit: 8, sort: { order: ASC, fields: creationTime }) {
+      nodes {
+        ...RecipeFields
+      }
+      totalCount
     }
 
     allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
@@ -318,7 +309,7 @@ export const query = graphql`
   }
 `;
 
-interface AllRecipesPageProps {
+interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
     promotionalRecipes: {
       nodes: Internal.Recipe[];
