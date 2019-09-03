@@ -52,19 +52,20 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         index: keys.elasticSearch.recipeIndex,
         body: {
           ...params,
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          query: { query_string: queryString },
+          query: {
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            query_string: queryString,
+          },
         },
       };
 
       return useElasticSearch<Internal.Recipe>(searchParams);
     };
 
-    const onLoadMoreRecipes = async (
+    const onLoadMoreRecipes = (
       tags: Internal.Tag[],
       sort: string,
       size: number,
-      from: number,
       queryString: {
         query: string;
       }
@@ -72,8 +73,8 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       getRecipeSearchData(
         {
           size,
-          from,
           sort,
+          from: recipeResultsList.length,
         },
         queryString
       ).then(res => {

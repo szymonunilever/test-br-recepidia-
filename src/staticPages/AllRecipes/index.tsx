@@ -68,7 +68,7 @@ const AllRecipesPage = ({
     FavoriteIcon
   );
 
-  const getFilterQuery = (tags: Internal.Tag[]) => {
+  const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
     const tagsWithCategories = tags.map(tag => {
       const category = allTagGroupings.nodes.find(
         // @ts-ignore
@@ -86,14 +86,17 @@ const AllRecipesPage = ({
     return (
       grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
     );
-  };
+  }, []);
 
-  const onLoadMore = (tags: Internal.Tag[], sort: string, size: number) => {
-    onLoadMoreRecipes(tags, sort, size, recipeResultsList.length, {
-      query: getFilterQuery(tags),
-      fields: tags.length ? ['tagGroups.tags.id'] : [],
-    });
-  };
+  const onLoadMore = useCallback(
+    (tags: Internal.Tag[], sort: string, size: number) => {
+      onLoadMoreRecipes(tags, sort, size, {
+        query: getFilterQuery(tags),
+        fields: tags.length ? ['tagGroups.tags.id'] : [],
+      });
+    },
+    [onLoadMoreRecipes]
+  );
 
   const getRecipeSearchData = async (
     queryString: QueryString = {

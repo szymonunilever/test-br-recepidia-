@@ -1,10 +1,13 @@
-import { onLoadMore } from '../lib/components/RecipeListing';
+export interface QueryString {
+  query: string;
+  fields?: string[];
+}
 
 export interface WithInitialDataAndAsyncLoadMore {
   tagList: Internal.Tag[];
   recipeResultsList: Internal.Recipe[];
   recipeResultsCount: number;
-  onLoadMoreRecipes: onLoadMore;
+  onLoadMoreRecipes: OnLoadMoreRecipes;
   initialRecipesCount: number;
   dataFetched: boolean;
   onSortedRecipeLoadMore: () => Promise<any>;
@@ -14,3 +17,10 @@ export interface WithInitialDataAndAsyncLoadMore {
   setRecipeResultsList: (recipes: Internal.Recipe[]) => void;
   setRecipeResultsCount: (count: number) => void;
 }
+
+type OnLoadMoreRecipes = (
+  tags: Internal.Tag[],
+  sort: string,
+  size: number,
+  queryString?: QueryString
+) => Promise<void>;
