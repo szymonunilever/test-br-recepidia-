@@ -176,7 +176,7 @@ export const query = graphql`
       }
     }
 
-   allCategory(
+    allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }
       sort: { order: ASC, fields: showOnHomepage }
