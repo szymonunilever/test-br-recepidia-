@@ -8,6 +8,7 @@ module.exports = async ({ graphql, createPage }) => {
               slug
             }
             tagId
+            name
           }
         }
       }

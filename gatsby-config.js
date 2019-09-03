@@ -43,14 +43,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-rms`,
+      resolve: `gatsby-source-content`,
       options: {
         endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,
       },
     },
     {
-      resolve: `gatsby-source-content`,
+      resolve: `gatsby-source-rms`,
       options: {
         endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,

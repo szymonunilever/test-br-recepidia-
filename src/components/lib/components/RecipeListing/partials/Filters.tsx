@@ -23,7 +23,7 @@ const Filter = ({
   onChangeFilter,
   results,
   sortSelectPlaceholder,
-  content: { resultLabelPlural, resultLabel, optionLabels, ...content },
+  content: { resultLabelPlural, resultLabel, optionLabels, filtersPanel },
   dataFetched,
 }: RecipeFilterProps) => {
   const classWrapper = cx(theme.recipeFilter, className);
@@ -97,7 +97,7 @@ const Filter = ({
         close={toggleFilterSettings}
         className="modal--filter"
         closeBtn={<CloseSvg />}
-        title="Filters"
+        title={filtersPanel && filtersPanel.title}
         titleLevel={2}
       >
         <FilterSettings
@@ -105,8 +105,7 @@ const Filter = ({
           onFilterChange={setSelectedTags}
           OpenIcon={OpenIcon}
           filtersSelected={selectedTags}
-          // hidden={!state.showFilterSettings}
-          content={content}
+          content={{ filtersPanel }}
           onApply={applySelectedTagsToFilter}
         />
       </Modal>

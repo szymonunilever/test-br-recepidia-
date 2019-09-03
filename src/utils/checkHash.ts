@@ -16,6 +16,14 @@ const checkHash = {
     const prev = sessionStorage.getItem(name);
     return btoa(JSON.stringify(val)) !== prev;
   },
+  getVal: function(name: string) {
+    const hash = sessionStorage.getItem(name);
+    const rawVal = hash && atob(hash);
+    return rawVal && JSON.parse(rawVal);
+  },
+  getHash: function(name: string) {
+    return sessionStorage.getItem(name);
+  },
 };
 
 export default checkHash;

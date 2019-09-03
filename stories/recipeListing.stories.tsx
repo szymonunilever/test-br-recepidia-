@@ -86,9 +86,12 @@ const contents: AppContent.RecipeListing.Content[] = [
     resultLabel: 'recipe',
     resultLabelPlural: 'recipes',
     sortSelectPlaceholder: 'Sort By',
-    filtersCta: {
-      resetLabel: { label: 'Reset filters' },
-      applyLabel: { label: 'Apply filters' },
+    filtersPanel: {
+      title: 'Filtros',
+      ctas: {
+        reset: { label: 'Limpar filtros' },
+        apply: { label: 'Aplicar filtros' },
+      },
     },
     cta: { label: 'Load More Button' },
     nullResult: {

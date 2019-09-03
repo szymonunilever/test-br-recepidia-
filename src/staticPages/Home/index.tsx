@@ -94,7 +94,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   }, []);
 
   useEffect(() => {
-    if (isQuizesStored()) {
+    if (isQuizesStored() && introModalClosed) {
       searchRecipes();
     }
   }, [introModalClosed]);

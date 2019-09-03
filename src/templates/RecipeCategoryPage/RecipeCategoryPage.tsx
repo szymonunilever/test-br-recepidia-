@@ -33,6 +33,7 @@ import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataA
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const RecipeCategoryPage = ({
   data,
@@ -151,7 +152,7 @@ const RecipeCategoryPage = ({
       )}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
-          <TagLinks
+          <Tags
             initialCount={initialTagsCount}
             list={categoryTags}
             content={findPageComponentContent(components, 'Tags')}

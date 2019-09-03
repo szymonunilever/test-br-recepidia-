@@ -380,7 +380,7 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
           {
