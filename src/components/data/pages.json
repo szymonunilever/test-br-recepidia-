@@ -1331,8 +1331,8 @@
                       "label": {
                         "text": "Ama mais salgado do que doce",
                         "image": {
-                          "url": "Ama mais salgado do que doce",
-                          "alt": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2.jpg"
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2.jpg",
+                          "alt": "Ama mais salgado do que doce"
                         }
                       }
                     },
