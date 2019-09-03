@@ -1,10 +1,14 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'src/components/lib/components/Button';
-import { TagsProps, TagViewType } from './models';
+import { TagsProps, TagViewType, TagVariant } from './models';
 import Tag from './partials/Tag';
 import includes from 'lodash/includes';
+import uniqBy from 'lodash/uniqBy';
 import { TagName, Text } from '../Text';
+
+const getTagList = (list: Internal.Tag[], displayUniq = true) =>
+  displayUniq ? uniqBy(list, 'name') : list;
 
 const Tags = ({
   list,
@@ -18,25 +22,35 @@ const Tags = ({
   selectedTags,
   className,
   viewType = TagViewType.standard,
-  variant,
+  variant = TagVariant.link,
   titleLevel = 2,
+  displayOnlyUniqueNames = true,
 }: TagsProps) => {
   const { title, loadMoreButton } = content || {
     title: undefined,
     loadMoreButton: undefined,
   };
+
+  const tagsList = getTagList(list, displayOnlyUniqueNames);
+
   const [tags, setTags] = useState({
-    list: list,
-    displayList: initialCount !== 'all' ? list.slice(0, initialCount) : list,
+    list: tagsList,
+    displayList:
+      initialCount !== 'all' ? tagsList.slice(0, initialCount) : tagsList,
   });
 
   useEffect(() => {
+    const tagsListUpdated = getTagList(list, displayOnlyUniqueNames);
+
     setTags({
-      list: list,
+      list: tagsListUpdated,
       displayList:
         initialCount !== 'all'
-          ? list.slice(0, Math.max(tags.displayList.length, initialCount))
-          : list,
+          ? tagsListUpdated.slice(
+              0,
+              Math.max(tags.displayList.length, initialCount)
+            )
+          : tagsListUpdated,
     });
   }, [list, initialCount]);
 
@@ -51,8 +65,10 @@ const Tags = ({
 
   const deleteItem = (tag: Internal.Tag) => {
     setTags({
-      list: tags.list.filter(item => item.id !== tag.id),
-      displayList: tags.displayList.filter(item => item.id !== tag.id),
+      list: tags.list.filter((item: Internal.Tag) => item.id !== tag.id),
+      displayList: tags.displayList.filter(
+        (item: Internal.Tag) => item.id !== tag.id
+      ),
     });
     if (handleTagRemove) {
       handleTagRemove(tag);
@@ -61,11 +77,13 @@ const Tags = ({
 
   useEffect(() => {
     if (enableExternalManage && list !== tags.list) {
+      const tagsList = getTagList(list, displayOnlyUniqueNames);
+
       setTags({
         ...tags,
-        list: list,
+        list: tagsList,
         displayList:
-          initialCount !== 'all' ? list.slice(0, initialCount) : list,
+          initialCount !== 'all' ? tagsList.slice(0, initialCount) : tagsList,
       });
     }
   });

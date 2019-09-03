@@ -61,6 +61,7 @@ import get from 'lodash/get';
 import remove from 'lodash/remove';
 import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
@@ -419,7 +420,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         />
       </section>
       <section className={theme.tagList}>
-        <TagLinks
+        <Tags
           initialCount={initialTagsCount}
           list={tagList}
           content={findPageComponentContent(components, 'Tags')}

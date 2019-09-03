@@ -29,10 +29,11 @@ import includes from 'lodash/includes';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const RecipeCategoryPage = ({
   data,
@@ -151,7 +152,7 @@ const RecipeCategoryPage = ({
       )}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
-          <TagLinks
+          <Tags
             initialCount={initialTagsCount}
             list={categoryTags}
             content={findPageComponentContent(components, 'Tags')}
@@ -193,6 +194,7 @@ export const query = graphql`
   query($tags: [Int]) {
     allRecipe(
       limit: 8
+      sort: { order: ASC, fields: creationTime }
       filter: {
         tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
       }
@@ -200,6 +202,7 @@ export const query = graphql`
       nodes {
         ...RecipeFields
       }
+      totalCount
     }
     allTag {
       nodes {

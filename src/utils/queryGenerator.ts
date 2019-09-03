@@ -33,6 +33,7 @@ const generateQueryString = (
       ];
       if (Array.isArray(value)) {
         prop[key] = `${searchPath}:(${value
+          .filter(item => item !== '')
           .join(' OR ')
           .replace(delimiter, ' OR ')})`;
       } else if (delimiter.test(value)) {

@@ -10,9 +10,6 @@
   }
   &__item {
     margin: 5px;
-    span::first-letter {
-      text-transform: capitalize;
-    }
   }
   &__link {
     display: table-cell;
@@ -23,6 +20,7 @@
     @extend .button--small;
     max-width: none;
     font-weight: normal;
+    font-size: 1.4rem;
     &:hover {
       background: $apple-green;
       color: $black-blue;

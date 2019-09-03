@@ -18,10 +18,8 @@ const FilterSettings = ({
   className,
   hidden,
   onApply,
-  content: { filtersCta },
+  content: { filtersPanel },
 }: FilterSettingsProps) => {
-  const resetLabel = filtersCta ? filtersCta.resetLabel : { label: '' };
-  const applyLabel = filtersCta ? filtersCta.applyLabel : { label: '' };
   const classWrapper = cx(theme.filterSettings, 'filter-settings', className);
   const onToggleFilter = (val: TagToggleHandler) => {
     const filters = [...filtersSelected];
@@ -81,12 +79,12 @@ const FilterSettings = ({
         <Button
           className="filter-settings__reset"
           onClick={onReset}
-          content={resetLabel}
+          content={filtersPanel && filtersPanel.ctas.reset}
         />
         <Button
           className="filter-settings__apply"
           onClick={onApply}
-          content={applyLabel}
+          content={filtersPanel && filtersPanel.ctas.apply}
         />
       </div>
     </div>

@@ -134,14 +134,14 @@
       width: 100%;
       @include respondTo(medium) {
         display: flex;
+        padding-top: 44px;
       }
       .reviewDate {
         font-size: 1.2rem;
         position: absolute;
-        top: -1250%;
         right: 0;
         @include respondTo(medium) {
-          top: 0;
+          top: 28px;
         }
       }
       h3 {
@@ -175,22 +175,44 @@
         font-weight: bold;
         @include respondTo(medium) {
           position: absolute;
-          bottom: 15px;
+          bottom: 43px;
         }
         span {
           margin: 0 0 0 25px;
         }
         img {
           height: 21px;
+          transition: transform 0.2s ease-out;
+        }
+        a {
+          @media (hover: hover),
+            (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+      .rr-col {
+        position: static;
+        @include respondTo(medium) {
+          position: relative;
+        }
+        &.column02 {
+          padding-top: 28px;
         }
       }
       .feedback-container {
         width: 100%;
-        margin: 25px 0 0 0;
+        margin: 25px 0;
         padding: 0;
         font-family: $arial;
         background: none;
         font-size: 1.4rem;
+        @include respondTo(medium) {
+          margin-bottom: 54px;
+        }
         dd,
         dt {
           display: inline-block;
@@ -200,9 +222,10 @@
         dt {
           display: block;
           margin-bottom: 15px;
-          @include respondTo(medium) {
+          @include respondTo(desktop) {
             display: inline-block;
             margin-bottom: 0;
+            margin-right: 40px;
           }
         }
         a {
@@ -214,7 +237,7 @@
           height: 31px;
           padding: 0 15px;
           width: auto;
-          margin: 0 15px 0 0;
+          margin: 0 26px 0 0;
           &:not(.report-btn) {
             &:before {
               display: inline-block;
@@ -243,6 +266,11 @@
                 content: 'No (';
               }
             }
+          }
+        }
+        dd:last-child {
+          a {
+            margin: 0;
           }
         }
       }

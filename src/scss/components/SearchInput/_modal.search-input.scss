@@ -12,6 +12,11 @@
     &__list {
       overflow-y: auto;
       flex-shrink: 1;
+      @include respondTo(desktop) {
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          height: 155px;
+        }
+      }
     }
     .form {
       @include respondTo(desktop) {
