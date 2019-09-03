@@ -40,14 +40,17 @@ const Tags = ({
   });
 
   useEffect(() => {
-    const tagsList = getTagList(list, displayOnlyUniqueNames);
+    const tagsListUpdated = getTagList(list, displayOnlyUniqueNames);
 
     setTags({
-      list: tagsList,
+      list: tagsListUpdated,
       displayList:
         initialCount !== 'all'
-          ? tagsList.slice(0, Math.max(tags.displayList.length, initialCount))
-          : tagsList,
+          ? tagsListUpdated.slice(
+              0,
+              Math.max(tags.displayList.length, initialCount)
+            )
+          : tagsListUpdated,
     });
   }, [list, initialCount]);
 
