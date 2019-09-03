@@ -15,4 +15,10 @@
       padding-top: 20px;
     }
   }
+  .adaptive-image__image {
+    height: $page-listing-image-height--mobile;
+    @include respondTo(desktop) {
+      height: $page-listing-image-height--desktop;
+    }
+  }
 }
