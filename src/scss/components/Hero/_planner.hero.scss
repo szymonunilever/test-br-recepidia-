@@ -45,11 +45,15 @@
       }
     }
     &__header {
-      margin-bottom: 19px;
+      margin-bottom: 13px;
       @include respondTo(desktop) {
+        margin-bottom: 19px;
         padding: 0 30px;
       }
       h2 {
+        @extend %h2--bigger;
+        line-height: 1.17;
+        color: $white;
         margin: 0;
         @include respondTo(desktop) {
           font-size: 4.5rem;
@@ -58,6 +62,7 @@
     }
     &__long-subheader {
       margin-bottom: 27px;
+      line-height: 1.29;
       @include respondTo(desktop) {
         padding: 0 70px;
       }

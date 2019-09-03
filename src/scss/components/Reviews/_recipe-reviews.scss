@@ -194,7 +194,7 @@
           }
         }
       }
-      .rr-custom-block .rr-col {
+      .rr-col {
         position: static;
         @include respondTo(medium) {
           position: relative;
@@ -222,9 +222,10 @@
         dt {
           display: block;
           margin-bottom: 15px;
-          @include respondTo(medium) {
+          @include respondTo(desktop) {
             display: inline-block;
             margin-bottom: 0;
+            margin-right: 40px;
           }
         }
         a {
