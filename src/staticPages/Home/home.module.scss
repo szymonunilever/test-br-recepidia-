@@ -9,8 +9,10 @@
 
 .recipe-hidden{
   :global(.carousel){
-    background-color: $white-gray;
-    border-radius: 3rem;
+    min-height: 350px;
+    @include respondTo(desktop){
+      min-height: 425px;
+    }
     *{
       visibility: hidden;
     }
