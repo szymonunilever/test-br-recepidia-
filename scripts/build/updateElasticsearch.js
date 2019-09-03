@@ -3,7 +3,6 @@ const axios = require('axios');
 const times = require('lodash/times');
 
 const BATCH_SIZE = 300;
-const NODE_TYPES = { RECIPE: 'Recipe', ARTICLE: 'Article' };
 
 const bulkPost = (data, url) => {
   return axios.post(`${url}/_bulk`, data, {
@@ -102,4 +101,4 @@ const updateArticles = async articles => {
   ]);
 };
 
-module.exports = { updateRecipes, updateArticles, NODE_TYPES };
+module.exports = { updateRecipes, updateArticles };

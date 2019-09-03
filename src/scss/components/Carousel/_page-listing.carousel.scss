@@ -1,9 +1,9 @@
 .page-listing--carousel {
-  .gatsby-image-wrapper {
-    & > div {
-      padding-bottom: $page-listing-card-height--mobile !important;
+  .carousel__item {
+    .gatsby-image-wrapper {
+      height: $page-listing-card-height--mobile;
       @include respondTo(medium) {
-        padding-bottom: $page-listing-card-height--desktop !important;
+        height: $page-listing-card-height--desktop;
       }
     }
   }
