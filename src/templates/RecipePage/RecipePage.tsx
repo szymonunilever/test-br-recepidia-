@@ -44,7 +44,6 @@ import AddThis from '../../../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
@@ -172,18 +171,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     FavoriteIcon
   );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
-  // const tabsContent = {
-  //   tabs: [
-  //     {
-  //       title: 'Ingredients',
-  //       view: 'recipeTabIngredients',
-  //     },
-  //     {
-  //       title: 'Cook',
-  //       view: 'recipeTabCookingMethod',
-  //     },
-  //   ],
-  // };
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
@@ -398,7 +385,13 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
       <section
         className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
       >
-        <Text text={'Nutritional'} tag={TagName.h2} />
+        <Text
+          text={
+            findPageComponentContent(components, 'Text', 'NutritionalTitle')
+              .text
+          }
+          tag={TagName.h2}
+        />
         <RecipeDietaryAttributes
           activeAttributes={currentRecipeDietaryList}
           attributes={allDietaryList}
@@ -406,7 +399,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         />
         <RecipeNutrients
           recipe={recipe}
-          modalTitle={'Nutritional information'}
           content={findPageComponentContent(components, 'RecipeNutrients')}
           viewType={RecipeNutrientsViewType.WithAction}
           CloseButton={CloseButton}

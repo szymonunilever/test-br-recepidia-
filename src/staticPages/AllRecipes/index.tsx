@@ -71,7 +71,6 @@ const AllRecipesPage = ({
   const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
     const tagsWithCategories = tags.map(tag => {
       const category = allTagGroupings.nodes.find(
-        // @ts-ignore
         cat => cat.children.findIndex(el => el.id === tag.id) !== -1
       );
       let tagWithCategory: Internal.Tag & { category?: string } = tag;
