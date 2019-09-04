@@ -92,9 +92,11 @@ const Tags = ({
     tags.list.length > tags.displayList.length && loadMoreButton;
 
   const loadMoreBtn = shouldAppear ? (
-    <Button onClick={loadMore} className="tags__button">
-      <span>{loadMoreButton ? loadMoreButton.label : null}</span>
-    </Button>
+    <li className="tags__load-more">
+      <Button onClick={loadMore} className="tags__button">
+        <span>{loadMoreButton ? loadMoreButton.label : null}</span>
+      </Button>
+    </li>
   ) : null;
 
   const classNames = cx('tags', className);
@@ -137,8 +139,8 @@ const Tags = ({
               variant={variant}
             />
           ))}
+          {loadMoreBtn}
         </ul>
-        <span className="tags__load-more">{loadMoreBtn}</span>
       </div>
     );
 

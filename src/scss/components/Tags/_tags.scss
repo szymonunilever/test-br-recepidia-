@@ -59,9 +59,8 @@
 
   &__load-more {
     display: inline-block;
-    margin: 0 -10px;
+    margin: 5px;
     button {
-      margin: 10px;
       @extend .tags__link;
       max-width: none;
     }
