@@ -550,7 +550,7 @@
     },
     {
       "type": "AllRecipes",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
           {
