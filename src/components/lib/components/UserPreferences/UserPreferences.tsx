@@ -65,10 +65,6 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
         <ResultCount count={totalCount} labelProps={resultLabelContent} />
       )}
       <div className="preferences__form">{enhancedChildren}</div>
-      <NewsletterSubscriptions
-        onSubmit={onNewsletterFormSubmit}
-        content={newsletterSubscriptionsContent}
-      />
     </div>
   );
 };
