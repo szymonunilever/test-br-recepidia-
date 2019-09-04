@@ -12,7 +12,6 @@
     margin: 5px;
   }
   &__link {
-    display: table-cell;
     text-decoration: none;
     @extend .button;
     @extend .button--rounded;
@@ -25,8 +24,11 @@
       background: $apple-green;
       color: $black-blue;
     }
-    &:first-letter {
-      text-transform: uppercase;
+    span {
+      display: table-cell;
+      &:first-letter {
+        text-transform: uppercase;
+      }
     }
   }
 
