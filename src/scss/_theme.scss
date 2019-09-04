@@ -153,6 +153,14 @@ p {
   border: 0;
 }
 
+%link--inline {
+  color: $fish-blue-darker;
+  text-decoration: underline;
+  &:hover {
+    color: $fish-blue-darker;
+  }
+}
+
 %link--external {
   //a[target="_blank"]
   position: relative;
@@ -191,7 +199,6 @@ p {
       height: 234px;
     }
   }
-
 }
 
 //custom scrollbar
@@ -241,7 +248,7 @@ progress::-ms-fill {
   overflow: hidden;
 }
 
-.wrapper{
+.wrapper {
   padding-left: $layout-indent-sm;
   padding-right: $layout-indent-sm;
   @include respondTo(desktop) {

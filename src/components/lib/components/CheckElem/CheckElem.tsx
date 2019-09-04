@@ -37,7 +37,7 @@ const CheckElem = ({
       <span className="checkable__checkelem">
         <span className="checkable__checkmark" />
       </span>
-      {label}
+      <span dangerouslySetInnerHTML={{ __html: label as string }} />
     </label>
   );
 };
