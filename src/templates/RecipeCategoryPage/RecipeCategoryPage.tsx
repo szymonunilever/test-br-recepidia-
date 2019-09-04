@@ -19,7 +19,6 @@ import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
