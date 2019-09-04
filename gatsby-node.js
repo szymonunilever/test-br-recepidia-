@@ -12,6 +12,7 @@ const createContentHubPages = require('./scripts/build/createContentHubPages');
 const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 const constants = require('./scripts/constants');
+const getStaticLists = require('./scripts/build/getStaticLists');
 
 const urlPartialsByTypeMap = {
   Article: 'title',
@@ -205,6 +206,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           slug: page.relativePath,
           page,
+          ...getStaticLists(page.components.items),
         },
       });
     },

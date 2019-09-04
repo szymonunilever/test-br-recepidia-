@@ -270,8 +270,11 @@ export default withInitialDataAndAsyncLoadMore<AllRecipesPageProps>(
 );
 
 export const query = graphql`
-  {
-    promotionalRecipes: allRecipe(limit: 6) {
+  query($RecipeListing_SeasonalPromotionalRecipes: [Int]) {
+    promotionalRecipes: allRecipe(
+      filter: { recipeId: { in: $RecipeListing_SeasonalPromotionalRecipes } }
+      sort: { fields: creationTime, order: DESC }
+    ) {
       nodes {
         ...RecipeFields
       }
@@ -327,6 +330,7 @@ interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
   };
   pageContext: {
     page: AppContent.Page;
+    RecipeListing_SeasonalPromotionalRecipes: number[];
   };
   location: WindowLocation;
 }

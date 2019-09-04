@@ -605,7 +605,8 @@
             "name": "RecipeListing",
             "content": {
               "view": "SeasonalPromotionalRecipes",
-              "title": "Receitas especiais"
+              "title": "Receitas especiais",
+              "staticList": [176094, 175506, 175505, 173885, 173884, 173870]
             }
           },
           {
