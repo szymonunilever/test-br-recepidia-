@@ -368,28 +368,30 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section
-        className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
-      >
-        <Text
-          text={
-            findPageComponentContent(components, 'Text', 'NutritionalTitle')
-              .text
-          }
-          tag={TagName.h2}
-        />
-        <RecipeDietaryAttributes
-          activeAttributes={currentRecipeDietaryList}
-          attributes={allDietaryList}
-          icons={dietaryAttributesIcons}
-        />
-        <RecipeNutrients
-          recipe={recipe}
-          content={findPageComponentContent(components, 'RecipeNutrients')}
-          viewType={RecipeNutrientsViewType.WithAction}
-          CloseButton={CloseButton}
-        />
-      </section>
+      {currentRecipeDietaryList.length || recipe.nutrients.length ? (
+        <section
+          className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
+        >
+          <Text
+            text={
+              findPageComponentContent(components, 'Text', 'NutritionalTitle')
+                .text
+            }
+            tag={TagName.h2}
+          />
+          <RecipeDietaryAttributes
+            activeAttributes={currentRecipeDietaryList}
+            attributes={allDietaryList}
+            icons={dietaryAttributesIcons}
+          />
+          <RecipeNutrients
+            recipe={recipe}
+            content={findPageComponentContent(components, 'RecipeNutrients')}
+            viewType={RecipeNutrientsViewType.WithAction}
+            CloseButton={CloseButton}
+          />
+        </section>
+      ) : null}
       <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
         <Reviews
           recipeId={recipe.recipeId}
