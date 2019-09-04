@@ -44,7 +44,6 @@ import AddThis from '../../../integrations/AddThis';
 import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
@@ -395,23 +394,25 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section
-        className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
-      >
-        <Text text={'Nutritional'} tag={TagName.h2} />
-        <RecipeDietaryAttributes
-          activeAttributes={currentRecipeDietaryList}
-          attributes={allDietaryList}
-          icons={dietaryAttributesIcons}
-        />
-        <RecipeNutrients
-          recipe={recipe}
-          modalTitle={'Nutritional information'}
-          content={findPageComponentContent(components, 'RecipeNutrients')}
-          viewType={RecipeNutrientsViewType.WithAction}
-          CloseButton={CloseButton}
-        />
-      </section>
+      {currentRecipeDietaryList.length || recipe.nutrients.length ? (
+        <section
+          className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
+        >
+          <Text text={'Nutritional'} tag={TagName.h2} />
+          <RecipeDietaryAttributes
+            activeAttributes={currentRecipeDietaryList}
+            attributes={allDietaryList}
+            icons={dietaryAttributesIcons}
+          />
+          <RecipeNutrients
+            recipe={recipe}
+            modalTitle={'Nutritional information'}
+            content={findPageComponentContent(components, 'RecipeNutrients')}
+            viewType={RecipeNutrientsViewType.WithAction}
+            CloseButton={CloseButton}
+          />
+        </section>
+      ) : null}
       <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
         <Reviews
           recipeId={recipe.recipeId}
