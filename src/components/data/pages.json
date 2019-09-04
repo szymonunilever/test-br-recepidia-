@@ -987,6 +987,7 @@
                   "name": "recipe",
                   "type": "text",
                   "label": "Nome da receita",
+                  "placeholder": "Torta de Frango",
                   "fieldset": "recipeDetails"
                 },
                 {
@@ -998,6 +999,7 @@
                   "name": "comments",
                   "type": "textarea",
                   "label": "O que você gostaria de saber?*",
+                  "placeholder": "Escreva aqui...",
                   "fieldset": "commentsFieldset",
                   "validationRules": [
                     {
@@ -1015,6 +1017,7 @@
                   "name": "givenName",
                   "type": "text",
                   "label": "Primeiro nome*",
+                  "placeholder": "Nome",
                   "fieldset": "contact",
                   "validationRules": [
                     {
@@ -1032,6 +1035,7 @@
                   "name": "familyName",
                   "type": "text",
                   "label": "Sobrenome*",
+                  "placeholder": "Sombrenome",
                   "fieldset": "contact",
                   "validationRules": [
                     {
@@ -1049,6 +1053,7 @@
                   "name": "email",
                   "type": "text",
                   "label": "Email*",
+                  "placeholder": "email@email.com",
                   "fieldset": "contact",
                   "validationRules": [
                     {
@@ -1071,6 +1076,7 @@
                   "name": "phoneNumber",
                   "type": "tel",
                   "label": "Telefone",
+                  "placeholder": "00 0 0000-0000",
                   "fieldset": "contact",
                   "validationRules": [
                     {

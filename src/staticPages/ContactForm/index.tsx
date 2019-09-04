@@ -17,12 +17,12 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   const {
     page: { seo, components, type },
   } = pageContext;
-  const сontactFormComponent = findPageComponentContent(
+  const contactFormComponent = findPageComponentContent(
     components,
     'GeneratedForm',
     'ContactForm'
   );
-  const { title, formMessages } = сontactFormComponent;
+  const { title, formMessages } = contactFormComponent;
   const [modalState, setModalState] = useState({
     isOpen: false,
     text: '',
@@ -65,7 +65,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         <GeneratedForm
           className={cx(theme.contactGeneratedForm, 'wrapper')}
           onSubmit={submitHandler}
-          content={сontactFormComponent}
+          content={contactFormComponent}
           shouldValidate
           titleLevel={1}
         />
