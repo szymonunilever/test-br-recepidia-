@@ -1,7 +1,8 @@
-[build]
-  command = "yarn build updateES=true"
-
 [[headers]]
   for = "/*"
   [headers.values]
     Basic-Auth = "unilever:@@Brazil!@@"
+
+[build]
+  command = "yarn build updateES=true"
+  publish = "public/"

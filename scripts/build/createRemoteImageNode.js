@@ -10,7 +10,7 @@ module.exports = async (url, id, staticParams) => {
     ext: '.jpg',
     name: 'image',
     httpHeaders: {
-      staticFirstApiKey: keys.AemAssetsCredentials['static-first-api-key'],
+      staticFirstApiKey: keys.AemAssetsCredentials['staticFirstApiKey'],
       Authorization: keys.AemAssetsCredentials.Authorization,
     },
     ...staticParams,
