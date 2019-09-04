@@ -26,11 +26,13 @@ export const query = graphql`
     name
     title
     inNavigation
+    categoryOrder
     categoryId
     children {
       ... on Category {
         id
         name
+        categoryOrder
         title
         inNavigation
         fields {
