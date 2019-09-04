@@ -15,8 +15,9 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       data: { tag, allRecipe, allTag },
       pageContext: { tags, recipeDetails },
     } = props;
+    const countsToBreak = [8, 6];
 
-    const initialRecipesCount = useMedia();
+    const initialRecipesCount = useMedia(undefined, countsToBreak);
     const [recipeResultsList, setRecipeResultsList] = useState<
       Internal.Recipe[]
     >([]);
@@ -86,19 +87,30 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
     };
 
     useEffect(() => {
-      if (initialRecipesCount) {
-        if (allRecipe.nodes && !allRecipe.nodes.length) {
-          getRecipeSearchData({
-            size: initialRecipesCount,
-          }).then(res => {
-            setRecipeResultsList(res.hits.hits.map(item => item._source));
-            setRecipeResultsCount(res.hits.total);
-            setDataFetched(true);
-          });
-        } else {
-          setRecipeResultsList(allRecipe.nodes.slice(0, initialRecipesCount));
-          setDataFetched(true);
-        }
+      if (
+        !initialRecipesCount ||
+        recipeResultsList.length > Math.max(...countsToBreak)
+      ) {
+        return;
+      }
+
+      const setRecipes = (list: Internal.Recipe[], count: number) => {
+        setRecipeResultsList(list);
+        setRecipeResultsCount(count);
+        setDataFetched(true);
+      };
+
+      if (allRecipe.nodes && !allRecipe.nodes.length) {
+        getRecipeSearchData({
+          size: initialRecipesCount,
+        }).then(res => {
+          setRecipes(res.hits.hits.map(item => item._source), res.hits.total);
+        });
+      } else {
+        setRecipes(
+          allRecipe.nodes.slice(0, initialRecipesCount),
+          allRecipe.totalCount
+        );
       }
     }, [initialRecipesCount]);
 
