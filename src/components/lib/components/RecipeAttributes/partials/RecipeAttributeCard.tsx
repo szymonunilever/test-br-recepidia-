@@ -31,9 +31,18 @@ const RecipeAttributeCard = ({
       className="recipe-attribute-card__icon"
     />
   ) : null;
+
   return (
     <div className={classWrapper}>
-      <div className="recipe-attribute-card__item">
+      <div
+        className={`recipe-attribute-card__item ${
+          label && label.title
+            ? `recipe-attribute-card__item--${label.title
+                .toLocaleLowerCase()
+                .replace(' ', '-')}`
+            : ''
+        }`}
+      >
         {IconImg}
         {title}
         <div className="recipe-attribute-card__value">

@@ -19,7 +19,6 @@ import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
@@ -43,7 +42,6 @@ const RecipeCategoryPage = ({
   recipeResultsCount,
   onLoadMoreRecipes,
 }: RecipeCategoryPageProps) => {
-  //TODO: remove object assign and replace let to const when main page json will be fixed
   const {
     page: { components, seo, type },
     category,
@@ -51,11 +49,6 @@ const RecipeCategoryPage = ({
   } = pageContext;
 
   const { localImage, title, description } = category;
-  const textDescription = {
-    text:
-      description ||
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n',
-  };
   const { allTag, allArticle, allCategory } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
@@ -104,7 +97,7 @@ const RecipeCategoryPage = ({
           <RichText
             type="html"
             className={cx(theme.heroDescription, 'wrapper')}
-            content={textDescription}
+            content={{ text: description }}
           />
         </div>
       </section>

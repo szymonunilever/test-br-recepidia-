@@ -8,6 +8,7 @@ declare namespace AppContent.RecipeListing {
     sortSelectPlaceholder?: string;
     nullResult?: NullResult;
     filtersPanel?: FiltersPanel;
+    staticList?: number[];
   }
   interface OptionLabels {
     preparationTime: string;

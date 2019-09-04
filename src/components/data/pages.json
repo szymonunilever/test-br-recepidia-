@@ -467,7 +467,8 @@
               },
               "titleTotal": "Total",
               "titlePer100": "Porção de 100 g",
-              "titlePerServing": "Rendimento"
+              "titlePerServing": "Rendimento",
+              "modalTitle": "Nutritional information"
             }
           },
           {
@@ -477,6 +478,13 @@
               "loadMoreButton": {
                 "label": "+ ver mais categorias"
               }
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "text": "Nutritional",
+              "view": "NutritionalTitle"
             }
           }
         ]
@@ -550,7 +558,7 @@
     },
     {
       "type": "AllRecipes",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
           {
@@ -605,7 +613,8 @@
             "name": "RecipeListing",
             "content": {
               "view": "SeasonalPromotionalRecipes",
-              "title": "Receitas especiais"
+              "title": "Receitas especiais",
+              "staticList": [176094, 175506, 175505, 173885, 173884, 173870]
             }
           },
           {

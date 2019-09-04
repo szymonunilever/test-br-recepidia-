@@ -71,7 +71,6 @@ const AllRecipesPage = ({
   const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
     const tagsWithCategories = tags.map(tag => {
       const category = allTagGroupings.nodes.find(
-        // @ts-ignore
         cat => cat.children.findIndex(el => el.id === tag.id) !== -1
       );
       let tagWithCategory: Internal.Tag & { category?: string } = tag;
@@ -270,8 +269,11 @@ export default withInitialDataAndAsyncLoadMore<AllRecipesPageProps>(
 );
 
 export const query = graphql`
-  {
-    promotionalRecipes: allRecipe(limit: 6) {
+  query($RecipeListing_SeasonalPromotionalRecipes: [Int]) {
+    promotionalRecipes: allRecipe(
+      filter: { recipeId: { in: $RecipeListing_SeasonalPromotionalRecipes } }
+      sort: { fields: creationTime, order: DESC }
+    ) {
       nodes {
         ...RecipeFields
       }
@@ -327,6 +329,7 @@ interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
   };
   pageContext: {
     page: AppContent.Page;
+    RecipeListing_SeasonalPromotionalRecipes: number[];
   };
   location: WindowLocation;
 }
