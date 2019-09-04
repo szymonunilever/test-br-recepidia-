@@ -4,27 +4,18 @@ import { RecipeHeroProps } from './models';
 import theme from './RecipeHero.module.scss';
 import AdaptiveImage from '../AdaptiveImage';
 
-const RecipeHero = ({
-  content,
-  imagePlaceholder,
-  className,
-  imageSizes,
-}: RecipeHeroProps) => {
+const RecipeHero = ({ content, className, imageSizes }: RecipeHeroProps) => {
   const containerStyles = cx('recipe-hero', className, theme.container);
   const imageStyles = cx('recipe-hero__image', theme.image);
 
   return (
     <div data-componentname="recipe-hero" className={containerStyles}>
       <div className={imageStyles}>
-        {content.localImage ? (
-          <AdaptiveImage
-            localImage={content.localImage}
-            sizes={imageSizes}
-            alt={content.title}
-          />
-        ) : (
-          <AdaptiveImage localImage={imagePlaceholder} alt={content.title} />
-        )}
+        <AdaptiveImage
+          localImage={content.localImage}
+          sizes={imageSizes}
+          alt={content.title}
+        />
       </div>
     </div>
   );

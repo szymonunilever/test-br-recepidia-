@@ -4,7 +4,6 @@ import Wizard from '../../components/lib/components/Wizard';
 import WizardIntroductionPanel from '../../components/lib/components/Wizard/partials/IntroductionPanel';
 import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
 import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
-import localImage from '../../../stories/assets/localImage';
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';

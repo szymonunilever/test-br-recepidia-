@@ -18,7 +18,6 @@ import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
-import TagLinks from 'src/components/TagsLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
