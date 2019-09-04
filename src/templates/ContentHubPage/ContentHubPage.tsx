@@ -176,7 +176,11 @@ export const query = graphql`
       }
     }
 
-    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
       nodes {
         ...CategoryFields
       }

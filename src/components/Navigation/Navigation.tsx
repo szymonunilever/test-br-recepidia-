@@ -19,8 +19,8 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
   const data = useStaticQuery(graphql`
     {
       allCategory(
-        filter: { parent: { id: { eq: null } } }
-        sort: { order: ASC, fields: categoryId }
+        filter: { parent: { id: { eq: null } }, inNavigation: { eq: true } }
+        sort: { order: ASC, fields: categoryOrder }
       ) {
         nodes {
           ...CategoryNavigationFields
