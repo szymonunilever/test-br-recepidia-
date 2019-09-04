@@ -162,7 +162,7 @@ exports.onCreateNode = async ({
                 createNode,
                 createNodeId,
               });
-              component.assets[index][`localImage___NODE`] = fileNode.id;
+              asset[`localImage___NODE`] = fileNode.id;
             } catch (error) {
               console.error(error);
             }
