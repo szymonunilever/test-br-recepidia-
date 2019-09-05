@@ -34,8 +34,15 @@ const getEnvVars = prefix => {
       reduce(
         items,
         (result, name) => {
-          result[`${name.split(prefix)[1].replace(/_/g, '.')}`] =
-            process.env[name];
+          let value = process.env[name];
+
+          // Try to convert string values to object, array, number to avoid errors using config values across the application
+          try {
+            value = JSON.parse(value);
+            // eslint-disable-next-line no-empty
+          } catch {}
+
+          result[`${name.split(prefix)[1].replace(/_/g, '.')}`] = value;
           return result;
         },
         {}
@@ -54,12 +61,25 @@ let ciVars = getEnvVars(ciVarPrefix);
 if (isEmpty(ciVars)) {
   ciVars = getEnvVars(ciDefaultVarPrefix);
 
-  // For a Deploy Preview dedicated ES indexes should be created with unique names
-  if (process.env.CONTEXT && process.env.CONTEXT === 'deploy-preview') {
-    ciVars.elasticSearch.recipeIndex = `${process.env.REVIEW_ID}--${
+  // Netlify automatically set CONTEXT env variable during build
+  // For a Deploy Preview and Branch Deploy dedicated ES indexes should be created with unique names
+  if (process.env.CONTEXT) {
+    let esIndexPrefix;
+
+    // REVIEW_ID: the ID of a Deploy Preview and the pull/merge request that generated it
+    if (process.env.CONTEXT === 'deploy-preview') {
+      esIndexPrefix = process.env.REVIEW_ID;
+    }
+
+    // BRANCH: Reference to check out after fetching changes from the Git repository
+    if (process.env.CONTEXT === 'branch-deploy') {
+      esIndexPrefix = process.env.BRANCH;
+    }
+
+    ciVars.elasticSearch.recipeIndex = `${esIndexPrefix}--${
       ciVars.elasticSearch.recipeIndex
     }`;
-    ciVars.elasticSearch.articleIndex = `${process.env.REVIEW_ID}--${
+    ciVars.elasticSearch.articleIndex = `${esIndexPrefix}--${
       ciVars.elasticSearch.articleIndex
     }`;
   }
