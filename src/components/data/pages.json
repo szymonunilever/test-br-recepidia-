@@ -468,7 +468,7 @@
               "titleTotal": "Total",
               "titlePer100": "Porção de 100 g",
               "titlePerServing": "Rendimento",
-              "modalTitle": "Nutritional information"
+              "modalTitle": "Informações nutricionais"
             }
           },
           {
@@ -483,7 +483,7 @@
           {
             "name": "Text",
             "content": {
-              "text": "Nutritional",
+              "text": "Nutricionais",
               "view": "NutritionalTitle"
             }
           }
