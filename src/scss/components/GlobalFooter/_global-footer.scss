@@ -135,12 +135,13 @@ $footer-color: $black-blue;
     width: 45px;
     height: 50px;
     background: url(../svgs/unilever-logo.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     @include respondTo(desktop) {
       display: block;
       margin: 0 auto;
       width: 60px;
-      height: 66.7px;
+      height: 68px;
     }
     svg {
       width: 100%;
