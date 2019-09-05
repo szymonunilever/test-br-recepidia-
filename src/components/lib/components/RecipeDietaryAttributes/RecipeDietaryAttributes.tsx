@@ -23,7 +23,7 @@ const RecipeDietaryAttributes = ({
       return (
         <Attribute
           key={attr.id}
-          attributeText={attr.name}
+          attributeText={attr.title || attr.name}
           icon={icon && activeAttribute ? icon.active : get(icon, 'inActive')}
         />
       );

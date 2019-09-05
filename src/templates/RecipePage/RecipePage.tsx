@@ -87,6 +87,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         tags {
           id
           name
+          title
         }
       }
     }
