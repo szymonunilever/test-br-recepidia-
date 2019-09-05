@@ -476,7 +476,7 @@
             "content": {
               "title": "Categorias relacionadas",
               "loadMoreButton": {
-                "label": "+ ver mais categorias"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -524,7 +524,7 @@
             "name": "Tags",
             "content": {
               "title": "Procurar por categorias",
-              "loadMoreButton": { "label": "+ ver mais categorias" }
+              "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
           {
@@ -673,7 +673,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -820,7 +820,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
