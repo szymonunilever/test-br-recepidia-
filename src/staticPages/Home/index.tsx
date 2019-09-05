@@ -222,11 +222,6 @@ export const pageQuery = graphql`
       }
     }
 
-    allTag {
-      nodes {
-        ...TagFields
-      }
-    }
     allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }
