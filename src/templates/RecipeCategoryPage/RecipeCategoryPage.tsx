@@ -27,7 +27,7 @@ import includes from 'lodash/includes';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
-import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
@@ -185,7 +185,7 @@ const RecipeCategoryPage = ({
   );
 };
 
-export default withRecipeSearchResults(RecipeCategoryPage);
+export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
   query($tags: [Int]) {

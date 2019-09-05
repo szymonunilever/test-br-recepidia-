@@ -7,6 +7,7 @@ const RecipeAttributeCard = ({
   Icon,
   label,
   value,
+  type,
 }: RecipeAttributeCardProps) => {
   const classWrapper = cx(theme.recipeAttributeCard, className);
   const title =
@@ -36,10 +37,11 @@ const RecipeAttributeCard = ({
     <div className={classWrapper}>
       <div
         className={`recipe-attribute-card__item ${
-          label && label.title
-            ? `recipe-attribute-card__item--${label.title
-                .toLocaleLowerCase()
-                .replace(' ', '-')}`
+          type
+            ? `recipe-attribute-card__item--${type
+                .split(/\s+|_+|(?=[A-Z])/)
+                .join('-')
+                .toLowerCase()}`
             : ''
         }`}
       >

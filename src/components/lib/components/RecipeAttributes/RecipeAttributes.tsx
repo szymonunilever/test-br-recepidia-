@@ -30,6 +30,7 @@ export const RecipeAttributes = ({
 
       return (
         <RecipeAttributeCard
+          type={value}
           key={index}
           value={difficultyVal}
           label={labels ? labels[RecipeAttributesKeys[value]] : undefined}
@@ -43,6 +44,7 @@ export const RecipeAttributes = ({
         return (
           <RecipeAttributeCard
             key={index}
+            type={value}
             value={attrValue}
             label={labels ? labels[RecipeAttributesKeys[value]] : undefined}
             Icon={icons ? icons[RecipeAttributesKeys[value]] : undefined}
