@@ -1261,7 +1261,7 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "Favorite Recipes",
+              "title": "Receitas favoritas",
               "subtitle": "Você ainda não tem receitas favoritas :(",
               "textList": []
             }
@@ -2175,7 +2175,7 @@
               },
               "wizardResultSection": {
                 "title": "Cardápio semanal",
-                "subheading": "Você possu [[counter]] recipes for the week",
+                "subheading": "Aqui está o cardápio que preparei para sua semana",
                 "primaryButtonLabel": "Conferir seu cardápio"
               }
             }
