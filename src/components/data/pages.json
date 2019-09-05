@@ -384,6 +384,25 @@
       "components": {
         "items": [
           {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": "Compartilhe"
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
+          {
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
