@@ -23,7 +23,6 @@ import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import includes from 'lodash/includes';
 
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
@@ -45,11 +44,14 @@ const RecipeCategoryPage = ({
   const {
     page: { components, seo, type },
     category,
-    tags,
   } = pageContext;
 
   const { localImage, title, description } = category;
-  const { allTag, allArticle, allCategory } = data;
+  const {
+    tags: { nodes: categoryTags },
+    allArticle,
+    allCategory,
+  } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
@@ -73,7 +75,6 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
-  const categoryTags = allTag.nodes.filter(tag => includes(tags, tag.tagId));
 
   return (
     <Layout className={classWrapper}>
@@ -197,11 +198,13 @@ export const query = graphql`
       }
       totalCount
     }
-    allTag {
+
+    tags: allTag(filter: { tagId: { in: $tags } }) {
       nodes {
         ...TagFields
       }
     }
+
     allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }
@@ -235,7 +238,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     allArticle: {
       nodes: Internal.Article[];
     };
-    allTag: {
+    tags: {
       nodes: Internal.Tag[];
     };
     allCategory: {
