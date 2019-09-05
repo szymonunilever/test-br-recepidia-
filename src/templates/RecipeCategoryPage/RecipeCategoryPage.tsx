@@ -103,7 +103,11 @@ const RecipeCategoryPage = ({
       </section>
       {localImage && (
         <section className={cx(theme.heroBg, 'wrapper')}>
-          <AdaptiveImage localImage={localImage} alt={title} />
+          <AdaptiveImage
+            className={theme.heroBgImage}
+            localImage={localImage}
+            alt={title}
+          />
         </section>
       )}
       <section className={cx(theme.greyBg, 'bg--half wrapper')}>
