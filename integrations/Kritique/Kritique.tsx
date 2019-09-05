@@ -4,6 +4,12 @@ import Helmet from 'react-helmet';
 
 // TODO: Integrations should be moved into lib folder
 import { reloadKritiqueWidget } from '../../src/components/lib/utils/useKritiqueReload';
+import { isBrowser } from 'src/utils';
+
+export enum ScriptType {
+  jQuery = 'jQuery',
+  Kritique = 'ratingReview',
+}
 
 const Kritique = () => {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -12,38 +18,28 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const [locationOrigin, setLocationOrigin] = useState('');
-  const [injectScript, setinjectScript] = useState(false);
+  const [injectScript, setInjectScript] = useState(false);
 
   useEffect(() => {
-    setLocationOrigin(window.location.origin);
+    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
 
-    setTimeout(() => setinjectScript(true), 5000);
-  }, []);
-
-  // @ts-ignore
-  const handleScriptInject = ({ scriptTags }) => {
-    if (scriptTags) {
-      const scriptTag = scriptTags.find(
-        (el: HTMLElement) => el.id === 'rr-widget'
-      );
-
-      if (scriptTag) {
-        scriptTag.onload = () => setTimeout(reloadKritiqueWidget, 2000);
-      }
+    if (isKritiqueLoaded) {
+      setInjectScript(isKritiqueLoaded);
+      setTimeout(reloadKritiqueWidget, 2000);
+    } else {
+      setTimeout(() => {
+        sessionStorage.setItem('isKritiqueLoaded', 'true');
+        setInjectScript(true);
+      }, 5000);
     }
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChangeClientState = (newState: any, addedTags: any) =>
-    handleScriptInject(addedTags);
+  }, []);
 
   return (
     <>
-      {locationOrigin && injectScript ? (
+      {isBrowser() &&
+      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
         <Helmet
           // @ts-ignore
-          onChangeClientState={handleChangeClientState}
           script={[
             {
               src: '/libs/jquery.min.js',
