@@ -39,8 +39,6 @@ module.exports = async ({ graphql, createPage }) => {
                       sizes
                       src
                       srcSet
-                      srcSetWebp
-                      srcWebp
                     }
                   }
                 }
