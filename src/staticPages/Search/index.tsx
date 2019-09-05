@@ -8,7 +8,6 @@ import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
-import pageListingData from 'src/components/data/pageListing.json';
 import DigitalData from '../../../integrations/DigitalData';
 import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
@@ -31,7 +30,11 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  const { allTag } = data;
+  const { allTag, allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
 
   const {
     getSearchData,
@@ -150,6 +153,15 @@ export const pageQuery = graphql`
         ...TagFields
       }
     }
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
+      nodes {
+        ...CategoryFields
+      }
+    }
   }
 `;
 
@@ -157,6 +169,9 @@ export interface SearchPageProps {
   data: {
     allTag: {
       nodes: Internal.Tag[];
+    };
+    allCategory: {
+      nodes: Internal.Category[];
     };
   };
   pageContext: {
