@@ -34,6 +34,7 @@ export interface PreferenceEntryProps {
     }
   ) => void;
   buttonsContent: PreferenceButtonsProps;
+  setLastInteraction: (lastInteraction: LastInteraction | {}) => void;
 }
 
 export interface PreferenceUpdateProps {

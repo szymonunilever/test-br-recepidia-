@@ -4,12 +4,13 @@ import React, {
   useCallback,
   FunctionComponent,
 } from 'react';
-import { PreferenceEntryProps } from './models';
+import { PreferenceEntryProps, PreferenceUpdateResultType } from './models';
 import Button from 'src/components/lib/components/Button';
 import Question from 'src/components/lib/components/Wizard/partials/Quiz/partials/Question';
 import QuestionLabel from 'src/components/lib/components/Wizard/partials/Quiz/partials/QuestionLabel';
 import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
 import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
+import { PreferenceInteractionType } from '../index';
 
 const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
   preferenceEntry,
@@ -19,6 +20,7 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
   deleteEntry,
   saveEntry,
   buttonsContent,
+  setLastInteraction,
 }) => {
   const [val, setVal] = useState();
 
@@ -36,6 +38,12 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
 
   const triggerEdit = useCallback(() => {
     setEditEntryKey(preferenceEntry.key);
+    setLastInteraction({
+      key: preferenceEntry.key,
+      resultType: PreferenceUpdateResultType.Success,
+      message: `editing ${preferenceEntry.key}`,
+      interactionType: PreferenceInteractionType.Edit,
+    });
   }, [preferenceEntry]);
 
   const saveChanges = useCallback(() => {
