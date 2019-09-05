@@ -6,10 +6,12 @@ export const query = graphql`
       ... on Tag {
         id
         name
+        title
         tagId
       }
     }
     id
     name
+    label
   }
 `;
