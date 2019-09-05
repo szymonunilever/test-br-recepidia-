@@ -27,7 +27,7 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
-import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
@@ -146,7 +146,9 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   );
 };
 
-export default withRecipeSearchResults<ContentHubPageProps>(ContentHubPage);
+export default withInitialDataAndAsyncLoadMore<ContentHubPageProps>(
+  ContentHubPage
+);
 
 export const query = graphql`
   query($slug: String, $name: String) {
