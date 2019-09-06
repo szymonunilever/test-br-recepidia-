@@ -5,4 +5,5 @@ export interface SitemapProps {
   title?: string;
   titleLevel?: TagName;
   content: SitemapCategoryEntry[];
+  wrapBlocks?: boolean;
 }
