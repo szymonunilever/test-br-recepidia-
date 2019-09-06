@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 .tags {
   @extend ._pt--40;
   @extend ._pb--40;
@@ -34,6 +39,10 @@
 
   &__toggle {
     @extend .tags__link;
+    &__selected {
+      background-color: $fish-blue-darker;
+      color: $white;
+    }
   }
 
   &__removable {

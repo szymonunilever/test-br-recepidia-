@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 $col-width-mobile: 100% / 2;
 $col-width-medium: 100% / 4;
 $col-width-desktop: 100% / 4;
@@ -78,9 +83,6 @@ $col-indent-desktop: 8px;
   &__subtitle {
     font-size: 1.6rem;
     margin-bottom: 25px;
-  }
-  &__list {
-    list-style-image: url(../svgs/checkmark.svg);
   }
   &__item {
     font-size: 1.4rem;

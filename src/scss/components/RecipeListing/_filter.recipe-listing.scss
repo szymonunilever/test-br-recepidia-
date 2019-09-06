@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../components/Button/index';
+
 .recipe-list {
   &__filter {
     display: flex;

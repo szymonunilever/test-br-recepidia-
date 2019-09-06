@@ -29,6 +29,8 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
+// Component Styles
+import '../../scss/pages/_mealPlanner.scss';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {

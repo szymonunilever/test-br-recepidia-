@@ -23,6 +23,8 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
+// Component Styles
+import '../../scss/pages/_allRecipes.scss';
 
 import keys from 'integrations/keys.json';
 

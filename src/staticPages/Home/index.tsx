@@ -25,6 +25,8 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { isQuizesStored, getTopRecipes, getLatestAndGratest } from './helpers';
+// Component Styles
+import '../../scss/pages/_home.scss';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;

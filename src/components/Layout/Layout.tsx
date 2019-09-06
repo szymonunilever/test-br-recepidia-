@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-// import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
@@ -13,6 +12,9 @@ import BrandSocialChannels from 'src/components/lib/components/BrandSocialChanne
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
+// // Component Styles
+import '../../scss/pages/_layout.scss';
+
 import find from 'lodash/find';
 
 const Layout = ({ children, className }: LayoutProps) => {

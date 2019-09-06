@@ -10,6 +10,8 @@ import DigitalData from 'integrations/DigitalData';
 import { findPageComponentContent } from 'src/utils';
 import theme from './NotFound.module.scss';
 import cx from 'classnames';
+// Component Styles
+import '../../scss/pages/_notFound.scss';
 
 const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
   const {

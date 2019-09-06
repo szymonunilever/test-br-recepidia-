@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../components/Button/index';
+
 .modal--filter {
   .modal__overlay {
     top: auto;

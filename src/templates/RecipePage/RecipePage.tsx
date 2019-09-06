@@ -61,6 +61,8 @@ import remove from 'lodash/remove';
 import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
+// Component Styles
+import '../../scss/pages/_recipePage.scss';
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
