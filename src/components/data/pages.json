@@ -280,7 +280,7 @@
                         "text": "Com a galera",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
-                          "alt": ""
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -290,7 +290,7 @@
                         "text": "Com o crush",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
-                          "alt": ""
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -300,7 +300,7 @@
                         "text": "Com meus filhos",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
-                          "alt": ""
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -310,7 +310,7 @@
                         "text": "Com meus net",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
-                          "alt": ""
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -333,7 +333,7 @@
                         "text": "Só sei fazer gelo",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
-                          "alt": ""
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -343,7 +343,7 @@
                         "text": "Me viro bem",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
-                          "alt": ""
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -353,7 +353,7 @@
                         "text": "Me chame de chef!",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
-                          "alt": ""
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
@@ -1583,8 +1583,8 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -1593,8 +1593,8 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -1603,8 +1603,8 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -1613,8 +1613,8 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -1636,8 +1636,8 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -1646,8 +1646,8 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -1656,8 +1656,8 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
