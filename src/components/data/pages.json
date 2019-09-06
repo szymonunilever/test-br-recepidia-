@@ -279,7 +279,7 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
                           "alt": ""
                         }
                       }
@@ -289,7 +289,7 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
                           "alt": ""
                         }
                       }
@@ -299,7 +299,7 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
                           "alt": ""
                         }
                       }
@@ -309,7 +309,7 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
                           "alt": ""
                         }
                       }
@@ -332,7 +332,7 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
                           "alt": ""
                         }
                       }
@@ -342,7 +342,7 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
                           "alt": ""
                         }
                       }
@@ -352,7 +352,7 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
                           "alt": ""
                         }
                       }
@@ -1799,7 +1799,7 @@
                     {
                       "value": "<21",
                       "label": {
-                        "text": "Quero ser rápido! (Total time < 20 min)",
+                        "text": "Quero ser rápido!",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
                           "alt": "Quero ser rápido!"
