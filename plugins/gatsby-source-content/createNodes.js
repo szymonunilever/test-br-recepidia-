@@ -15,6 +15,32 @@ const processComponent = component => {
   };
 };
 
+exports.createDictionaryNodes = (
+  dictionary,
+  { createNodeId, createContentDigest, createNode }
+) => {
+  const nodeId = createNodeId(`dictionary`);
+  const nodeContent = JSON.stringify({
+    content: JSON.stringify(dictionary),
+  });
+  const nodeData = Object.assign(
+    {},
+    { content: JSON.stringify(dictionary) },
+    {
+      id: nodeId,
+      internal: {
+        type: 'Dictionary',
+        content: nodeContent,
+        contentDigest: createContentDigest({
+          content: JSON.stringify(dictionary),
+        }),
+      },
+    }
+  );
+  createNode(nodeData);
+  return nodeData;
+};
+
 exports.createPagesNodes = (
   page,
   { createNodeId, createContentDigest, createNode }

@@ -384,6 +384,25 @@
       "components": {
         "items": [
           {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": "Compartilhe"
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
+          {
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
@@ -476,7 +495,7 @@
             "content": {
               "title": "Categorias relacionadas",
               "loadMoreButton": {
-                "label": "+ ver mais categorias"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -524,7 +543,7 @@
             "name": "Tags",
             "content": {
               "title": "Procurar por categorias",
-              "loadMoreButton": { "label": "+ ver mais categorias" }
+              "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
           {
@@ -673,7 +692,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -820,7 +839,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },

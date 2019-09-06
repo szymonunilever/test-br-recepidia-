@@ -305,11 +305,13 @@ export const query = graphql`
             }
             id
             name
+            title
             tagId
           }
         }
         id
         name
+        label
       }
     }
   }

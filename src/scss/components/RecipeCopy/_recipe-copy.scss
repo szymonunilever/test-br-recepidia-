@@ -1,6 +1,6 @@
 .recipe-copy {
   &__title {
-    h1{
+    h1 {
       @extend %h1--smaller;
     }
   }
@@ -9,6 +9,9 @@
       font-size: 1.4rem;
       line-height: 1.8rem;
       margin-bottom: 20px;
+      @include respondTo(desktop) {
+        color: $fish-blue-darker;
+      }
     }
   }
 }
