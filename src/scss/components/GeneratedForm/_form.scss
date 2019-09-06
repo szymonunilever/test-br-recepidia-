@@ -14,6 +14,9 @@ $validation-icon-size: 18px;
   &__button--primary {
     @extend .button;
   }
+  a {
+    @extend %link--inline;
+  }
 }
 
 .field {
@@ -25,35 +28,6 @@ $validation-icon-size: 18px;
     font-weight: 500;
     margin: 0 0 9px 0;
     display: block;
-  }
-  &__wrap {
-    position: relative;
-    padding-bottom: 28px;
-    &:after {
-      display: flex;
-      border-radius: 100%;
-      width: $validation-icon-size;
-      height: $validation-icon-size;
-      color: $white;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: -20px;
-      top: calc(50% - #{$validation-icon-size/2} - #{$alert-msg-height/2});
-      font-size: 12px;
-      line-height: 1.17;
-      @include respondTo(desktop) {
-        right: -35px;
-      }
-    }
-    &--inline {
-      display: flex;
-      .checkable {
-        margin-right: 30px;
-      }
-    }
-  }
-  &__select {
   }
   &__input {
     @extend %input-general;
@@ -74,6 +48,35 @@ $validation-icon-size: 18px;
   }
 }
 
+.field__wrap,
+.checkable.checkbox {
+  position: relative;
+  padding-bottom: 28px;
+  &:after {
+    display: flex;
+    border-radius: 100%;
+    width: $validation-icon-size;
+    height: $validation-icon-size;
+    color: $white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -20px;
+    top: calc(50% - #{$validation-icon-size/2} - #{$alert-msg-height/2});
+    font-size: 12px;
+    line-height: 1.17;
+    @include respondTo(desktop) {
+      right: -35px;
+    }
+  }
+  &--inline {
+    display: flex;
+    .checkable {
+      margin-right: 30px;
+    }
+  }
+}
+
 .valid {
   %input-general {
     border-color: $apple-green;
@@ -89,7 +92,8 @@ $validation-icon-size: 18px;
   %input-general {
     border-color: $alert-color;
   }
-  &.field__wrap {
+  &.field__wrap,
+  &.checkable.checkbox {
     padding-bottom: 0;
     &:after {
       content: '!';

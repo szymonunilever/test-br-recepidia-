@@ -1115,6 +1115,38 @@
                   ]
                 },
                 {
+                  "name": "consentsFieldset",
+                  "type": "fieldset",
+                  "label": ""
+                },
+                {
+                  "name": "consent1",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas de Recepedia."
+                },
+                {
+                  "name": "consent2",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas sobre as marcas da Unilever e sobre as suas ações para fazer o bem"
+                },
+                {
+                  "name": "consent3",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Política de Privacidade da Unilever</a> e com os <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Termos de Uso</a>",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Deve ter idade de 18 anos para se inscrever"
+                    }
+                  ]
+                },
+                {
                   "name": "brand",
                   "type": "hidden",
                   "value": "Recepedia",
