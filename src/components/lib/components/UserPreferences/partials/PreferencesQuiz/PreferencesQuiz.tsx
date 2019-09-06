@@ -43,14 +43,6 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
     });
   };
 
-  const setEditingKeyWithInteraction = useCallback(
-    (entryKey: string) => {
-      setEditingKey(entryKey);
-      setLastInteraction({});
-    },
-    [setEditingKey, setLastInteraction]
-  );
-
   const saveThisEntry = (
     key: string,
     selectedOptions: {
@@ -103,7 +95,8 @@ const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
                   preferenceEntry={item}
                   selectedOptions={answers[item.key]}
                   editingKey={editingKey}
-                  setEditEntryKey={setEditingKeyWithInteraction}
+                  setEditEntryKey={setEditingKey}
+                  setLastInteraction={setLastInteraction}
                   deleteEntry={deleteThisEntry}
                   saveEntry={saveThisEntry}
                   buttonsContent={buttonsContent}

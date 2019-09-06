@@ -16,6 +16,7 @@ const Tag = ({
   const [state, setState] = useState(active);
   const {
     name,
+    title,
     fields: { slug: path },
   } = tag;
   const classWrapper = cx('tags__item', {
@@ -54,14 +55,14 @@ const Tag = ({
     case TagVariant.link:
       view = (
         <Link className="tags__link" to={path}>
-          <span>{name}</span>
+          <span>{title || name}</span>
         </Link>
       );
       break;
     case TagVariant.removable:
       view = (
         <div className="tags__removable" tabIndex={0}>
-          <span>{name}</span>
+          <span>{title || name}</span>
           <Button
             className="tags__removable--button"
             onClick={onButtonClick}

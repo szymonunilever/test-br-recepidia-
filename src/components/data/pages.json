@@ -279,8 +279,8 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -289,8 +289,8 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -299,8 +299,8 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -309,8 +309,8 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -332,8 +332,8 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -342,8 +342,8 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -352,8 +352,8 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
@@ -383,6 +383,25 @@
       "relativePath": "/receitas",
       "components": {
         "items": [
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": "Compartilhe"
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
           {
             "name": "Hero",
             "content": {
@@ -468,7 +487,7 @@
               "titleTotal": "Total",
               "titlePer100": "Porção de 100 g",
               "titlePerServing": "Rendimento",
-              "modalTitle": "Nutritional information"
+              "modalTitle": "Informações nutricionais"
             }
           },
           {
@@ -476,14 +495,14 @@
             "content": {
               "title": "Categorias relacionadas",
               "loadMoreButton": {
-                "label": "+ ver mais categorias"
+                "label": "+ Ver mais categorias"
               }
             }
           },
           {
             "name": "Text",
             "content": {
-              "text": "Nutritional",
+              "text": "Nutricionais",
               "view": "NutritionalTitle"
             }
           }
@@ -524,7 +543,7 @@
             "name": "Tags",
             "content": {
               "title": "Procurar por categorias",
-              "loadMoreButton": { "label": "+ ver mais categorias" }
+              "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
           {
@@ -673,7 +692,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -820,7 +839,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -1096,6 +1115,38 @@
                   ]
                 },
                 {
+                  "name": "consentsFieldset",
+                  "type": "fieldset",
+                  "label": ""
+                },
+                {
+                  "name": "consent1",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas de Recepedia."
+                },
+                {
+                  "name": "consent2",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas sobre as marcas da Unilever e sobre as suas ações para fazer o bem"
+                },
+                {
+                  "name": "consent3",
+                  "type": "checkbox",
+                  "value": true,
+                  "fieldset": "consentsFieldset",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Política de Privacidade da Unilever</a> e com os <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Termos de Uso</a>",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Deve ter idade de 18 anos para se inscrever"
+                    }
+                  ]
+                },
+                {
                   "name": "brand",
                   "type": "hidden",
                   "value": "Recepedia",
@@ -1261,7 +1312,7 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "Favorite Recipes",
+              "title": "Receitas favoritas",
               "subtitle": "Você ainda não tem receitas favoritas :(",
               "textList": []
             }
@@ -1296,18 +1347,15 @@
                 "contents": [
                   {
                     "heading": "Favoritas",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
-                    "defaultSubheading": "Você possui {num} receitas favoritas",
+                    "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
                   {
                     "heading": "Preferências",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "UserPreferences"
                   },
                   {
                     "heading": "Cardápio semanal",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "MealPlanner"
                   }
                 ]
@@ -1532,8 +1580,8 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -1542,8 +1590,8 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -1552,8 +1600,8 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -1562,8 +1610,8 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -1585,8 +1633,8 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -1595,8 +1643,8 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -1605,8 +1653,8 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
@@ -1748,7 +1796,7 @@
                     {
                       "value": "<21",
                       "label": {
-                        "text": "Quero ser rápido! (Total time < 20 min)",
+                        "text": "Quero ser rápido!",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
                           "alt": "Quero ser rápido!"
@@ -2175,7 +2223,7 @@
               },
               "wizardResultSection": {
                 "title": "Cardápio semanal",
-                "subheading": "Você possu [[counter]] recipes for the week",
+                "subheading": "Aqui está o cardápio que preparei para sua semana",
                 "primaryButtonLabel": "Conferir seu cardápio"
               }
             }

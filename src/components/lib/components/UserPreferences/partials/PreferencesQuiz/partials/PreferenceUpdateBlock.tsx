@@ -15,6 +15,10 @@ const PreferenceUpdateBlock: FunctionComponent<UpdateBlockProps> = ({
       !(
         lastInteraction.interactionType === PreferenceInteractionType.Delete &&
         lastInteraction.resultType === PreferenceUpdateResultType.Success
+      ) &&
+      !(
+        lastInteraction.interactionType === PreferenceInteractionType.Edit &&
+        lastInteraction.resultType === PreferenceUpdateResultType.Success
       )
   );
   useEffect(() => {

@@ -1,5 +1,5 @@
-@import 'src/scss/vars';
-@import 'src/scss/mixins';
+@import '../../scss/vars';
+@import '../../scss/mixins';
 
 .home-hero-carousel:global(.bg--half) {
   &:before {
@@ -7,14 +7,10 @@
   }
 }
 
-.recipe-hidden{
-  :global(.carousel){
-    min-height: 350px;
-    @include respondTo(desktop){
-      min-height: 425px;
-    }
-    *{
-      visibility: hidden;
-    }
+.homeTitle {
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
   }
 }
+

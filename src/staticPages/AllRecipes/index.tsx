@@ -23,13 +23,10 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
+// Component Styles
+import '../../scss/pages/_allRecipes.scss';
 
 import keys from 'integrations/keys.json';
-
-export interface QueryString {
-  query: string;
-  fields?: string[];
-}
 
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { WindowLocation } from '@reach/router';
@@ -37,7 +34,10 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import useFavorite from 'src/utils/useFavorite';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
+import {
+  WithInitialDataAndAsyncLoadMore,
+  QueryString,
+} from 'src/components/withInitialDataAndAsyncLoadMore/models';
 
 const AllRecipesPage = ({
   data,
@@ -215,7 +215,7 @@ const AllRecipesPage = ({
             onLoadMore,
           }}
           onViewChange={onViewChange}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -249,7 +249,7 @@ const AllRecipesPage = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 
@@ -305,11 +305,13 @@ export const query = graphql`
             }
             id
             name
+            title
             tagId
           }
         }
         id
         name
+        label
       }
     }
   }

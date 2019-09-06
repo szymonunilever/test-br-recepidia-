@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../components/Button/index';
+
 .modal--filter {
   .modal__overlay {
     top: auto;
@@ -127,15 +131,19 @@
       .accordion__title {
         @extend h4;
         color: $fish-blue-darker;
-        display: flex;
-        justify-content: space-between;
         font-size: 1.8rem;
+        position: relative;
         @include respondTo(desktop) {
           position: fixed;
           transform: translateY(-45px);
         }
+        &::first-letter {
+          text-transform: uppercase;
+        }
 
         svg {
+          position: absolute;
+          right: 5px;
           transition: transform 0.2s;
           @include respondTo(desktop) {
             display: none;

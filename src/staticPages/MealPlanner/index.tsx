@@ -29,6 +29,8 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
+// Component Styles
+import '../../scss/pages/_mealPlanner.scss';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
@@ -148,7 +150,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     ],
                     arrowIcon: <ArrowIcon />,
                   }}
-                  imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                  imageSizes={'(min-width: 768px) 600w, 600px'}
                 />
                 <div className="wizard__buttons">
                   <Link

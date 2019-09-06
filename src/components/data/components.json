@@ -1,0 +1,138 @@
+{
+  "locale": "pt-br",
+  "components": {
+    "components": {
+      "items": [
+        {
+          "name": "GlobalNavigation",
+          "content": {
+            "list": [
+              {
+                "name": "Receitas",
+                "children": [
+                  {
+                    "name": "Receitas favoritas",
+                    "path": "/profile?tabOpen=ProfileFavorites"
+                  },
+                  {
+                    "name": "Todas as receitas",
+                    "path": "/receitas"
+                  }
+                ]
+              },
+              {
+                "name": "Planeje sua semana",
+                "path": "/meal-planner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SearchInput",
+          "content": {
+            "title": "O que você esta buscando?",
+            "placeholderText": "O que você está buscando?"
+          }
+        },
+        {
+          "name": "GlobalFooter",
+          "content": {
+            "copyrightText": "Unilever",
+            "lists": [
+              {
+                "items": [
+                  {
+                    "name": "Planeje sua semana",
+                    "path": "/meal-planner"
+                  },
+                  {
+                    "name": "Sobre Recepedia",
+                    "path": "/about-us"
+                  },
+                  {
+                    "name": "Fale comigo",
+                    "path": "/contact-us"
+                  },
+                  {
+                    "name": "Acessibilidade",
+                    "path": "https://www.unilever.com.br/accessibility.html"
+                  },
+                  {
+                    "name": "Cookies",
+                    "path": "https://www.unilevercookiepolicy.com/pt_PT/policy.aspx"
+                  },
+                  {
+                    "name": "Política de Privacidade",
+                    "path": "https://www.unileverprivacypolicy.com/portuguese/policy.aspx"
+                  },
+                  {
+                    "name": "Termos",
+                    "path": "https://www.unilever.com.br/legal.html"
+                  },
+                  {
+                    "name": "Mapa do site",
+                    "path": "/sitemap"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "BrandSocialChannels",
+          "content": {
+            "socialItems": {
+              "facebook": {
+                "label": "Facebook",
+                "url": "https://www.facebook.com/recepediabrasil/Recepedia"
+              },
+              "instagram": {
+                "label": "Instagram",
+                "url": "https://www.instagram.com/recepedia_br"
+              }
+            }
+          }
+        },
+        {
+          "name": "Form",
+          "content": {
+            "view": "SignUpForm",
+            "title": "Precisa de inspiração para o cardápio da semana?",
+            "fields": [],
+            "submitButton": {
+              "label": "Inscreva-se!"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "dictionary": {
+    "budgets": "Preço",
+    "cuisines": "Culinária",
+    "difficulties": "Dificuldade",
+    "dishes": "Receitas",
+    "mainIngredient": "Ingredientes que tenho",
+    "dietary": "Dietas",
+    "freeFormTags": "Tags de formulário grátis",
+    "cookingMethod": "Método de cozimento",
+    "courses": "Cursos",
+    "occasions": "Ocasiões",
+    "seasons": "Temporadas",
+    "spiciness": "Tempero",
+    "timesOfDay": "Horas do dia",
+    "annualEvents": "Eventos anuais",
+    "suitability": "Aptidão",
+    "dairy_free": "Sem leite",
+    "egg_free": "Sem ovos",
+    "gluten_free": "Glúten Free",
+    "lactose_free": "Zero Lactose",
+    "nut_free": "Livre de nozes",
+    "paleo_diet": "Paleo diet",
+    "pregnancy_safe": "Seguro de gravidez",
+    "raw_food": "Comida crua",
+    "wheat_free": "Sem trigo",
+    "vegan": "Vegano",
+    "vegetarian": "Vegetariana"
+  }
+}

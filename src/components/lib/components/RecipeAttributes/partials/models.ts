@@ -4,4 +4,5 @@ export interface RecipeAttributeCardProps {
   Icon?: any;
   label?: AppContent.RecipeAttributes.LabelItem;
   value: string | number;
+  type: string;
 }

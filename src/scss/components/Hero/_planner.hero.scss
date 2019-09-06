@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 .hero--planner {
   background-color: $fish-blue-darker;
   display: flex;
@@ -6,18 +11,60 @@
   @include respondTo(desktop) {
     position: relative;
     border-radius: 0;
+    min-height: 556px;
+    margin-bottom: 40px;
   }
   .hero {
     &__image {
+      overflow: hidden;
+      .adaptive-image {
+        height: 331px;
+        width: 500px;
+        overflow: hidden;
+        margin: 0 auto;
+        border-radius: 0;
+        @include respondTo(desktop) {
+          height: 500px;
+          max-width: 774px;
+          overflow: visible;
+          margin: 0;
+          width: 100%;
+        }
+        &__image {
+          position: relative;
+          bottom: -1px;
+          height: 400px;
+          left: 0;
+          @include respondTo(desktop) {
+            overflow: visible;
+            max-width: 759px;
+            width: 100%;
+            position: absolute !important;
+            left: 0;
+            height: 612px;
+            bottom: -107px;
+          }
+          img {
+            @include respondTo(desktop) {
+              object-position: 0% 50% !important;
+            }
+          }
+        }
+      }
       .gatsby-image-wrapper {
-        height: 300px;
+        // height: 300px;
       }
       @include respondTo(desktop) {
+        position: absolute;
+        top: 0;
+        left: 50%;
         width: 50%;
-        align-self: flex-end;
-        .gatsby-image-wrapper {
-          height: 556px;
-        }
+        height: 100%;
+        overflow: visible;
+        // .gatsby-image-wrapper {
+        //   height: 612px;
+        //   bottom: -48px;
+        // }
       }
     }
     &__container {
@@ -32,7 +79,7 @@
     &__copy {
       position: relative;
       padding-top: 42px;
-      padding-bottom: 40px;
+      padding-bottom: 20px;
       text-align: center;
       @include respondTo(desktop) {
         position: absolute;
@@ -61,9 +108,11 @@
       }
     }
     &__long-subheader {
-      margin-bottom: 27px;
       line-height: 1.29;
+      width: 75%;
+      margin: 0 auto 27px;
       @include respondTo(desktop) {
+        margin: 0 0 27px;
         padding: 0 70px;
       }
       p {
@@ -77,7 +126,8 @@
     &__cta-primary {
       button {
         @extend .button;
-        @extend .button--medium;
+        @extend .button--fullwidth;
+        // @extend .button--medium;
         @extend .button--yellow;
       }
     }

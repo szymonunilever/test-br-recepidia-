@@ -23,11 +23,11 @@ import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import includes from 'lodash/includes';
-
+// Component Styles
+import '../../scss/pages/_recipeCategories.scss';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
-import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
@@ -45,11 +45,14 @@ const RecipeCategoryPage = ({
   const {
     page: { components, seo, type },
     category,
-    tags,
   } = pageContext;
 
   const { localImage, title, description } = category;
-  const { allTag, allArticle, allCategory } = data;
+  const {
+    tags: { nodes: categoryTags },
+    allArticle,
+    allCategory,
+  } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
@@ -73,7 +76,6 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
-  const categoryTags = allTag.nodes.filter(tag => includes(tags, tag.tagId));
 
   return (
     <Layout className={classWrapper}>
@@ -103,7 +105,11 @@ const RecipeCategoryPage = ({
       </section>
       {localImage && (
         <section className={cx(theme.heroBg, 'wrapper')}>
-          <AdaptiveImage localImage={localImage} alt={title} />
+          <AdaptiveImage
+            className={theme.heroBgImage}
+            localImage={localImage}
+            alt={title}
+          />
         </section>
       )}
       <section className={cx(theme.greyBg, 'bg--half wrapper')}>
@@ -125,7 +131,7 @@ const RecipeCategoryPage = ({
           }}
           titleLevel={2}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (
@@ -181,7 +187,7 @@ const RecipeCategoryPage = ({
   );
 };
 
-export default withRecipeSearchResults(RecipeCategoryPage);
+export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
   query($tags: [Int]) {
@@ -197,11 +203,13 @@ export const query = graphql`
       }
       totalCount
     }
-    allTag {
+
+    tags: allTag(filter: { tagId: { in: $tags } }) {
       nodes {
         ...TagFields
       }
     }
+
     allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }
@@ -235,7 +243,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     allArticle: {
       nodes: Internal.Article[];
     };
-    allTag: {
+    tags: {
       nodes: Internal.Tag[];
     };
     allCategory: {

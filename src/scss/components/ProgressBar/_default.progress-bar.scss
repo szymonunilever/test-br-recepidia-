@@ -1,8 +1,11 @@
 .progress-bar{
   background-color: $gray;
   height: 2px;
-  width: 170px;
+  width: 102px;
   margin-bottom: 25px;
+  @include respondTo(desktop) {
+    width: 170px;
+  }
   &__content{
     transition: width .2s ease-in;
     height: 2px;

@@ -4,6 +4,7 @@ exports.NODE_TYPES = {
   CATEGORY: 'Category',
   TAG: 'Tag',
   PAGE: 'Page',
+  DICTIONARY: 'Dictionary',
 };
 
 exports.TEMPLATE_PAGE_TYPES = {

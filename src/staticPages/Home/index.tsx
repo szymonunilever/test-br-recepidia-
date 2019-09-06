@@ -25,6 +25,8 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { isQuizesStored, getTopRecipes, getLatestAndGratest } from './helpers';
+// Component Styles
+import '../../scss/pages/_home.scss';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -149,7 +151,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -178,7 +180,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 
@@ -222,11 +224,6 @@ export const pageQuery = graphql`
       }
     }
 
-    allTag {
-      nodes {
-        ...TagFields
-      }
-    }
     allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }

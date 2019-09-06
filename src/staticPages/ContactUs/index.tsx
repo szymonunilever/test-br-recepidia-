@@ -10,6 +10,8 @@ import theme from './ContactUs.module.scss';
 import { ReactComponent as Email } from 'src/svgs/inline/email.svg';
 import { ReactComponent as MapMarker } from 'src/svgs/inline/map-marker.svg';
 import { WindowLocation } from '@reach/router';
+// Component Styles
+import '../../scss/pages/_contactUs.scss';
 
 const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
   const {

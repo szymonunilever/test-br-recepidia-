@@ -8,6 +8,12 @@ export interface TabsProps
   tabsHeaderContent?: TabsHeaderContent;
   tabFromLocation?: boolean;
   location?: Location;
+  data?: TabsData[];
+}
+
+export interface TabsData {
+  pattern: string;
+  replacement: string | number;
 }
 
 export interface TabsHeaderContent {
