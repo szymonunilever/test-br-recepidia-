@@ -97,6 +97,17 @@ module.exports = {
         },
       },
     },
+    process.env.CONTEXT !== 'production' && {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [
+          {
+            userAgent: `*`,
+            disallow: `/`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-sitemap`,
   ],
 };
