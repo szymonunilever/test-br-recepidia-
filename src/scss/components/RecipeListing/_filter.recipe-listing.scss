@@ -13,8 +13,10 @@
         @extend h2;
         font-size: 1.8rem;
         margin-right: auto;
+        max-width: 110px;
         @include respondTo(desktop) {
           font-size: 2.5rem;
+          max-width: none;
         }
       }
       &__sort {
@@ -66,16 +68,18 @@
         @extend .button;
         @extend .button--filter;
         min-height: 43px;
+        min-width: 43px;
         @include respondTo(desktop) {
           min-height: 46px;
+          min-width: 46px;
         }
-        min-width: 46px;
+
       }
     }
     .tags {
       width: 100%;
       margin: 0;
-      padding: 20px 0;
+      padding: 30px 0;
     }
 
     .tags__removable {

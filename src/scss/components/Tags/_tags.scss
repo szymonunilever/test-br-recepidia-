@@ -31,6 +31,7 @@
     }
     span {
       display: table-cell;
+      width: 100%;
       &:first-letter {
         text-transform: uppercase;
       }
