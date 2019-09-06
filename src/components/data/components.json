@@ -98,34 +98,7 @@
           "content": {
             "view": "SignUpForm",
             "title": "Precisa de inspiração para o cardápio da semana?",
-            "fields": [
-              {
-                "name": "email input",
-                "label": "Email",
-                "type": "email",
-                "placeholder": "Seu email",
-                "validationRules": [
-                  {
-                    "type": "required",
-                    "errorMessage": "Campo obrigatório."
-                  },
-                  {
-                    "type": "maxLength",
-                    "value": 20,
-                    "errorMessage": "Esse campo está muito longo."
-                  },
-                  {
-                    "type": "minLength",
-                    "value": 4,
-                    "errorMessage": "Esse campo está muito curto."
-                  },
-                  {
-                    "type": "email",
-                    "errorMessage": "Por favor informe um e-mail válido."
-                  }
-                ]
-              }
-            ],
+            "fields": [],
             "submitButton": {
               "label": "Inscreva-se!"
             }
