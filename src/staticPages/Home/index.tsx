@@ -149,7 +149,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -178,7 +178,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 

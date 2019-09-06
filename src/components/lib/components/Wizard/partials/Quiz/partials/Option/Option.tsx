@@ -29,7 +29,7 @@ const Option: FunctionComponent<OptionProps> = ({ question, option }) => {
           <AdaptiveImage
             className="quiz__label-image"
             {...option.label.image}
-            sizes="(min-width: 100px) 400w, 400px"
+            sizes="(max-width: 1366px) 400w, 400px"
           />
         )}
       </div>

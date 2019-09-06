@@ -93,7 +93,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           initialCount={useMedia()}
           titleLevel={1}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 300w, 300px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (

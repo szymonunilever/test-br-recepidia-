@@ -214,7 +214,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   onLoadMore: onLoadMoreRecipes,
                   allCount: recipeByIdsResults.count,
                 }}
-                imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                imageSizes={'(min-width: 768px) 500w, 500px'}
               />
             ) : (
               <Fragment>
@@ -265,7 +265,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
               config={carouselConfig}
               titleLevel={1}
               onFavoriteChange={() => {}}
-              imageSizes={'(min-width: 768px) 25vw, 50vw'}
+              imageSizes={'(min-width: 768px) 500w, 500px'}
               ratingProvider={RatingAndReviewsProvider.kritique}
             />
             <div className={theme.mealPlannerBtnWrap}>
