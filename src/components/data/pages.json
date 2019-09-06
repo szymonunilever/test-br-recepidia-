@@ -1347,18 +1347,15 @@
                 "contents": [
                   {
                     "heading": "Favoritas",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
-                    "defaultSubheading": "Você possui {num} receitas favoritas",
+                    "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
                   {
                     "heading": "Preferências",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "UserPreferences"
                   },
                   {
                     "heading": "Cardápio semanal",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "MealPlanner"
                   }
                 ]

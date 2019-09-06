@@ -8,4 +8,5 @@ export interface TabProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attributes?: Record<string, any>;
   visible?: boolean;
+  hasContent?: boolean;
 }

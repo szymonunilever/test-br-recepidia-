@@ -1,17 +1,12 @@
 import React, {
   FunctionComponent,
-  useState,
   useEffect,
   useCallback,
   Fragment,
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
-import Tabs, {
-  Tab,
-  HeaderContent,
-  TabsHeaderContent,
-} from 'src/components/lib/components/Tabs';
+import Tabs, { Tab } from 'src/components/lib/components/Tabs';
 import { UserPreferences } from 'src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
 import { Link } from 'gatsby';
@@ -109,9 +104,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
   )
     ? getUserProfileByKey(ProfileKey.mealPlannerResults)
     : [];
-  const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
-    tabsContent.tabsHeaderContent
-  );
   const { getRecipeDataByIds, recipeByIdsResults } = useFavoritesSearch();
   const {
     getRecipeDataByIds: getMealPlannerResults,
@@ -171,20 +163,12 @@ const FavoritesRecipeListingPage: FunctionComponent<
       });
     }
   }, []);
-  useEffect(() => {
-    const newTabsHeaderContent = Object.assign({}, tabsHeaderContent);
-    newTabsHeaderContent.contents.forEach((item: HeaderContent) => {
-      if (item.view === 'ProfileFavorites' && recipeByIdsResults.count) {
-        item.subheading = recipeByIdsResults.count
-          ? (item.defaultSubheading || '').replace(
-              '{num}',
-              recipeByIdsResults.count.toString()
-            )
-          : item.subheading || '';
-      }
-    });
-    setTabsHeaderContent(newTabsHeaderContent);
-  }, [recipeByIdsResults.count]);
+  const data = [
+    {
+      pattern: '{num}',
+      replacement: recipeByIdsResults.count,
+    },
+  ];
 
   return (
     <Layout className="header--bg">
@@ -193,12 +177,13 @@ const FavoritesRecipeListingPage: FunctionComponent<
       <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
-        tabsHeaderContent={tabsHeaderContent}
+        tabsHeaderContent={tabsContent.tabsHeaderContent}
+        data={data}
         className={cx(theme.userProfile, '')}
         tabFromLocation
         location={location}
       >
-        <Tab view="ProfileFavorites">
+        <Tab view="ProfileFavorites" hasContent={hasFavorites}>
           <div className="user-profile-favorites">
             {hasFavorites ? (
               <RecipeListingWithFavorite
