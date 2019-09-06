@@ -2,13 +2,17 @@ $footer-color: $black-blue;
 
 %global--links {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: $arial;
   color: $footer-color;
   text-decoration: none;
   text-align: left;
-  padding: 10px 0;
+  padding: 8px 0;
   position: relative;
+  @include respondTo(desktop) {
+    font-size: 1.5rem;
+    padding: 10px 0;
+  }
   @extend %link--external;
 
   &:before {
@@ -43,6 +47,7 @@ $footer-color: $black-blue;
   background-color: $primary-bg-color;
   border-top: 1px solid $footer-color;
   @extend .wrapper;
+  padding-bottom: 80px;
   @include respondTo(desktop) {
     padding-bottom: 50px;
   }
@@ -90,16 +95,16 @@ $footer-color: $black-blue;
     &:first-child {
       border-bottom: 1px solid $footer-color;
       @include respondTo(desktop) {
-        padding: 35px 150px;
+        padding: 15px 150px;
       }
       .footer-menu__list {
         justify-content: space-between;
       }
 
       .footer-menu__link {
+        font-weight: bold;
         @include respondTo(desktop) {
           font-size: 1.8rem;
-          font-weight: bold;
           line-height: 1;
           letter-spacing: 0.5px;
           padding: 10px;
@@ -135,12 +140,13 @@ $footer-color: $black-blue;
     width: 45px;
     height: 50px;
     background: url(../svgs/unilever-logo.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     @include respondTo(desktop) {
       display: block;
       margin: 0 auto;
       width: 60px;
-      height: 66.7px;
+      height: 68px;
     }
     svg {
       width: 100%;

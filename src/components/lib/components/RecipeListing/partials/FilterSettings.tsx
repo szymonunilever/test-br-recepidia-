@@ -34,21 +34,15 @@ const FilterSettings = ({
     onFilterChange([]);
   };
 
-  const displayGroups = get(allFilters.displayCategories, 'length')
-    ? allFilters.tagGroups.reduce(
-        (groups: Internal.TagGroup[], category: Internal.TagGroup) => {
-          if (
-            allFilters.displayCategories &&
-            allFilters.displayCategories.includes(category.name)
-          ) {
-            groups.push(category);
-          }
+  const displayGroups =
+    allFilters.displayCategories && allFilters.displayCategories.length > 0
+      ? (allFilters.displayCategories
+          .map(groupName =>
+            allFilters.tagGroups.find(item => item.name === groupName)
+          )
+          .filter(item => item !== undefined) as Internal.TagGroup[])
+      : allFilters.tagGroups;
 
-          return groups;
-        },
-        []
-      )
-    : allFilters.tagGroups;
   return (
     <div className={classWrapper} hidden={hidden}>
       <ul className="filter-settings__tagGroups">
@@ -56,7 +50,7 @@ const FilterSettings = ({
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"
-              title={item.name}
+              title={item.label || item.name}
               Icon={OpenIcon}
               IconOpened={CloseIcon}
               isOpen={false}

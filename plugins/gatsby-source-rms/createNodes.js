@@ -28,10 +28,12 @@ exports.createRecipeNodes = (
 const processTag = (
   tag,
   parentNodeId,
-  { createNodeId, createContentDigest, createNode }
+  { createNodeId, createContentDigest, createNode },
+  dictionary
 ) => {
   const nodeId = createNodeId(`tag-${tag.id}`);
-
+  tag['title'] =
+    dictionary && dictionary[tag.name] ? dictionary[tag.name] : tag.name;
   createNode({
     ...tag,
     id: nodeId,
@@ -48,21 +50,29 @@ const processTag = (
 
 exports.createTagGroupingsNodes = (
   tagGroupings,
-  { createNodeId, createContentDigest, createNode }
+  { createNodeId, createContentDigest, createNode },
+  dictionary
 ) => {
   const nodeId = createNodeId(`tagGroupings-${tagGroupings.name}`);
   const tags = tagGroupings.tags.filter(tag => tag && tag.id);
-
+  const { name } = tagGroupings;
+  tagGroupings['label'] =
+    dictionary && dictionary[name] ? dictionary[name] : null;
   createNode({
     ...tagGroupings,
     id: nodeId,
     parent: null,
     children: tags.map(tag =>
-      processTag(tag, nodeId, {
-        createNodeId,
-        createContentDigest,
-        createNode,
-      })
+      processTag(
+        tag,
+        nodeId,
+        {
+          createNodeId,
+          createContentDigest,
+          createNode,
+        },
+        dictionary
+      )
     ),
     internal: {
       type: 'TagGroupings',

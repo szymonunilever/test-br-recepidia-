@@ -16,7 +16,7 @@ const RecipeFields = `
         productId
         quantity
       }
-     
+
     }
     methods {
       title
@@ -24,7 +24,7 @@ const RecipeFields = `
         description
         position
       }
-     
+
     }
     recipeDetails {
       preperationTime
@@ -111,6 +111,13 @@ module.exports = async ({ graphql, createPage, page }) => {
       context: {
         page,
         recipe: node,
+        tags: node.tagGroups.reduce(
+          (tagIdsList, tagGroup) =>
+            tagGroup.tags
+              ? [...tagIdsList, ...tagGroup.tags.map(({ id }) => id)]
+              : tagIdsList,
+          []
+        ),
       },
     });
   });

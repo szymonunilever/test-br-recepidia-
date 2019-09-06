@@ -64,10 +64,10 @@ import { Tags } from 'src/components/lib/components/Tags';
 
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
-    allTag,
+    recipeTags,
     dietaryTagGroup,
   }: {
-    allTag: {
+    recipeTags: {
       nodes: Internal.Tag[];
     };
     allRecipe: {
@@ -75,8 +75,8 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     };
     dietaryTagGroup: RMSData.TagGroupings;
   } = useStaticQuery(graphql`
-    {
-      allTag {
+    query($tags: [Int]) {
+      recipeTags: allTag(filter: { tagId: { in: $tags } }) {
         nodes {
           ...TagFields
         }
@@ -87,6 +87,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         tags {
           id
           name
+          title
         }
       }
     }
@@ -95,7 +96,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     page: { components, seo, type },
     recipe,
   } = pageContext;
-  const tags = allTag.nodes;
+  const tags = recipeTags.nodes;
 
   const allDietaryList = (dietaryTagGroup && dietaryTagGroup.tags) || [];
 
