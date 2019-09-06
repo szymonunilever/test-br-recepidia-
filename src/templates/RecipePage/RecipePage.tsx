@@ -195,7 +195,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     <>
       <RecipeHero
         content={recipe}
-        imageSizes={'(min-width: 1366px) 40vw, 90vw'}
+        imageSizes={'(min-width: 1366px) 600w, 600px'}
       />
       <div className={theme.recipeHeroActions}>
         <div>
@@ -444,7 +444,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
     </Layout>

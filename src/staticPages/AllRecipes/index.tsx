@@ -213,7 +213,7 @@ const AllRecipesPage = ({
             onLoadMore,
           }}
           onViewChange={onViewChange}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -247,7 +247,7 @@ const AllRecipesPage = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 

@@ -130,7 +130,7 @@ const RecipeCategoryPage = ({
           }}
           titleLevel={2}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (
