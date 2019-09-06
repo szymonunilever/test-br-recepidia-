@@ -159,9 +159,10 @@ const FavoritesRecipeListingPage: FunctionComponent<
     // @ts-ignore
     const query = savedMealPlannerResults.join(' OR ');
     if (query) {
-      getMealPlannerResults(query, [], {
+      getMealPlannerResults(query, savedMealPlannerResults, {
         from: 0,
         size: 7,
+        sort: 'desc',
       });
     }
   }, []);
