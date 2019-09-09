@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
@@ -73,7 +73,9 @@ const Layout = ({ children, className }: LayoutProps) => {
   }
 
   // eslint-disable-next-line no-console
-  const onSignUpCallback = () => console.log('onsignup callback');
+  const onSignUpCallback = () => {
+    navigate('/newsletter-signup');
+  };
 
   // @ts-ignore
   return (
@@ -98,7 +100,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <main id="content">{children}</main>
       <GeneratedForm
-        shouldValidate={true}
+        shouldValidate={false}
         onSubmit={onSignUpCallback}
         recaptchaAction="SignUpEmail"
         content={findPageComponentContent(components, 'Form', 'SignUpForm')}
