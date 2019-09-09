@@ -36,10 +36,6 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
           tag={TagName.p}
           text={findPageComponentContent(components, 'Text', 'Subtitle').text}
         />
-        <AdaptiveImage
-          className={theme.notFound__image}
-          {...findPageComponentContent(components, 'AdaptiveImage').image}
-        />
         <Button className={cx(theme.notFound__recipesLink, 'button')}>
           <Link to={'/recipes'}>
             {findPageComponentContent(components, 'Button').label}
