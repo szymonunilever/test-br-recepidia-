@@ -23,7 +23,8 @@ import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-
+// Component Styles
+import '../../scss/pages/_recipeCategories.scss';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
@@ -130,7 +131,7 @@ const RecipeCategoryPage = ({
           }}
           titleLevel={2}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (

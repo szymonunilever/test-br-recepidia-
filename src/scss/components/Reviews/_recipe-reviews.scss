@@ -1,3 +1,6 @@
+@import '../../vars';
+@import '../../mixins';
+
 .recipe-reviews {
   .rr-widget-container {
     @include respondTo(medium) {

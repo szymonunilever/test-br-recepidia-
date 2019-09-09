@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 .wizard--signup{
   .wizard{
     &__title{

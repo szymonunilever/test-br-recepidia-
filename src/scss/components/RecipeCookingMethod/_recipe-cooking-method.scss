@@ -1,3 +1,6 @@
+@import '../../vars';
+@import '../../mixins';
+
 .recipe-cooking-method {
   &__list {
     list-style: none;

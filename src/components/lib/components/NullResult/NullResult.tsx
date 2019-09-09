@@ -28,7 +28,10 @@ export const NullResult = ({
     />
   ) : null;
   return (
-    <div className={classWrapper} data-componentname="nullResult">
+    <div
+      className={cx('wrapper', classWrapper)}
+      data-componentname="nullResult"
+    >
       {theTitle}
       {theSubTitle}
       <ul className="recommendations__list">

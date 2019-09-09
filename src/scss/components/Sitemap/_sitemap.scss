@@ -1,3 +1,6 @@
+@import '../../vars';
+@import '../../mixins';
+
 .sitemap {
   &__categories {
     @include respondTo(medium) {
@@ -52,7 +55,7 @@
     cursor: pointer;
     font-family: $rubik;
     font-weight: 500;
-    color: $header-color-mobile;
+    color: $black-blue;
     transition: color 0.2s ease-out;
     &:hover {
       color: $apple-green;

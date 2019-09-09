@@ -1,3 +1,8 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
+
 $header-height: 80px;
 
 $header-color-mobile: $black-blue;
@@ -307,7 +312,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
               overflow: visible;
               visibility: visible;
               height: auto;
-              padding: 0;
             }
           }
         }
@@ -372,6 +376,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
       width: auto;
       min-width: 180px;
       border-radius: 5px;
+      padding: 10px 0;
     }
 
     &.is-opened {

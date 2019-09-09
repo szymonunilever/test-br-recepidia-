@@ -44,7 +44,7 @@ exports.sourceNodes = async (
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesData = [...pagesMock.pages];
   //TODO: remove next string when data for components will fixed on middleware
-  const componentsData = { ...componentsMock, ...componentsResponse.data };
+  const componentsData = { ...componentsResponse.data, ...componentsMock };
   pagesData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });

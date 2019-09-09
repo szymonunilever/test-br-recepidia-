@@ -22,7 +22,8 @@ import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-
+// Component Styles
+import '../../scss/pages/_contentHub.scss';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
@@ -93,7 +94,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           initialCount={useMedia()}
           titleLevel={1}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 300w, 300px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (

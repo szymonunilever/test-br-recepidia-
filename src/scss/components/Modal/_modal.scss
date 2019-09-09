@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
 //class name for body to prevent scroll when modal is open
 .modal--open {
   @extend .no-scroll;

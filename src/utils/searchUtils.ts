@@ -71,7 +71,7 @@ const recipeSearchParams = (
 const recipeIdSearchParams = (
   searchQuery: string,
   controlArray: number[],
-  { from = 0, size = 8 }: SearchParams
+  { from = 0, size = 8, sort = 'asc' }: SearchParams
 ) => ({
   index: keys.elasticSearch.recipeIndex,
   body: {
@@ -102,8 +102,9 @@ const recipeIdSearchParams = (
                 params: {
                   recipeIds: controlArray,
                 },
-                inline:
-                  "for ( int i = 0; i < params.recipeIds.size(); i++) {if (params['_source']['recipeId'] == params.recipeIds[i]) { return (params.recipeIds.size() + i)*1000;} }",
+                inline: `for ( int i = 0; i < params.recipeIds.size(); i++) {if (params['_source']['recipeId'] == params.recipeIds[i]) { return (params.recipeIds.size() ${
+                  sort === 'desc' ? '-' : '+'
+                } i)*1000;} }`,
               },
             },
           },

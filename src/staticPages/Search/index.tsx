@@ -25,6 +25,8 @@ import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { Tags } from 'src/components/lib/components/Tags';
+// Component Styles
+import '../../scss/pages/_searchListing.scss';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {

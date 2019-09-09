@@ -65,57 +65,59 @@ const GeneratedFormInstance = ({
     }
   }
 
-  const view = formFields.undefined.map((item, key) => {
-    let innerItems: JSX.Element[] | undefined = undefined;
-    if (item.type === 'fieldset') {
-      innerItems = formFields[item.name].map((item, key) => {
-        if (item.type === 'group') {
-          innerItems = formFields[item.name].map((item, key) => {
-            return (
-              <GeneratedField
-                shouldValidate={shouldValidate}
-                content={item}
-                key={key}
-                className="generated-form__item"
-                innerContent={innerItems}
-              />
-            );
-          });
-        }
-        return (
-          <GeneratedField
-            shouldValidate={shouldValidate}
-            content={item}
-            key={key}
-            className="generated-form__item"
-            innerContent={innerItems}
-          />
-        );
-      });
-    }
-    if (item.type === 'group') {
-      innerItems = formFields[item.name].map((item, key) => {
-        return (
-          <GeneratedField
-            shouldValidate={shouldValidate}
-            content={item}
-            key={key}
-            className="generated-form__item"
-            innerContent={innerItems}
-          />
-        );
-      });
-    }
-    return (
-      <GeneratedField
-        shouldValidate={shouldValidate}
-        content={item}
-        key={key}
-        className="generated-form__item"
-        innerContent={innerItems}
-      />
-    );
-  });
+  const view =
+    formFields.undefined &&
+    formFields.undefined.map((item, key) => {
+      let innerItems: JSX.Element[] | undefined = undefined;
+      if (item.type === 'fieldset') {
+        innerItems = formFields[item.name].map((item, key) => {
+          if (item.type === 'group') {
+            innerItems = formFields[item.name].map((item, key) => {
+              return (
+                <GeneratedField
+                  shouldValidate={shouldValidate}
+                  content={item}
+                  key={key}
+                  className="generated-form__item"
+                  innerContent={innerItems}
+                />
+              );
+            });
+          }
+          return (
+            <GeneratedField
+              shouldValidate={shouldValidate}
+              content={item}
+              key={key}
+              className="generated-form__item"
+              innerContent={innerItems}
+            />
+          );
+        });
+      }
+      if (item.type === 'group') {
+        innerItems = formFields[item.name].map((item, key) => {
+          return (
+            <GeneratedField
+              shouldValidate={shouldValidate}
+              content={item}
+              key={key}
+              className="generated-form__item"
+              innerContent={innerItems}
+            />
+          );
+        });
+      }
+      return (
+        <GeneratedField
+          shouldValidate={shouldValidate}
+          content={item}
+          key={key}
+          className="generated-form__item"
+          innerContent={innerItems}
+        />
+      );
+    });
 
   const preSubmit = async (val: object) => {
     if (hasCaptcha) {
@@ -151,7 +153,7 @@ const GeneratedFormInstance = ({
             <div className="generated-form__container">
               {Title}
               {Subtitle}
-              <div className="generated-form__fields">{view}</div>
+              {view && <div className="generated-form__fields">{view}</div>}
               <div className="buttons">
                 <button
                   type="submit"

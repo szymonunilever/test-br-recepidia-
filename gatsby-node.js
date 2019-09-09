@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 const url = require('url');
 const get = require('lodash/get');
-
+const path = require('path');
+const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
@@ -257,10 +259,37 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
-  // Add hashes to icons classNames
-  actions.setWebpackConfig({
-    plugins: [new MiniCssExtractPlugin({})],
-  });
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        },
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+      },
+      module: {
+        rules: [
+          {
+            exclude: path.resolve(__dirname, 'node_modules'),
+            include: path.resolve(
+              __dirname,
+              'src/_[A-Za-z]+\\.scss$|[A-Za-z]+\\.css$/'
+            ),
+
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          },
+        ],
+      },
+    });
+  }
+
   const config = getConfig();
   config.resolve = {
     ...config.resolve,
@@ -293,10 +322,6 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     });
   }
 
-  if (stage.includes('javascript')) {
-    let config = getConfig();
-    config.entry['main'] = './src/scss/main.scss';
-  }
   actions.replaceWebpackConfig(config);
 };
 

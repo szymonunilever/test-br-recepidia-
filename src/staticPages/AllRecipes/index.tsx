@@ -23,6 +23,8 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
+// Component Styles
+import '../../scss/pages/_allRecipes.scss';
 
 import keys from 'integrations/keys.json';
 
@@ -213,7 +215,7 @@ const AllRecipesPage = ({
             onLoadMore,
           }}
           onViewChange={onViewChange}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -247,7 +249,7 @@ const AllRecipesPage = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 
