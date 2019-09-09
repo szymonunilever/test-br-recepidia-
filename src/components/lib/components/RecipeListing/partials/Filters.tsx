@@ -81,17 +81,29 @@ const Filter = ({
   return (
     <div className={classWrapper}>
       {counter}
-      {optionLabels ? (
-        <label className="filter__sort-label">
-          <span className="filter__sort-label-text">sorting</span>
-          <Select
-            options={sortingOptions}
-            className="filter__sort"
-            placeholder={sortSelectPlaceholder}
-            changeHandler={sortingChange}
-          />
-        </label>
-      ) : null}
+      <div className="filter__sort-block">
+        {optionLabels ? (
+          <label className="filter__sort-label">
+            <span className="filter__sort-label-text">sorting</span>
+            <Select
+              options={sortingOptions}
+              className="filter__sort"
+              placeholder={sortSelectPlaceholder}
+              changeHandler={sortingChange}
+            />
+          </label>
+        ) : null}
+        <Button
+          className="filter__button"
+          Icon={FilterIcon}
+          viewType={ButtonViewType.classic}
+          onClick={() => {
+            toggleFilterSettings();
+            setSelectedTags(filterTags);
+          }}
+          attributes={{ 'aria-label': 'open modal with fiter settings' }}
+        />
+      </div>
       <Modal
         isOpen={showFilterSettings}
         close={toggleFilterSettings}
@@ -109,16 +121,7 @@ const Filter = ({
           onApply={applySelectedTagsToFilter}
         />
       </Modal>
-      <Button
-        className="filter__button"
-        Icon={FilterIcon}
-        viewType={ButtonViewType.classic}
-        onClick={() => {
-          toggleFilterSettings();
-          setSelectedTags(filterTags);
-        }}
-        attributes={{ 'aria-label': 'open modal with fiter settings' }}
-      />
+
       <Tags
         list={filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}

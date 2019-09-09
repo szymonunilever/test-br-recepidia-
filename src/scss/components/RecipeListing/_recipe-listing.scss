@@ -55,7 +55,7 @@ $col-indent-desktop: 8px;
   &__load-more {
     @extend .button;
     @extend .button--medium;
-    display: block;
+    display: block !important;
     margin: 40px auto;
   }
 
