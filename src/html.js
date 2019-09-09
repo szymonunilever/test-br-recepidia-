@@ -24,18 +24,6 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
 
-            {/* START kritique preloads */}
-            {/* <link rel="preload" href="/libs/jquery.min.js" as="script" />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
-            <link
-              rel="preload"
-              href={`${
-                keys.kritique.baseUrl
-              }/widget/resources/css/RR_widget.css`}
-              as="style"
-            /> */}
-            {/* END kritique preloads */}
-
             <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
           </>
         )}

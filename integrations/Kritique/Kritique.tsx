@@ -13,32 +13,27 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const [injectScript, setInjectScript] = useState(false);
+  const [scriptInjected, setScriptInjected] = useState(false);
 
   useEffect(() => {
     const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
 
     if (isKritiqueLoaded) {
-      setInjectScript(isKritiqueLoaded);
+      setScriptInjected(isKritiqueLoaded);
       setTimeout(reloadKritiqueWidget, 2000);
     } else {
       window.addEventListener('load', () => {
         sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
+        setScriptInjected(true);
       });
-      // setTimeout(() => {
-      //   sessionStorage.setItem('isKritiqueLoaded', 'true');
-      //   setInjectScript(true);
-      // }, 5000);
     }
   }, []);
 
   return (
     <>
       {isBrowser() &&
-      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
+      (!!sessionStorage.getItem('isKritiqueLoaded') || scriptInjected) ? (
         <Helmet
-          // @ts-ignore
           script={[
             {
               src: '/libs/jquery.min.js',
