@@ -67,7 +67,7 @@ export const RecipeListing = ({
   useEffect(() => {
     setDisplayNumber(Math.max(initialCount, displayNumber));
   }, [initialCount]);
-  const [loadMoreClickedCount, setLoadMoreClickedCount] = useState(0);
+  // const [loadMoreClickedCount, setLoadMoreClickedCount] = useState(0);
 
   let listModified =
     viewType === RecipeListViewType.Advanced
@@ -91,17 +91,17 @@ export const RecipeListing = ({
     setRecipeList(getSlicedList(list));
   }, [list, displayNumber]);
 
-  useEffect(() => {
-    if (loadMoreClickedCount > 0) {
-      window &&
-        loadButtonRef.current &&
-        window.scrollTo({
-          //@ts-ignore
-          top: loadButtonRef.current.offsetTop,
-          behavior: 'smooth',
-        });
-    }
-  }, [recipeList]);
+  // useEffect(() => {
+  //   if (loadMoreClickedCount > 0) {
+  //     window &&
+  //       loadButtonRef.current &&
+  //       window.scrollTo({
+  //         //@ts-ignore
+  //         top: loadButtonRef.current.offsetTop,
+  //         behavior: 'smooth',
+  //       });
+  //   }
+  // }, [recipeList]);
 
   ratingProvider === RatingAndReviewsProvider.kritique &&
     useKritiqueReload([recipeList]);
@@ -179,7 +179,7 @@ export const RecipeListing = ({
       );
     }
     setDisplayNumber(recipeCount);
-    setLoadMoreClickedCount(loadMoreClickedCount + 1);
+    // setLoadMoreClickedCount(loadMoreClickedCount + 1);
   };
 
   const listHeader = title ? (
