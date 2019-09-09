@@ -5,7 +5,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-
+    svg {
+      height: 40px;
+    }
     &--difficulties .recipe-attribute-card__value {
       &::first-letter {
         text-transform: uppercase;

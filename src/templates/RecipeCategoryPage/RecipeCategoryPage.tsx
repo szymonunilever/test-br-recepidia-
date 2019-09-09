@@ -112,7 +112,13 @@ const RecipeCategoryPage = ({
           />
         </section>
       )}
-      <section className={cx(theme.greyBg, 'bg--half wrapper')}>
+      <section
+        className={cx(
+          theme.greyBg,
+          theme.recipeCategoryPageRecipes,
+          'bg--half wrapper'
+        )}
+      >
         <RecipeListingWithFavorite
           content={{
             ...recipesListingContent,

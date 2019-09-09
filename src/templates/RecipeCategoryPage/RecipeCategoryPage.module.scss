@@ -1,5 +1,15 @@
 @import '../../scss/mixins';
 
+.recipe-category-page {
+  :global {
+    .recipe-list__load-more {
+      margin: 40px auto 0;
+    }
+  }
+}
+.recipe-category-page-recipes {
+  padding-bottom: 40px;
+}
 .recipeCategoryListing {
   position: relative;
   background: $white-gray;
@@ -58,8 +68,6 @@
     }
   }
 }
-
-
 
 .tag-list {
   padding: 20px $layout-indent-sm;

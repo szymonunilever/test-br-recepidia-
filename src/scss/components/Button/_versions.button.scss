@@ -6,6 +6,7 @@ $button-border: none !default;
 $button-font-size: 1.4rem !default;
 $button-icon-font-size: 1.3rem !default;
 $button-height: 40px !default;
+$button-height-desktop: 46px !default;
 $button-padding: 0 15px !default;
 $button-radius: 5px !default;
 
@@ -41,6 +42,9 @@ $button-disabled-color: #636363 !default;
   color: $button-color;
   fill: currentColor;
   transition: all 0.2s ease-out;
+  @include respondTo(desktop) {
+    height: $button-height-desktop;
+  }
 
   @media (hover: hover),
     (-ms-high-contrast: none),
