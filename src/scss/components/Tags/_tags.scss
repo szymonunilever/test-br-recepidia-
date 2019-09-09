@@ -15,6 +15,12 @@
   }
   &__item {
     margin: 5px;
+
+    span {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
   }
   &__link {
     display: flex;
