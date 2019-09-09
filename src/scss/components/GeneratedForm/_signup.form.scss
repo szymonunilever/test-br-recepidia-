@@ -4,10 +4,10 @@
 @import '../../components/Button/index';
 
 .general-signup {
-  padding: 37px 0 0;
+  padding: 37px 0;
   background-color: $white-gray;
   @include respondTo(desktop) {
-    padding: 65px 0 25px;
+    padding: 65px 0 ;
   }
 
   .generated-form__container {

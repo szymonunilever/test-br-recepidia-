@@ -13,7 +13,7 @@
   }
   .allRecipesSortListing {
     background: $white-gray;
-    border-radius: 10px 10px 0 0 ;
+    border-radius: 15px;
     @include respondTo(desktop) {
       border-radius: 0 ;
     }

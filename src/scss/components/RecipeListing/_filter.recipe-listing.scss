@@ -19,6 +19,9 @@
           max-width: none;
         }
       }
+      &__sort-block{
+        display: flex;
+      }
       &__sort {
         width: calc(100px + 4.3vw);
         min-height: 43px;
@@ -79,23 +82,7 @@
     .tags {
       width: 100%;
       margin: 0;
-      padding: 30px 0;
     }
 
-    .tags__removable {
-      border: 1px solid $black-blue;
-      border-radius: 20px;
-      height: 32px;
-      @media (hover: hover),
-        (-ms-high-contrast: none),
-        (-ms-high-contrast: active) {
-        &:hover {
-          border-color: darken($apple-green, 10%);
-          svg {
-            fill: $black-blue;
-          }
-        }
-      }
-    }
   }
 }
