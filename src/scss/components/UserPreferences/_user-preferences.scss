@@ -216,10 +216,9 @@
         margin-bottom: 0;
       }
       &-label {
-        @media (hover) {
-          &:hover {
-            cursor: pointer;
-          }
+        display: block;
+        @include respondTo(desktop) {
+          cursor: pointer;
         }
       }
       &-input {
