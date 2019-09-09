@@ -154,6 +154,7 @@ export const query = graphql`
   query($slug: String, $name: String) {
     tag(fields: { slug: { eq: $slug } }) {
       name
+      title
       tagId
     }
 

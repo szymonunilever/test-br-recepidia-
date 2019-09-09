@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import keys from '../keys.json';
 import Helmet from 'react-helmet';
 
-// TODO: Integrations should be moved into lib folder
-import { reloadKritiqueWidget } from '../../src/components/lib/utils/useKritiqueReload';
 import { isBrowser } from 'src/utils';
 
 const Kritique = () => {
@@ -13,26 +11,9 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const [injectScript, setInjectScript] = useState(false);
-
-  useEffect(() => {
-    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
-
-    if (isKritiqueLoaded) {
-      setInjectScript(isKritiqueLoaded);
-      setTimeout(reloadKritiqueWidget, 2000);
-    } else {
-      setTimeout(() => {
-        sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
-      }, 5000);
-    }
-  }, []);
-
   return (
     <>
-      {isBrowser() &&
-      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
+      {isBrowser() ? (
         <Helmet
           // @ts-ignore
           script={[
