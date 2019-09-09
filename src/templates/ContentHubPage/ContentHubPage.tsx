@@ -29,8 +29,8 @@ import relatedArticlesComponent from 'src/components/data/relatedArticlesForCont
 import useMedia from 'src/utils/useMedia';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
-import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
+import useFavorite from 'src/utils/useFavorite';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -45,11 +45,9 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     page: { components, seo, type },
   } = pageContext;
   const { tag, allArticle, allCategory } = data;
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
 
   const pageListingData = allCategory.nodes.map(category => ({
@@ -76,13 +74,17 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       <Kritique />
 
       <section className={cx(theme.contentHubRecipes, 'bg--half wrapper')}>
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title
               .replace('{numRes}', recipeResultsCount)
               .replace('{categoryName}', `\n${tagLabel}`),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}

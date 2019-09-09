@@ -64,6 +64,65 @@ import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
 import '../../scss/pages/_recipePage.scss';
 
+const dietaryAttributesIcons = [
+  {
+    id: 11,
+    active: <icons.VegeterianActive />,
+    inActive: <icons.VegeterianInactive />,
+  },
+  {
+    id: 10,
+    active: <icons.VeganActive />,
+    inActive: <icons.VeganInactive />,
+  },
+  {
+    id: 5,
+    active: <icons.NutFreeActive />,
+    inActive: <icons.NutFreeInactive />,
+  },
+  {
+    id: 7,
+    active: <icons.PregnancySafeActive />,
+    inActive: <icons.PregnancySafeInactive />,
+  },
+  {
+    id: 3,
+    active: <icons.GlutenFreeActive />,
+    inActive: <icons.GlutenFreeInactive />,
+  },
+  {
+    id: 4,
+    active: <icons.LactoseFreeActive />,
+    inActive: <icons.LactoseFreeInactive />,
+  },
+  {
+    id: 8,
+    active: <icons.RawFoodActive />,
+    inActive: <icons.RawFoodInactive />,
+  },
+  {
+    id: 2,
+    active: <icons.EggFreeActive />,
+    inActive: <icons.EggFreeInactive />,
+  },
+  {
+    id: 6,
+    active: <icons.PaleoDietActive />,
+    inActive: <icons.PaleoDietInactive />,
+  },
+  // TODO replace below icons with proper onesafter
+  {
+    id: 1,
+    active: <icons.DairyFreeActive />,
+    inActive: <icons.DairyFreeInactive />,
+  },
+  {
+    id: 9,
+    active: <icons.WheatFreeActive />,
+    inActive: <icons.WheatFreeInactive />,
+  },
+];
+
 const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const {
     recipeTags,
@@ -107,71 +166,11 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
     'tags',
     []
   );
-  const dietaryAttributesIcons = [
-    {
-      id: 11,
-      active: <icons.VegeterianActive />,
-      inActive: <icons.VegeterianInactive />,
-    },
-    {
-      id: 10,
-      active: <icons.VeganActive />,
-      inActive: <icons.VeganInactive />,
-    },
-    {
-      id: 5,
-      active: <icons.NutFreeActive />,
-      inActive: <icons.NutFreeInactive />,
-    },
-    {
-      id: 7,
-      active: <icons.PregnancySafeActive />,
-      inActive: <icons.PregnancySafeInactive />,
-    },
-    {
-      id: 3,
-      active: <icons.GlutenFreeActive />,
-      inActive: <icons.GlutenFreeInactive />,
-    },
-    {
-      id: 4,
-      active: <icons.LactoseFreeActive />,
-      inActive: <icons.LactoseFreeInactive />,
-    },
-    {
-      id: 8,
-      active: <icons.RawFoodActive />,
-      inActive: <icons.RawFoodInactive />,
-    },
-    {
-      id: 2,
-      active: <icons.EggFreeActive />,
-      inActive: <icons.EggFreeInactive />,
-    },
-    {
-      id: 6,
-      active: <icons.PaleoDietActive />,
-      inActive: <icons.PaleoDietInactive />,
-    },
-    // TODO replace below icons with proper onesafter
-    {
-      id: 1,
-      active: <icons.DairyFreeActive />,
-      inActive: <icons.DairyFreeInactive />,
-    },
-    {
-      id: 9,
-      active: <icons.WheatFreeActive />,
-      inActive: <icons.WheatFreeInactive />,
-    },
-  ];
 
   const [relatedRecipes, setRelatedRecipes] = useState<Internal.Recipe[]>([]);
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const socialIcons: SocialIcons = {
@@ -422,14 +421,17 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           '_pt--40 _pb--40 wrapper'
         )}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'RelatedRecipes'
           )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={relatedRecipes}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
