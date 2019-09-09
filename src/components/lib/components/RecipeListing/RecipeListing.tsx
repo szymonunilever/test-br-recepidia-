@@ -55,6 +55,7 @@ export const RecipeListing = ({
   },
   imageSizes,
 }: RecipeListingProps) => {
+  let loadButtonRef = React.createRef();
   const isAsyncLoadMore = () =>
     get(loadMoreConfig, 'type') === LoadMoreType.async;
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
@@ -66,6 +67,7 @@ export const RecipeListing = ({
   useEffect(() => {
     setDisplayNumber(Math.max(initialCount, displayNumber));
   }, [initialCount]);
+  const [loadMoreClickedCount, setLoadMoreClickedCount] = useState(0);
 
   let listModified =
     viewType === RecipeListViewType.Advanced
@@ -88,6 +90,18 @@ export const RecipeListing = ({
   useEffect(() => {
     setRecipeList(getSlicedList(list));
   }, [list, displayNumber]);
+
+  useEffect(() => {
+    if (loadMoreClickedCount > 0) {
+      window &&
+        loadButtonRef.current &&
+        window.scrollTo({
+          //@ts-ignore
+          top: loadButtonRef.current.offsetTop,
+          behavior: 'smooth',
+        });
+    }
+  }, [recipeList]);
 
   ratingProvider === RatingAndReviewsProvider.kritique &&
     useKritiqueReload([recipeList]);
@@ -164,8 +178,8 @@ export const RecipeListing = ({
           : applyFilters(filteringValue, listModified)
       );
     }
-
     setDisplayNumber(recipeCount);
+    setLoadMoreClickedCount(loadMoreClickedCount + 1);
   };
 
   const listHeader = title ? (
@@ -207,6 +221,7 @@ export const RecipeListing = ({
           className="recipe-list__load-more"
           onClick={loadMore}
           content={cta}
+          attributes={{ ref: loadButtonRef }}
         />
       ) : null}
     </>
