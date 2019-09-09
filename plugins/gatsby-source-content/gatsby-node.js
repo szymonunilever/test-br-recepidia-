@@ -30,13 +30,13 @@ exports.sourceNodes = async (
   delete configOptions.plugins;
 
   const [
-    pagesResponse,
-    componentsResponse,
+    // pagesResponse,
+    // componentsResponse,
     articlesResponse,
     categoriesResponse,
   ] = await Promise.all([
-    fetchContent(configOptions, 'pages'),
-    fetchContent(configOptions, 'components'),
+    //fetchContent(configOptions, 'pages'),
+    //fetchContent(configOptions, 'components'),
     fetchContent(configOptions, 'articles'),
     fetchContent(configOptions, 'aem/categories'),
   ]);
@@ -44,7 +44,7 @@ exports.sourceNodes = async (
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesData = [...pagesMock.pages];
   //TODO: remove next string when data for components will fixed on middleware
-  const componentsData = { ...componentsResponse.data, ...componentsMock };
+  const componentsData = componentsMock;
   pagesData.forEach(page => {
     createPagesNodes(page, { createNodeId, createContentDigest, createNode });
   });
