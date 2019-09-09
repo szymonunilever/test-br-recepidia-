@@ -881,7 +881,7 @@
     },
     {
       "type": "ContactUs",
-      "relativePath": "/contate-nos",
+      "relativePath": "/fale-comigo",
       "components": {
         "items": [
           {
@@ -1221,7 +1221,7 @@
     {
       "title": "User Profile",
       "type": "UserProfile",
-      "relativePath": "/suas-perfil",
+      "relativePath": "/perfil",
       "components": {
         "items": [
           {

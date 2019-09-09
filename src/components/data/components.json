@@ -12,7 +12,7 @@
                 "children": [
                   {
                     "name": "Receitas favoritas",
-                    "path": "/profile?tabOpen=ProfileFavorites"
+                    "path": "/perfil?tabOpen=ProfileFavorites"
                   },
                   {
                     "name": "Todas as receitas",
@@ -22,7 +22,7 @@
               },
               {
                 "name": "Planeje sua semana",
-                "path": "/meal-planner"
+                "path": "/planejamento-da-semana"
               }
             ]
           }
@@ -43,15 +43,15 @@
                 "items": [
                   {
                     "name": "Planeje sua semana",
-                    "path": "/meal-planner"
+                    "path": "/planejamento-da-semana"
                   },
                   {
                     "name": "Sobre Recepedia",
-                    "path": "/about-us"
+                    "path": "/sorbe-recepedia"
                   },
                   {
                     "name": "Fale comigo",
-                    "path": "/contact-us"
+                    "path": "/fale-comigo"
                   },
                   {
                     "name": "Acessibilidade",
@@ -71,7 +71,7 @@
                   },
                   {
                     "name": "Mapa do site",
-                    "path": "/sitemap"
+                    "path": "/mapa-do-site"
                   }
                 ]
               }
