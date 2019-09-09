@@ -211,7 +211,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   className="recipe-list__null-results"
                   titleLevel={2}
                 />
-                <Link className="favorites__button" to={'/recipes'}>
+                <Link className="favorites__button" to={'/receitas'}>
                   {buttonContent.label}
                 </Link>
               </Fragment>
