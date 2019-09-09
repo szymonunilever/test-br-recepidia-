@@ -46,7 +46,7 @@ const Tag = ({
           className="tags__toggle"
           onClick={onTagClick}
           toggleExternalManage
-          content={{ label: name }}
+          content={{ label: title || name }}
           isSelected={state}
           isToggle={true}
         />
