@@ -7,7 +7,7 @@
   padding: 37px 0;
   background-color: $white-gray;
   @include respondTo(desktop) {
-    padding: 65px 0 ;
+    padding: 65px 0;
   }
 
   .generated-form__container {
@@ -33,6 +33,11 @@
         margin-bottom: 34px;
       }
     }
+    .buttons{
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
   .generated-form__fields {
     flex: 2;
@@ -51,6 +56,7 @@
   .generated-form__subtitle {
     @extend h3;
   }
+
 
   .field {
     width: 100%;
@@ -89,13 +95,7 @@
 
   .generated-form__button--primary {
     @extend .button;
+    @extend .button--medium;
     @extend .button--yellow;
-    padding: 0 23px;
-    font-size: 14px;
-    @include respondTo(desktop) {
-      font-size: 16px;
-      height: 46px;
-      padding: 0 52px;
-    }
   }
 }
