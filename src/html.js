@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import newRelic from '../static/config/newRelic';
 import keys from 'integrations/keys.json';
-const { applicationID, licenseKey } = keys.sitespeed;
 
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -10,6 +9,7 @@ export default function HTML(props) {
   }&localeid=${keys.kritique.localeId}&apikey=${
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
+
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -23,6 +23,18 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
+
+            {/* START kritique preloads */}
+            <link rel="preload" href="/libs/jquery.min.js" as="script" />
+            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+            <link
+              rel="preload"
+              href={`${
+                keys.kritique.baseUrl
+              }/widget/resources/css/RR_widget.css`}
+              as="style"
+            />
+            {/* END kritique preloads */}
 
             <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
           </>
