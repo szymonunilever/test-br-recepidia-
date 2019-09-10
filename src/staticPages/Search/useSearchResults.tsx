@@ -37,17 +37,19 @@ const useSearchResults = (searchQuery: string) => {
 
   const getRecipeSearchData = useCallback(
     async (searchQeury, params) =>
-      getRecipeResponse(searchQeury, params).then(res => {
-        setRecipeResults({
-          list: params.from
-            ? [
-                ...recipeResults.list,
-                ...res.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
-      }),
+      getRecipeResponse(searchQeury, params)
+        .then(res => {
+          setRecipeResults({
+            list: params.from
+              ? [
+                  ...recipeResults.list,
+                  ...res.hits.hits.map(resItem => resItem._source),
+                ]
+              : res.hits.hits.map(resItem => resItem._source),
+            count: res.hits.total,
+          });
+        })
+        .catch(() => {}),
     [recipeResults]
   );
 
@@ -87,7 +89,8 @@ const useSearchResults = (searchQuery: string) => {
         })
         .then(() => {
           setResultsFetched(true);
-        }),
+        })
+        .catch(() => {}),
     []
   );
 
