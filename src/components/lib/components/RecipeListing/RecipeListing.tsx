@@ -67,6 +67,7 @@ export const RecipeListing = ({
   useEffect(() => {
     setDisplayNumber(Math.max(initialCount, displayNumber));
   }, [initialCount]);
+  // Use loadMoreClickCount with useEffect which it use for activate scroll to loadMore button functionality
   // const [loadMoreClickedCount, setLoadMoreClickedCount] = useState(0);
 
   let listModified =

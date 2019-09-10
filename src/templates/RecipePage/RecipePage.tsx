@@ -41,7 +41,6 @@ import SocialSharing, {
   SocialIcons,
 } from 'src/components/lib/components/SocialSharing';
 import AddThis from '../../../integrations/AddThis';
-// import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import Hero from 'src/components/lib/components/Hero';
