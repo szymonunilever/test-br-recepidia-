@@ -13,34 +13,21 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const [injectScript, setInjectScript] = useState(false);
-
   const setLoadKritique = () => {
-    sessionStorage.setItem('loadKritique', 'true');
-    setInjectScript(true);
+    // @ts-ignore
+    window.isKritiqueLoaded = true;
   };
+
   useEffect(() => {
-    const isKritiqueLoaded = !!sessionStorage.getItem('loadKritique');
-
-    if (isKritiqueLoaded) {
-      setInjectScript(isKritiqueLoaded);
-      setTimeout(reloadKritiqueWidget, 1000);
-      return;
-    }
-
-    if (document && document.readyState === 'complete') {
-      setLoadKritique();
-    } else {
-      window.addEventListener('load', () => {
-        setLoadKritique();
-      });
-    }
+    // @ts-ignore
+    window.isKritiqueLoaded
+      ? setTimeout(reloadKritiqueWidget, 1000)
+      : setLoadKritique();
   }, []);
 
   return (
     <>
-      {isBrowser() &&
-      (!!sessionStorage.getItem('loadKritique') || injectScript) ? (
+      {isBrowser() && (
         <Helmet
           // @ts-ignore
           script={[
@@ -55,7 +42,7 @@ const Kritique = () => {
             },
           ]}
         />
-      ) : null}
+      )}
     </>
   );
 };
