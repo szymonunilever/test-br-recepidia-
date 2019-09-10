@@ -1,6 +1,5 @@
 import cx from 'classnames';
-import remove from 'lodash/remove';
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect, memo, useCallback } from 'react';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
@@ -107,18 +106,17 @@ export const RecipeListing = ({
   ratingProvider === RatingAndReviewsProvider.kritique &&
     useKritiqueReload([recipeList]);
 
-  const changeFavorites = ({
-    recipeId,
-    val,
-  }: {
-    recipeId: number;
-    val: boolean;
-  }) => {
-    val ? favorites.push(recipeId) : remove(favorites, n => n === recipeId);
-    if (onFavoriteChange) {
-      onFavoriteChange(favorites);
-    }
-  };
+  const changeFavorites = useCallback(
+    ({ recipeId, val }: { recipeId: number; val: boolean }) => {
+      const changes = val
+        ? [...favorites, recipeId]
+        : favorites.filter(id => id !== recipeId);
+      if (onFavoriteChange) {
+        onFavoriteChange(changes);
+      }
+    },
+    [favorites, onFavoriteChange]
+  );
   const onFilterChange = (filter: Internal.Tag[]) => {
     if (isAsyncLoadMore()) {
       if (onViewChange) {
@@ -238,7 +236,7 @@ export const RecipeListing = ({
         withFavorite={withFavorite}
         FavoriteIcon={FavoriteIcon}
         onFavoriteChange={changeFavorites}
-        list={list}
+        list={listModified}
         content={content}
         config={carouselConfig}
         ratingProvider={ratingProvider}

@@ -6,7 +6,6 @@ import React, {
 } from 'react';
 import { UserPreferencesProps } from './models';
 import PreferencesIntro from './partials/PreferencesIntro';
-import NewsletterSubscriptions from '../NewsletterSubscriptions/NewsletterSubscriptions';
 import ResultCount from './partials/PreferencesQuiz/partials/ResultCount';
 import { LastInteraction } from './partials/PreferencesQuiz/index';
 
@@ -14,14 +13,12 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
   children,
   deleteQuestion,
   saveQuestion,
-  onNewsletterFormSubmit,
   content: {
     preferencesIntroContent,
     noResultContent,
     updatePropsContent,
     buttonsContent,
     resultLabelContent,
-    newsletterSubscriptionsContent,
   },
 }) => {
   const [editingKey, setEditingKey] = useState('');

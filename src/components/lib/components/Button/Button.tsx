@@ -15,7 +15,6 @@ export const Button = ({
   children = '',
   type = 'button',
   isToggle = false,
-  toggleExternalManage = false,
   viewType = ButtonViewType.classic,
   content,
   role,
@@ -24,10 +23,8 @@ export const Button = ({
   const { label } = content || { label: '' };
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
   useEffect(() => {
-    if (toggleExternalManage && selected !== isSelected) {
-      setSelected(isSelected);
-    }
-  });
+    setSelected(isSelected);
+  }, [isSelected]);
   const buttonClasses = cx(
     viewType === ButtonViewType.icon ? theme.icon : theme.button,
     className,
