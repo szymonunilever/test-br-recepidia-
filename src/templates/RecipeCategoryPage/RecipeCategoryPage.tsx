@@ -64,11 +64,9 @@ const RecipeCategoryPage = ({
     'RecipesByCategory'
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
   if (localImage) {
     const seoImage = seo.meta.find(item => {
@@ -112,8 +110,14 @@ const RecipeCategoryPage = ({
           />
         </section>
       )}
-      <section className={cx(theme.greyBg, 'bg--half wrapper')}>
-        <RecipeListingWithFavorite
+      <section
+        className={cx(
+          theme.greyBg,
+          theme.recipeCategoryPageRecipes,
+          'bg--half wrapper'
+        )}
+      >
+        <RecipeListing
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title.replace(
@@ -121,6 +125,10 @@ const RecipeCategoryPage = ({
               recipeResultsCount
             ),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
@@ -190,7 +198,7 @@ const RecipeCategoryPage = ({
 export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
-  query($tags: [Int]) {
+  query($tags: [Int], $slug: String) {
     allRecipe(
       limit: 8
       sort: { order: ASC, fields: creationTime }
@@ -212,7 +220,7 @@ export const query = graphql`
 
     allCategory(
       limit: 15
-      filter: { showOnHomepage: { ne: 0 } }
+      filter: { showOnHomepage: { ne: 0 }, fields: { slug: { ne: $slug } } }
       sort: { order: ASC, fields: showOnHomepage }
     ) {
       nodes {
@@ -255,6 +263,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     category: Internal.Category;
     tags: number[];
     recipeDetails: AppContent.Category.RecipeDetails;
+    slug: string;
   };
   location: WindowLocation;
 }

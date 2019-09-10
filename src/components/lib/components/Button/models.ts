@@ -23,7 +23,6 @@ export interface ButtonProps {
   isDisabled?: boolean;
   isSelected?: boolean;
   onClick?: ButtonCallback;
-  toggleExternalManage?: boolean;
   children?: ReactNode | ReactNode[];
   viewType?: ButtonViewType;
   hidden?: boolean;

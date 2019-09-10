@@ -47,11 +47,9 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const componentContent = findPageComponentContent(components, 'Wizard');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const wizardResultSection = componentContent.wizardResultSection;
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
 
   const processSearchData = useCallback(
@@ -132,8 +130,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           >
             {recipes.length ? (
               <div>
-                <RecipeListingWithFavorite
+                <RecipeListing
                   content={findPageComponentContent(components, 'Wizard')}
+                  favorites={Array.isArray(favorites) ? favorites : []}
+                  onFavoriteChange={updateFavoriteState}
+                  FavoriteIcon={FavoriteIcon}
+                  withFavorite={true}
                   list={recipes}
                   ratingProvider={RatingAndReviewsProvider.kritique}
                   viewType={RecipeListViewType.Carousel}
@@ -155,7 +157,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                 <div className="wizard__buttons">
                   <Link
                     className="wizard__button wizard__button--primary"
-                    to={'/profile?tabOpen=MealPlanner'}
+                    to={'/perfil?tabOpen=MealPlanner'}
                   >
                     {wizardResultSection.primaryButtonLabel}
                   </Link>

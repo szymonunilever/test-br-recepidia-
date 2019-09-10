@@ -10,6 +10,10 @@ const AdaptiveImage = ({
   localImage,
   sizes,
 }: AdaptiveImageProps) => {
+  if (!localImage || !localImage.childImageSharp) {
+    return <></>;
+  }
+
   const classNames = cx('adaptive-image', className);
 
   const [docLoaded, setDocLoaded] = useState(false);

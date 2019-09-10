@@ -386,7 +386,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
       visibility: visible;
       @include respondTo(desktop) {
         height: auto;
-        padding: 0;
+        padding: 10px 0;
       }
     }
 
@@ -427,21 +427,18 @@ $submenu-text-color-desktop: $fish-blue-darker;
         overflow: visible;
 
         .submenu {
-          padding: 0;
+          padding: 10px 0;
           display: block;
           border-radius: 5px;
           @include respondTo(desktop) {
             position: absolute;
             left: 100%;
             top: 0;
-            padding: 0;
           }
 
           &.is-opened {
             padding: 10px 0;
-            @include respondTo(desktop) {
-              padding: 0;
-            }
+
           }
         }
 
@@ -547,7 +544,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
               overflow: visible;
               visibility: visible;
               height: auto;
-              padding: 0;
             }
           }
         }

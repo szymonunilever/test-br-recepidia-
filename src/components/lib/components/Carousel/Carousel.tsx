@@ -2,10 +2,26 @@ import React, { useState, useEffect, CSSProperties, useCallback } from 'react';
 import Arrow from './partials/Arrow';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import ProgressBar from './partials/ProgressBar';
-import { CarouselProps, BreakpointProps } from './models';
+import { CarouselProps, BreakpointProps, CarouselConfig } from './models';
 import styles from './Carousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
 import cx from 'classnames';
+
+const shouldUpdate = (
+  newBreakpoint: BreakpointProps,
+  slideStep: number,
+  visibleElements: number
+): boolean => {
+  const newSlideStep =
+    window.innerWidth > newBreakpoint.width
+      ? newBreakpoint.switchElementsAfterBreakpoint
+      : newBreakpoint.switchElementsBelowBreakpoint;
+  const newVisibleElemenst =
+    window.innerWidth > newBreakpoint.width
+      ? newBreakpoint.visibleElementsAboveBreakpoint
+      : newBreakpoint.visibleElementsBelowBreakpoint;
+  return newSlideStep !== slideStep || newVisibleElemenst !== visibleElements;
+};
 
 export const defaultCarouselConfig = {
   breakpoints: [
@@ -20,23 +36,21 @@ export const defaultCarouselConfig = {
   arrowIcon: <ArrowIcon />,
 };
 
+const getNearestBreakpoint = (config: CarouselConfig, target: number) => {
+  return (config.breakpoints || defaultCarouselConfig.breakpoints).reduce(
+    (prev, curr) =>
+      Math.abs(curr.width - target) < Math.abs(prev.width - target)
+        ? curr
+        : prev
+  );
+};
+
 const Carousel = ({
   list,
   createElementFunction,
   config,
   onVisibleElementsChanged,
 }: CarouselProps) => {
-  const getNearestBreakpoint = useCallback(
-    (target: number) => {
-      return (config.breakpoints || defaultCarouselConfig.breakpoints).reduce(
-        (prev, curr) =>
-          Math.abs(curr.width - target) < Math.abs(prev.width - target)
-            ? curr
-            : prev
-      );
-    },
-    [config]
-  );
   const listSize = list.length;
   const listEven = listSize % 2 === 0;
   const [slideStep, setSlideStep] = useState();
@@ -81,34 +95,36 @@ const Carousel = ({
     [list]
   );
 
-  const setCarouselSettings = useCallback(
-    (newBreakpoint: BreakpointProps) => {
-      const newSlideStep =
-        window.innerWidth > newBreakpoint.width
-          ? newBreakpoint.switchElementsAfterBreakpoint
-          : newBreakpoint.switchElementsBelowBreakpoint;
-      const newVisibleElemenst =
-        window.innerWidth > newBreakpoint.width
-          ? newBreakpoint.visibleElementsAboveBreakpoint
-          : newBreakpoint.visibleElementsBelowBreakpoint;
-      setSlideStep(newSlideStep);
-      setVisibleElements(newVisibleElemenst);
+  const setCarouselSettings = () => {
+    const newBreakpoint = getNearestBreakpoint(config, window.innerWidth);
+    if (!shouldUpdate(newBreakpoint, slideStep, visibleElements)) {
+      return;
+    }
 
-      if (listSize <= newVisibleElemenst) {
-        setTranslateValue(0);
-        setPercentage(100);
-        setTrackingIndex(0);
-      } else {
-        const [newTranslateValue, maxTranslate] = adjustSizing(
-          newVisibleElemenst,
-          translateValue
-        );
-        setPercentage(Math.abs(newTranslateValue / maxTranslate) * 100);
-        setTrackingIndex(Math.abs(newTranslateValue) / (100 / listSize));
-      }
-    },
-    [translateValue, list]
-  );
+    const newSlideStep =
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.switchElementsAfterBreakpoint
+        : newBreakpoint.switchElementsBelowBreakpoint;
+    const newVisibleElemenst =
+      window.innerWidth > newBreakpoint.width
+        ? newBreakpoint.visibleElementsAboveBreakpoint
+        : newBreakpoint.visibleElementsBelowBreakpoint;
+    setSlideStep(newSlideStep);
+    setVisibleElements(newVisibleElemenst);
+
+    if (listSize <= newVisibleElemenst) {
+      setTranslateValue(0);
+      setPercentage(100);
+      setTrackingIndex(0);
+    } else {
+      const [newTranslateValue, maxTranslate] = adjustSizing(
+        newVisibleElemenst,
+        translateValue
+      );
+      setPercentage(Math.abs(newTranslateValue / maxTranslate) * 100);
+      setTrackingIndex(Math.abs(newTranslateValue) / (100 / listSize));
+    }
+  };
 
   const switchImages = useCallback(
     (mayMove: boolean, newTranslateValue: number) => {
@@ -137,23 +153,6 @@ const Carousel = ({
     switchImages(mayGoRight, translateValue + -((100 * slideStep) / listSize));
   }, [mayGoRight, switchImages, translateValue, slideStep, list]);
 
-  const shouldUpdate = useCallback(
-    (newBreakpoint: BreakpointProps): boolean => {
-      const newSlideStep =
-        window.innerWidth > newBreakpoint.width
-          ? newBreakpoint.switchElementsAfterBreakpoint
-          : newBreakpoint.switchElementsBelowBreakpoint;
-      const newVisibleElemenst =
-        window.innerWidth > newBreakpoint.width
-          ? newBreakpoint.visibleElementsAboveBreakpoint
-          : newBreakpoint.visibleElementsBelowBreakpoint;
-      return (
-        newSlideStep !== slideStep || newVisibleElemenst !== visibleElements
-      );
-    },
-    [slideStep, visibleElements]
-  );
-
   useEffect(() => {
     // This effect checks if the list length is equal or less than visibleElements value.
     // If so, the number of visible elements is adjusted to meet the number of elements in the list.
@@ -167,16 +166,8 @@ const Carousel = ({
   }, [trackingIndex]);
 
   useEffect(() => {
-    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
-    setCarouselSettings(newBreakpoint);
-  }, [list]);
-
-  useEffect(() => {
-    const newBreakpoint = getNearestBreakpoint(window.innerWidth);
-    if (shouldUpdate(newBreakpoint)) {
-      setCarouselSettings(newBreakpoint);
-    }
-  }, [updateKey]);
+    setCarouselSettings();
+  }, [list, updateKey]);
 
   useEffect(() => {
     const resizeHandler = () => setUpdateKey(Math.random());

@@ -76,6 +76,7 @@
     }
     &-item {
       font-size: 1.4rem;
+      line-height: 1.29;
       color: $black-blue;
       margin: 0 0 28px;
       @include respondTo(desktop) {

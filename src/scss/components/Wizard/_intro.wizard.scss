@@ -37,7 +37,6 @@
         right: 0;
         top: 77px;
         bottom: 77px;
-        border-radius: 5px 0 0 5px;
       }
       .adaptive-image {
         height: 100%;
@@ -46,7 +45,9 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border-radius: 5px 0 0 5px;
+        @include respondTo(desktop) {
+          border-radius: 5px 0 0 5px;
+        }
         &__image {
           height: 100%;
         }
