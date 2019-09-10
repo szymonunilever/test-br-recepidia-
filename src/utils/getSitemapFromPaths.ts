@@ -3,7 +3,13 @@ import capitalize from 'lodash/capitalize';
 import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
 
 const ROOT_PATH = '/';
-const EXCLUDED_PATHS = ['/procurar', '/perfil', '/mapa-do-site', ROOT_PATH];
+const EXCLUDED_PATHS = [
+  '/procurar',
+  '/perfil',
+  '/mapa-do-site',
+  '/newsletter-signup',
+  ROOT_PATH,
+];
 
 const nestPaths = (
   rootPath: string,
