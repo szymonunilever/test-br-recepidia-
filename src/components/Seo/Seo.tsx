@@ -8,6 +8,7 @@
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import truncate from 'lodash/truncate';
 
 function SEO({
   description,
@@ -32,7 +33,12 @@ function SEO({
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = truncate(
+    (description || site.siteMetadata.description)
+      .replace(/<*.\/?>/, '')
+      .replace(/<\/*.>/, ''),
+    { length: 160 }
+  );
 
   return (
     <Helmet
