@@ -397,7 +397,7 @@
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -2113,7 +2113,7 @@
                       {
                         "value": "<21",
                         "label": {
-                          "text": "Quero ser rápido! (Total time < 20 min)",
+                          "text": "Quero ser rápido!",
                           "image": {
                             "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
                             "alt": "Quero ser rápido!"
