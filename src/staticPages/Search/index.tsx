@@ -66,7 +66,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <Kritique />
-      <section className={theme.searchListingWrap}>
+      <section className={cx('_pt--40', theme.searchListingWrap)}>
         <SearchListing
           searchQuery={searchQuery}
           searchResults={{

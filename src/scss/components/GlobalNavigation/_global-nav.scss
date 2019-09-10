@@ -1,8 +1,3 @@
-@import '../../vars';
-@import '../../mixins';
-@import '../../theme';
-@import '../../components/Button/index';
-
 $header-height: 80px;
 
 $header-color-mobile: $black-blue;
@@ -438,7 +433,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
 
           &.is-opened {
             padding: 10px 0;
-
           }
         }
 
