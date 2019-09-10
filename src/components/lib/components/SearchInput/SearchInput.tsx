@@ -26,6 +26,7 @@ const SearchInput = ({
   onClickSearchResultsItem,
   autoFocus = false,
   minLength = 3,
+  maxLength = 60,
 }: SearchInputProps) => {
   const classNames = cx('search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -89,7 +90,10 @@ const SearchInput = ({
       const { value } = e.target;
       const trimmedValue = trim(value);
 
-      setInputValue(value);
+      if (trimmedValue.length <= maxLength) {
+        setInputValue(value);
+      }
+
       setInputIsDirty(true);
       setData([]);
 
@@ -115,7 +119,11 @@ const SearchInput = ({
       setData([]);
       setInputIsDirty(false);
 
-      if (trim(inputValue).length >= minLength && onSubmit) {
+      if (
+        trim(inputValue).length >= minLength &&
+        onSubmit &&
+        trim(inputValue).length <= maxLength
+      ) {
         clearTimeOut();
         onSubmit(inputValue, {
           from: 0,
@@ -184,6 +192,8 @@ const SearchInput = ({
             {labelIcon}
           </label>
           <input
+            minLength={minLength}
+            maxLength={maxLength}
             autoFocus={autoFocus}
             className="form__input"
             type="text"
