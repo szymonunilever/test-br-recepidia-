@@ -198,7 +198,7 @@ const RecipeCategoryPage = ({
 export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
-  query($tags: [Int]) {
+  query($tags: [Int], $slug: String) {
     allRecipe(
       limit: 8
       sort: { order: ASC, fields: creationTime }
@@ -220,7 +220,7 @@ export const query = graphql`
 
     allCategory(
       limit: 15
-      filter: { showOnHomepage: { ne: 0 } }
+      filter: { showOnHomepage: { ne: 0 }, fields: { slug: { ne: $slug } } }
       sort: { order: ASC, fields: showOnHomepage }
     ) {
       nodes {
@@ -263,6 +263,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     category: Internal.Category;
     tags: number[];
     recipeDetails: AppContent.Category.RecipeDetails;
+    slug: string;
   };
   location: WindowLocation;
 }
