@@ -15,7 +15,8 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            <link rel="preconnect" href={keys.kritique.url} />
+            <link rel="preconnect" href={keys.kritique.baseUrl} />
+            <link rel="preconnect" href={keys.elasticSearch.url} />
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
