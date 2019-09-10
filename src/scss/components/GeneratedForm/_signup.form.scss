@@ -1,13 +1,8 @@
-@import '../../vars';
-@import '../../mixins';
-@import '../../theme';
-@import '../../components/Button/index';
-
 .general-signup {
-  padding: 37px 0;
+  padding: 37px 0 45px;
   background-color: $white-gray;
   @include respondTo(desktop) {
-    padding: 65px 0;
+    padding: 65px 0 73px;
   }
 
   .generated-form__container {
@@ -33,7 +28,7 @@
         margin-bottom: 34px;
       }
     }
-    .buttons{
+    .buttons {
       display: block;
       width: 100%;
       text-align: center;
@@ -56,7 +51,6 @@
   .generated-form__subtitle {
     @extend h3;
   }
-
 
   .field {
     width: 100%;

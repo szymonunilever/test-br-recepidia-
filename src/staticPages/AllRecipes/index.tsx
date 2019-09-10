@@ -144,7 +144,7 @@ const AllRecipesPage = ({
         }
       );
     },
-    [initialRecipesCount, recipeResultsList.length]
+    [initialRecipesCount, recipeResultsList]
   );
 
   return (
