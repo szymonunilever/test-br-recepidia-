@@ -34,7 +34,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -409,7 +409,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -519,7 +519,7 @@
     },
     {
       "type": "RecipeCategory",
-      "relativePath": "/recipe-categories",
+      "relativePath": "/receitas-categorias",
       "components": {
         "items": [
           {
@@ -553,7 +553,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -643,7 +643,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -667,7 +667,7 @@
     },
     {
       "type": "ContentHub",
-      "relativePath": "/content-hub",
+      "relativePath": "/hub-de-conteudo",
       "components": {
         "items": [
           {
@@ -703,7 +703,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -727,7 +727,7 @@
     },
     {
       "type": "ArticleDetail",
-      "relativePath": "/articles",
+      "relativePath": "/artigos",
       "components": {
         "items": [
           {
@@ -763,7 +763,7 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -787,7 +787,7 @@
     },
     {
       "type": "Search",
-      "relativePath": "/search",
+      "relativePath": "/procurar",
       "components": {
         "items": [
           {
@@ -850,7 +850,7 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -881,7 +881,7 @@
     },
     {
       "type": "ContactUs",
-      "relativePath": "/contact-us",
+      "relativePath": "/fale-comigo",
       "components": {
         "items": [
           {
@@ -930,7 +930,7 @@
               "type": "text",
               "cta": {
                 "label": "Preencher o formulário de contato",
-                "linkTo": "/contact-form"
+                "linkTo": "/formulario-de-contato"
               }
             }
           }
@@ -949,7 +949,7 @@
     },
     {
       "type": "ContactForm",
-      "relativePath": "/contact-form",
+      "relativePath": "/formulario-de-contato",
       "components": {
         "items": [
           {
@@ -1221,7 +1221,7 @@
     {
       "title": "User Profile",
       "type": "UserProfile",
-      "relativePath": "/profile",
+      "relativePath": "/perfil",
       "components": {
         "items": [
           {
@@ -1921,7 +1921,7 @@
     },
     {
       "type": "AboutUs",
-      "relativePath": "/about-us",
+      "relativePath": "/sobre-recepedia",
       "components": {
         "items": [
           {
@@ -1968,7 +1968,7 @@
     },
     {
       "type": "MealPlanner",
-      "relativePath": "/meal-planner",
+      "relativePath": "/planejamento-da-semana",
       "components": {
         "items": [
           {
@@ -2234,7 +2234,7 @@
     },
     {
       "type": "Sitemap",
-      "relativePath": "/sitemap",
+      "relativePath": "/mapa-do-site",
       "components": {
         "items": [
           {
