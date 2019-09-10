@@ -6,11 +6,6 @@ import Helmet from 'react-helmet';
 import { reloadKritiqueWidget } from '../../src/components/lib/utils/useKritiqueReload';
 import { isBrowser } from 'src/utils';
 
-export enum ScriptType {
-  jQuery = 'jQuery',
-  Kritique = 'ratingReview',
-}
-
 const Kritique = () => {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
@@ -41,10 +36,10 @@ const Kritique = () => {
         <Helmet
           // @ts-ignore
           script={[
-            {
-              src: '/libs/jquery.min.js',
-              defer: true,
-            },
+            // {
+            //   src: '/libs/jquery.min.js',
+            //   defer: true,
+            // },
             {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
