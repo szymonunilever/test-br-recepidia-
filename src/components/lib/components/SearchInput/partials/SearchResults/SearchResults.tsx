@@ -27,7 +27,7 @@ const SearchResults = ({
             {navigateToItem ? (
               <a className={classNames}>{item}</a>
             ) : (
-              <Link className={classNames} to={`/search?searchQuery=${item}`}>
+              <Link className={classNames} to={`/procurar?searchQuery=${item}`}>
                 {item}
               </Link>
             )}

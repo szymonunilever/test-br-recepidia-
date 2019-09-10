@@ -60,7 +60,7 @@ const GlobalSearch = ({
         <SearchInput
           getSearchResults={getSearchSuggestionData}
           onClickSearchResultsItem={(value: string) => {
-            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           content={searchContent}
@@ -69,7 +69,7 @@ const GlobalSearch = ({
           buttonResetIcon={<ButtonCloseIcon />}
           buttonSubmitIcon={<SearchIcon />}
           onSubmit={async value => {
-            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           autoFocus
