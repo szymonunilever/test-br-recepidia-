@@ -64,11 +64,9 @@ const RecipeCategoryPage = ({
     'RecipesByCategory'
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
   if (localImage) {
     const seoImage = seo.meta.find(item => {
@@ -119,7 +117,7 @@ const RecipeCategoryPage = ({
           'bg--half wrapper'
         )}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title.replace(
@@ -127,6 +125,10 @@ const RecipeCategoryPage = ({
               recipeResultsCount
             ),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}

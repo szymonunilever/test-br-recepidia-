@@ -45,7 +45,6 @@ const Tag = ({
         <Button
           className="tags__toggle"
           onClick={onTagClick}
-          toggleExternalManage
           content={{ label: title || name }}
           isSelected={state}
           isToggle={true}
@@ -66,7 +65,6 @@ const Tag = ({
           <Button
             className="tags__removable--button"
             onClick={onButtonClick}
-            toggleExternalManage
             isSelected={state}
             Icon={RemoveIcon}
           />
