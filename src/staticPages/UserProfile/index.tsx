@@ -259,7 +259,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             <div className={theme.mealPlannerBtnWrap}>
               <Link
                 className={cx(theme.mealPlannerBtn, 'button')}
-                to={'/meal-planner'}
+                to={'/planejamento-da-semana'}
               >
                 {mealPlanButtonContent.label}
               </Link>
