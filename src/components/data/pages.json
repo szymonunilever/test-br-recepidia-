@@ -744,7 +744,7 @@
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
