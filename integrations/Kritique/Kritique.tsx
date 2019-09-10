@@ -15,16 +15,24 @@ const Kritique = () => {
 
   const [injectScript, setInjectScript] = useState(false);
 
+  const setLoadKritique = () => {
+    sessionStorage.setItem('loadKritique', 'true');
+    setInjectScript(true);
+  };
   useEffect(() => {
-    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
+    const isKritiqueLoaded = !!sessionStorage.getItem('loadKritique');
 
     if (isKritiqueLoaded) {
       setInjectScript(isKritiqueLoaded);
       setTimeout(reloadKritiqueWidget, 1000);
+      return;
+    }
+
+    if (document && document.readyState === 'complete') {
+      setLoadKritique();
     } else {
       window.addEventListener('load', () => {
-        sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
+        setLoadKritique();
       });
     }
   }, []);
@@ -32,7 +40,7 @@ const Kritique = () => {
   return (
     <>
       {isBrowser() &&
-      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
+      (!!sessionStorage.getItem('loadKritique') || injectScript) ? (
         <Helmet
           // @ts-ignore
           script={[
