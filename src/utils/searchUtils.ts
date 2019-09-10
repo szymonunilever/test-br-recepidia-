@@ -55,8 +55,8 @@ const recipeSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        query: `${searchQuery}`,
         fields: [
           'title^5',
           'description^2',
@@ -128,8 +128,8 @@ const articleSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        query: `${searchQuery}`,
         fields: ['title^5', 'articleText.text^2'],
       },
     },
