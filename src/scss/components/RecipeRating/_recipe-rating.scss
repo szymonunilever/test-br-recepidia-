@@ -1,6 +1,3 @@
-@import '../../vars';
-@import '../../mixins';
-
 .recipe-rating {
   margin-bottom: 20px;
   min-height: 17px;
@@ -74,4 +71,9 @@
 
 .rr-inline-widget.rr-widget-container .aggregateRating {
   display: inline-block;
+}
+
+.rr-review-section .postReviewStarRating .starRatingsContainer ul li {
+  margin: 0 5px 0 0;
+  width: 14px;
 }
