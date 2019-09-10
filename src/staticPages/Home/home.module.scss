@@ -14,3 +14,14 @@
   }
 }
 
+.recipe-hidden{
+  :global(.carousel){
+    min-height: 350px;
+    @include respondTo(desktop){
+      min-height: 425px;
+    }
+    *{
+      visibility: hidden;
+    }
+  }
+}
