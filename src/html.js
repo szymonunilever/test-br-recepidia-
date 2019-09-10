@@ -13,7 +13,7 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        {process.env.NODE_ENV !== 'development' && (
+        {/* {process.env.NODE_ENV !== 'development' && (
           <>
             <link
               rel="preconnect"
@@ -25,7 +25,7 @@ export default function HTML(props) {
 
             <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
           </>
-        )}
+        )} */}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
