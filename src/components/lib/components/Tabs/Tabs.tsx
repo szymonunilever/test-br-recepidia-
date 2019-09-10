@@ -79,7 +79,6 @@ export const Tabs = ({
             isDisabled={hasResultCount && !tab.resultsCount}
             role="tab"
             isSelected={active === tab.view}
-            toggleExternalManage={true}
             onClick={() => setActive(tab.view)}
             attributes={
               active === tab.view

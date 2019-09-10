@@ -61,11 +61,9 @@ const AllRecipesPage = ({
     path: category.fields.slug,
   }));
 
-  const RecipeListingWithFavorite = useFavorite(
+  const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+    updateFavorites
   );
 
   const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
@@ -181,7 +179,7 @@ const AllRecipesPage = ({
       <section
         className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
           content={{
@@ -191,6 +189,10 @@ const AllRecipesPage = ({
               'AllRecipes'
             ),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={3}
@@ -209,6 +211,7 @@ const AllRecipesPage = ({
           OpenIcon={OpenIcon}
           FilterIcon={FilterIcon}
           RemoveTagIcon={RemoveTagIcon}
+          // @ts-ignore
           loadMoreConfig={{
             type: LoadMoreType.async,
             allCount: recipeResultsCount,
@@ -225,12 +228,16 @@ const AllRecipesPage = ({
           '_pt--40 _pb--40 wrapper'
         )}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'SeasonalPromotionalRecipes'
           )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={promotionalRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={2}
