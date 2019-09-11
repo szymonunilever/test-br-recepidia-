@@ -32,6 +32,7 @@ const Kritique = () => {
     } else {
       window.addEventListener('load', () => {
         setLoadKritique();
+        setTimeout(reloadKritiqueWidget, 2000);
       });
     }
   }, []);
