@@ -34,6 +34,11 @@ export default function HTML(props) {
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
             <link
               rel="preload"
+              href="https://eu-stage-kritique.unileversolutions.com/widget/resources/js/RR_widget_core.js"
+              as="script"
+            />
+            <link
+              rel="preload"
               href={`${
                 keys.kritique.baseUrl
               }/widget/resources/css/RR_widget.css`}

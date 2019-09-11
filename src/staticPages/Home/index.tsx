@@ -114,7 +114,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           onClose={isIntroDone}
         />
       )}
-      <Kritique />
+      {/* <Kritique /> */}
       <DigitalData title={seo.title} type={type} />
       <section className={cx(theme.homeTitle, '_bg--main wrapper')}>
         <Text
