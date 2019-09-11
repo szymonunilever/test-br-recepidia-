@@ -19,8 +19,8 @@ const getStaticLists = require('./scripts/build/getStaticLists');
 const urlPartialsByTypeMap = {
   Article: 'title',
   Recipe: 'title',
-  Tag: 'name',
-  Category: 'name',
+  Tag: 'title',
+  Category: 'title',
 };
 
 const findPageFromNodes = (pagesNodes, pageType) =>
@@ -29,6 +29,7 @@ const findPageFromNodes = (pagesNodes, pageType) =>
 const formatUrlPartial = (partial = '') =>
   partial
     .replace(/[&,+()$~%.'":*?<>{}]/g, '')
+    .replace(/[_-]/, ' ')
     .toLowerCase()
     .split(' ')
     .join('-');

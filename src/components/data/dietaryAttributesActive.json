@@ -1,6 +1,11 @@
 [
   {
-    "id": "nutFree",
-    "name": "Nut free"
+    "title": "Glúten Free",
+    "tagId": 3,
+    "name": "gluten_free",
+    "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+    "fields": {
+      "slug": "/hub-de-conteudo/gluten-free"
+    }
   }
 ]

@@ -15,7 +15,6 @@ const Tag = ({
 }: TagProps) => {
   const [state, setState] = useState(active);
   const {
-    name,
     title,
     fields: { slug: path },
   } = tag;
@@ -45,7 +44,7 @@ const Tag = ({
         <Button
           className="tags__toggle"
           onClick={onTagClick}
-          content={{ label: title || name }}
+          content={{ label: title }}
           isSelected={state}
           isToggle={true}
         />
@@ -54,14 +53,14 @@ const Tag = ({
     case TagVariant.link:
       view = (
         <Link className="tags__link" to={path}>
-          <span>{title || name}</span>
+          <span>{title}</span>
         </Link>
       );
       break;
     case TagVariant.removable:
       view = (
         <div className="tags__removable" tabIndex={0}>
-          <span>{title || name}</span>
+          <span>{title}</span>
           <Button
             className="tags__removable--button"
             onClick={onButtonClick}

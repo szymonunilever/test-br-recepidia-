@@ -3,7 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { findPageComponentContent, fromCamelCase } from 'src/utils';
+import { findPageComponentContent } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -60,7 +60,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipeListing',
     'RecipesByCategory'
   );
-  const tagLabel = tag.title || fromCamelCase(tag.name);
+  const tagLabel = tag.title;
 
   return (
     <Layout className={classWrapper}>

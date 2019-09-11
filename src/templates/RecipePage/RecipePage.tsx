@@ -131,12 +131,13 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     recipe,
   } = pageContext;
   const tags = recipeTags.nodes;
-  const allDietaryList = (dietaryTagGroup && dietaryTagGroup.tags) || [];
+  const allDietaryList = ((dietaryTagGroup && dietaryTagGroup.tags) ||
+    []) as Internal.Tag[];
   const currentRecipeDietaryList = get(
     recipe.tagGroups.find(tags => tags.label === 'dietary'),
     'tags',
     []
-  );
+  ) as Internal.Tag[];
   const { updateFavoriteState, favorites } = useFavorite(
     (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
     updateFavorites
