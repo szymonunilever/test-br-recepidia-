@@ -9,7 +9,7 @@
         @extend h2;
         font-size: 1.8rem;
         margin-right: auto;
-        max-width: 110px;
+        max-width: calc(100% - 170px);
         @include respondTo(desktop) {
           font-size: 2.5rem;
           max-width: none;

@@ -87,7 +87,7 @@ const AllRecipesPage = ({
 
   const onLoadMore = useCallback(
     (tags: Internal.Tag[], sort: string, size: number) => {
-      onLoadMoreRecipes(tags, sort, size, {
+      return onLoadMoreRecipes(tags, sort, size, {
         query: getFilterQuery(tags),
         fields: tags.length ? ['tagGroups.tags.id'] : [],
       });

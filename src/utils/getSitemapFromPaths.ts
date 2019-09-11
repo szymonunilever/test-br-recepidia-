@@ -7,7 +7,7 @@ const EXCLUDED_PATHS = [
   '/procurar',
   '/perfil',
   '/mapa-do-site',
-  '/newsletter-signup',
+  '/newsletter-signup/',
   ROOT_PATH,
 ];
 

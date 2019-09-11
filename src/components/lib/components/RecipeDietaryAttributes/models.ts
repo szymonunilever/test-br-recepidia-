@@ -1,8 +1,8 @@
 export interface RecipeDietaryAttributesProps {
   className?: string;
-  attributes: RMSData.Tag[];
+  attributes: Internal.Tag[];
   icons: Icon[];
-  activeAttributes: RMSData.Tag[];
+  activeAttributes: Internal.Tag[];
   showInactiveAttributes?: boolean;
 }
 
