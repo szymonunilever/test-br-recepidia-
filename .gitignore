@@ -77,3 +77,6 @@ package-lock.json
 
 # Storybook Static build
 storybook-static
+
+# Redirects map will be generated automatically during build
+_redirects

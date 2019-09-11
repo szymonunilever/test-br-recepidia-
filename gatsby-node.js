@@ -15,6 +15,7 @@ const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 const constants = require('./scripts/constants');
 const getStaticLists = require('./scripts/build/getStaticLists');
+const generateRedirectMap = require('./scripts/build/generateRedirectMap');
 
 const urlPartialsByTypeMap = {
   Article: 'title',
@@ -325,7 +326,21 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   actions.replaceWebpackConfig(config);
 };
 
-exports.onPostBuild = async ({ getNodesByType }) => {
+exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
+  // eslint-disable-next-line no-console
+  console.log('Generating redirects map');
+
+  const tstart = process.hrtime();
+
+  await generateRedirectMap(getNodes());
+
+  // eslint-disable-next-line no-console
+  console.log('Redirects map generation finished');
+
+  const trend = process.hrtime(tstart);
+  // eslint-disable-next-line no-console
+  console.info('Execution time (hr): %ds %dms', trend[0], trend[1] / 1000000);
+
   // To run ES update pass `updateES=true` as a build param
   const args = process.argv.slice(2);
   if (
