@@ -30,7 +30,7 @@ const Kritique = () => {
       setTimeout(() => {
         sessionStorage.setItem('isKritiqueLoaded', 'true');
         setInjectScript(true);
-      }, 100);
+      }, 0);
     }
   }, []);
 
