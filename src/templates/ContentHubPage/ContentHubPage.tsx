@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
@@ -43,6 +43,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 }) => {
   const {
     page: { components, seo, type },
+    name,
   } = pageContext;
   const { tag, allArticle, allCategory } = data;
   const { updateFavoriteState, favorites } = useFavorite(
@@ -61,6 +62,13 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipesByCategory'
   );
   const tagLabel = tag.title;
+
+  const onLoadMore = useCallback(() => {
+    return onLoadMoreRecipes([], 'creationTime', 4, {
+      query: name,
+      fields: ['tagGroups.tags.name'],
+    });
+  }, [recipeResultsList]);
 
   return (
     <Layout className={classWrapper}>
@@ -90,7 +98,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{
             type: LoadMoreType.async,
-            onLoadMore: onLoadMoreRecipes,
+            onLoadMore,
             allCount: recipeResultsCount,
           }}
           initialCount={useMedia()}
@@ -231,6 +239,7 @@ interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
   };
   pageContext: {
     page: AppContent.Page;
+    name: string;
   };
   location: WindowLocation;
 }
