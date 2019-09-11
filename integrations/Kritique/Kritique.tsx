@@ -13,43 +13,45 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const [injectScript, setInjectScript] = useState(false);
+  // @ts-ignore
+  const isKritiqueLoad = () => window.isKritiqueLoaded;
+  const setLoadKritique = () => {
+    // @ts-ignore
+    window.isKritiqueLoaded = true;
+  };
 
   useEffect(() => {
-    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
+    // @ts-ignore
+    if (window.isKritiqueLoaded) {
+      setTimeout(reloadKritiqueWidget, 1000);
+      return;
+    }
 
-    if (isKritiqueLoaded) {
-      setInjectScript(isKritiqueLoaded);
-      setTimeout(reloadKritiqueWidget, 2000);
+    if (document.readyState === 'complete') {
+      setLoadKritique();
     } else {
-      setTimeout(() => {
-        sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
-      }, 5000);
+      window.addEventListener('load', () => {
+        setLoadKritique();
+      });
     }
   }, []);
 
-  return (
-    <>
-      {isBrowser() &&
-      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
-        <Helmet
-          // @ts-ignore
-          script={[
-            {
-              src: '/libs/jquery.min.js',
-              defer: true,
-            },
-            {
-              id: 'rr-widget',
-              src: kritiqueWidgetSrc,
-              defer: true,
-            },
-          ]}
-        />
-      ) : null}
-    </>
-  );
+  return isBrowser() && isKritiqueLoad() ? (
+    <Helmet
+      // @ts-ignore
+      script={[
+        // {
+        //   src: '/libs/jquery.min.js',
+        //   defer: true,
+        // },
+        {
+          id: 'rr-widget',
+          src: kritiqueWidgetSrc,
+          defer: true,
+        },
+      ]}
+    />
+  ) : null;
 };
 
 export default Kritique;
