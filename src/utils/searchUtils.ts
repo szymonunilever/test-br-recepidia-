@@ -56,7 +56,7 @@ const recipeSearchParams = (
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
       simple_query_string: {
-        query: `${searchQuery}`,
+        query: `${searchQuery}*`,
         fields: [
           'title^5',
           'description^2',
@@ -164,9 +164,9 @@ export const getSearchSuggestionResponse = async (
     useElasticSearch<Internal.Recipe>(
       recipeSearchParams(searchQuery, { from, size, _source: ['title'] })
     ),
-    useElasticSearch<Internal.Article>(
-      articleSearchParams(searchQuery, { from, size, _source: ['title'] })
-    ),
+    // useElasticSearch<Internal.Article>(
+    //   articleSearchParams(searchQuery, { from, size, _source: ['title'] })
+    // ),
   ]);
 };
 
