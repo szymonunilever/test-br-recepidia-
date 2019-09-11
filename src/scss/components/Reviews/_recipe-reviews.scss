@@ -58,6 +58,10 @@
     .average-rating {
       display: flex;
       align-items: center;
+      @media screen and (max-width: 374px) {
+        flex-flow: column-reverse;
+        align-items: flex-start;
+      }
 
       .aggregateRating {
         margin-left: 0;
@@ -76,6 +80,9 @@
         line-height: 1;
         font-size: 14px;
         position: relative;
+        @media screen and (max-width: 374px) {
+          height: 80px;
+        }
 
         .aggRtng {
           font: 500 4.8rem/0.75 $rubik;
