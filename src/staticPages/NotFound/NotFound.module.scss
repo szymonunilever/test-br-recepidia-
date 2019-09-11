@@ -24,8 +24,8 @@
     }
   }
 
-  &__recipes-link {
-    display: block;
+  &__recipes-link:global(.button) {
+    display: flex;
     width: 100%;
     color: $black-blue;
     @include respondTo(medium) {

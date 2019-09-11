@@ -114,7 +114,7 @@ const RecipeCategoryPage = ({
         className={cx(
           theme.greyBg,
           theme.recipeCategoryPageRecipes,
-          'bg--half wrapper'
+          '_bg--main wrapper'
         )}
       >
         <RecipeListing
