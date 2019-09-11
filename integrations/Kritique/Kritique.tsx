@@ -13,28 +13,33 @@ const Kritique = () => {
     keys.kritique.apiKey
   }&sitesource=${keys.kritique.siteSource}`;
 
-  const setLoadKritique = () => {
-    // @ts-ignore
-    window.isKritiqueLoaded = true;
-  };
+  const [injectScript, setInjectScript] = useState(false);
 
   useEffect(() => {
-    // @ts-ignore
-    window.isKritiqueLoaded
-      ? setTimeout(reloadKritiqueWidget, 1000)
-      : setLoadKritique();
+    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
+
+    if (isKritiqueLoaded) {
+      setInjectScript(isKritiqueLoaded);
+      setTimeout(reloadKritiqueWidget, 2000);
+    } else {
+      setTimeout(() => {
+        sessionStorage.setItem('isKritiqueLoaded', 'true');
+        setInjectScript(true);
+      }, 5000);
+    }
   }, []);
 
   return (
     <>
-      {isBrowser() && (
+      {isBrowser() &&
+      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
         <Helmet
           // @ts-ignore
           script={[
-            // {
-            //   src: '/libs/jquery.min.js',
-            //   defer: true,
-            // },
+            {
+              src: '/libs/jquery.min.js',
+              defer: true,
+            },
             {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
@@ -42,7 +47,7 @@ const Kritique = () => {
             },
           ]}
         />
-      )}
+      ) : null}
     </>
   );
 };
