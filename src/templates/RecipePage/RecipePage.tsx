@@ -139,7 +139,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     []
   ) as Internal.Tag[];
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
@@ -161,14 +161,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
         <div>
           <Button
             Icon={FavoriteIcon}
-            isSelected={(Array.isArray(
-              getUserProfileByKey(ProfileKey.favorites)
-            )
-              ? getUserProfileByKey(ProfileKey.favorites)
-              : []
-            )
-              // @ts-ignore
-              .includes(recipe.recipeId)}
+            isSelected={favorites.includes(recipe.recipeId)}
             onClick={() => {
               // @ts-ignore
               const favorites: number[] = Array.isArray(
@@ -181,7 +174,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
               } else {
                 favorites.push(recipe.recipeId);
               }
-              saveUserProfileByKey(favorites, ProfileKey.favorites);
+              updateFavoriteState(favorites);
             }}
             isToggle={true}
             className="action-button"
