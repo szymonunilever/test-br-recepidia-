@@ -23,6 +23,12 @@
       }
     }
   }
+  .rr-feedback-msg {
+    margin-bottom: 10px;
+    @include respondTo(desktop) {
+      margin-bottom: 15px;
+    }
+  }
   .rr-product-reviews {
     margin: 0;
     h2 {
@@ -99,9 +105,8 @@
       position: relative;
       top: 0;
       left: 0;
-      display: block;
+      display: flex;
       text-align: center;
-      line-height: 40px;
       margin: 25px auto 0 auto;
       &:before {
         content: '';
