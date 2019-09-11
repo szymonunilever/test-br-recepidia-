@@ -1138,7 +1138,7 @@
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Política de Privacidade da Unilever</a> e com os <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Termos de Uso</a>",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos</a>",
                   "validationRules": [
                     {
                       "type": "required",
