@@ -1,17 +1,20 @@
 /* eslint-disable no-console */
 
-const oldDomain = 'https://br.recepedia.com';
-const oldSitemapPath = ['./old-sitemap-1.xml', './old-sitemap-2.xml'];
-const JMESPathToUrls = `"ns1:urlset"."ns1:url"[]."ns1:loc"`;
-const redirectCode = 301;
-
 const fs = require('fs');
 const parser = require('xml2json');
+const jmespath = require('jmespath');
+const keys = require('lodash/keys');
 
-module.exports = async pageNodes => {
-  console.log('generating...');
+module.exports = async ({
+  newUrls,
+  oldSitemapPath,
+  oldDomain,
+  JMESPathToUrls,
+  redirectRules,
+  redirectCode = 301,
+}) => {
+  let urls = [];
 
-  let json = {};
   oldSitemapPath.forEach(path => {
     const data = fs.readFileSync(path);
     const jsonData = parser.toJson(data, { object: true });
@@ -21,11 +24,8 @@ module.exports = async pageNodes => {
       return;
     }
 
-    json = { ...json, ...jsonData };
+    urls = [...urls, ...jmespath.search(jsonData, JMESPathToUrls)];
   });
-
-  const jmespath = require('jmespath');
-  const urls = jmespath.search(json, JMESPathToUrls);
 
   if (!urls || !urls.length) {
     console.log(
@@ -35,32 +35,40 @@ module.exports = async pageNodes => {
   }
 
   const oldUrls = urls.map(item => item.replace(oldDomain, ''));
-  const newUrls = pageNodes
-    .filter(item => item.fields && item.fields.slug)
-    .map(item => item.fields.slug);
-
+  const unmappedUrls = [...newUrls];
   const redirects = [];
-
-  // /receita/184955-mini-tortas-com-creme-de-mel-e-banana
-  // /receitas/18-mini-tortas-com-creme-de-mel-e-banana
-
-  const redirectRules = [
-    { from: '/receita/[0-9]*-(?<name>.+)', to: '/receitas/[0-9]*-?<name>$' },
-  ];
+  const errors = [];
 
   oldUrls.forEach(item => {
     redirectRules.forEach(rule => {
       const result = item.match(rule.from);
 
       if (result) {
-        const redirectToRule = rule.to.replace('?<name>', result[1]);
+        let redirectToRule = rule.to;
+
+        if (result.groups) {
+          keys(result.groups).forEach(
+            key =>
+              (redirectToRule = redirectToRule.replace(
+                `?<${key}>`,
+                result.groups[key]
+              ))
+          );
+        }
         const mathcedUrl = newUrls.find(url => url.match(redirectToRule));
+
         if (mathcedUrl) {
           redirects.push({ from: item, to: mathcedUrl });
+          unmappedUrls.splice(unmappedUrls.indexOf(mathcedUrl), 1);
+        } else {
+          errors.push(`${item} ${redirectToRule}`);
         }
       }
     });
   });
+
+  fs.writeFileSync('unmappedUrls.txt', unmappedUrls.join('\n'));
+  fs.writeFileSync('errors.txt', errors.join('\n'));
 
   console.log(`${redirects.length} redirect rules created`);
 
