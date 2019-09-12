@@ -20,7 +20,10 @@ const Kritique = () => {
 
   useEffect(() => {
     // will not be reloaded if widget is not loaded yes, so no issues for first time loading
-    reloadKritiqueWidgetWIthTimeout();
+    reloadKritiqueWidgetWIthTimeout(2000);
+    window.addEventListener('click', () => {
+      reloadKritiqueWidgetWIthTimeout();
+    });
   }, []);
 
   return (

@@ -34,13 +34,6 @@ export default function HTML(props) {
             <link
               rel="preload"
               href={`${
-                keys.kritique.url
-              }/widget/resources/js/RR_widget_core.js`}
-              as="script"
-            />
-            <link
-              rel="preload"
-              href={`${
                 keys.kritique.baseUrl
               }/widget/resources/css/RR_widget.css`}
               as="style"
