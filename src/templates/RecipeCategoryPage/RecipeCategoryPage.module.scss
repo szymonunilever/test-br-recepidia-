@@ -5,6 +5,12 @@
     .recipe-list__load-more {
       margin: 40px auto 0;
     }
+    ._bg--main {
+      border-radius: 0 0 24px 24px;
+      @include respondTo(desktop) {
+        border-radius: 0;
+      }
+    }
   }
 }
 .recipe-category-page-recipes {
