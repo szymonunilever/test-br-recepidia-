@@ -33,7 +33,9 @@ export default function HTML(props) {
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
             <link
               rel="preload"
-              href="https://eu-stage-kritique.unileversolutions.com/widget/resources/js/RR_widget_core.js"
+              href={`${
+                keys.kritique.url
+              }/widget/resources/js/RR_widget_core.js`}
               as="script"
             />
             <link
@@ -45,7 +47,7 @@ export default function HTML(props) {
             />
             {/* END kritique preloads */}
 
-            <script type="text/javascript" src="/config/newRelic.js" />
+            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
           </>
         )}
         <script
