@@ -68,7 +68,7 @@ $validation-icon-size: 18px;
     position: absolute;
     right: -20px;
     top: calc(50% - #{$validation-icon-size/2} - #{$alert-msg-height/2});
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 1.17;
     @include respondTo(desktop) {
       right: -35px;

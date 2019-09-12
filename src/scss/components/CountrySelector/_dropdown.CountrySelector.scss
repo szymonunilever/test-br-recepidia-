@@ -1,5 +1,5 @@
-.country-dropdown{
-  @include respondTo(desktop){
+.country-dropdown {
+  @include respondTo(desktop) {
     display: flex;
     position: relative;
     -webkit-transform: translateY(-67px);
@@ -7,10 +7,10 @@
     align-self: flex-end;
   }
 
-  [class*=-control]{
+  [class*='-control'] {
     background-color: transparent;
     box-shadow: none;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1;
     border: none;
     min-height: 0;
@@ -18,12 +18,12 @@
     justify-content: flex-start;
     align-items: center;
 
-    > div{
-      &:nth-child(1){
+    > div {
+      &:nth-child(1) {
         padding: 0;
         flex: 0 0 auto;
 
-        [class*=-placeholder]{
+        [class*='-placeholder'] {
           position: relative;
           margin: 0;
           top: auto;
@@ -31,17 +31,17 @@
           color: $black-blue;
         }
 
-        [class*=-Input]{
+        [class*='-Input'] {
           position: absolute;
         }
       }
 
-      [class*=-indicatorContainer]{
+      [class*='-indicatorContainer'] {
         padding: 0;
         margin-left: 9px;
         margin-top: -2px;
 
-        [class*=-Svg]{
+        [class*='-Svg'] {
           width: auto;
           height: auto;
         }
@@ -49,18 +49,18 @@
     }
   }
 
-  [class*=-menu]{
+  [class*='-menu'] {
     margin: 0;
     overflow: hidden;
     width: auto;
-    @include respondTo(desktop){
+    @include respondTo(desktop) {
       right: 0;
     }
 
-    [class*=-MenuList]{
+    [class*='-MenuList'] {
       padding: 0;
 
-      .option > div{
+      .option > div {
         display: flex;
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -68,18 +68,16 @@
         align-items: center;
       }
 
-      [class*=country-dropdown-]{
+      [class*='country-dropdown-'] {
         margin-right: 10px;
-        &:nth-last-child(1){
+        &:nth-last-child(1) {
           margin-right: 0;
         }
       }
 
-      .country-dropdown-iso{
+      .country-dropdown-iso {
         font-weight: bold;
       }
-
     }
   }
-
 }
