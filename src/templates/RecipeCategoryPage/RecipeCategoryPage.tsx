@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -56,6 +56,9 @@ const RecipeCategoryPage = ({
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
+    image: {
+      alt: getImageAlt(category.title, category.fields.slug),
+    },
   }));
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
@@ -106,7 +109,7 @@ const RecipeCategoryPage = ({
           <AdaptiveImage
             className={theme.heroBgImage}
             localImage={localImage}
-            alt={title}
+            alt={getImageAlt(title, category.fields.slug)}
           />
         </section>
       )}

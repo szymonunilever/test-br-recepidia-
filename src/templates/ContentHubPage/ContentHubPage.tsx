@@ -3,7 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -54,7 +54,11 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
+    image: {
+      alt: getImageAlt(category.title, category.fields.slug),
+    },
   }));
+
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,

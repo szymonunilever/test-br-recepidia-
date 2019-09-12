@@ -8,6 +8,7 @@ import theme from './RecipeCard.module.scss';
 import Rating from '../../Rating';
 import AdaptiveImage from '../../AdaptiveImage';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import { getImageAlt } from 'src/utils';
 
 const RecipeCard = ({
   recipeId,
@@ -52,7 +53,7 @@ const RecipeCard = ({
     <AdaptiveImage
       className="recipe-card__image"
       localImage={localImage}
-      alt={title || 'Recipe image'}
+      alt={title ? getImageAlt(title, slug) : 'Recipe image'}
       sizes={imageSizes}
     />
   );
