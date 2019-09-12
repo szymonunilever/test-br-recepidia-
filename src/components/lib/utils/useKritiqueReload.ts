@@ -6,7 +6,7 @@ export const reloadKritiqueWidget = () => {
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const reloadKritiqueWidgetWIthTimeout = (timeout = 50) => {
+const reloadKritiqueWidgetWithTimeout = (timeout = 50) => {
   let timerId;
   isBrowser() && timerId && window.clearTimeout(timerId);
 
@@ -15,4 +15,4 @@ const reloadKritiqueWidgetWIthTimeout = (timeout = 50) => {
   }, timeout);
 };
 
-export default reloadKritiqueWidgetWIthTimeout;
+export default reloadKritiqueWidgetWithTimeout;

@@ -20,12 +20,12 @@ export default function HTML(props) {
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
             />
-            {/* <link rel="preconnect" href="https://www.google-analytics.com" /> */}
-            {/* <link rel="preconnect" href="https://bam.nr-data.net" /> */}
-            {/* <link rel="preconnect" href="https://js-agent.newrelic.com" /> */}
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+            <link rel="preconnect" href="https://bam.nr-data.net" />
+            <link rel="preconnect" href="https://js-agent.newrelic.com" />
 
             {/* START kritique preloads */}
-            {/* <link
+            <link
               rel="preload"
               href="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
               as="script"
@@ -37,7 +37,7 @@ export default function HTML(props) {
                 keys.kritique.baseUrl
               }/widget/resources/css/RR_widget.css`}
               as="style"
-            /> */}
+            />
             {/* END kritique preloads */}
 
             <script type="text/javascript" src="/config/newRelicScript.js" />
