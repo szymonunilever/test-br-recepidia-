@@ -48,7 +48,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const wizardResultSection = componentContent.wizardResultSection;
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
 

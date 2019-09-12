@@ -54,7 +54,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   useEffect(() => {

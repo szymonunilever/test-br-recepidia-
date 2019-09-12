@@ -47,7 +47,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   } = pageContext;
   const { tag, allArticle, allCategory } = data;
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
 
