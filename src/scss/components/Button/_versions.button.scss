@@ -1,6 +1,3 @@
-@import '../../vars';
-@import '../../mixins';
-
 // Button vars
 $button-border: none !default;
 $button-font-size: 1.4rem !default;
@@ -117,6 +114,9 @@ $button-disabled-color: #636363 !default;
         background-color: transparent;
         color: $apple-green;
         fill: currentColor;
+        g {
+          stroke: $apple-green;
+        }
       }
     }
   }

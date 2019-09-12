@@ -6,6 +6,7 @@ import Tag from './partials/Tag';
 import includes from 'lodash/includes';
 import uniqBy from 'lodash/uniqBy';
 import { TagName, Text } from '../Text';
+import isEqual from 'lodash/isEqual';
 
 const getTagList = (list: Internal.Tag[], displayUniq = true) =>
   displayUniq ? uniqBy(list, 'name') : list;
@@ -76,7 +77,7 @@ const Tags = ({
   };
 
   useEffect(() => {
-    if (enableExternalManage && list !== tags.list) {
+    if (enableExternalManage && !isEqual(list, tags.list)) {
       const tagsList = getTagList(list, displayOnlyUniqueNames);
 
       setTags({

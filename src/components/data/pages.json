@@ -744,7 +744,7 @@
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -1122,23 +1122,23 @@
                 {
                   "name": "consent1",
                   "type": "checkbox",
-                  "defaultValue": "true",
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
                   "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas de Recepedia."
                 },
                 {
                   "name": "consent2",
                   "type": "checkbox",
-                  "defaultValue": "true",
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
                   "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas sobre as marcas da Unilever e sobre as suas ações para fazer o bem"
                 },
                 {
                   "name": "consent3",
                   "type": "checkbox",
-                  "defaultValue": "true",
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Política de Privacidade da Unilever</a> e com os <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Termos de Uso</a>",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos</a>",
                   "validationRules": [
                     {
                       "type": "required",
@@ -2093,7 +2093,7 @@
                       {
                         "value": "<21",
                         "label": {
-                          "text": "Quero ser rápido! (Total time < 20 min)",
+                          "text": "Quero ser rápido!",
                           "image": {
                             "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
                             "alt": "Quero ser rápido!"

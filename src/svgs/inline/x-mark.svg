@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
-  <path d="M0 2V0h2l9 10L21 0h2v2l-10 9 10 10v2h-2L11 13 2 23H0v-2l10-10L0 2z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.494" height="20.494" viewBox="0 0 20.494 20.494">
+  <g transform="translate(27.205 10.247) rotate(135)">
+    <line x2="23.983" transform="translate(0 11.991)" fill="none" stroke="#363840" stroke-linecap="round" stroke-width="2.5"/>
+    <line x2="23.983" transform="translate(11.991 0) rotate(90)" fill="none" stroke="#363840" stroke-linecap="round" stroke-width="2.5"/>
+  </g>
 </svg>

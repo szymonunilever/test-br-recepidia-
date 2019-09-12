@@ -127,7 +127,6 @@ const Filter = ({
         content={{ title: undefined, loadMoreButton: undefined }}
         variant={TagVariant.removable}
         RemoveIcon={RemoveTagIcon}
-        enableExternalManage
         handleTagRemove={onTagRemoved}
         initialCount="all"
       />

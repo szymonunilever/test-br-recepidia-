@@ -13,7 +13,7 @@ import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
 // // Component Styles
-import '../../scss/pages/_layout.scss';
+// import '../../scss/pages/_layout.scss';
 
 import find from 'lodash/find';
 

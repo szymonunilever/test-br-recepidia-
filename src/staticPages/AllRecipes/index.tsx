@@ -62,7 +62,7 @@ const AllRecipesPage = ({
   }));
 
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
 
@@ -87,7 +87,7 @@ const AllRecipesPage = ({
 
   const onLoadMore = useCallback(
     (tags: Internal.Tag[], sort: string, size: number) => {
-      onLoadMoreRecipes(tags, sort, size, {
+      return onLoadMoreRecipes(tags, sort, size, {
         query: getFilterQuery(tags),
         fields: tags.length ? ['tagGroups.tags.id'] : [],
       });
@@ -144,7 +144,7 @@ const AllRecipesPage = ({
         }
       );
     },
-    [initialRecipesCount, recipeResultsList.length]
+    [initialRecipesCount, recipeResultsList]
   );
 
   return (

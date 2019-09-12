@@ -87,10 +87,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
     };
 
     useEffect(() => {
-      if (
-        !initialRecipesCount ||
-        recipeResultsList.length > Math.max(...countsToBreak)
-      ) {
+      if (!initialRecipesCount || recipeResultsList.length) {
         return;
       }
 

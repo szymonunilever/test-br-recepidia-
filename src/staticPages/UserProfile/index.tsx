@@ -114,7 +114,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
   const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   const onLoadMoreRecipes = useCallback(

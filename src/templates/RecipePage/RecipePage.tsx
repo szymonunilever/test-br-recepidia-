@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout/Layout';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import RecipeHero from 'src/components/lib/components/RecipeHero';
@@ -57,7 +57,6 @@ import {
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import get from 'lodash/get';
 import remove from 'lodash/remove';
-import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
@@ -122,53 +121,25 @@ const dietaryAttributesIcons = [
   },
 ];
 
-const RecipePage = ({ pageContext, location }: RecipePageProps) => {
-  const {
-    recipeTags,
-    dietaryTagGroup,
-  }: {
-    recipeTags: {
-      nodes: Internal.Tag[];
-    };
-    allRecipe: {
-      nodes: Internal.Recipe[];
-    };
-    dietaryTagGroup: RMSData.TagGroupings;
-  } = useStaticQuery(graphql`
-    query($tags: [Int]) {
-      recipeTags: allTag(filter: { tagId: { in: $tags } }) {
-        nodes {
-          ...TagFields
-        }
-      }
-
-      dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
-        id
-        tags {
-          id
-          name
-          title
-        }
-      }
-    }
-  `);
+const RecipePage: React.FunctionComponent<RecipePageProps> = ({
+  pageContext,
+  location,
+  data: { recipeTags, dietaryTagGroup, relatedRecipes },
+}) => {
   const {
     page: { components, seo, type },
     recipe,
   } = pageContext;
   const tags = recipeTags.nodes;
-
-  const allDietaryList = (dietaryTagGroup && dietaryTagGroup.tags) || [];
-
+  const allDietaryList = ((dietaryTagGroup && dietaryTagGroup.tags) ||
+    []) as Internal.Tag[];
   const currentRecipeDietaryList = get(
     recipe.tagGroups.find(tags => tags.label === 'dietary'),
     'tags',
     []
-  );
-
-  const [relatedRecipes, setRelatedRecipes] = useState<Internal.Recipe[]>([]);
+  ) as Internal.Tag[];
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
@@ -180,17 +151,6 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const tagList = getTagsFromRecipes([recipe], tags);
-
-  useEffect(() => {
-    getFilteredRecipeResponse(
-      tagList.map(tag => tag.tagId).join(' OR '),
-      [recipe.recipeId],
-      { size: 6 }
-    ).then(recipes => {
-      setRelatedRecipes(recipes.hits.hits.map(recipe => recipe._source));
-    });
-  }, []);
-
   const recipeHero = (
     <>
       <RecipeHero
@@ -201,14 +161,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         <div>
           <Button
             Icon={FavoriteIcon}
-            isSelected={(Array.isArray(
-              getUserProfileByKey(ProfileKey.favorites)
-            )
-              ? getUserProfileByKey(ProfileKey.favorites)
-              : []
-            )
-              // @ts-ignore
-              .includes(recipe.recipeId)}
+            isSelected={favorites.includes(recipe.recipeId)}
             onClick={() => {
               // @ts-ignore
               const favorites: number[] = Array.isArray(
@@ -221,7 +174,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
               } else {
                 favorites.push(recipe.recipeId);
               }
-              saveUserProfileByKey(favorites, ProfileKey.favorites);
+              updateFavoriteState(favorites);
             }}
             isToggle={true}
             className="action-button"
@@ -430,7 +383,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           onFavoriteChange={updateFavoriteState}
           FavoriteIcon={FavoriteIcon}
           withFavorite={true}
-          list={relatedRecipes}
+          list={relatedRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
@@ -456,7 +409,46 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
 
 export default RecipePage;
 
+export const query = graphql`
+  query($tags: [Int]) {
+    recipeTags: allTag(filter: { tagId: { in: $tags } }) {
+      nodes {
+        ...TagFields
+      }
+    }
+    relatedRecipes: allRecipe(
+      limit: 6
+      sort: { order: ASC, fields: creationTime }
+      filter: {
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
+      }
+    ) {
+      nodes {
+        ...RecipeFields
+      }
+    }
+
+    dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
+      id
+      tags {
+        id
+        name
+        title
+      }
+    }
+  }
+`;
+
 interface RecipePageProps {
+  data: {
+    recipeTags: {
+      nodes: Internal.Tag[];
+    };
+    relatedRecipes: {
+      nodes: Internal.Recipe[];
+    };
+    dietaryTagGroup: RMSData.TagGroupings;
+  };
   pageContext: {
     page: AppContent.Page;
     recipe: Internal.Recipe;

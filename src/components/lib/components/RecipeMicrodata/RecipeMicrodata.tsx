@@ -1,6 +1,40 @@
 import React, { useCallback, FunctionComponent } from 'react';
 import { RecipeMicrodataProps } from './index';
 import flatten from 'lodash/flatten';
+import get from 'lodash-es/get';
+
+const minutesToISOTime = (minutes: number | undefined): string => {
+  if (minutes) {
+    // @ts-ignore
+    const date = new Date(null);
+    date.setMinutes(minutes);
+    return date.toISOString().substr(11, 8);
+  }
+  return '';
+};
+
+const tagGroupsToCategories = [
+  'dishes',
+  'mainIngredient',
+  'cuisines',
+  'difficulties',
+  'dietary',
+  'budgets',
+  'annualEvents',
+];
+const getCategoryByTags = (tagGroups: RMSData.TagGroupings[]) => {
+  let category;
+  for (let i = 0; i < tagGroupsToCategories.length; i++) {
+    const group = tagGroups.find(
+      tagGroup => tagGroup.label === tagGroupsToCategories[i]
+    );
+    if (group && group.tags) {
+      category = (group.tags[0] || {}).name;
+      break;
+    }
+  }
+  return category;
+};
 
 const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
   recipe,
@@ -56,11 +90,20 @@ const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
     datePublished: recipe.creationTime,
     description: recipe.description,
     recipeYield: recipe.recipeDetails.serves,
-    cookTime: recipe.recipeDetails.totalTime,
-    prepTime: recipe.recipeDetails.preparationTime,
+    cookTime: minutesToISOTime(
+      recipe.recipeDetails.cookTime || recipe.recipeDetails.totalTime
+    ),
+    prepTime: minutesToISOTime(recipe.recipeDetails.preperationTime),
     recipeIngredient: ingredients,
     recipeInstructions: instructions,
     nutrition: nutritions,
+    recipeCuisine: get(
+      get(recipe, 'tagGroups', []).find(group => group.name === 'cuisines'),
+      'tags[0]',
+      {}
+    ).name,
+    recipeCategory: getCategoryByTags(recipe.tagGroups),
+    // aggreagateRating @todo apply when data comes from BE
   };
 
   return showAsText ? (
