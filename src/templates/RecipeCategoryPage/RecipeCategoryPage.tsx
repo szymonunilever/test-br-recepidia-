@@ -65,7 +65,7 @@ const RecipeCategoryPage = ({
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   if (localImage) {

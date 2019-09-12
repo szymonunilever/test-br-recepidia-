@@ -49,7 +49,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   };
 
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
   const [searchAgent, setSearchAgent] = useState(false);

@@ -62,7 +62,7 @@ const AllRecipesPage = ({
   }));
 
   const { updateFavoriteState, favorites } = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
 
