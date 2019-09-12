@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
 //class name for body to prevent scroll when modal is open
 .modal--open {
   @extend .no-scroll;
@@ -22,18 +26,15 @@
     @extend .button;
     @extend .button--flat;
     position: absolute;
-    right: 6px;
-    top: 14px;
+    right: 0;
+    top: 0;
     width: 54px;
     height: 54px;
     display: flex;
-    @include respondTo(desktop) {
-      right: 12px;
-      top: 10px;
-    }
+
     svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       display: block;
       margin: auto;
     }
@@ -215,8 +216,13 @@
     &__header {
       @extend %modal__header--flex;
     }
+    &__heading {
+      padding-right: 15px;
+    }
     &__btn-close {
       @extend %modal__btn-close--flex;
+      top: 0;
+      right: 0;
     }
   }
 }
