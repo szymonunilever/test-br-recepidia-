@@ -15,7 +15,6 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            {/* <link rel="preconnect" href={keys.kritique.baseUrl} /> */}
             <link rel="preconnect" href={keys.elasticSearch.url} />
             <link
               rel="preconnect"
@@ -26,7 +25,7 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
 
             {/* START kritique preloads */}
-            {/* <link
+            <link
               rel="preload"
               href="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
               as="script"
@@ -43,10 +42,10 @@ export default function HTML(props) {
                 keys.kritique.baseUrl
               }/widget/resources/css/RR_widget.css`}
               as="style"
-            /> */}
+            />
             {/* END kritique preloads */}
 
-            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            <script type="text/javascript" src="/config/newRelic.js" />
           </>
         )}
         <script
