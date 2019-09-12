@@ -25,10 +25,6 @@ const Kritique = () => {
           // @ts-ignore
           script={[
             {
-              src: '/libs/jquery.min.js',
-              defer: true,
-            },
-            {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
               defer: true,
