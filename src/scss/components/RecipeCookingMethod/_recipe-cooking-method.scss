@@ -73,24 +73,26 @@
     }
     &-item {
       font-size: 1.4rem;
+      line-height: 1.29;
       color: $black-blue;
-      margin: 0 0 15px 15px;
+      margin: 0 0 28px;
       @include respondTo(desktop) {
-        margin-left: 40px;
+        margin-left: 73px;
+        min-height: 74px;
       }
       &:before {
-        display: inline-block;
-        line-height: 0.8;
-        font-weight: bold;
+        display: block;
+        font: 500 2.4rem/1.2 $rubik;
         color: $fish-blue-darker;
-        line-height: 1.2;
         counter-increment: dl;
         content: counter(dl);
-        position: absolute;
-        left: 0;
+        margin-bottom: 15px;
         @include respondTo(desktop) {
+          display: inline-block;
+          position: absolute;
+          left: 0;
           line-height: 1;
-          font-size: 2rem;
+          font-size: 3.7rem;
         }
       }
     }

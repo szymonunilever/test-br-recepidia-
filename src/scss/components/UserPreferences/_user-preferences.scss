@@ -147,32 +147,26 @@
       &-delete {
         @extend .button;
         margin-left: 10px;
-        @media (hover) {
+        @media (hover: hover),
+          (-ms-high-contrast: none),
+          (-ms-high-contrast: active) {
           &:hover {
             svg,
             path {
               fill: $white-gray;
-              stroke: $white-gray;
             }
           }
         }
         svg,
         path {
           fill: $black-blue;
-          stroke: $black-blue;
           @include respondTo(medium) {
             fill: $black-blue;
-            stroke: $black-blue;
           }
         }
       }
       &-delete {
         @extend .button--secondary;
-        svg,
-        path {
-          fill: $black-blue;
-          stroke: $black-blue;
-        }
       }
       &-cancel {
         @extend .button--secondary;
@@ -217,10 +211,9 @@
         margin-bottom: 0;
       }
       &-label {
-        @media (hover) {
-          &:hover {
-            cursor: pointer;
-          }
+        display: block;
+        @include respondTo(desktop) {
+          cursor: pointer;
         }
       }
       &-input {

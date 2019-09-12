@@ -35,7 +35,9 @@
     }
   }
   &__link {
-    @media (hover: hover), (-ms-high-contrast: none), (-ms-high-contrast: active){
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
       &:hover {
         .social-channels__icon {
           svg {

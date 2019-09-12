@@ -4,22 +4,25 @@ import { SitemapCategoryEntry, SitemapCategoryProps } from './models';
 
 const SitemapCategory = ({ item }: SitemapCategoryProps) => {
   const { path, title, categoryItems } = item;
-  return (
-    <ul className="sitemap__category">
-      <li>
-        <Link className="sitemap__category-title" to={path}>
-          {title}
-        </Link>
-        {categoryItems && (
-          <ul className="sitemap__category-items">
-            {categoryItems.map((item: SitemapCategoryEntry, index: number) => (
+  const isNestedCategories = categoryItems && categoryItems.length !== 0;
+
+  const categoryItem = (
+    <li className="sitemap__category">
+      <Link className="sitemap__category-title" to={path}>
+        {title}
+      </Link>
+      {isNestedCategories && (
+        <ul className="sitemap__category-items">
+          {categoryItems &&
+            categoryItems.map((item: SitemapCategoryEntry, index: number) => (
               <SitemapCategory key={index} item={item} />
             ))}
-          </ul>
-        )}
-      </li>
-    </ul>
+        </ul>
+      )}
+    </li>
   );
+
+  return categoryItem;
 };
 
 export default SitemapCategory;

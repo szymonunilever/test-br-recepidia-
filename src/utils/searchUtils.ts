@@ -55,8 +55,10 @@ const recipeSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: `${searchQuery}*`,
         fields: [
           'title^5',
           'description^2',
@@ -71,7 +73,7 @@ const recipeSearchParams = (
 const recipeIdSearchParams = (
   searchQuery: string,
   controlArray: number[],
-  { from = 0, size = 8 }: SearchParams
+  { from = 0, size = 8, sort = 'asc' }: SearchParams
 ) => ({
   index: keys.elasticSearch.recipeIndex,
   body: {
@@ -102,8 +104,9 @@ const recipeIdSearchParams = (
                 params: {
                   recipeIds: controlArray,
                 },
-                inline:
-                  "for ( int i = 0; i < params.recipeIds.size(); i++) {if (params['_source']['recipeId'] == params.recipeIds[i]) { return (params.recipeIds.size() + i)*1000;} }",
+                inline: `for ( int i = 0; i < params.recipeIds.size(); i++) {if (params['_source']['recipeId'] == params.recipeIds[i]) { return (params.recipeIds.size() ${
+                  sort === 'desc' ? '-' : '+'
+                } i)*1000;} }`,
               },
             },
           },
@@ -127,8 +130,8 @@ const articleSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        query: `${searchQuery}`,
         fields: ['title^5', 'articleText.text^2'],
       },
     },
@@ -163,9 +166,9 @@ export const getSearchSuggestionResponse = async (
     useElasticSearch<Internal.Recipe>(
       recipeSearchParams(searchQuery, { from, size, _source: ['title'] })
     ),
-    useElasticSearch<Internal.Article>(
-      articleSearchParams(searchQuery, { from, size, _source: ['title'] })
-    ),
+    // useElasticSearch<Internal.Article>(
+    //   articleSearchParams(searchQuery, { from, size, _source: ['title'] })
+    // ),
   ]);
 };
 

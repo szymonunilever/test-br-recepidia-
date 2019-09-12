@@ -9,6 +9,8 @@ import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/form.service';
 import { Modal } from '../../components/lib/components/Modal';
 import { WindowLocation } from '@reach/router';
+// Component Styles
+import '../../scss/pages/_contactForm.scss';
 
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,
@@ -17,12 +19,12 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   const {
     page: { seo, components, type },
   } = pageContext;
-  const сontactFormComponent = findPageComponentContent(
+  const contactFormComponent = findPageComponentContent(
     components,
     'GeneratedForm',
     'ContactForm'
   );
-  const { title, formMessages } = сontactFormComponent;
+  const { title, formMessages } = contactFormComponent;
   const [modalState, setModalState] = useState({
     isOpen: false,
     text: '',
@@ -65,7 +67,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
         <GeneratedForm
           className={cx(theme.contactGeneratedForm, 'wrapper')}
           onSubmit={submitHandler}
-          content={сontactFormComponent}
+          content={contactFormComponent}
           shouldValidate
           titleLevel={1}
         />

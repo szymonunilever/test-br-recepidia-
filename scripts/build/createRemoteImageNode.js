@@ -2,20 +2,18 @@ const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const keys = require('../../integrations/keys.json');
 
 module.exports = async (url, id, staticParams) => {
-  // @todo pass real URL
-  const imgNode = await createRemoteFileNode({
-    url: 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
-    // 'https://author-dev-headless.unileversolutions.com/api/assets/aem-headless-cms/headless-demo/br/pt/homepage-content/teaser-content/images/teaser-image.png',
+  const imgExt = url && ~url.indexOf('.png') ? '.png' : '.jpg';
+  return await createRemoteFileNode({
+    url:
+      url ||
+      'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
     parentNodeId: id,
-    ext: '.jpg',
+    ext: imgExt,
     name: 'image',
-    // auth: {
-    //   // eslint-disable-next-line @typescript-eslint/camelcase
-    //   htaccess_user: keys.AemAssetsCredentials.user,
-    //   // eslint-disable-next-line @typescript-eslint/camelcase
-    //   htaccess_pass: keys.AemAssetsCredentials.password,
-    // },
+    httpHeaders: {
+      staticFirstApiKey: keys.AemAssetsCredentials['static-first-api-key'],
+      Authorization: keys.AemAssetsCredentials.Authorization,
+    },
     ...staticParams,
   });
-  return imgNode;
 };

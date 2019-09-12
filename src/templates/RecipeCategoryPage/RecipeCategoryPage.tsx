@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -19,20 +19,20 @@ import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
-import includes from 'lodash/includes';
-
+// Component Styles
+import '../../scss/pages/_recipeCategories.scss';
 //TODO: add this part to main page json and remove this import
 import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
-import withRecipeSearchResults from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/WithInitialDataAndAsyncLoadMore';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
+import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
 
 const RecipeCategoryPage = ({
   data,
@@ -42,23 +42,23 @@ const RecipeCategoryPage = ({
   recipeResultsCount,
   onLoadMoreRecipes,
 }: RecipeCategoryPageProps) => {
-  //TODO: remove object assign and replace let to const when main page json will be fixed
   const {
     page: { components, seo, type },
     category,
-    tags,
   } = pageContext;
 
   const { localImage, title, description } = category;
-  const textDescription = {
-    text:
-      description ||
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores atque dolores exercitationem harum, incidunt libero, nesciunt, omnis perferendis placeat possimus praesentium provident quae quia quibusdam rem sequi ut veniam!\n',
-  };
-  const { allTag, allArticle, allCategory } = data;
+  const {
+    tags: { nodes: categoryTags },
+    allArticle,
+    allCategory,
+  } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
+    image: {
+      alt: getImageAlt(category.title, category.fields.slug),
+    },
   }));
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
@@ -67,11 +67,9 @@ const RecipeCategoryPage = ({
     'RecipesByCategory'
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
   if (localImage) {
     const seoImage = seo.meta.find(item => {
@@ -79,7 +77,6 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
-  const categoryTags = allTag.nodes.filter(tag => includes(tags, tag.tagId));
 
   return (
     <Layout className={classWrapper}>
@@ -103,17 +100,27 @@ const RecipeCategoryPage = ({
           <RichText
             type="html"
             className={cx(theme.heroDescription, 'wrapper')}
-            content={textDescription}
+            content={{ text: description }}
           />
         </div>
       </section>
       {localImage && (
         <section className={cx(theme.heroBg, 'wrapper')}>
-          <AdaptiveImage localImage={localImage} alt={title} />
+          <AdaptiveImage
+            className={theme.heroBgImage}
+            localImage={localImage}
+            alt={getImageAlt(title, category.fields.slug)}
+          />
         </section>
       )}
-      <section className={cx(theme.greyBg, 'bg--half wrapper')}>
-        <RecipeListingWithFavorite
+      <section
+        className={cx(
+          theme.greyBg,
+          theme.recipeCategoryPageRecipes,
+          '_bg--main wrapper'
+        )}
+      >
+        <RecipeListing
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title.replace(
@@ -121,6 +128,10 @@ const RecipeCategoryPage = ({
               recipeResultsCount
             ),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
@@ -131,7 +142,7 @@ const RecipeCategoryPage = ({
           }}
           titleLevel={2}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
       {!!allArticle && allArticle.nodes.length > 0 && (
@@ -151,7 +162,7 @@ const RecipeCategoryPage = ({
       )}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
-          <TagLinks
+          <Tags
             initialCount={initialTagsCount}
             list={categoryTags}
             content={findPageComponentContent(components, 'Tags')}
@@ -187,12 +198,13 @@ const RecipeCategoryPage = ({
   );
 };
 
-export default withRecipeSearchResults(RecipeCategoryPage);
+export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
-  query($tags: [Int]) {
+  query($tags: [Int], $slug: String) {
     allRecipe(
       limit: 8
+      sort: { order: ASC, fields: creationTime }
       filter: {
         tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
       }
@@ -200,13 +212,20 @@ export const query = graphql`
       nodes {
         ...RecipeFields
       }
+      totalCount
     }
-    allTag {
+
+    tags: allTag(filter: { tagId: { in: $tags } }) {
       nodes {
         ...TagFields
       }
     }
-    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 }, fields: { slug: { ne: $slug } } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
       nodes {
         ...CategoryFields
       }
@@ -235,7 +254,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     allArticle: {
       nodes: Internal.Article[];
     };
-    allTag: {
+    tags: {
       nodes: Internal.Tag[];
     };
     allCategory: {
@@ -247,6 +266,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     category: Internal.Category;
     tags: number[];
     recipeDetails: AppContent.Category.RecipeDetails;
+    slug: string;
   };
   location: WindowLocation;
 }

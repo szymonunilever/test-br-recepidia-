@@ -1,46 +1,101 @@
 [
   {
-    "id": "vegetarian",
-    "name": "Vegeterian"
+    "title": "Sem leite",
+    "tagId": 1,
+    "name": "dairy_free",
+    "id": "e4b4b6f6-5ede-5ca7-b47d-fcf40b100ae2",
+    "fields": {
+      "slug": "/hub-de-conteudo/dairy-free"
+    }
   },
   {
-    "id": "vegan",
-    "name": "Vegan"
+    "title": "Sem ovos",
+    "tagId": 2,
+    "name": "egg_free",
+    "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+    "fields": {
+      "slug": "/hub-de-conteudo/egg-free"
+    }
   },
   {
-    "id": "nutFree",
-    "name": "Nut free"
+    "title": "Glúten Free",
+    "tagId": 3,
+    "name": "gluten_free",
+    "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+    "fields": {
+      "slug": "/hub-de-conteudo/gluten-free"
+    }
   },
   {
-    "id": "pregnancySafe",
-    "name": "Pregnancy safe"
+    "title": "Zero Lactose",
+    "tagId": 4,
+    "name": "lactose_free",
+    "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+    "fields": {
+      "slug": "/hub-de-conteudo/lactose-free"
+    }
   },
   {
-    "id": "glutenFree",
-    "name": "Gluten free"
+    "title": "Livre de nozes",
+    "tagId": 5,
+    "name": "nut_free",
+    "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+    "fields": {
+      "slug": "/hub-de-conteudo/nut-free"
+    }
   },
   {
-    "id": "lactoseFree",
-    "name": "Lactose free"
+    "title": "Paleo diet",
+    "tagId": 6,
+    "name": "paleo_diet",
+    "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+    "fields": {
+      "slug": "/hub-de-conteudo/paleo-diet"
+    }
   },
   {
-    "id": "rawFood",
-    "name": "Raw food"
+    "title": "Seguro de gravidez",
+    "tagId": 7,
+    "name": "pregnancy_safe",
+    "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+    "fields": {
+      "slug": "/hub-de-conteudo/pregnancy-safe"
+    }
   },
   {
-    "id": "eggFree",
-    "name": "Egg free"
+    "title": "Comida crua",
+    "tagId": 8,
+    "name": "raw_food",
+    "id": "42d334d0-31f6-59ec-8e42-02030670ad99",
+    "fields": {
+      "slug": "/hub-de-conteudo/raw-food"
+    }
   },
   {
-    "id": "dairyProductFree",
-    "name": "Dairy free"
+    "title": "Sem trigo",
+    "tagId": 9,
+    "name": "wheat_free",
+    "id": "8639cfb9-aed4-5a76-a8fd-0e87f13bb6a3",
+    "fields": {
+      "slug": "/hub-de-conteudo/wheat-free"
+    }
   },
   {
-    "id": "paleoFree",
-    "name": "Paleo diet"
+    "title": "Vegano",
+    "tagId": 10,
+    "name": "vegan",
+    "id": "d7553790-f635-5035-89a8-6f8bf0f1e328",
+    "fields": {
+      "slug": "/hub-de-conteudo/vegan"
+    }
   },
   {
-    "id": "wheatFree",
-    "name": "Wheat free"
+    "title": "Vegetariana",
+    "tagId": 11,
+    "name": "vegetarian",
+    "id": "c60c0e91-6ff4-5b9d-9c8e-2b1b0e8b1180",
+    "fields": {
+      "slug": "/hub-de-conteudo/vegetarian"
+    }
   }
 ]

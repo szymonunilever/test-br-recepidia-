@@ -7,6 +7,7 @@ export const query = graphql`
     }
     tagId
     name
+    title
     id
   }
 `;

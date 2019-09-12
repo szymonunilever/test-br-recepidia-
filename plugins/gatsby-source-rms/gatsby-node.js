@@ -1,14 +1,18 @@
 const createNodes = require('./createNodes');
 const { createRecipeNodes, createTagGroupingsNodes } = createNodes;
 const { getCategoryTags, getRecipesByPage } = require('./apiService');
+const constants = require('../../scripts/constants');
 
 const RECIPE_PAGE_SIZE = 250;
 
 exports.sourceNodes = async (
-  { actions, createNodeId, createContentDigest },
+  { actions, createNodeId, createContentDigest, getNodesByType },
   configOptions
 ) => {
   const { createNode } = actions;
+
+  let [dictionary] = getNodesByType(constants.NODE_TYPES.DICTIONARY);
+  dictionary = JSON.parse(dictionary.content);
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins;
@@ -41,11 +45,15 @@ exports.sourceNodes = async (
     result.data.forEach(
       item =>
         item &&
-        createTagGroupingsNodes(item, {
-          createNodeId,
-          createContentDigest,
-          createNode,
-        })
+        createTagGroupingsNodes(
+          item,
+          {
+            createNodeId,
+            createContentDigest,
+            createNode,
+          },
+          dictionary
+        )
     )
   );
   promises.push(getTagsPromise);

@@ -4,7 +4,6 @@ import Wizard from '../../components/lib/components/Wizard';
 import WizardIntroductionPanel from '../../components/lib/components/Wizard/partials/IntroductionPanel';
 import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
 import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
-import localImage from '../../../stories/assets/localImage';
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import Logo from '../../components/lib/components/Logo';
@@ -30,6 +29,8 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
+// Component Styles
+import '../../scss/pages/_mealPlanner.scss';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
@@ -44,26 +45,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     page: { seo, components, type },
   } = pageContext;
   const componentContent = findPageComponentContent(components, 'Wizard');
-  const [answers, setAnswers] = useState({});
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const wizardResultSection = componentContent.wizardResultSection;
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
-  // @todo remove this workaround once we store images in graphql
-  // @ts-ignore
-  componentContent.wizardQuiz.questions.forEach(item => {
-    // @ts-ignore
-    item.options.forEach(option => {
-      //@ts-ignore
-      option.label.image.localImage = localImage;
-    });
-  });
-  //@ts-ignore
-  componentContent.wizardIntroductionPanel.image.localImage = localImage;
 
   const processSearchData = useCallback(
     (query: string) => {
@@ -79,7 +66,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           query = query.substring(0, index);
           processSearchData(query);
         } else {
-          // @ts-ignore
           setRecipes(result);
           saveUserProfileByKey(
             result.map(item => item.recipeId),
@@ -92,8 +78,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   );
 
   const stepResultsCallback = useCallback(quizData => {
-    setAnswers(quizData.data);
-
     if (
       Object.keys(quizData.data).length ===
       componentContent.wizardQuiz.questions.length
@@ -120,23 +104,17 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       <section>
         <Kritique />
         <Wizard actionCallback={() => true}>
-          {/*
-          // @ts-ignore */}
           <WizardIntroductionPanel
             {...componentContent.wizardIntroductionPanel}
             containerClass="wizard--intro"
             stepId="intro"
           />
-          {/*
-          // @ts-ignore */}
           <WizardQuiz
             {...componentContent.wizardQuiz}
             {...{ stepResultsCallback }}
             containerClass="wizard--quiz"
             stepId="quiz"
           />
-          {/*
-          // @ts-ignore */}
           <WizardResultSection
             containerClass="wizard--result"
             stepId="result"
@@ -152,8 +130,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           >
             {recipes.length ? (
               <div>
-                <RecipeListingWithFavorite
+                <RecipeListing
                   content={findPageComponentContent(components, 'Wizard')}
+                  favorites={Array.isArray(favorites) ? favorites : []}
+                  onFavoriteChange={updateFavoriteState}
+                  FavoriteIcon={FavoriteIcon}
+                  withFavorite={true}
                   list={recipes}
                   ratingProvider={RatingAndReviewsProvider.kritique}
                   viewType={RecipeListViewType.Carousel}
@@ -170,12 +152,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     ],
                     arrowIcon: <ArrowIcon />,
                   }}
-                  imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                  imageSizes={'(min-width: 768px) 600w, 600px'}
                 />
                 <div className="wizard__buttons">
                   <Link
                     className="wizard__button wizard__button--primary"
-                    to={'/profile?tabOpen=MealPlanner'}
+                    to={'/perfil?tabOpen=MealPlanner'}
                   >
                     {wizardResultSection.primaryButtonLabel}
                   </Link>

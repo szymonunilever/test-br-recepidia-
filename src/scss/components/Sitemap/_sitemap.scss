@@ -1,8 +1,9 @@
 .sitemap {
   &__categories {
+    display: flex;
+    flex-direction: column;
     @include respondTo(medium) {
-      display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
     }
 
     & > .sitemap__category {
@@ -22,7 +23,7 @@
 
   &__category {
     &-title {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       margin: 0 0 10px;
       text-transform: uppercase;
       line-height: 1.6;
@@ -44,6 +45,21 @@
       }
     }
   }
+  &__block {
+    flex-basis: 100%;
+    &:last-child {
+      order: 0;
+    }
+    &:nth-child(2) {
+      order: 1;
+    }
+    &:first-child {
+      order: 3;
+    }
+    @include respondTo(medium) {
+      flex-basis: 33.33%;
+    }
+  }
 
   a {
     display: block;
@@ -52,8 +68,9 @@
     cursor: pointer;
     font-family: $rubik;
     font-weight: 500;
-    color: $header-color-mobile;
+    color: $black-blue;
     transition: color 0.2s ease-out;
+    padding-right: 20px;
     &:hover {
       color: $apple-green;
     }

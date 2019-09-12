@@ -5,6 +5,7 @@
   :global {
     .page-listing__title {
       font-size: 1.4rem;
+      font-weight: normal;
       @include respondTo(desktop) {
         font-size: 2rem;
       }
@@ -12,6 +13,10 @@
   }
   .allRecipesSortListing {
     background: $white-gray;
+    border-radius: 15px;
+    @include respondTo(desktop) {
+      border-radius: 0 ;
+    }
   }
 }
 

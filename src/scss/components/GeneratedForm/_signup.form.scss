@@ -2,7 +2,7 @@
   padding: 37px 0 45px;
   background-color: $white-gray;
   @include respondTo(desktop) {
-    padding: 65px 0 72px;
+    padding: 65px 0 73px;
   }
 
   .generated-form__container {
@@ -17,16 +17,21 @@
     h3 {
       display: block;
       width: 100%;
-      font-size: 24px;
+      font-size: 2.4rem;
       font-weight: 500;
       line-height: 1.17;
       text-align: center;
       margin-bottom: 22px;
       color: $black-blue;
       @include respondTo(desktop) {
-        font-size: 36px;
+        font-size: 3.6rem;
         margin-bottom: 34px;
       }
+    }
+    .buttons {
+      display: block;
+      width: 100%;
+      text-align: center;
     }
   }
   .generated-form__fields {
@@ -57,12 +62,12 @@
     &__input {
       border: solid 1px $black-blue;
       height: 40px;
-      font-size: 14px;
+      font-size: 1.4rem;
       color: $black-blue;
       background-color: transparent;
       padding: 0 18px;
       @include respondTo(desktop) {
-        font-size: 16px;
+        font-size: 1.6rem;
         height: 46px;
       }
     }
@@ -70,7 +75,7 @@
     &__error {
       padding-left: 5px;
       display: block;
-      font-size: 12px;
+      font-size: 1.2rem;
       line-height: 1.25;
       letter-spacing: 0.24px;
       color: $alert-color;
@@ -84,13 +89,7 @@
 
   .generated-form__button--primary {
     @extend .button;
+    @extend .button--medium;
     @extend .button--yellow;
-    padding: 0 23px;
-    font-size: 14px;
-    @include respondTo(desktop) {
-      font-size: 16px;
-      height: 46px;
-      padding: 0 52px;
-    }
   }
 }

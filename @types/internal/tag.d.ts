@@ -3,6 +3,7 @@ declare namespace Internal {
     tagId: number;
     id: string;
     name: string;
+    title: string;
     fields: {
       slug: string;
     };

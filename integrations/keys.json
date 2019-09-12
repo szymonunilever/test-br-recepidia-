@@ -29,8 +29,10 @@
     }
   },
   "AemAssetsCredentials": {
-    "user": "artem.linenko@dataart.com",
-    "password": "C\"XL/#-(PwngQ8uQ"
+    "user": "unilever",
+    "password": "Dr2gaYUM6ch_sPAsw2vEPHaSwEmata3A",
+    "static-first-api-key": "37675838-6870-4f5a-8cd6-b3e4c272baf7",
+    "Authorization": "Basic dW5pbGV2ZXI6RHIyZ2FZVU02Y2hfc1BBc3cydkVQSGFTd0VtYXRhM0E="
   },
   "ReCaptcha": {
     "version": "3",

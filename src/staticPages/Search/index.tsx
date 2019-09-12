@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -8,7 +8,6 @@ import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import PageListing from 'src/components/lib/components/PageListing';
-import pageListingData from 'src/components/data/pageListing.json';
 import DigitalData from '../../../integrations/DigitalData';
 import theme from './search.module.scss';
 import SearchListing from 'src/components/lib/components/SearchListing';
@@ -25,12 +24,20 @@ import useSearchResults from './useSearchResults';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
+import { Tags } from 'src/components/lib/components/Tags';
+// Component Styles
+import '../../scss/pages/_searchListing.scss';
+import useFavorite from 'src/utils/useFavorite';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  const { allTag } = data;
+  const { allTag, allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+  }));
 
   const {
     getSearchData,
@@ -46,13 +53,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   } = useSearchResults(searchQuery);
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
-  const [favorites, setFavorites] = useState(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || []
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
-  const updateFavoriteState = useCallback((favorites: number[]) => {
-    updateFavorites(favorites);
-    setFavorites(favorites);
-  }, []);
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
   }, [recipeResults]);
@@ -62,7 +66,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <Kritique />
-      <section className={theme.searchListingWrap}>
+      <section className={cx('_pt--40', theme.searchListingWrap)}>
         <SearchListing
           searchQuery={searchQuery}
           searchResults={{
@@ -105,7 +109,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
       {tagList.length ? (
         <section className={theme.tagList}>
-          <TagLinks
+          <Tags
             initialCount={initialTagsCount}
             list={tagList}
             content={findPageComponentContent(components, 'Tags')}
@@ -149,6 +153,15 @@ export const pageQuery = graphql`
         ...TagFields
       }
     }
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
+      nodes {
+        ...CategoryFields
+      }
+    }
   }
 `;
 
@@ -156,6 +169,9 @@ export interface SearchPageProps {
   data: {
     allTag: {
       nodes: Internal.Tag[];
+    };
+    allCategory: {
+      nodes: Internal.Category[];
     };
   };
   pageContext: {

@@ -14,7 +14,7 @@ export const query = graphql`
     }
     localImage {
       childImageSharp {
-        fluid {
+        fluid(maxHeight: 315) {
           ...LocalImage
         }
       }
@@ -26,11 +26,13 @@ export const query = graphql`
     name
     title
     inNavigation
+    categoryOrder
     categoryId
     children {
       ... on Category {
         id
         name
+        categoryOrder
         title
         inNavigation
         fields {

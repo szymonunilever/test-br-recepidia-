@@ -23,7 +23,7 @@ const Filter = ({
   onChangeFilter,
   results,
   sortSelectPlaceholder,
-  content: { resultLabelPlural, resultLabel, optionLabels, ...content },
+  content: { resultLabelPlural, resultLabel, optionLabels, filtersPanel },
   dataFetched,
 }: RecipeFilterProps) => {
   const classWrapper = cx(theme.recipeFilter, className);
@@ -81,23 +81,35 @@ const Filter = ({
   return (
     <div className={classWrapper}>
       {counter}
-      {optionLabels ? (
-        <label className="filter__sort-label">
-          <span className="filter__sort-label-text">sorting</span>
-          <Select
-            options={sortingOptions}
-            className="filter__sort"
-            placeholder={sortSelectPlaceholder}
-            changeHandler={sortingChange}
-          />
-        </label>
-      ) : null}
+      <div className="filter__sort-block">
+        {optionLabels ? (
+          <label className="filter__sort-label">
+            <span className="filter__sort-label-text">sorting</span>
+            <Select
+              options={sortingOptions}
+              className="filter__sort"
+              placeholder={sortSelectPlaceholder}
+              changeHandler={sortingChange}
+            />
+          </label>
+        ) : null}
+        <Button
+          className="filter__button"
+          Icon={FilterIcon}
+          viewType={ButtonViewType.classic}
+          onClick={() => {
+            toggleFilterSettings();
+            setSelectedTags(filterTags);
+          }}
+          attributes={{ 'aria-label': 'open modal with fiter settings' }}
+        />
+      </div>
       <Modal
         isOpen={showFilterSettings}
         close={toggleFilterSettings}
         className="modal--filter"
         closeBtn={<CloseSvg />}
-        title="Filters"
+        title={filtersPanel && filtersPanel.title}
         titleLevel={2}
       >
         <FilterSettings
@@ -105,27 +117,16 @@ const Filter = ({
           onFilterChange={setSelectedTags}
           OpenIcon={OpenIcon}
           filtersSelected={selectedTags}
-          // hidden={!state.showFilterSettings}
-          content={content}
+          content={{ filtersPanel }}
           onApply={applySelectedTagsToFilter}
         />
       </Modal>
-      <Button
-        className="filter__button"
-        Icon={FilterIcon}
-        viewType={ButtonViewType.classic}
-        onClick={() => {
-          toggleFilterSettings();
-          setSelectedTags(filterTags);
-        }}
-        attributes={{ 'aria-label': 'open modal with fiter settings' }}
-      />
+
       <Tags
         list={filterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
         variant={TagVariant.removable}
         RemoveIcon={RemoveTagIcon}
-        enableExternalManage
         handleTagRemove={onTagRemoved}
         initialCount="all"
       />

@@ -50,7 +50,7 @@ $col-indent-desktop: 8px;
   &__load-more {
     @extend .button;
     @extend .button--medium;
-    display: block;
+    display: block !important;
     margin: 40px auto;
   }
 
@@ -78,9 +78,6 @@ $col-indent-desktop: 8px;
   &__subtitle {
     font-size: 1.6rem;
     margin-bottom: 25px;
-  }
-  &__list {
-    list-style-image: url(../svgs/checkmark.svg);
   }
   &__item {
     font-size: 1.4rem;

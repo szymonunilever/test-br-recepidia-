@@ -1,8 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
 import GlobalFooter from 'src/components/lib/components/GlobalFooter';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-// import 'src/scss/main.scss';
 import BackToTop from '../lib/components/BackToTop/BackToTop';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
@@ -13,6 +12,9 @@ import BrandSocialChannels from 'src/components/lib/components/BrandSocialChanne
 import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
+// // Component Styles
+// import '../../scss/pages/_layout.scss';
+
 import find from 'lodash/find';
 
 const Layout = ({ children, className }: LayoutProps) => {
@@ -71,7 +73,9 @@ const Layout = ({ children, className }: LayoutProps) => {
   }
 
   // eslint-disable-next-line no-console
-  const onSignUpCallback = () => console.log('onsignup callback');
+  const onSignUpCallback = () => {
+    navigate('/newsletter-signup');
+  };
 
   // @ts-ignore
   return (
@@ -96,7 +100,7 @@ const Layout = ({ children, className }: LayoutProps) => {
       />
       <main id="content">{children}</main>
       <GeneratedForm
-        shouldValidate={true}
+        shouldValidate={false}
         onSubmit={onSignUpCallback}
         recaptchaAction="SignUpEmail"
         content={findPageComponentContent(components, 'Form', 'SignUpForm')}

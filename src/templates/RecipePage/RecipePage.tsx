@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout/Layout';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import RecipeHero from 'src/components/lib/components/RecipeHero';
@@ -41,10 +41,8 @@ import SocialSharing, {
   SocialIcons,
 } from 'src/components/lib/components/SocialSharing';
 import AddThis from '../../../integrations/AddThis';
-import socialSharingContent from 'src/components/data/socialSharingContent.json';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
-import TagLinks from 'src/components/TagsLinks/TagLinks';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
@@ -59,130 +57,92 @@ import {
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import get from 'lodash/get';
 import remove from 'lodash/remove';
-import { getFilteredRecipeResponse } from 'src/utils/searchUtils';
 import useFavorite from 'src/utils/useFavorite';
+import { Tags } from 'src/components/lib/components/Tags';
+// Component Styles
+import '../../scss/pages/_recipePage.scss';
 
-const RecipePage = ({ pageContext, location }: RecipePageProps) => {
-  const {
-    allTag,
-    dietaryTagGroup,
-  }: {
-    allTag: {
-      nodes: Internal.Tag[];
-    };
-    allRecipe: {
-      nodes: Internal.Recipe[];
-    };
-    dietaryTagGroup: RMSData.TagGroupings;
-  } = useStaticQuery(graphql`
-    {
-      allTag {
-        nodes {
-          ...TagFields
-        }
-      }
+const dietaryAttributesIcons = [
+  {
+    id: 11,
+    active: <icons.VegeterianActive />,
+    inActive: <icons.VegeterianInactive />,
+  },
+  {
+    id: 10,
+    active: <icons.VeganActive />,
+    inActive: <icons.VeganInactive />,
+  },
+  {
+    id: 5,
+    active: <icons.NutFreeActive />,
+    inActive: <icons.NutFreeInactive />,
+  },
+  {
+    id: 7,
+    active: <icons.PregnancySafeActive />,
+    inActive: <icons.PregnancySafeInactive />,
+  },
+  {
+    id: 3,
+    active: <icons.GlutenFreeActive />,
+    inActive: <icons.GlutenFreeInactive />,
+  },
+  {
+    id: 4,
+    active: <icons.LactoseFreeActive />,
+    inActive: <icons.LactoseFreeInactive />,
+  },
+  {
+    id: 8,
+    active: <icons.RawFoodActive />,
+    inActive: <icons.RawFoodInactive />,
+  },
+  {
+    id: 2,
+    active: <icons.EggFreeActive />,
+    inActive: <icons.EggFreeInactive />,
+  },
+  {
+    id: 6,
+    active: <icons.PaleoDietActive />,
+    inActive: <icons.PaleoDietInactive />,
+  },
+  // TODO replace below icons with proper onesafter
+  {
+    id: 1,
+    active: <icons.DairyFreeActive />,
+    inActive: <icons.DairyFreeInactive />,
+  },
+  {
+    id: 9,
+    active: <icons.WheatFreeActive />,
+    inActive: <icons.WheatFreeInactive />,
+  },
+];
 
-      dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
-        id
-        tags {
-          id
-          name
-        }
-      }
-    }
-  `);
+const RecipePage: React.FunctionComponent<RecipePageProps> = ({
+  pageContext,
+  location,
+  data: { recipeTags, dietaryTagGroup, relatedRecipes },
+}) => {
   const {
     page: { components, seo, type },
     recipe,
   } = pageContext;
-  const tags = allTag.nodes;
-
-  const allDietaryList = (dietaryTagGroup && dietaryTagGroup.tags) || [];
-
+  const tags = recipeTags.nodes;
+  const allDietaryList = ((dietaryTagGroup && dietaryTagGroup.tags) ||
+    []) as Internal.Tag[];
   const currentRecipeDietaryList = get(
     recipe.tagGroups.find(tags => tags.label === 'dietary'),
     'tags',
     []
-  );
-  const dietaryAttributesIcons = [
-    {
-      id: 11,
-      active: <icons.VegeterianActive />,
-      inActive: <icons.VegeterianInactive />,
-    },
-    {
-      id: 10,
-      active: <icons.VeganActive />,
-      inActive: <icons.VeganInactive />,
-    },
-    {
-      id: 5,
-      active: <icons.NutFreeActive />,
-      inActive: <icons.NutFreeInactive />,
-    },
-    {
-      id: 7,
-      active: <icons.PregnancySafeActive />,
-      inActive: <icons.PregnancySafeInactive />,
-    },
-    {
-      id: 3,
-      active: <icons.GlutenFreeActive />,
-      inActive: <icons.GlutenFreeInactive />,
-    },
-    {
-      id: 4,
-      active: <icons.LactoseFreeActive />,
-      inActive: <icons.LactoseFreeInactive />,
-    },
-    {
-      id: 8,
-      active: <icons.RawFoodActive />,
-      inActive: <icons.RawFoodInactive />,
-    },
-    {
-      id: 2,
-      active: <icons.EggFreeActive />,
-      inActive: <icons.EggFreeInactive />,
-    },
-    {
-      id: 6,
-      active: <icons.PaleoDietActive />,
-      inActive: <icons.PaleoDietInactive />,
-    },
-    // TODO replace below icons with proper onesafter
-    {
-      id: 1,
-      active: <icons.DairyFreeActive />,
-      inActive: <icons.DairyFreeInactive />,
-    },
-    {
-      id: 9,
-      active: <icons.WheatFreeActive />,
-      inActive: <icons.WheatFreeInactive />,
-    },
-  ];
-
-  const [relatedRecipes, setRelatedRecipes] = useState<Internal.Recipe[]>([]);
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  ) as Internal.Tag[];
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
-  // const tabsContent = {
-  //   tabs: [
-  //     {
-  //       title: 'Ingredients',
-  //       view: 'recipeTabIngredients',
-  //     },
-  //     {
-  //       title: 'Cook',
-  //       view: 'recipeTabCookingMethod',
-  //     },
-  //   ],
-  // };
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
@@ -191,49 +151,17 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const tagList = getTagsFromRecipes([recipe], tags);
-
-  useEffect(() => {
-    getFilteredRecipeResponse(
-      tagList.map(tag => tag.tagId).join(' OR '),
-      [recipe.recipeId],
-      { size: 6 }
-    ).then(recipes => {
-      setRelatedRecipes(recipes.hits.hits.map(recipe => recipe._source));
-    });
-  }, []);
-
   const recipeHero = (
     <>
       <RecipeHero
         content={recipe}
-        imageSizes={'(min-width: 1366px) 40vw, 90vw'}
-        imagePlaceholder={{
-          id: '0bcf6c75-0450-554d-89c7-85316cc28839',
-          childImageSharp: {
-            fluid: {
-              aspectRatio: 1,
-              base64:
-                'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD//gA+Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBkZWZhdWx0IHF1YWxpdHkK/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgBLAEsAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A9MooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKzm1Us7eRayTRqcFx0/CgDRoqG3uY7i3E6HCd89vrVL+1x/rPs0v2fOPN/+tQBp0VG80ccBmZvkA3Z9qpJq2XQy20kUTnCyN0oA0aKKKACiiigAoqpd3y2zpGsbSyvyEX0pLW/E8xhkheGUDO1u49qALlFU7q/8iYQxQvNLjJVew96ktLtLuMkKUdThkbqDQBYoqhPqRjnaKG3edk++V6CrNtcpdQCWPODwQeoNAE1FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAjDcpXpkY4qhLPBo9vFFtkYHO3p+v51ekZlidlGWAJA9TUFrcJeWYkYLgg7l7CgDPUlNBnlyP3pLYU9MkDFaSwL9hEGPl8vbj8KzIYt+j3gjBKGRig9hj/CtAXSf2YLjcMeXn8cdPzoAzixl0O1Qk/PIIz9Mn/CtHUI1fTplxwEJH4c1QeNotCt22nMbCQj8f/r1c1GdF02RgwIkXavvmgCxauZLSFyclkUn8qr6jJcQRLPC3yocumByKsW6GO2iQ9VQA/lTL2dLe0kkcAjGAp7k9qAKz3j3N1BDaPhSN8jYBwPStGsXSQbO5a3mQK8qh1Pr7VtUAV5IooZpL1txZYyCPYc8VRt7pNQ1SOSMbFhQ8MeWzVxbs/2i9q4AG0Mh9agmVP7btigAfaxfHpjjNADrAbrq9lPUy7M/SiMeXrcoHAkhDH6g4pLJhHfXkJ4JfzB7g0QsJtZndeVjjEeffOaAF0gZtGl7ySMxP40WI8u+voh90OrAfUc0mlMFglgPDRSMCD6UaefNuryccqzhVPrgUAaFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVQk0e1kkL/ADpuOSqtgGr9FADI4khiWNFCoowBVP8Ase083fh9uc7N3y1fooARkV0KMAVIwR7VSi0m1imEgDttOVVmyBV6igAqC4tI7mSJpC2IzkKDwT71PRQBXubSO5aNmLK8ZyrKeasUUUAVrqxhvNvmAhl6MpwRRa2MNmWMYYu3VmOTVmigCrdWEN2ys+5XXgMhwaktraK1i8uJcDqSepNTUUAU7nTLe6l8xt6uRglDjP1qzDDHBEsca7VHQU+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiisyCUpBFMvntiPdLvLYPy54z7+lAGnRVZZJw/lv5ZdoyyFQcAjHB/MUz7dvBCKMlV2E9Cxxx+G4UAXKKpzXciTSKiFhHgECNmLcZ4I4HWpS8rXZjQoEVVYkgknJPHX2oAnpCwBAJAJOB71Ut7uSZ0Ow7H5H7tht7jJPBpokllktJG2eW7llAByPkbGfWgC6WAIBIBJwPelqtd799t5e3d5vG7p91qQ3EixSMwUmJ8PgcFcA5H4H9KALVFRRSGVnIx5YOFI7+p/p+FRLNIs9wohlkAcYKlcD5V45I/yaALVFZ5BktRKzSq/nbceYRgeZjHBx04p9xvhlh8tnKxo7lSxO4ArnOevBOKALtFUoZGlvhIHPlOjhFzwQCvP6n8KntGLWcDMSSY1JJ78UATUVXcGW6MRdlRUDYViNxJPcc8Y/WiYFEiiWRgHfaXJ5AwT1/DFAFiiqM+63SZEkcgwO43MSVI9+vf9KiuJZfs0luHYSRKzM4PO0DIOffj9aANOiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmrGqRiNR8gG0DrxTqKAI4reOEkopBIxySePTmkFtCoXCD5WLL7E1LRQBE9vHI+5gc9DhiM/XHWnhFEhcD5iACfYZx/M06igCJbeNH3qCD1xuOB9B0pFtYVkEgT5lJI+Y4GeuB+NTUUARywxzBRIudp3DkjB/CmPCUgMcAUbs5LE8Z6n3NT0UANjjWKNY0GFUYFCoqliBgscn3OAP6CnUUAM8mPZs2/Lu34z3zu/nSlFMgcj5gCAfY4z/ACFOooAaUUyByPmAIB9jjP8AIVHHaxwldnmAKMAGRiB+BOKmooAiNtEURNpAQYUhiCB9RzSmGMxeUVynoTUlFAEK20Ko6bSQ4w2WJJH1PNSOiyRsjDKsCCPanUUAFFFFAH//2Q==',
-              sizes: '(max-width: 300px) 10vw, 300px',
-              src: '/static/17960958527413a2fca4ac3a7e0fe78d/bc3a8/knorr.jpg',
-              srcSet:
-                '/static/17960958527413a2fca4ac3a7e0fe78d/d278e/knorr.jpg 1vw,↵/static/17960958527413a2fca4ac3a7e0fe78d/8539d/knorr.jpg 20vw,↵/static/17960958527413a2fca4ac3a7e0fe78d/bc3a8/knorr.jpg 800w,↵/static/17960958527413a2fca4ac3a7e0fe78d/81ef8/knorr.jpg 11vw,↵/static/17960958527413a2fca4ac3a7e0fe78d/989b1/knorr.jpg 1600w,↵/static/17960958527413a2fca4ac3a7e0fe78d/c82f6/knorr.jpg 220vw,↵/static/17960958527413a2fca4ac3a7e0fe78d/65c7d/knorr.jpg 4009w',
-            },
-          },
-        }}
+        imageSizes={'(min-width: 1366px) 600w, 600px'}
       />
       <div className={theme.recipeHeroActions}>
         <div>
           <Button
             Icon={FavoriteIcon}
-            isSelected={(Array.isArray(
-              getUserProfileByKey(ProfileKey.favorites)
-            )
-              ? getUserProfileByKey(ProfileKey.favorites)
-              : []
-            )
-              // @ts-ignore
-              .includes(recipe.recipeId)}
+            isSelected={favorites.includes(recipe.recipeId)}
             onClick={() => {
               // @ts-ignore
               const favorites: number[] = Array.isArray(
@@ -246,7 +174,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
               } else {
                 favorites.push(recipe.recipeId);
               }
-              saveUserProfileByKey(favorites, ProfileKey.favorites);
+              updateFavoriteState(favorites);
             }}
             isToggle={true}
             className="action-button"
@@ -255,7 +183,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         </div>
         <>
           <SocialSharing
-            content={socialSharingContent}
+            content={findPageComponentContent(components, 'SocialSharing')}
             viewType={SocialSharingViewType.Modal}
             CloseButtonIcon={CloseButton}
             icons={socialIcons}
@@ -394,23 +322,30 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           </Tabs>
         </div>
       </section>
-      <section
-        className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
-      >
-        <Text text={'Nutritional'} tag={TagName.h2} />
-        <RecipeDietaryAttributes
-          activeAttributes={currentRecipeDietaryList}
-          attributes={allDietaryList}
-          icons={dietaryAttributesIcons}
-        />
-        <RecipeNutrients
-          recipe={recipe}
-          modalTitle={'Nutritional information'}
-          content={findPageComponentContent(components, 'RecipeNutrients')}
-          viewType={RecipeNutrientsViewType.WithAction}
-          CloseButton={CloseButton}
-        />
-      </section>
+      {currentRecipeDietaryList.length || recipe.nutrients.length ? (
+        <section
+          className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
+        >
+          <Text
+            text={
+              findPageComponentContent(components, 'Text', 'NutritionalTitle')
+                .text
+            }
+            tag={TagName.h2}
+          />
+          <RecipeDietaryAttributes
+            activeAttributes={currentRecipeDietaryList}
+            attributes={allDietaryList}
+            icons={dietaryAttributesIcons}
+          />
+          <RecipeNutrients
+            recipe={recipe}
+            content={findPageComponentContent(components, 'RecipeNutrients')}
+            viewType={RecipeNutrientsViewType.WithAction}
+            CloseButton={CloseButton}
+          />
+        </section>
+      ) : null}
       <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
         <Reviews
           recipeId={recipe.recipeId}
@@ -419,7 +354,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
         />
       </section>
       <section className={theme.tagList}>
-        <TagLinks
+        <Tags
           initialCount={initialTagsCount}
           list={tagList}
           content={findPageComponentContent(components, 'Tags')}
@@ -438,14 +373,17 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
           '_pt--40 _pb--40 wrapper'
         )}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'RelatedRecipes'
           )}
-          list={relatedRecipes}
-          favorites={getUserProfileByKey(ProfileKey.favorites) as string[]}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
+          list={relatedRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
@@ -462,7 +400,7 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
     </Layout>
@@ -471,7 +409,46 @@ const RecipePage = ({ pageContext, location }: RecipePageProps) => {
 
 export default RecipePage;
 
+export const query = graphql`
+  query($tags: [Int]) {
+    recipeTags: allTag(filter: { tagId: { in: $tags } }) {
+      nodes {
+        ...TagFields
+      }
+    }
+    relatedRecipes: allRecipe(
+      limit: 6
+      sort: { order: ASC, fields: creationTime }
+      filter: {
+        tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
+      }
+    ) {
+      nodes {
+        ...RecipeFields
+      }
+    }
+
+    dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
+      id
+      tags {
+        id
+        name
+        title
+      }
+    }
+  }
+`;
+
 interface RecipePageProps {
+  data: {
+    recipeTags: {
+      nodes: Internal.Tag[];
+    };
+    relatedRecipes: {
+      nodes: Internal.Recipe[];
+    };
+    dietaryTagGroup: RMSData.TagGroupings;
+  };
   pageContext: {
     page: AppContent.Page;
     recipe: Internal.Recipe;

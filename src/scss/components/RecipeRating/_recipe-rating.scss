@@ -30,7 +30,7 @@
         background-repeat: no-repeat;
         background-size: contain;
         display: inline-block;
-        font-size: 14px;
+        font-size: 1.4rem;
         width: 19px;
         height: 16px;
         margin-left: 5px;
@@ -71,4 +71,9 @@
 
 .rr-inline-widget.rr-widget-container .aggregateRating {
   display: inline-block;
+}
+
+.rr-review-section .postReviewStarRating .starRatingsContainer ul li {
+  margin: 0 5px 0 0;
+  width: 14px;
 }

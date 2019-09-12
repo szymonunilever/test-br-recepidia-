@@ -9,9 +9,14 @@
         @extend h2;
         font-size: 1.8rem;
         margin-right: auto;
+        max-width: calc(100% - 170px);
         @include respondTo(desktop) {
           font-size: 2.5rem;
+          max-width: none;
         }
+      }
+      &__sort-block {
+        display: flex;
       }
       &__sort {
         width: calc(100px + 4.3vw);
@@ -62,32 +67,16 @@
         @extend .button;
         @extend .button--filter;
         min-height: 43px;
+        min-width: 43px;
         @include respondTo(desktop) {
           min-height: 46px;
+          min-width: 46px;
         }
-        min-width: 46px;
       }
     }
     .tags {
       width: 100%;
       margin: 0;
-      padding: 20px 0;
-    }
-
-    .tags__removable {
-      border: 1px solid $black-blue;
-      border-radius: 20px;
-      height: 32px;
-      @media (hover: hover),
-        (-ms-high-contrast: none),
-        (-ms-high-contrast: active) {
-        &:hover {
-          border-color: darken($apple-green, 10%);
-          svg {
-            fill: $black-blue;
-          }
-        }
-      }
     }
   }
 }

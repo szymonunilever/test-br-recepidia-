@@ -3,13 +3,13 @@ import cx from 'classnames';
 import { graphql } from 'gatsby';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import {
-  RecipeListing,
   RecipeListViewType,
+  RecipeListing,
 } from 'src/components/lib/components/RecipeListing';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
@@ -17,7 +17,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
+
 import IntroQuiz from '../../components/page/IntroQuiz';
 
 import theme from './home.module.scss';
@@ -25,7 +25,8 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { isQuizesStored, getTopRecipes, getLatestAndGratest } from './helpers';
-import checkHash from '../../utils/checkHash';
+// Component Styles
+import '../../scss/pages/_home.scss';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -47,73 +48,61 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     ).text as string,
   };
 
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
+  );
   const [searchAgent, setSearchAgent] = useState(false);
   const [introModalClosed, setintroModalClosed] = useState(false);
   const [topRecipesResult, setTopRecipesResult] = useState<Internal.Recipe[]>(
-    []
+    topRecipes.nodes
   );
   const [latestAndGratestResult, setLatestAndGratestResult] = useState<
     Internal.Recipe[]
-  >([]);
+  >(latestAndGrates.nodes);
+  const [loadedTop, setLoadedTop] = useState(false);
+  const [loadedLatest, setLoadedLatest] = useState(false);
 
-  const isIntroDone = () => {
+  const isIntroDone = useCallback(() => {
     setintroModalClosed(true);
+  }, []);
+
+  const searchRecipes = () => {
+    setLoadedLatest(false);
+    setLoadedTop(false);
+    Promise.all([
+      getLatestAndGratest(latestAndGrates.nodes),
+      getTopRecipes(topRecipes.nodes),
+    ])
+      .then(([latestResult, topResult]) => {
+        setLatestAndGratestResult(latestResult);
+        setLoadedLatest(true);
+        setTopRecipesResult(topResult);
+        setLoadedTop(true);
+      })
+      .catch();
   };
 
   useEffect(() => {
     //@ts-ignore
     setSearchAgent(window.searchAgentOnPage);
-    if (isQuizesStored()) {
-      checkHash.saveToStorage(
-        getUserProfileByKey(ProfileKey.initialQuiz),
-        'quiz'
-      );
-      checkHash.saveToStorage(
-        getUserProfileByKey(ProfileKey.mealPlannerAnswers),
-        'mp'
-      );
+    //@ts-ignore
+    setLoadedLatest(window.searchAgentOnPage);
+    //@ts-ignore
+    setLoadedTop(window.searchAgentOnPage);
+    if (isQuizesStored() && !searchAgent) {
+      searchRecipes();
+    } else {
+      setLoadedLatest(true);
+      setLoadedTop(true);
     }
-    const init = async () => {
-      setTopRecipesResult(await getTopRecipes(topRecipes.nodes));
-      setLatestAndGratestResult(
-        await getLatestAndGratest(latestAndGrates.nodes)
-      );
-    };
-    init()
-      .then()
-      .catch();
   }, []);
 
   useEffect(() => {
-    const reSearch = async () => {
-      setTopRecipesResult(await getTopRecipes(topRecipes.nodes));
-      setLatestAndGratestResult(
-        await getLatestAndGratest(latestAndGrates.nodes)
-      );
-    };
-
-    if (isQuizesStored()) {
-      const quiz = getUserProfileByKey(ProfileKey.initialQuiz);
-      const mp = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
-      if (
-        checkHash.differentWithSaved(quiz, 'quiz') ||
-        checkHash.differentWithSaved(mp, 'mp')
-      ) {
-        checkHash.saveToStorage(quiz, 'quiz');
-        checkHash.saveToStorage(mp, 'mp');
-        reSearch()
-          .then()
-          .catch();
-      }
+    if (isQuizesStored() && introModalClosed) {
+      searchRecipes();
     }
   }, [introModalClosed]);
-
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
-  );
 
   return (
     <Layout className="header--bg">
@@ -133,71 +122,70 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           text={findPageComponentContent(components, 'Text', 'PageTitle').text}
         />
       </section>
-
       <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
-        {latestAndGratestResult.length > 0 ? (
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'LatestAndGreatest'
-            )}
-            list={latestAndGratestResult}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            className="recipe-list--blue-header recipe-list--carousel"
-            viewType={RecipeListViewType.Carousel}
-            titleLevel={2}
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 2,
-                  visibleElementsAboveBreakpoint: 4,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 25vw, 50vw'}
-          />
-        ) : (
-          <Spinner className={theme.recipeSpinner} />
-        )}
+        <RecipeListing
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'LatestAndGreatest'
+          )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
+          list={latestAndGratestResult}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          className={`${!loadedLatest &&
+            theme.recipeHidden} recipe-list--blue-header recipe-list--carousel`}
+          viewType={RecipeListViewType.Carousel}
+          titleLevel={2}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 2,
+                visibleElementsAboveBreakpoint: 4,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
+        />
       </section>
 
-      <section
-        className={cx(theme.homeMiddleCarousel, '_pt--40 _pb--40 wrapper')}
-      >
-        {topRecipesResult.length > 0 ? (
-          <RecipeListingWithFavorite
-            content={findPageComponentContent(
-              components,
-              'RecipeListing',
-              'TopRecipes'
-            )}
-            list={topRecipesResult}
-            ratingProvider={RatingAndReviewsProvider.kritique}
-            viewType={RecipeListViewType.Carousel}
-            className="recipe-list--carousel"
-            titleLevel={2}
-            carouselConfig={{
-              breakpoints: [
-                {
-                  width: 768,
-                  switchElementsBelowBreakpoint: 1,
-                  switchElementsAfterBreakpoint: 1,
-                  visibleElementsBelowBreakpoint: 1,
-                  visibleElementsAboveBreakpoint: 2,
-                },
-              ],
-              arrowIcon: <ArrowIcon />,
-            }}
-            imageSizes={'(min-width: 768px) 50vw, 100vw'}
-          />
-        ) : (
-          <Spinner className={theme.recipeSpinner} />
-        )}
+      <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
+        <RecipeListing
+          content={findPageComponentContent(
+            components,
+            'RecipeListing',
+            'TopRecipes'
+          )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
+          list={topRecipesResult}
+          ratingProvider={RatingAndReviewsProvider.kritique}
+          viewType={RecipeListViewType.Carousel}
+          className={`${!loadedTop &&
+            theme.recipeHidden} recipe-list--carousel`}
+          titleLevel={2}
+          carouselConfig={{
+            breakpoints: [
+              {
+                width: 768,
+                switchElementsBelowBreakpoint: 1,
+                switchElementsAfterBreakpoint: 1,
+                visibleElementsBelowBreakpoint: 1,
+                visibleElementsAboveBreakpoint: 2,
+              },
+            ],
+            arrowIcon: <ArrowIcon />,
+          }}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
+        />
       </section>
 
       <section className="_pb--40">
@@ -240,12 +228,11 @@ export const pageQuery = graphql`
       }
     }
 
-    allTag {
-      nodes {
-        ...TagFields
-      }
-    }
-    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
       nodes {
         ...CategoryFields
       }

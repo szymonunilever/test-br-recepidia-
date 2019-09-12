@@ -34,11 +34,11 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -46,7 +46,7 @@
           {
             "name": "PageListing",
             "content": {
-              "title": "Minhas preferidas"
+              "title": "Descubra novas categorias"
             }
           },
           {
@@ -83,8 +83,8 @@
                       "label": {
                         "text": "Experimenta de tudo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/1.jpg",
+                          "alt": "Experimenta de tud"
                         }
                       }
                     },
@@ -93,8 +93,8 @@
                       "label": {
                         "text": "Ama mais salgado do que doce",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2.jpg",
+                          "alt": "Ama mais salgado do que doce"
                         }
                       }
                     },
@@ -103,8 +103,8 @@
                       "label": {
                         "text": "Rouba os docinhos antes do parabéns",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3.jpg",
+                          "alt": "Rouba os docinhos antes do parabéns"
                         }
                       }
                     },
@@ -113,8 +113,8 @@
                       "label": {
                         "text": "Não divide o hambúrguer",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/4.jpg",
+                          "alt": "Não divide o hambúrguer"
                         }
                       }
                     },
@@ -123,8 +123,8 @@
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/5.jpg",
+                          "alt": "Chef preferido das crianças"
                         }
                       }
                     },
@@ -133,8 +133,8 @@
                       "label": {
                         "text": "Louco por carne",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/6.jpg",
+                          "alt": "Louco por carne"
                         }
                       }
                     },
@@ -143,8 +143,8 @@
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/7.jpg",
+                          "alt": "Cuida da alimentação e do planeta"
                         }
                       }
                     }
@@ -166,8 +166,8 @@
                       "label": {
                         "text": "Não",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/8.jpg",
+                          "alt": "Não dieta"
                         }
                       }
                     },
@@ -176,8 +176,8 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
+                          "alt": "Sem produtos de origem animal"
                         }
                       }
                     },
@@ -186,8 +186,8 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
+                          "alt": "Sem carne"
                         }
                       }
                     },
@@ -196,8 +196,8 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
+                          "alt": "Sem ovo"
                         }
                       }
                     },
@@ -206,8 +206,8 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
+                          "alt": "Sem leite"
                         }
                       }
                     },
@@ -216,8 +216,8 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
+                          "alt": "Sem açúcar"
                         }
                       }
                     },
@@ -226,8 +226,8 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
+                          "alt": "Sem lactose"
                         }
                       }
                     },
@@ -236,8 +236,8 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
+                          "alt": "Sem glúten"
                         }
                       }
                     },
@@ -246,8 +246,8 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
+                          "alt": "Sem frutos do mar"
                         }
                       }
                     },
@@ -256,8 +256,8 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
+                          "alt": "Sem soja"
                         }
                       }
                     }
@@ -279,8 +279,8 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -289,8 +289,8 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -299,8 +299,8 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -309,8 +309,8 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -332,8 +332,8 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -342,8 +342,8 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -352,8 +352,8 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
@@ -380,9 +380,28 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                }
+              ],
+              "openModalButton": {
+                "label": ""
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
           {
             "name": "Hero",
             "content": {
@@ -390,11 +409,11 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -411,12 +430,12 @@
             "content": {
               "labels": {
                 "preperationTime": {
-                  "title": "Prep time",
+                  "title": "Pré-preparo",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
                 "cookTime": {
-                  "title": "Cooking time",
+                  "title": "Tempo de preparo",
                   "units": "min",
                   "unitsPlural": "mins"
                 },
@@ -426,7 +445,7 @@
                   "unitsPlural": "pessoas"
                 },
                 "difficulties": {
-                  "title": "Difficulty"
+                  "title": "Dificuldade"
                 }
               }
             }
@@ -463,11 +482,12 @@
             "name": "RecipeNutrients",
             "content": {
               "buttonLabel": {
-                "label": "Nutritional information"
+                "label": "Informações nutricionais"
               },
               "titleTotal": "Total",
-              "titlePer100": "Per 100",
-              "titlePerServing": "Amount per Serving"
+              "titlePer100": "Porção de 100 g",
+              "titlePerServing": "Rendimento",
+              "modalTitle": "Informações nutricionais"
             }
           },
           {
@@ -475,8 +495,15 @@
             "content": {
               "title": "Categorias relacionadas",
               "loadMoreButton": {
-                "label": "+ ver mais categorias"
+                "label": "+ Ver mais categorias"
               }
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "text": "Nutricionais",
+              "view": "NutritionalTitle"
             }
           }
         ]
@@ -492,7 +519,7 @@
     },
     {
       "type": "RecipeCategory",
-      "relativePath": "/recipe-categories",
+      "relativePath": "/receitas-categorias",
       "components": {
         "items": [
           {
@@ -516,7 +543,7 @@
             "name": "Tags",
             "content": {
               "title": "Procurar por categorias",
-              "loadMoreButton": { "label": "+ ver mais categorias" }
+              "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
           {
@@ -526,11 +553,11 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -550,7 +577,7 @@
     },
     {
       "type": "AllRecipes",
-      "relativePath": "/recipes",
+      "relativePath": "/receitas",
       "components": {
         "items": [
           {
@@ -574,12 +601,15 @@
               "cta": {
                 "label": "Ver mais receitas"
               },
-              "resultLabel": "receita",
-              "resultLabelPlural": "receitas",
+              "resultLabel": "receita encontrada",
+              "resultLabelPlural": "receitas encontradas",
               "sortSelectPlaceholder": "Procurar por",
-              "filtersCta": {
-                "resetLabel": { "label": "Reset filters" },
-                "applyLabel": { "label": "Apply filters" }
+              "filtersPanel": {
+                "title": "Filtros",
+                "ctas": {
+                  "reset": { "label": "Limpar filtros" },
+                  "apply": { "label": "Aplicar filtros" }
+                }
               },
               "nullResult": {
                 "title": "Busquei por toda cozinha mas não encontrei o que você procurava",
@@ -590,11 +620,11 @@
                 ]
               },
               "optionLabels": {
-                "newest": "Newest",
-                "preparationTime": "Preparation time",
-                "cookingTime": "Cooking time",
-                "averageRating": "Average rating",
-                "title": "Title"
+                "newest": "Mais Recentes",
+                "preparationTime": "Pré-preparo",
+                "cookingTime": "Tempo de preparo",
+                "averageRating": "Avaliação média",
+                "title": "Título"
               }
             }
           },
@@ -602,7 +632,8 @@
             "name": "RecipeListing",
             "content": {
               "view": "SeasonalPromotionalRecipes",
-              "title": "Receitas especiais"
+              "title": "Receitas especiais",
+              "staticList": [176094, 175506, 175505, 173885, 173884, 173870]
             }
           },
           {
@@ -612,11 +643,11 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -636,7 +667,7 @@
     },
     {
       "type": "ContentHub",
-      "relativePath": "/content-hub",
+      "relativePath": "/hub-de-conteudo",
       "components": {
         "items": [
           {
@@ -661,7 +692,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -672,11 +703,11 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -696,7 +727,7 @@
     },
     {
       "type": "ArticleDetail",
-      "relativePath": "/articles",
+      "relativePath": "/artigos",
       "components": {
         "items": [
           {
@@ -713,7 +744,7 @@
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -732,11 +763,11 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -756,7 +787,7 @@
     },
     {
       "type": "Search",
-      "relativePath": "/search",
+      "relativePath": "/procurar",
       "components": {
         "items": [
           {
@@ -808,7 +839,7 @@
             "content": {
               "title": "Procurar por categorias",
               "loadMoreButton": {
-                "label": "+ ver mais"
+                "label": "+ Ver mais categorias"
               }
             }
           },
@@ -819,11 +850,11 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
-                "label": "Começar"
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
               },
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
                 "alt": "Planejamento Semanal"
               }
             }
@@ -850,7 +881,7 @@
     },
     {
       "type": "ContactUs",
-      "relativePath": "/contact-us",
+      "relativePath": "/fale-comigo",
       "components": {
         "items": [
           {
@@ -899,7 +930,7 @@
               "type": "text",
               "cta": {
                 "label": "Preencher o formulário de contato",
-                "linkTo": "/contact-form"
+                "linkTo": "/formulario-de-contato"
               }
             }
           }
@@ -918,7 +949,7 @@
     },
     {
       "type": "ContactForm",
-      "relativePath": "/contact-form",
+      "relativePath": "/formulario-de-contato",
       "components": {
         "items": [
           {
@@ -959,8 +990,14 @@
                   "label": "Qual a sua dúvida?*",
                   "placeholder": "Como podemos ajudar?",
                   "options": [
-                    { "label": "Product Concern", "value": "Product Concern" },
-                    { "label": "Dúvida sobre produtos", "value": "Dúvida sobre produtos" }
+                    {
+                      "label": "Dúvida sobre produtos",
+                      "value": "Dúvida sobre produtos"
+                    },
+                    {
+                      "label": "Dúvidas sobre produtos",
+                      "value": "Dúvidas sobre produtos"
+                    }
                   ],
                   "validationRules": [
                     {
@@ -978,6 +1015,7 @@
                   "name": "recipe",
                   "type": "text",
                   "label": "Nome da receita",
+                  "placeholder": "Torta de Frango",
                   "fieldset": "recipeDetails"
                 },
                 {
@@ -989,11 +1027,12 @@
                   "name": "comments",
                   "type": "textarea",
                   "label": "O que você gostaria de saber?*",
+                  "placeholder": "Escreva aqui...",
                   "fieldset": "commentsFieldset",
                   "validationRules": [
                     {
                       "type": "required",
-                      "errorMessage": "Please fill out this field"
+                      "errorMessage": "Preencha com seus dados"
                     }
                   ]
                 },
@@ -1006,16 +1045,17 @@
                   "name": "givenName",
                   "type": "text",
                   "label": "Primeiro nome*",
+                  "placeholder": "Nome",
                   "fieldset": "contact",
                   "validationRules": [
                     {
                       "type": "required",
-                      "errorMessage": "Please enter the first name"
+                      "errorMessage": "Por favor insira seu nome"
                     },
                     {
                       "type": "pattern",
                       "value": "^.{2,50}$",
-                      "errorMessage": "First name length should be between 2 and 50 characters"
+                      "errorMessage": "Seu primeiro nome deve ter entre 2 e 50 caracteres"
                     }
                   ]
                 },
@@ -1023,16 +1063,17 @@
                   "name": "familyName",
                   "type": "text",
                   "label": "Sobrenome*",
+                  "placeholder": "Sombrenome",
                   "fieldset": "contact",
                   "validationRules": [
                     {
                       "type": "required",
-                      "errorMessage": "Please enter the last name"
+                      "errorMessage": "Por favor insira seu sobrenome"
                     },
                     {
                       "type": "pattern",
                       "value": "^.{2,50}$",
-                      "errorMessage": "Last name length should be between 2 and 50 characters"
+                      "errorMessage": "Seu sobrenome deve ter entre 2 e 50 caracteres"
                     }
                   ]
                 },
@@ -1040,21 +1081,22 @@
                   "name": "email",
                   "type": "text",
                   "label": "Email*",
+                  "placeholder": "email@email.com",
                   "fieldset": "contact",
                   "validationRules": [
                     {
                       "type": "required",
-                      "errorMessage": "Please enter the email address"
+                      "errorMessage": "Por favor informe seu e-mail"
                     },
                     {
                       "type": "pattern",
                       "value": "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
-                      "errorMessage": "Please enter valid email"
+                      "errorMessage": "Por favor informe um e-mail válido"
                     },
                     {
                       "type": "pattern",
                       "value": "^.{1,60}$",
-                      "errorMessage": "Email length should be between 2 and 50 characters"
+                      "errorMessage": "Por favor informe um número de telefone válido"
                     }
                   ]
                 },
@@ -1062,12 +1104,45 @@
                   "name": "phoneNumber",
                   "type": "tel",
                   "label": "Telefone",
+                  "placeholder": "00 0 0000-0000",
                   "fieldset": "contact",
                   "validationRules": [
                     {
                       "type": "pattern",
                       "value": "^(\\(?\\+?[0-9]*\\)?)?[0-9- \\*\\#\\.\\(\\)]*$",
-                      "errorMessage": "Please enter a valid phone number"
+                      "errorMessage": "Por favor informe um número de telefone válido"
+                    }
+                  ]
+                },
+                {
+                  "name": "consentsFieldset",
+                  "type": "fieldset",
+                  "label": ""
+                },
+                {
+                  "name": "consent1",
+                  "type": "checkbox",
+                  "defaultValue": "",
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas de Recepedia."
+                },
+                {
+                  "name": "consent2",
+                  "type": "checkbox",
+                  "defaultValue": "",
+                  "fieldset": "consentsFieldset",
+                  "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas sobre as marcas da Unilever e sobre as suas ações para fazer o bem"
+                },
+                {
+                  "name": "consent3",
+                  "type": "checkbox",
+                  "defaultValue": "",
+                  "fieldset": "consentsFieldset",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos</a>",
+                  "validationRules": [
+                    {
+                      "type": "required",
+                      "errorMessage": "Deve ter idade de 18 anos para se inscrever"
                     }
                   ]
                 },
@@ -1125,15 +1200,6 @@
             }
           },
           {
-            "name": "AdaptiveImage",
-            "content": {
-              "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
-                "alt": "Página não encontrada..."
-              }
-            }
-          },
-          {
             "name": "Button",
             "content": {
               "label": "Quero voltar para as receitas"
@@ -1155,32 +1221,12 @@
     {
       "title": "User Profile",
       "type": "UserProfile",
-      "relativePath": "/profile",
+      "relativePath": "/perfil",
       "components": {
         "items": [
           {
             "name": "UserPreferences",
             "content": {
-              "newsletterSubscriptionsContent": {
-                "submitButton": {
-                  "label": "Salvar"
-                },
-                "title": "Newsletter subscriptions",
-                "fields": [
-                  {
-                    "name": "Subscribe to newsletter",
-                    "type": "checkbox",
-                    "label": "Subscribe to newsletter",
-                    "value": "Subscribe to newsletter"
-                  },
-                  {
-                    "name": "Subscribe to whitelabel newsletter",
-                    "type": "checkbox",
-                    "label": "Subscribe to whitelabel newsletter",
-                    "value": "Subscribe to whitelabel newsletter"
-                  }
-                ]
-              },
               "preferencesIntroContent": {
                 "heading": "Minhas preferências",
                 "subheading": {
@@ -1189,17 +1235,17 @@
               },
               "updatePropsContent": {
                 "deleteProps": {
-                  "success": "1 answer deleted.",
-                  "error": "We're sorry, we couldn't delete this answer. Please try again later."
+                  "success": "1 resposta deletada.",
+                  "error": "Desculpe, a resposta não foi deletada. Tente novamente mais tarde."
                 },
                 "saveProps": {
-                  "success": "New answer saved.",
-                  "error": "We're sorry, we couldn't save this answer. Please try again later."
+                  "success": "Resposta salva.",
+                  "error": "Desculpe, a resposta não foi deletada. Tente novamente mais tarde."
                 }
               },
               "noResultContent": {
-                "heading": "Personalise your experience!",
-                "message": "Try our diagnostic tools and take our surveys to get more relevant  content, discounts and promotions..."
+                "heading": "Personalize!",
+                "message": "Conte um pouco mais sobre você e receba receitas, dicas e ofertas personalizadas!"
               },
               "buttonsContent": {
                 "editButton": {
@@ -1216,9 +1262,9 @@
                 }
               },
               "resultLabelContent": {
-                "showResultLabel": "Show answers count",
-                "savedResultsTemplateSingle": "{quantity} answer found",
-                "savedResultsTemplatePlural": "{quantity} answers found"
+                "showResultLabel": "Exibir respostas",
+                "savedResultsTemplateSingle": "{quantity} resposta encontrada",
+                "savedResultsTemplatePlural": "{quantity} respostas encontradas"
               }
             }
           },
@@ -1237,7 +1283,7 @@
           {
             "name": "NullResult",
             "content": {
-              "title": "Favorite Recipes",
+              "title": "Receitas favoritas",
               "subtitle": "Você ainda não tem receitas favoritas :(",
               "textList": []
             }
@@ -1272,18 +1318,15 @@
                 "contents": [
                   {
                     "heading": "Favoritas",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
-                    "defaultSubheading": "Você possui {num} receitas favoritas",
+                    "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
                   {
                     "heading": "Preferências",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "UserPreferences"
                   },
                   {
                     "heading": "Cardápio semanal",
-                    "subheading": "Ajuste seu perfil e preferências para uma experiência ainda mais pesonalizada",
                     "view": "MealPlanner"
                   }
                 ]
@@ -1312,8 +1355,8 @@
                       "label": {
                         "text": "Experimenta de tudo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/1.jpg",
+                          "alt": "Experimenta de tudo"
                         }
                       }
                     },
@@ -1322,8 +1365,8 @@
                       "label": {
                         "text": "Ama mais salgado do que doce",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2.jpg",
+                          "alt": "Ama mais salgado do que doce"
                         }
                       }
                     },
@@ -1332,8 +1375,8 @@
                       "label": {
                         "text": "Rouba os docinhos antes do parabéns",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3.jpg",
+                          "alt": "Rouba os docinhos antes do parabéns"
                         }
                       }
                     },
@@ -1342,8 +1385,8 @@
                       "label": {
                         "text": "Não divide o hambúrguer",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/4.jpg",
+                          "alt": "Não divide o hambúrguer"
                         }
                       }
                     },
@@ -1352,8 +1395,8 @@
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/5.jpg",
+                          "alt": "Chef preferido das crianças"
                         }
                       }
                     },
@@ -1362,8 +1405,8 @@
                       "label": {
                         "text": "Louco por carne",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/6.jpg",
+                          "alt": "Louco por carne"
                         }
                       }
                     },
@@ -1372,8 +1415,8 @@
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/7.jpg",
+                          "alt": "Cuida da alimentação e do planeta"
                         }
                       }
                     }
@@ -1395,8 +1438,8 @@
                       "label": {
                         "text": "Não",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/8.jpg",
+                          "alt": "Não dieta"
                         }
                       }
                     },
@@ -1405,8 +1448,8 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
+                          "alt": "Sem produtos de origem animal"
                         }
                       }
                     },
@@ -1415,8 +1458,8 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
+                          "alt": "Sem carne"
                         }
                       }
                     },
@@ -1425,8 +1468,8 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
+                          "alt": "Sem ovo"
                         }
                       }
                     },
@@ -1435,8 +1478,8 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
+                          "alt": "Sem leite"
                         }
                       }
                     },
@@ -1445,8 +1488,8 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
+                          "alt": "Sem açúcar"
                         }
                       }
                     },
@@ -1455,8 +1498,8 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
+                          "alt": "Sem lactose"
                         }
                       }
                     },
@@ -1465,8 +1508,8 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
+                          "alt": "Sem glúten"
                         }
                       }
                     },
@@ -1475,8 +1518,8 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
+                          "alt": "Sem frutos do mar"
                         }
                       }
                     },
@@ -1485,8 +1528,8 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
+                          "alt": "Sem soja"
                         }
                       }
                     }
@@ -1508,8 +1551,8 @@
                       "label": {
                         "text": "Com a galera",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
+                          "alt": "Com a galera"
                         }
                       }
                     },
@@ -1518,8 +1561,8 @@
                       "label": {
                         "text": "Com o crush",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
+                          "alt": "Com o crush"
                         }
                       }
                     },
@@ -1528,8 +1571,8 @@
                       "label": {
                         "text": "Com meus filhos",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
+                          "alt": "Com meus filhos"
                         }
                       }
                     },
@@ -1538,8 +1581,8 @@
                       "label": {
                         "text": "Com meus net",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
+                          "alt": "Com meus net"
                         }
                       }
                     }
@@ -1561,8 +1604,8 @@
                       "label": {
                         "text": "Só sei fazer gelo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/22.jpg",
+                          "alt": "Só sei fazer gelo"
                         }
                       }
                     },
@@ -1571,8 +1614,8 @@
                       "label": {
                         "text": "Me viro bem",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/23.jpg",
+                          "alt": "Me viro bem"
                         }
                       }
                     },
@@ -1581,8 +1624,8 @@
                       "label": {
                         "text": "Me chame de chef!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/24.jpg",
+                          "alt": "Me chame de chef!"
                         }
                       }
                     }
@@ -1613,8 +1656,8 @@
                       "label": {
                         "text": "Frango",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-1.jpg",
+                          "alt": "Frango"
                         }
                       }
                     },
@@ -1623,8 +1666,8 @@
                       "label": {
                         "text": "Doces e Sobremesas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-2.jpg",
+                          "alt": "Doces e Sobremesas"
                         }
                       }
                     },
@@ -1633,8 +1676,8 @@
                       "label": {
                         "text": "Pizza",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-3.jpg",
+                          "alt": "Pizza"
                         }
                       }
                     },
@@ -1643,8 +1686,8 @@
                       "label": {
                         "text": "Peixe",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-4.jpg",
+                          "alt": "Peixe"
                         }
                       }
                     },
@@ -1653,8 +1696,8 @@
                       "label": {
                         "text": "Lanches",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-5.jpg",
+                          "alt": "Lanches"
                         }
                       }
                     },
@@ -1663,8 +1706,8 @@
                       "label": {
                         "text": "Carne",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-6.jpg",
+                          "alt": "Carne"
                         }
                       }
                     },
@@ -1673,8 +1716,8 @@
                       "label": {
                         "text": "Massa",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-7.jpg",
+                          "alt": "Massa"
                         }
                       }
                     },
@@ -1683,8 +1726,8 @@
                       "label": {
                         "text": "Tortas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-8.jpg",
+                          "alt": "Tortas"
                         }
                       }
                     },
@@ -1693,8 +1736,8 @@
                       "label": {
                         "text": "Comida saudável",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-9.jpg",
+                          "alt": "Comida saudável"
                         }
                       }
                     },
@@ -1703,8 +1746,8 @@
                       "label": {
                         "text": "Sopas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-10.jpg",
+                          "alt": "Sopas"
                         }
                       }
                     }
@@ -1724,10 +1767,10 @@
                     {
                       "value": "<21",
                       "label": {
-                        "text": "Quero ser rápido! (Total time < 20 min)",
+                        "text": "Quero ser rápido!",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                          "alt": "Quero ser rápido!"
                         }
                       }
                     },
@@ -1736,8 +1779,8 @@
                       "label": {
                         "text": "Tenho tempo",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                          "alt": "Tenho tempo"
                         }
                       }
                     }
@@ -1759,8 +1802,8 @@
                       "label": {
                         "text": "Gastar um pouco mais",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                          "alt": "Gastar um pouco mais"
                         }
                       }
                     },
@@ -1769,8 +1812,8 @@
                       "label": {
                         "text": "Algo bom, bonito e barato",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                          "alt": "Algo bom, bonito e barato"
                         }
                       }
                     }
@@ -1792,8 +1835,8 @@
                       "label": {
                         "text": "1 ou 2 pessoas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-1.jpg",
+                          "alt": "1 ou 2 pessoas"
                         }
                       }
                     },
@@ -1802,8 +1845,8 @@
                       "label": {
                         "text": "3 a 5 pessoas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-2.jpg",
+                          "alt": "3 a 5 pessoas"
                         }
                       }
                     },
@@ -1812,8 +1855,8 @@
                       "label": {
                         "text": "Mais de 5 pessoas",
                         "image": {
-                          "url": "",
-                          "alt": ""
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-3.jpg",
+                          "alt": "Mais de 5 pessoas"
                         }
                       }
                     }
@@ -1839,7 +1882,7 @@
           {
             "name": "Text",
             "content": {
-              "text": "Your meal plan is not set up yet",
+              "text": "Seu planejamento semanal ainda não foi finalizado",
               "view": "NoMealPlanResults"
             }
           }
@@ -1858,7 +1901,7 @@
     },
     {
       "type": "AboutUs",
-      "relativePath": "/about-us",
+      "relativePath": "/sobre-recepedia",
       "components": {
         "items": [
           {
@@ -1879,8 +1922,8 @@
             "name": "AdaptiveImage",
             "content": {
               "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
-                "alt": "Sobre Recepedia..."
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/about-us-page-content/about.jpg",
+                "alt": "Sobre Recepedia"
               }
             }
           },
@@ -1905,7 +1948,7 @@
     },
     {
       "type": "MealPlanner",
-      "relativePath": "/meal-planner",
+      "relativePath": "/planejamento-da-semana",
       "components": {
         "items": [
           {
@@ -1915,7 +1958,7 @@
                 "title": "Planejamento da semana",
                 "description": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
-                  "url": "",
+                  "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
                   "alt": "Planejamento da semana"
                 },
                 "primaryButtonLabel": "Comece agora!",
@@ -1939,8 +1982,8 @@
                         "label": {
                           "text": "Frango",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-1.jpg",
+                            "alt": "Frango"
                           }
                         }
                       },
@@ -1949,8 +1992,8 @@
                         "label": {
                           "text": "Doces e Sobremesas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-2.jpg",
+                            "alt": "Doces e Sobremesas"
                           }
                         }
                       },
@@ -1959,8 +2002,8 @@
                         "label": {
                           "text": "Pizza",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-3.jpg",
+                            "alt": "Pizza"
                           }
                         }
                       },
@@ -1969,8 +2012,8 @@
                         "label": {
                           "text": "Peixe",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-4.jpg",
+                            "alt": "Peixe"
                           }
                         }
                       },
@@ -1979,8 +2022,8 @@
                         "label": {
                           "text": "Lanches",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-5.jpg",
+                            "alt": "Lanches"
                           }
                         }
                       },
@@ -1989,8 +2032,8 @@
                         "label": {
                           "text": "Carne",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-6.jpg",
+                            "alt": "Carne"
                           }
                         }
                       },
@@ -1999,8 +2042,8 @@
                         "label": {
                           "text": "Massa",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-7.jpg",
+                            "alt": "Massa"
                           }
                         }
                       },
@@ -2009,8 +2052,8 @@
                         "label": {
                           "text": "Tortas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-8.jpg",
+                            "alt": "Tortas"
                           }
                         }
                       },
@@ -2019,8 +2062,8 @@
                         "label": {
                           "text": "Comida saudável",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-9.jpg",
+                            "alt": "Comida saudável"
                           }
                         }
                       },
@@ -2029,8 +2072,8 @@
                         "label": {
                           "text": "Sopas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-10.jpg",
+                            "alt": "Sopas"
                           }
                         }
                       }
@@ -2050,10 +2093,10 @@
                       {
                         "value": "<21",
                         "label": {
-                          "text": "Quero ser rápido! (Total time < 20 min)",
+                          "text": "Quero ser rápido!",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                            "alt": "Quero ser rápido!"
                           }
                         }
                       },
@@ -2062,8 +2105,8 @@
                         "label": {
                           "text": "Tenho tempo",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                            "alt": "Tenho tempo"
                           }
                         }
                       }
@@ -2085,8 +2128,8 @@
                         "label": {
                           "text": "Gastar um pouco mais",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                            "alt": "Gastar um pouco mais"
                           }
                         }
                       },
@@ -2095,8 +2138,8 @@
                         "label": {
                           "text": "Algo bom, bonito e barato",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                            "alt": "Algo bom, bonito e barato"
                           }
                         }
                       }
@@ -2118,8 +2161,8 @@
                         "label": {
                           "text": "1 ou 2 pessoas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-1.jpg",
+                            "alt": "1 ou 2 pessoas"
                           }
                         }
                       },
@@ -2128,8 +2171,8 @@
                         "label": {
                           "text": "3 a 5 pessoas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-2.jpg",
+                            "alt": "3 a 5 pessoas"
                           }
                         }
                       },
@@ -2138,8 +2181,8 @@
                         "label": {
                           "text": "Mais de 5 pessoas",
                           "image": {
-                            "url": "",
-                            "alt": ""
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/4-3.jpg",
+                            "alt": "Mais de 5 pessoas"
                           }
                         }
                       }
@@ -2151,8 +2194,8 @@
               },
               "wizardResultSection": {
                 "title": "Cardápio semanal",
-                "subheading": "Your [[counter]] recipes for the week",
-                "primaryButtonLabel": "See my Meal Plan"
+                "subheading": "Aqui está o cardápio que preparei para sua semana",
+                "primaryButtonLabel": "Conferir seu cardápio"
               }
             }
           }
@@ -2171,20 +2214,20 @@
     },
     {
       "type": "Sitemap",
-      "relativePath": "/sitemap",
+      "relativePath": "/mapa-do-site",
       "components": {
         "items": [
           {
             "name": "Text",
             "content": {
               "view": "Title",
-              "text": "Sitemap"
+              "text": "Mapa do site"
             }
           }
         ]
       },
       "seo": {
-        "title": "Sitemap",
+        "title": "Mapa do site",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {

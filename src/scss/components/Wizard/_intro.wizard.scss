@@ -27,16 +27,24 @@
     &__image {
       flex: 1;
       width: 100%;
+      position: relative;
       @include respondTo(desktop) {
         position: absolute;
         width: calc(50% + 103px);
         right: 0;
         top: 77px;
         bottom: 77px;
-        border-radius: 5px 0 0 5px;
       }
       .adaptive-image {
         height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        @include respondTo(desktop) {
+          border-radius: 5px 0 0 5px;
+        }
         &__image {
           height: 100%;
         }

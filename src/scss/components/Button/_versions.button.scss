@@ -3,6 +3,7 @@ $button-border: none !default;
 $button-font-size: 1.4rem !default;
 $button-icon-font-size: 1.3rem !default;
 $button-height: 40px !default;
+$button-height-desktop: 46px !default;
 $button-padding: 0 15px !default;
 $button-radius: 5px !default;
 
@@ -38,6 +39,9 @@ $button-disabled-color: #636363 !default;
   color: $button-color;
   fill: currentColor;
   transition: all 0.2s ease-out;
+  @include respondTo(desktop) {
+    height: $button-height-desktop;
+  }
 
   @media (hover: hover),
     (-ms-high-contrast: none),
@@ -110,6 +114,9 @@ $button-disabled-color: #636363 !default;
         background-color: transparent;
         color: $apple-green;
         fill: currentColor;
+        g {
+          stroke: $apple-green;
+        }
       }
     }
   }
@@ -166,7 +173,7 @@ $button-disabled-color: #636363 !default;
   }
 
   &--filter {
-    //advanced recipy listing
+    //advanced recipe listing
     background-color: $black-blue;
     width: 40px;
     height: 40px;
@@ -178,10 +185,27 @@ $button-disabled-color: #636363 !default;
     }
   }
 
-  &__selected {
-    // tags
-    background-color: $fish-blue-darker;
-    color: $white;
+  &__underlined {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      line-height: 1px;
+      background: $black-blue;
+      transition: width 0.2s ease-out;
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 

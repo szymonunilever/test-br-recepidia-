@@ -62,4 +62,5 @@ export interface LastInteraction {
 export enum PreferenceInteractionType {
   Save,
   Delete,
+  Edit,
 }

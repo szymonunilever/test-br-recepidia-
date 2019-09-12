@@ -1,17 +1,12 @@
 import React, {
   FunctionComponent,
-  useState,
   useEffect,
   useCallback,
   Fragment,
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
-import Tabs, {
-  Tab,
-  HeaderContent,
-  TabsHeaderContent,
-} from 'src/components/lib/components/Tabs';
+import Tabs, { Tab } from 'src/components/lib/components/Tabs';
 import { UserPreferences } from 'src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
 import { Link } from 'gatsby';
@@ -40,6 +35,8 @@ import useFavorite from 'src/utils/useFavorite';
 import withLocation from 'src/components/lib/components/WithLocation';
 import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import useFavoritesSearch from './useFavoritesSearch';
+// Component Styles
+import '../../scss/pages/_userProfile.scss';
 
 const carouselConfig = {
   breakpoints: [
@@ -109,9 +106,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
   )
     ? getUserProfileByKey(ProfileKey.mealPlannerResults)
     : [];
-  const [tabsHeaderContent, setTabsHeaderContent] = useState<TabsHeaderContent>(
-    tabsContent.tabsHeaderContent
-  );
   const { getRecipeDataByIds, recipeByIdsResults } = useFavoritesSearch();
   const {
     getRecipeDataByIds: getMealPlannerResults,
@@ -119,11 +113,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
   } = useFavoritesSearch();
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
   const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
@@ -165,26 +157,19 @@ const FavoritesRecipeListingPage: FunctionComponent<
     // @ts-ignore
     const query = savedMealPlannerResults.join(' OR ');
     if (query) {
-      getMealPlannerResults(query, [], {
+      getMealPlannerResults(query, savedMealPlannerResults, {
         from: 0,
         size: 7,
+        sort: 'desc',
       });
     }
   }, []);
-  useEffect(() => {
-    const newTabsHeaderContent = Object.assign({}, tabsHeaderContent);
-    newTabsHeaderContent.contents.forEach((item: HeaderContent) => {
-      if (item.view === 'ProfileFavorites' && recipeByIdsResults.count) {
-        item.subheading = recipeByIdsResults.count
-          ? (item.defaultSubheading || '').replace(
-              '{num}',
-              recipeByIdsResults.count.toString()
-            )
-          : item.subheading || '';
-      }
-    });
-    setTabsHeaderContent(newTabsHeaderContent);
-  }, [recipeByIdsResults.count]);
+  const data = [
+    {
+      pattern: '{num}',
+      replacement: recipeByIdsResults.count,
+    },
+  ];
 
   return (
     <Layout className="header--bg">
@@ -193,16 +178,21 @@ const FavoritesRecipeListingPage: FunctionComponent<
       <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
-        tabsHeaderContent={tabsHeaderContent}
+        tabsHeaderContent={tabsContent.tabsHeaderContent}
+        data={data}
         className={cx(theme.userProfile, '')}
         tabFromLocation
         location={location}
       >
-        <Tab view="ProfileFavorites">
+        <Tab view="ProfileFavorites" hasContent={hasFavorites}>
           <div className="user-profile-favorites">
             {hasFavorites ? (
-              <RecipeListingWithFavorite
+              <RecipeListing
                 content={recipeContent}
+                favorites={Array.isArray(favorites) ? favorites : []}
+                onFavoriteChange={updateFavoriteState}
+                FavoriteIcon={FavoriteIcon}
+                withFavorite={true}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
                 className="recipe-list recipe-list--carousel favorites"
@@ -214,7 +204,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   onLoadMore: onLoadMoreRecipes,
                   allCount: recipeByIdsResults.count,
                 }}
-                imageSizes={'(min-width: 768px) 25vw, 50vw'}
+                imageSizes={'(min-width: 768px) 500w, 500px'}
               />
             ) : (
               <Fragment>
@@ -223,7 +213,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   className="recipe-list__null-results"
                   titleLevel={2}
                 />
-                <Link className="favorites__button" to={'/recipes'}>
+                <Link className="favorites__button" to={'/receitas'}>
                   {buttonContent.label}
                 </Link>
               </Fragment>
@@ -265,13 +255,13 @@ const FavoritesRecipeListingPage: FunctionComponent<
               config={carouselConfig}
               titleLevel={1}
               onFavoriteChange={() => {}}
-              imageSizes={'(min-width: 768px) 25vw, 50vw'}
+              imageSizes={'(min-width: 768px) 500w, 500px'}
               ratingProvider={RatingAndReviewsProvider.kritique}
             />
             <div className={theme.mealPlannerBtnWrap}>
               <Link
                 className={cx(theme.mealPlannerBtn, 'button')}
-                to={'/meal-planner'}
+                to={'/planejamento-da-semana'}
               >
                 {mealPlanButtonContent.label}
               </Link>

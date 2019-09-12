@@ -23,6 +23,12 @@
       }
     }
   }
+  .rr-feedback-msg {
+    margin-bottom: 10px;
+    @include respondTo(desktop) {
+      margin-bottom: 15px;
+    }
+  }
   .rr-product-reviews {
     margin: 0;
     h2 {
@@ -52,10 +58,14 @@
     .average-rating {
       display: flex;
       align-items: center;
+      @media screen and (max-width: 359px) {
+        flex-flow: column-reverse;
+        align-items: flex-start;
+      }
 
       .aggregateRating {
         margin-left: 0;
-        margin-right: 25px;
+        margin-right: 20px;
 
         img {
           height: 17px;
@@ -68,8 +78,11 @@
         display: flex;
         align-items: center;
         line-height: 1;
-        font-size: 14px;
+        font-size: 1.4rem;
         position: relative;
+        @media screen and (max-width: 374px) {
+          height: 80px;
+        }
 
         .aggRtng {
           font: 500 4.8rem/0.75 $rubik;
@@ -88,7 +101,7 @@
         .tRtng {
           margin-left: 0;
           line-height: 1;
-          font-size: 14px;
+          font-size: 1.4rem;
         }
       }
     }
@@ -99,16 +112,15 @@
       position: relative;
       top: 0;
       left: 0;
-      display: block;
+      display: flex;
       text-align: center;
-      line-height: 40px;
       margin: 25px auto 0 auto;
       &:before {
         content: '';
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='%23363840' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
         background-repeat: no-repeat;
         display: inline-block;
-        font-size: 14px;
+        font-size: 1.4rem;
         width: 19px;
         height: 15px;
         margin-right: 10px;
@@ -134,14 +146,14 @@
       width: 100%;
       @include respondTo(medium) {
         display: flex;
+        padding-top: 44px;
       }
       .reviewDate {
         font-size: 1.2rem;
         position: absolute;
-        top: -1250%;
         right: 0;
         @include respondTo(medium) {
-          top: 0;
+          top: 28px;
         }
       }
       h3 {
@@ -175,22 +187,46 @@
         font-weight: bold;
         @include respondTo(medium) {
           position: absolute;
-          bottom: 15px;
+          bottom: 43px;
+          min-width: 200px;
         }
         span {
           margin: 0 0 0 25px;
+          display: inline-block;
         }
         img {
           height: 21px;
+          transition: transform 0.2s ease-out;
+        }
+        a {
+          @media (hover: hover),
+            (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+      .rr-col {
+        position: static;
+        @include respondTo(medium) {
+          position: relative;
+        }
+        &.column02 {
+          padding-top: 28px;
         }
       }
       .feedback-container {
         width: 100%;
-        margin: 25px 0 0 0;
+        margin: 25px 0;
         padding: 0;
         font-family: $arial;
         background: none;
         font-size: 1.4rem;
+        @include respondTo(medium) {
+          margin-bottom: 54px;
+        }
         dd,
         dt {
           display: inline-block;
@@ -200,21 +236,23 @@
         dt {
           display: block;
           margin-bottom: 15px;
-          @include respondTo(medium) {
+          @include respondTo(desktop) {
             display: inline-block;
             margin-bottom: 0;
+            margin-right: 40px;
           }
         }
         a {
           @extend .button;
           @extend .button--secondary;
           font-size: 1.2rem;
+          font-family: $arial;
           border-radius: 20px;
           background-image: none;
           height: 31px;
           padding: 0 15px;
           width: auto;
-          margin: 0 15px 0 0;
+          margin: 0 26px 0 0;
           &:not(.report-btn) {
             &:before {
               display: inline-block;
@@ -226,23 +264,20 @@
               content: ')';
             }
             &.helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'Yes (';
               }
             }
-            &.report-btn {
-              font-family: $arial;
-              font-size: 1.4rem;
-            }
             &.un-helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'No (';
               }
             }
+          }
+        }
+        dd:last-child {
+          a {
+            margin: 0;
           }
         }
       }

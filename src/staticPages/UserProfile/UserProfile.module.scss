@@ -2,7 +2,7 @@
 @import '../../scss/mixins';
 
 .user-profile {
- padding-bottom: 60px;
+  padding-bottom: 60px;
   :global {
     .tabs {
       &-header {
@@ -22,6 +22,10 @@
             }
           }
           &-subheading {
+            min-height: 18px; // to prevent tabs jumping on tabs switching
+            @include respondTo(desktop) {
+              min-height: 43px;
+            }
             h3 {
               font-size: 1.4rem;
               font-family: $arial;

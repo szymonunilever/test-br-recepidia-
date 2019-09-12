@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
 import SEO from 'src/components/Seo';
@@ -24,52 +23,78 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
+// Component Styles
+import '../../scss/pages/_allRecipes.scss';
 
 import keys from 'integrations/keys.json';
-import {
-  RecipeSortingOptionsFieldsMappings,
-  RecipeSortingOptions,
-} from 'src/components/lib/components/RecipeListing/partials';
-
-export interface QueryString {
-  query: string;
-  fields?: string[];
-}
 
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import useFavorite from 'src/utils/useFavorite';
+import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
+import {
+  WithInitialDataAndAsyncLoadMore,
+  QueryString,
+} from 'src/components/withInitialDataAndAsyncLoadMore/models';
 
 const AllRecipesPage = ({
   data,
   pageContext,
   location,
+  onLoadMoreRecipes,
+  recipeResultsCount,
+  recipeResultsList,
+  initialRecipesCount,
+  dataFetched,
+  setDataFetched,
+  setRecipeResultsList,
+  setRecipeResultsCount,
 }: AllRecipesPageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  let { promotionalRecipes, allTagGroupings, allCategory } = data;
+  const { promotionalRecipes, allTagGroupings, allCategory } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
   }));
-  const [recipeResults, setRecipeResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: [],
-    count: 0,
-  });
-  const [dataFetched, setDataFetched] = useState(false);
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
+
+  const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
+    const tagsWithCategories = tags.map(tag => {
+      const category = allTagGroupings.nodes.find(
+        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+      );
+      let tagWithCategory: Internal.Tag & { category?: string } = tag;
+      category && (tagWithCategory.category = category.name);
+      return tagWithCategory;
+    });
+
+    const grouped = map(
+      groupBy(tagsWithCategories, 'category'),
+      item => item
+    ).map(cat => cat.map(tag => tag.tagId));
+    return (
+      grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
+    );
+  }, []);
+
+  const onLoadMore = useCallback(
+    (tags: Internal.Tag[], sort: string, size: number) => {
+      return onLoadMoreRecipes(tags, sort, size, {
+        query: getFilterQuery(tags),
+        fields: tags.length ? ['tagGroups.tags.id'] : [],
+      });
+    },
+    [onLoadMoreRecipes]
+  );
+
   const getRecipeSearchData = async (
     queryString: QueryString = {
       query: '**',
@@ -91,82 +116,36 @@ const AllRecipesPage = ({
 
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
-        setRecipeResults({
-          list: params.from
+        setRecipeResultsList(
+          params.from
             ? [
-                ...recipeResults.list,
+                ...recipeResultsList,
                 ...res.hits.hits.map(resItem => resItem._source),
               ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
+            : res.hits.hits.map(resItem => resItem._source)
+        );
+        setRecipeResultsCount(res.hits.total);
       })
       .then(() => {
         setDataFetched(true);
       });
   };
 
-  const initialRecipesCount = useResponsiveScreenInitialSearch(
-    (size: number) =>
-      getRecipeSearchData(
-        undefined,
-        RecipeSortingOptionsFieldsMappings[RecipeSortingOptions.newest],
-        { size }
-      ),
-    get(recipeResults, 'list.length', 0)
-  );
-
-  const getFilterQuery = (tags: Internal.Tag[]) => {
-    const tagsWithCategories = tags.map(tag => {
-      const category = allTagGroupings.nodes.find(
-        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+  const onViewChange = useCallback(
+    (tags: Internal.Tag[], sort: string) => {
+      return getRecipeSearchData(
+        {
+          query: getFilterQuery(tags),
+          fields: tags.length ? ['tagGroups.tags.id'] : [],
+        },
+        sort,
+        {
+          size: Math.max(initialRecipesCount, recipeResultsList.length),
+        }
       );
-      let tagWithCategory: Internal.Tag & { category?: string } = tag;
-      category && (tagWithCategory.category = category.name);
-      return tagWithCategory;
-    });
-
-    const grouped = map(
-      groupBy(tagsWithCategories, 'category'),
-      item => item
-    ).map(cat => cat.map(tag => tag.tagId));
-    return (
-      grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '**'
-    );
-  };
-
-  const onRecipeLoadMore = (
-    tags: Internal.Tag[],
-    sort: string,
-    size: number
-  ) => {
-    return getRecipeSearchData(
-      {
-        query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.id'] : [],
-      },
-      sort,
-      {
-        from: recipeResults.list.length,
-        size,
-      }
-    );
-  };
-
-  const onViewChange = (tags: Internal.Tag[], sort: string) => {
-    const recipeCount = get(recipeResults, 'list.length', 0);
-
-    return getRecipeSearchData(
-      {
-        query: getFilterQuery(tags),
-        fields: tags.length ? ['tagGroups.tags.id'] : [],
-      },
-      sort,
-      {
-        size: Math.max(initialRecipesCount, recipeCount),
-      }
-    );
-  };
+    },
+    [initialRecipesCount, recipeResultsList]
+  );
 
   return (
     <Layout className={theme.allRecipes}>
@@ -200,7 +179,7 @@ const AllRecipesPage = ({
       <section
         className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
           content={{
@@ -210,7 +189,11 @@ const AllRecipesPage = ({
               'AllRecipes'
             ),
           }}
-          list={recipeResults.list}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
+          list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={3}
           tags={{
@@ -228,13 +211,14 @@ const AllRecipesPage = ({
           OpenIcon={OpenIcon}
           FilterIcon={FilterIcon}
           RemoveTagIcon={RemoveTagIcon}
+          // @ts-ignore
           loadMoreConfig={{
             type: LoadMoreType.async,
-            allCount: recipeResults.count,
-            onLoadMore: onRecipeLoadMore,
+            allCount: recipeResultsCount,
+            onLoadMore,
           }}
           onViewChange={onViewChange}
-          imageSizes={'(min-width: 768px) 25vw, 50vw'}
+          imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
 
@@ -244,12 +228,16 @@ const AllRecipesPage = ({
           '_pt--40 _pb--40 wrapper'
         )}
       >
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'SeasonalPromotionalRecipes'
           )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={promotionalRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           titleLevel={2}
@@ -268,7 +256,7 @@ const AllRecipesPage = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 50vw, 100vw'}
+          imageSizes={'(min-width: 768px) 600w, 600px'}
         />
       </section>
 
@@ -283,17 +271,33 @@ const AllRecipesPage = ({
   );
 };
 
-export default AllRecipesPage;
+export default withInitialDataAndAsyncLoadMore<AllRecipesPageProps>(
+  AllRecipesPage
+);
 
 export const query = graphql`
-  {
-    promotionalRecipes: allRecipe(limit: 6) {
+  query($RecipeListing_SeasonalPromotionalRecipes: [Int]) {
+    promotionalRecipes: allRecipe(
+      filter: { recipeId: { in: $RecipeListing_SeasonalPromotionalRecipes } }
+      sort: { fields: creationTime, order: DESC }
+    ) {
       nodes {
         ...RecipeFields
       }
     }
 
-    allCategory(filter: { tags: { elemMatch: { id: { ne: null } } } }) {
+    allRecipe(limit: 8, sort: { order: ASC, fields: creationTime }) {
+      nodes {
+        ...RecipeFields
+      }
+      totalCount
+    }
+
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
       nodes {
         ...CategoryFields
       }
@@ -308,17 +312,19 @@ export const query = graphql`
             }
             id
             name
+            title
             tagId
           }
         }
         id
         name
+        label
       }
     }
   }
 `;
 
-interface AllRecipesPageProps {
+interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
     promotionalRecipes: {
       nodes: Internal.Recipe[];
@@ -332,6 +338,7 @@ interface AllRecipesPageProps {
   };
   pageContext: {
     page: AppContent.Page;
+    RecipeListing_SeasonalPromotionalRecipes: number[];
   };
   location: WindowLocation;
 }

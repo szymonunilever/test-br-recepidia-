@@ -4,7 +4,7 @@ import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import { ReactComponent as LogoIcon } from 'src/svgs/inline/logo.svg';
 import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg';
-import Search from 'src/components/Search/Search';
+import GlobalSearch from 'src/components/Search/GlobalSearch';
 import { constructMenu } from './utils';
 
 interface NavigationProps {
@@ -19,8 +19,8 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
   const data = useStaticQuery(graphql`
     {
       allCategory(
-        filter: { parent: { id: { eq: null } } }
-        sort: { order: ASC, fields: categoryId }
+        filter: { parent: { id: { eq: null } }, inNavigation: { eq: true } }
+        sort: { order: ASC, fields: categoryOrder }
       ) {
         nodes {
           ...CategoryNavigationFields
@@ -43,7 +43,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
       content={{ list: menuItems }}
       isAccordion
     >
-      <Search searchContent={searchContent} />
+      <GlobalSearch searchContent={searchContent} />
     </GlobalNavigation>
   );
 };

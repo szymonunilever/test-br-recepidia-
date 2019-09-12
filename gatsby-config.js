@@ -43,14 +43,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-rms`,
+      resolve: `gatsby-source-content`,
       options: {
         endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,
       },
     },
     {
-      resolve: `gatsby-source-content`,
+      resolve: `gatsby-source-rms`,
       options: {
         endpoint: integrations.middleware.contentEndpoint,
         key: integrations.middleware.key,
@@ -95,6 +95,17 @@ module.exports = {
             `Referrer-Policy: strict-origin-when-cross-origin`, // need to reqrite only this one to enable Kritique widget but because of plugin implemetation every security header is defined
           ],
         },
+      },
+    },
+    process.env.CONTEXT !== 'production' && {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [
+          {
+            userAgent: `*`,
+            disallow: `/`,
+          },
+        ],
       },
     },
     `gatsby-plugin-sitemap`,

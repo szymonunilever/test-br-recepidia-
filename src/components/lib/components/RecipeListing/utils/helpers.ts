@@ -50,9 +50,12 @@ export function applyContentDefaults(
       title: '',
     },
     sortSelectPlaceholder = '',
-    filtersCta = {
-      resetLabel: { label: '' },
-      applyLabel: { label: '' },
+    filtersPanel = {
+      title: 'Filtros',
+      ctas: {
+        reset: { label: 'Limpar filtros' },
+        apply: { label: 'Aplicar filtros' },
+      },
     },
   } = content;
   return {
@@ -62,7 +65,7 @@ export function applyContentDefaults(
     resultLabelPlural,
     optionLabels,
     sortSelectPlaceholder,
-    filtersCta,
+    filtersPanel,
     ...content,
   };
 }

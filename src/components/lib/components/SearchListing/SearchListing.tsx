@@ -91,7 +91,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
 
   const searchResultsText = resultsFetched ? (
     <Text
-      className="search-listing__results-header"
+      className="search-listing__results-header wrapper"
       // @ts-ignore
       tag={TagName[`h${searchResultTitleLevel}`]}
       text={content.searchListingContent.title
@@ -101,7 +101,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
         )
         .replace(
           '{searchInputValue}',
-          `${defaultSearchValue ? `\n${trim(defaultSearchValue)}` : '" "'}`
+          `${defaultSearchValue ? `\n"${trim(defaultSearchValue)}"` : '" "'}`
         )}
     />
   ) : null;

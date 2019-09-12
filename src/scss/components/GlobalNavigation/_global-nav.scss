@@ -4,24 +4,41 @@ $header-color-mobile: $black-blue;
 $header-color-desktop: $black-blue;
 
 $submenu-bg-color: $white-gray-darker;
-$submenu-text-color: $fish-blue-darker;
+$submenu-text-color-mobile: $black-blue;
+$submenu-text-color-desktop: $fish-blue-darker;
 
 .global-navigation {
+  &.open {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    @include respondTo(desktop) {
+      position: static;
+    }
+  }
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    // position: relative;
     z-index: 15;
     background: transparent;
     height: $header-height;
     @extend .wrapper;
+    @include respondTo(desktop) {
+      position: relative;
+    }
 
     .navigation {
       position: absolute;
       top: $header-height;
       left: 0;
-      min-height: 100vh;
+      // min-height: 100vh;
+      bottom: 0;
       width: 100%;
       background: $white-gray;
       will-change: transform;
@@ -64,6 +81,12 @@ $submenu-text-color: $fish-blue-darker;
       &.active {
         visibility: visible;
         transform: translate3d(0, 0, 0);
+        .menu {
+          overflow-y: auto;
+          @include respondTo(desktop) {
+            overflow-y: visible;
+          }
+        }
       }
 
       @include respondTo(desktop) {
@@ -124,7 +147,7 @@ $submenu-text-color: $fish-blue-darker;
 
     .main-logo {
       position: absolute;
-      top: 50%;
+      top: #{$header-height/2};
       left: 50%;
       transform: translate(-50%, -50%);
       order: 1;
@@ -284,7 +307,6 @@ $submenu-text-color: $fish-blue-darker;
               overflow: visible;
               visibility: visible;
               height: auto;
-              padding: 0;
             }
           }
         }
@@ -323,10 +345,19 @@ $submenu-text-color: $fish-blue-darker;
   .menu__item.has-submenu:first-child {
     & > .submenu {
       & > .submenu__item:last-child {
-        margin-top: 15px;
+        margin-top: 30px;
+
+        @include respondTo(desktop) {
+          margin-top: 15px;
+        }
+
         a {
           text-transform: uppercase;
           font-weight: bold;
+          padding-bottom: 0;
+          @include respondTo(desktop) {
+            padding-bottom: 10px;
+          }
         }
       }
     }
@@ -349,16 +380,17 @@ $submenu-text-color: $fish-blue-darker;
       width: auto;
       min-width: 180px;
       border-radius: 5px;
+      padding: 10px 0;
     }
 
     &.is-opened {
       height: 100%;
-      padding: 10px 0;
+      padding: 10px 0 0;
       overflow: visible;
       visibility: visible;
       @include respondTo(desktop) {
         height: auto;
-        padding: 0;
+        padding: 10px 0;
       }
     }
 
@@ -371,15 +403,15 @@ $submenu-text-color: $fish-blue-darker;
       justify-content: space-between;
       align-items: center;
       text-decoration: none;
-      color: $submenu-text-color;
-      padding: 15px 0;
+      color: $submenu-text-color-mobile;
+      padding: 10px 0;
       transition: background-color 0.2s ease-out;
       border-radius: 5px;
 
       @include respondTo(desktop) {
-        font-size: 1.4rem;
-        color: $submenu-text-color;
-        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: $submenu-text-color-desktop;
+        padding: 6px 20px;
         &:hover {
           background-color: $apple-green;
           color: $black-blue;
@@ -389,6 +421,19 @@ $submenu-text-color: $fish-blue-darker;
 
     &__item {
       line-height: 1;
+      &:nth-last-child(2) {
+        &.has-submenu {
+          color: red;
+          .submenu {
+            &.is-opened {
+              padding: 12px 0 0;
+              @include respondTo(desktop) {
+                padding: 10px 0;
+              }
+            }
+          }
+        }
+      }
 
       &.has-submenu {
         display: flex;
@@ -399,20 +444,19 @@ $submenu-text-color: $fish-blue-darker;
         overflow: visible;
 
         .submenu {
-          padding: 0;
           display: block;
           border-radius: 5px;
           @include respondTo(desktop) {
+            padding: 10px 0;
             position: absolute;
             left: 100%;
             top: 0;
-            padding: 0;
           }
 
           &.is-opened {
-            padding: 10px 0;
+            padding: 12px 0 32px;
             @include respondTo(desktop) {
-              padding: 0;
+              padding: 10px 0;
             }
           }
         }
@@ -421,7 +465,7 @@ $submenu-text-color: $fish-blue-darker;
           font-size: 1.4rem;
 
           .submenu__link {
-            padding: 10px 0;
+            padding: 6px 0;
             text-transform: capitalize;
             @include respondTo(desktop) {
               padding: 10px 20px;
@@ -451,7 +495,7 @@ $submenu-text-color: $fish-blue-darker;
             line-height: 0;
             top: 0;
             right: 0;
-            font-size: 20px;
+            font-size: 2rem;
           }
 
           &:before {
@@ -519,7 +563,6 @@ $submenu-text-color: $fish-blue-darker;
               overflow: visible;
               visibility: visible;
               height: auto;
-              padding: 0;
             }
           }
         }

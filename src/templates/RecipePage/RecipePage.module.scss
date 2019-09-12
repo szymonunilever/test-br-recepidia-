@@ -1,3 +1,4 @@
+@import '../../scss/vars';
 @import '../../scss/mixins';
 
 .recipe-page {
@@ -56,6 +57,8 @@
       @extend %recipeHeroMobile;
       @include respondTo(desktop) {
         display: block;
+        min-width: 552px;
+        border-radius: 5px;
       }
     }
     .recipeBlockTitle {

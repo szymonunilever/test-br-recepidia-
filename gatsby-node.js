@@ -1,44 +1,53 @@
 /* eslint-disable no-console */
 const url = require('url');
 const get = require('lodash/get');
+const path = require('path');
+const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
 const createArticlePages = require('./scripts/build/createArticlePages');
 const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
-const createCategoryAndContentPages = require('./scripts/build/createCategoryAndContentPages');
+const createContentHubPages = require('./scripts/build/createContentHubPages');
 const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
-
-const getTagSlug = (path, tag) => `${path}${tag.fields.slug}`;
+const constants = require('./scripts/constants');
+const getStaticLists = require('./scripts/build/getStaticLists');
 
 const urlPartialsByTypeMap = {
   Article: 'title',
   Recipe: 'title',
-  Tag: 'name',
-  Category: 'name',
+  Tag: 'title',
+  Category: 'title',
 };
 
-const getSlugFromPath = (path, node) => {
+const findPageFromNodes = (pagesNodes, pageType) =>
+  pagesNodes.find(pageNode => pageNode.type === pageType);
+
+const formatUrlPartial = (partial = '') =>
+  partial
+    .replace(/[&,+()$~%.'":*?<>{}]/g, '')
+    .replace(/[_-]/, ' ')
+    .toLowerCase()
+    .split(' ')
+    .join('-');
+
+const getSlugFromPath = (path, node, prependWithField = null) => {
   const urlPartial = urlPartialsByTypeMap[node.internal.type] || 'id';
+  const itemPath = prependWithField
+    ? `${node[prependWithField]}-${node[urlPartial]}`
+    : node[urlPartial];
 
   return url
-    .resolve(
-      path,
-      node[urlPartial] &&
-        node[urlPartial]
-          .replace(/[&,+()$~%.'":*?<>{}]/g, '')
-          .toLowerCase()
-          .split(' ')
-          .join('-')
-    )
+    .resolve(path, formatUrlPartial(itemPath))
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
 };
 
-const createSlugFor = ({ path, node, createNodeField }) => {
-  const slug = getSlugFromPath(path, node);
+const createSlugFor = ({ path, node, createNodeField, prependWithField }) => {
+  const slug = getSlugFromPath(path, node, prependWithField);
 
   createNodeField({
     node,
@@ -53,19 +62,43 @@ exports.onCreateNode = async ({
   store,
   cache,
   createNodeId,
+  getNodesByType,
 }) => {
+  const getPagePath = pageType => {
+    const path = get(
+      findPageFromNodes(getNodesByType(constants.NODE_TYPES.PAGE), pageType),
+      'relativePath',
+      '/'
+    );
+
+    return path[path.length - 1] === '/' ? path : `${path}/`;
+  };
+
   const { createNodeField, createNode } = actions;
 
   switch (node.internal.type) {
-    case 'Recipe':
-      createSlugFor({ path: '/recipes/', node, createNodeField });
+    case constants.NODE_TYPES.RECIPE:
+      createSlugFor({
+        path: getPagePath(constants.TEMPLATE_PAGE_TYPES.RECIPE),
+        node,
+        createNodeField,
+        prependWithField: 'recipeId',
+      });
       break;
-    case 'Tag':
-      createSlugFor({ path: '/', node, createNodeField });
+    case constants.NODE_TYPES.TAG:
+      createSlugFor({
+        path: getPagePath(constants.TEMPLATE_PAGE_TYPES.TAG),
+        node,
+        createNodeField,
+      });
       break;
-    case 'Category':
+    case constants.NODE_TYPES.CATEGORY:
       {
-        createSlugFor({ path: '/recipe-categories/', node, createNodeField });
+        createSlugFor({
+          path: getPagePath(constants.TEMPLATE_PAGE_TYPES.CATEGORY),
+          node,
+          createNodeField,
+        });
 
         const imgNode = await createRemoteImageNode(node.image.url, node.id, {
           store,
@@ -76,23 +109,34 @@ exports.onCreateNode = async ({
         node['localImage___NODE'] = imgNode.id;
       }
       break;
-    case 'Article': {
-      createSlugFor({ path: '/articles/', node, createNodeField });
+    case constants.NODE_TYPES.ARTICLE: {
+      createSlugFor({
+        path: getPagePath(constants.TEMPLATE_PAGE_TYPES.ARTICLE),
+        node,
+        createNodeField,
+      });
 
       await Promise.all(
         node.assets.map(async asset => {
           const { type, content } = asset;
           if (type === 'Image' && content.url) {
-            const imgNode = await createRemoteImageNode(content.url, node.id, {
-              store,
-              cache,
-              createNode,
-              createNodeId,
-            });
+            const imgNode = await createRemoteImageNode(
+              /*content.url*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+              node.id,
+              {
+                store,
+                cache,
+                createNode,
+                createNodeId,
+              }
+            );
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
             const imgNode = await createRemoteImageNode(
-              get(content, 'preview.url'),
+              get(
+                /*content*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+                'preview.url'
+              ),
               node.id,
               {
                 store,
@@ -109,7 +153,7 @@ exports.onCreateNode = async ({
       break;
     }
 
-    case 'Page': {
+    case constants.NODE_TYPES.PAGE: {
       await Promise.all(
         node.components.items.map(async component => {
           const createRemoteImageCallback = async index => {
@@ -122,7 +166,7 @@ exports.onCreateNode = async ({
                 createNode,
                 createNodeId,
               });
-              component.assets[index][`localImage___NODE`] = fileNode.id;
+              asset[`localImage___NODE`] = fileNode.id;
             } catch (error) {
               console.error(error);
             }
@@ -141,17 +185,17 @@ exports.onCreateNode = async ({
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const createPageFromTemplate = (edge, page, idPath = 'id', path) => {
+  const createPageFromTemplate = (edge, page) => {
     createPage({
-      path: path || edge.node.fields.slug,
+      path: edge.node.fields.slug,
       component: getPageTemplate(page.type),
       context: {
         page,
-        id: get(edge.node, idPath),
+        edge,
         slug: edge.node.fields.slug,
+        name: edge.node.name,
         nextSlug: get(edge, 'next.fields.slug'),
         previousSlug: get(edge, 'previous.fields.slug'),
-        edge,
       },
     });
   };
@@ -165,16 +209,29 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           slug: page.relativePath,
           page,
+          ...getStaticLists(page.components.items),
         },
       });
     },
   });
 
   // Get the page data for each page type
-  const recipeDetailsData = pages.find(item => item.type === 'RecipeDetail');
-  const articleDetailsData = pages.find(item => item.type === 'ArticleDetail');
-  const recipeCategoryData = pages.find(item => item.type === 'RecipeCategory');
-  const contentHubData = pages.find(item => item.type === 'ContentHub');
+  const recipeDetailsData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.RECIPE
+  );
+  const articleDetailsData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.ARTICLE
+  );
+  const recipeCategoryData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.CATEGORY
+  );
+  const contentHubData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.TAG
+  );
 
   await Promise.all([
     createRecipePages({
@@ -182,36 +239,58 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage,
       page: recipeDetailsData,
     }),
+    createCategoryPages({
+      graphql,
+      createPage,
+      page: recipeCategoryData,
+    }),
     createArticlePages({
       graphql,
       createPage: edge => {
         createPageFromTemplate(edge, articleDetailsData);
       },
     }),
-    createCategoryPages({
-      graphql,
-      createPage,
-      page: recipeCategoryData,
-    }),
-    createCategoryAndContentPages({
+    createContentHubPages({
       graphql,
       createPage: edge => {
-        createPageFromTemplate(
-          edge,
-          contentHubData,
-          'tagId',
-          getTagSlug(contentHubData.relativePath, edge.node)
-        );
+        createPageFromTemplate(edge, contentHubData);
       },
     }),
   ]);
 };
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
-  // Add hashes to icons classNames
-  actions.setWebpackConfig({
-    plugins: [new MiniCssExtractPlugin({})],
-  });
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        },
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+      },
+      module: {
+        rules: [
+          {
+            exclude: path.resolve(__dirname, 'node_modules'),
+            include: path.resolve(
+              __dirname,
+              'src/_[A-Za-z]+\\.scss$|[A-Za-z]+\\.css$/'
+            ),
+
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          },
+        ],
+      },
+    });
+  }
+
   const config = getConfig();
   config.resolve = {
     ...config.resolve,
@@ -244,10 +323,6 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     });
   }
 
-  if (stage.includes('javascript')) {
-    let config = getConfig();
-    config.entry['main'] = './src/scss/main.scss';
-  }
   actions.replaceWebpackConfig(config);
 };
 
@@ -270,8 +345,8 @@ exports.onPostBuild = async ({ getNodesByType }) => {
   const hrstart = process.hrtime();
 
   const promises = [
-    updateES.updateRecipes(getNodesByType(updateES.NODE_TYPES.RECIPE)),
-    updateES.updateArticles(getNodesByType(updateES.NODE_TYPES.ARTICLE)),
+    updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
+    updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
   ];
 
   await Promise.all(promises);

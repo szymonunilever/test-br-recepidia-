@@ -1,5 +1,21 @@
 @import '../../scss/mixins';
 
+.recipe-category-page {
+  :global {
+    .recipe-list__load-more {
+      margin: 40px auto 0;
+    }
+    ._bg--main {
+      border-radius: 0 0 24px 24px;
+      @include respondTo(desktop) {
+        border-radius: 0;
+      }
+    }
+  }
+}
+.recipe-category-page-recipes {
+  padding-bottom: 40px;
+}
 .recipeCategoryListing {
   position: relative;
   background: $white-gray;
@@ -52,14 +68,12 @@
 }
 .hero-bg-image {
   & div > div {
-    padding-bottom: 66% !important;
+    padding-bottom: 69.018% !important;
     @include respondTo(desktop) {
-      padding-bottom: 31% !important;
+      padding-bottom: 32.169% !important;
     }
   }
 }
-
-
 
 .tag-list {
   padding: 20px $layout-indent-sm;

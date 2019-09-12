@@ -1,3 +1,7 @@
+@import '../../vars';
+@import '../../mixins';
+@import '../../theme';
+@import '../../components/Button/index';
 //class name for body to prevent scroll when modal is open
 .modal--open {
   @extend .no-scroll;
@@ -212,8 +216,13 @@
     &__header {
       @extend %modal__header--flex;
     }
+    &__heading {
+      padding-right: 15px;
+    }
     &__btn-close {
       @extend %modal__btn-close--flex;
+      top: 0;
+      right: 0;
     }
   }
 }

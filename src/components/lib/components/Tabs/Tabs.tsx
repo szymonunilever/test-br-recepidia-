@@ -5,6 +5,7 @@ import cx from 'classnames';
 import Button from '../Button';
 import { Tab } from './partials';
 import { TagName, Text } from 'src/components/lib/components/Text';
+import get from 'lodash/get';
 
 export const Tabs = ({
   className,
@@ -14,6 +15,7 @@ export const Tabs = ({
   tabsHeaderContent,
   tabFromLocation = false,
   location,
+  data,
 }: TabsProps) => {
   const classWrapper = cx(theme.tabs, className);
   const [active, setActive] = useState();
@@ -77,7 +79,6 @@ export const Tabs = ({
             isDisabled={hasResultCount && !tab.resultsCount}
             role="tab"
             isSelected={active === tab.view}
-            toggleExternalManage={true}
             onClick={() => setActive(tab.view)}
             attributes={
               active === tab.view
@@ -108,15 +109,35 @@ export const Tabs = ({
       (item: HeaderContent) => active === item.view
     );
 
+  let subheading = get(
+    get(children.find(child => child.props.view === active), 'props', {}),
+    'hasContent',
+    {}
+  )
+    ? get(headerInfo, 'subheading', '')
+    : '';
+
+  const processData = (input: string): string => {
+    let processed = input;
+    data &&
+      data.forEach(item => {
+        if (processed.includes(item.pattern)) {
+          // @ts-ignore
+          processed = processed.replace(item.pattern, item.replacement);
+        }
+      });
+    return processed || '';
+  };
+
   return (
     <div className={classWrapper} data-componentname="tabs">
       {headerInfo && (
         <div className="tabs-header">
           <div className="tabs-header__heading">
-            <Text tag={TagName.h2} text={headerInfo.heading} />
+            <Text tag={TagName.h2} text={processData(headerInfo.heading)} />
           </div>
           <div className="tabs-header__heading-subheading">
-            <Text tag={TagName.h3} text={' '} />
+            <Text tag={TagName.h3} text={processData(subheading)} />
           </div>
         </div>
       )}
