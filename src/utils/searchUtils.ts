@@ -56,6 +56,8 @@ const recipeSearchParams = (
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
       simple_query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
         query: `${searchQuery}*`,
         fields: [
           'title^5',
