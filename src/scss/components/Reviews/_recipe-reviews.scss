@@ -58,14 +58,14 @@
     .average-rating {
       display: flex;
       align-items: center;
-      @media screen and (max-width: 374px) {
+      @media screen and (max-width: 359px) {
         flex-flow: column-reverse;
         align-items: flex-start;
       }
 
       .aggregateRating {
         margin-left: 0;
-        margin-right: 25px;
+        margin-right: 20px;
 
         img {
           height: 17px;
@@ -246,6 +246,7 @@
           @extend .button;
           @extend .button--secondary;
           font-size: 1.2rem;
+          font-family: $arial;
           border-radius: 20px;
           background-image: none;
           height: 31px;
@@ -263,19 +264,11 @@
               content: ')';
             }
             &.helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'Yes (';
               }
             }
-            &.report-btn {
-              font-family: $arial;
-              font-size: 1.4rem;
-            }
             &.un-helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'No (';
               }
