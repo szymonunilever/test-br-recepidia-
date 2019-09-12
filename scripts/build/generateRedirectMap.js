@@ -70,5 +70,5 @@ module.exports = async pageNodes => {
 
   console.log(redirectsMap);
 
-  fs.writeFileSync('_redirects', redirectsMap);
+  fs.writeFileSync('public/_redirects', redirectsMap);
 };
