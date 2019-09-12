@@ -19,11 +19,8 @@ const Kritique = () => {
   }&sitesource=${keys.kritique.siteSource}`;
 
   useEffect(() => {
-    // will not be reloaded if widget is not loaded yes, so no issues for first time loading
+    // will not be reloaded if widget is not loaded yet, so no issues for first time loading
     reloadKritiqueWidgetWIthTimeout(2000);
-    window.addEventListener('click', () => {
-      reloadKritiqueWidgetWIthTimeout();
-    });
   }, []);
 
   return (
