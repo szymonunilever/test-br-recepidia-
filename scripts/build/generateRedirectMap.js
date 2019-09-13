@@ -40,9 +40,10 @@ module.exports = async ({
   const errors = [];
 
   oldUrls.forEach(item => {
+    let isUrlMatched = false;
+
     redirectRules.forEach(rule => {
       const result = item.match(rule.from);
-
       if (result) {
         let redirectToRule = rule.to;
 
@@ -55,20 +56,26 @@ module.exports = async ({
               ))
           );
         }
-        const mathcedUrl = newUrls.find(url => url.match(redirectToRule));
 
+        const mathcedUrl = newUrls.find(url => url.match(redirectToRule));
         if (mathcedUrl) {
           redirects.push({ from: item, to: mathcedUrl });
           unmappedUrls.splice(unmappedUrls.indexOf(mathcedUrl), 1);
+          isUrlMatched = true;
         } else {
-          errors.push(`${item} ${redirectToRule}`);
+          redirects.push({ from: item, to: rule.otherwise });
         }
       }
     });
+
+    if (!isUrlMatched) {
+      errors.push(item);
+    }
   });
 
-  fs.writeFileSync('unmappedUrls.txt', unmappedUrls.join('\n'));
-  fs.writeFileSync('errors.txt', errors.join('\n'));
+  // For debug purposes only
+  fs.writeFileSync('unmappedOldUrls.txt', unmappedUrls.join('\n'));
+  fs.writeFileSync('unmappedNewUrls.txt', errors.join('\n'));
 
   console.log(`${redirects.length} redirect rules created`);
 

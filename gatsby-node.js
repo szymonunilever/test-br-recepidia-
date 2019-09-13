@@ -368,35 +368,58 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
         {
           from: '/receita/[0-9]*-(?<name>.+)',
           to: '/receitas/[0-9]*-?<name>$',
+          otherwise: '/receitas',
         },
         {
           from: '/dietas-especiais/(?<name>.+)',
           to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
         },
         {
           from: '/dietas-especiais/(?<name>.+)',
           to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
         },
         {
           from: '/tipos-de-receita/(?<name>.+)',
           to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
         },
         {
           from: '/tipos-de-receita/(?<name>.+)',
           to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
         },
         {
           from: '/tipos-de-prato/(?<name>.+)',
           to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
         },
         {
           from: '/tipos-de-prato/(?<name>.+)',
           to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
         },
-        { from: '/momentos/(?<name>.+)', to: '/receitas-categorias/?<name>$' },
-        { from: '/momentos/(?<name>.+)', to: '/hub-de-conteudo/?<name>$' },
-        { from: '/cozinha/(?<name>.+)', to: '/receitas-categorias/?<name>$' },
-        { from: '/cozinha/(?<name>.+)', to: '/hub-de-conteudo/?<name>$' },
+        {
+          from: '/momentos/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/momentos/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/cozinha/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/cozinha/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
       ],
     };
 
