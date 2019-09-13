@@ -8,11 +8,11 @@
     padding-top: 60px;
   }
   h1 {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
     line-height: 1.17;
-    color: $black-blue;
     @include respondTo(desktop) {
       font-size: 2.5rem;
+      color: $black-blue;
     }
   }
   :global {

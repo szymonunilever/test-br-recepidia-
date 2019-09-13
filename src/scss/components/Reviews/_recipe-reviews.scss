@@ -66,11 +66,6 @@
       .aggregateRating {
         margin-left: 0;
         margin-right: 20px;
-
-        img {
-          height: 17px;
-          width: auto;
-        }
       }
 
       .total-reviews {
@@ -165,12 +160,6 @@
         font-size: 1.6rem;
         color: $black-blue;
       }
-      .aggregateRating {
-        img {
-          height: 17px;
-          width: auto;
-        }
-      }
       .aggRtng {
         display: none;
       }
@@ -199,6 +188,7 @@
           transition: transform 0.2s ease-out;
         }
         a {
+          display: inline-block;
           @media (hover: hover),
             (-ms-high-contrast: none),
             (-ms-high-contrast: active) {
@@ -245,7 +235,7 @@
         a {
           @extend .button;
           @extend .button--secondary;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           font-family: $arial;
           border-radius: 20px;
           background-image: none;
@@ -281,6 +271,12 @@
           }
         }
       }
+    }
+  }
+  .aggregateRating {
+    img {
+      height: 17px;
+      width: 102px;
     }
   }
 }
