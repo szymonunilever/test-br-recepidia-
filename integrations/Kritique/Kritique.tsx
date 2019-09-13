@@ -6,11 +6,6 @@ import Helmet from 'react-helmet';
 import { reloadKritiqueWidget } from '../../src/components/lib/utils/useKritiqueReload';
 import { isBrowser } from 'src/utils';
 
-export enum ScriptType {
-  jQuery = 'jQuery',
-  Kritique = 'ratingReview',
-}
-
 const Kritique = () => {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
     keys.kritique.brandId
@@ -20,6 +15,11 @@ const Kritique = () => {
 
   const [injectScript, setInjectScript] = useState(false);
 
+  const initKritique = () => {
+    sessionStorage.setItem('isKritiqueLoaded', 'true');
+    setInjectScript(true);
+  };
+
   useEffect(() => {
     const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
 
@@ -28,8 +28,10 @@ const Kritique = () => {
       setTimeout(reloadKritiqueWidget, 1000);
     } else {
       window.addEventListener('mousemove', () => {
-        sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
+        initKritique();
+      });
+      window.addEventListener('touchstart', () => {
+        initKritique();
       });
     }
   }, []);
