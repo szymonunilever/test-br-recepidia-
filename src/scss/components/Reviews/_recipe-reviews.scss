@@ -58,19 +58,14 @@
     .average-rating {
       display: flex;
       align-items: center;
-      @media screen and (max-width: 374px) {
+      @media screen and (max-width: 359px) {
         flex-flow: column-reverse;
         align-items: flex-start;
       }
 
       .aggregateRating {
         margin-left: 0;
-        margin-right: 25px;
-
-        img {
-          height: 17px;
-          width: auto;
-        }
+        margin-right: 20px;
       }
 
       .total-reviews {
@@ -78,7 +73,7 @@
         display: flex;
         align-items: center;
         line-height: 1;
-        font-size: 14px;
+        font-size: 1.4rem;
         position: relative;
         @media screen and (max-width: 374px) {
           height: 80px;
@@ -101,7 +96,7 @@
         .tRtng {
           margin-left: 0;
           line-height: 1;
-          font-size: 14px;
+          font-size: 1.4rem;
         }
       }
     }
@@ -120,7 +115,7 @@
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18.524' height='16.238'%3E%3Cg fill='none' stroke='%23363840' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10'%3E%3Cpath d='M18.024 12.69H8.881l-3.048 3.048V12.69H.5V.5h17.524z'/%3E%3Cpath d='M4.31 4.31h6.857M4.31 6.595h9.9M4.31 8.881h9.9'/%3E%3C/g%3E%3C/svg%3E");
         background-repeat: no-repeat;
         display: inline-block;
-        font-size: 14px;
+        font-size: 1.4rem;
         width: 19px;
         height: 15px;
         margin-right: 10px;
@@ -165,12 +160,6 @@
         font-size: 1.6rem;
         color: $black-blue;
       }
-      .aggregateRating {
-        img {
-          height: 17px;
-          width: auto;
-        }
-      }
       .aggRtng {
         display: none;
       }
@@ -188,6 +177,7 @@
         @include respondTo(medium) {
           position: absolute;
           bottom: 43px;
+          min-width: 200px;
         }
         span {
           margin: 0 0 0 25px;
@@ -198,6 +188,7 @@
           transition: transform 0.2s ease-out;
         }
         a {
+          display: inline-block;
           @media (hover: hover),
             (-ms-high-contrast: none),
             (-ms-high-contrast: active) {
@@ -244,7 +235,8 @@
         a {
           @extend .button;
           @extend .button--secondary;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
+          font-family: $arial;
           border-radius: 20px;
           background-image: none;
           height: 31px;
@@ -262,19 +254,11 @@
               content: ')';
             }
             &.helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'Yes (';
               }
             }
-            &.report-btn {
-              font-family: $arial;
-              font-size: 1.4rem;
-            }
             &.un-helpful {
-              font-family: $arial;
-              font-size: 1.4rem;
               &:before {
                 content: 'No (';
               }
@@ -287,6 +271,12 @@
           }
         }
       }
+    }
+  }
+  .aggregateRating {
+    img {
+      height: 17px;
+      width: 102px;
     }
   }
 }
