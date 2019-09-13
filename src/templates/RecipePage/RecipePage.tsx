@@ -43,6 +43,7 @@ import SocialSharing, {
 import AddThis from '../../../integrations/AddThis';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
+import { ReactComponent as PinterestIcon } from 'src/svgs/inline/pinterest.svg';
 import Hero from 'src/components/lib/components/Hero';
 import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
@@ -146,6 +147,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
+    pinterest: PinterestIcon,
   };
 
   const initialTagsCount = useMedia(undefined, [9, 5]);
