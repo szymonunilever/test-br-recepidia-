@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// @ts-ignore
 import Img from 'gatsby-image/withIEPolyfill';
 import { AdaptiveImageProps } from './models';
 import cx from 'classnames';
