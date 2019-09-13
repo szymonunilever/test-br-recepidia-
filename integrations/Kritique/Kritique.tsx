@@ -27,10 +27,8 @@ const Kritique = () => {
       setInjectScript(isKritiqueLoaded);
       setTimeout(reloadKritiqueWidget, 1000);
     } else {
-      window.addEventListener('mousemove', () => {
-        initKritique();
-      });
-      window.addEventListener('touchstart', () => {
+      // use mousemove and touchstart if WPT FPL need to be improved
+      window.addEventListener('load', () => {
         initKritique();
       });
     }
