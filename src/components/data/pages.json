@@ -394,6 +394,10 @@
                 {
                   "label": "Twitter",
                   "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
                 }
               ],
               "openModalButton": {
