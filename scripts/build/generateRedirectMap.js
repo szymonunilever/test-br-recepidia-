@@ -11,6 +11,7 @@ module.exports = async ({
   oldDomain,
   JMESPathToUrls,
   redirectRules,
+  otherwiseRedirectTo,
   redirectCode = 301,
 }) => {
   let urls = [];
@@ -37,7 +38,6 @@ module.exports = async ({
   const oldUrls = urls.map(item => item.replace(oldDomain, ''));
   const unmappedUrls = [...newUrls];
   const redirects = [];
-  const errors = [];
 
   oldUrls.forEach(item => {
     let isUrlMatched = false;
@@ -61,21 +61,21 @@ module.exports = async ({
         if (mathcedUrl) {
           redirects.push({ from: item, to: mathcedUrl });
           unmappedUrls.splice(unmappedUrls.indexOf(mathcedUrl), 1);
-          isUrlMatched = true;
         } else {
           redirects.push({ from: item, to: rule.otherwise });
         }
+
+        isUrlMatched = true;
       }
     });
 
     if (!isUrlMatched) {
-      errors.push(item);
+      redirects.push({ from: item, to: otherwiseRedirectTo });
     }
   });
 
   // For debug purposes only
-  fs.writeFileSync('unmappedOldUrls.txt', unmappedUrls.join('\n'));
-  fs.writeFileSync('unmappedNewUrls.txt', errors.join('\n'));
+  fs.writeFileSync('unmappedNewUrls.txt', unmappedUrls.join('\n'));
 
   console.log(`${redirects.length} redirect rules created`);
 

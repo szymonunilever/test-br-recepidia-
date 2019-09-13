@@ -421,6 +421,7 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
           otherwise: '/',
         },
       ],
+      otherwiseRedirectTo: '/',
     };
 
     await generateRedirectMap(config);
