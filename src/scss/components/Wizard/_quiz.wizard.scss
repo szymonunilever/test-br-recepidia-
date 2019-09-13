@@ -74,6 +74,15 @@ $four-col-width: 100% / 4;
       cursor: pointer;
       display: block;
       -webkit-tap-highlight-color: transparent;
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+          .quiz__label-checkmark {
+            opacity: 1;
+          }
+        }
+      }
     }
     &__label {
       &-image-wrap {
@@ -95,6 +104,9 @@ $four-col-width: 100% / 4;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: $item-overlay-color;
+        transition: opacity 0.3s;
+        opacity: 0;
       }
       &-title {
         font-size: 1.6rem;
@@ -113,7 +125,7 @@ $four-col-width: 100% / 4;
       display: contents;
       &:checked {
         & + .quiz__label-content .quiz__label-checkmark {
-          display: flex;
+          opacity: 1;
           svg {
             display: block;
             visibility: visible;
@@ -139,11 +151,13 @@ $four-col-width: 100% / 4;
   .quiz {
     &__label {
       &-checkmark {
-        display: none;
-        background-color: $item-overlay-color;
+        opacity: 0;
         font-size: 3rem;
         @include respondTo(medium) {
           font-size: 4rem;
+        }
+        svg {
+          display: none;
         }
       }
     }
