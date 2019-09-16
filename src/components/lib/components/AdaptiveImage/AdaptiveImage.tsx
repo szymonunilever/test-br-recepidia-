@@ -40,13 +40,19 @@ const AdaptiveImage = ({
     }
   }, []);
 
+  // return (
+  //   <div className={classNames} data-componentname="adaptive-image">
+  //     {!docLoaded ? (
+  //       <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
+  //     ) : (
+  //       <Img className="adaptive-image__image" fluid={fluid} alt={alt} />
+  //     )}
+  //   </div>
+  // );
+
   return (
     <div className={classNames} data-componentname="adaptive-image">
-      {!docLoaded ? (
-        <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
-      ) : (
-        <Img className="adaptive-image__image" fluid={fluid} alt={alt} />
-      )}
+      <Img className="adaptive-image__image" fluid={fluid} alt={alt} />
     </div>
   );
 };
