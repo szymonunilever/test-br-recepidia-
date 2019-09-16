@@ -80,5 +80,4 @@ storybook-static
 
 # Redirects map will be generated automatically during build
 _redirects
-unmappedOldUrls.txt
 unmappedNewUrls.txt
