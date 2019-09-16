@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import newRelic from '../static/config/newRelic';
 import keys from 'integrations/keys.json';
+const { applicationID, licenseKey } = keys.sitespeed;
 
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -15,6 +15,7 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
+            {/* START preconnects */}
             <link rel="preconnect" href={keys.elasticSearch.url} />
             <link
               rel="preconnect"
@@ -23,6 +24,7 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
+            {/* END preconnects */}
 
             {/* START kritique preloads */}
             <link
@@ -40,7 +42,20 @@ export default function HTML(props) {
             />
             {/* END kritique preloads */}
 
-            <script type="text/javascript" src="/config/newRelicScript.js" />
+            {/* START NewRelic */}
+            <script
+              type="text/javascript"
+              src="/config/newRelicScript.js"
+              id="newRelicScript"
+            />
+            <script
+              type="text/javascript"
+              id="newRelicConfig"
+              dangerouslySetInnerHTML={{
+                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
+              }}
+            />
+            {/* END NewRelic */}
           </>
         )}
         <script
