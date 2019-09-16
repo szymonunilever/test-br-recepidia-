@@ -3,4 +3,6 @@ import 'url-search-params-polyfill';
 import 'whatwg-fetch';
 
 import 'typeface-rubik';
-export const disableCorePrefetching = () => true;
+
+// uncomment if WPT FPL need to be improved
+// export const disableCorePrefetching = () => true;

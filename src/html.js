@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import newRelic from '../static/config/newRelic';
 import keys from 'integrations/keys.json';
+const { applicationID, licenseKey } = keys.sitespeed;
 
 export default function HTML(props) {
   const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
@@ -15,7 +15,8 @@ export default function HTML(props) {
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
-            <link rel="preconnect" href={keys.kritique.url} />
+            {/* START preconnects */}
+            <link rel="preconnect" href={keys.elasticSearch.url} />
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
@@ -23,9 +24,14 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
+            {/* END preconnects */}
 
             {/* START kritique preloads */}
-            <link rel="preload" href="/libs/jquery.min.js" as="script" />
+            <link
+              rel="preload"
+              href="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+              as="script"
+            />
             <link rel="preload" href={kritiqueWidgetSrc} as="script" />
             <link
               rel="preload"
@@ -36,7 +42,20 @@ export default function HTML(props) {
             />
             {/* END kritique preloads */}
 
-            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            {/* START NewRelic */}
+            <script
+              type="text/javascript"
+              src="/config/newRelicScript.js"
+              id="newRelicScript"
+            />
+            <script
+              type="text/javascript"
+              id="newRelicConfig"
+              dangerouslySetInnerHTML={{
+                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
+              }}
+            />
+            {/* END NewRelic */}
           </>
         )}
         <script

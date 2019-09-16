@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // @ts-ignore
 import Img from 'gatsby-image/withIEPolyfill';
 import { AdaptiveImageProps } from './models';
@@ -17,14 +17,36 @@ const AdaptiveImage = ({
 
   const classNames = cx('adaptive-image', className);
 
+  const [docLoaded, setDocLoaded] = useState(false);
+
   let fluid = { ...localImage.childImageSharp.fluid };
   if (sizes) {
     fluid.sizes = sizes;
   }
 
+  const baseFluid = { ...fluid };
+  baseFluid.src = '';
+  baseFluid.srcSet = '';
+  baseFluid.srcWebp = '';
+  baseFluid.srcSetWebp = '';
+
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      setDocLoaded(true);
+    } else {
+      window.addEventListener('load', () => {
+        setDocLoaded(true);
+      });
+    }
+  }, []);
+
   return (
     <div className={classNames} data-componentname="adaptive-image">
-      <Img className="adaptive-image__image" fluid={fluid} alt={alt} />
+      {!docLoaded ? (
+        <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
+      ) : (
+        <Img className="adaptive-image__image" fluid={fluid} alt={alt} />
+      )}
     </div>
   );
 };

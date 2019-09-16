@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { useState, useEffect, memo, useCallback } from 'react';
+import React, { useState, useEffect, memo, useCallback, useRef } from 'react';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
 import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
@@ -102,9 +102,17 @@ export const RecipeListing = ({
   //       });
   //   }
   // }, [recipeList]);
-
-  ratingProvider === RatingAndReviewsProvider.kritique &&
-    useKritiqueReload([recipeList]);
+  const didMountRef = useRef(false);
+  useEffect(() => {
+    if (
+      didMountRef.current &&
+      ratingProvider === RatingAndReviewsProvider.kritique
+    ) {
+      useKritiqueReload();
+    } else {
+      didMountRef.current = true;
+    }
+  }, [list]);
 
   const changeFavorites = useCallback(
     ({ recipeId, val }: { recipeId: number; val: boolean }) => {
