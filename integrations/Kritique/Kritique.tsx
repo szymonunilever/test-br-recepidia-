@@ -46,6 +46,7 @@ const Kritique = () => {
             {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
+              async: true,
             },
           ]}
         />
