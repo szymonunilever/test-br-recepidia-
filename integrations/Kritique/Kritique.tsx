@@ -39,7 +39,7 @@ const Kritique = () => {
 
   return (
     <>
-      {isBrowser() ? (
+      {isBrowser() && (isLoadKritique() || injectScript) ? (
         <Helmet
           // @ts-ignore
           script={[
