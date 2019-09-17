@@ -50,7 +50,7 @@ export const Button = ({
   const props = {
     role,
     type,
-    ...getComponentDataAttrs('button'),
+    ...getComponentDataAttrs('button', content),
     onClick: onButtonClick,
     disabled: isDisabled,
     hidden,

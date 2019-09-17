@@ -275,7 +275,10 @@ export const RecipeListing = ({
     );
 
   return (
-    <div {...getComponentDataAttrs('recipeListing')} className={wrapClasses}>
+    <div
+      {...getComponentDataAttrs('recipeListing', content)}
+      className={wrapClasses}
+    >
       {listHeader}
       {view}
     </div>

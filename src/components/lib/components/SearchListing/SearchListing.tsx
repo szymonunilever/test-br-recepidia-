@@ -205,7 +205,10 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   ) : null;
 
   return (
-    <div className={classNames} {...getComponentDataAttrs('search-listing')}>
+    <div
+      className={classNames}
+      {...getComponentDataAttrs('search-listing', content.searchListingContent)}
+    >
       <SearchInput
         searchResults={searchInputResults.list}
         content={content.searchInputContent}
