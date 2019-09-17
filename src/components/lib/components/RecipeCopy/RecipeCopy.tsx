@@ -9,9 +9,11 @@ import {
   RecipeCopyIngredients,
 } from './partials';
 import theme from './RecipeCopy.module.scss';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeCopy = ({
   className,
+  content,
   content: { title, subtitle },
   recipe,
   titleLevel = 1,
@@ -38,7 +40,10 @@ export const RecipeCopy = ({
       break;
   }
   return (
-    <div className={classWrapper} data-componentname="recipeCopy">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeCopy', content)}
+    >
       {view}
     </div>
   );

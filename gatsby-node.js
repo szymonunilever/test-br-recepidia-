@@ -15,6 +15,7 @@ const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 const constants = require('./scripts/constants');
 const getStaticLists = require('./scripts/build/getStaticLists');
+const generateRedirectMap = require('./scripts/build/generateRedirectMap');
 
 const urlPartialsByTypeMap = {
   Article: 'title',
@@ -340,32 +341,129 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   actions.replaceWebpackConfig(config);
 };
 
-exports.onPostBuild = async ({ getNodesByType }) => {
+// TODO: As soon as a number of post build jobs will be increased the following part should be refactored
+exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
   // To run ES update pass `updateES=true` as a build param
+  // To run redirects map generation pass `redirects-map=true` as a build param
   const args = process.argv.slice(2);
-  if (
-    !args ||
-    !args.some(item => {
-      const arg = item.split('=');
-      return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
-    })
-  ) {
+  if (!args) {
     return;
   }
 
-  // eslint-disable-next-line no-console
-  console.log('updating ES');
+  const isUpdateES = args.some(item => {
+    const arg = item.split('=');
+    return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
+  });
 
-  const hrstart = process.hrtime();
+  const isGenerateRedirectMap = args.some(item => {
+    const arg = item.split('=');
+    return arg && arg.length && arg[0] === 'redirects-map' && arg[1] === 'true';
+  });
 
-  const promises = [
-    updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
-    updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
-  ];
+  if (isGenerateRedirectMap) {
+    // eslint-disable-next-line no-console
+    console.log('Generating redirects map');
 
-  await Promise.all(promises);
+    const tstart = process.hrtime();
 
-  const hrend = process.hrtime(hrstart);
-  // eslint-disable-next-line no-console
-  console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+    // The config can be moved to AEM/config file or any place
+    // Generation script works independently of the application and doesn't have any references outside
+    const config = {
+      newUrls: getNodes()
+        .filter(item => item.fields && item.fields.slug)
+        .map(item => item.fields.slug),
+      pageNodes: getNodes(),
+      oldSitemapPath: [
+        './old-sitemap/old-sitemap-1.xml',
+        './old-sitemap/old-sitemap-2.xml',
+      ],
+      oldDomain: 'https://br.recepedia.com',
+      JMESPathToUrls: `"ns1:urlset"."ns1:url"[]."ns1:loc"`,
+      redirectRules: [
+        {
+          from: '/receita/[0-9]*-(?<name>.+)',
+          to: '/receitas/[0-9]*-?<name>$',
+          otherwise: '/receitas',
+        },
+        {
+          from: '/dietas-especiais/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/dietas-especiais/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/tipos-de-receita/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/tipos-de-receita/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/tipos-de-prato/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/tipos-de-prato/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/momentos/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/momentos/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/cozinha/(?<name>.+)',
+          to: '/receitas-categorias/?<name>$',
+          otherwise: '/',
+        },
+        {
+          from: '/cozinha/(?<name>.+)',
+          to: '/hub-de-conteudo/?<name>$',
+          otherwise: '/',
+        },
+      ],
+      otherwiseRedirectTo: '/',
+    };
+
+    await generateRedirectMap(config);
+
+    // eslint-disable-next-line no-console
+    console.log('Redirects map generation finished');
+
+    const trend = process.hrtime(tstart);
+    // eslint-disable-next-line no-console
+    console.info('Execution time (hr): %ds %dms', trend[0], trend[1] / 1000000);
+  }
+
+  if (isUpdateES) {
+    // eslint-disable-next-line no-console
+    console.log('updating ES');
+
+    const hrstart = process.hrtime();
+
+    const promises = [
+      updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
+      updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
+    ];
+
+    await Promise.all(promises);
+
+    const hrend = process.hrtime(hrstart);
+    // eslint-disable-next-line no-console
+    console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+  }
 };

@@ -20,6 +20,7 @@ import {
 import get from 'lodash/get';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 import useKritiqueReload from '../../utils/useKritiqueReload';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeListing = ({
   className,
@@ -274,7 +275,10 @@ export const RecipeListing = ({
     );
 
   return (
-    <div data-componentname="recipeListing" className={wrapClasses}>
+    <div
+      {...getComponentDataAttrs('recipeListing', content)}
+      className={wrapClasses}
+    >
       {listHeader}
       {view}
     </div>
