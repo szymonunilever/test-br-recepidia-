@@ -17,7 +17,8 @@
     }
   }
   %modal__overlay--flex,
-  .modal--quiz {
+  .modal--quiz,
+  .modal--filter {
     .modal__content {
       animation: modalanimatemobile 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
     }
