@@ -176,7 +176,7 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.png",
                           "alt": "Sem produtos de origem animal"
                         }
                       }
@@ -186,7 +186,7 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.png",
                           "alt": "Sem carne"
                         }
                       }
@@ -196,7 +196,7 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.png",
                           "alt": "Sem ovo"
                         }
                       }
@@ -206,7 +206,7 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.png",
                           "alt": "Sem leite"
                         }
                       }
@@ -216,7 +216,7 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.png",
                           "alt": "Sem açúcar"
                         }
                       }
@@ -226,7 +226,7 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.png",
                           "alt": "Sem lactose"
                         }
                       }
@@ -236,7 +236,7 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.png",
                           "alt": "Sem glúten"
                         }
                       }
@@ -246,7 +246,7 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.png",
                           "alt": "Sem frutos do mar"
                         }
                       }
@@ -256,7 +256,7 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.png",
                           "alt": "Sem soja"
                         }
                       }
@@ -1452,7 +1452,7 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.png",
                           "alt": "Sem produtos de origem animal"
                         }
                       }
@@ -1462,7 +1462,7 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.png",
                           "alt": "Sem carne"
                         }
                       }
@@ -1472,7 +1472,7 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.png",
                           "alt": "Sem ovo"
                         }
                       }
@@ -1482,7 +1482,7 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.png",
                           "alt": "Sem leite"
                         }
                       }
@@ -1492,7 +1492,7 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.png",
                           "alt": "Sem açúcar"
                         }
                       }
@@ -1502,7 +1502,7 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.png",
                           "alt": "Sem lactose"
                         }
                       }
@@ -1512,7 +1512,7 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.png",
                           "alt": "Sem glúten"
                         }
                       }
@@ -1522,7 +1522,7 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.png",
                           "alt": "Sem frutos do mar"
                         }
                       }
@@ -1532,7 +1532,7 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.png",
                           "alt": "Sem soja"
                         }
                       }
