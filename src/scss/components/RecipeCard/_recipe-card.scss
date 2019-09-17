@@ -66,8 +66,10 @@
       img {
         width: auto;
         height: 10px;
+        width: 59px;
         @include respondTo(medium) {
           height: 13px;
+          width: 76px;
         }
       }
     }

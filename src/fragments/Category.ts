@@ -14,7 +14,7 @@ export const query = graphql`
     }
     localImage {
       childImageSharp {
-        fluid(maxHeight: 315) {
+        fluid(maxHeight: 315, quality: 25) {
           ...LocalImage
         }
       }

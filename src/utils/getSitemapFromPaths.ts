@@ -1,14 +1,14 @@
 import partition from 'lodash/partition';
 import capitalize from 'lodash/capitalize';
+import some from 'lodash/some';
 import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
 
 const ROOT_PATH = '/';
 const EXCLUDED_PATHS = [
-  '/procurar',
-  '/perfil',
-  '/mapa-do-site',
-  '/newsletter-signup/',
-  ROOT_PATH,
+  'procurar',
+  'perfil',
+  'mapa-do-site',
+  'newsletter-signup',
 ];
 
 const nestPaths = (
@@ -45,7 +45,12 @@ export const getSitemapFromPaths = (
   initialPaths: string[]
 ): SitemapCategoryEntry[] => {
   const paths = initialPaths
-    .filter(path => !EXCLUDED_PATHS.includes(path) && !path.includes('404'))
+    .filter(
+      path =>
+        path !== ROOT_PATH &&
+        !path.includes('404') &&
+        !some(EXCLUDED_PATHS, exPath => path.includes(exPath))
+    )
     .map(path =>
       path[path.length - 1] === ROOT_PATH
         ? path.substring(0, path.length - 1)
