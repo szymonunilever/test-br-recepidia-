@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Menu from '../Menu';
 import { NavigationProps } from './models';
 import { Button as ButtonClose } from 'src/components/lib/components/Button';
+import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
 
 const Navigation = ({
   list,
@@ -18,7 +19,10 @@ const Navigation = ({
   });
 
   return (
-    <nav className={navigationClassNames} data-componentname="navigation">
+    <nav
+      className={navigationClassNames}
+      {...getComponentDataAttrs('navigation')}
+    >
       <Menu
         list={list}
         className="menu"

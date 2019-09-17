@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import { AdaptiveImageProps } from './models';
 import cx from 'classnames';
 import WithLink from './partials/WithLink';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const AdaptiveImage = ({
   className,
@@ -43,7 +44,7 @@ const AdaptiveImage = ({
   }, []);
 
   return (
-    <div className={classNames} data-componentname="adaptive-image">
+    <div className={classNames} {...getComponentDataAttrs('adaptive-image')}>
       {!docLoaded ? (
         <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
       ) : (

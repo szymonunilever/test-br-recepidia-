@@ -12,6 +12,7 @@ import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const SearchListing: React.SFC<SearchListingProps> = ({
   content,
@@ -204,7 +205,7 @@ const SearchListing: React.SFC<SearchListingProps> = ({
   ) : null;
 
   return (
-    <div className={classNames} data-componentname="search-listing">
+    <div className={classNames} {...getComponentDataAttrs('search-listing')}>
       <SearchInput
         searchResults={searchInputResults.list}
         content={content.searchInputContent}
