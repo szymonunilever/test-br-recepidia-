@@ -43,6 +43,10 @@
             @include respondTo(desktop) {
               object-position: 0% 50% !important;
             }
+            //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+            @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+              max-height: 100%;
+            }
           }
         }
       }

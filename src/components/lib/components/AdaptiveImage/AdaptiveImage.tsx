@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 // @ts-ignore
-import Img from 'gatsby-image/withIEPolyfill';
+import Img from 'gatsby-image';
+//fix for IE related to gatsby-image downgrade has been made with css. Polifill for IE wass not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie with downgraded version. Use following import when gatsby-image is updated.
+// import Img from "gatsby-image/withIEPolyfill"
 import { AdaptiveImageProps } from './models';
 import cx from 'classnames';
 import WithLink from './partials/WithLink';
