@@ -1,4 +1,5 @@
 const path = require('path');
+const isEmpty = require('lodash').isEmpty;
 
 module.exports = async ({ graphql, createPage, page }) => {
   //TODO: when we will have any other fields in recipeDetails we should modify query.
@@ -26,7 +27,7 @@ module.exports = async ({ graphql, createPage, page }) => {
           }
           localImage {
             childImageSharp {
-              fluid(maxWidth: 1088, cropFocus: CENTER, quality: 25) {
+              fluid(maxWidth: 1088, cropFocus: CENTER) {
                 base64
                 aspectRatio
                 src
@@ -47,7 +48,7 @@ module.exports = async ({ graphql, createPage, page }) => {
   );
 
   const categories = result.data.allCategory.nodes.filter(
-    item => (item.tags && item.tags.length > 0) || item.recipeDetails
+    item => isEmpty(item.tags) || !isEmpty(item.recipeDetails)
   );
   categories &&
     categories.forEach(node => {
