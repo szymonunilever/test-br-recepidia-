@@ -42,6 +42,8 @@ export default function HTML(props) {
             />
             {/* END kritique preloads */}
             {/* START NewRelic */}
+
+            {/* Having script inline improves FCP/FMP. Loading newRelic script is not allowed*/}
             <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
             {/* <script
               type="text/javascript"
@@ -53,8 +55,8 @@ export default function HTML(props) {
               id="newRelicConfig"
               dangerouslySetInnerHTML={{
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
-              }} */}
-            {/* /> */}
+              }}
+            /> */}
             {/* END NewRelic */}
           </>
         )}
