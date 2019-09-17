@@ -54,7 +54,7 @@ export default function HTML(props) {
               dangerouslySetInnerHTML={{
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
               }} */}
-            />
+            {/* /> */}
             {/* END NewRelic */}
           </>
         )}
