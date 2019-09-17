@@ -8,6 +8,7 @@ import { navigate } from 'gatsby';
 import get from 'lodash/get';
 import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const Hero = (props: HeroProps) => {
   const titleLevel = props.titleLevel || 2;
@@ -27,7 +28,10 @@ const Hero = (props: HeroProps) => {
   const image = get(props, 'content.image');
 
   return (
-    <div data-componentname="hero" className={containerStyles}>
+    <div
+      {...getComponentDataAttrs('hero', props.content)}
+      className={containerStyles}
+    >
       {props.viewType === 'Image' && image.localImage && (
         <div className={imageStyles} onClick={goByPrimaryCTA}>
           <AdaptiveImage localImage={image.localImage} alt={image.alt} />

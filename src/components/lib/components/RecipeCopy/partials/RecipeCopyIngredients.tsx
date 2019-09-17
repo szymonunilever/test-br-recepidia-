@@ -3,6 +3,7 @@ import React from 'react';
 import { TagName, Text } from '../../Text';
 import { RecipeCopyIngredientsProps } from './models';
 import theme from './RecipeCopyIngredients.module.scss';
+import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
 
 export const RecipeCopyIngredients = ({
   className,
@@ -49,7 +50,10 @@ export const RecipeCopyIngredients = ({
     ));
 
   return (
-    <div className={classWrapper} data-componentname="recipeCopyIngredients">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeCopyIngredients')}
+    >
       {Title}
       {Subtitle}
       <div className="recipe-ingredients">{items}</div>

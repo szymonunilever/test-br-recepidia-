@@ -1,12 +1,13 @@
 import React from 'react';
 import { ExampleProps } from './models';
 import cx from 'classnames';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const Example = ({ className, text }: ExampleProps) => {
   const classNames = cx('example', className);
 
   return (
-    <p className={classNames} data-componentname="example">
+    <p className={classNames} {...getComponentDataAttrs('example')}>
       {text}
     </p>
   );

@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { RecipeAttributesKeys, RecipeAttributesProps } from './models';
 import theme from './RecipeAttributes.module.scss';
 import { RecipeAttributeCard } from './partials';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeAttributes = ({
   className,
@@ -55,7 +56,10 @@ export const RecipeAttributes = ({
   });
 
   return (
-    <div className={classWrapper} data-componentname="recipeAttributes">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeAttributes')}
+    >
       {view}
     </div>
   );
