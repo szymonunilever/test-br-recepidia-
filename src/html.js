@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'integrations/keys.json';
+import newRelic from '../static/config/newRelic';
 const { applicationID, licenseKey } = keys.sitespeed;
 
 export default function HTML(props) {
@@ -25,7 +26,6 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
             {/* END preconnects */}
-
             {/* START kritique preloads */}
             <link
               rel="preload"
@@ -41,9 +41,9 @@ export default function HTML(props) {
               as="style"
             />
             {/* END kritique preloads */}
-
             {/* START NewRelic */}
-            <script
+            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            {/* <script
               type="text/javascript"
               src="/config/newRelicScript.js"
               id="newRelicScript"
@@ -53,7 +53,7 @@ export default function HTML(props) {
               id="newRelicConfig"
               dangerouslySetInnerHTML={{
                 __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
-              }}
+              }} */}
             />
             {/* END NewRelic */}
           </>
