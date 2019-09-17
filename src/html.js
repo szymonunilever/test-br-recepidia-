@@ -1,14 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import newRelic from '../static/config/newRelic';
+import keys from 'integrations/keys.json';
+const { applicationID, licenseKey } = keys.sitespeed;
 
 export default function HTML(props) {
-  let headComponents = props.headComponents;
+  const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
+    keys.kritique.brandId
+  }&localeid=${keys.kritique.localeId}&apikey=${
+    keys.kritique.apiKey
+  }&sitesource=${keys.kritique.siteSource}`;
+
   return (
     <html {...props.htmlAttributes}>
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
+            {/* START preconnects */}
+            <link rel="preconnect" href={keys.elasticSearch.url} />
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
@@ -16,7 +24,44 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
-            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            {/* END preconnects */}
+
+            {/* START kritique preloads */}
+            <link
+              rel="preload"
+              href="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+              as="script"
+            />
+            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
+            <link
+              rel="preload"
+              href={`${
+                keys.kritique.baseUrl
+              }/widget/resources/css/RR_widget.css`}
+              as="style"
+            />
+            {/* END kritique preloads */}
+
+            {/* START NewRelic */}
+            <script
+              type="text/javascript"
+              src="/config/newRelicScript.js"
+              id="newRelicScript"
+            />
+            <script
+              type="text/javascript"
+              id="newRelicConfig"
+              dangerouslySetInnerHTML={{
+                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
+              }}
+            />
+            {/* END NewRelic */}
+
+            {/* Evidon Cookie popup */}
+            <script
+              src="//assets.adobedtm.com/launch-EN778e3b07c50b4ae08fac5c37112ab05d.min.js"
+              async
+            />
           </>
         )}
         <script
@@ -35,9 +80,9 @@ export default function HTML(props) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
         />
-        {headComponents}
+        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

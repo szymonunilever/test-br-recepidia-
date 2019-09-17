@@ -113,11 +113,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
   } = useFavoritesSearch();
   const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
   const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
@@ -189,8 +187,12 @@ const FavoritesRecipeListingPage: FunctionComponent<
         <Tab view="ProfileFavorites" hasContent={hasFavorites}>
           <div className="user-profile-favorites">
             {hasFavorites ? (
-              <RecipeListingWithFavorite
+              <RecipeListing
                 content={recipeContent}
+                favorites={Array.isArray(favorites) ? favorites : []}
+                onFavoriteChange={updateFavoriteState}
+                FavoriteIcon={FavoriteIcon}
+                withFavorite={true}
                 list={recipeByIdsResults.list}
                 ratingProvider={RatingAndReviewsProvider.kritique}
                 className="recipe-list recipe-list--carousel favorites"
@@ -211,7 +213,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   className="recipe-list__null-results"
                   titleLevel={2}
                 />
-                <Link className="favorites__button" to={'/recipes'}>
+                <Link className="favorites__button" to={'/receitas'}>
                   {buttonContent.label}
                 </Link>
               </Fragment>
@@ -259,7 +261,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             <div className={theme.mealPlannerBtnWrap}>
               <Link
                 className={cx(theme.mealPlannerBtn, 'button')}
-                to={'/meal-planner'}
+                to={'/planejamento-da-semana'}
               >
                 {mealPlanButtonContent.label}
               </Link>

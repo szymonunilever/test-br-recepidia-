@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import get from 'lodash/get';
 import isBrowser from './isBrowser';
 
@@ -7,15 +6,13 @@ export const reloadKritiqueWidget = () => {
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const useKritiqueReload = (trackedState: React.ComponentState = []) => {
+const reloadKritiqueWidgetWithTimeout = (timeout = 50) => {
   let timerId;
   isBrowser() && timerId && window.clearTimeout(timerId);
 
-  useEffect(() => {
-    timerId = setTimeout(() => {
-      reloadKritiqueWidget();
-    }, 50);
-  }, trackedState);
+  timerId = setTimeout(() => {
+    reloadKritiqueWidget();
+  }, timeout);
 };
 
-export default useKritiqueReload;
+export default reloadKritiqueWidgetWithTimeout;

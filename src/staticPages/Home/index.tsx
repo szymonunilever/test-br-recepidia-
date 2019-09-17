@@ -3,13 +3,13 @@ import cx from 'classnames';
 import { graphql } from 'gatsby';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import {
-  RecipeListing,
   RecipeListViewType,
+  RecipeListing,
 } from 'src/components/lib/components/RecipeListing';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
@@ -48,6 +48,10 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     ).text as string,
   };
 
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
+  );
   const [searchAgent, setSearchAgent] = useState(false);
   const [introModalClosed, setintroModalClosed] = useState(false);
   const [topRecipesResult, setTopRecipesResult] = useState<Internal.Recipe[]>(
@@ -59,9 +63,9 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const [loadedTop, setLoadedTop] = useState(false);
   const [loadedLatest, setLoadedLatest] = useState(false);
 
-  const isIntroDone = () => {
+  const isIntroDone = useCallback(() => {
     setintroModalClosed(true);
-  };
+  }, []);
 
   const searchRecipes = () => {
     setLoadedLatest(false);
@@ -100,13 +104,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     }
   }, [introModalClosed]);
 
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
-  );
-
   return (
     <Layout className="header--bg">
       <SEO {...seo} canonical={location.href} />
@@ -125,14 +122,17 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           text={findPageComponentContent(components, 'Text', 'PageTitle').text}
         />
       </section>
-
       <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'LatestAndGreatest'
           )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={latestAndGratestResult}
           ratingProvider={RatingAndReviewsProvider.kritique}
           className={`${!loadedLatest &&
@@ -156,12 +156,16 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       </section>
 
       <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={findPageComponentContent(
             components,
             'RecipeListing',
             'TopRecipes'
           )}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={topRecipesResult}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}

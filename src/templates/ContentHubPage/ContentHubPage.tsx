@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { findPageComponentContent, fromCamelCase } from 'src/utils';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import RecipeListing, {
   RecipeListViewType,
   LoadMoreType,
@@ -29,8 +29,8 @@ import relatedArticlesComponent from 'src/components/data/relatedArticlesForCont
 import useMedia from 'src/utils/useMedia';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
-import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
+import useFavorite from 'src/utils/useFavorite';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -43,26 +43,36 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
 }) => {
   const {
     page: { components, seo, type },
+    name,
   } = pageContext;
   const { tag, allArticle, allCategory } = data;
-  const RecipeListingWithFavorite = useFavorite(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || [],
-    updateFavorites,
-    RecipeListing,
-    FavoriteIcon
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
 
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
+    image: {
+      alt: getImageAlt(category.title, category.fields.slug),
+    },
   }));
+
   const classWrapper = cx(theme.recipeCategoryPage, 'recipe-category-page');
   const recipesListingContent = findPageComponentContent(
     components,
     'RecipeListing',
     'RecipesByCategory'
   );
-  const tagLabel = tag.title || fromCamelCase(tag.name);
+  const tagLabel = tag.title;
+
+  const onLoadMore = useCallback(() => {
+    return onLoadMoreRecipes([], 'creationTime', 4, {
+      query: name,
+      fields: ['tagGroups.tags.name'],
+    });
+  }, [recipeResultsList]);
 
   return (
     <Layout className={classWrapper}>
@@ -76,19 +86,23 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
       <Kritique />
 
       <section className={cx(theme.contentHubRecipes, 'bg--half wrapper')}>
-        <RecipeListingWithFavorite
+        <RecipeListing
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title
               .replace('{numRes}', recipeResultsCount)
               .replace('{categoryName}', `\n${tagLabel}`),
           }}
+          favorites={Array.isArray(favorites) ? favorites : []}
+          onFavoriteChange={updateFavoriteState}
+          FavoriteIcon={FavoriteIcon}
+          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{
             type: LoadMoreType.async,
-            onLoadMore: onLoadMoreRecipes,
+            onLoadMore,
             allCount: recipeResultsCount,
           }}
           initialCount={useMedia()}
@@ -154,6 +168,7 @@ export const query = graphql`
   query($slug: String, $name: String) {
     tag(fields: { slug: { eq: $slug } }) {
       name
+      title
       tagId
     }
 
@@ -228,6 +243,7 @@ interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
   };
   pageContext: {
     page: AppContent.Page;
+    name: string;
   };
   location: WindowLocation;
 }

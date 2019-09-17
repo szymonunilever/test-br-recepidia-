@@ -45,7 +45,7 @@ const SitemapPage = ({
         />
       </section>
       <section className="wrapper _pt--40 _pb--40">
-        <Sitemap content={sitemap} />
+        <Sitemap content={sitemap} wrapBlocks={true} />
       </section>
     </Layout>
   );

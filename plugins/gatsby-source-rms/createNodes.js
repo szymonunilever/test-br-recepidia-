@@ -32,8 +32,15 @@ const processTag = (
   dictionary
 ) => {
   const nodeId = createNodeId(`tag-${tag.id}`);
+  const name = tag.name;
   tag['title'] =
-    dictionary && dictionary[tag.name] ? dictionary[tag.name] : tag.name;
+    dictionary && dictionary[name]
+      ? dictionary[name]
+      : name
+          .toLowerCase()
+          .replace(/[_-]/, ' ')
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, occ => occ.toUpperCase());
   createNode({
     ...tag,
     id: nodeId,

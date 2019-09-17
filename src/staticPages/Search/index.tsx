@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -27,6 +27,7 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
 import '../../scss/pages/_searchListing.scss';
+import useFavorite from 'src/utils/useFavorite';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -52,13 +53,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   } = useSearchResults(searchQuery);
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
-  const [favorites, setFavorites] = useState(
-    (getUserProfileByKey(ProfileKey.favorites) as number[]) || []
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
   );
-  const updateFavoriteState = useCallback((favorites: number[]) => {
-    updateFavorites(favorites);
-    setFavorites(favorites);
-  }, []);
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
   }, [recipeResults]);
@@ -68,7 +66,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <Kritique />
-      <section className={theme.searchListingWrap}>
+      <section className={cx('_pt--40', theme.searchListingWrap)}>
         <SearchListing
           searchQuery={searchQuery}
           searchResults={{

@@ -31,15 +31,17 @@ const GlobalSearch = ({
     searchQuery: string,
     params: SearchParams
   ) => {
-    getSearchSuggestionResponse(searchQuery, params).then(values => {
-      // const [recipeRes, articleRes] = values;
-      const [recipeRes] = values; // @todo remove this line and uncomment the a line above when articles are there
+    getSearchSuggestionResponse(searchQuery, params)
+      .then(values => {
+        // const [recipeRes, articleRes] = values;
+        const [recipeRes] = values; // @todo remove this line and uncomment the a line above when articles are there
 
-      setSearchInputResults([
-        ...recipeRes.hits.hits.map(item => item._source.title),
-        // ...articleRes.hits.hits.map(item => item._source.title), // @todo uncomment this line when articles are there
-      ]);
-    });
+        setSearchInputResults([
+          ...recipeRes.hits.hits.map(item => item._source.title),
+          // ...articleRes.hits.hits.map(item => item._source.title), // @todo uncomment this line when articles are there
+        ]);
+      })
+      .catch(() => {});
   };
 
   return (
@@ -60,7 +62,7 @@ const GlobalSearch = ({
         <SearchInput
           getSearchResults={getSearchSuggestionData}
           onClickSearchResultsItem={(value: string) => {
-            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           content={searchContent}
@@ -69,7 +71,7 @@ const GlobalSearch = ({
           buttonResetIcon={<ButtonCloseIcon />}
           buttonSubmitIcon={<SearchIcon />}
           onSubmit={async value => {
-            navigate(`/search?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           autoFocus

@@ -15,35 +15,38 @@ const Kritique = () => {
 
   const [injectScript, setInjectScript] = useState(false);
 
-  useEffect(() => {
-    const isKritiqueLoaded = !!sessionStorage.getItem('isKritiqueLoaded');
+  // @ts-ignore
+  const isLoadKritique = (): boolean => window.isLoadKritique;
+  const initKritique = () => {
+    // @ts-ignore
+    window.isLoadKritique = true;
+    setInjectScript(true);
+  };
 
-    if (isKritiqueLoaded) {
-      setInjectScript(isKritiqueLoaded);
-      setTimeout(reloadKritiqueWidget, 2000);
+  useEffect(() => {
+    if (isLoadKritique()) {
+      setInjectScript(isLoadKritique);
+      setTimeout(reloadKritiqueWidget, 1000);
+    } else if (document.readyState === 'complete') {
+      initKritique();
     } else {
-      setTimeout(() => {
-        sessionStorage.setItem('isKritiqueLoaded', 'true');
-        setInjectScript(true);
-      }, 5000);
+      // use mousemove and touchstart if WPT FPL need to be improved
+      window.addEventListener('load', () => {
+        initKritique();
+      });
     }
   }, []);
 
   return (
     <>
-      {isBrowser() &&
-      (!!sessionStorage.getItem('isKritiqueLoaded') || injectScript) ? (
+      {isBrowser() && (isLoadKritique() || injectScript) ? (
         <Helmet
           // @ts-ignore
           script={[
             {
-              src: '/libs/jquery.min.js',
-              defer: true,
-            },
-            {
               id: 'rr-widget',
               src: kritiqueWidgetSrc,
-              defer: true,
+              async: true,
             },
           ]}
         />

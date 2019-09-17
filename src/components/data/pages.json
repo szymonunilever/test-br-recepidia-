@@ -34,7 +34,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -394,10 +394,14 @@
                 {
                   "label": "Twitter",
                   "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -409,7 +413,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -519,7 +523,7 @@
     },
     {
       "type": "RecipeCategory",
-      "relativePath": "/recipe-categories",
+      "relativePath": "/receitas-categorias",
       "components": {
         "items": [
           {
@@ -553,7 +557,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -643,7 +647,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -667,7 +671,7 @@
     },
     {
       "type": "ContentHub",
-      "relativePath": "/content-hub",
+      "relativePath": "/hub-de-conteudo",
       "components": {
         "items": [
           {
@@ -703,7 +707,7 @@
               "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -727,7 +731,7 @@
     },
     {
       "type": "ArticleDetail",
-      "relativePath": "/articles",
+      "relativePath": "/artigos",
       "components": {
         "items": [
           {
@@ -744,7 +748,7 @@
                 }
               ],
               "openModalButton": {
-                "label": "Compartilhe"
+                "label": ""
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -763,7 +767,7 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -787,7 +791,7 @@
     },
     {
       "type": "Search",
-      "relativePath": "/search",
+      "relativePath": "/procurar",
       "components": {
         "items": [
           {
@@ -850,7 +854,7 @@
               "longSubheader": "We will collect your preferences and customize a weekly menu so you don't even have to think.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/meal-planner",
+                "linkTo": "/planejamento-da-semana",
                 "label": "Experimente o planejamento semanal"
               },
               "image": {
@@ -881,7 +885,7 @@
     },
     {
       "type": "ContactUs",
-      "relativePath": "/contact-us",
+      "relativePath": "/fale-comigo",
       "components": {
         "items": [
           {
@@ -930,7 +934,7 @@
               "type": "text",
               "cta": {
                 "label": "Preencher o formulário de contato",
-                "linkTo": "/contact-form"
+                "linkTo": "/formulario-de-contato"
               }
             }
           }
@@ -949,7 +953,7 @@
     },
     {
       "type": "ContactForm",
-      "relativePath": "/contact-form",
+      "relativePath": "/formulario-de-contato",
       "components": {
         "items": [
           {
@@ -1122,23 +1126,23 @@
                 {
                   "name": "consent1",
                   "type": "checkbox",
-                  "value": true,
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
                   "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas de Recepedia."
                 },
                 {
                   "name": "consent2",
                   "type": "checkbox",
-                  "value": true,
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
                   "label": "Sim! Quero receber novidades, ofertas personalizadas e participar de pesquisas sobre as marcas da Unilever e sobre as suas ações para fazer o bem"
                 },
                 {
                   "name": "consent3",
                   "type": "checkbox",
-                  "value": true,
+                  "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Política de Privacidade da Unilever</a> e com os <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx'>Termos de Uso</a>",
+                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos</a>",
                   "validationRules": [
                     {
                       "type": "required",
@@ -1200,15 +1204,6 @@
             }
           },
           {
-            "name": "AdaptiveImage",
-            "content": {
-              "image": {
-                "url": "https://scm-assets.constant.co/scm/unilever/1d398653b55393fd6da9bff8ea193338/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg",
-                "alt": "Página não encontrada..."
-              }
-            }
-          },
-          {
             "name": "Button",
             "content": {
               "label": "Quero voltar para as receitas"
@@ -1230,32 +1225,12 @@
     {
       "title": "User Profile",
       "type": "UserProfile",
-      "relativePath": "/profile",
+      "relativePath": "/perfil",
       "components": {
         "items": [
           {
             "name": "UserPreferences",
             "content": {
-              "newsletterSubscriptionsContent": {
-                "submitButton": {
-                  "label": "Salvar"
-                },
-                "title": "Newsletter subscriptions",
-                "fields": [
-                  {
-                    "name": "Subscribe to newsletter",
-                    "type": "checkbox",
-                    "label": "Inscreva-se",
-                    "value": "Subscribe to newsletter"
-                  },
-                  {
-                    "name": "Subscribe to whitelabel newsletter",
-                    "type": "checkbox",
-                    "label": "Inscreva-se",
-                    "value": "Subscribe to whitelabel newsletter"
-                  }
-                ]
-              },
               "preferencesIntroContent": {
                 "heading": "Minhas preferências",
                 "subheading": {
@@ -1930,7 +1905,7 @@
     },
     {
       "type": "AboutUs",
-      "relativePath": "/about-us",
+      "relativePath": "/sobre-recepedia",
       "components": {
         "items": [
           {
@@ -1977,7 +1952,7 @@
     },
     {
       "type": "MealPlanner",
-      "relativePath": "/meal-planner",
+      "relativePath": "/planejamento-da-semana",
       "components": {
         "items": [
           {
@@ -1987,7 +1962,7 @@
                 "title": "Planejamento da semana",
                 "description": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
-                  "url": "",
+                  "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
                   "alt": "Planejamento da semana"
                 },
                 "primaryButtonLabel": "Comece agora!",
@@ -2122,7 +2097,7 @@
                       {
                         "value": "<21",
                         "label": {
-                          "text": "Quero ser rápido! (Total time < 20 min)",
+                          "text": "Quero ser rápido!",
                           "image": {
                             "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
                             "alt": "Quero ser rápido!"
@@ -2243,7 +2218,7 @@
     },
     {
       "type": "Sitemap",
-      "relativePath": "/sitemap",
+      "relativePath": "/mapa-do-site",
       "components": {
         "items": [
           {

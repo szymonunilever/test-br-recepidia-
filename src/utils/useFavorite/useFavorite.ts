@@ -1,29 +1,21 @@
-import { useState, useCallback } from 'react';
-import RecipeListingWithFavorites from 'src/components/lib/components/RecipeListing/WithFavorites';
+import { useState, useEffect } from 'react';
+import { OnFavoriteChange } from 'src/components/lib/components/RecipeListing';
 
 const useFavorite = (
-  initFavorites: number[],
-  updateFavorites: (favorites: number[]) => void,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  recipeListing: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  icon: any
+  initFavorites: () => number[],
+  updateFavorites: OnFavoriteChange
 ) => {
-  const [favorites, setFavorites] = useState(initFavorites || []);
-  const updateFavoriteState = useCallback((favorites: number[]) => {
-    updateFavorites(favorites);
-    setFavorites(favorites);
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const updateFavoriteState: OnFavoriteChange = (newFavorites: number[]) => {
+    updateFavorites(newFavorites);
+    setFavorites(newFavorites);
+  };
+
+  useEffect(() => {
+    setFavorites(initFavorites() || []);
   }, []);
-  const RecipeListingWithFavorite = useCallback(
-    RecipeListingWithFavorites(
-      recipeListing,
-      updateFavoriteState,
-      favorites,
-      icon
-    ),
-    [favorites]
-  );
-  return RecipeListingWithFavorite;
+
+  return { updateFavoriteState, favorites };
 };
 
 export default useFavorite;

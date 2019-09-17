@@ -55,8 +55,10 @@ const recipeSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: `${searchQuery}*`,
         fields: [
           'title^5',
           'description^2',
@@ -128,8 +130,8 @@ const articleSearchParams = (
     _source,
     query: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      query_string: {
-        query: `*${searchQuery}*`,
+      simple_query_string: {
+        query: `${searchQuery}`,
         fields: ['title^5', 'articleText.text^2'],
       },
     },
@@ -164,9 +166,9 @@ export const getSearchSuggestionResponse = async (
     useElasticSearch<Internal.Recipe>(
       recipeSearchParams(searchQuery, { from, size, _source: ['title'] })
     ),
-    useElasticSearch<Internal.Article>(
-      articleSearchParams(searchQuery, { from, size, _source: ['title'] })
-    ),
+    // useElasticSearch<Internal.Article>(
+    //   articleSearchParams(searchQuery, { from, size, _source: ['title'] })
+    // ),
   ]);
 };
 

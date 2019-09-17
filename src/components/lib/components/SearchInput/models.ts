@@ -16,6 +16,7 @@ export interface SearchInputProps
   autoFocus?: boolean;
   searchResults?: string[];
   minLength?: number;
+  maxLength?: number;
 }
 
 export interface FilterData {

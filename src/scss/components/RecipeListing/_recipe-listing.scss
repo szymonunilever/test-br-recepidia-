@@ -1,8 +1,3 @@
-@import '../../vars';
-@import '../../mixins';
-@import '../../theme';
-@import '../../components/Button/index';
-
 $col-width-mobile: 100% / 2;
 $col-width-medium: 100% / 4;
 $col-width-desktop: 100% / 4;
@@ -55,7 +50,7 @@ $col-indent-desktop: 8px;
   &__load-more {
     @extend .button;
     @extend .button--medium;
-    display: block;
+    display: block !important;
     margin: 40px auto;
   }
 

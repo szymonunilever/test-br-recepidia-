@@ -1,8 +1,3 @@
-@import '../../vars';
-@import '../../mixins';
-@import '../../theme';
-@import '../../components/Button/index';
-
 $alert-msg-height: 28px;
 $validation-icon-size: 18px;
 
@@ -21,6 +16,11 @@ $validation-icon-size: 18px;
   }
   a {
     @extend %link--inline;
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -68,7 +68,7 @@ $validation-icon-size: 18px;
     position: absolute;
     right: -20px;
     top: calc(50% - #{$validation-icon-size/2} - #{$alert-msg-height/2});
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 1.17;
     @include respondTo(desktop) {
       right: -35px;

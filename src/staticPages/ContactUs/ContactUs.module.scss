@@ -16,7 +16,7 @@
   :global {
     .contact-us__description {
       @include respondTo(desktop) {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
   }

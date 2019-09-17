@@ -19,8 +19,16 @@ const getStaticLists = require('./scripts/build/getStaticLists');
 const urlPartialsByTypeMap = {
   Article: 'title',
   Recipe: 'title',
-  Tag: 'name',
-  Category: 'name',
+  Tag: 'title',
+  Category: 'title',
+};
+
+const addTrailingSlash = path => {
+  try {
+    return path && path.endsWith('/') ? path : `${path}/`;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 const findPageFromNodes = (pagesNodes, pageType) =>
@@ -29,6 +37,7 @@ const findPageFromNodes = (pagesNodes, pageType) =>
 const formatUrlPartial = (partial = '') =>
   partial
     .replace(/[&,+()$~%.'":*?<>{}]/g, '')
+    .replace(/[_-]/, ' ')
     .toLowerCase()
     .split(' ')
     .join('-');
@@ -39,10 +48,12 @@ const getSlugFromPath = (path, node, prependWithField = null) => {
     ? `${node[prependWithField]}-${node[urlPartial]}`
     : node[urlPartial];
 
-  return url
-    .resolve(path, formatUrlPartial(itemPath))
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+  return addTrailingSlash(
+    url
+      .resolve(path, formatUrlPartial(itemPath))
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+  );
 };
 
 const createSlugFor = ({ path, node, createNodeField, prependWithField }) => {
@@ -70,7 +81,7 @@ exports.onCreateNode = async ({
       '/'
     );
 
-    return path[path.length - 1] === '/' ? path : `${path}/`;
+    return addTrailingSlash(path);
   };
 
   const { createNodeField, createNode } = actions;
@@ -185,16 +196,18 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const createPageFromTemplate = (edge, page) => {
+    const slug = addTrailingSlash(edge.node.fields.slug);
+
     createPage({
-      path: edge.node.fields.slug,
+      path: slug,
       component: getPageTemplate(page.type),
       context: {
         page,
         edge,
-        slug: edge.node.fields.slug,
+        slug,
         name: edge.node.name,
-        nextSlug: get(edge, 'next.fields.slug'),
-        previousSlug: get(edge, 'previous.fields.slug'),
+        nextSlug: addTrailingSlash(get(edge, 'next.fields.slug')),
+        previousSlug: addTrailingSlash(get(edge, 'previous.fields.slug')),
       },
     });
   };
@@ -202,11 +215,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const pages = await createDefaultPages({
     graphql,
     createPage: page => {
+      const slug = addTrailingSlash(page.relativePath);
+
       createPage({
-        path: page.relativePath,
+        path: slug,
         component: getPageTemplate(page.type),
         context: {
-          slug: page.relativePath,
+          slug,
           page,
           ...getStaticLists(page.components.items),
         },

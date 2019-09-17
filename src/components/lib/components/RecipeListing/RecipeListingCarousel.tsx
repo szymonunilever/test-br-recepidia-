@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Carousel from '../Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import RecipeCard from './partials/RecipeCard';
@@ -15,30 +15,44 @@ const RecipeListingCarousel = ({
   ratingProvider = RatingAndReviewsProvider.none,
   imageSizes,
 }: RecipeListingCarouselProps) => {
-  const getCurrentItem = (item: Internal.Recipe) => {
-    return (
-      <RecipeCard
-        id={item.id}
-        inFavorite={withFavorite ? item.inFavorite : false}
-        enableSelectFavorite={withFavorite}
-        Icon={FavoriteIcon}
-        titleLevel={titleLevel}
-        slug={item.fields.slug}
-        content={{ title: item.title }}
-        onFavoriteChange={onFavoriteChange}
-        recipeId={item.recipeId}
-        ratingProvider={ratingProvider}
-        localImage={item.localImage}
-        imageSizes={imageSizes}
-      />
-    );
-  };
+  const getCurrentItem = useCallback(
+    (item: Internal.Recipe) => {
+      return (
+        <RecipeCard
+          id={item.id}
+          inFavorite={withFavorite ? item.inFavorite : false}
+          enableSelectFavorite={withFavorite}
+          Icon={FavoriteIcon}
+          titleLevel={titleLevel}
+          slug={item.fields.slug}
+          content={{ title: item.title }}
+          onFavoriteChange={onFavoriteChange}
+          recipeId={item.recipeId}
+          ratingProvider={ratingProvider}
+          localImage={item.localImage}
+          imageSizes={imageSizes}
+        />
+      );
+    },
+    [
+      withFavorite,
+      FavoriteIcon,
+      titleLevel,
+      onFavoriteChange,
+      ratingProvider,
+      imageSizes,
+    ]
+  );
 
-  const handleVisibleElementsChanged = (visibleElements: number) => {
-    if (ratingProvider === RatingAndReviewsProvider.kritique) {
-      reloadKritiqueWidget();
-    }
-  };
+  const handleVisibleElementsChanged = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (visibleElements: number) => {
+      if (ratingProvider === RatingAndReviewsProvider.kritique) {
+        reloadKritiqueWidget();
+      }
+    },
+    [ratingProvider]
+  );
 
   return (
     <Carousel

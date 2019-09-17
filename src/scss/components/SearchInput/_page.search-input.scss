@@ -6,6 +6,8 @@
       &__list {
         position: absolute;
         top: 100%;
+        left: $layout-indent-sm;
+        width: calc(100% - 2 * #{$layout-indent-sm});
         @include respondTo(desktop) {
           width: 384px;
           left: 50%;
