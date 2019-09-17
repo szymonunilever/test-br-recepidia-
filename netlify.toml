@@ -1,2 +1,2 @@
 [build]
-  command = "yarn build updateES=true"
+  command = "yarn build updateES=true redirects-map=true"
