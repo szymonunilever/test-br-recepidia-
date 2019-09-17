@@ -11,6 +11,7 @@ const AdaptiveImage = ({
   alt,
   localImage,
   sizes,
+  view,
 }: AdaptiveImageProps) => {
   if (!localImage || !localImage.childImageSharp) {
     return <></>;
@@ -42,7 +43,10 @@ const AdaptiveImage = ({
   }, []);
 
   return (
-    <div className={classNames} {...getComponentDataAttrs('adaptive-image')}>
+    <div
+      className={classNames}
+      {...getComponentDataAttrs('adaptive-image', { view })}
+    >
       {!docLoaded ? (
         <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
       ) : (
