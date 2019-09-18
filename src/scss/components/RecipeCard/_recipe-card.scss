@@ -54,6 +54,14 @@
         padding-bottom: $recipe-card-height--desktop !important;
       }
     }
+    //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+    @include respondTo(medium) {
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        img {
+          max-height: 100%;
+        }
+      }
+    }
   }
 
   .rr-widget-container {

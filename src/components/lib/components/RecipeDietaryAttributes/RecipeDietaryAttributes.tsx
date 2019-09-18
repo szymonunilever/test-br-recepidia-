@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Attribute from './partials/Attribute';
 import get from 'lodash/get';
 import { RecipeDietaryAttributesProps } from './models';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const RecipeDietaryAttributes = ({
   attributes,
@@ -35,7 +36,7 @@ const RecipeDietaryAttributes = ({
       {attributesList.length ? (
         <div
           className={classNames}
-          data-componentname="recipe-dietary-attributes"
+          {...getComponentDataAttrs('recipe-dietary-attributes')}
         >
           <ul className="recipe-dietary-attributes__list">{attributesList}</ul>
         </div>

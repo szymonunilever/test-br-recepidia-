@@ -6,9 +6,11 @@ import Button from '../Button';
 import { Tab } from './partials';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import get from 'lodash/get';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const Tabs = ({
   className,
+  content,
   content: { tabs },
   children = [],
   // @ts-ignore
@@ -130,7 +132,7 @@ export const Tabs = ({
   };
 
   return (
-    <div className={classWrapper} data-componentname="tabs">
+    <div className={classWrapper} {...getComponentDataAttrs('tabs', content)}>
       {headerInfo && (
         <div className="tabs-header">
           <div className="tabs-header__heading">

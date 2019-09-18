@@ -4,7 +4,6 @@ import {
   NoPreferencesProps,
   PreferenceEntryUpdateProps,
 } from './partials/PreferencesQuiz/index';
-import { ButtonContent } from '../Button/index';
 import { ResultCountLabelProps } from './partials/PreferencesQuiz/partials/index';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 
@@ -30,8 +29,8 @@ export interface UserPreferencesContent {
 }
 
 export interface PreferenceButtonsProps {
-  editButton: ButtonContent;
-  deleteButton: ButtonContent;
-  cancelButton: ButtonContent;
-  saveButton: ButtonContent;
+  editButton: AppContent.CTAContent;
+  deleteButton: AppContent.CTAContent;
+  cancelButton: AppContent.CTAContent;
+  saveButton: AppContent.CTAContent;
 }

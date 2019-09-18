@@ -5,4 +5,5 @@ export interface AdaptiveImageProps {
   link?: string;
   url?: string;
   sizes?: string;
+  view?: string;
 }

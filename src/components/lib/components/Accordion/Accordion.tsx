@@ -2,6 +2,7 @@ import React, { KeyboardEvent, useState } from 'react';
 import { AccordionProps } from './models';
 import cx from 'classnames';
 import theme from './Accordion.module.scss';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const Accordion = ({
   title,
@@ -25,7 +26,7 @@ export const Accordion = ({
   const classWrapper = cx(theme.accordion, className, state && 'is-opened');
 
   return (
-    <div className={classWrapper} data-componentname="accordion">
+    <div className={classWrapper} {...getComponentDataAttrs('accordion')}>
       <div
         role="tree"
         className="accordion__title"

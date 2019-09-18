@@ -5,9 +5,11 @@ import { TagName, Text } from '../Text';
 import theme from './Card.module.scss';
 import { CardProps } from './models';
 import { navigate } from 'gatsby';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const Card = ({
   className,
+  content,
   content: { title, texts, type, cta },
   Icon,
   titleLevel = 2,
@@ -54,7 +56,7 @@ export const Card = ({
   };
 
   return (
-    <div data-componentname="card" className={classWrapper}>
+    <div {...getComponentDataAttrs('card', content)} className={classWrapper}>
       <div className="card__top">
         {Icon && (
           <div className="card__icon">
