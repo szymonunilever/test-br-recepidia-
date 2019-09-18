@@ -2,34 +2,32 @@ import { useState, useCallback } from 'react';
 import { getRecipesByIdsResponse } from 'src/utils/searchUtils';
 
 const useFavoritesSearch = () => {
-  const [recipeByIdsResults, setRecipeByIdsResults] = useState<{
-    list: Internal.Recipe[];
-    count: number;
-  }>({
-    list: [],
-    count: 0,
-  });
+  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>();
+  const [totalCount, setTotalCount] = useState<number>();
 
   const getRecipeDataByIds = useCallback(
     async (searchQeury, controlArray, params) => {
+      if (!searchQeury) {
+        setRecipeList([]);
+        setTotalCount(0);
+        return;
+      }
       getRecipesByIdsResponse(searchQeury, controlArray, params).then(res => {
-        setRecipeByIdsResults({
-          list: recipeByIdsResults.list.length
-            ? [
-                ...recipeByIdsResults.list,
-                ...res.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.hits.hits.map(resItem => resItem._source),
-          count: res.hits.total,
-        });
+        setRecipeList(
+          recipeList && recipeList.length
+            ? [...recipeList, ...res.hits.hits.map(resItem => resItem._source)]
+            : res.hits.hits.map(resItem => resItem._source)
+        );
+        setTotalCount(res.hits.total);
       });
     },
-    [recipeByIdsResults]
+    [recipeList, totalCount]
   );
 
   return {
     getRecipeDataByIds,
-    recipeByIdsResults,
+    recipeList,
+    totalCount,
   };
 };
 

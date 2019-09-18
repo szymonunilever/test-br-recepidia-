@@ -17,7 +17,7 @@
             "name": "RecipeListing",
             "content": {
               "view": "LatestAndGreatest",
-              "title": "Mais Recentes"
+              "title": "Veja as receitas que separei pra você!"
             }
           },
           {
@@ -53,14 +53,14 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizTitle",
-              "text": "Oi! Bem vindo ao Recepedia!"
+              "text": "Oi! Bem-vindo ao Recepedia!"
             }
           },
           {
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Quero te conhecer melhor para te oferecer receitas feitas só para você!"
+              "text": "Serei o seu assistente de cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
             }
           },
           {
@@ -154,7 +154,7 @@
                   "orderIndex": 2,
                   "id": 2,
                   "key": "question2",
-                  "label": "Você tem uma dieta especial?",
+                  "label": "Você segue alguma dieta especial?",
                   "type": {
                     "control": "checkbox",
                     "labelPosition": "bottom"
@@ -267,7 +267,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Como seria um jantar perfeito?",
+                  "label": "Qual seu jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -307,10 +307,10 @@
                     {
                       "value": "2",
                       "label": {
-                        "text": "Com meus net",
+                        "text": "Com meus netos",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
-                          "alt": "Com meus net"
+                          "alt": "Com meus netos"
                         }
                       }
                     }
@@ -368,7 +368,7 @@
         ]
       },
       "seo": {
-        "title": "E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -426,7 +426,7 @@
             "name": "RecipeListing",
             "content": {
               "view": "RelatedRecipes",
-              "title": "Receitas relacionados"
+              "title": "Receitas relacionadas"
             }
           },
           {
@@ -506,7 +506,7 @@
           {
             "name": "Text",
             "content": {
-              "text": "Nutricionais",
+              "text": "Dados nutricionais",
               "view": "NutritionalTitle"
             }
           }
@@ -569,7 +569,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -719,7 +719,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -779,7 +779,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -873,7 +873,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -941,7 +941,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -995,12 +995,12 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     {
-                      "label": "Dúvida sobre produtos",
-                      "value": "Dúvida sobre produtos"
+                      "label": "Dúvidas sobre receitas",
+                      "value": "Dúvidas sobre receitas"
                     },
                     {
-                      "label": "Dúvidas sobre produtos",
-                      "value": "Dúvidas sobre produtos"
+                      "label": "Outras dúvidas",
+                      "value": "Outras dúvidas"
                     }
                   ],
                   "validationRules": [
@@ -1174,7 +1174,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1212,7 +1212,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1340,7 +1340,7 @@
           {
             "name": "PreferencesQuiz",
             "content": {
-              "quizTitle": "Intro quiz",
+              "quizTitle": "Preferências",
               "view": "IntroQuiz",
               "questions": [
                 {
@@ -1430,7 +1430,7 @@
                   "orderIndex": 2,
                   "id": 2,
                   "key": "question2",
-                  "label": "Você tem uma dieta especial?",
+                  "label": "Você segue alguma dieta especial?",
                   "type": {
                     "control": "checkbox",
                     "labelPosition": "bottom"
@@ -1543,7 +1543,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Como seria um jantar perfeito?",
+                  "label": "Qual seu jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -1583,10 +1583,10 @@
                     {
                       "value": "2",
                       "label": {
-                        "text": "Com meus net",
+                        "text": "Com meus netos",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
-                          "alt": "Com meus net"
+                          "alt": "Com meus netos"
                         }
                       }
                     }
@@ -1641,7 +1641,7 @@
           {
             "name": "PreferencesQuiz",
             "content": {
-              "quizTitle": "Planejamento da semana",
+              "quizTitle": "Planejamento semanal",
               "view": "MealPlanner",
               "questions": [
                 {
@@ -1806,7 +1806,7 @@
                       "label": {
                         "text": "Gastar um pouco mais",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
                           "alt": "Gastar um pouco mais"
                         }
                       }
@@ -1816,7 +1816,7 @@
                       "label": {
                         "text": "Algo bom, bonito e barato",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
                           "alt": "Algo bom, bonito e barato"
                         }
                       }
@@ -1893,7 +1893,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1934,13 +1934,13 @@
           {
             "name": "RichText",
             "content": {
-              "text": "<div>Bem mais do que um site de receitas: sou um assistente de cozinha feito para você. Quanto mais eu te conheço, mais posso deixar o site com a sua cara (e melhores ficam minhas sugestões de receitas). Se sua dieta é vegana, não vou te mostrar pratos com bichinhos. Se curte um árabe, vou te sugerir mais shawarmas e menos empanadas. Se não tolera lactose, não faz sentido te apresentar comidas com leite, né? A vida é muita curta para perder tempo pensando no que cozinhar. Abre um vinho e relaxa: eu penso por você.</div>"
+              "text": "<div>Bem mais do que um site de receitas: sou um assistente de cozinha feito para você. Quanto mais eu te conheço, mais posso deixar o site com a sua cara (e melhores ficam minhas sugestões de receitas). Se sua dieta é vegana, não vou te mostrar pratos com carne. Se curte um árabe, vou te sugerir mais shawarmas e menos empanadas. Se não tolera lactose, não faz sentido te apresentar comidas com leite, né? A vida é muita curta para perder tempo pensando no que cozinhar. Abre um vinho e relaxa: eu penso por você.</div>"
             }
           }
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1959,11 +1959,11 @@
             "name": "Wizard",
             "content": {
               "wizardIntroductionPanel": {
-                "title": "Planejamento da semana",
-                "description": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+                "title": "Planejamento semanal",
+                "description": "Agora você não precisa mais se preocupar com o que vai comer durante semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
                   "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
-                  "alt": "Planejamento da semana"
+                  "alt": "Planejamento semanal"
                 },
                 "primaryButtonLabel": "Comece agora!",
                 "bottomContent": ""
@@ -2132,7 +2132,7 @@
                         "label": {
                           "text": "Gastar um pouco mais",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
                             "alt": "Gastar um pouco mais"
                           }
                         }
@@ -2142,7 +2142,7 @@
                         "label": {
                           "text": "Algo bom, bonito e barato",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
                             "alt": "Algo bom, bonito e barato"
                           }
                         }
@@ -2206,7 +2206,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
