@@ -14,7 +14,7 @@ class Client {
     body: object;
     index: string;
   }): Promise<SearchResponse<T>> {
-    return fetch(`${this.host}/${index}/_search`, {
+    return fetch(`${this.host}/${index}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ class Client {
   }
 }
 
-const client = new Client(process.env['elasticSearch_url'] as string);
+const client = new Client(process.env['elasticSearch_searchUrl'] as string);
 
 const useElasticSearch = async <T>(
   searchParams: SearchParams

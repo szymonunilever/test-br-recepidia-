@@ -43,10 +43,10 @@ const useSearchResults = (searchQuery: string) => {
             list: params.from
               ? [
                   ...recipeResults.list,
-                  ...res.hits.hits.map(resItem => resItem._source),
+                  ...res.body.hits.hits.map(resItem => resItem._source),
                 ]
-              : res.hits.hits.map(resItem => resItem._source),
-            count: res.hits.total,
+              : res.body.hits.hits.map(resItem => resItem._source),
+            count: res.body.hits.total,
           });
         })
         .catch(() => {}),
@@ -80,7 +80,9 @@ const useSearchResults = (searchQuery: string) => {
           setSearchInputResults({
             ...searchInputResults,
             list: [
-              ...recipeSearchResponse.hits.hits.map(item => item._source.title),
+              ...recipeSearchResponse.body.hits.hits.map(
+                item => item._source.title
+              ),
               // ...articleSearchResponse.hits.hits.map(  // @todo uncomment these lines when articles are there
               //   item => item._source.title
               // ),
