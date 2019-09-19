@@ -9,9 +9,11 @@ import Rating from '../../Rating';
 import AdaptiveImage from '../../AdaptiveImage';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import { getImageAlt } from 'src/utils';
+import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
 
 const RecipeCard = ({
   recipeId,
+  content,
   content: { title },
   localImage,
   Icon,
@@ -60,7 +62,7 @@ const RecipeCard = ({
   const view = enableSelectFavorite ? (
     <Link
       to={slug}
-      data-componentname="recipeCard"
+      {...getComponentDataAttrs('recipeCard', content)}
       aria-label={title}
       className={wrapClasses}
     >
@@ -82,7 +84,7 @@ const RecipeCard = ({
   ) : (
     <Link
       to={slug}
-      data-componentname="recipeCard"
+      {...getComponentDataAttrs('recipeCard', content)}
       aria-label={title}
       className={wrapClasses}
     >

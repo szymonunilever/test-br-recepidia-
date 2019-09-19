@@ -97,7 +97,7 @@
           "name": "Form",
           "content": {
             "view": "SignUpForm",
-            "title": "Precisa de inspiração para o cardápio da semana?",
+            "title": "Precisa de inspiração na cozinha?",
             "fields": [],
             "submitButton": {
               "label": "Inscreva-se!"
@@ -127,7 +127,7 @@
     "egg_free": "Sem ovos",
     "gluten_free": "Glúten Free",
     "lactose_free": "Zero Lactose",
-    "nut_free": "Livre de nozes",
+    "nut_free": "Sem nozes",
     "paleo_diet": "Paleo diet",
     "pregnancy_safe": "Seguro de gravidez",
     "raw_food": "Comida crua",

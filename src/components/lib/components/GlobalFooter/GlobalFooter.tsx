@@ -2,8 +2,10 @@ import React from 'react';
 import Menu from './partials/Menu';
 import cx from 'classnames';
 import { GlobalFooterProps } from './models';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const GlobalFooter = ({
+  content,
   content: { lists, copyrightText },
   children,
   logoIcon = null,
@@ -12,7 +14,10 @@ const GlobalFooter = ({
   const classNames = cx('global-footer', className);
 
   return (
-    <footer className={classNames} data-componentname="global-footer">
+    <footer
+      className={classNames}
+      {...getComponentDataAttrs('global-footer', content)}
+    >
       {lists.map((list, index) => (
         <Menu list={list} key={index} />
       ))}

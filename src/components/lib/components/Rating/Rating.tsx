@@ -7,6 +7,7 @@ import {
 } from '../../models/ratings&reviews';
 import cx from 'classnames';
 import isBrowser from '../../utils/isBrowser';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const Rating = ({
   className,
@@ -23,7 +24,7 @@ const Rating = ({
   return (
     <>
       {provider === RatingAndReviewsProvider.kritique ? (
-        <div className={classNames} data-componentname="recipe-rating">
+        <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
           <div
             className="rr-widget-container rr-container"
             data-summary-template={RatingSummaryTemplate.inline01}

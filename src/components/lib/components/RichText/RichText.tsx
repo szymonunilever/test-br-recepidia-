@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { RichTextProps } from './models';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RichText = ({
+  content,
   content: { text },
   type = 'html',
   className,
 }: RichTextProps) => {
   return type === 'html' ? (
     <div
-      data-componentname="richText"
+      {...getComponentDataAttrs('richText', content)}
       className={className}
       dangerouslySetInnerHTML={{ __html: text }}
     />
   ) : (
-    <ReactMarkdown data-componentname="richText" className={className}>
+    <ReactMarkdown
+      {...getComponentDataAttrs('richText', content)}
+      className={className}
+    >
       {text}
     </ReactMarkdown>
   );

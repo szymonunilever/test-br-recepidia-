@@ -8,17 +8,13 @@ export enum ButtonViewType {
   icon,
 }
 
-export interface ButtonContent {
-  label?: string;
-}
-
 export interface ButtonProps {
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon?: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   IconSelected?: any;
-  content?: ButtonContent;
+  content?: AppContent.CTAContent;
   role?: string;
   isDisabled?: boolean;
   isSelected?: boolean;
