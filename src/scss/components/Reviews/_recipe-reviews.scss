@@ -255,12 +255,12 @@
             }
             &.helpful {
               &:before {
-                content: 'Yes (';
+                content: 'Sim (';
               }
             }
             &.un-helpful {
               &:before {
-                content: 'No (';
+                content: 'Não (';
               }
             }
           }
