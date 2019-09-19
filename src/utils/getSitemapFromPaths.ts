@@ -48,7 +48,8 @@ export const getSitemapFromPaths = (
     .filter(
       path =>
         path !== ROOT_PATH &&
-        !path.includes('404') &&
+        !path.startsWith('/404') &&
+        !path.startsWith('/dev-404') &&
         !some(EXCLUDED_PATHS, exPath => path.includes(exPath))
     )
     .map(path =>
