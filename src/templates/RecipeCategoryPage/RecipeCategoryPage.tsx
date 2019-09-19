@@ -13,7 +13,7 @@ import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&revi
 import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 import cx from 'classnames';
-import MediaGallery from '../../components/lib/components/MediaGallery';
+// import MediaGallery from '../../components/lib/components/MediaGallery';
 import RichText from '../../components/lib/components/RichText';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
@@ -26,7 +26,6 @@ import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_recipeCategories.scss';
 //TODO: add this part to main page json and remove this import
-import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -145,7 +144,7 @@ const RecipeCategoryPage = ({
           imageSizes={'(min-width: 768px) 500w, 500px'}
         />
       </section>
-      {!!allArticle && allArticle.nodes.length > 0 && (
+      {/* {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">
           <MediaGallery
             // content={findPageComponentContent(
@@ -159,7 +158,7 @@ const RecipeCategoryPage = ({
             onLoadMore={() => {}}
           />
         </section>
-      )}
+      )} */}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
           <Tags
