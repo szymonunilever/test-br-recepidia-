@@ -109,6 +109,7 @@ module.exports = async ({ graphql, createPage, page }) => {
       path: node.fields.slug,
       component,
       context: {
+        title: node.title,
         page,
         recipe: node,
         tags: node.tagGroups.reduce(

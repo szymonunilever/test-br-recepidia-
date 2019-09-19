@@ -2,6 +2,7 @@ declare namespace AppContent {
   interface Page {
     // title: string;
     type: string;
+    title?: string;
     components: {
       items: AppContent.BaseComponent[];
     };

@@ -29,9 +29,9 @@ const Sitemap = ({
         {categoryListsArray[0].map(
           (item: SitemapCategoryEntry, index: number) =>
             wrapBlocks ? (
-              <div className="sitemap__block" key={index}>
+              <span className="sitemap__block" key={index}>
                 <SitemapCategory key={index} item={item} />
-              </div>
+              </span>
             ) : (
               <SitemapCategory key={index} item={item} />
             )
