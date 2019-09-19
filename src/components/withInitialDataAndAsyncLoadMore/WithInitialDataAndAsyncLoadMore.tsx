@@ -5,6 +5,8 @@ import { SearchParams } from 'src/components/lib/components/SearchListing/models
 
 import keys from 'integrations/keys.json';
 import useMedia from 'src/utils/useMedia';
+import _values from 'lodash/values';
+import _compact from 'lodash/compact';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withInitialDataAndAsyncLoadMore = <T extends any>(
@@ -15,6 +17,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       data: { tag, allRecipe, allTag },
       pageContext: { tags, recipeDetails },
     } = props;
+    const hasRecipeDetails = _compact(_values(recipeDetails)).length > 0;
     const countsToBreak = [8, 6];
 
     const initialRecipesCount = useMedia(undefined, countsToBreak);
@@ -97,7 +100,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         setDataFetched(true);
       };
 
-      if (allRecipe.nodes && !allRecipe.nodes.length) {
+      if ((allRecipe.nodes && !allRecipe.nodes.length) || hasRecipeDetails) {
         getRecipeSearchData({
           size: initialRecipesCount,
         }).then(res => {
