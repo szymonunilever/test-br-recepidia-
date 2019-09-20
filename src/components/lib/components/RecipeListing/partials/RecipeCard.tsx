@@ -70,37 +70,30 @@ const RecipeCard = ({
     linkProps['target'] = '_blank';
     // @ts-ignore
     linkProps['href'] = slug;
+    // @ts-ignore
+    linkProps['rel'] = 'noopener noreferrer';
   } else {
     // @ts-ignore
     linkProps['to'] = slug;
   }
-  const view = enableSelectFavorite ? (
+
+  return (
     // @ts-ignore
     <LinkComponent
       {...getComponentDataAttrs('recipeCard', content)}
       {...linkProps}
     >
-      <Button
-        className="recipe-card__favorite"
-        Icon={Icon}
-        isSelected={inFavorite}
-        onClick={onFavoriteToggle}
-        isToggle={true}
-        viewType={ButtonViewType.icon}
-        attributes={{ 'aria-label': 'favorite toggle' }}
-      />
-      {Image}
-      <div className="recipe-card__info">
-        {itemTitle}
-        {RatingWidget}
-      </div>
-    </LinkComponent>
-  ) : (
-    // @ts-ignore
-    <LinkComponent
-      {...getComponentDataAttrs('recipeCard', content)}
-      {...linkProps}
-    >
+      {enableSelectFavorite && (
+        <Button
+          className="recipe-card__favorite"
+          Icon={Icon}
+          isSelected={inFavorite}
+          onClick={onFavoriteToggle}
+          isToggle={true}
+          viewType={ButtonViewType.icon}
+          attributes={{ 'aria-label': 'favorite toggle' }}
+        />
+      )}
       {Image}
       <div className="recipe-card__info">
         {itemTitle}
@@ -108,8 +101,6 @@ const RecipeCard = ({
       </div>
     </LinkComponent>
   );
-
-  return view;
 };
 
 export default RecipeCard;
