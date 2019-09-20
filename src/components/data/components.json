@@ -16,7 +16,7 @@
                   },
                   {
                     "name": "Todas as receitas",
-                    "path": "/receitas"
+                    "path": "/receita"
                   }
                 ]
               },

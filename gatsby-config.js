@@ -5,7 +5,7 @@ const integrations = require('./integrations/keys.json');
 
 module.exports = {
   siteMetadata: {
-    title: 'Recipedia',
+    title: 'Recepedia',
     author: 'Unilever',
     description: 'Recipedia application',
     siteUrl: 'https://recipedia.netlify.com/',

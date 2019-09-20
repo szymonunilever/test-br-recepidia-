@@ -8,6 +8,10 @@ import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 const RecipeHero = ({ content, className, imageSizes }: RecipeHeroProps) => {
   const containerStyles = cx('recipe-hero', className, theme.container);
   const imageStyles = cx('recipe-hero__image', theme.image);
+  const title =
+    content.title.split(' ').length > 1
+      ? content.title
+      : `Receita: ${content.title}`;
 
   return (
     <div {...getComponentDataAttrs('recipe-hero')} className={containerStyles}>
@@ -15,7 +19,7 @@ const RecipeHero = ({ content, className, imageSizes }: RecipeHeroProps) => {
         <AdaptiveImage
           localImage={content.localImage}
           sizes={imageSizes}
-          alt={content.title}
+          alt={title}
         />
       </div>
     </div>
