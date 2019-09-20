@@ -592,13 +592,6 @@
             }
           },
           {
-            "name": "PageListing",
-            "content": {
-              "view": "RecipeCategories",
-              "title": "Confira as receitas mais recentes"
-            }
-          },
-          {
             "name": "RecipeListing",
             "content": {
               "view": "AllRecipes",
