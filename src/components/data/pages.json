@@ -176,7 +176,7 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
                           "alt": "Sem produtos de origem animal"
                         }
                       }
@@ -186,7 +186,7 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
                           "alt": "Sem carne"
                         }
                       }
@@ -196,7 +196,7 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
                           "alt": "Sem ovo"
                         }
                       }
@@ -206,7 +206,7 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
                           "alt": "Sem leite"
                         }
                       }
@@ -216,7 +216,7 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
                           "alt": "Sem açúcar"
                         }
                       }
@@ -226,7 +226,7 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
                           "alt": "Sem lactose"
                         }
                       }
@@ -236,7 +236,7 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
                           "alt": "Sem glúten"
                         }
                       }
@@ -246,7 +246,7 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
                           "alt": "Sem frutos do mar"
                         }
                       }
@@ -256,7 +256,7 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
                           "alt": "Sem soja"
                         }
                       }
@@ -368,7 +368,7 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
+        "title": "Recepedia - E sua receita, qual é?",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -659,8 +659,8 @@
         ]
       },
       "seo": {
-        "title": "AllRecipes",
-        "description": "Recepedia AllRecipes description",
+        "title": "Todas as receitas",
+        "description": "Confira aqui todas as receitas disponíves em Recepedia e encontre a sua.",
         "meta": [
           {
             "name": "og:image",
@@ -873,7 +873,7 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
+        "title": "Procurar",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -932,8 +932,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Precisando de ajuda?",
+        "description": "Conheça os canais de atendimento e fale com a equipe Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -1165,8 +1165,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Preencha o formulário de contato",
+        "description": "Entre em contato com a equipe Recepedia e tire suas dúvidas",
         "meta": [
           {
             "name": "og:image",
@@ -1443,7 +1443,7 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
                           "alt": "Sem produtos de origem animal"
                         }
                       }
@@ -1453,7 +1453,7 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
                           "alt": "Sem carne"
                         }
                       }
@@ -1463,7 +1463,7 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
                           "alt": "Sem ovo"
                         }
                       }
@@ -1473,7 +1473,7 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
                           "alt": "Sem leite"
                         }
                       }
@@ -1483,7 +1483,7 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
                           "alt": "Sem açúcar"
                         }
                       }
@@ -1493,7 +1493,7 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
                           "alt": "Sem lactose"
                         }
                       }
@@ -1503,7 +1503,7 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
                           "alt": "Sem glúten"
                         }
                       }
@@ -1513,7 +1513,7 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
                           "alt": "Sem frutos do mar"
                         }
                       }
@@ -1523,7 +1523,7 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
                           "alt": "Sem soja"
                         }
                       }
@@ -1884,8 +1884,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -2197,8 +2197,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Planejamento da semana - Recepedia",
+        "description": "Crie o seu cardápio personalizado com a ajuda de Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -2223,7 +2223,7 @@
       },
       "seo": {
         "title": "Mapa do site",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "description": "Navegue pelas categorias de receitas de Recepedia e prepare o seu prato favorito",
         "meta": [
           {
             "name": "og:image",
