@@ -905,15 +905,6 @@
           {
             "name": "Card",
             "content": {
-              "view": "Email",
-              "title": "Nosso e-mail",
-              "texts": ["sac@atendimentounilever.com "],
-              "type": "email"
-            }
-          },
-          {
-            "name": "Card",
-            "content": {
               "view": "Address",
               "title": "Endereço",
               "texts": [
@@ -929,7 +920,7 @@
               "view": "Contact",
               "title": "Preencha o formulário",
               "texts": [
-                "Se você precisar de mais respostas ou nos mandar algo, por favor preencha o formulário de contato"
+                "Por favor favor, preencha o formulário e entraremos em contato em breve!"
               ],
               "type": "text",
               "cta": {
@@ -995,8 +986,8 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     {
-                      "label": "Dúvidas sobre receitas",
-                      "value": "Dúvidas sobre receitas"
+                      "label": "Dúvidas sobre produtos",
+                      "value": "Dúvidas sobre produtos"
                     },
                     {
                       "label": "Outras dúvidas",
@@ -2232,6 +2223,40 @@
       },
       "seo": {
         "title": "Mapa do site",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "NewsletterSignUp",
+      "relativePath": "/newsletter-signup",
+      "components": {
+        "items": []
+      },
+      "seo": {
+        "title": "Newsletter SignUp",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "PreferenceCenter",
+      "relativePath": "/preference-center",
+      "components": {
+        "items": []
+      },
+      "seo": {
+        "title": "Preferences",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {

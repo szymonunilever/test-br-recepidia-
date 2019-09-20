@@ -6,6 +6,7 @@ const RecipeFields = `
       slug
     }
     id
+    averageRating
     ingredients {
       title
       list {
@@ -24,7 +25,6 @@ const RecipeFields = `
         description
         position
       }
-
     }
     recipeDetails {
       preperationTime

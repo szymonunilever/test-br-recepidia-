@@ -7,6 +7,7 @@ export const query = graphql`
       slug
     }
     id
+    averageRating
     ingredients {
       title
       list {
