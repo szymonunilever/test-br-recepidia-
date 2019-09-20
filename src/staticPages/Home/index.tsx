@@ -214,7 +214,7 @@ export default HomePage;
 export const pageQuery = graphql`
   {
     latestAndGrates: allRecipe(
-      sort: { order: DESC, fields: creationTime }
+      sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
       limit: 6
     ) {
       nodes {
@@ -222,7 +222,11 @@ export const pageQuery = graphql`
       }
     }
 
-    topRecipes: allRecipe(limit: 6) {
+    topRecipes: allRecipe(
+      sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
+      limit: 6
+      skip: 6
+    ) {
       nodes {
         ...RecipeFields
       }

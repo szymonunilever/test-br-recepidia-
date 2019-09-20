@@ -70,7 +70,6 @@ const Select = ({
           onClick={(e: React.MouseEvent<HTMLElement>) => {
             e.preventDefault();
             methods.addItem(item);
-            setValues([item]);
           }}
           className={props.className}
           item={item}
