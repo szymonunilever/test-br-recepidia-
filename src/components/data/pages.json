@@ -368,7 +368,7 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
+        "title": "Recepedia - E sua receita, qual é?",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -659,8 +659,8 @@
         ]
       },
       "seo": {
-        "title": "AllRecipes",
-        "description": "Recepedia AllRecipes description",
+        "title": "Todas as receitas",
+        "description": "Confira aqui todas as receitas disponíves em Recepedia e encontre a sua.",
         "meta": [
           {
             "name": "og:image",
@@ -873,7 +873,7 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
+        "title": "Procurar",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -932,8 +932,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Precisando de ajuda?",
+        "description": "Conheça os canais de atendimento e fale com a equipe Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -951,7 +951,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "ContactForm",
-              "title": "Precisando de ajuda?",
+              "title": "Entre em contato conosco.",
               "submitButton": {
                 "label": "Enviar"
               },
@@ -1165,8 +1165,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Preencha o formulário de contato",
+        "description": "Entre em contato com a equipe Recepedia e tire suas dúvidas",
         "meta": [
           {
             "name": "og:image",
@@ -1312,7 +1312,7 @@
               "tabsHeaderContent": {
                 "contents": [
                   {
-                    "heading": "Favoritas",
+                    "heading": "Receitas favoritas",
                     "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
@@ -1884,8 +1884,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Recepedia - E sua receita, qual é?",
+        "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -2197,8 +2197,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Planejamento da semana - Recepedia",
+        "description": "Crie o seu cardápio personalizado com a ajuda de Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -2223,7 +2223,7 @@
       },
       "seo": {
         "title": "Mapa do site",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "description": "Navegue pelas categorias de receitas de Recepedia e prepare o seu prato favorito",
         "meta": [
           {
             "name": "og:image",
