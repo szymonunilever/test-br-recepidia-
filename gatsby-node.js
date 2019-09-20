@@ -15,6 +15,7 @@ const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 const constants = require('./scripts/constants');
 const getStaticLists = require('./scripts/build/getStaticLists');
+const getRedirectRules = require('./scripts/build/getRedirectRules');
 const generateRedirectMap = require('./scripts/build/generateRedirectMap');
 
 const urlPartialsByTypeMap = {
@@ -89,12 +90,47 @@ exports.onCreateNode = async ({
 
   switch (node.internal.type) {
     case constants.NODE_TYPES.RECIPE:
-      createSlugFor({
-        path: getPagePath(constants.TEMPLATE_PAGE_TYPES.RECIPE),
-        node,
-        createNodeField,
-        prependWithField: 'recipeId',
-      });
+      {
+        const dishGroup = node.tagGroups.find(({ name }) => name === 'dishes');
+        const dishName = get(dishGroup, 'tags[0].name');
+        // const recipeNodes = getNodesByType(constants.NODE_TYPES.RECIPE);
+        // const recipesWithTheSameTitle = recipeNodes.filter(
+        //   ({ title, recipeId }) =>
+        //     title.toLowerCase() === node.title.toLowerCase() &&
+        //     recipeId !== node.recipeId
+        // );
+        // recipesWithTheSameTitle.length &&
+        //   console.log({
+        //     duplicates: recipesWithTheSameTitle.map(
+        //       ({ title, recipeId, tagGroups }) => ({
+        //         title,
+        //         recipeId,
+        //         dishName: tagGroups.find(({ name }) => name === 'dishes')
+        //           .tags[0].name,
+        //       })
+        //     ),
+        //     origin: {
+        //       title: node.title,
+        //       recipeId: node.recipeId,
+        //       dishName,
+        //     },
+        //   });
+
+        // [107026, 173884].includes(node.recipeId) &&
+        //   console.log({
+        //     title: node.title,
+        //     recipeId: node.recipeId,
+        //     dishName,
+        //   });
+        createSlugFor({
+          path: `${getPagePath(
+            constants.TEMPLATE_PAGE_TYPES.RECIPE
+          )}${addTrailingSlash(dishName || 'dish')}`,
+          node,
+          createNodeField,
+          prependWithField: 'recipeId',
+        });
+      }
       break;
     case constants.NODE_TYPES.TAG:
       createSlugFor({
@@ -379,63 +415,7 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
       ],
       oldDomain: 'https://br.recepedia.com',
       JMESPathToUrls: `"ns1:urlset"."ns1:url"[]."ns1:loc"`,
-      redirectRules: [
-        {
-          from: '/receita/[0-9]*-(?<name>.+)',
-          to: '/receitas/[0-9]*-?<name>$',
-          otherwise: '/receitas',
-        },
-        {
-          from: '/dietas-especiais/(?<name>.+)',
-          to: '/receitas-categorias/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/dietas-especiais/(?<name>.+)',
-          to: '/hub-de-conteudo/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/tipos-de-receita/(?<name>.+)',
-          to: '/receitas-categorias/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/tipos-de-receita/(?<name>.+)',
-          to: '/hub-de-conteudo/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/tipos-de-prato/(?<name>.+)',
-          to: '/receitas-categorias/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/tipos-de-prato/(?<name>.+)',
-          to: '/hub-de-conteudo/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/momentos/(?<name>.+)',
-          to: '/receitas-categorias/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/momentos/(?<name>.+)',
-          to: '/hub-de-conteudo/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/cozinha/(?<name>.+)',
-          to: '/receitas-categorias/?<name>$',
-          otherwise: '/',
-        },
-        {
-          from: '/cozinha/(?<name>.+)',
-          to: '/hub-de-conteudo/?<name>$',
-          otherwise: '/',
-        },
-      ],
+      redirectRules: getRedirectRules(),
       otherwiseRedirectTo: '/',
     };
 

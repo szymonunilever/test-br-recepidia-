@@ -36,6 +36,7 @@ export interface RecipeListingProps
   imageSizes: string;
   onViewChange?: onRecipeListingViewChanged;
   dataFetched?: boolean;
+  isExternalItemLink?: boolean;
 }
 
 export type onRecipeListingViewChanged = (
@@ -69,4 +70,5 @@ export interface RecipeListingCarouselProps {
   config: CarouselConfig;
   ratingProvider?: RatingAndReviewsProvider;
   imageSizes: string;
+  isExternalRecipeLink?: boolean;
 }

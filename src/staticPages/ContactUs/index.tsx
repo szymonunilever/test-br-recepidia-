@@ -7,7 +7,6 @@ import Layout from '../../components/Layout/Layout';
 import Card from '../../components/lib/components/Card';
 import { TagName, Text } from '../../components/lib/components/Text';
 import theme from './ContactUs.module.scss';
-import { ReactComponent as Email } from 'src/svgs/inline/email.svg';
 import { ReactComponent as MapMarker } from 'src/svgs/inline/map-marker.svg';
 import { WindowLocation } from '@reach/router';
 // Component Styles
@@ -35,13 +34,6 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
         />
         <div className={theme.cardholder}>
           <div className={theme.cardholderItem}>
-            <Card
-              className="card"
-              titleLevel={2}
-              content={findPageComponentContent(components, 'Card', 'Email')}
-              Icon={Email}
-            />
-
             <Card
               className="card"
               titleLevel={2}

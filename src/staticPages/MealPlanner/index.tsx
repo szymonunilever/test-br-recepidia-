@@ -153,6 +153,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     arrowIcon: <ArrowIcon />,
                   }}
                   imageSizes={'(min-width: 768px) 600w, 600px'}
+                  isExternalItemLink={true}
                 />
                 <div className="wizard__buttons">
                   <Link
