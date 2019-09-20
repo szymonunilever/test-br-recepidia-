@@ -31,7 +31,7 @@ export async function searchTopRecipes(
   );
 
   const { hits } = await getPersonalizationSearchData(queryString, {
-    from: FROM,
+    from: FROM + RESULT_SIZE,
     size: RESULT_SIZE,
     sort: [
       { averageRating: { order: 'desc' } },
@@ -81,7 +81,7 @@ export async function searchLatestAndGratest(
   });
   if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;
-    return searchTopRecipes(j, resultNumber, defaults);
+    return searchLatestAndGratest(j, resultNumber, defaults);
   } else if (hits.total < resultNumber && i >= maxTry - 1) {
     return defaults;
   } else {
