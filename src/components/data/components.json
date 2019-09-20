@@ -70,6 +70,10 @@
                     "path": "https://www.unilever.com.br/legal.html"
                   },
                   {
+                    "name": "Termos de Uso",
+                    "path": "/terms-conditions"
+                  },
+                  {
                     "name": "Mapa do site",
                     "path": "/mapa-do-site"
                   }
