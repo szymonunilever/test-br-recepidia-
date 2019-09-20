@@ -291,24 +291,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
               transform: none;
             }
           }
-          @include respondTo(desktop) {
-            & > .submenu {
-              overflow: hidden;
-              visibility: hidden;
-            }
-          }
-        }
-        &:hover {
-          @include respondTo(desktop) {
-            .menu__dropdown-icon {
-              transform: rotate(180deg);
-            }
-            & > .submenu {
-              overflow: visible;
-              visibility: visible;
-              height: auto;
-            }
-          }
         }
       }
     }
@@ -380,7 +362,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
       width: auto;
       min-width: 180px;
       border-radius: 5px;
-      padding: 10px 0;
+      padding: 0;
     }
 
     &.is-opened {
@@ -388,10 +370,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
       padding: 10px 0 0;
       overflow: visible;
       visibility: visible;
-      @include respondTo(desktop) {
-        height: auto;
-        padding: 10px 0;
-      }
     }
 
     &__link {
@@ -427,9 +405,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
           .submenu {
             &.is-opened {
               padding: 12px 0 0;
-              @include respondTo(desktop) {
-                padding: 10px 0;
-              }
             }
           }
         }
@@ -447,7 +422,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
           display: block;
           border-radius: 5px;
           @include respondTo(desktop) {
-            padding: 10px 0;
+            padding: 0;
             position: absolute;
             left: 100%;
             top: 0;
@@ -455,9 +430,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
 
           &.is-opened {
             padding: 12px 0 32px;
-            @include respondTo(desktop) {
-              padding: 10px 0;
-            }
           }
         }
 
@@ -529,41 +501,46 @@ $submenu-text-color-desktop: $fish-blue-darker;
               visibility: visible;
             }
           }
-
-          @include respondTo(desktop) {
-            .submenu__dropdown-icon {
-              &:before {
-                visibility: visible;
-              }
-              &:after {
-                visibility: hidden;
-              }
-            }
-            & > .submenu {
-              overflow: hidden;
-              visibility: hidden;
-            }
-          }
         }
         &:hover {
           @include respondTo(desktop) {
             .submenu__dropdown-icon {
               transform: rotate(-90deg);
-              &:before {
-                visibility: hidden;
-              }
-              &:after {
-                visibility: visible;
-              }
               .dropdown-icon {
                 fill: $black-blue;
               }
             }
-            & > .submenu {
-              overflow: visible;
-              visibility: visible;
-              height: auto;
-            }
+          }
+        }
+      }
+    }
+  }
+
+  //desktop menu animation
+  .menu {
+    .has-submenu {
+      @include respondTo(desktop) {
+        .submenu {
+          visibility: hidden;
+          opacity: 0;
+          max-height: 0;
+          height: auto;
+          transition: max-height 500ms 500ms ease, visibility 0ms 300ms ease,
+            opacity 200ms;
+        }
+      }
+      &:hover {
+        @include respondTo(desktop) {
+          .menu__dropdown-icon {
+            transform: rotate(180deg);
+          }
+          & > .submenu {
+            overflow: visible;
+            visibility: visible;
+            max-height: 1000px;
+            padding: 10px 0;
+            opacity: 1;
+            transition: max-height 500ms ease, opacity 200ms;
           }
         }
       }
