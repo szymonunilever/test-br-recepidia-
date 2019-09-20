@@ -136,7 +136,10 @@
     "pregnancy_safe": "Seguro de gravidez",
     "raw_food": "Comida crua",
     "wheat_free": "Sem trigo",
-    "vegan": "Vegano",
-    "vegetarian": "Vegetariana"
+    "vegan": "Sem origem animal",
+    "vegetarian": "Sem carne",
+    "no seafood": "Sem frutos do mar",
+    "no soy": "Sem soja",
+    "zero açúcar": "Zero açúcar"
   }
 }
