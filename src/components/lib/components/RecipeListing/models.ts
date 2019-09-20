@@ -40,12 +40,12 @@ export interface RecipeListingProps
 
 export type onRecipeListingViewChanged = (
   tags: Internal.Tag[],
-  sortingOption: string
+  sortingOption: any
 ) => Promise<void>;
 
 export type onLoadMore = (
   tags: Internal.Tag[],
-  sortingOption: string,
+  sortingOption: any,
   size: number
 ) => Promise<void>;
 

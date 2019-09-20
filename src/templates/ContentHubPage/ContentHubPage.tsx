@@ -13,7 +13,7 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 
 import cx from 'classnames';
-import MediaGallery from '../../components/lib/components/MediaGallery';
+// import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -110,7 +110,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           imageSizes={'(min-width: 768px) 300w, 300px'}
         />
       </section>
-      {!!allArticle && allArticle.nodes.length > 0 && (
+      {/* {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40 wrapper">
           <MediaGallery
             // content={findPageComponentContent(
@@ -124,7 +124,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             onLoadMore={() => {}}
           />
         </section>
-      )}
+      )} */}
       <section className={theme.tagList}>
         <Tags
           list={tagList}
