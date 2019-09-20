@@ -995,8 +995,8 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     {
-                      "label": "Dúvidas sobre receitas",
-                      "value": "Dúvidas sobre receitas"
+                      "label": "Dúvidas sobre produtos",
+                      "value": "Dúvidas sobre produtos"
                     },
                     {
                       "label": "Outras dúvidas",
