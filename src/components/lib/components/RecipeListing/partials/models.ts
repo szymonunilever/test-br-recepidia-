@@ -45,7 +45,7 @@ export const RecipeSortingOptionsFieldsMappings = {
   [RecipeSortingOptions.newest]: 'creationTime',
   [RecipeSortingOptions.preparationTime]: 'recipeDetails.preperationTime',
   [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
-  [RecipeSortingOptions.averageRating]: 'rating.averageRating',
+  [RecipeSortingOptions.averageRating]: [{ averageRating: { order: 'desc' } }],
   [RecipeSortingOptions.title]: 'title.keyword',
 };
 
