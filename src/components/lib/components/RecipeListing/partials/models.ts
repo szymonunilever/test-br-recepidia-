@@ -19,6 +19,7 @@ export interface RecipeCardProps
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider: RatingAndReviewsProvider;
   imageSizes: string;
+  isExternalLink?: boolean;
 }
 
 export interface RecipeListingTrivialProps
