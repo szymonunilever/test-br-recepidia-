@@ -16,7 +16,7 @@
                   },
                   {
                     "name": "Todas as receitas",
-                    "path": "/receitas"
+                    "path": "/receita"
                   }
                 ]
               },
@@ -68,6 +68,10 @@
                   {
                     "name": "Termos",
                     "path": "https://www.unilever.com.br/legal.html"
+                  },
+                  {
+                    "name": "Termos de Uso",
+                    "path": "/terms-conditions"
                   },
                   {
                     "name": "Mapa do site",
