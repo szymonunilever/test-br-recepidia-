@@ -951,7 +951,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "ContactForm",
-              "title": "Precisando de ajuda?",
+              "title": "Entre em contato conosco.",
               "submitButton": {
                 "label": "Enviar"
               },
@@ -1312,7 +1312,7 @@
               "tabsHeaderContent": {
                 "contents": [
                   {
-                    "heading": "Favoritas",
+                    "heading": "Receitas favoritas",
                     "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
