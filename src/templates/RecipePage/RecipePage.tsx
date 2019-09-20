@@ -50,11 +50,7 @@ import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
 import useMedia from 'src/utils/useMedia';
-import {
-  updateFavorites,
-  getUserProfileByKey,
-  saveUserProfileByKey,
-} from 'src/utils/browserStorage';
+import { updateFavorites, getUserProfileByKey } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import get from 'lodash/get';
 import remove from 'lodash/remove';
@@ -418,6 +414,7 @@ export const query = graphql`
         ...TagFields
       }
     }
+
     relatedRecipes: allRecipe(
       limit: 6
       sort: { order: ASC, fields: creationTime }

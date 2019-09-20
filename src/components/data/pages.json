@@ -380,7 +380,7 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/receitas",
+      "relativePath": "/receita",
       "components": {
         "items": [
           {
@@ -523,7 +523,7 @@
     },
     {
       "type": "RecipeCategory",
-      "relativePath": "/receitas-categorias",
+      "relativePath": "/categoria",
       "components": {
         "items": [
           {
@@ -581,7 +581,7 @@
     },
     {
       "type": "AllRecipes",
-      "relativePath": "/receitas",
+      "relativePath": "/receita",
       "components": {
         "items": [
           {
@@ -671,7 +671,7 @@
     },
     {
       "type": "ContentHub",
-      "relativePath": "/hub-de-conteudo",
+      "relativePath": "/",
       "components": {
         "items": [
           {
