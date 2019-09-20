@@ -24,6 +24,7 @@ const RecipeCard = ({
   onFavoriteChange,
   ratingProvider,
   imageSizes,
+  isExternalLink = false,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -59,12 +60,25 @@ const RecipeCard = ({
       sizes={imageSizes}
     />
   );
+  const LinkComponent = isExternalLink ? 'a' : Link;
+  const linkProps = {
+    'aria-label': title,
+    className: wrapClasses,
+  };
+  if (isExternalLink) {
+    // @ts-ignore
+    linkProps['target'] = '_blank';
+    // @ts-ignore
+    linkProps['href'] = slug;
+  } else {
+    // @ts-ignore
+    linkProps['to'] = slug;
+  }
   const view = enableSelectFavorite ? (
-    <Link
-      to={slug}
+    // @ts-ignore
+    <LinkComponent
       {...getComponentDataAttrs('recipeCard', content)}
-      aria-label={title}
-      className={wrapClasses}
+      {...linkProps}
     >
       <Button
         className="recipe-card__favorite"
@@ -80,20 +94,19 @@ const RecipeCard = ({
         {itemTitle}
         {RatingWidget}
       </div>
-    </Link>
+    </LinkComponent>
   ) : (
-    <Link
-      to={slug}
+    // @ts-ignore
+    <LinkComponent
       {...getComponentDataAttrs('recipeCard', content)}
-      aria-label={title}
-      className={wrapClasses}
+      {...linkProps}
     >
       {Image}
       <div className="recipe-card__info">
         {itemTitle}
         {RatingWidget}
       </div>
-    </Link>
+    </LinkComponent>
   );
 
   return view;

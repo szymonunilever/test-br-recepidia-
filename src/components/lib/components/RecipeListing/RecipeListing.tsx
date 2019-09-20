@@ -54,6 +54,7 @@ export const RecipeListing = ({
     ],
   },
   imageSizes,
+  isExternalItemLink = false,
 }: RecipeListingProps) => {
   let loadButtonRef = React.createRef();
   const isAsyncLoadMore = () =>
@@ -252,6 +253,7 @@ export const RecipeListing = ({
         // @ts-ignore
         titleLevel={titleLevel + 1}
         imageSizes={imageSizes}
+        isExternalRecipeLink={isExternalItemLink}
       />
     ) : (
       <>

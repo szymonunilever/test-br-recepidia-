@@ -103,7 +103,7 @@ const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
       {}
     ).name,
     recipeCategory: getCategoryByTags(recipe.tagGroups),
-    // aggreagateRating @todo apply when data comes from BE
+    aggreagateRating: recipe.averageRating,
   };
 
   return showAsText ? (
