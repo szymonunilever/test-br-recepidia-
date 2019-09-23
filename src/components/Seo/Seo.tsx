@@ -37,7 +37,7 @@ function SEO({
     (description || site.siteMetadata.description)
       .replace(/<*.\/?>/, '')
       .replace(/<\/*.>/, ''),
-    { length: 160 }
+    { length: 150 }
   );
 
   return (
