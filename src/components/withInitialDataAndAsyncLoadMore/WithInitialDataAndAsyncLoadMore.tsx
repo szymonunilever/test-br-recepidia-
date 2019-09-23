@@ -18,6 +18,8 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       pageContext: { tags, recipeDetails },
     } = props;
     const hasRecipeDetails = _compact(_values(recipeDetails)).length > 0;
+    const isAsyncInitialDataLoading =
+      (allRecipe.nodes && !allRecipe.nodes.length) || hasRecipeDetails;
     const countsToBreak = [8, 6];
 
     const initialRecipesCount = useMedia(undefined, countsToBreak);
@@ -25,7 +27,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       Internal.Recipe[]
     >([]);
     const [recipeResultsCount, setRecipeResultsCount] = useState<number>(
-      allRecipe.totalCount
+      isAsyncInitialDataLoading ? 0 : allRecipe.totalCount
     );
     const [tagList, setTagList] = useState<Internal.Tag[]>([]);
     const [dataFetched, setDataFetched] = useState(false);
@@ -100,7 +102,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         setDataFetched(true);
       };
 
-      if ((allRecipe.nodes && !allRecipe.nodes.length) || hasRecipeDetails) {
+      if (isAsyncInitialDataLoading) {
         getRecipeSearchData({
           size: initialRecipesCount,
         }).then(res => {

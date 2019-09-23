@@ -37,6 +37,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+
   const quizContent = findPageComponentContent(components, 'Wizard');
   const introContent = {
     title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')

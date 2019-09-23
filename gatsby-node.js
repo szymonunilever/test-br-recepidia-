@@ -125,7 +125,7 @@ exports.onCreateNode = async ({
         createSlugFor({
           path: `${getPagePath(
             constants.TEMPLATE_PAGE_TYPES.RECIPE
-          )}${addTrailingSlash(dishName || 'dish')}`,
+          )}${addTrailingSlash(formatUrlPartial(dishName || 'dish'))}`,
           node,
           createNodeField,
           prependWithField: 'recipeId',
@@ -234,7 +234,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const createPageFromTemplate = (edge, page) => {
     const slug = addTrailingSlash(edge.node.fields.slug);
-
     createPage({
       path: slug,
       component: getPageTemplate(page.type),
@@ -243,6 +242,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edge,
         slug,
         name: edge.node.name,
+        title: get(edge, 'node.title'),
         nextSlug: addTrailingSlash(get(edge, 'next.fields.slug')),
         previousSlug: addTrailingSlash(get(edge, 'previous.fields.slug')),
       },
@@ -253,11 +253,11 @@ exports.createPages = async ({ graphql, actions }) => {
     graphql,
     createPage: page => {
       const slug = addTrailingSlash(page.relativePath);
-
       createPage({
         path: slug,
         component: getPageTemplate(page.type),
         context: {
+          title: get(page, 'title'),
           slug,
           page,
           ...getStaticLists(page.components.items),
@@ -405,10 +405,7 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
     // The config can be moved to AEM/config file or any place
     // Generation script works independently of the application and doesn't have any references outside
     const config = {
-      newUrls: getNodes()
-        .filter(item => item.fields && item.fields.slug)
-        .map(item => item.fields.slug),
-      pageNodes: getNodes(),
+      newUrls: getNodesByType('SitePage').map(item => item.path),
       oldSitemapPath: [
         './old-sitemap/old-sitemap-1.xml',
         './old-sitemap/old-sitemap-2.xml',

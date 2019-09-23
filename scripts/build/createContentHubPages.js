@@ -9,6 +9,7 @@ module.exports = async ({ graphql, createPage }) => {
             }
             tagId
             name
+            title
           }
         }
       }
