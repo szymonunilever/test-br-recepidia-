@@ -14,7 +14,6 @@ import RecipeAttributes, {
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
-import { ReactComponent as RecipeKnife } from 'src/svgs/inline/recipe-chop.svg';
 import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
 import RecipeNutrients, {
   RecipeNutrientsViewType,
@@ -246,11 +245,9 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                 visible={[
                   RecipeAttributesKeys.serves,
                   RecipeAttributesKeys.cookTime,
-                  RecipeAttributesKeys.preperationTime,
                   RecipeAttributesKeys.difficulties,
                 ]}
                 icons={{
-                  preperationTime: RecipeKnife,
                   cookTime: RecipeClock,
                   serves: RecipePeople,
                   difficulties: RecipeDifficulty,
