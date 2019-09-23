@@ -1,6 +1,6 @@
 export interface SitemapCategoryEntry {
   title: string;
-  path: string;
+  path: string | null;
   categoryItems?: SitemapCategoryEntry[];
 }
 

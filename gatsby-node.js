@@ -234,7 +234,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const createPageFromTemplate = (edge, page) => {
     const slug = addTrailingSlash(edge.node.fields.slug);
-
     createPage({
       path: slug,
       component: getPageTemplate(page.type),
@@ -243,6 +242,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edge,
         slug,
         name: edge.node.name,
+        title: get(edge, 'node.title'),
         nextSlug: addTrailingSlash(get(edge, 'next.fields.slug')),
         previousSlug: addTrailingSlash(get(edge, 'previous.fields.slug')),
       },
@@ -253,11 +253,11 @@ exports.createPages = async ({ graphql, actions }) => {
     graphql,
     createPage: page => {
       const slug = addTrailingSlash(page.relativePath);
-
       createPage({
         path: slug,
         component: getPageTemplate(page.type),
         context: {
+          title: get(page, 'title'),
           slug,
           page,
           ...getStaticLists(page.components.items),

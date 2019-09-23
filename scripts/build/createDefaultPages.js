@@ -49,6 +49,7 @@ module.exports = async ({ graphql, createPage }) => {
           }
           type
           relativePath
+          title
           seo {
             title
             description

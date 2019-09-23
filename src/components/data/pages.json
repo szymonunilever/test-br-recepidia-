@@ -3,6 +3,7 @@
   "pages": [
     {
       "type": "Home",
+      "title": "Bem-vindo ao Recepedia",
       "relativePath": "/",
       "components": {
         "items": [
@@ -581,6 +582,7 @@
     },
     {
       "type": "AllRecipes",
+      "title": "Receitas",
       "relativePath": "/receita",
       "components": {
         "items": [
@@ -878,6 +880,7 @@
     },
     {
       "type": "ContactUs",
+      "title": "Fale Comigo",
       "relativePath": "/fale-comigo",
       "components": {
         "items": [
@@ -937,6 +940,7 @@
     },
     {
       "type": "ContactForm",
+      "title": "Formulário de contato",
       "relativePath": "/formulario-de-contato",
       "components": {
         "items": [
@@ -1889,6 +1893,7 @@
     },
     {
       "type": "AboutUs",
+      "title": "Sobre Recepedia",
       "relativePath": "/sobre-recepedia",
       "components": {
         "items": [
@@ -1936,6 +1941,7 @@
     },
     {
       "type": "MealPlanner",
+      "title": "Planejamento semanal",
       "relativePath": "/planejamento-da-semana",
       "components": {
         "items": [
@@ -2202,6 +2208,7 @@
     },
     {
       "type": "Sitemap",
+      "title": "Mapa do site",
       "relativePath": "/mapa-do-site",
       "components": {
         "items": [
