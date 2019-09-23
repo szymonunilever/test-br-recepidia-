@@ -36,16 +36,19 @@ module.exports = async ({
     return;
   }
 
-  const oldUrls = urls.map(item => item.replace(oldDomain, ''));
+  const oldUrls = urls.map(url => url.replace(oldDomain, ''));
   const unmappedUrls = [...newUrls];
   const redirects = [];
 
-  oldUrls.forEach(item => {
-    let isUrlMatched = false;
-    const urlRedirects = [];
+  for (let url of oldUrls) {
+    if (newUrls.find(newUrl => newUrl === url || newUrl === `${url}/`)) {
+      continue;
+    }
 
+    const urlRedirects = [];
     for (let rule of redirectRules) {
-      const result = item.match(rule.from);
+      const result = url.match(rule.from);
+
       if (result) {
         let redirectToRule = rule.to;
 
@@ -62,13 +65,13 @@ module.exports = async ({
         const mathchedUrl = newUrls.find(url => url.match(redirectToRule));
 
         if (mathchedUrl) {
-          urlRedirects.push({ from: item, to: mathchedUrl });
+          urlRedirects.push({ from: url, to: mathchedUrl });
           unmappedUrls.splice(unmappedUrls.indexOf(mathchedUrl), 1);
           // only one redirect URL is available which is not isOtherwise so the first matched URL will be used
           break;
         } else {
           urlRedirects.push({
-            from: item,
+            from: url,
             to: rule.otherwise,
             ['isOtherwise']: true,
           });
@@ -86,9 +89,9 @@ module.exports = async ({
         : otherwiseRedirects[0];
       redirects.push(appliedRedirect);
     } else {
-      redirects.push({ from: item, to: otherwiseRedirectTo });
+      redirects.push({ from: url, to: otherwiseRedirectTo });
     }
-  });
+  }
 
   // For debug purposes only
   fs.writeFileSync('unmappedNewUrls.txt', unmappedUrls.join('\n'));
