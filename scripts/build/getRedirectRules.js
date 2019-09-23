@@ -19,7 +19,7 @@ const getFromCategoryOrTag = oldSiteFromUrlPartial => {
     },
     {
       from,
-      to: '/?<name>$/',
+      to: '/?<name>/$',
       otherwise: '/',
     },
   ];
