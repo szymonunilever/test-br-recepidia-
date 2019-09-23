@@ -27,11 +27,6 @@ const getFromCategoryOrTag = oldSiteFromUrlPartial => {
 
 const getRedirectRules = () => [
   {
-    from: '/(?<name>.+)',
-    to: '/?<name>/$',
-    otherwise: '/',
-  },
-  {
     from: '/receita/[0-9]*-(?<name>.+)',
     to: '/receita/.*/[0-9]*-?<name>/$',
     otherwise: '/receita/',
