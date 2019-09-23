@@ -4,6 +4,7 @@ const fs = require('fs');
 const parser = require('xml2json');
 const jmespath = require('jmespath');
 const keys = require('lodash/keys');
+const partition = require('lodash/partition');
 
 module.exports = async ({
   newUrls,
@@ -41,8 +42,9 @@ module.exports = async ({
 
   oldUrls.forEach(item => {
     let isUrlMatched = false;
+    const urlRedirects = [];
 
-    redirectRules.forEach(rule => {
+    for (let rule of redirectRules) {
       const result = item.match(rule.from);
       if (result) {
         let redirectToRule = rule.to;
@@ -57,19 +59,33 @@ module.exports = async ({
           );
         }
 
-        const mathcedUrl = newUrls.find(url => url.match(redirectToRule));
-        if (mathcedUrl) {
-          redirects.push({ from: item, to: mathcedUrl });
-          unmappedUrls.splice(unmappedUrls.indexOf(mathcedUrl), 1);
+        const mathchedUrl = newUrls.find(url => url.match(redirectToRule));
+
+        if (mathchedUrl) {
+          urlRedirects.push({ from: item, to: mathchedUrl });
+          unmappedUrls.splice(unmappedUrls.indexOf(mathchedUrl), 1);
+          // only one redirect URL is available which is not isOtherwise so the first matched URL will be used
+          break;
         } else {
-          redirects.push({ from: item, to: rule.otherwise });
+          urlRedirects.push({
+            from: item,
+            to: rule.otherwise,
+            ['isOtherwise']: true,
+          });
         }
-
-        isUrlMatched = true;
       }
-    });
+    }
 
-    if (!isUrlMatched) {
+    if (urlRedirects.length) {
+      const [otherwiseRedirects, nonOtherwiseRedirects] = partition(
+        urlRedirects,
+        ['isOtherwise', true]
+      );
+      const appliedRedirect = nonOtherwiseRedirects.length
+        ? nonOtherwiseRedirects[0]
+        : otherwiseRedirects[0];
+      redirects.push(appliedRedirect);
+    } else {
       redirects.push({ from: item, to: otherwiseRedirectTo });
     }
   });
