@@ -19,7 +19,62 @@ $submenu-text-color-desktop: $fish-blue-darker;
     @include respondTo(desktop) {
       position: static;
     }
+    .burger-button {
+      &__icon {
+        &:before {
+         transform: rotate(45deg);
+        }
+
+        &:after {
+          position: relative;
+          width: 28px;
+          top: -3px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
   }
+  .burger-button {
+    display: inline-block;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    text-align: left;
+    margin: -10px;
+    @include respondTo(desktop) {
+      display: none;
+    }
+
+    &__icon {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      z-index: 2;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 3px;
+        background: $primary-color;
+        transform: translateY(-5px);
+        transition: all .25s ease-in-out;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 22px;
+        height: 3px;
+        background: $primary-color;
+        transform: translateY(5px);
+        transition: all .25s ease-in-out;
+        will-change: width;
+      }
+    }
+  }
+
   &__inner {
     display: flex;
     align-items: center;
@@ -104,43 +159,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
         &.active {
           visibility: visible;
           transform: none;
-        }
-      }
-    }
-
-    .burger-button {
-      display: inline-block;
-      background: none;
-      border: none;
-      outline: none;
-      padding: 0;
-      text-align: left;
-      margin: -10px;
-      @include respondTo(desktop) {
-        display: none;
-      }
-
-      .burger-button__icon {
-        position: relative;
-        display: inline-block;
-        padding: 10px;
-        z-index: 2;
-
-        &:before {
-          content: '';
-          display: block;
-          width: 28px;
-          height: 3px;
-          background: $primary-color;
-        }
-
-        &:after {
-          content: '';
-          display: block;
-          width: 22px;
-          height: 3px;
-          background: $primary-color;
-          margin-top: 10px;
         }
       }
     }

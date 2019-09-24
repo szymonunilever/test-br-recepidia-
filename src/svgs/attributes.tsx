@@ -74,3 +74,15 @@ export {
 export {
   ReactComponent as WheatFreeInactive,
 } from './inline/nutrition-wheat-free-inactive.svg';
+
+export {
+  ReactComponent as SeafoodFreeActive,
+} from './inline/nutrition-seafood-free-yes.svg';
+
+export {
+  ReactComponent as SoyFreeActive,
+} from './inline/nutrition-soy-free-yes.svg';
+
+export {
+  ReactComponent as SugarFreeActive,
+} from './inline/nutrition-sugar-free-yes.svg';
