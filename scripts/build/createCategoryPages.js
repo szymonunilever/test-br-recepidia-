@@ -60,6 +60,7 @@ module.exports = async ({ graphql, createPage, page }) => {
         path: node.fields.slug,
         component,
         context: {
+          title: node.title,
           slug: node.fields.slug,
           page,
           tags,

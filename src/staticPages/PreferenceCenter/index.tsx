@@ -3,6 +3,7 @@ import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import { WindowLocation } from '@reach/router';
 import DigitalData from '../../../integrations/DigitalData';
+import '../../scss/pages/_preferenceCenter.scss';
 
 const PreferenceCenterPage: React.FunctionComponent<
   PreferenceCenterPageProps
@@ -21,7 +22,7 @@ const PreferenceCenterPage: React.FunctionComponent<
         <script src="//cdn.gigya-ext.com/gy.js" type="text/javascript" />
       </SEO>
       <DigitalData title={seo.title} type={type} />
-      <section>
+      <section className="gigya-content">
         <div className="container">
           <div
             className="gy-ui-screen-set"
