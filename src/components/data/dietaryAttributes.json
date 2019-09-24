@@ -81,21 +81,48 @@
     }
   },
   {
-    "title": "Vegano",
+    "title": "Sem origem animal",
     "tagId": 10,
-    "name": "vegan",
+    "name": "no_products_of_animal_origin",
     "id": "d7553790-f635-5035-89a8-6f8bf0f1e328",
     "fields": {
-      "slug": "/hub-de-conteudo/vegan"
+      "slug": "/hub-de-conteudo/no-products-of-animal-origin"
     }
   },
   {
-    "title": "Vegetariana",
+    "title": "Sem carne",
     "tagId": 11,
-    "name": "vegetarian",
+    "name": "meat_free",
     "id": "c60c0e91-6ff4-5b9d-9c8e-2b1b0e8b1180",
     "fields": {
-      "slug": "/hub-de-conteudo/vegetarian"
+      "slug": "/hub-de-conteudo/meat-free"
+    }
+  },
+  {
+    "title": "Sem frutos do mar",
+    "tagId": 12,
+    "name": "no_sea_food",
+    "id": "8639cfb9-aed4-5a76-a8fd-0e87f13bb6a31",
+    "fields": {
+      "slug": "/hub-de-conteudo/no-sea-food"
+    }
+  },
+  {
+    "title": "Sem soja",
+    "tagId": 13,
+    "name": "no_soy",
+    "id": "d7553790-f635-5035-89a8-6f8bf0f1e3281",
+    "fields": {
+      "slug": "/hub-de-conteudo/no-soy"
+    }
+  },
+  {
+    "title": "Zero açúcar",
+    "tagId": 14,
+    "name": "sugar_free",
+    "id": "c60c0e91-6ff4-5b9d-9c8e-2b1b0e8b11801",
+    "fields": {
+      "slug": "/hub-de-conteudo/sugar-free"
     }
   }
 ]
