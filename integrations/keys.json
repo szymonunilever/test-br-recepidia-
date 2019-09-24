@@ -85,9 +85,7 @@
           "ids": "",
           "id": "UA-54293156-50"
         },
-        {
-          "id": "unileverlatam-recipedia-br-uat"
-        }
+        {"id": "unileverlatam-recipedia-br-uat,unileverlatam-allbrands-uat"}
       ]
     }
   },
