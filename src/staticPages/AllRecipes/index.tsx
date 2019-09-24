@@ -26,8 +26,6 @@ import DigitalData from '../../../integrations/DigitalData';
 // Component Styles
 import '../../scss/pages/_allRecipes.scss';
 
-import keys from 'integrations/keys.json';
-
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
@@ -103,7 +101,7 @@ const AllRecipesPage = ({
     params: SearchParams = {}
   ) => {
     const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
+      index: process.env['elasticSearch_recipeIndex'] as string,
       body: {
         ...params,
         query: {

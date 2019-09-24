@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getTagsFromRecipes } from '../../utils/getTagsFromRecipes';
 import { useElasticSearch } from '../../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-
-import keys from 'integrations/keys.json';
 import useMedia from 'src/utils/useMedia';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,7 +48,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       }
     ) => {
       const searchParams = {
-        index: keys.elasticSearch.recipeIndex,
+        index: process.env['elasticSearch_recipeIndex'] as string,
         body: {
           ...params,
           query: {

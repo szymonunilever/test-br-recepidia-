@@ -273,7 +273,21 @@ exports.createPages = async ({ graphql, actions }) => {
   ]);
 };
 
-exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
+exports.onCreateWebpackConfig = ({
+  actions,
+  getConfig,
+  stage,
+  loaders,
+  plugins,
+}) => {
+  const appConfig = require('./app-config').getConfig();
+
+  // Create an object of all the variables in .env file
+  const envKeys = Object.keys(appConfig).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(appConfig[next]);
+    return prev;
+  }, {});
+
   if (stage === 'build-javascript') {
     actions.setWebpackConfig({
       optimization: {
@@ -304,6 +318,10 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       },
     });
   }
+
+  actions.setWebpackConfig({
+    plugins: [plugins.define(envKeys)],
+  });
 
   const config = getConfig();
   config.resolve = {

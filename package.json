@@ -115,11 +115,8 @@
     "type": "git"
   },
   "scripts": {
-    "prebuild": "npm run generate-config",
     "build": "gatsby build",
-    "predevelop": "npm run generate-config",
     "develop": "set NODE_ENV=development && gatsby develop",
-    "generate-config": "node scripts/build/generateConfigFile.js",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
