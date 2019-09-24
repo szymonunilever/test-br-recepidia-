@@ -52,6 +52,12 @@ function _getConfig() {
     // Netlify automatically set CONTEXT env variable during build
     // For a Deploy Preview and Branch Deploy dedicated ES indexes should be created with unique names
     if (process.env.CONTEXT) {
+      //
+      // The code below has hardcoded behavior and should be removed to keep the script reusable
+      // Possibly, it should be passed as a callback function that defines behavior how env variables should be modified
+      // depending on build context
+      //
+
       let esIndexPrefix;
 
       // REVIEW_ID: the ID of a Deploy Preview and the pull/merge request that generated it
@@ -64,11 +70,12 @@ function _getConfig() {
         esIndexPrefix = process.env.BRANCH;
       }
 
-      ciVars.elasticSearch.recipeIndex = `${esIndexPrefix}--${
-        ciVars.elasticSearch.recipeIndex
+      ciVars['elasticSearch_recipeIndex'] = `${esIndexPrefix}--${
+        ciVars['elasticSearch_recipeIndex']
       }`;
-      ciVars.elasticSearch.articleIndex = `${esIndexPrefix}--${
-        ciVars.elasticSearch.articleIndex
+
+      ciVars['elasticSearch_articleIndex'] = `${esIndexPrefix}--${
+        ciVars['elasticSearch_articleIndex']
       }`;
     }
   }
