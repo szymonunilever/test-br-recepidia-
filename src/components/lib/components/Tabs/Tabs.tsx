@@ -31,7 +31,7 @@ export const Tabs = ({
                 : tabs[0].view)
           : tabs[0].view
       ),
-    []
+    [location]
   );
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabsContents = children.reduce(
