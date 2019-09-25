@@ -107,9 +107,8 @@ class ConfigManager {
     let value = process.env[key];
     try {
       value = JSON.parse(value);
-    } catch {
-      console.log('catched');
-    }
+      // eslint-disable-next-line no-empty
+    } catch {}
     return value;
   }
 }
