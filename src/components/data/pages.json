@@ -1071,7 +1071,7 @@
                 },
                 {
                   "name": "email",
-                  "type": "text",
+                  "type": "email",
                   "label": "Email*",
                   "placeholder": "email@email.com",
                   "fieldset": "contact",
