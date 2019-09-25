@@ -47,11 +47,11 @@ const Kritique = () => {
         }, 200);
       }
     };
-    window.addEventListener('REVIEW_LOAD', reviewsLoadListener);
+    // window.addEventListener('REVIEW_LOAD', reviewsLoadListener);
 
-    return () => {
-      window.removeEventListener('REVIEW_LOAD', reviewsLoadListener);
-    };
+    // return () => {
+    //   window.removeEventListener('REVIEW_LOAD', reviewsLoadListener);
+    // };
   }, []);
 
   return (
