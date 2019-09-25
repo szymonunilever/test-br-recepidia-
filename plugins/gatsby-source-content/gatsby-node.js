@@ -6,6 +6,7 @@ const {
   createArticleNodes,
   createCategoryNodes,
   createDictionaryNodes,
+  createDisclaimerNodes,
 } = createNodes;
 const pagesMock = require('../../src/components/data/pages.json');
 const componentsMock = require('../../src/components/data/components.json');
@@ -59,6 +60,13 @@ exports.sourceNodes = async (
   });
   componentsData.dictionary &&
     createDictionaryNodes(componentsData.dictionary, {
+      createNodeId,
+      createContentDigest,
+      createNode,
+    });
+
+  componentsData.disclaimer &&
+    createDisclaimerNodes(componentsData.disclaimer, {
       createNodeId,
       createContentDigest,
       createNode,
