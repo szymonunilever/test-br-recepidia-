@@ -15,11 +15,14 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
         localbrand: process.env['digitalData_siteInfo_localbrand'],
       },
       // eslint-disable-next-line @typescript-eslint/camelcase
-      page_attributes: {
-        brandCategory: process.env['digitalData_page_attributes_brandCategory'],
-        country: process.env['digitalData_page_attributes_country'],
-        globalbrand: process.env['digitalData_page_attributes_globalbrand'],
-        localbrand: process.env['digitalData_page_attributes_localbrand'],
+      page: {
+        attributes: {
+          brandCategory:
+            process.env['digitalData_page_attributes_brandCategory'],
+          country: process.env['digitalData_page_attributes_country'],
+          globalbrand: process.env['digitalData_page_attributes_globalbrand'],
+          localbrand: process.env['digitalData_page_attributes_localbrand'],
+        },
       },
       trackingInfo: {
         GID: process.env['digitalData_trackingInfo_GID'],
@@ -49,8 +52,7 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       var UDM = UDM ? Object.assign(UDM, ${JSON.stringify(
         config.UDM
       )}): ${JSON.stringify(config.UDM)};  
-      digitalData.siteInfo['channel'] = channelVal;
-      (!digitalData.page) && Object.assign(digitalData, {page: {}});  
+      digitalData.siteInfo['channel'] = channelVal;  
       digitalData.page.category = {
          pageType: '${type}',
          primaryCategory: channelVal,
