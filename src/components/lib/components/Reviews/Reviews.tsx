@@ -21,8 +21,6 @@ const Reviews = ({
 
   useEffect(() => {
     setLocationOrigin(window.location.origin);
-    var event = new Event('REVIEW_LOAD');
-    window.dispatchEvent(event);
   }, []);
 
   return (

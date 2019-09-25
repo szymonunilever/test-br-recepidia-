@@ -35,23 +35,6 @@ const Kritique = () => {
         initKritique();
       });
     }
-
-    const reviewsLoadListener = () => {
-      if (isLoadKritique()) {
-        // @ts-ignore
-        window.isLoadKritique = false;
-        setInjectScript(false);
-
-        setTimeout(() => {
-          initKritique();
-        }, 200);
-      }
-    };
-    // window.addEventListener('REVIEW_LOAD', reviewsLoadListener);
-
-    // return () => {
-    //   window.removeEventListener('REVIEW_LOAD', reviewsLoadListener);
-    // };
   }, []);
 
   return (
