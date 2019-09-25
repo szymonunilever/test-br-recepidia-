@@ -11,10 +11,6 @@
                 "name": "Receitas",
                 "children": [
                   {
-                    "name": "Receitas favoritas",
-                    "path": "/perfil?tabOpen=ProfileFavorites"
-                  },
-                  {
                     "name": "Todas as receitas",
                     "path": "/receita"
                   }
@@ -25,6 +21,12 @@
                 "path": "/planejamento-da-semana"
               }
             ]
+          }
+        },
+        {
+          "name": "Profile",
+          "content": {
+            "title": "Seu perfil"
           }
         },
         {
