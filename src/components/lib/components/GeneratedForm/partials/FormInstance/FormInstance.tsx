@@ -149,7 +149,11 @@ const GeneratedFormInstance = ({
           return promise;
         };
         return (
-          <form onSubmit={onSubmitHandler} className={classWrapper}>
+          <form
+            onSubmit={onSubmitHandler}
+            className={classWrapper}
+            noValidate={shouldValidate}
+          >
             <div className="generated-form__container">
               {Title}
               {Subtitle}
