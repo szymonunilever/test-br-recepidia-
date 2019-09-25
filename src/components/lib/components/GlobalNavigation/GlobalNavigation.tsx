@@ -4,8 +4,10 @@ import Navigation from './partials/Navigation';
 import Logo from '../Logo/index';
 import cx from 'classnames';
 import { Button as BurgerButton } from '../Button';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
+  content,
   content: { list },
   logo,
   login,
@@ -26,7 +28,10 @@ const GlobalNavigation: React.SFC<GlobalNavigationProps> = ({
   );
 
   return (
-    <header className={classNames} data-componentname="global-navigation">
+    <header
+      className={classNames}
+      {...getComponentDataAttrs('global-navigation', content)}
+    >
       <div className="global-navigation__inner">
         <BurgerButton
           onClick={handleToggleNavigationClick}

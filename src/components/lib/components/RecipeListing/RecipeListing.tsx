@@ -20,6 +20,7 @@ import {
 import get from 'lodash/get';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 import useKritiqueReload from '../../utils/useKritiqueReload';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeListing = ({
   className,
@@ -53,6 +54,7 @@ export const RecipeListing = ({
     ],
   },
   imageSizes,
+  isExternalItemLink = false,
 }: RecipeListingProps) => {
   let loadButtonRef = React.createRef();
   const isAsyncLoadMore = () =>
@@ -251,6 +253,7 @@ export const RecipeListing = ({
         // @ts-ignore
         titleLevel={titleLevel + 1}
         imageSizes={imageSizes}
+        isExternalRecipeLink={isExternalItemLink}
       />
     ) : (
       <>
@@ -274,7 +277,10 @@ export const RecipeListing = ({
     );
 
   return (
-    <div data-componentname="recipeListing" className={wrapClasses}>
+    <div
+      {...getComponentDataAttrs('recipeListing', content)}
+      className={wrapClasses}
+    >
       {listHeader}
       {view}
     </div>

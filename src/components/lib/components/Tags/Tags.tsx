@@ -7,6 +7,7 @@ import includes from 'lodash/includes';
 import uniqBy from 'lodash/uniqBy';
 import { TagName, Text } from '../Text';
 import isEqual from 'lodash/isEqual';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const getTagList = (list: Internal.Tag[], displayUniq = true) =>
   displayUniq ? uniqBy(list, 'name') : list;
@@ -104,7 +105,7 @@ const Tags = ({
 
   const view =
     viewType === TagViewType.filter ? (
-      <div className={classNames} data-componentname="tags">
+      <div className={classNames} {...getComponentDataAttrs('tags', content)}>
         <ul className="tags__list">
           {tags.list.map((item: Internal.Tag) => (
             <Tag
@@ -120,7 +121,7 @@ const Tags = ({
         </ul>
       </div>
     ) : (
-      <div className={classNames} data-componentname="tags">
+      <div className={classNames} {...getComponentDataAttrs('tags', content)}>
         {title && (
           <Text
             className="tags__title"

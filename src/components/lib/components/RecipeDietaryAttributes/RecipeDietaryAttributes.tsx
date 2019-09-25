@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Attribute from './partials/Attribute';
 import get from 'lodash/get';
 import { RecipeDietaryAttributesProps } from './models';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const RecipeDietaryAttributes = ({
   attributes,
@@ -15,14 +16,14 @@ const RecipeDietaryAttributes = ({
 
   const attributesList = attributes.map(attr => {
     const activeAttribute = activeAttributes.find(
-      activeAttr => attr.id === activeAttr.id
+      activeAttr => attr.tagId === activeAttr.id
     );
 
-    const icon = icons.find(icn => attr.id === icn.id);
+    const icon = icons.find(icn => attr.tagId === icn.id);
     if (showInactiveAttributes || activeAttribute) {
       return (
         <Attribute
-          key={attr.id}
+          key={attr.tagId}
           attributeText={attr.title}
           icon={icon && activeAttribute ? icon.active : get(icon, 'inActive')}
         />
@@ -35,7 +36,7 @@ const RecipeDietaryAttributes = ({
       {attributesList.length ? (
         <div
           className={classNames}
-          data-componentname="recipe-dietary-attributes"
+          {...getComponentDataAttrs('recipe-dietary-attributes')}
         >
           <ul className="recipe-dietary-attributes__list">{attributesList}</ul>
         </div>

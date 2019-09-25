@@ -4,9 +4,11 @@ import React from 'react';
 import { TagName, Text } from '../Text';
 import { RecipeCookingMethodProps } from './models';
 import theme from './RecipeCookingMethod.module.scss';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeCookingMethod = ({
   className,
+  content,
   content: { title = undefined, subtitle = undefined },
   methodList = [],
   titleLevel = 2,
@@ -47,7 +49,10 @@ export const RecipeCookingMethod = ({
     ));
 
   return (
-    <div className={classWrapper} data-componentname="recipeCookingMethod">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeCookingMethod', content)}
+    >
       {Title}
       {Subtitle}
       <div className="cooking-methods">{items}</div>

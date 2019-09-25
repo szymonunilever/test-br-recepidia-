@@ -13,7 +13,7 @@ import Hero from 'src/components/lib/components/Hero';
 import PageListing from 'src/components/lib/components/PageListing';
 
 import cx from 'classnames';
-import MediaGallery from '../../components/lib/components/MediaGallery';
+// import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -65,7 +65,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     'RecipeListing',
     'RecipesByCategory'
   );
-  const tagLabel = tag.title;
 
   const onLoadMore = useCallback(() => {
     return onLoadMoreRecipes([], 'creationTime', 4, {
@@ -78,11 +77,11 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     <Layout className={classWrapper}>
       <SEO
         {...seo}
-        title={tagLabel}
-        description={tag.description}
+        title={tag.title}
+        description={`Receitas - ${tag.title}`}
         canonical={location.href}
       />
-      <DigitalData title={tagLabel} type={type} />
+      <DigitalData title={tag.title} type={type} />
       <Kritique />
 
       <section className={cx(theme.contentHubRecipes, 'bg--half wrapper')}>
@@ -91,7 +90,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             ...recipesListingContent,
             title: recipesListingContent.title
               .replace('{numRes}', recipeResultsCount)
-              .replace('{categoryName}', `\n${tagLabel}`),
+              .replace('{categoryName}', `\n${tag.title}`),
           }}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
@@ -111,7 +110,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           imageSizes={'(min-width: 768px) 300w, 300px'}
         />
       </section>
-      {!!allArticle && allArticle.nodes.length > 0 && (
+      {/* {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40 wrapper">
           <MediaGallery
             // content={findPageComponentContent(
@@ -125,7 +124,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
             onLoadMore={() => {}}
           />
         </section>
-      )}
+      )} */}
       <section className={theme.tagList}>
         <Tags
           list={tagList}
@@ -170,6 +169,7 @@ export const query = graphql`
       name
       title
       tagId
+      id
     }
 
     allRecipe(
@@ -219,15 +219,7 @@ export const query = graphql`
 
 interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
   data: {
-    tag: {
-      name: string;
-      description: string;
-      title: string;
-      tagId: string;
-      assets: {
-        localImage: Internal.LocalImage;
-      }[];
-    };
+    tag: Internal.Tag;
     allRecipe: {
       nodes: Internal.Recipe[];
     };

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import newRelic from '../static/config/newRelic';
 
 const kritiqueWidgetSrc = `${process.env['kritique_url']}?brandid=${
   process.env['kritique_brandId']
@@ -23,7 +24,6 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
             {/* END preconnects */}
-
             {/* START kritique preloads */}
             <link
               rel="preload"
@@ -39,9 +39,11 @@ export default function HTML(props) {
               as="style"
             />
             {/* END kritique preloads */}
-
             {/* START NewRelic */}
-            <script
+
+            {/* Having script inline improves FCP/FMP. Loading newRelic script is not allowed*/}
+            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            {/* <script
               type="text/javascript"
               src="/config/newRelicScript.js"
               id="newRelicScript"
@@ -56,7 +58,7 @@ export default function HTML(props) {
                   process.env['sitespeed_applicationID']
                 }",sa:1}`,
               }}
-            />
+            /> */}
             {/* END NewRelic */}
 
             {/* Evidon Cookie popup */}

@@ -49,6 +49,7 @@ module.exports = async ({ graphql, createPage }) => {
           }
           type
           relativePath
+          title
           seo {
             title
             description
@@ -82,6 +83,9 @@ module.exports = async ({ graphql, createPage }) => {
         'AboutUs',
         'MealPlanner',
         'Sitemap',
+        'NewsletterSignUp',
+        'PreferenceCenter',
+        'TermsAndConditions',
       ].includes(type)
     )
     .forEach(pageNode => {

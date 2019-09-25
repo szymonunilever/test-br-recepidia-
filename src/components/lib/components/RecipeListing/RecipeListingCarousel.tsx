@@ -14,6 +14,7 @@ const RecipeListingCarousel = ({
   config,
   ratingProvider = RatingAndReviewsProvider.none,
   imageSizes,
+  isExternalRecipeLink = false,
 }: RecipeListingCarouselProps) => {
   const getCurrentItem = useCallback(
     (item: Internal.Recipe) => {
@@ -31,6 +32,7 @@ const RecipeListingCarousel = ({
           ratingProvider={ratingProvider}
           localImage={item.localImage}
           imageSizes={imageSizes}
+          isExternalLink={isExternalRecipeLink}
         />
       );
     },

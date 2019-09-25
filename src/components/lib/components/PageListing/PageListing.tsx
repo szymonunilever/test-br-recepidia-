@@ -8,9 +8,11 @@ import PageListingCarousel from './PageListingCarousel';
 import { Button } from 'src/components/lib/components/Button';
 import { CarouselConfig } from '../Carousel/models';
 import { defaultCarouselConfig } from '../Carousel/Carousel';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const PageListing = ({
   list,
+  content,
   content: { title, subtitle, cta },
   viewType = PageListingViewTypes.default,
   initialCount,
@@ -45,7 +47,10 @@ const PageListing = ({
   let classNames = cx('page-listing', className);
 
   let view = (
-    <div className={classNames} data-componentname="page-listing">
+    <div
+      className={classNames}
+      {...getComponentDataAttrs('page-listing', content)}
+    >
       {title && (
         <Text
           className="page-listing__title"
@@ -75,7 +80,10 @@ const PageListing = ({
   if (viewType === PageListingViewTypes.carousel) {
     let classNames = cx('page-listing--carousel', className);
     view = (
-      <div className={classNames} data-componentname="page-listing">
+      <div
+        className={classNames}
+        {...getComponentDataAttrs('page-listing', content)}
+      >
         {title && (
           <Text
             className="page-listing__title"

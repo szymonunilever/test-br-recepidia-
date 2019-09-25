@@ -16,7 +16,7 @@
                   },
                   {
                     "name": "Todas as receitas",
-                    "path": "/receitas"
+                    "path": "/receita"
                   }
                 ]
               },
@@ -58,16 +58,20 @@
                     "path": "https://www.unilever.com.br/accessibility.html"
                   },
                   {
-                    "name": "Cookies",
-                    "path": "https://www.unilevercookiepolicy.com/pt_PT/policy.aspx"
+                    "name": "Aviso de Cookies",
+                    "path": "https://www.unilevernotices.com/brazil/portuguese/cookie-notice/notice.html"
                   },
                   {
-                    "name": "Política de Privacidade",
-                    "path": "https://www.unileverprivacypolicy.com/portuguese/policy.aspx"
+                    "name": "Aviso de Privacidade",
+                    "path": "https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html"
                   },
                   {
                     "name": "Termos",
                     "path": "https://www.unilever.com.br/legal.html"
+                  },
+                  {
+                    "name": "Termos de Uso",
+                    "path": "/terms-conditions"
                   },
                   {
                     "name": "Mapa do site",
@@ -97,7 +101,7 @@
           "name": "Form",
           "content": {
             "view": "SignUpForm",
-            "title": "Precisa de inspiração para o cardápio da semana?",
+            "title": "Precisa de inspiração na cozinha?",
             "fields": [],
             "submitButton": {
               "label": "Inscreva-se!"
@@ -127,12 +131,15 @@
     "egg_free": "Sem ovos",
     "gluten_free": "Glúten Free",
     "lactose_free": "Zero Lactose",
-    "nut_free": "Livre de nozes",
+    "nut_free": "Sem nozes",
     "paleo_diet": "Paleo diet",
     "pregnancy_safe": "Seguro de gravidez",
     "raw_food": "Comida crua",
     "wheat_free": "Sem trigo",
-    "vegan": "Vegano",
-    "vegetarian": "Vegetariana"
+    "vegan": "Sem origem animal",
+    "vegetarian": "Sem carne",
+    "no seafood": "Sem frutos do mar",
+    "no soy": "Sem soja",
+    "zero açúcar": "Zero açúcar"
   }
 }

@@ -3,6 +3,7 @@ import { RecommendationsProps } from './models';
 import cx from 'classnames';
 import theme from './NullResult.module.scss';
 import { TagName, Text } from '../Text';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const NullResult = ({
   className,
@@ -30,7 +31,7 @@ export const NullResult = ({
   return (
     <div
       className={cx('wrapper', classWrapper)}
-      data-componentname="nullResult"
+      {...getComponentDataAttrs('nullResult')}
     >
       {theTitle}
       {theSubTitle}

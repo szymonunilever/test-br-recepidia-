@@ -22,7 +22,7 @@ export const RecipePersonalizationFormula: RecipePersonalizationFormulaProps = {
 };
 
 export const MealPlannerPersonalizationFormula = {
-  template: ['Q#2 AND Q#4 AND MP#1 AND MP#2 AND MP#3 AND MP#4'],
+  template: ['MP#1 AND MP#2 AND MP#3 AND MP#4'],
   searchAttributes: RecipePersonalizationFormula.searchAttributes,
 };
 

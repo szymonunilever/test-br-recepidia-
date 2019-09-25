@@ -31,9 +31,12 @@ export async function searchTopRecipes(
   );
 
   const { hits } = await getPersonalizationSearchData(queryString, {
-    from: FROM,
+    from: FROM + RESULT_SIZE,
     size: RESULT_SIZE,
-    sort: [],
+    sort: [
+      { averageRating: { order: 'desc' } },
+      { creationTime: { order: 'desc' } },
+    ],
   });
 
   if (hits.total < resultNumber && i < maxTry - 1) {
@@ -71,11 +74,14 @@ export async function searchLatestAndGratest(
   const { hits } = await getPersonalizationSearchData(queryString, {
     from: FROM,
     size: RESULT_SIZE,
-    sort: [{ creationTime: { order: 'desc' } }],
+    sort: [
+      { averageRating: { order: 'desc' } },
+      { creationTime: { order: 'desc' } },
+    ],
   });
   if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;
-    return searchTopRecipes(j, resultNumber, defaults);
+    return searchLatestAndGratest(j, resultNumber, defaults);
   } else if (hits.total < resultNumber && i >= maxTry - 1) {
     return defaults;
   } else {
