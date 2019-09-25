@@ -115,25 +115,55 @@ const dietaryAttributesIcons = [
     active: <icons.WheatFreeActive />,
     inActive: <icons.WheatFreeInactive />,
   },
+  {
+    id: 12595,
+    active: <icons.SeafoodFreeActive />,
+  },
+  {
+    id: 12628,
+    active: <icons.SoyFreeActive />,
+  },
+  {
+    id: 12913,
+    active: <icons.SugarFreeActive />,
+  },
 ];
 
 const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   pageContext,
   location,
-  data: { recipeTags, dietaryTagGroup, relatedRecipes },
+  data: { recipeTags, dietaryTagGroup, freeFormTagsGroup, relatedRecipes },
 }) => {
   const {
     page: { components, seo, type },
     recipe,
   } = pageContext;
   const tags = recipeTags.nodes;
-  const allDietaryList = ((dietaryTagGroup && dietaryTagGroup.tags) ||
-    []) as Internal.Tag[];
+  const dietaryTagsList = get(dietaryTagGroup, 'children', []);
+  const freeFormTagsList = get(freeFormTagsGroup, 'children', []);
+
+  const allDietaryList = [...dietaryTagsList, ...freeFormTagsList];
+
   const currentRecipeDietaryList = get(
     recipe.tagGroups.find(tags => tags.label === 'dietary'),
     'tags',
     []
-  ) as Internal.Tag[];
+  );
+  const freeFormTags = get(
+    recipe.tagGroups.find(tags => tags.label === 'freeFormTags'),
+    'tags',
+    []
+  );
+
+  const freeFormTagsDietaryList = freeFormTags.filter(tag =>
+    dietaryAttributesIcons.find(({ id }) => tag.id === id)
+  );
+
+  const fullCurrentRecipeDietaryList = [
+    ...currentRecipeDietaryList,
+    ...freeFormTagsDietaryList,
+  ];
+
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
@@ -317,7 +347,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           </Tabs>
         </div>
       </section>
-      {currentRecipeDietaryList.length || recipe.nutrients.length ? (
+      {fullCurrentRecipeDietaryList.length || recipe.nutrients.length ? (
         <section
           className={cx(theme.recipePageNutritional, '_pb--40 _pt--40 wrapper')}
         >
@@ -329,7 +359,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             tag={TagName.h2}
           />
           <RecipeDietaryAttributes
-            activeAttributes={currentRecipeDietaryList}
+            activeAttributes={fullCurrentRecipeDietaryList}
             attributes={allDietaryList}
             icons={dietaryAttributesIcons}
           />
@@ -423,13 +453,26 @@ export const query = graphql`
         ...RecipeFields
       }
     }
-
+    freeFormTagsGroup: tagGroupings(name: { eq: "freeFormTags" }) {
+      id
+      children {
+        ... on Tag {
+          id
+          tagId
+          name
+          title
+        }
+      }
+    }
     dietaryTagGroup: tagGroupings(name: { eq: "dietary" }) {
       id
-      tags {
-        id
-        name
-        title
+      children {
+        ... on Tag {
+          id
+          tagId
+          name
+          title
+        }
       }
     }
   }
@@ -443,7 +486,8 @@ interface RecipePageProps {
     relatedRecipes: {
       nodes: Internal.Recipe[];
     };
-    dietaryTagGroup: RMSData.TagGroupings;
+    dietaryTagGroup: Internal.TagGroup;
+    freeFormTagsGroup: Internal.TagGroup;
   };
   pageContext: {
     page: AppContent.Page;
