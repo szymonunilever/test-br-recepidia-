@@ -37,8 +37,6 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       gid: process.env['UDM_gid'],
       gaa: process.env['UDM_gaa'],
     },
-    page: {},
-    privacy: {},
   };
 
   return process.env.NODE_ENV !== 'development' ? (
@@ -52,6 +50,7 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
         config.UDM
       )}): ${JSON.stringify(config.UDM)};  
       digitalData.siteInfo['channel'] = channelVal;
+      (!digitalData.page) && Object.assign(digitalData, {page: {}});  
       digitalData.page.category = {
          pageType: '${type}',
          primaryCategory: channelVal,
