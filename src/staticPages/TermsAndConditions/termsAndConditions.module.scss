@@ -1,0 +1,9 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.terms-and-conditions {
+  padding: 22px $layout-indent-sm 100px $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding: 50px $layout-indent 100px;
+  }
+}
