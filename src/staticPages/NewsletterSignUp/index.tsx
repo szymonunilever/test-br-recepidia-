@@ -16,10 +16,11 @@ const NewsletterSignupPage: React.FunctionComponent<
     <Layout>
       <SEO {...seo} canonical={location.href}>
         <script
+          defer
           type="text/javascript"
           src="https://cdns.gigya.com/JS/gigya.js?apiKey=3_7pA4Ft7DjM3NIJlI1lTxmVtq3FH3LAOiheGTmpDe6gUcGq-mYuR0PF6yBDFg8ACt&lang=pt-pt"
         />
-        <script src="//cdn.gigya-ext.com/gy.js" type="text/javascript" />
+        <script defer type="text/javascript" src="//cdn.gigya-ext.com/gy.js" />
       </SEO>
       <DigitalData title={seo.title} type={type} />
       <section className="gigya-content">
