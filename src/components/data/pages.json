@@ -2118,22 +2118,22 @@
                     "filterPropName": "tags",
                     "options": [
                       {
-                        "value": "1371",
-                        "label": {
-                          "text": "Gastar um pouco mais",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
-                            "alt": "Gastar um pouco mais"
-                          }
-                        }
-                      },
-                      {
                         "value": "1369;1370",
                         "label": {
                           "text": "Algo bom, bonito e barato",
                           "image": {
                             "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
                             "alt": "Algo bom, bonito e barato"
+                          }
+                        }
+                      },
+                      {
+                        "value": "1371",
+                        "label": {
+                          "text": "Gastar um pouco mais",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                            "alt": "Gastar um pouco mais"
                           }
                         }
                       }
