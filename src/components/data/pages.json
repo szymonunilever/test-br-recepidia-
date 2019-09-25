@@ -361,9 +361,17 @@
                   ]
                 }
               ],
-              "primaryButtonLabel": "Próximo",
-              "secondaryButtonLabel": "Pular",
-              "primaryButtonFinalLabel": "Finalizar"
+              "ctas": [
+                { "type": "back", 
+                  "label": "Voltar"
+                },
+                { "type": "next", 
+                  "label": "Próximo"
+                },
+                { "type": "final", 
+                  "label": "Finalizar"
+                }
+              ]
             }
           }
         ]
@@ -2183,7 +2191,14 @@
                     ]
                   }
                 ],
-                "primaryButtonLabel": "Continuar",
+                "ctas": [
+                  { "type": "back", 
+                    "label": "Voltar"
+                  },
+                  { "type": "next", 
+                    "label": "Continuar"
+                  }
+                ],
                 "bottomContent": "Não se preocupe, você pode mudar suas preferências quando quiser!"
               },
               "wizardResultSection": {

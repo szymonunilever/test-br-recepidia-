@@ -33,9 +33,11 @@ const introProps = {
 };
 const quizProps = {
   questions,
-  primaryButtonLabel: 'Continue',
-  secondaryButtonLabel: 'Skip',
-  primaryButtonFinalLabel: 'Continue',
+  ctas: [
+    { type: 'skip', label: 'Skip' },
+    { type: 'next', label: 'Continue' },
+    { type: 'final', label: 'Continue' },
+  ],
 };
 const finishProps = {
   title: 'Congrats!',

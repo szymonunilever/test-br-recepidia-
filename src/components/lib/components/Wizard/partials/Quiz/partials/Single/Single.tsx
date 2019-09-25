@@ -9,21 +9,28 @@ import QuestionLabel from '../QuestionLabel';
 import { QuestionProps } from '../Question/models';
 import Option from '../Option';
 
+// @ts-ignore
+const getSelectedOptions = selectedOptions => {
+  return selectedOptions && Array.isArray(selectedOptions)
+    ? null
+    : selectedOptions;
+};
+
 const Single: FunctionComponent<QuestionProps> = ({
   question,
   progress,
   selectedOptions,
   onChangeCallback,
 }) => {
-  const defaultValue = selectedOptions || '';
+  const defaultValue = getSelectedOptions(selectedOptions);
   const [val, setVal] = useState(defaultValue);
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setVal(event.target.value);
+    onChangeCallback(question.key, event.target.value);
   }, []);
-
   useEffect(() => {
-    val !== defaultValue && onChangeCallback(question.key, val);
-  }, [val]);
+    setVal(getSelectedOptions(selectedOptions));
+  }, [selectedOptions]);
 
   return (
     <Fragment>
