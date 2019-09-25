@@ -87,15 +87,13 @@ function _getConfig() {
 
 class ConfigManager {
   constructor() {
-    if (!this._instance) {
-      this._instance = _getConfig();
+    this._instance = _getConfig();
 
-      // Update process.env with prefixless values
-      Object.keys(this._instance).reduce((prev, next) => {
-        prev[next] = this._instance[next];
-        return prev;
-      }, process.env);
-    }
+    // Update process.env with prefixless values
+    Object.keys(this._instance).reduce((prev, next) => {
+      prev[next] = this._instance[next];
+      return prev;
+    }, process.env);
   }
 
   getConfig() {
@@ -104,7 +102,7 @@ class ConfigManager {
 
   // Works on server-side only
   getByKey(key) {
-    let value = process.env[key];
+    let value = this._instance[key];
     try {
       value = JSON.parse(value);
       // eslint-disable-next-line no-empty
