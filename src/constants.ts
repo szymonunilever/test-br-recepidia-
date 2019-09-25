@@ -18,7 +18,7 @@ export const RecipePersonalizationFormula: RecipePersonalizationFormulaProps = {
 };
 
 export const MealPlannerPersonalizationFormula = {
-  template: ['MP#1 AND MP#2 AND MP#3 AND MP#4'],
+  template: ['MP#1 AND MP#2 AND MP#3 AND MP#4 AND MP#5'],
   searchAttributes: RecipePersonalizationFormula.searchAttributes,
 };
 
