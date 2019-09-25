@@ -4,6 +4,7 @@ declare namespace Internal {
     id: string;
     name: string;
     title: string;
+    disclaimer?: string | null;
     fields: {
       slug: string;
     };

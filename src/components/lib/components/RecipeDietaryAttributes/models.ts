@@ -2,12 +2,13 @@ export interface RecipeDietaryAttributesProps {
   className?: string;
   attributes: Internal.Tag[];
   icons: Icon[];
+  infoIcon: JSX.Element;
   activeAttributes: RMSData.Tag[];
   showInactiveAttributes?: boolean;
 }
 
 export interface Icon {
-  id: string | number;
+  id: string | number | string[] | number[];
   active?: JSX.Element;
   inActive?: JSX.Element;
 }

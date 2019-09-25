@@ -11,10 +11,6 @@
                 "name": "Receitas",
                 "children": [
                   {
-                    "name": "Receitas favoritas",
-                    "path": "/perfil?tabOpen=ProfileFavorites"
-                  },
-                  {
                     "name": "Todas as receitas",
                     "path": "/receita"
                   }
@@ -25,6 +21,12 @@
                 "path": "/planejamento-da-semana"
               }
             ]
+          }
+        },
+        {
+          "name": "Profile",
+          "content": {
+            "title": "Seu perfil"
           }
         },
         {
@@ -136,10 +138,27 @@
     "pregnancy_safe": "Seguro de gravidez",
     "raw_food": "Comida crua",
     "wheat_free": "Sem trigo",
-    "vegan": "Sem origem animal",
-    "vegetarian": "Sem carne",
     "no seafood": "Sem frutos do mar",
     "no soy": "Sem soja",
-    "zero açúcar": "Zero açúcar"
+    "zero açúcar": "Zero açúcar",
+    "vegan": "Vegano",
+    "vegetarian": "Vegetariana"
+  },
+  "disclaimer": {
+    "11": "Garanta que os ingredientes que você compre para essa receita não contenham carnes ou embutidos",
+    "10": "Garanta que os ingredientes que você compre para essa receita não sejam de origem animal",
+    "4": "Garanta que os ingredientes que você compre para essa receita não contenham lactose. Para dietas específicas, procure um médico e/ou nutricionista para orientação individualizada.",
+    "2": "Garanta que os ingredientes que você compre para essa receita não contenham ovo",
+    "3": "Garanta que os ingredientes que você compre para essa receita não contenham glúten. Para dietas específicas, procure um médico e/ou nutricionista para orientação individualizada.",
+    "1": "Garanta que os ingredientes que você compre para essa receita não contenham leite e derivados",
+    "12909": "Garanta que os ingredientes que você compre para essa receita não contenham carnes ou embutidos",
+    "13153": "Garanta que os ingredientes que você compre para essa receita não sejam de origem animal",
+    "12886": "Garanta que os ingredientes que você compre para essa receita não contenham lactose. Para dietas específicas, procure um médico e/ou nutricionista para orientação individualizada.",
+    "12942": "Garanta que os ingredientes que você compre para essa receita não contenham ovo",
+    "12941": "Garanta que os ingredientes que você compre para essa receita não contenham glúten. Para dietas específicas, procure um médico e/ou nutricionista para orientação individualizada.",
+    "12914": "Garanta que os ingredientes que você compre para essa receita não contenham leite e derivados",
+    "12595": "Garanta que os ingredientes que você compre para essa receita não contenham frutos do mar.",
+    "12628": "Garanta que os ingredientes que você compre para essa receita não contenham soja e derivados.",
+    "12913": "Garanta que os ingredientes que você compre para essa receita não contenham açúcar adicionado."
   }
 }

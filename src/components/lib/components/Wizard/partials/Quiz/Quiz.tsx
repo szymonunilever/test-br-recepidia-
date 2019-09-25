@@ -9,22 +9,21 @@ import Question from './partials/Question';
 import Button from '../../../Button';
 import { QuizProps } from './models';
 import { ResultsStore } from '../../models';
+import get from 'lodash/get';
 
 const Quiz: FunctionComponent<QuizProps> = ({
   intro,
   questions,
   actionCallback,
   stepResultsCallback,
-  primaryButtonLabel,
-  primaryButtonFinalLabel,
-  secondaryButtonLabel,
+  ctas,
   bottomContent,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isFormDirty, setFormDirty] = useState(false);
   const [answers, setAnswers] = useState({});
-  const [currentAnswer, setCurrentAnswer] = useState();
   const question = questions[currentQuestionIndex];
+  const [currentAnswer, setCurrentAnswer] = useState();
   const progress = Math.round(
     ((currentQuestionIndex + 1) / questions.length) * 100
   );
@@ -33,6 +32,35 @@ const Quiz: FunctionComponent<QuizProps> = ({
     [currentAnswer]
   );
 
+  const setQuestionIndex = (index: number) => {
+    setCurrentQuestionIndex(index);
+    const currentQuestion = questions[index];
+
+    const selectedOptions = currentQuestion.options.filter(option => {
+      // @ts-ignore
+      if (answers[currentQuestion.key]) {
+        // @ts-ignore
+        if (Array.isArray(answers[currentQuestion.key].value)) {
+          // @ts-ignore
+          return answers[currentQuestion.key].value.find(
+            // @ts-ignore
+            item => item === option.value
+          );
+        } else {
+          // @ts-ignore
+          return answers[currentQuestion.key].value === option.value;
+        }
+      }
+      return false;
+    });
+    setCurrentAnswer(
+      Array.isArray(selectedOptions)
+        ? currentQuestion.type.control === 'checkbox'
+          ? selectedOptions.map(item => item.value)
+          : selectedOptions[0] && selectedOptions[0].value
+        : selectedOptions
+    );
+  };
   const putCurrentAnswer = useCallback(() => {
     const updatedAnswers = { ...answers };
     // @ts-ignore
@@ -46,7 +74,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
     (data: ResultsStore) => {
       if (questions.length > currentQuestionIndex + 1) {
         stepResultsCallback && stepResultsCallback(data);
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setQuestionIndex(currentQuestionIndex + 1);
       } else {
         stepResultsCallback && stepResultsCallback(data);
         actionCallback(data);
@@ -66,7 +94,11 @@ const Quiz: FunctionComponent<QuizProps> = ({
     []
   );
 
-  useEffect(() => setFormDirty(false), [currentQuestionIndex]);
+  useEffect(() => {
+    if (!currentAnswer) {
+      setFormDirty(false);
+    }
+  }, [currentQuestionIndex]);
   useEffect(() => {
     Object.keys(answers).length && continueAction({ data: answers });
   }, [answers]);
@@ -84,12 +116,31 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const mobileCols = 2;
   const desktopCols = getDesktopCols(question.options.length);
   const layoutClass = `wizard-col-${mobileCols}-${desktopCols}`;
+  const primaryButtonFinal = ctas.find(item => item.type === 'final');
+  const primaryButton = ctas.find(item => item.type === 'next');
+  const backButton = ctas.find(item => item.type === 'back');
+  const skipButton = ctas.find(item => item.type === 'skip');
+  const backAction = useCallback(() => {
+    if (currentQuestionIndex > 0) {
+      setQuestionIndex(currentQuestionIndex - 1);
+      setFormDirty(true);
+    }
+  }, [currentQuestionIndex]);
 
   return (
     <Fragment>
       {currentQuestionIndex === 0 && intro}
       <form className={layoutClass}>
-        <Question {...{ question, progress, onChangeCallback }} />
+        {/* 
+        // @ts-ignore */}
+        <Question
+          {...{
+            question,
+            progress,
+            onChangeCallback,
+            selectedOptions: currentAnswer,
+          }}
+        />
         <div className="wizard__buttons">
           {/*
           // @ts-ignore */}
@@ -100,17 +151,25 @@ const Quiz: FunctionComponent<QuizProps> = ({
             isDisabled={!isFormDirty || !isAnswerProvided()}
             content={{
               label:
-                progress === 100 && primaryButtonFinalLabel
-                  ? primaryButtonFinalLabel
-                  : primaryButtonLabel,
+                progress === 100 && primaryButtonFinal
+                  ? primaryButtonFinal.label
+                  : get(primaryButton, 'label', 'Next'),
             }}
           />
-          {secondaryButtonLabel && (
+          {skipButton && (
             <Button
               className="wizard__button wizard__button--secondary"
               onClick={skipCallback}
-              content={{ label: secondaryButtonLabel }}
+              content={{ label: skipButton.label }}
               attributes={{ 'aria-label': 'Skip quiz step' }}
+            />
+          )}
+          {currentQuestionIndex > 0 && backButton && (
+            <Button
+              className="wizard__button wizard__button--secondary"
+              onClick={backAction}
+              content={{ label: backButton.label }}
+              attributes={{ 'aria-label': 'Back one step' }}
             />
           )}
           <div className="wizard__button-placeholder">{bottomContent}</div>

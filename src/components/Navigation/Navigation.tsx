@@ -1,20 +1,23 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
 import { ReactComponent as LogoIcon } from 'src/svgs/inline/logo.svg';
 import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg';
 import GlobalSearch from 'src/components/Search/GlobalSearch';
 import { constructMenu } from './utils';
+import { ReactComponent as ProfileIcon } from 'src/svgs/inline/profile.svg';
 
 interface NavigationProps {
   navigationContent: AppContent.GlobalNavigation.Content;
   searchContent: AppContent.SearchInput.Content;
+  profileContent: AppContent.ProfileHeader.Content;
 }
 
 const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigationContent,
   searchContent,
+  profileContent,
 }) => {
   const data = useStaticQuery(graphql`
     {
@@ -43,6 +46,10 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
       content={{ list: menuItems }}
       isAccordion
     >
+      <Link className="global-navigation__profile" to={'/perfil'}>
+        {<ProfileIcon />}
+        {profileContent.title}
+      </Link>
       <GlobalSearch searchContent={searchContent} />
     </GlobalNavigation>
   );

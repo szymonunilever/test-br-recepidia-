@@ -14,19 +14,19 @@
   &__item {
     width: calc(99.9% / 3);
     margin-bottom: 17px;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
     @include respondTo(medium) {
       padding-left: 16px;
       padding-right: 16px;
       width: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
   }
 
   &__icon {
     text-align: center;
-    width: 84px;
+    width: 80px;
     height: 79px;
     svg {
       height: 100%;
@@ -34,15 +34,26 @@
     }
   }
 
+  &__tooltip {
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    top: -3.5px;
+    z-index: 2;
+    svg {
+      width: 18px;
+    }
+  }
+
   &__text {
     font-size: 1.4rem;
     line-height: 1.2;
-    text-align: center;
+    position: relative;
+    display: flex;
     color: $fish-blue-darker;
     margin-top: 13px;
     @include respondTo(desktop) {
       margin-top: 15px;
-      max-width: 80px;
     }
   }
 }

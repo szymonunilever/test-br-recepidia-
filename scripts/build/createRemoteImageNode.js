@@ -2,7 +2,10 @@ const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const keys = require('../../integrations/keys.json');
 
 module.exports = async (url, id, staticParams) => {
-  const imgExt = url && ~url.indexOf('.png') ? '.png' : '.jpg';
+  const imgExt =
+    (url && ~url.indexOf('.png') && '.png') ||
+    (url && ~url.indexOf('.svg') && '.svg') ||
+    '.jpg';
   return await createRemoteFileNode({
     url:
       url ||

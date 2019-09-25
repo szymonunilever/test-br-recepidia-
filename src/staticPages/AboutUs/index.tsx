@@ -10,7 +10,7 @@ import DigitalData from '../../../integrations/DigitalData';
 import theme from './AboutUs.module.scss';
 import cx from 'classnames';
 // Component Styles
-import '../../scss/pages/_aboutUs.scss';
+import '../../scss/pages/_default.scss';
 const AboutUs = ({
   pageContext: {
     page: { seo, components, type },
