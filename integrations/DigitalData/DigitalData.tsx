@@ -37,6 +37,8 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       gid: process.env['UDM_gid'],
       gaa: process.env['UDM_gaa'],
     },
+    page: {},
+    privacy: {},
   };
 
   return process.env.NODE_ENV !== 'development' ? (
