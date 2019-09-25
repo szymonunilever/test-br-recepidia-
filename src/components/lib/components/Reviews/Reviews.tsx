@@ -31,7 +31,7 @@ const Reviews = ({
           {...getComponentDataAttrs('recipe-reviews')}
         >
           <div
-            className="rr-widget-container"
+            className="rr-widget-container rr-container"
             data-readpanel-template={ReviewsSummaryTemplate.readpanel01}
             data-entity-type={RatingAndReviewsEntityType.recipe}
             data-unique-id={recipeId}
