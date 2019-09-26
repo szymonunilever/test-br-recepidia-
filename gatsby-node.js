@@ -15,12 +15,22 @@ const createCategoryPages = require('./scripts/build/createCategoryPages');
 const updateES = require('./scripts/build/updateElasticsearch');
 const constants = require('./scripts/constants');
 const getStaticLists = require('./scripts/build/getStaticLists');
+const getRedirectRules = require('./scripts/build/getRedirectRules');
+const generateRedirectMap = require('./scripts/build/generateRedirectMap');
 
 const urlPartialsByTypeMap = {
   Article: 'title',
   Recipe: 'title',
   Tag: 'title',
   Category: 'title',
+};
+
+const addTrailingSlash = path => {
+  try {
+    return path && path.endsWith('/') ? path : `${path}/`;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 const findPageFromNodes = (pagesNodes, pageType) =>
@@ -40,10 +50,12 @@ const getSlugFromPath = (path, node, prependWithField = null) => {
     ? `${node[prependWithField]}-${node[urlPartial]}`
     : node[urlPartial];
 
-  return url
-    .resolve(path, formatUrlPartial(itemPath))
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+  return addTrailingSlash(
+    url
+      .resolve(path, formatUrlPartial(itemPath))
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+  );
 };
 
 const createSlugFor = ({ path, node, createNodeField, prependWithField }) => {
@@ -71,19 +83,54 @@ exports.onCreateNode = async ({
       '/'
     );
 
-    return path[path.length - 1] === '/' ? path : `${path}/`;
+    return addTrailingSlash(path);
   };
 
   const { createNodeField, createNode } = actions;
 
   switch (node.internal.type) {
     case constants.NODE_TYPES.RECIPE:
-      createSlugFor({
-        path: getPagePath(constants.TEMPLATE_PAGE_TYPES.RECIPE),
-        node,
-        createNodeField,
-        prependWithField: 'recipeId',
-      });
+      {
+        const dishGroup = node.tagGroups.find(({ name }) => name === 'dishes');
+        const dishName = get(dishGroup, 'tags[0].name');
+        // const recipeNodes = getNodesByType(constants.NODE_TYPES.RECIPE);
+        // const recipesWithTheSameTitle = recipeNodes.filter(
+        //   ({ title, recipeId }) =>
+        //     title.toLowerCase() === node.title.toLowerCase() &&
+        //     recipeId !== node.recipeId
+        // );
+        // recipesWithTheSameTitle.length &&
+        //   console.log({
+        //     duplicates: recipesWithTheSameTitle.map(
+        //       ({ title, recipeId, tagGroups }) => ({
+        //         title,
+        //         recipeId,
+        //         dishName: tagGroups.find(({ name }) => name === 'dishes')
+        //           .tags[0].name,
+        //       })
+        //     ),
+        //     origin: {
+        //       title: node.title,
+        //       recipeId: node.recipeId,
+        //       dishName,
+        //     },
+        //   });
+
+        // [107026, 173884].includes(node.recipeId) &&
+        //   console.log({
+        //     title: node.title,
+        //     recipeId: node.recipeId,
+        //     dishName,
+        //   });
+        createSlugFor({
+          path: `${getPagePath(
+            constants.TEMPLATE_PAGE_TYPES.RECIPE
+          )}${addTrailingSlash(formatUrlPartial(dishName || 'dish'))}`,
+          node,
+          createNodeField,
+          prependWithField: 'recipeId',
+        });
+      }
       break;
     case constants.NODE_TYPES.TAG:
       createSlugFor({
@@ -121,7 +168,7 @@ exports.onCreateNode = async ({
           const { type, content } = asset;
           if (type === 'Image' && content.url) {
             const imgNode = await createRemoteImageNode(
-              /*content.url*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+              /*content.url*/ undefined,
               node.id,
               {
                 store,
@@ -133,10 +180,7 @@ exports.onCreateNode = async ({
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
             const imgNode = await createRemoteImageNode(
-              get(
-                /*content*/ 'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
-                'preview.url'
-              ),
+             undefined,
               node.id,
               {
                 store,
@@ -186,16 +230,18 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const createPageFromTemplate = (edge, page) => {
+    const slug = addTrailingSlash(edge.node.fields.slug);
     createPage({
-      path: edge.node.fields.slug,
+      path: slug,
       component: getPageTemplate(page.type),
       context: {
         page,
         edge,
-        slug: edge.node.fields.slug,
+        slug,
         name: edge.node.name,
-        nextSlug: get(edge, 'next.fields.slug'),
-        previousSlug: get(edge, 'previous.fields.slug'),
+        title: get(edge, 'node.title'),
+        nextSlug: addTrailingSlash(get(edge, 'next.fields.slug')),
+        previousSlug: addTrailingSlash(get(edge, 'previous.fields.slug')),
       },
     });
   };
@@ -203,11 +249,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const pages = await createDefaultPages({
     graphql,
     createPage: page => {
+      const slug = addTrailingSlash(page.relativePath);
       createPage({
-        path: page.relativePath,
+        path: slug,
         component: getPageTemplate(page.type),
         context: {
-          slug: page.relativePath,
+          title: get(page, 'title'),
+          slug,
           page,
           ...getStaticLists(page.components.items),
         },
@@ -259,7 +307,21 @@ exports.createPages = async ({ graphql, actions }) => {
   ]);
 };
 
-exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
+exports.onCreateWebpackConfig = ({
+  actions,
+  getConfig,
+  stage,
+  loaders,
+  plugins,
+}) => {
+  const appConfig = require('./app-config').getConfig();
+
+  // Create an object of all the variables in .env file
+  const envKeys = Object.keys(appConfig).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(appConfig[next]);
+    return prev;
+  }, {});
+
   if (stage === 'build-javascript') {
     actions.setWebpackConfig({
       optimization: {
@@ -290,6 +352,10 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       },
     });
   }
+
+  actions.setWebpackConfig({
+    plugins: [plugins.define(envKeys)],
+  });
 
   const config = getConfig();
   config.resolve = {
@@ -326,32 +392,70 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
   actions.replaceWebpackConfig(config);
 };
 
-exports.onPostBuild = async ({ getNodesByType }) => {
+// TODO: As soon as a number of post build jobs will be increased the following part should be refactored
+exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
   // To run ES update pass `updateES=true` as a build param
+  // To run redirects map generation pass `redirects-map=true` as a build param
   const args = process.argv.slice(2);
-  if (
-    !args ||
-    !args.some(item => {
-      const arg = item.split('=');
-      return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
-    })
-  ) {
+  if (!args) {
     return;
   }
 
-  // eslint-disable-next-line no-console
-  console.log('updating ES');
+  const isUpdateES = args.some(item => {
+    const arg = item.split('=');
+    return arg && arg.length && arg[0] === 'updateES' && arg[1] === 'true';
+  });
 
-  const hrstart = process.hrtime();
+  const isGenerateRedirectMap = args.some(item => {
+    const arg = item.split('=');
+    return arg && arg.length && arg[0] === 'redirects-map' && arg[1] === 'true';
+  });
 
-  const promises = [
-    updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
-    updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
-  ];
+  if (isGenerateRedirectMap) {
+    // eslint-disable-next-line no-console
+    console.log('Generating redirects map');
 
-  await Promise.all(promises);
+    const tstart = process.hrtime();
 
-  const hrend = process.hrtime(hrstart);
-  // eslint-disable-next-line no-console
-  console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+    // The config can be moved to AEM/config file or any place
+    // Generation script works independently of the application and doesn't have any references outside
+    const config = {
+      newUrls: getNodesByType('SitePage').map(item => item.path),
+      oldSitemapPath: [
+        './old-sitemap/old-sitemap-1.xml',
+        './old-sitemap/old-sitemap-2.xml',
+      ],
+      oldDomain: 'https://br.recepedia.com',
+      JMESPathToUrls: `"ns1:urlset"."ns1:url"[]."ns1:loc"`,
+      redirectRules: getRedirectRules(),
+      otherwiseRedirectTo: '/',
+    };
+
+    await generateRedirectMap(config);
+
+    // eslint-disable-next-line no-console
+    console.log('Redirects map generation finished');
+
+    const trend = process.hrtime(tstart);
+    // eslint-disable-next-line no-console
+    console.info('Execution time (hr): %ds %dms', trend[0], trend[1] / 1000000);
+  }
+
+  if (isUpdateES) {
+    // eslint-disable-next-line no-console
+    console.log('updating ES');
+
+    const hrstart = process.hrtime();
+
+    const promises = [
+      updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
+      updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
+    ];
+
+    await Promise.all(promises);
+
+    const hrend = process.hrtime(hrstart);
+    // eslint-disable-next-line no-console
+    console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
+  }
 };

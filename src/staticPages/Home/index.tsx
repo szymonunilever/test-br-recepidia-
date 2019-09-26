@@ -17,6 +17,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
+import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
 
 import IntroQuiz from '../../components/page/IntroQuiz';
 
@@ -24,7 +25,7 @@ import theme from './home.module.scss';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
-import { isQuizesStored, getTopRecipes, getLatestAndGratest } from './helpers';
+import { isQuizesStored, getRecipes } from './helpers';
 // Component Styles
 import '../../scss/pages/_home.scss';
 
@@ -37,6 +38,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+
   const quizContent = findPageComponentContent(components, 'Wizard');
   const introContent = {
     title: findPageComponentContent(components, 'Text', 'IntroQuizTitle')
@@ -71,8 +73,8 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     setLoadedLatest(false);
     setLoadedTop(false);
     Promise.all([
-      getLatestAndGratest(latestAndGrates.nodes),
-      getTopRecipes(topRecipes.nodes),
+      getRecipes(latestAndGrates.nodes),
+      getRecipes(topRecipes.nodes, { from: FROM + RESULT_SIZE }),
     ])
       .then(([latestResult, topResult]) => {
         setLatestAndGratestResult(latestResult);
@@ -214,7 +216,7 @@ export default HomePage;
 export const pageQuery = graphql`
   {
     latestAndGrates: allRecipe(
-      sort: { order: DESC, fields: creationTime }
+      sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
       limit: 6
     ) {
       nodes {
@@ -222,7 +224,11 @@ export const pageQuery = graphql`
       }
     }
 
-    topRecipes: allRecipe(limit: 6) {
+    topRecipes: allRecipe(
+      sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
+      limit: 6
+      skip: 6
+    ) {
       nodes {
         ...RecipeFields
       }

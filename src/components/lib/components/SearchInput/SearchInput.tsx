@@ -9,9 +9,11 @@ import SearchResults from './partials/SearchResults';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
 import trim from 'lodash/trim';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const SearchInput = ({
   list = [],
+  content,
   content: { title, placeholderText },
   className,
   labelIcon,
@@ -182,7 +184,10 @@ const SearchInput = ({
   const showSearchResults = inputIsDirty && inputHasValidValue && !isLoading;
 
   return (
-    <div className={classNames} data-componentname="search-input">
+    <div
+      className={classNames}
+      {...getComponentDataAttrs('search-input', content)}
+    >
       <h1 className="search-input__title">{title}</h1>
 
       <form className="form">

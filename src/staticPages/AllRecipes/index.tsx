@@ -12,8 +12,6 @@ import RecipeListing, {
   LoadMoreType,
 } from 'src/components/lib/components/RecipeListing';
 import Hero from 'src/components/lib/components/Hero';
-import PageListing from 'src/components/lib/components/PageListing';
-import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -25,8 +23,6 @@ import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 // Component Styles
 import '../../scss/pages/_allRecipes.scss';
-
-import keys from 'integrations/keys.json';
 
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { WindowLocation } from '@reach/router';
@@ -55,11 +51,7 @@ const AllRecipesPage = ({
   const {
     page: { seo, components, type },
   } = pageContext;
-  const { promotionalRecipes, allTagGroupings, allCategory } = data;
-  const pageListingData = allCategory.nodes.map(category => ({
-    ...category,
-    path: category.fields.slug,
-  }));
+  const { promotionalRecipes, allTagGroupings } = data;
 
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
@@ -103,7 +95,7 @@ const AllRecipesPage = ({
     params: SearchParams = {}
   ) => {
     const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
+      index: process.env['elasticSearch_recipeIndex'] as string,
       body: {
         ...params,
         query: {
@@ -157,22 +149,6 @@ const AllRecipesPage = ({
           className={cx(theme.themeTitle, 'wrapper')}
           tag={TagName['h1']}
           text={findPageComponentContent(components, 'Text', 'PageTitle').text}
-        />
-      </section>
-
-      <section className={cx(theme.allRecipesHeroCarousel, '_pb--40 wrapper')}>
-        <PageListing
-          content={findPageComponentContent(
-            components,
-            'PageListing',
-            'RecipeCategories'
-          )}
-          list={pageListingData}
-          viewType={PageListingViewTypes.carousel}
-          titleLevel={2}
-          carouselConfig={{
-            arrowIcon: <ArrowIcon />,
-          }}
         />
       </section>
 
@@ -293,16 +269,6 @@ export const query = graphql`
       totalCount
     }
 
-    allCategory(
-      limit: 15
-      filter: { showOnHomepage: { ne: 0 } }
-      sort: { order: ASC, fields: showOnHomepage }
-    ) {
-      nodes {
-        ...CategoryFields
-      }
-    }
-
     allTagGroupings {
       nodes {
         children {
@@ -331,9 +297,6 @@ interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
     };
     allTagGroupings: {
       nodes: Internal.TagGroup[];
-    };
-    allCategory: {
-      nodes: Internal.Category[];
     };
   };
   pageContext: {

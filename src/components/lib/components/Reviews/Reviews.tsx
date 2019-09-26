@@ -7,6 +7,7 @@ import {
 } from '../../models/ratings&reviews';
 import cx from 'classnames';
 import isBrowser from '../../utils/isBrowser';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const Reviews = ({
   className,
@@ -25,9 +26,12 @@ const Reviews = ({
   return (
     <>
       {provider === RatingAndReviewsProvider.kritique ? (
-        <div className={classNames} data-componentname="recipe-reviews">
+        <div
+          className={classNames}
+          {...getComponentDataAttrs('recipe-reviews')}
+        >
           <div
-            className="rr-widget-container"
+            className="rr-widget-container rr-container"
             data-readpanel-template={ReviewsSummaryTemplate.readpanel01}
             data-entity-type={RatingAndReviewsEntityType.recipe}
             data-unique-id={recipeId}

@@ -4,6 +4,7 @@ import { MediaGalleryProps } from './models';
 import { TagName, Text } from '../Text';
 import { Button } from 'src/components/lib/components/Button';
 import MediaGalleryItem from './partials/MediaGalleryItem';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const MediaGallery = ({
   list,
@@ -36,7 +37,7 @@ const MediaGallery = ({
   return (
     <div
       className={cx('media-gallery', className)}
-      data-componentname="media-gallery"
+      {...getComponentDataAttrs('media-gallery', content)}
     >
       {content.title && (
         <Text

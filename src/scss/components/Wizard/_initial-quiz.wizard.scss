@@ -4,29 +4,29 @@
   left: auto;
   right: auto;
   bottom: auto;
-  overflow: hidden;
   height: 100%;
   .wizard {
     &__container {
-      padding-top: 68px;
-      padding-left: 25px;
-      padding-right: 25px;
-      @media screen and (max-height: 567px),
-        screen and (orientation: landscape) and (max-width: 959px) {
-        padding-top: 40px;
+      padding: 68px 25px 20px;
+    }
+    &__content {
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: block;
+      form {
+        margin: 0;
+        overflow-y: visible;
+      }
+      .quiz__list {
+        overflow-y: visible;
       }
     }
     &__logo {
-      position: static;
       justify-content: flex-start;
       margin-bottom: 10px;
-      margin-top: -40px;
-      @media screen and (max-height: 567px),
-        screen and (orientation: landscape) and (max-width: 959px) {
-        margin-top: 0;
-      }
+      margin-top: 0;
       @include respondTo(desktop) {
-        margin-top: 0;
+        position: static;
         margin-bottom: 14px;
       }
     }
@@ -50,6 +50,7 @@
   }
 
   .quiz__list {
+    width: 100%;
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       flex: auto;
     }
@@ -66,10 +67,11 @@
     display: none;
   }
   .wizard__buttons {
-    button + button {
-      margin-right: 16px;
+    padding-bottom: 0px;
+    @include respondTo(desktop) {
+      padding-bottom: 7px;
     }
-    flex-direction: row-reverse;
+
     .wizard__button--primary {
       @extend .button--medium;
     }

@@ -83,14 +83,20 @@
           font: 500 4.8rem/0.75 $rubik;
           color: $black-blue;
           background: none;
-          margin-right: 20px;
+          margin-right: 10px;
           padding: 0;
           position: relative;
+          @include respondTo(desktop) {
+            margin-right: 20px;
+          }
           &:after {
             content: '';
             height: 35px;
-            padding-left: 20px;
+            padding-left: 10px;
             border-right: 1px solid $black-blue;
+            @include respondTo(desktop) {
+              padding-left: 20px;
+            }
           }
         }
         .tRtng {
@@ -255,12 +261,12 @@
             }
             &.helpful {
               &:before {
-                content: 'Yes (';
+                content: 'Sim (';
               }
             }
             &.un-helpful {
               &:before {
-                content: 'No (';
+                content: 'Não (';
               }
             }
           }

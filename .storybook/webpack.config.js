@@ -34,14 +34,19 @@ module.exports = ({ config }) => {
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
-  config.resolve.alias = {src: path.resolve(__dirname, '../src'), integrations: path.resolve(__dirname, '../integrations')};
+  config.resolve.alias = {
+    src: path.resolve(__dirname, '../src'),
+    integrations: path.resolve(__dirname, '../integrations'),
+    'app-config': path.resolve(__dirname, '../app-config'),
+  };
 
   config.module.rules.push({
     test: /\.scss$/,
     loader: [
       'style-loader',
       {
-        loader: 'css-loader', options: {
+        loader: 'css-loader',
+        options: {
           modules: true,
           localIdentName: '[name]__[local]___[hash:base64:5]',
           camelCase: true,
@@ -49,7 +54,8 @@ module.exports = ({ config }) => {
         },
       },
       {
-        loader: 'sass-loader', options: {
+        loader: 'sass-loader',
+        options: {
           sourceMap: true,
         },
       },
@@ -57,7 +63,9 @@ module.exports = ({ config }) => {
     include: path.resolve(__dirname, '../'),
   });
 
-  const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
+  const fileLoaderRule = config.module.rules.find(rule =>
+    rule.test.test('.svg')
+  );
   fileLoaderRule.exclude = pathToInlineSvg;
   // @todo externalize svg loader config
   config.module.rules.push({

@@ -3,6 +3,7 @@ import { CountrySelectorProps, LanguageEntry } from './models';
 import { Select } from '../Select';
 import { FlagIcon } from '../FlagIcon';
 import cx from 'classnames';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const CountrySelector = ({
   selected,
@@ -26,7 +27,10 @@ const CountrySelector = ({
     </div>
   );
   return (
-    <div data-componentname="country-selector" className={selectClassName}>
+    <div
+      {...getComponentDataAttrs('country-selector')}
+      className={selectClassName}
+    >
       <Select
         options={list}
         placeholder="Select"

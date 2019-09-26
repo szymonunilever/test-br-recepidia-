@@ -36,16 +36,17 @@ export interface RecipeListingProps
   imageSizes: string;
   onViewChange?: onRecipeListingViewChanged;
   dataFetched?: boolean;
+  isExternalItemLink?: boolean;
 }
 
 export type onRecipeListingViewChanged = (
   tags: Internal.Tag[],
-  sortingOption: string
+  sortingOption: any
 ) => Promise<void>;
 
 export type onLoadMore = (
   tags: Internal.Tag[],
-  sortingOption: string,
+  sortingOption: any,
   size: number
 ) => Promise<void>;
 
@@ -69,4 +70,5 @@ export interface RecipeListingCarouselProps {
   config: CarouselConfig;
   ratingProvider?: RatingAndReviewsProvider;
   imageSizes: string;
+  isExternalRecipeLink?: boolean;
 }

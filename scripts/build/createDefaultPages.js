@@ -32,6 +32,7 @@ module.exports = async ({ graphql, createPage }) => {
                 alt
                 localImage {
                   id
+                  ext
                   childImageSharp {
                     fluid(maxWidth: 1088, quality: 25) {
                       base64
@@ -49,6 +50,7 @@ module.exports = async ({ graphql, createPage }) => {
           }
           type
           relativePath
+          title
           seo {
             title
             description
@@ -82,6 +84,9 @@ module.exports = async ({ graphql, createPage }) => {
         'AboutUs',
         'MealPlanner',
         'Sitemap',
+        'NewsletterSignUp',
+        'PreferenceCenter',
+        'TermsAndConditions',
       ].includes(type)
     )
     .forEach(pageNode => {

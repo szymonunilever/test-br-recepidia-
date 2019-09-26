@@ -34,7 +34,7 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
           text={findPageComponentContent(components, 'Text', 'Subtitle').text}
         />
         <Link
-          to={'/receitas'}
+          to={'/receita'}
           className={cx('button', theme.notFound__recipesLink)}
         >
           {findPageComponentContent(components, 'Button').label}

@@ -28,9 +28,7 @@ export const constructMenu = (
       };
       return recipesMenuItems;
     });
-    prevRecipeNavChildren &&
-      prevRecipeNavChildren.splice(1, 0, ...recipeNav.children) &&
-      (recipeNav.children = prevRecipeNavChildren);
+    prevRecipeNavChildren && recipeNav.children.push(...prevRecipeNavChildren);
   }
 
   return menuItems.list;

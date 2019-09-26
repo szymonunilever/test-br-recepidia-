@@ -7,6 +7,9 @@ $two-col-width: 100% / 2;
 $three-col-width: 100% / 3;
 $four-col-width: 100% / 4;
 
+$image-ratio-mobile: 62% !important;
+$image-ratio-desktop: 59% !important;
+
 .wizard--quiz {
   .wizard {
     &__content {
@@ -134,12 +137,27 @@ $four-col-width: 100% / 4;
       }
     }
   }
-
+  .adaptive-image-svg {
+    padding-top: $image-ratio-mobile;
+    background-color: $white-gray;
+    @include respondTo(desktop) {
+      padding-top: $image-ratio-desktop;
+    }
+    img {
+      max-width: 70%;
+    }
+  }
   .gatsby-image-wrapper {
     & > div {
-      padding-bottom: 62% !important;
+      padding-bottom: $image-ratio-mobile;
       @include respondTo(desktop) {
-        padding-bottom: 59% !important;
+        padding-bottom: $image-ratio-desktop;
+      }
+    }
+    //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      img {
+        max-height: 100%;
       }
     }
   }

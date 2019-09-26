@@ -9,9 +9,11 @@ import Rating from '../../Rating';
 import AdaptiveImage from '../../AdaptiveImage';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import { getImageAlt } from 'src/utils';
+import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
 
 const RecipeCard = ({
   recipeId,
+  content,
   content: { title },
   localImage,
   Icon,
@@ -22,6 +24,7 @@ const RecipeCard = ({
   onFavoriteChange,
   ratingProvider,
   imageSizes,
+  isExternalLink = false,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
@@ -57,44 +60,47 @@ const RecipeCard = ({
       sizes={imageSizes}
     />
   );
-  const view = enableSelectFavorite ? (
-    <Link
-      to={slug}
-      data-componentname="recipeCard"
-      aria-label={title}
-      className={wrapClasses}
-    >
-      <Button
-        className="recipe-card__favorite"
-        Icon={Icon}
-        isSelected={inFavorite}
-        onClick={onFavoriteToggle}
-        isToggle={true}
-        viewType={ButtonViewType.icon}
-        attributes={{ 'aria-label': 'favorite toggle' }}
-      />
-      {Image}
-      <div className="recipe-card__info">
-        {itemTitle}
-        {RatingWidget}
-      </div>
-    </Link>
-  ) : (
-    <Link
-      to={slug}
-      data-componentname="recipeCard"
-      aria-label={title}
-      className={wrapClasses}
-    >
-      {Image}
-      <div className="recipe-card__info">
-        {itemTitle}
-        {RatingWidget}
-      </div>
-    </Link>
-  );
+  const LinkComponent = isExternalLink ? 'a' : Link;
+  const linkProps = {
+    'aria-label': title,
+    className: wrapClasses,
+  };
+  if (isExternalLink) {
+    // @ts-ignore
+    linkProps['target'] = '_blank';
+    // @ts-ignore
+    linkProps['href'] = slug;
+    // @ts-ignore
+    linkProps['rel'] = 'noopener noreferrer';
+  } else {
+    // @ts-ignore
+    linkProps['to'] = slug;
+  }
 
-  return view;
+  return (
+    // @ts-ignore
+    <LinkComponent
+      {...getComponentDataAttrs('recipeCard', content)}
+      {...linkProps}
+    >
+      {enableSelectFavorite && (
+        <Button
+          className="recipe-card__favorite"
+          Icon={Icon}
+          isSelected={inFavorite}
+          onClick={onFavoriteToggle}
+          isToggle={true}
+          viewType={ButtonViewType.icon}
+          attributes={{ 'aria-label': 'favorite toggle' }}
+        />
+      )}
+      {Image}
+      <div className="recipe-card__info">
+        {itemTitle}
+        {RatingWidget}
+      </div>
+    </LinkComponent>
+  );
 };
 
 export default RecipeCard;

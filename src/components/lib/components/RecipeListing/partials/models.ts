@@ -19,6 +19,7 @@ export interface RecipeCardProps
   onFavoriteChange?: RecipeCardFavoriteCallback;
   ratingProvider: RatingAndReviewsProvider;
   imageSizes: string;
+  isExternalLink?: boolean;
 }
 
 export interface RecipeListingTrivialProps
@@ -45,7 +46,7 @@ export const RecipeSortingOptionsFieldsMappings = {
   [RecipeSortingOptions.newest]: 'creationTime',
   [RecipeSortingOptions.preparationTime]: 'recipeDetails.preperationTime',
   [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
-  [RecipeSortingOptions.averageRating]: 'rating.averageRating',
+  [RecipeSortingOptions.averageRating]: [{ averageRating: { order: 'desc' } }],
   [RecipeSortingOptions.title]: 'title.keyword',
 };
 

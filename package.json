@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "cross-env": "^6.0.0",
+    "dotenv": "^8.1.0",
     "final-form": "^4.18.2",
+    "flat": "^4.1.0",
     "gatsby": "^2.13.42",
     "gatsby-image": "2.0.41",
     "gatsby-plugin-google-analytics": "^2.1.6",
@@ -33,12 +36,14 @@
     "gatsby-source-filesystem": "2.1.6",
     "gatsby-transformer-remark": "2.6.9",
     "gatsby-transformer-sharp": "2.2.4",
+    "jmespath": "^0.15.0",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "rc-tooltip": "^3.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-dropdown-select": "^3.3.2",
@@ -53,7 +58,8 @@
     "terser-webpack-plugin": "^1.4.1",
     "typeface-rubik": "^0.0.72",
     "url-search-params-polyfill": "^7.0.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "xml2json": "^0.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -70,6 +76,7 @@
     "@types/jest": "^24.0.13",
     "@types/lodash-es": "^4.17.3",
     "@types/node-sass": "^4.11.0",
+    "@types/rc-tooltip": "^3.7.1",
     "@types/react-flag-icon-css": "^1.0.2",
     "@types/react-helmet": "^5.0.8",
     "@types/react-modal": "^3.8.2",
@@ -113,8 +120,8 @@
     "type": "git"
   },
   "scripts": {
-    "build": "set NODE_OPTIONS=--max-old-space-size=8192 && gatsby build",
-    "develop": "set NODE_OPTIONS=--max-old-space-size=8192 && gatsby develop",
+    "build": "gatsby build",
+    "develop": "cross-env NODE_ENV=development && gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",

@@ -3,6 +3,7 @@
   "pages": [
     {
       "type": "Home",
+      "title": "Bem-vindo ao Recepedia",
       "relativePath": "/",
       "components": {
         "items": [
@@ -17,7 +18,7 @@
             "name": "RecipeListing",
             "content": {
               "view": "LatestAndGreatest",
-              "title": "Mais Recentes"
+              "title": "Veja as receitas que separei pra você!"
             }
           },
           {
@@ -53,14 +54,14 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizTitle",
-              "text": "Oi! Bem vindo ao Recepedia!"
+              "text": "Oi! Bem-vindo ao Recepedia!"
             }
           },
           {
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Quero te conhecer melhor para te oferecer receitas feitas só para você!"
+              "text": "Serei o seu assistente de cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
             }
           },
           {
@@ -119,7 +120,7 @@
                       }
                     },
                     {
-                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;",
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091",
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
@@ -129,7 +130,7 @@
                       }
                     },
                     {
-                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073;",
+                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
                         "image": {
@@ -154,7 +155,7 @@
                   "orderIndex": 2,
                   "id": 2,
                   "key": "question2",
-                  "label": "Você tem uma dieta especial?",
+                  "label": "Você segue alguma dieta especial?",
                   "type": {
                     "control": "checkbox",
                     "labelPosition": "bottom"
@@ -166,7 +167,7 @@
                       "label": {
                         "text": "Não",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/8.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/8.svg",
                           "alt": "Não dieta"
                         }
                       }
@@ -176,7 +177,7 @@
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/9.svg",
                           "alt": "Sem produtos de origem animal"
                         }
                       }
@@ -186,7 +187,7 @@
                       "label": {
                         "text": "Sem carne",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/10.svg",
                           "alt": "Sem carne"
                         }
                       }
@@ -196,7 +197,7 @@
                       "label": {
                         "text": "Sem ovo",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/11.svg",
                           "alt": "Sem ovo"
                         }
                       }
@@ -206,7 +207,7 @@
                       "label": {
                         "text": "Sem leite",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/12.svg",
                           "alt": "Sem leite"
                         }
                       }
@@ -216,7 +217,7 @@
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/13.svg",
                           "alt": "Sem açúcar"
                         }
                       }
@@ -226,7 +227,7 @@
                       "label": {
                         "text": "Sem lactose",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/14.svg",
                           "alt": "Sem lactose"
                         }
                       }
@@ -236,7 +237,7 @@
                       "label": {
                         "text": "Sem glúten",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/15.svg",
                           "alt": "Sem glúten"
                         }
                       }
@@ -246,7 +247,7 @@
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/16.svg",
                           "alt": "Sem frutos do mar"
                         }
                       }
@@ -256,7 +257,7 @@
                       "label": {
                         "text": "Sem soja",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/17.svg",
                           "alt": "Sem soja"
                         }
                       }
@@ -267,7 +268,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Como seria um jantar perfeito?",
+                  "label": "Qual seu jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -307,10 +308,10 @@
                     {
                       "value": "2",
                       "label": {
-                        "text": "Com meus net",
+                        "text": "Com meus netos",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
-                          "alt": "Com meus net"
+                          "alt": "Com meus netos"
                         }
                       }
                     }
@@ -360,15 +361,23 @@
                   ]
                 }
               ],
-              "primaryButtonLabel": "Próximo",
-              "secondaryButtonLabel": "Pular",
-              "primaryButtonFinalLabel": "Finalizar"
+              "ctas": [
+                { "type": "back", 
+                  "label": "Voltar"
+                },
+                { "type": "next", 
+                  "label": "Próximo"
+                },
+                { "type": "final", 
+                  "label": "Finalizar"
+                }
+              ]
             }
           }
         ]
       },
       "seo": {
-        "title": "E sua receita, qual é?",
+        "title": "Recepedia - E sua receita, qual é?",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -380,7 +389,7 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/receitas",
+      "relativePath": "/receita",
       "components": {
         "items": [
           {
@@ -426,7 +435,7 @@
             "name": "RecipeListing",
             "content": {
               "view": "RelatedRecipes",
-              "title": "Receitas relacionados"
+              "title": "Receitas relacionadas"
             }
           },
           {
@@ -506,7 +515,7 @@
           {
             "name": "Text",
             "content": {
-              "text": "Nutricionais",
+              "text": "Dados nutricionais",
               "view": "NutritionalTitle"
             }
           }
@@ -523,7 +532,7 @@
     },
     {
       "type": "RecipeCategory",
-      "relativePath": "/receitas-categorias",
+      "relativePath": "/categoria",
       "components": {
         "items": [
           {
@@ -569,7 +578,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -581,7 +590,8 @@
     },
     {
       "type": "AllRecipes",
-      "relativePath": "/receitas",
+      "title": "Receitas",
+      "relativePath": "/receita",
       "components": {
         "items": [
           {
@@ -589,13 +599,6 @@
             "content": {
               "view": "PageTitle",
               "text": "Receitas"
-            }
-          },
-          {
-            "name": "PageListing",
-            "content": {
-              "view": "RecipeCategories",
-              "title": "Confira as receitas mais recentes"
             }
           },
           {
@@ -637,7 +640,7 @@
             "content": {
               "view": "SeasonalPromotionalRecipes",
               "title": "Receitas especiais",
-              "staticList": [176094, 175506, 175505, 173885, 173884, 173870]
+              "staticList": [177573, 177585, 177587, 177590, 177601, 177605]
             }
           },
           {
@@ -659,8 +662,8 @@
         ]
       },
       "seo": {
-        "title": "AllRecipes",
-        "description": "Recepedia AllRecipes description",
+        "title": "Todas as receitas",
+        "description": "Confira aqui todas as receitas disponíves em Recepedia e encontre a sua.",
         "meta": [
           {
             "name": "og:image",
@@ -671,7 +674,7 @@
     },
     {
       "type": "ContentHub",
-      "relativePath": "/hub-de-conteudo",
+      "relativePath": "/",
       "components": {
         "items": [
           {
@@ -719,7 +722,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -779,7 +782,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -873,7 +876,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Procurar",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -885,6 +888,7 @@
     },
     {
       "type": "ContactUs",
+      "title": "Fale Comigo",
       "relativePath": "/fale-comigo",
       "components": {
         "items": [
@@ -905,15 +909,6 @@
           {
             "name": "Card",
             "content": {
-              "view": "Email",
-              "title": "Nosso e-mail",
-              "texts": ["sac@atendimentounilever.com "],
-              "type": "email"
-            }
-          },
-          {
-            "name": "Card",
-            "content": {
               "view": "Address",
               "title": "Endereço",
               "texts": [
@@ -929,7 +924,7 @@
               "view": "Contact",
               "title": "Preencha o formulário",
               "texts": [
-                "Se você precisar de mais respostas ou nos mandar algo, por favor preencha o formulário de contato"
+                "Por favor favor, preencha o formulário e entraremos em contato em breve!"
               ],
               "type": "text",
               "cta": {
@@ -941,8 +936,8 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Precisando de ajuda?",
+        "description": "Conheça os canais de atendimento e fale com a equipe Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -953,6 +948,7 @@
     },
     {
       "type": "ContactForm",
+      "title": "Formulário de contato",
       "relativePath": "/formulario-de-contato",
       "components": {
         "items": [
@@ -960,7 +956,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "ContactForm",
-              "title": "Precisando de ajuda?",
+              "title": "Entre em contato conosco.",
               "submitButton": {
                 "label": "Enviar"
               },
@@ -995,12 +991,12 @@
                   "placeholder": "Como podemos ajudar?",
                   "options": [
                     {
-                      "label": "Dúvida sobre produtos",
-                      "value": "Dúvida sobre produtos"
-                    },
-                    {
                       "label": "Dúvidas sobre produtos",
                       "value": "Dúvidas sobre produtos"
+                    },
+                    {
+                      "label": "Outras dúvidas",
+                      "value": "Outras dúvidas"
                     }
                   ],
                   "validationRules": [
@@ -1083,7 +1079,7 @@
                 },
                 {
                   "name": "email",
-                  "type": "text",
+                  "type": "email",
                   "label": "Email*",
                   "placeholder": "email@email.com",
                   "fieldset": "contact",
@@ -1142,7 +1138,7 @@
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": " Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos</a>",
+                  "label": "Sim, tenho 18 anos ou mais / sou o responsável legal por uma criança ou adolescente e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade da Unilever</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos de Uso</a>",
                   "validationRules": [
                     {
                       "type": "required",
@@ -1174,8 +1170,8 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Preencha o formulário de contato",
+        "description": "Entre em contato com a equipe Recepedia e tire suas dúvidas",
         "meta": [
           {
             "name": "og:image",
@@ -1212,7 +1208,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1321,7 +1317,7 @@
               "tabsHeaderContent": {
                 "contents": [
                   {
-                    "heading": "Favoritas",
+                    "heading": "Receitas favoritas",
                     "subheading": "Você possui {num} receitas favoritas",
                     "view": "ProfileFavorites"
                   },
@@ -1340,7 +1336,7 @@
           {
             "name": "PreferencesQuiz",
             "content": {
-              "quizTitle": "Intro quiz",
+              "quizTitle": "Preferências",
               "view": "IntroQuiz",
               "questions": [
                 {
@@ -1395,7 +1391,7 @@
                       }
                     },
                     {
-                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;",
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091",
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
@@ -1405,7 +1401,7 @@
                       }
                     },
                     {
-                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073;",
+                      "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
                         "image": {
@@ -1430,7 +1426,7 @@
                   "orderIndex": 2,
                   "id": 2,
                   "key": "question2",
-                  "label": "Você tem uma dieta especial?",
+                  "label": "Você segue alguma dieta especial?",
                   "type": {
                     "control": "checkbox",
                     "labelPosition": "bottom"
@@ -1543,7 +1539,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Como seria um jantar perfeito?",
+                  "label": "Qual seu jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -1583,10 +1579,10 @@
                     {
                       "value": "2",
                       "label": {
-                        "text": "Com meus net",
+                        "text": "Com meus netos",
                         "image": {
                           "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/21.jpg",
-                          "alt": "Com meus net"
+                          "alt": "Com meus netos"
                         }
                       }
                     }
@@ -1641,7 +1637,7 @@
           {
             "name": "PreferencesQuiz",
             "content": {
-              "quizTitle": "Planejamento da semana",
+              "quizTitle": "Planejamento semanal",
               "view": "MealPlanner",
               "questions": [
                 {
@@ -1806,7 +1802,7 @@
                       "label": {
                         "text": "Gastar um pouco mais",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
                           "alt": "Gastar um pouco mais"
                         }
                       }
@@ -1816,7 +1812,7 @@
                       "label": {
                         "text": "Algo bom, bonito e barato",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
                           "alt": "Algo bom, bonito e barato"
                         }
                       }
@@ -1894,7 +1890,7 @@
       },
       "seo": {
         "title": "Recepedia - E sua receita, qual é?",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -1905,6 +1901,7 @@
     },
     {
       "type": "AboutUs",
+      "title": "Sobre Recepedia",
       "relativePath": "/sobre-recepedia",
       "components": {
         "items": [
@@ -1934,13 +1931,13 @@
           {
             "name": "RichText",
             "content": {
-              "text": "<div>Bem mais do que um site de receitas: sou um assistente de cozinha feito para você. Quanto mais eu te conheço, mais posso deixar o site com a sua cara (e melhores ficam minhas sugestões de receitas). Se sua dieta é vegana, não vou te mostrar pratos com bichinhos. Se curte um árabe, vou te sugerir mais shawarmas e menos empanadas. Se não tolera lactose, não faz sentido te apresentar comidas com leite, né? A vida é muita curta para perder tempo pensando no que cozinhar. Abre um vinho e relaxa: eu penso por você.</div>"
+              "text": "<div>Bem mais do que um site de receitas: sou um assistente de cozinha feito para você. Quanto mais eu te conheço, mais posso deixar o site com a sua cara (e melhores ficam minhas sugestões de receitas). Se sua dieta é vegana, não vou te mostrar pratos com carne. Se curte um árabe, vou te sugerir mais shawarmas e menos empanadas. Se não tolera lactose, não faz sentido te apresentar comidas com leite, né? A vida é muita curta para perder tempo pensando no que cozinhar. Abre um vinho e relaxa: eu penso por você.</div>"
             }
           }
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1952,6 +1949,7 @@
     },
     {
       "type": "MealPlanner",
+      "title": "Planejamento semanal",
       "relativePath": "/planejamento-da-semana",
       "components": {
         "items": [
@@ -1959,11 +1957,11 @@
             "name": "Wizard",
             "content": {
               "wizardIntroductionPanel": {
-                "title": "Planejamento da semana",
-                "description": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+                "title": "Planejamento semanal",
+                "description": "Agora você não precisa mais se preocupar com o que vai comer durante semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
                   "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
-                  "alt": "Planejamento da semana"
+                  "alt": "Planejamento semanal"
                 },
                 "primaryButtonLabel": "Comece agora!",
                 "bottomContent": ""
@@ -2128,22 +2126,22 @@
                     "filterPropName": "tags",
                     "options": [
                       {
-                        "value": "1371",
-                        "label": {
-                          "text": "Gastar um pouco mais",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
-                            "alt": "Gastar um pouco mais"
-                          }
-                        }
-                      },
-                      {
                         "value": "1369;1370",
                         "label": {
                           "text": "Algo bom, bonito e barato",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
                             "alt": "Algo bom, bonito e barato"
+                          }
+                        }
+                      },
+                      {
+                        "value": "1371",
+                        "label": {
+                          "text": "Gastar um pouco mais",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
+                            "alt": "Gastar um pouco mais"
                           }
                         }
                       }
@@ -2193,7 +2191,14 @@
                     ]
                   }
                 ],
-                "primaryButtonLabel": "Continuar",
+                "ctas": [
+                  { "type": "back", 
+                    "label": "Voltar"
+                  },
+                  { "type": "next", 
+                    "label": "Continuar"
+                  }
+                ],
                 "bottomContent": "Não se preocupe, você pode mudar suas preferências quando quiser!"
               },
               "wizardResultSection": {
@@ -2206,8 +2211,8 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Planejamento da semana - Recepedia",
+        "description": "Crie o seu cardápio personalizado com a ajuda de Recepedia",
         "meta": [
           {
             "name": "og:image",
@@ -2218,6 +2223,7 @@
     },
     {
       "type": "Sitemap",
+      "title": "Mapa do site",
       "relativePath": "/mapa-do-site",
       "components": {
         "items": [
@@ -2232,7 +2238,79 @@
       },
       "seo": {
         "title": "Mapa do site",
+        "description": "Navegue pelas categorias de receitas de Recepedia e prepare o seu prato favorito",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "NewsletterSignUp",
+      "relativePath": "/newsletter-signup",
+      "components": {
+        "items": []
+      },
+      "seo": {
+        "title": "Newsletter SignUp",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "PreferenceCenter",
+      "relativePath": "/preference-center",
+      "components": {
+        "items": []
+      },
+      "seo": {
+        "title": "Preferences",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "TermsAndConditions",
+      "relativePath": "/terms-conditions",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "TERMOS E CONDIÇÕES"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Subtitle",
+              "text": "Este documento contém os Termos de Uso do site Recepedia.com, cuja aceitação plena e integral é requisito para todos os participantes."
+            }
+          },
+          {
+            "name": "RichText",
+            "content": {
+              "text": "<div><p><strong>Este documento contém os Termos de Uso do site Recepedia.com, cuja aceitação plena e integral é requisito para todos os participantes.</strong></p><p>&nbsp;</p><p>1. Visão Geral</p><p>1.1 Este documento regula a utilização de produtos, softwares e serviços disponibilizados ao USUÁRIO no site RECEPEDIA www.recepedia.com.</p><p>1.2 RECEPEDIA é um site mantido por UNILEVER BRASIL ALIMENTOS LTDA., empresa com sede na cidade de São Paulo, Estado de São Paulo na Rua Juscelino Kubitschek, 1309, 13º andar, sala 4 – Itaim Bibi – CEP 04543-011 – Parte, inscrita no CNPJ sob o nº 01.615.814/0001-01, detentora da marca HELLMANN'S ®, entre outras.</p><p>1.3 O site RECEPEDIA é uma enciclopédia de receitas culinárias onde o banco de dados é alimentado pela equipe da UNILEVER, ou de terceiros por ela contratados, mas principalmente pelo USUÁRIO, que poderá compartilhar suas experiências em um ambiente agradável, prático e fácil de ser utilizado.</p><p>2. Referências</p><p>2.1 Para tornar a comunicação mais clara nestes Termos de Serviço, algumas referências foram padronizadas, e sempre que houver referência neste documento em caixa alta dos itens a seguir, o significado será este:</p><p>RECEPEDIA – é o site acessível pela internet por intermédio do endereço url www.recepedia.com, onde serão disponibilizados SERVIÇOS e facilidades oferecidas ao USUÁRIO;</p><p>UNILEVER - Unilever Brasil Alimentos Ltda., promotora e mantenedora de RECEPEDIA;</p><p>USUÁRIO – pessoa que utiliza os serviços disponibilizados no RECEPEDIA, estando ou não cadastrado no mesmo;</p><p>TERMOS – Termos de Serviços de RECEPEDIA, previstos neste documento;</p><p>SERVIÇOS – ferramentas, softwares, facilidades, e recursos disponibilizados em RECEPEDIA, como os exemplos que seguem (as descrições a seguir são meramente exemplificativas, podendo existir, e serem criados, outros serviços e facilidades):</p><p>- buscar receitas com diferentes ferramentas (ferramenta de busca, o que você tiver na geladeira, navegar por receitas de restaurantes e chefs parceiros);</p><p>- assistir vídeos de receitas e dicas;</p><p>- subir receitas ao RECEPEDIA;</p><p>- votar, dar nota, comentar e encaminhar receitas de outros funcionários;</p><p>- criar seu perfil e caderno de receitas, tanto com receitas próprias, quanto 'favoritar' receitas de outras pessoas;</p><p>- enviar receitas por email, celular ou criar bookmarks no RECEPEDIA;</p><p>- seguir outros 'cozinheiros', e ser avisado de novas receitas postadas;</p><p>- criar e participar de 'clubs', foruns onde os internautas trocam receitas, opiniões e dúvidas;</p><p>- opinar e ou tirar dúvidas em receitas;</p><p>CONTA – dados fornecidos pelo USUÁRIO no momento do cadastro, incluindo, mas sem se limitar a nome de usuário e senha, e qualquer outra informação que venha agregar por meio de ferramentas disponibilizadas, tais como receitas;</p><p>3. Funcionamento de RECEPEDIA</p><p>3.1 RECEPEDIA é um site gratuito aberto a consulta, onde qualquer pessoa que se enquadre nos requisitos definidos nestes TERMOS, com acesso a web, e dispondo dos recursos de hardwares e softwares necessários, poderá explorar e consultar as receitas disponibilizadas, sendo considerado USUÁRIO.</p><p>3.2 Para ter acesso a todos os serviços, e não tão somente a consultas, o USUÁRIO deverá se cadastrar, fornecendo os dados necessários, criando um login e senha, passando a possuir um perfil, e podendo compartilhar suas experiências culinárias através de sua publicação no RECEPEDIA.</p><p>3.3 Para o USUÁRIO ter acesso a ferramenta de publicar e compartilhar suas receitas, ter acesso a facilidades que venham a ser desenvolvidas, assim como concursos ou qualquer outro benefício, deverá necessariamente ser cadastrado no RECEPEDIA.</p><p>3.4 A UNILEVER, a seu único e exclusivo critério, também acrescentará conteúdo ao banco de dados de RECEPEDIA, disponibilizando receitas e informações, firmando parceria com profissionais e empresas do ramo, promovendo concursos e facilidades a serem disponibilizadas ao USUÁRIO.</p><p>4. Aceitação dos TERMOS</p><p>4.1 O USUÁRIO que acessar e consultar as receitas disponíveis em RECEPEDIA, sem efetuar cadastro, concorda com o previsto nestes TERMOS pelo fato de sua livre iniciativa de utilizar e/ou acessar os dados disponibilizados.</p><p>4.2 O USUÁRIO cadastrado deverá, necessariamente, no momento de sua inscrição aceitar expressamente a integralidade das condições deste TERMO, por meio de campo destinado a sua aceitação, onde manifestará o seu total consentimento eletronicamente, sendo isto pré-requisito para cadastramento.</p><p>4.3 O USUÁRIO não poderá usar os SERVIÇOS nem aceitar os TERMOS se: (a) não tiver idade legal para celebrar um acordo com efeito jurídico com UNILEVER; ou (b) for uma pessoa com restrições quanto ao recebimento de serviços impostas pelas leis do Brasil ou de outros países, incluindo o país onde o USUÁRIO é residente ou a partir do qual usa os serviços.</p><p>4.4 Antes de continuar, o USUÁRIO deverá imprimir ou guardar uma cópia local deste TERMO em seus registros.</p><p>4.5 O USUÁRIO obriga-se e compromete-se a manter sempre atualizados todos os seus dados cadastrais e contatos.</p><p>5. Cadastro</p><p>5.1 Para efetuar o cadastro o USUÁRIO deverá acessar o campo destinado para tanto e informar, nome completo, endereço, e-mail, telefone, data de nascimento e documento nacional de identificação, assim como criar um nome de usuário e senha.</p><p>5.2 O USUÁRIO deverá ter no mínimo 18 (dezoito) anos completos, e ser plenamente capaz. No caso de menores de 18 (dezoito) anos e outras pessoas que necessitem de representação na forma da lei, estes devem estar devidamente representados, ou assistidos, conforme o caso, por seus pais ou responsáveis legais.</p><p>5.3 O USUÁRIO se responsabiliza integralmente, nos termos da lei, pela veracidade e exatidão dos dados fornecidos, e os mesmos devem ser pessoais, pois é proibida a utilização de dados de terceiros, de modo que qualquer tentativa de criar falsa identidade, idade, endereço eletrônico ou físico, documento de identificação, etc., será considerada como infração à legislação pátria e aos termos do presente Acordo, possibilitando sua imediata rescisão, sem prejuízo, ainda, de apuração de eventuais perdas e danos causados a UNILEVER ou a terceiros e medidas penais como a apuração de falsidade ideológica entre outros.</p><p>5.4 A UNILEVER, se reserva o direito de moderar os cadastros ao seu critério, podendo cancelar, suspender, excluir qualquer USUÁRIO, ou dados e informações, sem notificação e necessidade de motivação ou justificação, sendo esta uma decisão discricionária e pessoal caso simplesmente desconfie da veracidade ou exatidão do cadastro e/ou dados pessoais fornecidos por determinado USUÁRIO, bem como caso julgue assim necessário em virtude de quaisquer outros motivos.</p><p>6. Uso dos SERVIÇOS por parte do USUÁRIO, Direitos de Autor e responsabilidades</p><p>6.1 Para acessar os SERVIÇOS o USUÁRIO deverá efetuar o login fornecendo seu nome de usuário e senha, bem como das demais informações descritas no item 5.1 acima.</p><p>6.2 O USUÁRIO concorda em usar os SERVIÇOS somente para os fins permitidos pelos TERMOS, pelo ordenamento jurídico do país, regulamentos ou práticas ou diretrizes aceitas nas jurisdições relevantes.</p><p>6.3 O USUÁRIO concorda em não acessar (nem tentar acessar) qualquer um dos SERVIÇOS, por qualquer meio, que não seja através da interface fornecida em RECEPEDIA, ou fornecida por seus parceiros.</p><p>6.4 O USUÁRIO concorda em não participar de nenhuma atividade que interfira ou interrompa o funcionamento dos SERVIÇOS (ou servidores e redes conectados aos SERVIÇOS).</p><p>6.5 O USUÁRIO concorda em não utilizar para fins comerciais os SERVIÇOS, ou qualquer outra informação disponibilizada em RECEPEDIA, sendo livre sua utilização privada e particular.</p><p>6.6 O USUÁRIO concorda que será o único responsável pelo descumprimento de qualquer das suas obrigações no que diz respeito aos TERMOS.</p><p>6.7 É expressamente proibida a utilização comercial, ou com qualquer finalidade de obter proveito próprio, ou de terceiros, dos SERVIÇOS e informações disponibilizadas em RECEPEDIA, quer seja por obtenção de dados, ou mesmo por utilização de recursos e ferramentas disponibilizados para a CONTA do USUÁRIO, exceto no caso de existir acordo expresso e por escrito firmado com os representantes legais da UNILEVER.</p><p>6.8 O USUÁRIO declara que toda a informação, dados, imagens e material por ele enviados para RECEPEDIA são de sua legítima autoria, não contendo plágio, cópia, ou qualquer outra forma de apropriação de qualquer direito de propriedade intelectual e/ou de quaisquer outros direitos de terceiros. O USUÁRIO é responsável por quaisquer violações nesse sentido, isentando e mantendo a UNILEVER livre de quaisquer responsabilidades.</p><p>6.9 O USUÁRIO não poderá utilizar com fim comercial, em benefício próprio ou de terceiros, ou de maneira capaz de denegrir qualquer uma das marcas registradas, marcas comerciais, marcas de serviços, logotipos, nomes de domínios e outras características de quaisquer marcas da UNILEVER, de terceiros, ou de parceiros constantes em RECEPEDIA.</p><p>6.10 Da mesma forma, o USUÁRIO concorda que, ao usar os SERVIÇOS, não irá utilizar com finalidade comercial, em benefício próprio ou de terceiros qualquer marca comercial, marca de serviço, marca registrada, logotipo de qualquer empresa ou organização, assim como não fazer qualquer espécie de alusão atentatória a imagem, aos valores e bons costumes, ou induzir terceiros em erros com informações dissimuladas, falsas ou incorretas.</p><p>6.11 O USUÁRIO também é responsável pelas informações de caráter nutricional, ou relacionadas com saúde e padrões de comportamento no material que remeter a RECEPEDIA.</p><p>6.12 O USUÁRIO não poderá (nem poderá permitir a mais ninguém) copiar, modificar, criar uma obra derivada de, realizar engenharia inversa, descompilar ou, de qualquer outro modo, tentar extrair o código-fonte dos softwares ou de qualquer parte que componha os SERVIÇOS ou qualquer conteúdo contido em RECEPEDIA.</p><p>6.13 Todo o material e serviço encontrado nas páginas de administração do RECEPEDIA (textos, imagens, áudio, softwares, tecnologia, logotipos, slogans, marcas, expressões de propaganda, domínios, nomes comerciais, obras intelectuais, etc.), bem como os softwares que viabilizam as atividades, são de exclusiva propriedade da UNILEVER, que detém todos os direitos autorais, licenciamentos e direitos de propriedade, marca ou patente a eles relativos. Qualquer violação dos direitos de propriedade da UNILEVER ou de terceiros resultará na responsabilidade direta e pessoal do USUÁRIO responsável, que responderá pelos atos praticados nos termos da lei, com a aplicação das sanções cabíveis nas áreas cível e criminal bem como a apuração de perdas e danos.</p><p>6.14 Nenhuma responsabilidade, de nenhuma espécie, seja ela de acessibilidade, veracidade, legalidade do conteúdo ou outra qualquer, poderá ser imputada a UNILEVER, sempre que o USUÁRIO, por meio do RECEPEDIA, adentrar-se em sites ou links de propriedade, administração e/ou controle de terceiros, tais como patrocinadores, parceiros, prestadores de serviços em geral relacionados aos eventos informados pelos USUÁRIOS.</p><p>6.15 O USUÁRIO fica terminantemente proibido de: a) utilizar-se das atividades do RECEPEDIA para quaisquer fins comerciais, mediante o envio de publicidade, correspondências institucionais, malas diretas, propagandas ou qualquer outro material de natureza semelhante; b) enviar quaisquer espécies de arquivos e/ou MATERIAL com vírus que possam causar danos ao software/hardware do RECEPEDIA e/ou demais USUÁRIOS.</p><p>7. Segurança da CONTA e senha do USUÁRIO</p><p>7.1 O USUÁRIO concorda, e compreende, que será responsável por manter a confidencialidade da senha associadas a qualquer CONTA que utilize para acessar os SERVIÇOS, sendo tais dados pessoais e intransferíveis não podendo ser compartilhados.</p><p>7.2 O USUÁRIO é o único responsável pelas atividades que ocorram na respectiva CONTA.</p><p>7.3 Se tomar conhecimento de qualquer utilização por terceiros da sua CONTA, o USUÁRIO concorda em notificar imediatamente a UNILEVER por meio do RECEPEDIA.</p><p>7.4 Todos e quaisquer dados pessoais e/ou informações sigilosas, em formato de texto, voz, imagem, etc., submetidas pelo USUÁRIO ao site RECEPEDIA, poderão ser imediatamente reveladas pela UNILEVER para terceiros em cumprimento a ordem judicial ou administrativa nesse sentido, ou ainda, nos casos expressamente previstos ao longo do presente instrumento.</p><p>7.5 A qualquer momento poderão ser incluídos novos conteúdos e ferramentas ao site, bem como excluídas as já existentes, sem qualquer aviso prévio ao USUÁRIO. Estes novos textos e ferramentas ficarão automaticamente vinculados e subordinados a todos os termos e condições do presente Acordo.</p><p>8. Cessões, licenças e autorizações de direitos do USUÁRIO</p><p>8.1 O USUÁRIO cede para UNILEVER toda a informação e dados, independente da natureza e forma, que for por ele enviado para RECEPEDIA, e garante que possui os direitos, poderes e autoridade necessários para outorgar as licenças, cessões e autorizações previstas nestes TERMOS.</p><p>8.2 O USUÁRIO autoriza e cede para UNILEVER, sem qualquer contrapartida financeira, o material espontaneamente enviado à RECEPEDIA, incluindo seu nome, imagens, voz e dados, para utilização em fotos, cartazes, filmes, incluindo, na autorização dada, o prévio e expresso consentimento para que sejam utilizadas as receitas, e todas as informações remetidas para RECEPEDIA. Cedidos assim os direitos conexos de autor para uma quantidade de utilizações ilimitada, no Brasil e no exterior, por qualquer meio, incluindo, mas não somente, TV, internet, impressão, livros, revistas, vídeo, DVD, CD, bem como em qualquer tipo de mídia, com caráter comercial ou não.</p><p>8.3 Todas as licenças, autorizações, cessões ou qualquer outra forma de concessão do USUÁRIO para UNILEVER, previstas nestes TERMOS, é em caráter perpétuo, irrevogável e irretratável.</p><p>8.4 O USUÁRIO concorda que as licenças, autorizações e cessões previstas nestes TERMOS, incluem o direito da UNILEVER disponibilizar e transmitir o objeto dos mesmos para outras empresas, organizações ou indivíduos, a seu único e exclusivo critério, com quem UNILEVER tenha ou pretenda ter relações, para uso de qualquer natureza, e o USUÁRIO não terá direito a qualquer compensação ou remuneração.</p><p>8.5 UNILEVER poderá efetuar as alterações e adaptações que julgar necessárias, a seu único e exclusivo critério, de todo o material e dados remetidos pelo USUÁRIO para RECEPEDIA.</p><p>9. Término da relação do USUÁRIO com UNILEVER</p><p>9.1 Os TERMOS continuarão a ser aplicáveis até serem encerrados pelo USUÁRIO ou por UNILEVER, conforme estabelecido a seguir.</p><p>9.2 Se o USUÁRIO quiser encerrar a relação existente com UNILEVER em virtude destes TERMOS, pode fazê-lo encerrando a CONTA junto a RECEPEDIA, no caso de essa opção estar disponível.</p><p>9.3 UNILEVER pode, a qualquer momento, encerrar a relação existente com o USUÁRIO decorrente destes TERMOS nas seguintes hipóteses:</p><p>(A) o USUÁRIO tiver violado qualquer cláusula dos TERMOS (ou tiver agido de forma que claramente mostre ou evidencie que não pretende ou não pode cumprir as cláusulas dos Termos);</p><p>(B) tal for exigido a UNILEVER por lei ou decisão judicial (por exemplo, quando o fornecimento dos SERVIÇOS ao USUÁRIO for ou se tornar ilegal);</p><p>(C) por iniciativa da UNILEVER em encerrar o site RECEPEDIA, ou os SERVIÇOS oferecidos, total ou parcialmente, sem necessidade de notificação ou justificação, a qualquer tempo para o USUÁRIO;</p><p>9.4 Nada nesta seção afetará os direitos licenciados, cedidos ou autorizados pelo USUÁRIO para UNILEVER nestes TERMOS.</p><p>9.5 Quando estes TERMOS forem encerrados, todos os direitos, obrigações e responsabilidades de que o USUÁRIO tenha assumido e acumulado enquanto a vigência dos TERMOS, ou que expressamente deva continuar em vigor indefinidamente não serão afetados por essa resolução, e continuarão a ser aplicáveis indefinidamente.</p><p>9.6 No caso de término da oferta dos SERVIÇOS, ou do site RECEPEDIA, quer total ou parcialmente, por iniciativa da UNILEVER, esta não estará obrigada a manter, fornecer, devolver ou ressarcir, qualquer espécie de conteúdo, dados ou informações repassadas pelo USUÁRIO.</p><p>9.7 O presente Acordo também poderá ser rescindido por outras maneiras, expressas ao longo do presente TERMO.</p><p>9.8 Em todos os casos previstos no presente capítulo, seja por rescisão motivada ou imotivada de qualquer das partes, seja por expulsão do USUÁRIO do RECEPEDIA, ou seja pelo encerramento das atividades do RECEPEDIA, as informações, imagens, textos, arquivos e quaisquer dados constantes das Páginas dos USUÁRIOS serão perdidos em sua totalidade, não cabendo ao USUÁRIO qualquer espécie de indenização ou compensação.</p><p>9.9 A UNILEVER reserva-se, ainda, o direito de, a qualquer momento alterar o disposto neste TERMO, conquanto através de comunicação enviada ao endereço eletrônico (E-MAIL) constante do cadastro do USUÁRIO, ou se por meio do próprio RECEPEDIA a UNILEVER solicite àquele que, em seu próximo acesso, expresse a sua concordância ou rejeição às alterações formuladas. Concordando o USUÁRIO com as novas regras, o termo de uso terá prosseguimento normal, caso contrário, manifestando o USUÁRIO a sua recusa, será considerada a rescisão imediata e de pleno direito, ficando definitivamente vedado o seu acesso ao RECEPEDIA.</p><p>9.10 Por este TERMO fica o usuário ciente e de acordo que alguns SERVIÇOS oferecidos podem a qualquer momento não mais serem disponibilizados, quer sejam os mesmos ofertados diretamente pela UNILEVER ou por seus parceiros, sem necessária comunicação ao USUÁRIO ou justificação.</p><p>10. Exclusão de garantias e responsabilidade</p><p>10.1 Nada nestes TERMOS excluirá, ou limitará, os direitos da UNILEVER ser ressarcida por perdas ou danos causados pelo USUÁRIO, inclusive contra terceiros.</p><p>10.2 O USUÁRIO entende, e concorda expressamente, que o uso dos SERVIÇOS se dá por sua conta e risco, e que os SERVIÇOS são fornecidos 'na forma em que se encontram' e 'de acordo com a disponibilidade'.</p><p>10.3 UNILEVER, suas subsidiárias, afiliadas ou parceiros não garantem ou tem responsabilidade sobre:</p><p>(A) o uso dos SERVIÇOS atenderá as expectativas do USUÁRIO;</p><p>(B) o uso dos SERVIÇOS será ininterrupto, pontual, seguro e isento de erros;</p><p>(C) qualquer informação obtida pelo USUÁRIO em decorrência do seu uso dos serviços será precisa ou confiável;</p><p>(D) os defeitos no funcionamento ou na funcionalidade de qualquer software fornecido ao USUÁRIO como parte dos SERVIÇOS serão corrigidos;</p><p>(E) quaisquer danos diretos, indiretos, incidentais, especiais, conseqüenciais ou exemplares, incorridos pelo USUÁRIO, causados e sob qualquer teoria de responsabilidade. Isso inclui, mas não se limita, a quaisquer perdas e danos, lucros diretos ou indiretos ou ainda cessantes;</p><p>(F) qualquer perda ou dano em que o USUÁRIO possa incorrer, inclusive, mas não se limitando a, perda ou danos em decorrência de:</p><p>(I) qualquer expectativa do USUÁRIO quanto à integridade, precisão ou existência de qualquer publicidade, ou em resultado de qualquer relação ou transação realizada com qualquer parceiro, anunciante ou patrocinador cuja publicidade apareça em RECEPEDIA;</p><p>(II) quaisquer alterações que UNILEVER possa fazer aos SERVIÇOS;</p><p>(III) a eliminação, corrupção ou incapacidade de armazenamento de qualquer conteúdo ou outros dados de comunicações mantidos ou transmitidos por ou através da utilização dos SERVIÇOS por parte do USUÁRIO;</p><p>(IV) o não fornecimento a UNILEVER, por parte do USUÁRIO, de informações corretas relativas à CONTA;</p><p>(V) a não manutenção, por parte do USUÁRIO, da segurança e da confidencialidade dos detalhes da sua CONTA.</p><p>(G) impossibilidade de acesso a RECEPEDIA, ou falha de funcionamento e comunicação com o mesmo decorrente de:</p><p>(I) quaisquer defeitos ou inadequação dos equipamentos utilizados para acessar RECEPEDIA, incluindo, mas não se limitando, aos softwares, hardwares, sistemas de processamento e quaisquer conexões de rede;</p><p>(II) inabilidade do USUÁRIO para operação dos equipamentos e tecnologias necessárias;</p><p>(III) falhas na Rede Mundial de Computadores (Internet) e Provedores;</p><p>(IV) falhas nos sistemas, servidores, softwares e/ou hardwares que mantém RECEPEDIA acessível;</p><p>(V) quaisquer prejuízos causados por gravação realizada pelos USUÁRIOS (download) para os seus equipamentos próprios, de quaisquer arquivos eletrônicos existentes ou disponibilizados em RECEPEDIA, quer por UNILEVER, quer por terceiros;</p><p>(VI) quaisquer prejuízos advindos ao USUÁRIO pela utilização indevida e/ou dolosa por terceiros, dos vídeos, fotos, textos, dados pessoais e cadastrais fornecidos por aquela, que forem veiculados, ou não, em RECEPEDIA;</p><p>(VII) quaisquer prejuízos decorrentes da utilização indevida dos dados do USUÁRIO por terceiros;</p><p>(VIII) quer civil ou criminalmente por qualquer material, vídeo, imagem ou objeto visual, auditivo ou textual, ou em qualquer outro formato, existente ou que venha a existir, inserido no site por USUÁRIO, que são de inteira responsabilidade de quem os remeteu para RECEPEDIA;</p><p>(IX) por atos de má-fé de terceiros que invadam o programa de RECEPEDIA, tais como hackers, que acessem os dados cadastrais e pessoais fornecidos pelo USUÁRIO e se utilizem ilicitamente dos mesmos para quaisquer fins. UNILEVER declara ter os cuidados razoáveis para evitar a invasão do sistema, mas não se responsabiliza e não pode se responsabilizar, pela inviolabilidade do mesmo;</p><p>(X) pela perda de dados e/ou informações eventualmente gravados pelo USUÁRIO no banco de dados de RECEPEDIA, seja por cancelamento de sua inscrição, seja por falha de sistema. UNILEVER não se obriga, ainda, a manter e/ou realizar qualquer espécie de 'back-up' do banco de dados de RECEPEDIA, incluindo materiais e dados fornecidos pelo USUÁRIO;</p><p>(XI) pela inadimplência do USUÁRIO às normas da lei ou do presente instrumento, que gere prejuízos ou danos a terceiros;</p><p>(XII) o endereço de acesso de RECEPEDIA pela internet é o divulgado nestes TERMOS, sendo assim, UNILEVER não se responsabilizará por quaisquer acessos à outros domínios, mesmo que tais se apresentem com as mesmas características desse sítio e/ou aleguem ser o original;</p><p>10.4 UNILEVER não é responsável pelos equipamentos necessários para acessar os recursos disponíveis em RECEPEDIA, quer sejam físicos ou não, sendo estes as expensas do USUÁRIO.</p><p>10.5 Qualquer material baixado ou obtido de outra forma por meio dos SERVIÇOS é obtido a próprio critério e risco do USUÁRIO, sendo ele o único responsável por qualquer dano ao sistema do seu computador ou qualquer outro aparelho, ou pela perda de dados que aconteça como resultado do download de qualquer material.</p><p>10.6 UNILEVER não tem qualquer responsabilidade quanto a conselho, informação, indicação, referencia nutricional ou relativa a saúde inserida por terceiros, obtido pelo USUÁRIO junto a RECEPEDIA, devendo o USUÁRIO fazer todas as verificações necessárias para a utilização segura das informações que obtiver, consultando profissionais qualificados, assim como avaliação de sua particular condição.</p><p>11. Outros conteúdos</p><p>11.1 Pode ser disponibilizado em RECEPEDIA conteúdos como hiperlinks a outros sites, conteúdo ou recursos da web, e UNILEVER pode não ter nenhum controle sobre quaisquer sites ou recursos da web fornecidos por USUÁRIOS ou parceiros, portanto RECEPEDIA e/ou UNILEVER não tem qualquer responsabilidade quanto a este material.</p><p>12. Alterações nos Termos</p><p>12.1 UNILEVER poderá, a qualquer momento e independente de aviso prévio do USUÁRIO, modificar os TERMOS, sendo que a nova versão substituirá a anterior no site RECEPEDIA.</p><p>13. Das penalidades</p><p>13.1. O descumprimento de quaisquer das cláusulas e condições do presente instrumento por parte do USUÁRIO poderá gerar penalidades administrativas a serem impostas ao mesmo pela UNILEVER.</p><p>13.2. As penalidades passíveis de imposição pela UNILEVER sempre que o USUÁRIO tiver praticado uma 'INFRAÇÃO' à lei, aos direitos e interesses de terceiros e/ou de outros USUÁRIOS e/ou aos termos do presente Acordo serão:</p><p>a) ADVERTÊNCIA - UNILEVER encaminhará ao e-mail do USUÁRIO uma ADVERTÊNCIA, toda vez que esse tiver incidido em uma INFRAÇÃO leve.</p><p>b) SUSPENSÃO - UNILEVER suspenderá o acesso do USUÁRIO ao RECEPEDIA por um prazo de 3 (três) a 30 (trinta) dias, toda vez que esse tiver incidido em uma INFRAÇÃO grave, ou automaticamente no recebimento da terceira ADVERTÊNCIA.</p><p>c) EXPULSÃO - UNILEVER expulsará USUÁRIO do RECEPEDIA, proibindo definitivamente o seu acesso, toda vez que esse tiver incidido em uma INFRAÇÃO gravíssima, ou automaticamente no recebimento da terceira SUSPENSÃO.</p><p>13.3. UNILEVER definirá, a seu livre e exclusivo critério, o grau de gravidade da INFRAÇÃO praticada, bem como, no caso da SUSPENSÃO, o período da mesma.</p><p>13.4. As penalidades acima previstas não eximem o USUÁRIO infrator a responder, se o caso, civil e criminalmente por seus atos, perante a UNILEVER, USUÁRIOS e/ou terceiros prejudicados.</p><p>14. Condições Gerais</p><p>14.1. O USUÁRIO, ao realizar o seu cadastro, aceita expressamente todas as atividades que existem e que venham a existir no RECEPEDIA reconhecendo-as como inocentes, saudáveis, de boa-fé e não-ofensivas, aceitando suas regras, instruções e condições constantes do próprio “minha escolha”, de forma absoluta e irrestrita, garantindo que não se sentirá de qualquer forma ultrajado, ofendido ou prejudicado pelas mesmas.</p><p>14.2. Caso o RECEPEDIA venha a criar alguma nova atividade, a qual de alguma forma o USUÁRIO não considere da maneira acima descrita, ou seja, acredite que possa eventualmente sentir-se ofendido ou prejudicado pela mesma, obriga-se a informar o fato de imediato a UNILEVER, rescindindo livremente e de imediato o presente Acordo.</p><p>14.3. Os serviços de responsabilidade de terceiros e/ou ofertados por esses, tais como serviços de telecomunicações, provedor (Internet paga), entre outros que possam ser encontrados no RECEPEDIA, deverão ser pagos diretamente aos terceiros prestadores de serviços, não cabendo a UNILEVER nenhuma responsabilidade sobre a cobrança e/ou qualidade dos mesmos.</p><p>14.4. Qualquer reclamação extrajudicial ou judicial que venha a ser formulada em face da UNILEVER, em razão de descumprimento ou infringência de qualquer cláusula ou disposição constante do presente Acordo, obrigará o USUÁRIO a responder integralmente e, se o caso, regressivamente, por todas as perdas e danos causados a UNILEVER e/ou terceiros, ficando autorizada, desde já a denunciação da lide do USUÁRIO, nos exatos termos do artigo 70, III do Código de Processo Civil.</p><p>14.5 O domínio do SITE da UNILEVER é única e exclusivamente o RECEPEDIA, ou outros fornecidos pela UNILEVER ou seus parceiros. Sendo assim, UNILEVER não se responsabilizará por quaisquer acessos do USUÁRIO a outros domínios, mesmo que tais se apresentem com as mesmas características do RECEPEDIA e/ou aleguem ser o original.</p><p>15. Legislação e jurisdição aplicável</p><p>15.1 Os SERVIÇOS, e o site RECEPEDIA, se encontram na web e podem ser acessados de qualquer local, e independente de onde o USUÁRIO se encontre, os TERMOS serão regidos pelo ordenamento jurídico do Brasil. Da mesma forma, o judiciário do Brasil fica eleito como única jurisdição competente para julgar qualquer controvérsia oriunda destes TERMOS, por mais privilegiado que outro venha a ser. Não obstante o referido, o USUÁRIO concorda que UNILEVER, e qualquer empresa integrante de seu grupo econômico, poderá ainda apresentar medidas judiciais (ou equivalente) em qualquer jurisdição, quando o presente TERMOS for violado em outros países.</p><p>15.2 Em caso de conflito de leis estaduais ou municipais, para a interpretação de qualquer dúvida ou litígio, deverá sempre prevalecer a legislação do Estado e Capital de São Paulo.</p><p>15.3 Aplicam-se, subsidiariamente a esse Acordo, além das normas dispostas pelo Código Civil e legislação em geral, também as das Leis 9.609 e 9.610 de 19 de fevereiro de 1.998 (Lei de Direito do Autor e Software).</p><p>16. Disposições Finais</p><p>16.1. Fazem parte integrante e complementar do presente Acordo todas as regras, instruções, diretrizes e regulamentações escritas, esparsas ao longo do corpo e das atividades do RECEPEDIA.</p><p>16.2. Caso haja alguma contradição entre as regras, instruções, diretrizes e condições esparsas ao longo do RECEPEDIA e o presente Acordo, prevalecerá esse em detrimento àquelas.</p><p>16.3. A omissão ou tolerância da UNILEVER em exigir o estrito cumprimento dos termos e condições deste Acordo, não constituirá em nenhuma hipótese novação ou renúncia, nem afetará os seus direitos, que poderão ser exercidos a qualquer tempo.</p><p>16.4. Os termos e disposições deste termo de uso prevalecerão sobre quaisquer outros entendimentos ou acordos anteriormente celebrados pelas partes, sejam expressos ou tácitos, referentes às condições nele estabelecidas.</p><p>16.5. O presente termo de uso, em seu original, foi registrado no 6º Registro de Títulos e Documentos e Civil de Pessoa Jurídica de São Paulo, sob o nº. 1588891 devendo o mesmo prevalecer sobre qualquer cópia impressa pelo próprio USUÁRIO.</p></div>"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "TERMOS E CONDIÇÕES",
+        "description": "Este documento contém os Termos de Uso do site Recepedia.com, cuja aceitação plena e integral é requisito para todos os participantes.",
         "meta": [
           {
             "name": "og:image",

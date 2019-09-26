@@ -1,0 +1,24 @@
+.adaptive-image {
+  //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    img {
+      height: auto !important;
+      width: auto !important;
+      top: 50% !important;
+      left: 50% !important;
+      min-height: 100%;
+      min-width: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  //END of fix
+  &-svg {
+    position: relative;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

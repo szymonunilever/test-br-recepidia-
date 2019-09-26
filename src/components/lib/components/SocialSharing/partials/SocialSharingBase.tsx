@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { SocialSharingBaseProps } from './models';
 import theme from './SocialSharingBase.module.scss';
 import cx from 'classnames';
-import keys from 'integrations/keys.json';
 import AdaptiveImage from '../../AdaptiveImage';
 
 export const SocialSharingBase = ({
@@ -14,7 +13,18 @@ export const SocialSharingBase = ({
   showTextLabels,
   addThisReady = false,
 }: SocialSharingBaseProps) => {
-  const serviceCodes: { [key: string]: string } = keys.addThis.serviceCodes;
+  const serviceCodes: { [key: string]: string } = {
+    facebook: process.env['addThis_serviceCodes_facebook'] as string,
+    twitter: process.env['addThis_serviceCodes_twitter'] as string,
+    bitly: process.env['addThis_serviceCodes_bitly'] as string,
+    link: process.env['addThis_serviceCodes_copyLink'] as string,
+    email: process.env['addThis_serviceCodes_email'] as string,
+    linkedIn: process.env['addThis_serviceCodes_linkedIn'] as string,
+    pinterest: process.env['addThis_serviceCodes_pinterest'] as string,
+    tumblr: process.env['addThis_serviceCodes_tumblr'] as string,
+    line: process.env['addThis_serviceCodes_line'] as string,
+    whatsUp: process.env['addThis_serviceCodes_whatsUp'] as string,
+  };
   const [state, setState] = useState({ href: '', loaded: false });
   useEffect(() => {
     const initSocial = () => {

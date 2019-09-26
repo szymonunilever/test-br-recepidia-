@@ -3,6 +3,7 @@ import { VideoPlayerProps } from './models';
 import { Tab } from '../Tabs';
 import AdaptiveImage from '../AdaptiveImage';
 import { Text, TagName } from '../Text';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const VideoPlayer = ({
   width = 640,
@@ -20,7 +21,10 @@ const VideoPlayer = ({
     setAutoPlay(1);
   };
   return (
-    <div data-componentname="video-player" className="video-player">
+    <div
+      {...getComponentDataAttrs('video-player', content)}
+      className="video-player"
+    >
       {title && (
         <div className="video-player__header">
           <Text

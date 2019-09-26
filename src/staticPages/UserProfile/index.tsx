@@ -37,6 +37,7 @@ import { WithLocationProps } from 'src/components/lib/components/WithLocation/mo
 import useFavoritesSearch from './useFavoritesSearch';
 // Component Styles
 import '../../scss/pages/_userProfile.scss';
+import get from 'lodash/get';
 
 const carouselConfig = {
   breakpoints: [
@@ -101,18 +102,22 @@ const FavoritesRecipeListingPage: FunctionComponent<
   )
     ? (getUserProfileByKey(ProfileKey.favorites) as number[])
     : [];
-  const savedMealPlannerResults = Array.isArray(
+  const savedMealPlannerResults: number[] = Array.isArray(
     getUserProfileByKey(ProfileKey.mealPlannerResults)
   )
-    ? getUserProfileByKey(ProfileKey.mealPlannerResults)
+    ? (getUserProfileByKey(ProfileKey.mealPlannerResults) as number[])
     : [];
-  const { getRecipeDataByIds, recipeByIdsResults } = useFavoritesSearch();
+  const { getRecipeDataByIds, recipeList, totalCount } = useFavoritesSearch();
   const {
     getRecipeDataByIds: getMealPlannerResults,
-    recipeByIdsResults: mealPlannerResults,
+    recipeList: mealPlannerResults,
   } = useFavoritesSearch();
-  const hasFavorites = recipeByIdsResults && recipeByIdsResults.count > 0;
-  const passedMealPlanner = mealPlannerResults && mealPlannerResults.count > 0;
+  const hasFavorites = Array.isArray(recipeList)
+    ? recipeList.length
+    : undefined;
+  const passedMealPlanner = Boolean(
+    mealPlannerResults && mealPlannerResults.length
+  );
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
@@ -120,10 +125,10 @@ const FavoritesRecipeListingPage: FunctionComponent<
   const onLoadMoreRecipes = useCallback(
     (tags: Internal.Tag[], sortingOption: string, size: number) =>
       getRecipeDataByIds(savedFavorites.join(' OR '), savedFavorites, {
-        from: recipeByIdsResults.list.length,
+        from: get(recipeList, 'length', 0),
         size,
       }),
-    [recipeByIdsResults]
+    [recipeList]
   );
 
   const deleteQuestion = useCallback((quizKey: ProfileKey, key: string) => {
@@ -154,7 +159,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
     });
   }, []);
   useEffect(() => {
-    // @ts-ignore
     const query = savedMealPlannerResults.join(' OR ');
     if (query) {
       getMealPlannerResults(query, savedMealPlannerResults, {
@@ -167,7 +171,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   const data = [
     {
       pattern: '{num}',
-      replacement: recipeByIdsResults.count,
+      replacement: (totalCount || 0).toString(),
     },
   ];
 
@@ -183,17 +187,21 @@ const FavoritesRecipeListingPage: FunctionComponent<
         className={cx(theme.userProfile, '')}
         tabFromLocation
         location={location}
+        titleLevel={1}
       >
-        <Tab view="ProfileFavorites" hasContent={hasFavorites}>
+        <Tab
+          view="ProfileFavorites"
+          hasContent={Boolean(hasFavorites && hasFavorites > 0)}
+        >
           <div className="user-profile-favorites">
-            {hasFavorites ? (
+            {hasFavorites === undefined ? null : hasFavorites ? (
               <RecipeListing
                 content={recipeContent}
                 favorites={Array.isArray(favorites) ? favorites : []}
                 onFavoriteChange={updateFavoriteState}
                 FavoriteIcon={FavoriteIcon}
                 withFavorite={true}
-                list={recipeByIdsResults.list}
+                list={recipeList || []}
                 ratingProvider={RatingAndReviewsProvider.kritique}
                 className="recipe-list recipe-list--carousel favorites"
                 initialCount={8}
@@ -202,7 +210,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 loadMoreConfig={{
                   type: LoadMoreType.async,
                   onLoadMore: onLoadMoreRecipes,
-                  allCount: recipeByIdsResults.count,
+                  allCount: totalCount,
                 }}
                 imageSizes={'(min-width: 768px) 500w, 500px'}
               />
@@ -213,7 +221,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   className="recipe-list__null-results"
                   titleLevel={2}
                 />
-                <Link className="favorites__button" to={'/receitas'}>
+                <Link className="favorites__button" to={'/receita'}>
                   {buttonContent.label}
                 </Link>
               </Fragment>
@@ -251,7 +259,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
           <Fragment>
             <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
             <RecipeListingCarousel
-              list={mealPlannerResults.list}
+              list={mealPlannerResults || []}
               config={carouselConfig}
               titleLevel={1}
               onFavoriteChange={() => {}}

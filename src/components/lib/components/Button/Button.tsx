@@ -3,6 +3,7 @@ import cx from 'classnames';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import theme from './Button.module.scss';
 import { ButtonProps, ButtonViewType } from './models';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const Button = ({
   Icon,
@@ -49,7 +50,7 @@ export const Button = ({
   const props = {
     role,
     type,
-    'data-componentname': 'button',
+    ...getComponentDataAttrs('button', content),
     onClick: onButtonClick,
     disabled: isDisabled,
     hidden,

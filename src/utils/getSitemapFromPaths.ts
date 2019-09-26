@@ -1,56 +1,112 @@
-import partition from 'lodash/partition';
 import capitalize from 'lodash/capitalize';
 import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
+import remove from 'lodash/remove';
+import groupBy from 'lodash/groupBy';
+import values from 'lodash/values';
+import uniqBy from 'lodash/uniqBy';
+import flatten from 'lodash/flatten';
 
 const ROOT_PATH = '/';
 const EXCLUDED_PATHS = [
-  '/procurar',
-  '/perfil',
-  '/mapa-do-site',
-  '/newsletter-signup/',
   ROOT_PATH,
+  '/procurar/',
+  '/perfil/',
+  '/mapa-do-site/',
+  '/newsletter-signup/',
+
+  //these pages placed here because some recipes or tags urls could begin from 404 because id could be 404***
+  '/dev-404-page/',
+  '/404/',
+  '/404.html',
 ];
 
-const nestPaths = (
-  rootPath: string,
-  initialPaths: string[],
-  nestingLevel = 1
+export const getSitemapFromPaths = (
+  pages: SiteMapRawData[]
 ): SitemapCategoryEntry[] => {
-  const paths = initialPaths.filter(path => path !== rootPath);
-
-  const re = new RegExp(rootPath, 'g');
-
-  let [rootPaths, restPaths] = partition(
-    paths,
-    path =>
-      (path.match(re) || []).length === 1 &&
-      (path.match(/\//g) || []).length === nestingLevel
+  remove(
+    pages,
+    page => page.path.startsWith('/artigos') // TODO: remove this line when articles will be needed.
   );
 
-  const sitemap = rootPaths.map(path => ({
-    path: path,
-    title: capitalize(
-      path
-        .substring(rootPath.length, path.length)
-        .replace(/[\d -]+/g, ' ') // remove nimbers and dashes
-        .replace(/^ +/gm, '') // remove space at the string start
-    ),
-    categoryItems: nestPaths(`${path}/`, restPaths, nestingLevel + 1),
-  }));
+  remove(pages, (page: SiteMapRawData) => EXCLUDED_PATHS.includes(page.path));
 
-  return sitemap;
+  const pagesData: SiteMapCategoryRaw[][] = values(
+    groupBy(
+      pages.map(page => {
+        const {
+          path,
+          context: {
+            title,
+            page: { type },
+          },
+        } = page;
+        return { path, title, type };
+      }),
+      'type'
+    )
+  );
+
+  const pageCategories: SiteMapCategoryRaw[] = uniqBy(
+    pagesData
+      .map((data, key) => ({
+        path: `${ROOT_PATH}${data[0].path.split(ROOT_PATH)[1]}${ROOT_PATH}`,
+        key,
+        title:
+          data[0].type !== 'ContentHub'
+            ? data[0].path.split(ROOT_PATH)[1]
+            : 'tags',
+      }))
+      .sort((a, b) => (a.key >= b.key ? -1 : 1)),
+    'path'
+  );
+
+  const pageCategoriesWithHome: SiteMapCategoryRaw[] = flatten(
+    pagesData.filter(data => data.length === 1) //TODO: maybe need change rule after new changes from CR will apply.
+  );
+
+  return pageCategories
+    .map(pageCategoryData => {
+      let mapped: SiteMapCategoryRaw = pageCategoryData;
+      pageCategoriesWithHome.forEach(activePageCategory => {
+        activePageCategory.path === pageCategoryData.path &&
+          (mapped = { ...pageCategoryData, ...activePageCategory });
+      });
+      return mapped.type
+        ? mapped
+        : {
+            ...mapped,
+            path: null,
+            title: capitalize(
+              mapped.title.replace(/[\d -]+/g, ' ').replace(/^ +/gm, '')
+            ),
+          };
+    })
+    .map(data => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { key, type, ...other } = data;
+      return {
+        ...other,
+        categoryItems:
+          key && pagesData[key][0].path !== other.path
+            ? pagesData[key].map(data => data as SitemapCategoryEntry)
+            : [],
+      };
+    });
 };
 
-export const getSitemapFromPaths = (
-  initialPaths: string[]
-): SitemapCategoryEntry[] => {
-  const paths = initialPaths
-    .filter(path => !EXCLUDED_PATHS.includes(path) && !path.includes('404'))
-    .map(path =>
-      path[path.length - 1] === ROOT_PATH
-        ? path.substring(0, path.length - 1)
-        : path
-    );
+export interface SiteMapRawData {
+  path: string;
+  context: {
+    page: {
+      type: string;
+    };
+    title: string;
+  };
+}
 
-  return nestPaths(ROOT_PATH, paths);
-};
+export interface SiteMapCategoryRaw {
+  path: string;
+  title: string;
+  type?: string;
+  key?: number;
+}
