@@ -1,4 +1,4 @@
-const keys = require('../../integrations/keys.json');
+const config = require('../../app-config');
 const axios = require('axios');
 const times = require('lodash/times');
 
@@ -71,7 +71,8 @@ const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
 };
 
 const updateRecipes = async recipes => {
-  const { url, recipeIndex: index } = keys.elasticSearch;
+  const url = config.getByKey('elasticSearch_url');
+  const index = config.getByKey('elasticSearch_recipeIndex');
 
   if (await isIndexExists(url, index)) {
     await clearIndex(url, index);
@@ -88,7 +89,8 @@ const updateRecipes = async recipes => {
 };
 
 const updateArticles = async articles => {
-  const { url, articleIndex: index } = keys.elasticSearch;
+  const url = config.getByKey('elasticSearch_url');
+  const index = config.getByKey('elasticSearch_articleIndex');
 
   if (await isIndexExists(url, index)) {
     await clearIndex(url, index);

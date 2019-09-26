@@ -13,6 +13,7 @@ module.exports = {
     'src\\/scss\\/main\\.scss': '<rootDir>/jest/__mocks__/style-mocks.js',
     '^src(.*)$': '<rootDir>/src$1',
     '^integrations/(.*)$': '<rootDir>/integrations/$1',
+    '^app-config/(.*)$': '<rootDir>/app-config/$1',
     '^.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       './jest/__mocks__/file-mock.js',

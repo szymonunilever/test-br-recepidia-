@@ -1,6 +1,5 @@
 import { useElasticSearch } from '../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-import keys from 'integrations/keys.json';
 
 const filteredRecipeSearchParams = (
   query: string,
@@ -14,7 +13,7 @@ const filteredRecipeSearchParams = (
   };
 
   return {
-    index: keys.elasticSearch.recipeIndex,
+    index: process.env['elasticSearch_recipeIndex'] as string,
     body: {
       ...params,
       query: getOnlyRecipeCount
@@ -48,7 +47,7 @@ const recipeSearchParams = (
   searchQuery: string,
   { from, size, _source }: SearchParams
 ) => ({
-  index: keys.elasticSearch.recipeIndex,
+  index: process.env['elasticSearch_recipeIndex'] as string,
   body: {
     from,
     size,
@@ -75,7 +74,7 @@ const recipeIdSearchParams = (
   controlArray: number[],
   { from = 0, size = 8, sort = 'asc' }: SearchParams
 ) => ({
-  index: keys.elasticSearch.recipeIndex,
+  index: process.env['elasticSearch_recipeIndex'] as string,
   body: {
     from,
     size,
@@ -123,7 +122,7 @@ const articleSearchParams = (
   searchQuery: string,
   { from, size, _source }: SearchParams
 ) => ({
-  index: keys.elasticSearch.articleIndex,
+  index: process.env['elasticSearch_articleIndex'] as string,
   body: {
     from,
     size,

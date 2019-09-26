@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { isNull } from 'util';
 import { GeneratedFormProps } from './models';
-import keys from 'integrations/keys.json';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import FormInstance from './partials/FormInstance';
-const { clientKey } = keys.ReCaptcha;
 
 const GeneratedForm = (props: GeneratedFormProps) => {
   const [hasCaptcha, setHasCaptcha] = useState(false);
@@ -30,7 +26,7 @@ const GeneratedForm = (props: GeneratedFormProps) => {
     };
   });
   const view = hasCaptcha ? (
-    <GoogleReCaptchaProvider reCaptchaKey={clientKey}>
+    <GoogleReCaptchaProvider reCaptchaKey={process.env['ReCaptcha_clientKey']}>
       <FormInstance {...props} hasCaptcha={hasCaptcha} />
     </GoogleReCaptchaProvider>
   ) : (

@@ -1,4 +1,3 @@
-import keys from 'integrations/keys.json';
 import { SearchResponse, SearchParams } from './models';
 
 class Client {
@@ -27,7 +26,7 @@ class Client {
   }
 }
 
-const client = new Client(keys.elasticSearch.url);
+const client = new Client(process.env['elasticSearch_url'] as string);
 
 const useElasticSearch = async <T>(
   searchParams: SearchParams

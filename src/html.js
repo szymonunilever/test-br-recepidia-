@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keys from 'integrations/keys.json';
 import newRelic from '../static/config/newRelic';
-const { applicationID, licenseKey } = keys.sitespeed;
+
+const kritiqueWidgetSrc = `${process.env['kritique_url']}?brandid=${
+  process.env['kritique_brandId']
+}&localeid=${process.env['kritique_localeId']}&apikey=${
+  process.env['kritique_apiKey']
+}&sitesource=${process.env['kritique_siteSource']}`;
 
 export default function HTML(props) {
-  const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
-    keys.kritique.brandId
-  }&localeid=${keys.kritique.localeId}&apikey=${
-    keys.kritique.apiKey
-  }&sitesource=${keys.kritique.siteSource}`;
-
   return (
     <html {...props.htmlAttributes}>
       <head>
         {process.env.NODE_ENV !== 'development' && (
           <>
             {/* START preconnects */}
-            <link rel="preconnect" href={keys.elasticSearch.url} />
+            <link rel="preconnect" href={process.env['elasticSearch_url']} />
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
@@ -36,7 +34,7 @@ export default function HTML(props) {
             <link
               rel="preload"
               href={`${
-                keys.kritique.baseUrl
+                process.env['kritique_baseUrl']
               }/widget/resources/css/RR_widget.css`}
               as="style"
             />
@@ -54,7 +52,11 @@ export default function HTML(props) {
               type="text/javascript"
               id="newRelicConfig"
               dangerouslySetInnerHTML={{
-                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${licenseKey}",applicationID:"${applicationID}",sa:1}`,
+                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${
+                  process.env['sitespeed_licenseKey']
+                }",applicationID:"${
+                  process.env['sitespeed_applicationID']
+                }",sa:1}`,
               }}
             /> */}
             {/* END NewRelic */}
