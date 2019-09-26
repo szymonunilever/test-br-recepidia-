@@ -1,7 +1,7 @@
 @import '../../vars';
 @import '../../mixins';
-@import '../../theme';
-@import '../../components/Button/index';
+// @import '../../theme';
+// @import '../../components/Button/index';
 //class name for body to prevent scroll when modal is open
 .modal--open {
   .global-container {
@@ -139,15 +139,19 @@
     &__overlay {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
+      @include respondTo(medium) {
+        align-items: center;
+      }
     }
     &__content {
-      width: calc(100% - 48px);
-      height: calc(100% - 48px);
+      // width: calc(100% - 48px);
+      height: calc(100% - 12px);
       position: relative;
       border-radius: 5px;
       padding: 0;
       @include respondTo(medium) {
+        width: calc(100% - 48px);
         max-height: calc(100% - 48px);
         height: auto;
         display: flex;

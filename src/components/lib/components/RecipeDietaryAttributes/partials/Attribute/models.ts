@@ -1,4 +1,5 @@
 export interface AttributeProps {
   icon?: JSX.Element;
-  attributeText?: string;
+  tag: Internal.Tag;
+  infoIcon: JSX.Element;
 }

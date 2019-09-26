@@ -1,4 +1,5 @@
 import map from 'lodash/map';
+import compact from 'lodash/compact';
 
 import { RecipePersonalizationFormulaProps } from '../constants';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,12 +33,17 @@ const generateQueryString = (
         prop[key].value,
       ];
       if (Array.isArray(value)) {
-        prop[key] = `${searchPath}:(${value
-          .filter(item => item !== '')
-          .join(' OR ')
-          .replace(delimiter, ' OR ')})`;
+        prop[key] = `${searchPath}:(${compact(
+          value
+            .filter(item => item !== '')
+            .join(';')
+            .replace(';;', ';')
+            .split(delimiter)
+        ).join(' OR ')})`;
       } else if (delimiter.test(value)) {
-        prop[key] = `${searchPath}:(${value.replace(delimiter, ' OR ')})`;
+        prop[key] = `${searchPath}:(${compact(value.split(delimiter)).join(
+          ' OR '
+        )})`;
       } else {
         prop[key] = `${searchPath}:${value}`;
       }

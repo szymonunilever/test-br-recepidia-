@@ -15,6 +15,7 @@ export const Tabs = ({
   children = [],
   // @ts-ignore
   tabsHeaderContent,
+  titleLevel = 2,
   tabFromLocation = false,
   location,
   data,
@@ -31,7 +32,7 @@ export const Tabs = ({
                 : tabs[0].view)
           : tabs[0].view
       ),
-    []
+    [location]
   );
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabsContents = children.reduce(
@@ -136,10 +137,18 @@ export const Tabs = ({
       {headerInfo && (
         <div className="tabs-header">
           <div className="tabs-header__heading">
-            <Text tag={TagName.h2} text={processData(headerInfo.heading)} />
+            <Text
+              // @ts-ignore
+              tag={TagName[`h${titleLevel}`]}
+              text={processData(headerInfo.heading)}
+            />
           </div>
           <div className="tabs-header__heading-subheading">
-            <Text tag={TagName.h3} text={processData(subheading)} />
+            <Text
+              // @ts-ignore
+              tag={TagName[`h${titleLevel + 1}`]}
+              text={processData(subheading)}
+            />
           </div>
         </div>
       )}

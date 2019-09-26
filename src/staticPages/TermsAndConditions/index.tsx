@@ -6,6 +6,9 @@ import { WindowLocation } from '@reach/router';
 import { TagName, Text } from 'src/components/lib/components/Text';
 import { findPageComponentContent } from 'src/utils';
 import { RichText } from 'src/components/lib/components/RichText';
+import theme from './termsAndConditions.module.scss';
+import cx from 'classnames';
+import '../../scss/pages/_default.scss';
 
 const TermsAndConditionsPage = ({
   pageContext: {
@@ -17,7 +20,7 @@ const TermsAndConditionsPage = ({
     <Layout>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <section className="_pt--40 wrapper">
+      <section className={cx(theme.termsAndConditions, '_pt--40 wrapper')}>
         <Text
           tag={TagName['h1']}
           text={findPageComponentContent(components, 'Text', 'Title').text}

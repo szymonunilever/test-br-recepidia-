@@ -97,6 +97,12 @@ const Layout = ({ children, className }: LayoutProps) => {
             'SearchInput'
           ) as AppContent.SearchInput.Content
         }
+        profileContent={
+          findPageComponentContent(
+            components,
+            'Profile'
+          ) as AppContent.ProfileHeader.Content
+        }
       />
       <main id="content">{children}</main>
       <GeneratedForm
