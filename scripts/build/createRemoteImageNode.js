@@ -15,7 +15,7 @@ module.exports = async (url, id, staticParams) => {
     ext: imgExt,
     name: 'image',
     httpHeaders: {
-      staticFirstApiKey: config.getByKey(
+      'static-first-api-key': config.getByKey(
         'AemAssetsCredentials_staticFirstApiKey'
       ),
       Authorization: config.getByKey('AemAssetsCredentials_Authorization'),
