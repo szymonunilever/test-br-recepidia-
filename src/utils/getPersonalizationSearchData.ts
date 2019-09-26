@@ -10,7 +10,7 @@ function getPersonalizationSearchData(
     from = FROM,
     size = RESULT_SIZE,
     sort = [],
-  }: { from: number; size: number; sort: any[] }
+  }: { from?: number; size?: number; sort?: any[] }
 ) {
   const searchParams = {
     index: keys.elasticSearch.recipeIndex,

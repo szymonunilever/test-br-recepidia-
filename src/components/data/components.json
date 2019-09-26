@@ -129,10 +129,10 @@
     "timesOfDay": "Horas do dia",
     "annualEvents": "Eventos anuais",
     "suitability": "Aptidão",
-    "dairy_free": "Sem leite",
+    "dairy_free": "Sem leite e derivados",
     "egg_free": "Sem ovos",
-    "gluten_free": "Glúten Free",
-    "lactose_free": "Zero Lactose",
+    "gluten_free": "Sem glúten",
+    "lactose_free": "Sem lactose",
     "nut_free": "Sem nozes",
     "paleo_diet": "Paleo diet",
     "pregnancy_safe": "Seguro de gravidez",
@@ -141,8 +141,8 @@
     "no seafood": "Sem frutos do mar",
     "no soy": "Sem soja",
     "zero açúcar": "Zero açúcar",
-    "vegan": "Vegano",
-    "vegetarian": "Vegetariana"
+    "vegan": "Sem produtos de origem animal",
+    "vegetarian": "Sem carne"
   },
   "disclaimer": {
     "11": "Garanta que os ingredientes que você compre para essa receita não contenham carnes ou embutidos",

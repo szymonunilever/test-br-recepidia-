@@ -8,80 +8,43 @@ import getPersonalizationSearchData, {
 } from '../../utils/getPersonalizationSearchData';
 
 export function isQuizesStored() {
-  return (
-    !!Object.keys(getUserProfileByKey(ProfileKey.initialQuiz)).length ||
-    !!Object.keys(getUserProfileByKey(ProfileKey.mealPlannerAnswers)).length
-  );
+  return !!Object.keys(getUserProfileByKey(ProfileKey.initialQuiz)).length;
+  //TODO: if Quiz formula will contains mealPlaner results - next line should be use too.
+  // || !!Object.keys(getUserProfileByKey(ProfileKey.mealPlannerAnswers)).length
 }
 
-export async function searchTopRecipes(
+export async function searchRecipes(
   i = 0,
   resultNumber = RESULT_SIZE,
-  defaults: Internal.Recipe[]
+  defaults: Internal.Recipe[],
+  params: SearchParams = {}
 ): Promise<Internal.Recipe[]> {
-  let j = i;
-  const maxTry = RecipePersonalizationFormula.template.length;
-  const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
-  const mealPlanerAnswers = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
-  let queryString = generateQuery(
-    introQuizAnswers,
-    mealPlanerAnswers,
-    RecipePersonalizationFormula,
-    i
-  );
-
-  const { hits } = await getPersonalizationSearchData(queryString, {
-    from: FROM + RESULT_SIZE,
-    size: RESULT_SIZE,
-    sort: [
-      { averageRating: { order: 'desc' } },
-      { creationTime: { order: 'desc' } },
-    ],
-  });
-
-  if (hits.total < resultNumber && i < maxTry - 1) {
-    j = i + 1;
-    return searchTopRecipes(j, resultNumber, defaults);
-  } else if (hits.total < resultNumber && i >= maxTry - 1) {
-    return defaults;
-  } else {
-    return hits.hits.map(hit => hit._source);
-  }
-}
-
-export async function getTopRecipes(defaults: Internal.Recipe[]) {
-  return isQuizesStored()
-    ? await searchTopRecipes(0, RESULT_SIZE, defaults)
-    : defaults;
-}
-
-export async function searchLatestAndGratest(
-  i = 0,
-  resultNumber = RESULT_SIZE,
-  defaults: Internal.Recipe[]
-): Promise<Internal.Recipe[]> {
-  let j = i;
-  const maxTry = RecipePersonalizationFormula.template.length;
-  const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
-  const mealPlanerAnswers = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
-  let queryString = generateQuery(
-    introQuizAnswers,
-    mealPlanerAnswers,
-    RecipePersonalizationFormula,
-    i
-  );
-
-  const { hits } = await getPersonalizationSearchData(queryString, {
+  const param = {
     from: FROM,
     size: RESULT_SIZE,
     sort: [
       { averageRating: { order: 'desc' } },
       { creationTime: { order: 'desc' } },
     ],
-  });
+    ...params,
+  };
+
+  let j = i;
+  const maxTry = RecipePersonalizationFormula.template.length;
+  const introQuizAnswers = getUserProfileByKey(ProfileKey.initialQuiz);
+  const mealPlanerAnswers = getUserProfileByKey(ProfileKey.mealPlannerAnswers);
+  let queryString = generateQuery(
+    introQuizAnswers,
+    mealPlanerAnswers,
+    RecipePersonalizationFormula,
+    i
+  );
+
+  const { hits } = await getPersonalizationSearchData(queryString, param);
+
   if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;
-    return searchLatestAndGratest(j, resultNumber, defaults);
+    return searchRecipes(j, resultNumber, defaults, param);
   } else if (hits.total < resultNumber && i >= maxTry - 1) {
     return defaults;
   } else {
@@ -89,8 +52,18 @@ export async function searchLatestAndGratest(
   }
 }
 
-export async function getLatestAndGratest(defaults: Internal.Recipe[]) {
+export async function getRecipes(
+  defaults: Internal.Recipe[],
+  params?: SearchParams
+) {
   return isQuizesStored()
-    ? await searchLatestAndGratest(0, RESULT_SIZE, defaults)
+    ? await searchRecipes(0, RESULT_SIZE, defaults, params)
     : defaults;
+}
+
+export interface SearchParams {
+  from?: number;
+  size?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sort?: any[];
 }
