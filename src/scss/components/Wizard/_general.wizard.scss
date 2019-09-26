@@ -119,11 +119,14 @@
   }
   &__buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 25px 0 15px;
+    button + button {
+      margin-right: 16px;
+    }
   }
   &__button {
     &--primary {
@@ -131,11 +134,11 @@
       @extend .button--fullwidth;
     }
     &--secondary {
+      @extend .button;
       @extend .button--fullwidth;
-      @extend .button--flat;
-      height: 40px;
-      font-size: 1.2rem;
+      @extend .button--secondary;
     }
+
     &-placeholder {
       height: 40px;
       display: flex;
