@@ -876,8 +876,8 @@
         ]
       },
       "seo": {
-        "title": "Procurar",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Pesquise em Recepedia",
+        "description": "Faça sua pesquisa e encontre as melhores receitas e dicas para cozinhar",
         "meta": [
           {
             "name": "og:image",
@@ -1208,8 +1208,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Não encontrado",
+        "description": "Página não encontrada",
         "meta": [
           {
             "name": "og:image",
@@ -1937,8 +1937,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Sobre Recepedia",
+        "description": "Recepedia apresenta receitas perfeitas para o seu dia-dia e também para aqueles momentos especiais. Encontre a sua e bom apetite!",
         "meta": [
           {
             "name": "og:image",
@@ -2249,13 +2249,13 @@
     },
     {
       "type": "NewsletterSignUp",
-      "relativePath": "/newsletter-signup",
+      "relativePath": "/inscrever",
       "components": {
         "items": []
       },
       "seo": {
-        "title": "Newsletter SignUp",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Inscreva-se em Recepedia",
+        "description": "Faça sua pesquisa e encontre as melhores receitas e dicas para cozinhar",
         "meta": [
           {
             "name": "og:image",
