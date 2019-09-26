@@ -1,4 +1,5 @@
 import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
+import { QuizButton } from 'src/components/page/IntroQuiz/models';
 
 export enum QuestionFilterPropNameKeys {
   tags = 'tags',
@@ -35,9 +36,7 @@ export interface QuizProps {
   stepId: string;
   containerClass: string;
   questions: Question[];
-  primaryButtonLabel: string;
-  primaryButtonFinalLabel?: string;
-  secondaryButtonLabel?: string;
+  ctas: QuizButton[];
   bottomContent?: JSX.Element;
   actionCallback: (answers: object) => void;
   stepResultsCallback?: (answers: object) => void;

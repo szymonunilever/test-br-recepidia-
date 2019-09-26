@@ -1,0 +1,29 @@
+.rc-tooltip {
+  font-size: 14px;
+  background: rgba(97, 97, 97, 0.95);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  @include respondTo(medium) {
+    width: 250px;
+    transform: translate(-50%, -50%);
+  }
+  &:before {
+    display: none;
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid rgba(97, 97, 97, 0.95);
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    @include respondTo(medium) {
+      display: block;
+    }
+  }
+}

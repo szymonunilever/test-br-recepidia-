@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import cx from 'classnames';
 import Attribute from './partials/Attribute';
-import get from 'lodash/get';
+import compact from 'lodash/compact';
 import { RecipeDietaryAttributesProps } from './models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
@@ -9,36 +9,52 @@ const RecipeDietaryAttributes = ({
   attributes,
   activeAttributes,
   icons,
+  infoIcon,
   className,
   showInactiveAttributes = false,
 }: RecipeDietaryAttributesProps) => {
   const classNames = cx('recipe-dietary-attributes', className);
+  const activeIds = activeAttributes.map(attr => attr.id);
+  const activeTags = compact(
+    activeAttributes.map(activeAttr =>
+      attributes.find(attr => attr.tagId === activeAttr.id)
+    )
+  );
+  const inactiveTags = attributes.filter(
+    attr => !activeIds.includes(attr.tagId)
+  );
 
-  const attributesList = attributes.map(attr => {
-    const activeAttribute = activeAttributes.find(
-      activeAttr => attr.tagId === activeAttr.id
-    );
-
-    const icon = icons.find(icn => attr.tagId === icn.id);
-    if (showInactiveAttributes || activeAttribute) {
-      return (
-        <Attribute
-          key={attr.tagId}
-          attributeText={attr.title}
-          icon={icon && activeAttribute ? icon.active : get(icon, 'inActive')}
-        />
-      );
-    }
-  });
+  const mapIcons = (attributes: Internal.Tag[], inActive: boolean = false) =>
+    icons.map(icon => {
+      const iconId = Array.isArray(icon.id) ? icon.id : [icon.id];
+      const attr =
+        attributes && attributes.find(attr => iconId.includes(attr.tagId));
+      const check = inActive ? icon.inActive : true;
+      if (attr && check) {
+        return (
+          <Attribute
+            infoIcon={infoIcon}
+            key={attr.tagId}
+            tag={attr}
+            icon={inActive ? icon.inActive : icon.active}
+          />
+        );
+      }
+    });
+  const attrWillShowActive = mapIcons(activeTags);
+  const attrWillShowInActive = mapIcons(inactiveTags, true);
 
   return (
     <>
-      {attributesList.length ? (
+      {attrWillShowActive.length || showInactiveAttributes ? (
         <div
           className={classNames}
           {...getComponentDataAttrs('recipe-dietary-attributes')}
         >
-          <ul className="recipe-dietary-attributes__list">{attributesList}</ul>
+          <ul className="recipe-dietary-attributes__list">
+            {attrWillShowActive}
+            {showInactiveAttributes && attrWillShowInActive}
+          </ul>
         </div>
       ) : (
         <p>No attributes</p>

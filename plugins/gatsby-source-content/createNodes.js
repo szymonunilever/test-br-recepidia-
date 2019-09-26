@@ -41,6 +41,32 @@ exports.createDictionaryNodes = (
   return nodeData;
 };
 
+exports.createDisclaimerNodes = (
+  disclaimer,
+  { createNodeId, createContentDigest, createNode }
+) => {
+  const nodeId = createNodeId(`disclaimer`);
+  const nodeContent = JSON.stringify({
+    content: JSON.stringify(disclaimer),
+  });
+  const nodeData = Object.assign(
+    {},
+    { content: JSON.stringify(disclaimer) },
+    {
+      id: nodeId,
+      internal: {
+        type: 'Disclaimer',
+        content: nodeContent,
+        contentDigest: createContentDigest({
+          content: JSON.stringify(disclaimer),
+        }),
+      },
+    }
+  );
+  createNode(nodeData);
+  return nodeData;
+};
+
 exports.createPagesNodes = (
   page,
   { createNodeId, createContentDigest, createNode }

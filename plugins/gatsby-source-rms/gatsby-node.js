@@ -12,7 +12,9 @@ exports.sourceNodes = async (
   const { createNode } = actions;
 
   let [dictionary] = getNodesByType(constants.NODE_TYPES.DICTIONARY);
-  dictionary = JSON.parse(dictionary.content);
+  let [disclaimer] = getNodesByType(constants.NODE_TYPES.DISCLAIMER);
+  dictionary && (dictionary = JSON.parse(dictionary.content));
+  disclaimer && (disclaimer = JSON.parse(disclaimer.content));
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins;
@@ -52,7 +54,8 @@ exports.sourceNodes = async (
             createContentDigest,
             createNode,
           },
-          dictionary
+          dictionary,
+          disclaimer
         )
     )
   );

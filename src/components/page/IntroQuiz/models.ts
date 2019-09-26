@@ -7,9 +7,12 @@ export interface IntroQuizProps {
   };
   quizContent: {
     questions: Question[];
-    primaryButtonLabel: string;
-    primaryButtonFinalLabel: string;
-    secondaryButtonLabel: string;
+    ctas: QuizButton[];
   };
   onClose?: () => void;
+}
+
+export interface QuizButton {
+  type: string;
+  label: string;
 }
