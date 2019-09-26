@@ -11,6 +11,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
   &.open {
     position: fixed;
     width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     bottom: 0;
@@ -19,10 +20,50 @@ $submenu-text-color-desktop: $fish-blue-darker;
     @include respondTo(desktop) {
       position: static;
     }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: $white-gray;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      @include respondTo(desktop) {
+        display: none;
+      }
+    }
+
+    .global-navigation__profile {
+      transition: 0.2s ease-in-out;
+      opacity: 1;
+      visibility: visible;
+      display: flex;
+      position: fixed;
+      background: $white;
+      width: 100%;
+      height: 50px;
+      left: 0;
+      bottom: -1px;
+      box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.15);
+      @include respondTo(desktop) {
+        position: relative;
+        background: initial;
+        height: auto;
+        width: auto;
+        box-shadow: none;
+      }
+    }
+    .navigation {
+      bottom: 48px;
+      @include respondTo(desktop) {
+        bottom: auto;
+      }
+    }
     .burger-button {
       &__icon {
         &:before {
-         transform: rotate(45deg);
+          transform: rotate(45deg);
         }
 
         &:after {
@@ -32,6 +73,33 @@ $submenu-text-color-desktop: $fish-blue-darker;
           transform: rotate(-45deg);
         }
       }
+    }
+  }
+
+  &__profile {
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-decoration: none;
+    font: 500 1.8rem $rubik;
+    color: $header-color-mobile;
+    fill: $primary-color;
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    padding-left: $layout-indent-sm;
+    padding-right: $layout-indent-sm;
+    &:hover {
+      color: $fish-blue-darker;
+    }
+    @include respondTo(desktop) {
+      font-size: 1.4rem;
+      opacity: 1;
+      visibility: visible;
+      padding: 0;
+    }
+    svg {
+      margin-right: 20px;
     }
   }
   .burger-button {
@@ -59,7 +127,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
         height: 3px;
         background: $primary-color;
         transform: translateY(-5px);
-        transition: all .25s ease-in-out;
+        transition: all 0.25s ease-in-out;
       }
 
       &:after {
@@ -69,7 +137,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
         height: 3px;
         background: $primary-color;
         transform: translateY(5px);
-        transition: all .25s ease-in-out;
+        transition: all 0.25s ease-in-out;
         will-change: width;
       }
     }
@@ -99,7 +167,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
       will-change: transform;
       transform: translate3d(-110%, 0, 0);
       transition-property: transform, visibility;
-      transition-duration: 200ms;
       visibility: hidden;
       color: $header-color-mobile;
       &::before {
@@ -121,19 +188,10 @@ $submenu-text-color-desktop: $fish-blue-darker;
         display: none;
       }
 
-      .login {
-        display: block;
-        text-align: center;
-        color: inherit;
-        padding: 15px 0;
-        @include respondTo(desktop) {
-          display: none;
-        }
-      }
-
-      // TEMPORARY STYLE ---------------------------------------------------------------------------------------------//
+      // TEMPORARY STYLE END ---------------------------------------------------------------------------------------------//
 
       &.active {
+        transition-duration: 0.25s;
         visibility: visible;
         transform: translate3d(0, 0, 0);
         .menu {
@@ -179,8 +237,8 @@ $submenu-text-color-desktop: $fish-blue-darker;
       }
 
       &__icon {
-        width: 122px;
-        height: 31.5px;
+        width: 110px;
+        height: 30px;
         fill: $primary-color;
         @include respondTo(desktop) {
           width: 168px;
@@ -189,45 +247,10 @@ $submenu-text-color-desktop: $fish-blue-darker;
       }
     }
 
-    .login {
-      display: none;
-      font-size: 1.4rem;
-      line-height: 28px;
-      margin: 0;
-      color: inherit;
-      @include respondTo(desktop) {
-        display: inline-block;
-      }
-    }
-
-    .login-user {
-      display: none;
-      @include respondTo(desktop) {
-        display: flex;
-        position: relative;
-        font-size: 1.4rem;
-        align-items: center;
-        margin: 0 0 0 50px;
-        color: inherit;
-        cursor: pointer;
-      }
-
-      &:before {
-        content: '';
-        display: inline-block;
-        width: 38px;
-        height: 38px;
-        background: #ddd;
-        border-radius: 50%;
-        margin-right: 20px;
-      }
-    }
-
     .searchBar {
       color: $primary-color;
       stroke: $primary-color;
       font-size: 3rem;
-      margin: 0 0 0 50px;
       cursor: pointer;
       @extend .button--flat;
       width: 48px;
@@ -240,6 +263,9 @@ $submenu-text-color-desktop: $fish-blue-darker;
           color: $black-blue;
           stroke: $black-blue;
         }
+      }
+      @include respondTo(desktop) {
+        margin: 0 0 0 50px;
       }
     }
 
@@ -419,7 +445,6 @@ $submenu-text-color-desktop: $fish-blue-darker;
       line-height: 1;
       &:nth-last-child(2) {
         &.has-submenu {
-          color: red;
           .submenu {
             &.is-opened {
               padding: 12px 0 0;
