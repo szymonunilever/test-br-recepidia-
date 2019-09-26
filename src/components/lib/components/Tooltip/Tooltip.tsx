@@ -10,7 +10,7 @@ const Tooltip = ({ ...props }: TooltipProps) => {
   };
   return (
     <RCTooltip
-      onPopupAlign={onAligned}
+      onVisibleChange={onAligned}
       overlayClassName={cx(props.className, theme.tooltip)}
       {...props}
     />
