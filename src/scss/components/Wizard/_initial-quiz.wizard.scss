@@ -72,10 +72,7 @@
     @include respondTo(desktop) {
       padding-bottom: 7px;
     }
-    button + button {
-      margin-right: 16px;
-    }
-    flex-direction: row-reverse;
+
     .wizard__button--primary {
       @extend .button--medium;
     }
