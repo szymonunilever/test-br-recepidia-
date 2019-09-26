@@ -15,7 +15,12 @@ const Attribute = ({
       trigger={['hover']}
       placement="bottom"
     >
-      {infoIcon}
+      <span
+        ref={React.createRef()}
+        className="recipe-dietary-attributes__tooltip"
+      >
+        {infoIcon}
+      </span>
     </Tooltip>
   ) : null;
   return (
@@ -23,9 +28,11 @@ const Attribute = ({
       aria-describedby={`${tagId}`}
       className="recipe-dietary-attributes__item"
     >
-      {infoTooltip && infoTooltip}
       <div className="recipe-dietary-attributes__icon">{icon}</div>
-      <div className="recipe-dietary-attributes__text">{title}</div>
+      <div className="recipe-dietary-attributes__text">
+        {infoTooltip && infoTooltip}
+        {title}
+      </div>
     </li>
   );
 };
