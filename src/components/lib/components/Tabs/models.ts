@@ -1,5 +1,5 @@
 import { ReactComponentElement } from 'react';
-import { UnileverLibraryComponent } from '../globalModels';
+import { titleLevel, UnileverLibraryComponent } from '../globalModels';
 import { Tab } from './partials';
 
 export interface TabsProps
@@ -9,6 +9,7 @@ export interface TabsProps
   tabFromLocation?: boolean;
   location?: Location;
   data?: TabsData[];
+  titleLevel?: titleLevel;
 }
 
 export interface TabsData {
