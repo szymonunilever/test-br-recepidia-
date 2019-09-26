@@ -9,7 +9,7 @@ module.exports = async (url, id, staticParams) => {
   return await createRemoteFileNode({
     url:
       url ||
-      'https://i.ibb.co/B4RRSXR/bab4fc1b-c269-44c1-8d60-367626f8b029.jpg',
+      'https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg',
     parentNodeId: id,
     ext: imgExt,
     name: 'image',
