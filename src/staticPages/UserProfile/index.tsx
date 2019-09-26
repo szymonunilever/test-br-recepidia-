@@ -187,6 +187,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
         className={cx(theme.userProfile, '')}
         tabFromLocation
         location={location}
+        titleLevel={1}
       >
         <Tab
           view="ProfileFavorites"

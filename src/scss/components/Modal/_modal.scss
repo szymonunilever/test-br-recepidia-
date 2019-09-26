@@ -151,6 +151,7 @@
       border-radius: 5px;
       padding: 0;
       @include respondTo(medium) {
+        width: calc(100% - 48px);
         max-height: calc(100% - 48px);
         height: auto;
         display: flex;

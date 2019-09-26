@@ -40,8 +40,17 @@
     margin-right: 10px;
     top: -3.5px;
     z-index: 2;
+    &.active{
+      .info_svg__path1 {
+        fill: $apple-green;
+      }
+      .info_svg__path2 {
+        fill: $fish-blue-darker;
+      }
+    }
     svg {
       width: 18px;
+      position: relative;
     }
   }
 
