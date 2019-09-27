@@ -12,7 +12,7 @@ const EXCLUDED_PATHS = [
   '/procurar/',
   '/perfil/',
   '/mapa-do-site/',
-  '/newsletter-signup/',
+  '/inscrever/',
 
   //these pages placed here because some recipes or tags urls could begin from 404 because id could be 404***
   '/dev-404-page/',
