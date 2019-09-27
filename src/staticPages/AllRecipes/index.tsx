@@ -24,8 +24,6 @@ import DigitalData from '../../../integrations/DigitalData';
 // Component Styles
 import '../../scss/pages/_allRecipes.scss';
 
-import keys from 'integrations/keys.json';
-
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
@@ -97,7 +95,7 @@ const AllRecipesPage = ({
     params: SearchParams = {}
   ) => {
     const searchParams = {
-      index: keys.elasticSearch.recipeIndex,
+      index: process.env['elasticSearch_recipeIndex'] as string,
       body: {
         ...params,
         query: {
@@ -114,11 +112,11 @@ const AllRecipesPage = ({
           params.from
             ? [
                 ...recipeResultsList,
-                ...res.hits.hits.map(resItem => resItem._source),
+                ...res.body.hits.hits.map(resItem => resItem._source),
               ]
-            : res.hits.hits.map(resItem => resItem._source)
+            : res.body.hits.hits.map(resItem => resItem._source)
         );
-        setRecipeResultsCount(res.hits.total);
+        setRecipeResultsCount(res.body.hits.total.value);
       })
       .then(() => {
         setDataFetched(true);

@@ -1,7 +1,9 @@
 export interface SearchResponse<T> {
-  hits: {
-    hits: Hit<T>[];
-    total: number;
+  body: {
+    hits: {
+      hits: Hit<T>[];
+      total: { value: number; relation: string };
+    };
   };
 }
 

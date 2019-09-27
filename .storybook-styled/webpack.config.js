@@ -37,6 +37,7 @@ module.exports = ({ config }) => {
   config.resolve.alias = {
     src: path.resolve(__dirname, '../src'),
     integrations: path.resolve(__dirname, '../integrations'),
+    'app-config': path.resolve(__dirname, '../app-config'),
   };
 
   config.module.rules.push({

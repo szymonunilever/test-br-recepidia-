@@ -1,21 +1,26 @@
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-const keys = require('../../integrations/keys.json');
+const config = require('../../app-config');
 
 module.exports = async (url, id, staticParams) => {
   const imgExt =
     (url && ~url.indexOf('.png') && '.png') ||
     (url && ~url.indexOf('.svg') && '.svg') ||
     '.jpg';
+
+  const name = imgExt === '.svg' ? 'svg' : 'image';
+
   return await createRemoteFileNode({
     url:
       url ||
       'https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg',
     parentNodeId: id,
     ext: imgExt,
-    name: 'image',
+    name,
     httpHeaders: {
-      'static-first-api-key': keys.AemAssetsCredentials['static-first-api-key'],
-      Authorization: keys.AemAssetsCredentials.Authorization,
+      'static-first-api-key': config.getByKey(
+        'AemAssetsCredentials_staticFirstApiKey'
+      ),
+      Authorization: config.getByKey('AemAssetsCredentials_Authorization'),
     },
     ...staticParams,
   });

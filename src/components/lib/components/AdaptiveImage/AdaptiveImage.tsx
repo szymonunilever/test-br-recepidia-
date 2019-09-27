@@ -40,7 +40,11 @@ const AdaptiveImage = ({
   if (isSvg) {
     return (
       <ImageContainer classNames={classNames} view={view}>
-        <img className="adaptive-image__image" src={url} alt={alt} />
+        <img
+          className="adaptive-image__image"
+          src={localImage.publicURL}
+          alt={alt}
+        />
       </ImageContainer>
     );
   }
@@ -73,7 +77,7 @@ const AdaptiveImage = ({
   }, []);
 
   return (
-    <ImageContainer>
+    <ImageContainer classNames={classNames} view={view}>
       {!docLoaded ? (
         <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
       ) : (

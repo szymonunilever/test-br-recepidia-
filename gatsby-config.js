@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const integrations = require('./integrations/keys.json');
+const appConfig = require('./app-config');
 
 module.exports = {
   siteMetadata: {
@@ -12,6 +12,13 @@ module.exports = {
     lang: 'pt-br',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `svg`,
+        path: path.join(__dirname, 'static/assets/images'),
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -40,20 +47,21 @@ module.exports = {
         src: path.join(__dirname, 'src'),
         integrations: path.join(__dirname, 'integrations'),
         lib: path.join(__dirname, 'src/components/lib'),
+        'app-config': path.resolve(__dirname, 'app-config'),
       },
     },
     {
       resolve: `gatsby-source-content`,
       options: {
-        endpoint: integrations.middleware.contentEndpoint,
-        key: integrations.middleware.key,
+        endpoint: appConfig.getByKey('middleware_contentEndpoint'),
+        key: appConfig.getByKey('middleware_key'),
       },
     },
     {
       resolve: `gatsby-source-rms`,
       options: {
-        endpoint: integrations.middleware.contentEndpoint,
-        key: integrations.middleware.key,
+        endpoint: appConfig.getByKey('middleware_contentEndpoint'),
+        key: appConfig.getByKey('middleware_key'),
       },
     },
     {
@@ -81,7 +89,24 @@ module.exports = {
     // },
     {
       resolve: `gatsby-plugin-google-analytics`,
-      options: integrations.analytics.google,
+      options: {
+        trackingId: appConfig.getByKey('analytics_google_trackingId'),
+        head: appConfig.getByKey('analytics_google_head'),
+        anonymize: appConfig.getByKey('analytics_google_anonymize'),
+        respectDNT: appConfig.getByKey('analytics_google_respectDNT'),
+        exclude: appConfig.getByKey('analytics_google_exclude'),
+        pageTransitionDelay: appConfig.getByKey(
+          'analytics_google_pageTransitionDelay'
+        ),
+        optimizeId: appConfig.getByKey('analytics_google_optimizeId'),
+        experimentId: appConfig.getByKey('analytics_google_experimentId'),
+        variationId: appConfig.getByKey('analytics_google_variationId'),
+        sampleRate: appConfig.getByKey('analytics_google_sampleRate'),
+        siteSpeedSampleRate: appConfig.getByKey(
+          'analytics_google_siteSpeedSampleRate'
+        ),
+        cookieDomain: appConfig.getByKey('analytics_google_cookieDomain'),
+      },
     },
     {
       resolve: `gatsby-plugin-netlify`,

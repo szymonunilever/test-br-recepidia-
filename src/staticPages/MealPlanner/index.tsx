@@ -29,12 +29,13 @@ import RecipeListing, {
 } from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
+import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
 
 const refineQuery = (query: string): string => {
   if (query.trim().startsWith('AND')) {
-    // in case when "no restrictions" option with empty value is choosen OR if intro quiz is not passed
+    // in case when "no restrictions" option with empty value is chosen OR if intro quiz is not passed
     return refineQuery(query.trim().replace('AND', ''));
   }
   return query;
@@ -45,6 +46,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     page: { seo, components, type },
   } = pageContext;
   const componentContent = findPageComponentContent(components, 'Wizard');
+  const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const wizardResultSection = componentContent.wizardResultSection;
   const { updateFavoriteState, favorites } = useFavorite(
@@ -59,10 +61,10 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
         size: 7,
         sort: [{ creationTime: { order: 'desc' } }],
       }).then(data => {
-        const result = data.hits.hits.map(hit => hit._source);
+        const result = data.body.hits.hits.map(hit => hit._source);
         const index = query.lastIndexOf('AND');
         // if we have no results and can simplify query
-        if (data.hits.total === 0 && index > -1) {
+        if (data.body.hits.total.value === 0 && index > -1) {
           query = query.substring(0, index);
           processSearchData(query);
         } else {
@@ -171,6 +173,9 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             )}
           </WizardResultSection>
         </Wizard>
+        <div className="wizard__privacy">
+          <Menu list={linksContent.list} />
+        </div>
       </section>
     </div>
   );

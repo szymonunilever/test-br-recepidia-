@@ -1,18 +1,11 @@
 import get from 'lodash/get';
-import isBrowser from './isBrowser';
+import debounce from 'lodash/debounce';
 
-export const reloadKritiqueWidget = () => {
+export const reloadKritique = () => {
   const kritiqueWidget = get(window, 'ratingReview.widget');
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const reloadKritiqueWidgetWithTimeout = (timeout = 50) => {
-  let timerId;
-  isBrowser() && timerId && window.clearTimeout(timerId);
+const reloadKritiqueWidget = debounce(reloadKritique, 500);
 
-  timerId = setTimeout(() => {
-    reloadKritiqueWidget();
-  }, timeout);
-};
-
-export default reloadKritiqueWidgetWithTimeout;
+export default reloadKritiqueWidget;

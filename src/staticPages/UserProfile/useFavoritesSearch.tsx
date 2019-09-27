@@ -15,10 +15,13 @@ const useFavoritesSearch = () => {
       getRecipesByIdsResponse(searchQeury, controlArray, params).then(res => {
         setRecipeList(
           recipeList && recipeList.length
-            ? [...recipeList, ...res.hits.hits.map(resItem => resItem._source)]
-            : res.hits.hits.map(resItem => resItem._source)
+            ? [
+                ...recipeList,
+                ...res.body.hits.hits.map(resItem => resItem._source),
+              ]
+            : res.body.hits.hits.map(resItem => resItem._source)
         );
-        setTotalCount(res.hits.total);
+        setTotalCount(res.body.hits.total.value);
       });
     },
     [recipeList, totalCount]

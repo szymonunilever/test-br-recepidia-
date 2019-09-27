@@ -120,7 +120,7 @@
                       }
                     },
                     {
-                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091",
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;10939",
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
@@ -140,7 +140,7 @@
                       }
                     },
                     {
-                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053",
+                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053;10939;12909;13153",
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
                         "image": {
@@ -173,7 +173,7 @@
                       }
                     },
                     {
-                      "value": "10",
+                      "value": "10;13153",
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
@@ -183,7 +183,7 @@
                       }
                     },
                     {
-                      "value": "11",
+                      "value": "11;12909",
                       "label": {
                         "text": "Sem carne",
                         "image": {
@@ -193,7 +193,7 @@
                       }
                     },
                     {
-                      "value": "2",
+                      "value": "2;12886",
                       "label": {
                         "text": "Sem ovo",
                         "image": {
@@ -203,7 +203,7 @@
                       }
                     },
                     {
-                      "value": "1",
+                      "value": "1;12914",
                       "label": {
                         "text": "Sem leite",
                         "image": {
@@ -213,7 +213,7 @@
                       }
                     },
                     {
-                      "value": "12",
+                      "value": "12913",
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
@@ -223,7 +223,7 @@
                       }
                     },
                     {
-                      "value": "4",
+                      "value": "4;12886",
                       "label": {
                         "text": "Sem lactose",
                         "image": {
@@ -233,7 +233,7 @@
                       }
                     },
                     {
-                      "value": "3",
+                      "value": "3;12941",
                       "label": {
                         "text": "Sem glúten",
                         "image": {
@@ -243,7 +243,7 @@
                       }
                     },
                     {
-                      "value": "13",
+                      "value": "12912",
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
@@ -253,7 +253,7 @@
                       }
                     },
                     {
-                      "value": "14",
+                      "value": "12906",
                       "label": {
                         "text": "Sem soja",
                         "image": {
@@ -276,7 +276,7 @@
                   "filterPropName": "serves",
                   "options": [
                     {
-                      "value": "<=2",
+                      "value": ">=3",
                       "label": {
                         "text": "Com a galera",
                         "image": {
@@ -286,7 +286,7 @@
                       }
                     },
                     {
-                      "value": "<3",
+                      "value": "1 or 2",
                       "label": {
                         "text": "Com o crush",
                         "image": {
@@ -362,15 +362,9 @@
                 }
               ],
               "ctas": [
-                { "type": "back", 
-                  "label": "Voltar"
-                },
-                { "type": "next", 
-                  "label": "Próximo"
-                },
-                { "type": "final", 
-                  "label": "Finalizar"
-                }
+                { "type": "back", "label": "Voltar" },
+                { "type": "next", "label": "Próximo" },
+                { "type": "final", "label": "Finalizar" }
               ]
             }
           }
@@ -876,8 +870,8 @@
         ]
       },
       "seo": {
-        "title": "Procurar",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Pesquise em Recepedia",
+        "description": "Faça sua pesquisa e encontre as melhores receitas e dicas para cozinhar",
         "meta": [
           {
             "name": "og:image",
@@ -1208,8 +1202,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Não encontrado",
+        "description": "Página não encontrada",
         "meta": [
           {
             "name": "og:image",
@@ -1391,7 +1385,7 @@
                       }
                     },
                     {
-                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091",
+                      "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;10939",
                       "label": {
                         "text": "Chef preferido das crianças",
                         "image": {
@@ -1411,7 +1405,7 @@
                       }
                     },
                     {
-                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053",
+                      "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053;10939;12909;13153",
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
                         "image": {
@@ -1444,7 +1438,7 @@
                       }
                     },
                     {
-                      "value": "10",
+                      "value": "10;13153",
                       "label": {
                         "text": "Sem produtos de origem animal",
                         "image": {
@@ -1454,7 +1448,7 @@
                       }
                     },
                     {
-                      "value": "11",
+                      "value": "11;12909",
                       "label": {
                         "text": "Sem carne",
                         "image": {
@@ -1464,7 +1458,7 @@
                       }
                     },
                     {
-                      "value": "2",
+                      "value": "2;12886",
                       "label": {
                         "text": "Sem ovo",
                         "image": {
@@ -1474,7 +1468,7 @@
                       }
                     },
                     {
-                      "value": "1",
+                      "value": "1;12914",
                       "label": {
                         "text": "Sem leite",
                         "image": {
@@ -1484,7 +1478,7 @@
                       }
                     },
                     {
-                      "value": "12",
+                      "value": "12913",
                       "label": {
                         "text": "Sem açúcar",
                         "image": {
@@ -1494,7 +1488,7 @@
                       }
                     },
                     {
-                      "value": "4",
+                      "value": "4;12886",
                       "label": {
                         "text": "Sem lactose",
                         "image": {
@@ -1504,7 +1498,7 @@
                       }
                     },
                     {
-                      "value": "3",
+                      "value": "3;12941",
                       "label": {
                         "text": "Sem glúten",
                         "image": {
@@ -1514,7 +1508,7 @@
                       }
                     },
                     {
-                      "value": "13",
+                      "value": "12912",
                       "label": {
                         "text": "Sem frutos do mar",
                         "image": {
@@ -1524,7 +1518,7 @@
                       }
                     },
                     {
-                      "value": "14",
+                      "value": "12906",
                       "label": {
                         "text": "Sem soja",
                         "image": {
@@ -1547,7 +1541,7 @@
                   "filterPropName": "serves",
                   "options": [
                     {
-                      "value": "<=2",
+                      "value": ">=3",
                       "label": {
                         "text": "Com a galera",
                         "image": {
@@ -1557,7 +1551,7 @@
                       }
                     },
                     {
-                      "value": "<3",
+                      "value": "1 or 2",
                       "label": {
                         "text": "Com o crush",
                         "image": {
@@ -1672,7 +1666,7 @@
                       }
                     },
                     {
-                      "value": "1464;1313;1314",
+                      "value": "665",
                       "label": {
                         "text": "Pizza",
                         "image": {
@@ -1722,7 +1716,7 @@
                       }
                     },
                     {
-                      "value": "1483;665;1485",
+                      "value": "1483;1485",
                       "label": {
                         "text": "Tortas",
                         "image": {
@@ -1732,7 +1726,7 @@
                       }
                     },
                     {
-                      "value": "1487;1108;1476;1495;1473;organic;healthy",
+                      "value": "1487;1108;1476;1495;1473;10939",
                       "label": {
                         "text": "Comida saudável",
                         "image": {
@@ -1757,6 +1751,69 @@
                   "orderIndex": 2,
                   "id": 2,
                   "key": "mealPlannerQuestion2",
+                  "label": "Pretende seguir alguma dieta específica essa semana?",
+                  "type": {
+                    "control": "checkbox",
+                    "labelPosition": "bottom"
+                  },
+                  "filterPropName": "tags",
+                  "options": [
+                    {
+                      "value": "",
+                      "label": {
+                        "text": "Não",
+                        "image": {
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                          "alt": "Não"
+                        }
+                      }
+                    },
+                    {
+                      "value": "10;13153",
+                      "label": {
+                        "text": "Sem produtos de origem animal",
+                        "image": {
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                          "alt": "Sem produtos de origem animal"
+                        }
+                      }
+                    },
+                    {
+                      "value": "11;12909",
+                      "label": {
+                        "text": "Sem carne",
+                        "image": {
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                          "alt": "Sem carne"
+                        }
+                      }
+                    },
+                    {
+                      "value": "4;12886",
+                      "label": {
+                        "text": "Sem lactose",
+                        "image": {
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                          "alt": "Sem lactose"
+                        }
+                      }
+                    },
+                    {
+                      "value": "3;12941",
+                      "label": {
+                        "text": "Sem glúten",
+                        "image": {
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                          "alt": "Sem glúten"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "orderIndex": 3,
+                  "id": 3,
+                  "key": "mealPlannerQuestion3",
                   "label": "Quanto tempo quer gastar na cozinha?",
                   "type": {
                     "control": "radio",
@@ -1787,9 +1844,9 @@
                   ]
                 },
                 {
-                  "orderIndex": 3,
-                  "id": 3,
-                  "key": "mealPlannerQuestion3",
+                  "orderIndex": 4,
+                  "id": 4,
+                  "key": "mealPlannerQuestion4",
                   "label": "Essa semana você quer",
                   "type": {
                     "control": "radio",
@@ -1820,9 +1877,9 @@
                   ]
                 },
                 {
-                  "orderIndex": 4,
-                  "id": 4,
-                  "key": "mealPlannerQuestion4",
+                  "orderIndex": 5,
+                  "id": 5,
+                  "key": "mealPlannerQuestion5",
                   "label": "Receitas para quantas pessoas?",
                   "type": {
                     "control": "radio",
@@ -1937,8 +1994,8 @@
         ]
       },
       "seo": {
-        "title": "Seu assistente de cozinha",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Sobre Recepedia",
+        "description": "Recepedia apresenta receitas perfeitas para o seu dia-dia e também para aqueles momentos especiais. Encontre a sua e bom apetite!",
         "meta": [
           {
             "name": "og:image",
@@ -2000,7 +2057,7 @@
                         }
                       },
                       {
-                        "value": "1464;1313;1314",
+                        "value": "665",
                         "label": {
                           "text": "Pizza",
                           "image": {
@@ -2050,7 +2107,7 @@
                         }
                       },
                       {
-                        "value": "1483;665;1485",
+                        "value": "1483;1485",
                         "label": {
                           "text": "Tortas",
                           "image": {
@@ -2060,7 +2117,7 @@
                         }
                       },
                       {
-                        "value": "1487;1108;1476;1495;1473;organic;healthy",
+                        "value": "1487;1108;1476;1495;1473;10939",
                         "label": {
                           "text": "Comida saudável",
                           "image": {
@@ -2085,6 +2142,69 @@
                     "orderIndex": 2,
                     "id": 2,
                     "key": "mealPlannerQuestion2",
+                    "label": "Pretende seguir alguma dieta específica essa semana?",
+                    "type": {
+                      "control": "checkbox",
+                      "labelPosition": "bottom"
+                    },
+                    "filterPropName": "tags",
+                    "options": [
+                      {
+                        "value": "",
+                        "label": {
+                          "text": "Não",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                            "alt": "Não"
+                          }
+                        }
+                      },
+                      {
+                        "value": "10;13153",
+                        "label": {
+                          "text": "Sem produtos de origem animal",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
+                            "alt": "Sem produtos de origem animal"
+                          }
+                        }
+                      },
+                      {
+                        "value": "11;12909",
+                        "label": {
+                          "text": "Sem carne",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                            "alt": "Sem carne"
+                          }
+                        }
+                      },
+                      {
+                        "value": "4;12886",
+                        "label": {
+                          "text": "Sem lactose",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                            "alt": "Sem lactose"
+                          }
+                        }
+                      },
+                      {
+                        "value": "3;12941",
+                        "label": {
+                          "text": "Sem glúten",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
+                            "alt": "Sem glúten"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orderIndex": 3,
+                    "id": 3,
+                    "key": "mealPlannerQuestion3",
                     "label": "Quanto tempo quer gastar na cozinha?",
                     "type": {
                       "control": "radio",
@@ -2115,9 +2235,9 @@
                     ]
                   },
                   {
-                    "orderIndex": 3,
-                    "id": 3,
-                    "key": "mealPlannerQuestion3",
+                    "orderIndex": 4,
+                    "id": 4,
+                    "key": "mealPlannerQuestion4",
                     "label": "Essa semana você quer",
                     "type": {
                       "control": "radio",
@@ -2148,9 +2268,9 @@
                     ]
                   },
                   {
-                    "orderIndex": 4,
-                    "id": 4,
-                    "key": "mealPlannerQuestion4",
+                    "orderIndex": 5,
+                    "id": 5,
+                    "key": "mealPlannerQuestion5",
                     "label": "Receitas para quantas pessoas?",
                     "type": {
                       "control": "radio",
@@ -2192,19 +2312,36 @@
                   }
                 ],
                 "ctas": [
-                  { "type": "back", 
-                    "label": "Voltar"
-                  },
-                  { "type": "next", 
-                    "label": "Continuar"
-                  }
+                  { "type": "back", "label": "Voltar" },
+                  { "type": "next", "label": "Continuar" }
                 ],
-                "bottomContent": "Não se preocupe, você pode mudar suas preferências quando quiser!"
+                "bottomContent": "Não se preocupe, você pode mudar suas preferências quando quiser, basta entrar no seu perfil!"
               },
               "wizardResultSection": {
                 "title": "Cardápio semanal",
                 "subheading": "Aqui está o cardápio que preparei para sua semana",
                 "primaryButtonLabel": "Conferir seu cardápio"
+              }
+            }
+          },
+          {
+            "name": "Links",
+            "content": {
+              "list": {
+                  "items": [
+                    {
+                      "name": "Fale comigo",
+                      "path": "/fale-comigo"
+                    },
+                    {
+                      "name": "Aviso de Privacidade",
+                      "path": "https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html"
+                    },
+                    {
+                      "name": "Mapa do site",
+                      "path": "/mapa-do-site"
+                    }
+                  ]
               }
             }
           }
@@ -2249,13 +2386,13 @@
     },
     {
       "type": "NewsletterSignUp",
-      "relativePath": "/newsletter-signup",
+      "relativePath": "/inscrever",
       "components": {
         "items": []
       },
       "seo": {
-        "title": "Newsletter SignUp",
-        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "title": "Inscreva-se em Recepedia",
+        "description": "Faça sua pesquisa e encontre as melhores receitas e dicas para cozinhar",
         "meta": [
           {
             "name": "og:image",
