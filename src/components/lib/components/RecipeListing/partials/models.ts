@@ -43,7 +43,7 @@ export enum RecipeSortingOptions {
 }
 
 export const RecipeSortingOptionsFieldsMappings = {
-  [RecipeSortingOptions.newest]: 'creationTime',
+  [RecipeSortingOptions.newest]: [{ creationTime: { order: 'desc' } }],
   [RecipeSortingOptions.preparationTime]: 'recipeDetails.preperationTime',
   [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
   [RecipeSortingOptions.averageRating]: [{ averageRating: { order: 'desc' } }],

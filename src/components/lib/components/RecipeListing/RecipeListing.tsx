@@ -19,7 +19,7 @@ import {
 } from './utils';
 import get from 'lodash/get';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
-import useKritiqueReload from '../../utils/useKritiqueReload';
+import reloadKritiqueWidget from '../../utils/useKritiqueReload';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeListing = ({
@@ -110,7 +110,7 @@ export const RecipeListing = ({
       didMountRef.current &&
       ratingProvider === RatingAndReviewsProvider.kritique
     ) {
-      useKritiqueReload();
+      reloadKritiqueWidget();
     } else {
       didMountRef.current = true;
     }
