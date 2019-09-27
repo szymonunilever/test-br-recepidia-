@@ -25,7 +25,7 @@ const Kritique = () => {
   useEffect(() => {
     if (isLoadKritique()) {
       setInjectScript(isLoadKritique);
-      setTimeout(reloadKritiqueWidget());
+      setTimeout(reloadKritiqueWidget);
     } else if (document.readyState === 'complete') {
       initKritique();
     } else {

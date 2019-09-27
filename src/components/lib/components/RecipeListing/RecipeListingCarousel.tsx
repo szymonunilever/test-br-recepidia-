@@ -3,7 +3,7 @@ import Carousel from '../Carousel/Carousel';
 import { RecipeListingCarouselProps } from './models';
 import RecipeCard from './partials/RecipeCard';
 import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
-import { reloadKritique } from '../../utils/useKritiqueReload';
+import reloadKritiqueWidget from '../../utils/useKritiqueReload';
 
 const RecipeListingCarousel = ({
   withFavorite = true,
@@ -50,7 +50,7 @@ const RecipeListingCarousel = ({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (visibleElements: number) => {
       if (ratingProvider === RatingAndReviewsProvider.kritique) {
-        reloadKritique();
+        reloadKritiqueWidget();
       }
     },
     [ratingProvider]
