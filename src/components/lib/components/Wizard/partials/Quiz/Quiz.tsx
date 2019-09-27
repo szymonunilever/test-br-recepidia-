@@ -172,8 +172,8 @@ const Quiz: FunctionComponent<QuizProps> = ({
               attributes={{ 'aria-label': 'Back one step' }}
             />
           )}
-          <div className="wizard__button-placeholder">{bottomContent}</div>
         </div>
+        <div className="wizard__button-placeholder">{bottomContent}</div>
       </form>
     </Fragment>
   );

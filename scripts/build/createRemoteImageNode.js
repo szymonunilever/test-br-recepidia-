@@ -1,11 +1,12 @@
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-const keys = require('../../integrations/keys.json');
+const config = require('../../app-config');
 
 module.exports = async (url, id, staticParams) => {
   const imgExt =
     (url && ~url.indexOf('.png') && '.png') ||
     (url && ~url.indexOf('.svg') && '.svg') ||
     '.jpg';
+
   return await createRemoteFileNode({
     url:
       url ||
@@ -14,8 +15,10 @@ module.exports = async (url, id, staticParams) => {
     ext: imgExt,
     name: 'image',
     httpHeaders: {
-      'static-first-api-key': keys.AemAssetsCredentials['static-first-api-key'],
-      Authorization: keys.AemAssetsCredentials.Authorization,
+      'static-first-api-key': config.getByKey(
+        'AemAssetsCredentials_staticFirstApiKey'
+      ),
+      Authorization: config.getByKey('AemAssetsCredentials_Authorization'),
     },
     ...staticParams,
   });

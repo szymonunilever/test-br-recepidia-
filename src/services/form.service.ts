@@ -1,6 +1,3 @@
-import keys from 'integrations/keys.json';
-
-const { formService } = keys;
 const FormService = ({ url, host }: FormServiceProps) => {
   if (!url) return;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,7 +60,10 @@ const FormService = ({ url, host }: FormServiceProps) => {
   };
 };
 
-export default FormService(formService);
+export default FormService({
+  url: process.env['formService_url'],
+  host: process.env['formService_host'] as string,
+});
 
 export interface FormServiceProps {
   url?: string;

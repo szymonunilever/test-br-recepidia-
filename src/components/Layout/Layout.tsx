@@ -74,7 +74,7 @@ const Layout = ({ children, className }: LayoutProps) => {
 
   // eslint-disable-next-line no-console
   const onSignUpCallback = () => {
-    navigate('/newsletter-signup');
+    navigate('/inscrever');
   };
 
   // @ts-ignore

@@ -307,7 +307,21 @@ exports.createPages = async ({ graphql, actions }) => {
   ]);
 };
 
-exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
+exports.onCreateWebpackConfig = ({
+  actions,
+  getConfig,
+  stage,
+  loaders,
+  plugins,
+}) => {
+  const appConfig = require('./app-config').getConfig();
+
+  // Create an object of all the variables in .env file
+  const envKeys = Object.keys(appConfig).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(appConfig[next]);
+    return prev;
+  }, {});
+
   if (stage === 'build-javascript') {
     actions.setWebpackConfig({
       optimization: {
@@ -338,6 +352,10 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       },
     });
   }
+
+  actions.setWebpackConfig({
+    plugins: [plugins.define(envKeys)],
+  });
 
   const config = getConfig();
   config.resolve = {
@@ -426,16 +444,12 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
   if (isUpdateES) {
     // eslint-disable-next-line no-console
     console.log('updating ES');
-
     const hrstart = process.hrtime();
-
     const promises = [
       updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
       updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
     ];
-
     await Promise.all(promises);
-
     const hrend = process.hrtime(hrstart);
     // eslint-disable-next-line no-console
     console.info('Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000);

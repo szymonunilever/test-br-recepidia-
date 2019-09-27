@@ -37,7 +37,7 @@ const GlobalSearch = ({
         const [recipeRes] = values; // @todo remove this line and uncomment the a line above when articles are there
 
         setSearchInputResults([
-          ...recipeRes.hits.hits.map(item => item._source.title),
+          ...recipeRes.body.hits.hits.map(item => item._source.title),
           // ...articleRes.hits.hits.map(item => item._source.title), // @todo uncomment this line when articles are there
         ]);
       })

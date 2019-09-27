@@ -36,8 +36,8 @@ const Single: FunctionComponent<QuestionProps> = ({
     <Fragment>
       <QuestionLabel label={question.label} {...{ progress }} />
       <ul className="quiz__list quiz__single">
-        {question.options.map(option => (
-          <li className="quiz__item" key={option.value}>
+        {question.options.map((option, index) => (
+          <li className="quiz__item" key={option.value + index}>
             <label
               tabIndex={0}
               aria-label={option.label.text}

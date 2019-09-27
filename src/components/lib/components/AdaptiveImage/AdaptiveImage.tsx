@@ -73,7 +73,7 @@ const AdaptiveImage = ({
   }, []);
 
   return (
-    <ImageContainer>
+    <ImageContainer classNames={classNames} view={view}>
       {!docLoaded ? (
         <Img className="adaptive-image__image" fluid={baseFluid} alt={alt} />
       ) : (

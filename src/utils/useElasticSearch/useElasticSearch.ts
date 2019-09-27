@@ -1,4 +1,3 @@
-import keys from 'integrations/keys.json';
 import { SearchResponse, SearchParams } from './models';
 
 class Client {
@@ -15,7 +14,7 @@ class Client {
     body: object;
     index: string;
   }): Promise<SearchResponse<T>> {
-    return fetch(`${this.host}/${index}/_search`, {
+    return fetch(`${this.host}/${index}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +26,7 @@ class Client {
   }
 }
 
-const client = new Client(keys.elasticSearch.url);
+const client = new Client(process.env['elasticSearch_searchUrl'] as string);
 
 const useElasticSearch = async <T>(
   searchParams: SearchParams

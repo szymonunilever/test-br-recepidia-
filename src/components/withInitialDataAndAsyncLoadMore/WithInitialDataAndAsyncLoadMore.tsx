@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getTagsFromRecipes } from '../../utils/getTagsFromRecipes';
 import { useElasticSearch } from '../../utils';
 import { SearchParams } from 'src/components/lib/components/SearchListing/models';
-
-import keys from 'integrations/keys.json';
 import useMedia from 'src/utils/useMedia';
 import _values from 'lodash/values';
 import _compact from 'lodash/compact';
@@ -55,7 +53,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       }
     ) => {
       const searchParams = {
-        index: keys.elasticSearch.recipeIndex,
+        index: process.env['elasticSearch_recipeIndex'] as string,
         body: {
           ...params,
           query: {
@@ -86,7 +84,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       ).then(res => {
         setRecipeResultsList([
           ...recipeResultsList,
-          ...res.hits.hits.map(item => item._source),
+          ...res.body.hits.hits.map(item => item._source),
         ]);
       });
     };
@@ -106,7 +104,10 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         getRecipeSearchData({
           size: initialRecipesCount,
         }).then(res => {
-          setRecipes(res.hits.hits.map(item => item._source), res.hits.total);
+          setRecipes(
+            res.body.hits.hits.map(item => item._source),
+            res.body.hits.total
+          );
         });
       } else {
         setRecipes(
