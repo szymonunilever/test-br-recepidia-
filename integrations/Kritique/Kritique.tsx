@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
 // TODO: Integrations should be moved into lib folder
-import { reloadKritiqueWidget } from '../../src/components/lib/utils/useKritiqueReload';
+import reloadKritiqueWidget from 'src/components/lib/utils/useKritiqueReload';
 import { isBrowser } from 'src/utils';
 
 const Kritique = () => {
@@ -25,7 +25,7 @@ const Kritique = () => {
   useEffect(() => {
     if (isLoadKritique()) {
       setInjectScript(isLoadKritique);
-      setTimeout(reloadKritiqueWidget, 1000);
+      setTimeout(reloadKritiqueWidget);
     } else if (document.readyState === 'complete') {
       initKritique();
     } else {

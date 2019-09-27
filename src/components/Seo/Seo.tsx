@@ -17,6 +17,7 @@ function SEO({
   link = [],
   title,
   canonical,
+  onChangeClientState,
   children,
 }: SeoProps) {
   const { site } = useStaticQuery(
@@ -42,6 +43,9 @@ function SEO({
 
   return (
     <Helmet
+      onChangeClientState={(newState: any) => {
+        onChangeClientState && onChangeClientState(newState);
+      }}
       htmlAttributes={{
         lang,
       }}
@@ -108,6 +112,7 @@ interface SeoProps {
   title?: string;
   children?: ReactNode | ReactNode[];
   canonical?: string;
+  onChangeClientState?: (newState: any) => void;
 }
 
 export default SEO;
