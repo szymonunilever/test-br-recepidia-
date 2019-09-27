@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 
-const reloadKritique = () => {
+export const reloadKritique = () => {
   const kritiqueWidget = get(window, 'ratingReview.widget');
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const reloadKritiqueWidget = debounce(reloadKritique, 200, { maxWait: 1000 });
+const reloadKritiqueWidget = debounce(reloadKritique, 500);
 
 export default reloadKritiqueWidget;
