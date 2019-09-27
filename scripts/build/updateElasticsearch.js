@@ -1,31 +1,56 @@
-const config = require('../../app-config');
+const Auth = require('@aws-amplify/auth').default;
+const Amplify = require('aws-amplify').default;
+//const config = require('../../app-config');
 const axios = require('axios');
 const times = require('lodash/times');
 
+// require('dotenv').config();
+global['fetch'] = require('node-fetch');
+
+const [
+  COGNITO_USER_POOL_ID,
+  COGNITO_WEB_CLIENT_ID,
+  BUILD_USER_PASSWORD,
+  indexUrl,
+  recipeIndex,
+  articleIndex,
+] = [
+  process.env['elasticSearch_COGNITO_USER_POOL_ID'],
+  process.env['elasticSearch_COGNITO_WEB_CLIENT_ID'],
+  process.env['elasticSearch_BUILD_USER_PASSWORD'],
+  process.env['elasticSearch_indexUrl'],
+  process.env['elasticSearch_recipeIndex'],
+  process.env['elasticSearch_articleIndex'],
+];
+
+const buildUser = 'staticFirstBuildUser';
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: 'eu-west-1',
+    userPoolId: COGNITO_USER_POOL_ID,
+    userPoolWebClientId: COGNITO_WEB_CLIENT_ID,
+  },
+});
+
+async function signIn() {
+  const user = await Auth.signIn(buildUser, BUILD_USER_PASSWORD);
+  return user.signInUserSession.idToken.jwtToken;
+}
+
+const tokenPromis = signIn();
+
 const BATCH_SIZE = 300;
 
-const bulkPost = (data, url) => {
-  return axios.post(`${url}/_bulk`, data, {
-    headers: { 'Content-Type': 'application/json' },
+const bulkPost = (data, url, token) => {
+  return axios.post(`${url}/bulk`, data, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
   });
 };
 
-const isIndexExists = async (url, index) => {
-  try {
-    let indexRes = await axios.head(`${url}/${index}`);
-    return indexRes.status === 200;
-  } catch (err) {
-    if (err.response.status === 404) {
-      return false;
-    }
-
-    throw new Error(err);
-  }
-};
-
-const clearIndex = (url, index) => {
+const clearIndex = (url, index, token) => {
   axios.post(
-    `${url}/${index}/_delete_by_query?conflicts=proceed`,
+    `${url}/${index}/clear`,
     {
       query: {
         // eslint-disable-next-line @typescript-eslint/camelcase
@@ -33,12 +58,19 @@ const clearIndex = (url, index) => {
       },
     },
     {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: token },
     }
   );
 };
 
-const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
+const bulkBatchPost = (
+  items,
+  idField,
+  esUrl,
+  esIndex,
+  fieldsToDelete,
+  token
+) => {
   const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
 
   const promises = times(noOfBatches, i => {
@@ -64,43 +96,49 @@ const bulkBatchPost = (items, idField, esUrl, esIndex, fieldsToDelete) => {
     });
 
     // format required by ES needs newline at end of each row
-    return bulkPost(bulkRows.join('\n') + '\n', esUrl);
+    return bulkPost(bulkRows.join('\n') + '\n', esUrl, token);
   });
 
   return Promise.all(promises);
 };
 
 const updateRecipes = async recipes => {
-  const url = config.getByKey('elasticSearch_url');
-  const index = config.getByKey('elasticSearch_recipeIndex');
+  const index = recipeIndex;
+  const token = await tokenPromis;
+  await clearIndex(indexUrl, index, token);
 
-  if (await isIndexExists(url, index)) {
-    await clearIndex(url, index);
-  }
-
-  return bulkBatchPost(recipes, 'recipeId', url, index, [
-    'parent',
-    'children',
-    'internal',
-    'methods',
-    'nutrients',
-    'nutrientsPerServing',
-  ]);
+  return bulkBatchPost(
+    recipes,
+    'recipeId',
+    indexUrl,
+    index,
+    [
+      'parent',
+      'children',
+      'internal',
+      'methods',
+      'nutrients',
+      'nutrientsPerServing',
+    ],
+    token
+  );
 };
 
 const updateArticles = async articles => {
-  const url = config.getByKey('elasticSearch_url');
-  const index = config.getByKey('elasticSearch_articleIndex');
+  const index = articleIndex;
+  const token = await tokenPromis;
+  //if (await isIndexExists(indexUrl, index, token)) {
+  await clearIndex(indexUrl, index, token);
+  //}
 
-  if (await isIndexExists(url, index)) {
-    await clearIndex(url, index);
-  }
-
-  return bulkBatchPost(articles, 'id', url, index, [
-    'parent',
-    'children',
-    'internal',
-  ]);
+  return bulkBatchPost(
+    articles,
+    'id',
+    indexUrl,
+    index,
+    ['parent', 'children', 'internal'],
+    token
+  );
 };
 
 module.exports = { updateRecipes, updateArticles };

@@ -59,10 +59,10 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
         size: 7,
         sort: [{ creationTime: { order: 'desc' } }],
       }).then(data => {
-        const result = data.hits.hits.map(hit => hit._source);
+        const result = data.body.hits.hits.map(hit => hit._source);
         const index = query.lastIndexOf('AND');
         // if we have no results and can simplify query
-        if (data.hits.total === 0 && index > -1) {
+        if (data.body.hits.total === 0 && index > -1) {
           query = query.substring(0, index);
           processSearchData(query);
         } else {

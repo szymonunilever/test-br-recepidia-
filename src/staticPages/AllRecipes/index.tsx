@@ -112,11 +112,11 @@ const AllRecipesPage = ({
           params.from
             ? [
                 ...recipeResultsList,
-                ...res.hits.hits.map(resItem => resItem._source),
+                ...res.body.hits.hits.map(resItem => resItem._source),
               ]
-            : res.hits.hits.map(resItem => resItem._source)
+            : res.body.hits.hits.map(resItem => resItem._source)
         );
-        setRecipeResultsCount(res.hits.total);
+        setRecipeResultsCount(res.body.hits.total);
       })
       .then(() => {
         setDataFetched(true);

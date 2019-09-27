@@ -40,7 +40,9 @@ export async function searchRecipes(
     i
   );
 
-  const { hits } = await getPersonalizationSearchData(queryString, param);
+  const {
+    body: { hits },
+  } = await getPersonalizationSearchData(queryString, param);
 
   if (hits.total < resultNumber && i < maxTry - 1) {
     j = i + 1;

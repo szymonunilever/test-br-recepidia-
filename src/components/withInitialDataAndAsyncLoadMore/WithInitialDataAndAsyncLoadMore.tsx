@@ -84,7 +84,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
       ).then(res => {
         setRecipeResultsList([
           ...recipeResultsList,
-          ...res.hits.hits.map(item => item._source),
+          ...res.body.hits.hits.map(item => item._source),
         ]);
       });
     };
@@ -104,7 +104,10 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         getRecipeSearchData({
           size: initialRecipesCount,
         }).then(res => {
-          setRecipes(res.hits.hits.map(item => item._source), res.hits.total);
+          setRecipes(
+            res.body.hits.hits.map(item => item._source),
+            res.body.hits.total
+          );
         });
       } else {
         setRecipes(
