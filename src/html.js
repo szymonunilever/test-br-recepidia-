@@ -63,10 +63,6 @@ export default function HTML(props) {
 
             {/* Evidon Cookie popup */}
             {/* <script
-              src="//assets.adobedtm.com/launch-EN778e3b07c50b4ae08fac5c37112ab05d.min.js"
-              async
-            /> */}
-            <script
               type="text/javascript"
               dangerouslySetInnerHTML={{
                 __html: `
@@ -82,7 +78,7 @@ export default function HTML(props) {
               `,
               }}
               id="evidon"
-            />
+            /> */}
           </>
         )}
         <script
