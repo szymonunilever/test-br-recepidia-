@@ -44,10 +44,10 @@ export async function searchRecipes(
     body: { hits },
   } = await getPersonalizationSearchData(queryString, param);
 
-  if (hits.total < resultNumber && i < maxTry - 1) {
+  if (hits.total.value < resultNumber && i < maxTry - 1) {
     j = i + 1;
     return searchRecipes(j, resultNumber, defaults, param);
-  } else if (hits.total < resultNumber && i >= maxTry - 1) {
+  } else if (hits.total.value < resultNumber && i >= maxTry - 1) {
     return defaults;
   } else {
     return hits.hits.map(hit => hit._source);

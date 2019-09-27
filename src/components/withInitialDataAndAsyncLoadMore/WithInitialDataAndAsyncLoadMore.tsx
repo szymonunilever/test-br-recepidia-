@@ -106,7 +106,7 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
         }).then(res => {
           setRecipes(
             res.body.hits.hits.map(item => item._source),
-            res.body.hits.total
+            res.body.hits.total.value
           );
         });
       } else {

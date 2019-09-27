@@ -46,7 +46,7 @@ const useSearchResults = (searchQuery: string) => {
                   ...res.body.hits.hits.map(resItem => resItem._source),
                 ]
               : res.body.hits.hits.map(resItem => resItem._source),
-            count: res.body.hits.total,
+            count: res.body.hits.total.value,
           });
         })
         .catch(() => {}),
