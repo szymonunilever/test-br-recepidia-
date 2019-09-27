@@ -40,7 +40,7 @@
     margin-right: 10px;
     top: -3.5px;
     z-index: 2;
-    &.active{
+    &.active {
       .info_svg__path1 {
         fill: $apple-green;
       }
@@ -61,8 +61,10 @@
     display: flex;
     color: $fish-blue-darker;
     margin-top: 13px;
+    max-width: 100px;
     @include respondTo(desktop) {
       margin-top: 15px;
+      max-width: 150px;
     }
   }
 }
