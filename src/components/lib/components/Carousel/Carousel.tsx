@@ -140,6 +140,7 @@ const Carousel = ({
         const firstIndex =
           Math.abs(actualCurrentTranslateValue) / (100 / listSize);
         setTrackingIndex(firstIndex);
+        onVisibleElementsChanged && onVisibleElementsChanged(visibleElements);
       }
     },
     [visibleElements, list]
@@ -160,10 +161,6 @@ const Carousel = ({
       setVisibleElements(listSize);
     }
   }, [visibleElements]);
-
-  useEffect(() => {
-    onVisibleElementsChanged && onVisibleElementsChanged();
-  }, [trackingIndex]);
 
   useEffect(() => {
     setCarouselSettings();
