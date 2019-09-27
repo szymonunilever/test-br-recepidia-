@@ -21,7 +21,7 @@ const useFavoritesSearch = () => {
               ]
             : res.body.hits.hits.map(resItem => resItem._source)
         );
-        setTotalCount(res.body.hits.total);
+        setTotalCount(res.body.hits.total.value);
       });
     },
     [recipeList, totalCount]

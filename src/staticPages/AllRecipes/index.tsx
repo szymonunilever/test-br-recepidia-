@@ -116,7 +116,7 @@ const AllRecipesPage = ({
               ]
             : res.body.hits.hits.map(resItem => resItem._source)
         );
-        setRecipeResultsCount(res.body.hits.total);
+        setRecipeResultsCount(res.body.hits.total.value);
       })
       .then(() => {
         setDataFetched(true);
