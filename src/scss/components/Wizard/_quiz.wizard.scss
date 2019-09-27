@@ -12,6 +12,9 @@ $image-ratio-desktop: 59% !important;
 
 .wizard--quiz {
   .wizard {
+    &__container{
+      padding-bottom: 20px;
+    }
     &__content {
       display: flex;
       flex-direction: column;
