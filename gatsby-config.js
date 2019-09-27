@@ -16,7 +16,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `svg`,
-        path: path.join(__dirname, 'static/assets/images/svgs'),
+        path: path.join(__dirname, 'static/assets/images'),
       },
     },
     'gatsby-transformer-sharp',
