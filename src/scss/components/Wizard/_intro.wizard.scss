@@ -1,6 +1,7 @@
 .wizard--intro {
   .wizard {
     &__container {
+      padding-bottom: 20px;
       @include respondTo(desktop) {
         box-sizing: border-box;
       }

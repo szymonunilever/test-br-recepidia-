@@ -1,3 +1,5 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
 .meal-planner {
   :global {
     .wizard {
@@ -18,6 +20,38 @@
             position: absolute;
             left: 24px;
             top: 24px;
+          }
+        }
+      }
+      &__privacy {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        .footer-menu {
+          &__list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+            @include respondTo(desktop) {
+              margin: 10px 0;
+            }
+          }
+          &__item {
+            margin: 0 10px;
+          }
+          &__link {
+            font-size: 1rem;
+            color: #7c7c7c;
+            text-decoration: none;
+            @media (hover: hover),
+              (-ms-high-contrast: none),
+              (-ms-high-contrast: active) {
+              &:hover {
+                color: $black-blue;
+              }
+            }
           }
         }
       }

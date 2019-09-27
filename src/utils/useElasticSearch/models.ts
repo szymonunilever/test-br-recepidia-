@@ -2,7 +2,7 @@ export interface SearchResponse<T> {
   body: {
     hits: {
       hits: Hit<T>[];
-      total: number;
+      total: { value: number; relation: string };
     };
   };
 }
