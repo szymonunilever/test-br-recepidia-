@@ -32,7 +32,7 @@
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
-              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
@@ -268,7 +268,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Qual seu jantar perfeito?",
+                  "label": "Como seria um jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -413,7 +413,7 @@
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
-              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
@@ -557,7 +557,7 @@
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
-              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
@@ -641,7 +641,7 @@
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
-              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
@@ -701,7 +701,7 @@
             "name": "Hero",
             "content": {
               "header": "Planejamento Semanal",
-              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer na semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
@@ -1533,7 +1533,7 @@
                   "orderIndex": 3,
                   "id": 3,
                   "key": "question3",
-                  "label": "Qual seu jantar perfeito?",
+                  "label": "Como seria um jantar perfeito?",
                   "type": {
                     "control": "radio",
                     "labelPosition": "bottom"
@@ -2015,7 +2015,7 @@
             "content": {
               "wizardIntroductionPanel": {
                 "title": "Planejamento semanal",
-                "description": "Agora você não precisa mais se preocupar com o que vai comer durante semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+                "description": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
                   "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
                   "alt": "Planejamento semanal"
@@ -2328,20 +2328,20 @@
             "name": "Links",
             "content": {
               "list": {
-                  "items": [
-                    {
-                      "name": "Fale comigo",
-                      "path": "/fale-comigo"
-                    },
-                    {
-                      "name": "Aviso de Privacidade",
-                      "path": "https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html"
-                    },
-                    {
-                      "name": "Mapa do site",
-                      "path": "/mapa-do-site"
-                    }
-                  ]
+                "items": [
+                  {
+                    "name": "Fale comigo",
+                    "path": "/fale-comigo"
+                  },
+                  {
+                    "name": "Aviso de Privacidade",
+                    "path": "https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html"
+                  },
+                  {
+                    "name": "Mapa do site",
+                    "path": "/mapa-do-site"
+                  }
+                ]
               }
             }
           }
