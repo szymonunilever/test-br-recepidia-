@@ -51,7 +51,7 @@ $col-indent-desktop: 8px;
     @extend .button;
     @extend .button--medium;
     display: block !important;
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
   }
 
   .recipe-list__item {
