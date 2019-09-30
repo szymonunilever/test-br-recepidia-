@@ -1,8 +1,10 @@
-
 .wizard--result {
   display: block;
   overflow-y: auto;
   .wizard {
+    &__container {
+      padding-bottom: 20px;
+    }
     &__logo {
       @media screen and (max-height: 567px),
         screen and (orientation: landscape) and (max-width: 959px) {
