@@ -17,7 +17,11 @@ import smartOutline from 'smart-outline';
 
 import find from 'lodash/find';
 
-const Layout = ({ children, className }: LayoutProps) => {
+const Layout = ({
+  children,
+  className,
+  showNewsletterForm = true,
+}: LayoutProps) => {
   const { allCommonComponent, allCategory } = useStaticQuery(graphql`
     {
       allCommonComponent {
@@ -105,13 +109,15 @@ const Layout = ({ children, className }: LayoutProps) => {
         }
       />
       <main id="content">{children}</main>
-      <GeneratedForm
-        shouldValidate={false}
-        onSubmit={onSignUpCallback}
-        recaptchaAction="SignUpEmail"
-        content={findPageComponentContent(components, 'Form', 'SignUpForm')}
-        className="general-signup"
-      />
+      {showNewsletterForm && (
+        <GeneratedForm
+          shouldValidate={false}
+          onSubmit={onSignUpCallback}
+          recaptchaAction="SignUpEmail"
+          content={findPageComponentContent(components, 'Form', 'SignUpForm')}
+          className="general-signup"
+        />
+      )}
       <GlobalFooter logoIcon={<UnileverLogoIcon />} content={footerNavLists}>
         <BrandSocialChannels
           content={findPageComponentContent(components, 'BrandSocialChannels')}
@@ -132,4 +138,5 @@ interface LayoutProps {
   title?: string;
   children?: ReactNode | ReactNode[];
   className?: string;
+  showNewsletterForm?: boolean;
 }
