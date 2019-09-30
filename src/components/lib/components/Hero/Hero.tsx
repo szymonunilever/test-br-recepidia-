@@ -10,7 +10,7 @@ import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
-const Hero = (props: HeroProps) => {
+const Hero = ({ imageIsLink = true, ...props }: HeroProps) => {
   const titleLevel = props.titleLevel || 2;
   const containerStyles = cx('hero', props.className, theme.container);
   const imageStyles = cx('hero__image', theme.image);
@@ -33,7 +33,10 @@ const Hero = (props: HeroProps) => {
       className={containerStyles}
     >
       {props.viewType === 'Image' && image.localImage && (
-        <div className={imageStyles} onClick={goByPrimaryCTA}>
+        <div
+          className={imageStyles}
+          onClick={imageIsLink ? goByPrimaryCTA : () => {}}
+        >
           <AdaptiveImage localImage={image.localImage} alt={image.alt} />
         </div>
       )}
