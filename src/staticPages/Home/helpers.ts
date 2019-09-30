@@ -43,12 +43,14 @@ export async function searchRecipes(
   const {
     body: { hits },
   } = await getPersonalizationSearchData(queryString, param);
-
-  if (hits.total.value < resultNumber && i < maxTry - 1) {
+  if (hits.hits.length < resultNumber && i < maxTry - 1) {
     j = i + 1;
     return searchRecipes(j, resultNumber, defaults, param);
-  } else if (hits.total.value < resultNumber && i >= maxTry - 1) {
-    return defaults;
+  } else if (hits.hits.length < resultNumber && i >= maxTry - 1) {
+    const res = hits.hits.map(hit => hit._source);
+    return res.length > 0
+      ? [...res, ...defaults].slice(0, RESULT_SIZE)
+      : defaults;
   } else {
     return hits.hits.map(hit => hit._source);
   }
