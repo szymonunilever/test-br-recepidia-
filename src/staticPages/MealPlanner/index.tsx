@@ -21,9 +21,12 @@ import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
 import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
+import useKritiqueReload from 'src/components/lib/utils/useKritiqueReload';
 import generateQuery from '../../utils/queryGenerator';
 import { MealPlannerPersonalizationFormula } from 'src/constants';
-import getPersonalizationSearchData from '../../utils/getPersonalizationSearchData';
+import getPersonalizationSearchData, {
+  FROM,
+} from '../../utils/getPersonalizationSearchData';
 import RecipeListing, {
   RecipeListViewType,
 } from 'src/components/lib/components/RecipeListing';
@@ -32,15 +35,7 @@ import useFavorite from 'src/utils/useFavorite';
 import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
-
-const refineQuery = (query: string): string => {
-  if (query.trim().startsWith('AND')) {
-    // in case when "no restrictions" option with empty value is chosen OR if intro quiz is not passed
-    return refineQuery(query.trim().replace('AND', ''));
-  }
-  return query;
-};
-
+const RESULT_SIZE = 7;
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
     page: { seo, components, type },
@@ -48,51 +43,52 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const componentContent = findPageComponentContent(components, 'Wizard');
   const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const wizardResultSection = componentContent.wizardResultSection;
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
 
-  const processSearchData = useCallback(
-    (query: string) => {
-      getPersonalizationSearchData(query, {
-        from: 0,
-        size: 7,
-        sort: [{ creationTime: { order: 'desc' } }],
-      }).then(data => {
-        const result = data.body.hits.hits.map(hit => hit._source);
-        const index = query.lastIndexOf('AND');
-        // if we have no results and can simplify query
-        if (data.body.hits.total.value === 0 && index > -1) {
-          query = query.substring(0, index);
-          processSearchData(query);
-        } else {
-          setRecipes(result);
-          saveUserProfileByKey(
-            result.map(item => item.recipeId),
-            ProfileKey.mealPlannerResults
-          );
-        }
-      });
-    },
-    [setRecipes]
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const processSearchData = (quizData: any, i: number = 0) => {
+    setIsLoading(true);
+    const maxTry = MealPlannerPersonalizationFormula.template.length;
+    const queryString = generateQuery(
+      getUserProfileByKey(ProfileKey.initialQuiz),
+      quizData.data,
+      MealPlannerPersonalizationFormula,
+      i
+    );
+    saveUserProfileByKey(quizData.data, ProfileKey.mealPlannerAnswers);
+
+    getPersonalizationSearchData(queryString, {
+      from: FROM,
+      size: RESULT_SIZE,
+      sort: [{ creationTime: { order: 'desc' } }],
+    }).then(data => {
+      setIsLoading(false);
+      const result = data.body.hits.hits.map(hit => hit._source);
+      i++;
+      if (data.body.hits.total.value === 0 && i < maxTry) {
+        processSearchData(quizData, i);
+      } else {
+        setRecipes(result);
+        useKritiqueReload();
+        saveUserProfileByKey(
+          result.map(item => item.recipeId),
+          ProfileKey.mealPlannerResults
+        );
+      }
+    });
+  };
 
   const stepResultsCallback = useCallback(quizData => {
     if (
       Object.keys(quizData.data).length ===
       componentContent.wizardQuiz.questions.length
     ) {
-      const queryString = generateQuery(
-        getUserProfileByKey(ProfileKey.initialQuiz),
-        quizData.data,
-        MealPlannerPersonalizationFormula
-      );
-
-      saveUserProfileByKey(quizData.data, ProfileKey.mealPlannerAnswers);
-
-      processSearchData(refineQuery(queryString));
+      processSearchData(quizData);
     }
   }, []);
 
@@ -118,19 +114,13 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             stepId="quiz"
           />
           <WizardResultSection
+            content={wizardResultSection}
             containerClass="wizard--result"
             stepId="result"
-            title={wizardResultSection.title}
-            subheading={
-              recipes.length
-                ? wizardResultSection.subheading.replace(
-                    '[[counter]]',
-                    recipes.length
-                  )
-                : ''
-            }
+            isLoading={isLoading}
+            resultSize={recipes.length}
           >
-            {recipes.length ? (
+            {!isLoading && recipes.length ? (
               <div>
                 <RecipeListing
                   content={findPageComponentContent(components, 'Wizard')}
@@ -162,13 +152,22 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     className="wizard__button wizard__button--primary"
                     to={'/perfil?tabOpen=MealPlanner'}
                   >
-                    {wizardResultSection.primaryButtonLabel}
+                    {wizardResultSection.onResult.primaryButtonLabel}
                   </Link>
                 </div>
               </div>
-            ) : (
+            ) : isLoading ? (
               <div className={theme.spinner}>
                 <Spinner />
+              </div>
+            ) : (
+              <div className="wizard__buttons">
+                <a
+                  className="wizard__button wizard__button--primary"
+                  href={location.href}
+                >
+                  {wizardResultSection.noResult.primaryButtonLabel}
+                </a>
               </div>
             )}
           </WizardResultSection>
