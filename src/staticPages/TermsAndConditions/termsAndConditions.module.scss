@@ -6,4 +6,33 @@
   @include respondTo(desktop) {
     padding: 50px $layout-indent 100px;
   }
+  ol {
+    counter-reset: item;
+    font-size: 1.4rem;
+    padding: 0 0 0 15px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+
+  ol > li {
+    counter-increment: item;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  ol li ol li {
+    margin-bottom: 5px;
+  }
+
+  ol ol {
+    font-weight: normal;
+  }
+  ol ol > li {
+    display: block;
+    font-size: 1.4rem;
+  }
+
+  ol ol > li:before {
+    content: counters(item, '.') '. ';
+    margin-left: -20px;
+  }
 }
