@@ -13,12 +13,8 @@ $footer-color: $black-blue;
     font-size: 1.5rem;
     padding: 10px 0;
   }
-  @extend %link--external;
-
   &[target='_blank'] {
-    &:after {
-      display: inline-block;
-    }
+    @extend %link--external;
   }
 }
 

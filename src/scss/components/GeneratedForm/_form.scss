@@ -16,6 +16,9 @@ $validation-icon-size: 18px;
   }
   a {
     @extend %link--inline;
+    &[target='_blank'] {
+      @extend %link--external;
+    }
   }
   fieldset {
     border: 0;
