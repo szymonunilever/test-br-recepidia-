@@ -13,19 +13,24 @@
 
   &__item {
     width: calc(99.9% / 3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 17px;
     position: relative;
     padding-left: 5px;
     padding-right: 5px;
     @include respondTo(medium) {
+      width: calc(99.9% / 5);
+    }
+    @include respondTo(desktop) {
       padding-left: 16px;
       padding-right: 16px;
-      width: auto;
+      width: calc(99.9% / 7);
     }
   }
 
   &__icon {
-    text-align: center;
     width: 80px;
     height: 79px;
     svg {
@@ -61,7 +66,6 @@
     display: flex;
     color: $fish-blue-darker;
     margin-top: 13px;
-    max-width: 100px;
     @include respondTo(desktop) {
       margin-top: 15px;
       max-width: 150px;
