@@ -6,15 +6,18 @@ const SitemapCategory = ({ item }: SitemapCategoryProps) => {
   const { path, title, categoryItems } = item;
   const isNestedCategories = categoryItems && categoryItems.length !== 0;
 
+  if (!title && !isNestedCategories) return null;
+
   const categoryItem = (
     <li className="sitemap__category">
-      {path ? (
-        <Link className="sitemap__category-title" to={path}>
-          {title}
-        </Link>
-      ) : (
-        <div className="sitemap__category-title">{title}</div>
-      )}
+      {title &&
+        (path ? (
+          <Link className="sitemap__category-title" to={path}>
+            {title}
+          </Link>
+        ) : (
+          <div className="sitemap__category-title">{title}</div>
+        ))}
 
       {isNestedCategories && (
         <ul className="sitemap__category-items">
