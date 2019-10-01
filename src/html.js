@@ -62,10 +62,23 @@ export default function HTML(props) {
             {/* END NewRelic */}
 
             {/* Evidon Cookie popup */}
-            <script
-              src="//assets.adobedtm.com/launch-EN778e3b07c50b4ae08fac5c37112ab05d.min.js"
-              async
-            />
+            {/* <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={{
+                __html: `
+              (function(w){
+                w.addEventListener('load', function() {                  
+                  var head = document.getElementsByTagName('head')[0];
+                  var script = document.createElement('script');
+                  script.type = 'text/javascript';
+                  script.src = '//assets.adobedtm.com/launch-EN778e3b07c50b4ae08fac5c37112ab05d.min.js';
+                  head.appendChild(script);
+                });
+              })(window);
+              `,
+              }}
+              id="evidon"
+            /> */}
           </>
         )}
         <script

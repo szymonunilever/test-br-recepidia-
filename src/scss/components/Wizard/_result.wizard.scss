@@ -1,7 +1,7 @@
-
 .wizard--result {
   display: block;
   overflow-y: auto;
+  bottom: 20px;
   .wizard {
     &__logo {
       @media screen and (max-height: 567px),

@@ -25,6 +25,7 @@
       }
       &__privacy {
         position: absolute;
+        background: $white;
         width: 100%;
         bottom: 0;
         .footer-menu {
@@ -34,9 +35,6 @@
             list-style: none;
             padding: 0;
             margin: 5px 0;
-            @include respondTo(desktop) {
-              margin: 10px 0;
-            }
           }
           &__item {
             margin: 0 10px;
