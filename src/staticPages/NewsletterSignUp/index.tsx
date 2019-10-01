@@ -34,7 +34,7 @@ const NewsletterSignupPage: React.FunctionComponent<
   }, []);
 
   return (
-    <Layout>
+    <Layout showNewsletterForm={false}>
       <SEO
         {...seo}
         canonical={location.href}
