@@ -1132,7 +1132,7 @@
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": "Sim, tenho 18 anos ou mais / sou o responsável legal por uma criança ou adolescente e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade da Unilever</a> e com os <a target='_blank' href='https://www.unilever.com.br/legal.html'>Termos de Uso</a>",
+                  "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade da Unilever</a> e com os <a target='_blank' href='/terms-conditions'>Termos de Uso</a>",
                   "validationRules": [
                     {
                       "type": "required",
