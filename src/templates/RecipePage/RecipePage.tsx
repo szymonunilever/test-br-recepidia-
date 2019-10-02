@@ -116,11 +116,12 @@ const socialIcons: SocialIcons = {
 const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   pageContext,
   location,
-  data: { recipeTags, relatedRecipes },
+  data: { recipeTags },
 }) => {
   const {
     page: { components, seo, type },
     recipe,
+    relatedRecipes,
   } = pageContext;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tags = recipeTags.nodes;
@@ -131,7 +132,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
    * And add showInactiveAttributes flag for this component.*/
   const recipeRMSTags = flatMap(recipe.tagGroups, tagGroup => tagGroup.tags);
   const existingImagesIds = flatMap(dietaryAttributesIcons, icon => icon.id);
-  const showDietaryTags = intersection(existingImagesIds, pageContext.tags);
+  const showDietaryTags = intersection(existingImagesIds, pageContext.tagIds);
 
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
@@ -371,7 +372,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           onFavoriteChange={updateFavoriteState}
           FavoriteIcon={FavoriteIcon}
           withFavorite={true}
-          list={relatedRecipes.nodes}
+          list={relatedRecipes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
@@ -398,22 +399,11 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
 export default RecipePage;
 
 export const query = graphql`
-  query($tags: [Int]) {
-    recipeTags: allTag(filter: { tagId: { in: $tags } }) {
+  query($tagIds: [Int]) {
+    recipeTags: allTag(filter: { tagId: { in: $tagIds } }) {
       nodes {
         ...TagFields
         disclaimer
-      }
-    }
-    relatedRecipes: allRecipe(
-      limit: 6
-      sort: { order: ASC, fields: creationTime }
-      filter: {
-        tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
-      }
-    ) {
-      nodes {
-        ...RecipeFields
       }
     }
   }
@@ -424,14 +414,12 @@ interface RecipePageProps {
     recipeTags: {
       nodes: Internal.Tag[];
     };
-    relatedRecipes: {
-      nodes: Internal.Recipe[];
-    };
   };
   pageContext: {
     page: AppContent.Page;
     recipe: Internal.Recipe;
-    tags: number[];
+    tagIds: number[];
+    relatedRecipes: Internal.Recipe[];
   };
   location: WindowLocation;
 }
