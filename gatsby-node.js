@@ -147,12 +147,17 @@ exports.onCreateNode = async ({
           createNodeField,
         });
 
-        const imgNode = await createRemoteImageNode(node.image.url, node.id, {
-          store,
-          cache,
-          createNode,
-          createNodeId,
-        });
+        const imgNode = await createRemoteImageNode(
+          node.image.url,
+          node.id,
+          createNodeField,
+          {
+            store,
+            cache,
+            createNode,
+            createNodeId,
+          }
+        );
         node['localImage___NODE'] = imgNode.id;
       }
       break;
@@ -170,6 +175,7 @@ exports.onCreateNode = async ({
             const imgNode = await createRemoteImageNode(
               /*content.url*/ undefined,
               node.id,
+              createNodeField,
               {
                 store,
                 cache,
@@ -180,8 +186,9 @@ exports.onCreateNode = async ({
             asset.content['localImage___NODE'] = imgNode.id;
           } else if (type === 'Video') {
             const imgNode = await createRemoteImageNode(
-             undefined,
+              undefined,
               node.id,
+              createNodeField,
               {
                 store,
                 cache,
@@ -204,12 +211,17 @@ exports.onCreateNode = async ({
             let fileNode;
             const asset = component.assets[index];
             try {
-              fileNode = await createRemoteImageNode(asset.url, node.id, {
-                store,
-                cache,
-                createNode,
-                createNodeId,
-              });
+              fileNode = await createRemoteImageNode(
+                asset.url,
+                node.id,
+                createNodeField,
+                {
+                  store,
+                  cache,
+                  createNode,
+                  createNodeId,
+                }
+              );
               asset[`localImage___NODE`] = fileNode.id;
             } catch (error) {
               console.error(error);

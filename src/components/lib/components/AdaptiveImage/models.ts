@@ -3,7 +3,6 @@ export interface AdaptiveImageProps {
   localImage: Internal.LocalImage;
   alt: string;
   link?: string;
-  url?: string;
   sizes?: string;
   view?: string;
 }
