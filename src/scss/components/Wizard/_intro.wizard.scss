@@ -54,6 +54,7 @@
     &__buttons {
       @include respondTo(desktop) {
         padding-bottom: 37px;
+        flex-direction: column;
       }
     }
     &__button {
