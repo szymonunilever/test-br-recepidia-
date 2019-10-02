@@ -2318,9 +2318,16 @@
                 "bottomContent": "Não se preocupe, você pode mudar suas preferências quando quiser, basta entrar no seu perfil!"
               },
               "wizardResultSection": {
-                "title": "Cardápio semanal",
-                "subheading": "Aqui está o cardápio que preparei para sua semana",
-                "primaryButtonLabel": "Conferir seu cardápio"
+                "onResult": {
+                  "title": "Cardápio semanal",
+                  "subheading": "Aqui está o cardápio que preparei para sua semana",
+                  "primaryButtonLabel": "Conferir seu cardápio"
+                },
+                "noResult": {
+                  "title": "=/ Busquei por toda cozinha mas não encontrei o que você procurava!",
+                  "subheading": "Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.\nGostaria de tentar novamente?",
+                  "primaryButtonLabel": "Tentar novamente"
+                }
               }
             }
           },

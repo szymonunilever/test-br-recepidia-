@@ -1,6 +1,14 @@
 declare namespace AppContent.WizardResultsSection {
   interface Content {
-    title: string;
-    subheading: string;
+    onResult: {
+      title: string;
+      subheading?: string;
+      primaryButtonLabel?: string;
+    };
+    noResult: {
+      title: string;
+      subheading?: string;
+      primaryButtonLabel?: string;
+    };
   }
 }
