@@ -371,7 +371,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Recepedia - O seu assistente de cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -1132,7 +1132,7 @@
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade da Unilever</a> e com os <a target='_blank' href='/terms-conditions'>Termos de Uso</a>",
+                  "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html'>Política de Privacidade da Unilever</a> e com os <a href='/terms-conditions'>Termos de Uso</a>",
                   "validationRules": [
                     {
                       "type": "required",
@@ -1946,7 +1946,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - E sua receita, qual é?",
+        "title": "Recepedia - O seu assistente de cozinha",
         "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
