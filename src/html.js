@@ -15,7 +15,10 @@ export default function HTML(props) {
         {process.env.NODE_ENV !== 'development' && (
           <>
             {/* START preconnects */}
-            <link rel="preconnect" href={process.env['elasticSearch_url']} />
+            <link
+              rel="preconnect"
+              href={process.env['app_local_elasticSearch_searchUrl']}
+            />
             <link
               rel="preconnect"
               href="https://d37k6lxrz24y4c.cloudfront.net"
@@ -24,6 +27,7 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://bam.nr-data.net" />
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
             {/* END preconnects */}
+
             {/* START kritique preloads */}
             <link
               rel="preload"
@@ -39,9 +43,10 @@ export default function HTML(props) {
               as="style"
             />
             {/* END kritique preloads */}
+
             {/* START NewRelic */}
 
-            {/* Having script inline improves FCP/FMP. Loading newRelic script is not allowed*/}
+            {/* Having script inline improves FCP/FMP. Loading newRelic script async is not allowed*/}
             <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
             {/* <script
               type="text/javascript"
@@ -67,7 +72,7 @@ export default function HTML(props) {
               dangerouslySetInnerHTML={{
                 __html: `
               (function(w){
-                w.addEventListener('load', function() {                  
+                w.addEventListener('load', function() {
                   var head = document.getElementsByTagName('head')[0];
                   var script = document.createElement('script');
                   script.type = 'text/javascript';
