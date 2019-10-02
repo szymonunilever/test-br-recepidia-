@@ -29,9 +29,12 @@ const AdaptiveImage = ({
   localImage,
   sizes,
   view,
-  url,
 }: AdaptiveImageProps) => {
-  const isSvg = localImage && localImage.ext === '.svg';
+  const isSvg =
+    localImage &&
+    localImage.ext === '.svg' &&
+    localImage.fields &&
+    localImage.fields.publicURL;
 
   const classNames = cx('adaptive-image', className, {
     'adaptive-image-svg': isSvg,
@@ -42,7 +45,7 @@ const AdaptiveImage = ({
       <ImageContainer classNames={classNames} view={view}>
         <img
           className="adaptive-image__image"
-          src={localImage.publicURL}
+          src={localImage.fields && localImage.fields.publicURL}
           alt={alt}
         />
       </ImageContainer>
