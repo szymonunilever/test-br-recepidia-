@@ -39,12 +39,20 @@ const NewsletterSignupPage: React.FunctionComponent<
         {...seo}
         canonical={location.href}
         onChangeClientState={newState => {
-          const scriptLoaded = !!newState.scriptTags.find(
+          const gigyaConfigScriptObject = newState.scriptTags.find(
             ({ id }: { id: string }) => id === GIGYA_CONFIG_SCRIPT_ID
           );
 
-          if (scriptLoaded && !configScriptLoaded) {
-            setConfigScriptLoaded(true);
+          if (gigyaConfigScriptObject && !configScriptLoaded && isBrowser()) {
+            const gigyaConfigScript = Array.from(window.document.scripts).find(
+              ({ id }) => id === GIGYA_CONFIG_SCRIPT_ID
+            );
+
+            if (gigyaConfigScript) {
+              gigyaConfigScript.onload = () => {
+                setConfigScriptLoaded(true);
+              };
+            }
           }
         }}
       >
