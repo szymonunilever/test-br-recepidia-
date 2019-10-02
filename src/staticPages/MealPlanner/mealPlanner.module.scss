@@ -44,6 +44,19 @@
                 color: $black-blue;
               }
             }
+            &[target='_blank'] {
+              &:after {
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEzIiBmaWxsPSIjMzYzODQwIj48cGF0aCBkPSJNMTkgMTlINVY1aDdWM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGMxLjEgMCAyLS45IDItMnYtN2gtMnY3ek0xNCAzdjJoMy41OWwtOS44MyA5LjgzIDEuNDEgMS40MUwxOSA2LjQxVjEwaDJWM2gtN3oiLz48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48L3N2Zz4=); //$black-blue
+                background-repeat: no-repeat;
+                background-size: cover;
+                content: '';
+                height: 10px;
+                width: 10px;
+                margin: 0 0.1875rem 0 0.25rem;
+                vertical-align: middle;
+                display: inline-block;
+              }
+            }
           }
         }
       }
