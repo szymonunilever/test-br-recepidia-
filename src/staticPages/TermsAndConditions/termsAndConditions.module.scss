@@ -30,9 +30,25 @@
     display: block;
     font-size: 1.4rem;
   }
-
-  ol ol > li:before {
+  ol li > ol li ol {
+    list-style-type: upper-alpha;
+    margin-left: -20px;
+  }
+  ol li ol li:before {
     content: counters(item, '.') '. ';
     margin-left: -20px;
+  }
+  ol li ol li ol li {
+    display: list-item;
+    list-style-position: outside;
+    list-style-type: upper-alpha;
+    margin: 5px 0 5px 20px;
+
+    &:before {
+      display: none;
+    }
+  }
+  ol li ol li ol li ol li {
+    list-style-type: upper-roman;
   }
 }
