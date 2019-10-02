@@ -203,7 +203,7 @@ export const query = graphql`
   query($tags: [Int], $slug: String) {
     allRecipe(
       limit: 8
-      sort: { order: ASC, fields: creationTime }
+      sort: { order: DESC, fields: creationTime }
       filter: {
         tagGroups: { elemMatch: { tags: { elemMatch: { id: { in: $tags } } } } }
       }

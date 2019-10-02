@@ -1,6 +1,11 @@
-export interface ResultSectionProps {
-  title: string;
-  // @ts-ignore
-  subheading?: string;
-  [key: string]: string | number | boolean | object | null;
+import { ReactChild, ReactChildren } from 'react';
+import { UnileverLibraryComponent } from '../../../globalModels';
+
+export interface ResultSectionProps
+  extends UnileverLibraryComponent<AppContent.WizardResultsSection.Content> {
+  containerClass?: string;
+  stepId?: string;
+  resultSize: number;
+  children?: ReactChild | ReactChildren | null;
+  isLoading?: boolean;
 }

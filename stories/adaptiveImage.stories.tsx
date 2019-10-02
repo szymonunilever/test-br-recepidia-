@@ -14,6 +14,5 @@ storiesOf('Components', module).add('AdaptiveImage', () => (
     className="custom-class"
     localImage={localImage}
     alt={image.alt}
-    url={image.url}
   />
 ));

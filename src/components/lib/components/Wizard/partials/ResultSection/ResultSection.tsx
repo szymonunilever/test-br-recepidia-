@@ -3,18 +3,22 @@ import { ResultSectionProps } from './models';
 import { TagName, Text } from '../../../Text';
 
 const ResultSection: FunctionComponent<ResultSectionProps> = ({
-  title,
-  subheading,
+  content: { onResult, noResult },
+  resultSize,
   children,
+  isLoading = false,
 }) => {
+  const { title, subheading } = resultSize > 0 ? onResult : noResult;
   return (
     <Fragment>
-      <div className="wizard__title">
-        <Text className="" tag={TagName.h2} text={title} />
-        {subheading && (
-          <Text className="subheading" tag={TagName.p} text={subheading} />
-        )}
-      </div>
+      {!isLoading && (
+        <div className="wizard__title">
+          <Text className="" tag={TagName.h2} text={title} />
+          {subheading && (
+            <Text className="subheading" tag={TagName.p} text={subheading} />
+          )}
+        </div>
+      )}
       {children}
     </Fragment>
   );

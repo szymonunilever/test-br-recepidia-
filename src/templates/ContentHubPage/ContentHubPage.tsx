@@ -174,7 +174,7 @@ export const query = graphql`
 
     allRecipe(
       limit: 8
-      sort: { order: ASC, fields: creationTime }
+      sort: { order: DESC, fields: creationTime }
       filter: {
         tagGroups: {
           elemMatch: { tags: { elemMatch: { name: { eq: $name } } } }
