@@ -33,9 +33,6 @@ module.exports = async ({ graphql, createPage }) => {
                 localImage {
                   id
                   ext
-                  fields {
-                    publicURL
-                  }
                   childImageSharp {
                     fluid(maxWidth: 1088, quality: 25) {
                       base64

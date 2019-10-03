@@ -26,7 +26,7 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       },
       trackingInfo: {
         GID: process.env['digitalData_trackingInfo_GID'],
-        tool: process.env['digitalData_trackingInfo_tool'],
+        tool: JSON.parse(process.env['digitalData_trackingInfo_tool'] || ''),
       },
     },
     UDM: {
@@ -36,7 +36,7 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       channel: process.env['UDM_channel'],
       country: process.env['UDM_country'],
       sitetype: process.env['UDM_sitetype'],
-      evq: process.env['UDM_evq'],
+      evq: JSON.parse(process.env['UDM_evq'] || ''),
       gid: process.env['UDM_gid'],
       gaa: process.env['UDM_gaa'],
     },
@@ -45,14 +45,14 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
   return process.env.NODE_ENV !== 'development' ? (
     <Helmet>
       <script type="text/javascript">{`
-      var channelVal = 'Brand Site'; 
+      var channelVal = 'Brand Site';
       var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
         config.digitalData
-      )}) : ${JSON.stringify(config.digitalData)};      
+      )}) : ${JSON.stringify(config.digitalData)};
       var UDM = UDM ? Object.assign(UDM, ${JSON.stringify(
         config.UDM
-      )}): ${JSON.stringify(config.UDM)};  
-      digitalData.siteInfo['channel'] = channelVal;  
+      )}): ${JSON.stringify(config.UDM)};
+      digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
          pageType: '${type}',
          primaryCategory: channelVal,

@@ -80,27 +80,29 @@ module.exports = {
     //     production: true,
     //   },
     // },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: appConfig.getByKey('analytics_google_trackingId'),
-        head: appConfig.getByKey('analytics_google_head'),
-        anonymize: appConfig.getByKey('analytics_google_anonymize'),
-        respectDNT: appConfig.getByKey('analytics_google_respectDNT'),
-        exclude: appConfig.getByKey('analytics_google_exclude'),
-        pageTransitionDelay: appConfig.getByKey(
-          'analytics_google_pageTransitionDelay'
-        ),
-        optimizeId: appConfig.getByKey('analytics_google_optimizeId'),
-        experimentId: appConfig.getByKey('analytics_google_experimentId'),
-        variationId: appConfig.getByKey('analytics_google_variationId'),
-        sampleRate: appConfig.getByKey('analytics_google_sampleRate'),
-        siteSpeedSampleRate: appConfig.getByKey(
-          'analytics_google_siteSpeedSampleRate'
-        ),
-        cookieDomain: appConfig.getByKey('analytics_google_cookieDomain'),
-      },
-    },
+
+    // GA should be applied within Analytics container
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: appConfig.getByKey('analytics_google_trackingId'),
+    //     head: appConfig.getByKey('analytics_google_head'),
+    //     anonymize: appConfig.getByKey('analytics_google_anonymize'),
+    //     respectDNT: appConfig.getByKey('analytics_google_respectDNT'),
+    //     exclude: appConfig.getByKey('analytics_google_exclude'),
+    //     pageTransitionDelay: appConfig.getByKey(
+    //       'analytics_google_pageTransitionDelay'
+    //     ),
+    //     optimizeId: appConfig.getByKey('analytics_google_optimizeId'),
+    //     experimentId: appConfig.getByKey('analytics_google_experimentId'),
+    //     variationId: appConfig.getByKey('analytics_google_variationId'),
+    //     sampleRate: appConfig.getByKey('analytics_google_sampleRate'),
+    //     siteSpeedSampleRate: appConfig.getByKey(
+    //       'analytics_google_siteSpeedSampleRate'
+    //     ),
+    //     cookieDomain: appConfig.getByKey('analytics_google_cookieDomain'),
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

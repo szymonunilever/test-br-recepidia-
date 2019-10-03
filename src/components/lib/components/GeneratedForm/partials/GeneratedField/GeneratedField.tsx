@@ -88,7 +88,11 @@ const GeneratedField = ({
     case 'fieldset':
       view = (
         <fieldset className={className}>
-          <legend className={className + '-legend'}>{content.label}</legend>
+          <legend className={className + '-legend'}>
+            <span
+              dangerouslySetInnerHTML={{ __html: content.label as string }}
+            />
+          </legend>
           {innerContent}
         </fieldset>
       );
