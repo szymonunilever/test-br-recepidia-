@@ -131,7 +131,8 @@
         position: relative;
         @include respondTo(desktop) {
           position: fixed;
-          transform: translateY(-45px);
+          transform: translateY(-55px);
+          max-width: 170px;
         }
         &::first-letter {
           text-transform: uppercase;
