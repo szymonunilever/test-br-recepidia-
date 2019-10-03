@@ -138,22 +138,22 @@
   .modal {
     &__overlay {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: column;
       @include respondTo(medium) {
-        align-items: center;
+        justify-content: center;
       }
     }
     &__content {
-      // width: calc(100% - 48px);
-      height: calc(100% - 12px);
+      height: auto;
+      max-height: calc(100% - 12px);
       position: relative;
       border-radius: 5px;
       padding: 0;
       @include respondTo(medium) {
         width: calc(100% - 48px);
         max-height: calc(100% - 48px);
-        height: auto;
         display: flex;
       }
       @include respondTo(desktop) {

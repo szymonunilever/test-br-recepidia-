@@ -12,7 +12,9 @@
     &__content {
       overflow-y: auto;
       overflow-x: hidden;
-      display: block;
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        display: block;
+      }
       form {
         margin: 0;
         overflow-y: visible;

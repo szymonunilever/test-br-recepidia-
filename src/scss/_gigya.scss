@@ -36,6 +36,7 @@
         }
         .gigya-layout-cell {
           width: 100%;
+          float: none;
           @include respondTo(desktop) {
             width: 42%;
             margin: 0;
