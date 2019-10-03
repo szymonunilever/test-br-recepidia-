@@ -1,4 +1,9 @@
 const path = require('path');
+const reject = require('lodash/reject');
+const omit = require('lodash/omit');
+const orderBy = require('lodash/orderBy');
+const take = require('lodash/take');
+const intersection = require('lodash/intersection');
 
 const RecipeFields = `
     description
@@ -103,22 +108,40 @@ module.exports = async ({ graphql, createPage, page }) => {
       }
     }
   `);
+  const allRecipe = result.data.allRecipe.nodes;
+  const allRecipeWithTagIds = allRecipe.map(recipe => ({
+    ...recipe,
+    tagIds: recipe.tagGroups.reduce(
+      (tagIdsList, tagGroup) =>
+        tagGroup.tags
+          ? [...tagIdsList, ...tagGroup.tags.map(({ id }) => id)]
+          : tagIdsList,
+      []
+    ),
+  }));
 
-  result.data.allRecipe.nodes.forEach(node => {
+  allRecipeWithTagIds.forEach(node => {
+    const RELATED_RECIPES_COUNT = 6;
     createPage({
       path: node.fields.slug,
       component,
       context: {
         title: node.title,
         page,
-        recipe: node,
-        tags: node.tagGroups.reduce(
-          (tagIdsList, tagGroup) =>
-            tagGroup.tags
-              ? [...tagIdsList, ...tagGroup.tags.map(({ id }) => id)]
-              : tagIdsList,
-          []
+        recipe: omit(node, ['tagIds']),
+        relatedRecipes: reject(
+          take(
+            orderBy(
+              allRecipeWithTagIds,
+              [recipe => intersection(node.tagIds, recipe.tagIds).length],
+              ['desc']
+            ),
+            RELATED_RECIPES_COUNT + 1 // one if for rejecting the same recipe from result
+          ),
+          (recipe, i) =>
+            recipe.recipeId === node.recipeId || i > RELATED_RECIPES_COUNT
         ),
+        tagIds: node.tagIds,
       },
     });
   });
