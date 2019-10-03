@@ -74,6 +74,12 @@
             font-size: 2.5rem;
           }
         }
+        &:last-child {
+          .generated-form__item-legend {
+            font: 400 1.6rem $arial;
+            margin-bottom: 28px;
+          }
+        }
         .field__group {
           display: flex;
           align-items: flex-start;
