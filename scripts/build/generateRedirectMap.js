@@ -102,7 +102,8 @@ module.exports = async ({
     .map(item => `${item.from} ${item.to} ${redirectCode}`)
     .join('\n');
 
-  console.log(redirectsMap);
+  // use to see log in Netlify
+  // console.log(redirectsMap);
 
   fs.writeFileSync('public/_redirects', redirectsMap);
 };

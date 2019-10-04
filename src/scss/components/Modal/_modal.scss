@@ -145,7 +145,6 @@
       }
     }
     &__content {
-      // width: calc(100% - 48px);
       height: calc(100% - 12px);
       position: relative;
       border-radius: 5px;
@@ -153,8 +152,8 @@
       @include respondTo(medium) {
         width: calc(100% - 48px);
         max-height: calc(100% - 48px);
-        height: auto;
         display: flex;
+        height: auto;
       }
       @include respondTo(desktop) {
         width: 1188px;
