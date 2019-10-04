@@ -25,7 +25,6 @@ const Wizard: FunctionComponent<WizardProps> = ({
       // @ts-ignore
       wizardDataStore[currentComponent.props.stepId] = data;
       setWizardDataStore(wizardDataStore);
-
       if (currentStep === enhancedChildren.length - 1) {
         actionCallback({ data: wizardDataStore });
       } else {

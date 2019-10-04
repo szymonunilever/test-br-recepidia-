@@ -167,7 +167,7 @@
                       "label": {
                         "text": "Sem restrições",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2/8.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2/8-rubik.png",
                           "alt": "Não dieta"
                         }
                       }
@@ -361,6 +361,90 @@
                   ]
                 }
               ],
+              "dataCapturing": {
+                "name": "GeneratedForm",
+                "content": {
+                  "title": "Sucesso!",
+                  "subtitle": "Agora que entendi suas preferências, inscreva-se para que eu possa mostrar receitas personalizadas pra você!",
+                  "fields": [
+                    {
+                      "type": "text",
+                      "name": "firstName",
+                      "label": "Nome*",
+                      "placeholder": "Nome*",
+                      "validationRules": [
+                        {
+                          "type": "required",
+                          "errorMessage": "Por favor insira seu nome"
+                        },
+                        {
+                          "type": "pattern",
+                          "value": "^.{2,50}$",
+                          "errorMessage": "Seu primeiro nome deve ter entre 2 e 50 caracteres"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "name": "lastName",
+                      "label": "Sobrenome*",
+                      "placeholder": "Sobrenome*",
+                      "validationRules": [
+                        {
+                          "type": "required",
+                          "errorMessage": "Por favor insira seu sobrenome"
+                        },
+                        {
+                          "type": "pattern",
+                          "value": "^.{2,50}$",
+                          "errorMessage": "Seu sobrenome deve ter entre 2 e 50 caracteres"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "email",
+                      "name": "email",
+                      "label": "Email*",
+                      "placeholder": "Email*",
+                      "validationRules": [
+                        {
+                          "type": "required",
+                          "errorMessage": "Por favor informe seu e-mail"
+                        },
+                        {
+                          "type": "pattern",
+                          "value": "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+                          "errorMessage": "Por favor informe um e-mail válido"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "checkbox",
+                      "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
+                    },
+                    {
+                      "type": "checkbox",
+                      "name": "subscriptions.optInOptOut.unilever.email.isSubscribed",
+                      "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\"> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
+                    },
+                    {
+                      "type": "checkbox",
+                      "name": "preferences.ageConsentGranted.isConsentGranted",
+                      "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a href=\"https://www.unileverprivacypolicy.com/pt_PT/policy.aspx\" target=\"_blank\"> Política de Privacidade da Unilever </a> e com os <a href=\"https://br.recepedia.com/termos-e-condicoes\" target=\"_blank\">Termos de Uso</a>.*",
+                      "validationRules": [
+                        {
+                          "type": "required",
+                          "errorMessage": "Deve ter idade de 18 anos para se inscrever"
+                        }
+                      ]
+                    }
+                  ],
+                  "submitButton": {
+                    "label": "Enviar"
+                  }
+                }
+              },
               "ctas": [
                 { "type": "back", "label": "Voltar" },
                 { "type": "next", "label": "Próximo" },
