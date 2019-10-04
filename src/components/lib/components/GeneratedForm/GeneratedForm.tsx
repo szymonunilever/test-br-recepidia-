@@ -15,7 +15,6 @@ const GeneratedForm = (props: GeneratedFormProps) => {
       //@ts-ignore
       delete window.grecaptcha;
     }
-
     setHasCaptcha(
       !!props.content.fields.find(
         (field: AppContent.GeneratedForm.Field) => field.type === 'captcha'

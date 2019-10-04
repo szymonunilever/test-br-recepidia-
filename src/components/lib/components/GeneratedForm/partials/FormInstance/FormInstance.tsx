@@ -164,7 +164,7 @@ const GeneratedFormInstance = ({
                   disabled={submitting}
                   className="generated-form__button--primary"
                 >
-                  {submitButton.label}
+                  {submitButton && submitButton.label}
                 </button>
 
                 {resetButton ? (
