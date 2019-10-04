@@ -371,7 +371,7 @@
                       "type": "text",
                       "name": "firstName",
                       "label": "Nome*",
-                      "placeholder": "Nome*",
+                      "placeholder": "Nome",
                       "validationRules": [
                         {
                           "type": "required",
@@ -388,7 +388,7 @@
                       "type": "text",
                       "name": "lastName",
                       "label": "Sobrenome*",
-                      "placeholder": "Sobrenome*",
+                      "placeholder": "Sobrenome",
                       "validationRules": [
                         {
                           "type": "required",
@@ -405,7 +405,7 @@
                       "type": "email",
                       "name": "email",
                       "label": "Email*",
-                      "placeholder": "Email*",
+                      "placeholder": "Email",
                       "validationRules": [
                         {
                           "type": "required",
@@ -419,19 +419,32 @@
                       ]
                     },
                     {
+                      "name": "consentsFieldset",
+                      "type": "fieldset",
+                      "label": "Levamos a sua privacidade a sério! Para saber mais sobre como a Unilever usa e protege seus dados pessoais, acesse a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer' title='Política de Privacidade da Unilever. O link abre em uma nova janela'>Política de Privacidade da Unilever</a>."
+                    },
+                    {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*",
+                      "validationRules": [
+                        {
+                          "type": "required"
+                        }
+                      ]
                     },
                     {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.unilever.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\"> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
+                      "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\" rel='noopener noreferrer' title='marcas da Unilever. O link abre em uma nova janela'> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
                     },
                     {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "preferences.ageConsentGranted.isConsentGranted",
-                      "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a href=\"https://www.unileverprivacypolicy.com/pt_PT/policy.aspx\" target=\"_blank\"> Política de Privacidade da Unilever </a> e com os <a href=\"https://br.recepedia.com/termos-e-condicoes\" target=\"_blank\">Termos de Uso</a>.*",
+                      "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' target='_blank' rel='noopener noreferrer' tile='Política de Privacidade da Unilever. O link abre em uma nova janela'> Política de Privacidade da Unilever </a> e com os <a href='/termos-e-condicoes'>Termos de Uso</a>.*",
                       "validationRules": [
                         {
                           "type": "required",
@@ -1141,7 +1154,7 @@
                   "name": "familyName",
                   "type": "text",
                   "label": "Sobrenome*",
-                  "placeholder": "Sombrenome",
+                  "placeholder": "Sobrenome",
                   "fieldset": "contact",
                   "validationRules": [
                     {
@@ -1195,7 +1208,7 @@
                 {
                   "name": "consentsFieldset",
                   "type": "fieldset",
-                  "label": "Levamos a sua privacidade a sério! Para saber mais sobre como a Unilever usa e protege seus dados pessoais, acesse a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer'>Política de Privacidade da Unilever</a>. "
+                  "label": "Levamos a sua privacidade a sério! Para saber mais sobre como a Unilever usa e protege seus dados pessoais, acesse a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer' title='Política de Privacidade da Unilever. O link abre em uma nova janela'>Política de Privacidade da Unilever</a>. "
                 },
                 {
                   "name": "consent1",
@@ -1209,14 +1222,14 @@
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a target='_blank' href='https://www.unilever.com.br/brands/' rel='noopener noreferrer'>marcas da Unilever</a> e sobre as suas ações para fazer o bem."
+                  "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a target='_blank' href='https://www.unilever.com.br/brands/' rel='noopener noreferrer' title='marcas da Unilever. O link abre em uma nova janela'>marcas da Unilever</a> e sobre as suas ações para fazer o bem."
                 },
                 {
                   "name": "consent3",
                   "type": "checkbox",
                   "defaultValue": "",
                   "fieldset": "consentsFieldset",
-                  "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer'>Política de Privacidade da Unilever</a> e com os <a href='/terms-conditions'>Termos de Uso</a>.",
+                  "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer' title='Política de Privacidade da Unilever. O link abre em uma nova janela'>Política de Privacidade da Unilever</a> e com os <a href='/termos-e-condicoes'>Termos de Uso</a>.",
                   "validationRules": [
                     {
                       "type": "required",
@@ -2595,7 +2608,7 @@
     },
     {
       "type": "TermsAndConditions",
-      "relativePath": "/terms-conditions",
+      "relativePath": "/termos-e-condicoes",
       "components": {
         "items": [
           {

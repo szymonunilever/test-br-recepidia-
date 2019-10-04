@@ -178,6 +178,13 @@
         }
       }
     }
+    &__item-legend {
+      display: block;
+      width: 100%;
+      font: 400 1.6rem $arial;
+      margin-bottom: 28px;
+      letter-spacing: 0.1px;
+    }
     .buttons {
       @extend .wizard__buttons;
       button[type='submit'] {
