@@ -41,11 +41,16 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       gaa: process.env['UDM_gaa'],
     },
   };
+  // use JSON.stringify for string variables to avoid bugs
+  // 'let' and 'const' do not work for SPAs, only 'var'
 
   return process.env.NODE_ENV !== 'development' ? (
     <Helmet>
       <script type="text/javascript">{`
       var channelVal = 'Brand Site';
+      var title = ${JSON.stringify(title)};
+      var type = ${JSON.stringify(type)};
+
       var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
         config.digitalData
       )}) : ${JSON.stringify(config.digitalData)};
@@ -54,17 +59,17 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       )}): ${JSON.stringify(config.UDM)};
       digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
-         pageType: '${type}',
+         pageType: type,
          primaryCategory: channelVal,
       };
       digitalData.privacy = { accessCategories: [{ domains: [] }] };
       digitalData.page.pageInfo = {
-        pageName: '${title}',
+        pageName: title,
         destinationURL: window.location.href,
       };
-      digitalData.page.attributes.contentType = '${type}';
-      if ('${type}' === 'ArticleDetail') {
-        digitalData.page.attributes.articleName = '${title}';
+      digitalData.page.attributes.contentType = type;
+      if (type === 'ArticleDetail') {
+        digitalData.page.attributes.articleName = title;
       }
       `}</script>
     </Helmet>
