@@ -21,19 +21,16 @@ export const Tabs = ({
   data,
 }: TabsProps) => {
   const classWrapper = cx(theme.tabs, className);
-  const [active, setActive] = useState();
-  useEffect(
-    () =>
-      setActive(
-        tabFromLocation
-          ? location &&
-              (location.search
-                ? new URLSearchParams(location.search).get('tabOpen')
-                : tabs[0].view)
-          : tabs[0].view
-      ),
-    [location]
-  );
+  const [active, setActive] = useState<string>(tabs[0].view);
+  useEffect(() => {
+    const activeTab = tabFromLocation
+      ? location &&
+        (location.search
+          ? new URLSearchParams(location.search).get('tabOpen')
+          : tabs[0].view)
+      : tabs[0].view;
+    setActive(activeTab as string);
+  }, [location]);
   let tabItems: JSX.Element[], tabsContents: JSX.Element[];
   tabsContents = children.reduce(
     (accum, child) => {
