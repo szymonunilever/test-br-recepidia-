@@ -20,7 +20,7 @@
   .modal--quiz,
   .modal--filter {
     .modal__content {
-      animation: modalanimatemobile 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
+      animation: modalanimatemobile 0.25s cubic-bezier(0.17, 0.67, 0.36, 1.11);
     }
   }
 }
@@ -50,13 +50,18 @@
     bottom: 0px;
     background-color: $blue-overlay-40;
     z-index: 100;
+    //IE scroll lagging fix
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
+
   &__content {
     position: absolute;
     overflow: auto;
     outline: none;
     padding: 20px;
   }
+
   &__btn-close {
     @extend .button;
     @extend .button--flat;
