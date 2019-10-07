@@ -35,12 +35,16 @@ import useFavorite from 'src/utils/useFavorite';
 import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
+import DataCapturingForm from '../../components/DataCapturingForm';
 const RESULT_SIZE = 7;
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+  const formUrl = process.env['mealPlanerDataCapturing_url'] as string;
+  const formHost = process.env['mealPlanerDataCapturing_host'] as string;
   const componentContent = findPageComponentContent(components, 'Wizard');
+  const { dataCapturing } = componentContent;
   const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -112,6 +116,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             {...{ stepResultsCallback }}
             containerClass="wizard--quiz"
             stepId="quiz"
+          />
+          <DataCapturingForm
+            {...dataCapturing}
+            url={formUrl}
+            host={formHost}
+            pathToData={ProfileKey.mealPlannerAnswers}
           />
           <WizardResultSection
             content={wizardResultSection}
