@@ -427,7 +427,7 @@
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*"
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
                     },
                     {
                       "type": "checkbox",
@@ -449,7 +449,7 @@
                     }
                   ],
                   "submitButton": {
-                    "label": "Enviar"
+                    "label": "Conferir seu cardápio"
                   }
                 }
               },
@@ -2475,7 +2475,7 @@
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*"
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
                     },
                     {
                       "type": "checkbox",
@@ -2510,7 +2510,7 @@
                       {
                         "type": "next",
                         "content": {
-                          "label": "Data Capturing"
+                          "label": "Salvar seu cardápio"
                         }
                       }
                     ]
