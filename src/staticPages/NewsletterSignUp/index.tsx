@@ -6,9 +6,9 @@ import { WindowLocation } from '@reach/router';
 import '../../scss/pages/_newsletterSignUp.scss';
 import { isBrowser } from 'src/utils';
 
-const GIGYA_CONFIG_SCRIPT_ID = 'gigya-config-script';
-const SCREENSET_CONTAINER_ID = 'gigya-newsletter-screenset';
-const SCREENSET_NAME = 'ULVR_newsletter_v1';
+const GIGYA_SCRIPT_SRC = `${process.env['gigya_script_src']}?apiKey=${
+  process.env['gigya_script_api_key']
+}&lang=${process.env['gigya_script_lang']}`;
 
 const NewsletterSignupPage: React.FunctionComponent<
   NewsletterSignupPageProps
@@ -28,8 +28,8 @@ const NewsletterSignupPage: React.FunctionComponent<
     isGigyaLoaded() &&
       // @ts-ignore
       window.gigya.accounts.showScreenSet({
-        screenSet: SCREENSET_NAME,
-        containerID: SCREENSET_CONTAINER_ID,
+        screenSet: process.env['newsletter_signUp_screenset_name'],
+        containerID: 'gigya-newsletter-screenset',
       });
   }, []);
 
@@ -40,12 +40,12 @@ const NewsletterSignupPage: React.FunctionComponent<
         canonical={location.href}
         onChangeClientState={newState => {
           const gigyaConfigScriptObject = newState.scriptTags.find(
-            ({ id }: { id: string }) => id === GIGYA_CONFIG_SCRIPT_ID
+            ({ id }: { id: string }) => id === 'gigya-config-script'
           );
 
           if (gigyaConfigScriptObject && !configScriptLoaded && isBrowser()) {
             const gigyaConfigScript = Array.from(window.document.scripts).find(
-              ({ id }) => id === GIGYA_CONFIG_SCRIPT_ID
+              ({ id }) => id === 'gigya-config-script'
             );
 
             if (gigyaConfigScript) {
@@ -59,14 +59,14 @@ const NewsletterSignupPage: React.FunctionComponent<
         {!isGigyaLoaded() && [
           <script
             type="text/javascript"
-            src="https://cdns.gigya.com/JS/gigya.js?apiKey=3_7pA4Ft7DjM3NIJlI1lTxmVtq3FH3LAOiheGTmpDe6gUcGq-mYuR0PF6yBDFg8ACt&lang=pt-pt"
-            id={GIGYA_CONFIG_SCRIPT_ID}
-            key={GIGYA_CONFIG_SCRIPT_ID}
+            src={GIGYA_SCRIPT_SRC}
+            id="gigya-config-script"
+            key="gigya-config-script"
           />,
           configScriptLoaded && (
             <script
               type="text/javascript"
-              src="//cdn.gigya-ext.com/gy.js"
+              src={process.env['gigya_script_src2']}
               key="gigya_source"
             />
           ),
@@ -77,8 +77,8 @@ const NewsletterSignupPage: React.FunctionComponent<
         <div className="container">
           <div
             className="gy-ui-screen-set"
-            data-screen-set={SCREENSET_NAME}
-            id={SCREENSET_CONTAINER_ID}
+            data-screen-set={process.env['newsletter_signUp_screenset_name']}
+            id="gigya-newsletter-screenset"
           />
         </div>
       </section>
