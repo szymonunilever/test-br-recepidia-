@@ -3,12 +3,16 @@ declare namespace AppContent.WizardResultsSection {
     onResult: {
       title: string;
       subheading?: string;
-      primaryButtonLabel?: string;
+      ctas: WizardCTA[];
     };
     noResult: {
       title: string;
       subheading?: string;
-      primaryButtonLabel?: string;
+      ctas: WizardCTA[];
     };
+  }
+  interface WizardCTA {
+    type: string;
+    content: CTAContent;
   }
 }

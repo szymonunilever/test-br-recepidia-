@@ -1,3 +1,4 @@
+import { WizardStepComponent } from '../../../globalModels';
 import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
 import { QuizButton } from 'src/components/page/IntroQuiz/models';
 
@@ -31,13 +32,9 @@ export interface QuestionOption {
   };
 }
 
-export interface QuizProps {
+export interface QuizProps extends WizardStepComponent {
   intro?: JSX.Element;
-  stepId: string;
-  containerClass: string;
   questions: Question[];
   ctas: QuizButton[];
   bottomContent?: JSX.Element;
-  actionCallback: (answers: object) => void;
-  stepResultsCallback?: (answers: object) => void;
 }
