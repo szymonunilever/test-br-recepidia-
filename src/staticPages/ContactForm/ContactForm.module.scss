@@ -91,12 +91,6 @@
         .checkable .checkable__checkelem {
           margin-right: 18px;
         }
-        .checkable.valid .checkable__checkelem {
-          border-color: $black-blue;
-        }
-        .checkable.valid .checkable__checkelem .checkable__checkmark {
-          background: $black-blue;
-        }
       }
       &__button--primary {
         display: block;
