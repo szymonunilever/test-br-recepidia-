@@ -14,8 +14,14 @@ export const query = graphql`
     }
     localImage {
       childImageSharp {
-        fluid(maxHeight: 315) {
-          ...LocalImage
+        fluid {
+          base64
+          aspectRatio
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
       }
     }

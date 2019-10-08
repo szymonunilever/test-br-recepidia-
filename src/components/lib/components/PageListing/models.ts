@@ -16,6 +16,7 @@ export interface PageListingProps
   pagesPerLoad?: number;
   carouselConfig?: CarouselConfig;
   titleLevel?: titleLevel;
+  imageSizes?: string;
 }
 
 export interface PageListingCarouselProps
@@ -23,4 +24,5 @@ export interface PageListingCarouselProps
   list: ItemProps[];
   showThumbnails?: boolean;
   config: CarouselConfig;
+  imageSizes?: string;
 }

@@ -23,7 +23,7 @@ import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
 import useKritiqueReload from 'src/components/lib/utils/useKritiqueReload';
 import generateQuery from '../../utils/queryGenerator';
-import { MealPlannerPersonalizationFormula } from 'src/constants';
+import { MealPlannerPersonalizationFormula, IMAGE_SIZES } from 'src/constants';
 import getPersonalizationSearchData, {
   FROM,
 } from '../../utils/getPersonalizationSearchData';
@@ -160,7 +160,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                       ],
                       arrowIcon: <ArrowIcon />,
                     }}
-                    imageSizes={'(min-width: 768px) 600w, 600px'}
+                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
                     isExternalItemLink={true}
                   />
                 )}

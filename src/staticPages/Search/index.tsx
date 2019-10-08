@@ -28,6 +28,7 @@ import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
 import '../../scss/pages/_searchListing.scss';
 import useFavorite from 'src/utils/useFavorite';
+import { IMAGE_SIZES } from 'src/constants';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -94,7 +95,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               recipePerLoad: 4,
               favorites: favorites,
               onFavoriteChange: updateFavoriteState,
-              imageSizes: '(min-width: 768px) 25vw, 50vw',
+              imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
               ratingProvider: RatingAndReviewsProvider.kritique,
             },
             articleConfig: {
@@ -138,6 +139,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           carouselConfig={{
             arrowIcon: <ArrowIcon />,
           }}
+          imageSizes={IMAGE_SIZES.PAGE_LISTINGS.CAROUSEL}
         />
       </section>
     </Layout>
