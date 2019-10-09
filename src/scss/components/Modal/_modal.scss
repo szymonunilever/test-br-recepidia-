@@ -7,10 +7,13 @@
   .global-container {
     position: fixed;
     overflow-y: scroll;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
     width: 100%;
   }
   .modal__content {
-    will-change: transform;
     animation: modalanimatemobile 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
     @include respondTo(desktop) {
       animation: modalanimate 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
@@ -50,9 +53,14 @@
     bottom: 0px;
     background-color: $blue-overlay-40;
     z-index: 100;
+    will-change: transform;
     //IE scroll lagging fix
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: inherit;
   }
 
   &__content {
@@ -60,6 +68,10 @@
     overflow: auto;
     outline: none;
     padding: 20px;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
   }
 
   &__btn-close {
