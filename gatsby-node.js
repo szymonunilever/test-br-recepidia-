@@ -93,35 +93,7 @@ exports.onCreateNode = async ({
       {
         const dishGroup = node.tagGroups.find(({ name }) => name === 'dishes');
         const dishName = get(dishGroup, 'tags[0].name');
-        // const recipeNodes = getNodesByType(constants.NODE_TYPES.RECIPE);
-        // const recipesWithTheSameTitle = recipeNodes.filter(
-        //   ({ title, recipeId }) =>
-        //     title.toLowerCase() === node.title.toLowerCase() &&
-        //     recipeId !== node.recipeId
-        // );
-        // recipesWithTheSameTitle.length &&
-        //   console.log({
-        //     duplicates: recipesWithTheSameTitle.map(
-        //       ({ title, recipeId, tagGroups }) => ({
-        //         title,
-        //         recipeId,
-        //         dishName: tagGroups.find(({ name }) => name === 'dishes')
-        //           .tags[0].name,
-        //       })
-        //     ),
-        //     origin: {
-        //       title: node.title,
-        //       recipeId: node.recipeId,
-        //       dishName,
-        //     },
-        //   });
 
-        // [107026, 173884].includes(node.recipeId) &&
-        //   console.log({
-        //     title: node.title,
-        //     recipeId: node.recipeId,
-        //     dishName,
-        //   });
         createSlugFor({
           path: `${getPagePath(
             constants.TEMPLATE_PAGE_TYPES.RECIPE
@@ -146,19 +118,6 @@ exports.onCreateNode = async ({
           node,
           createNodeField,
         });
-
-        const imgNode = await createRemoteImageNode(
-          node.image.url,
-          node.id,
-          createNodeField,
-          {
-            store,
-            cache,
-            createNode,
-            createNodeId,
-          }
-        );
-        node['localImage___NODE'] = imgNode.id;
       }
       break;
     case constants.NODE_TYPES.ARTICLE: {

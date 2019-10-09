@@ -56,9 +56,11 @@ import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
 import '../../scss/pages/_recipePage.scss';
 import flatMap from 'lodash/flatMap';
+import isEmpty from 'lodash/isEmpty';
 import remove from 'lodash/remove';
 import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
+import { IMAGE_SIZES } from 'src/constants';
 
 const infoIcon = <InfoIcon />;
 const dietaryAttributesIcons = [
@@ -113,6 +115,9 @@ const socialIcons: SocialIcons = {
   pinterest: PinterestIcon,
 };
 
+const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
+  Boolean(recipe.description) && !isEmpty(tagIds);
+
 const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   pageContext,
   location,
@@ -125,7 +130,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   } = pageContext;
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tags = recipeTags.nodes;
-
+  const isRecipeValid = isRecipeValidForReview(recipe, pageContext.tagIds);
   /*We use this way because we don't need to show inactive dietary attributes.
    * If we need to show it we should do few requests to get All dietary attributes includes freeFormTags
    * for use custom dietary attributes and use it for attributes property in RecipeDietaryAttributes component.
@@ -144,7 +149,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     <>
       <RecipeHero
         content={recipe}
-        imageSizes={'(min-width: 1366px) 600w, 600px'}
+        imageSizes={'(max-width: 1366px) 100vw, 800px'}
       />
       <div className={theme.recipeHeroActions}>
         <div>
@@ -218,11 +223,13 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                 content={{}}
                 className="recipe-copy__title"
               />
-              <Rating
-                recipeId={recipe.recipeId}
-                provider={RatingAndReviewsProvider.kritique}
-                linkTo={recipe.fields.slug}
-              />
+              {isRecipeValid ? (
+                <Rating
+                  recipeId={recipe.recipeId}
+                  provider={RatingAndReviewsProvider.kritique}
+                  linkTo={recipe.fields.slug}
+                />
+              ) : null}
             </div>
             <div className={theme.recipeBlockDescription}>
               <RecipeCopy
@@ -335,13 +342,16 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           />
         </section>
       ) : null}
-      <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
-        <Reviews
-          recipeId={recipe.recipeId}
-          provider={RatingAndReviewsProvider.kritique}
-          linkTo={recipe.fields.slug}
-        />
-      </section>
+      {isRecipeValid ? (
+        <section className={cx(theme.reviews, '_pt--40 wrapper ')}>
+          <Reviews
+            recipeId={recipe.recipeId}
+            provider={RatingAndReviewsProvider.kritique}
+            linkTo={recipe.fields.slug}
+          />
+        </section>
+      ) : null}
+
       <section className={theme.tagList}>
         <Tags
           initialCount={initialTagsCount}
@@ -389,7 +399,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 500w, 500px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
     </Layout>

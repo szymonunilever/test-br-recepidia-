@@ -15,7 +15,7 @@ import {
   updateFavorites,
 } from '../../utils/browserStorage';
 import { ProfileKey } from '../../utils/browserStorage/models';
-import { Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import { findPageComponentContent } from '../../utils';
 import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
@@ -23,7 +23,7 @@ import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
 import useKritiqueReload from 'src/components/lib/utils/useKritiqueReload';
 import generateQuery from '../../utils/queryGenerator';
-import { MealPlannerPersonalizationFormula } from 'src/constants';
+import { MealPlannerPersonalizationFormula, IMAGE_SIZES } from 'src/constants';
 import getPersonalizationSearchData, {
   FROM,
 } from '../../utils/getPersonalizationSearchData';
@@ -35,12 +35,17 @@ import useFavorite from 'src/utils/useFavorite';
 import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
+import DataCapturingForm from '../../components/DataCapturingForm';
 const RESULT_SIZE = 7;
+
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+  const formUrl = process.env['mealPlanerDataCapturing_url'] as string;
+  const formHost = process.env['mealPlanerDataCapturing_host'] as string;
   const componentContent = findPageComponentContent(components, 'Wizard');
+  const { dataCapturing } = componentContent;
   const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +54,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const processSearchData = (quizData: any, i: number = 0) => {
     setIsLoading(true);
@@ -92,6 +96,14 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     }
   }, []);
 
+  const wizardCallback = useCallback(() => {
+    navigate('/perfil?tabOpen=MealPlanner');
+  }, []);
+
+  const pageUpdate = useCallback(() => {
+    window.location.reload();
+  }, []);
+
   return (
     <div className={theme.mealPlanner}>
       <SEO {...seo} canonical={location.href} />
@@ -101,7 +113,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       </div>
       <section>
         <Kritique />
-        <Wizard actionCallback={() => true}>
+        <Wizard actionCallback={wizardCallback}>
           <WizardIntroductionPanel
             {...componentContent.wizardIntroductionPanel}
             containerClass="wizard--intro"
@@ -114,63 +126,57 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             stepId="quiz"
           />
           <WizardResultSection
-            content={wizardResultSection}
+            {...wizardResultSection}
             containerClass="wizard--result"
             stepId="result"
             isLoading={isLoading}
             resultSize={recipes.length}
+            callbacks={{
+              back: pageUpdate,
+            }}
           >
-            {!isLoading && recipes.length ? (
+            {!isLoading ? (
               <div>
-                <RecipeListing
-                  content={findPageComponentContent(components, 'Wizard')}
-                  favorites={Array.isArray(favorites) ? favorites : []}
-                  onFavoriteChange={updateFavoriteState}
-                  FavoriteIcon={FavoriteIcon}
-                  withFavorite={true}
-                  list={recipes}
-                  ratingProvider={RatingAndReviewsProvider.kritique}
-                  viewType={RecipeListViewType.Carousel}
-                  className="recipe-list--wizard recipe-list--carousel"
-                  carouselConfig={{
-                    breakpoints: [
-                      {
-                        width: 1366,
-                        switchElementsBelowBreakpoint: 1,
-                        switchElementsAfterBreakpoint: 1,
-                        visibleElementsBelowBreakpoint: 2,
-                        visibleElementsAboveBreakpoint: 4,
-                      },
-                    ],
-                    arrowIcon: <ArrowIcon />,
-                  }}
-                  imageSizes={'(min-width: 768px) 600w, 600px'}
-                  isExternalItemLink={true}
-                />
-                <div className="wizard__buttons">
-                  <Link
-                    className="wizard__button wizard__button--primary"
-                    to={'/perfil?tabOpen=MealPlanner'}
-                  >
-                    {wizardResultSection.onResult.primaryButtonLabel}
-                  </Link>
-                </div>
+                {recipes.length && (
+                  <RecipeListing
+                    content={findPageComponentContent(components, 'Wizard')}
+                    favorites={Array.isArray(favorites) ? favorites : []}
+                    onFavoriteChange={updateFavoriteState}
+                    FavoriteIcon={FavoriteIcon}
+                    withFavorite={true}
+                    list={recipes}
+                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    viewType={RecipeListViewType.Carousel}
+                    className="recipe-list--wizard recipe-list--carousel"
+                    carouselConfig={{
+                      breakpoints: [
+                        {
+                          width: 1366,
+                          switchElementsBelowBreakpoint: 1,
+                          switchElementsAfterBreakpoint: 1,
+                          visibleElementsBelowBreakpoint: 2,
+                          visibleElementsAboveBreakpoint: 4,
+                        },
+                      ],
+                      arrowIcon: <ArrowIcon />,
+                    }}
+                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
+                    isExternalItemLink={true}
+                  />
+                )}
               </div>
-            ) : isLoading ? (
+            ) : (
               <div className={theme.spinner}>
                 <Spinner />
               </div>
-            ) : (
-              <div className="wizard__buttons">
-                <a
-                  className="wizard__button wizard__button--primary"
-                  href={location.href}
-                >
-                  {wizardResultSection.noResult.primaryButtonLabel}
-                </a>
-              </div>
             )}
           </WizardResultSection>
+          <DataCapturingForm
+            {...dataCapturing}
+            url={formUrl}
+            host={formHost}
+            pathToData={ProfileKey.mealPlannerAnswers}
+          />
         </Wizard>
         <div className="wizard__privacy">
           <Menu list={linksContent.list} />

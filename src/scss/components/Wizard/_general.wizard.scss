@@ -160,4 +160,43 @@
     color: $alert-color;
     margin-bottom: 12px;
   }
+  .generated-form {
+    &__fields {
+      @include respondTo(desktop) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .field {
+        @include respondTo(desktop) {
+          width: 42%;
+        }
+      }
+      .checkbox {
+        @include respondTo(desktop) {
+          width: 100%;
+        }
+      }
+    }
+    &__item-legend {
+      display: block;
+      width: 100%;
+      font: 400 1.6rem $arial;
+      margin-bottom: 28px;
+      letter-spacing: 0.1px;
+    }
+    .buttons {
+      @extend .wizard__buttons;
+      button[type='submit'] {
+        @extend .wizard__button--primary;
+      }
+    }
+    .field__wrap,
+    .checkable.checkbox {
+      padding-right: 1px;
+      &:after {
+        right: -20px;
+      }
+    }
+  }
 }

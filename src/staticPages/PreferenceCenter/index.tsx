@@ -12,21 +12,22 @@ const PreferenceCenterPage: React.FunctionComponent<
     page: { seo, type },
   } = pageContext;
 
+  const GIGYA_SCRIPT_SRC = `${process.env['gigya_script_src']}?apiKey=${
+    process.env['gigya_script_api_key']
+  }&lang=${process.env['gigya_script_lang']}`;
+
   return (
     <Layout>
       <SEO {...seo} canonical={location.href}>
-        <script
-          type="text/javascript"
-          src="https://cdns.gigya.com/JS/gigya.js?apiKey=3_7pA4Ft7DjM3NIJlI1lTxmVtq3FH3LAOiheGTmpDe6gUcGq-mYuR0PF6yBDFg8ACt&lang=pt-pt"
-        />
-        <script src="//cdn.gigya-ext.com/gy.js" type="text/javascript" />
+        <script type="text/javascript" src={GIGYA_SCRIPT_SRC} />
+        <script type="text/javascript" src={process.env['gigya_script_src2']} />
       </SEO>
       <DigitalData title={seo.title} type={type} />
       <section className="gigya-content">
         <div className="container">
           <div
             className="gy-ui-screen-set"
-            data-screen-set="ULVR_prefCentre_v1"
+            data-screen-set={process.env['preference_center_screenset_name']}
           />
         </div>
       </section>

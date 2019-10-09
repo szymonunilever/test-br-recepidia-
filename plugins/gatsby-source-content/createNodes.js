@@ -1,4 +1,7 @@
 const recursiveCallback = require('../../scripts/build/recursiveCallback');
+const omit = require('lodash/omit');
+const pick = require('lodash/pick');
+
 const processComponent = component => {
   const assets = [];
 
@@ -138,18 +141,28 @@ const createCategoryNodes = (
   parentNodeId = null
 ) => {
   const nodeId = createNodeId(`category-${category.name}`);
-  const { categories } = category;
-  const nodeContent = JSON.stringify(category);
+  const imageFields = ['url', 'alt'];
+  const categoryNode = {
+    ...category,
+    localImage: {
+      childImageSharp: {
+        fluid: omit(category.image, imageFields),
+      },
+    },
+    image: pick(category.image, imageFields),
+  };
+  const { categories } = categoryNode;
+  const nodeContent = JSON.stringify(categoryNode);
 
   createNode({
-    ...category,
+    ...categoryNode,
     id: nodeId,
     categoryId: category.id,
     parent: parentNodeId,
     children: categories
-      ? categories.map(category =>
+      ? categories.map(nestedCategory =>
           createCategoryNodes(
-            category,
+            nestedCategory,
             {
               createNodeId,
               createContentDigest,

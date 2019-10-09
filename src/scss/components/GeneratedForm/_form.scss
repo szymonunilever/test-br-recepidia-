@@ -84,12 +84,16 @@ $validation-icon-size: 18px;
     }
   }
 }
+.checkable.checkbox {
+  margin-bottom: 20px;
+}
 
 .valid {
   %input-general {
     border-color: $apple-green;
   }
-  &.field__wrap {
+  &.field__wrap,
+  &.checkable.checkbox {
     &:after {
       content: '\2713';
       background-color: $apple-green;
@@ -196,14 +200,6 @@ body {
     .checkable__checkmark {
       display: none;
       background-color: $black-blue;
-    }
-  }
-  &.valid {
-    .checkable__checkelem {
-      border-color: $apple-green;
-      .checkable__checkmark {
-        background-color: $apple-green;
-      }
     }
   }
   &.invalid {
