@@ -60,6 +60,7 @@ import isEmpty from 'lodash/isEmpty';
 import remove from 'lodash/remove';
 import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
+import { IMAGE_SIZES } from 'src/constants';
 
 const infoIcon = <InfoIcon />;
 const dietaryAttributesIcons = [
@@ -148,7 +149,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     <>
       <RecipeHero
         content={recipe}
-        imageSizes={'(min-width: 1366px) 600w, 600px'}
+        imageSizes={'(max-width: 1366px) 100vw, 800px'}
       />
       <div className={theme.recipeHeroActions}>
         <div>
@@ -398,7 +399,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 500w, 500px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
     </Layout>

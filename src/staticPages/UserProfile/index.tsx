@@ -38,6 +38,7 @@ import useFavoritesSearch from './useFavoritesSearch';
 // Component Styles
 import '../../scss/pages/_userProfile.scss';
 import get from 'lodash/get';
+import { IMAGE_SIZES } from 'src/constants';
 
 const carouselConfig = {
   breakpoints: [
@@ -212,7 +213,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   onLoadMore: onLoadMoreRecipes,
                   allCount: totalCount,
                 }}
-                imageSizes={'(min-width: 768px) 500w, 500px'}
+                imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
               />
             ) : (
               <Fragment>
@@ -263,7 +264,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
               config={carouselConfig}
               titleLevel={1}
               onFavoriteChange={() => {}}
-              imageSizes={'(min-width: 768px) 500w, 500px'}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
               ratingProvider={RatingAndReviewsProvider.kritique}
             />
             <div className={theme.mealPlannerBtnWrap}>

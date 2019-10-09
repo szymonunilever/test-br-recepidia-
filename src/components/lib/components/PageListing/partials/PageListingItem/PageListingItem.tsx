@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { PageProps } from './models';
 import AdaptiveImage from '../../../AdaptiveImage';
 
-const PageListingItem = ({ page }: PageProps) => {
+const PageListingItem = ({ page, imageSizes }: PageProps) => {
   const {
     title,
     path,
@@ -19,6 +19,7 @@ const PageListingItem = ({ page }: PageProps) => {
           className="page-listing-item__image"
           localImage={localImage}
           alt={alt}
+          sizes={imageSizes}
         />
         <div className="page-listing-item__title">{title}</div>
       </Link>

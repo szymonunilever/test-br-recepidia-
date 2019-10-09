@@ -31,6 +31,7 @@ import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAs
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { Tags } from 'src/components/lib/components/Tags';
 import useFavorite from 'src/utils/useFavorite';
+import { IMAGE_SIZES } from 'src/constants';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -107,7 +108,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           initialCount={useMedia()}
           titleLevel={1}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 300w, 300px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (
@@ -153,6 +154,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           carouselConfig={{
             arrowIcon: <ArrowIcon />,
           }}
+          imageSizes={IMAGE_SIZES.PAGE_LISTINGS.CAROUSEL}
         />
       </section>
     </Layout>
