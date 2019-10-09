@@ -1,5 +1,6 @@
 export interface PageProps {
   page: ItemProps;
+  imageSizes?: string;
 }
 
 export interface ItemProps {

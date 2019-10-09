@@ -34,6 +34,7 @@ import {
   WithInitialDataAndAsyncLoadMore,
   QueryString,
 } from 'src/components/withInitialDataAndAsyncLoadMore/models';
+import { IMAGE_SIZES } from 'src/constants';
 
 const AllRecipesPage = ({
   data,
@@ -194,7 +195,7 @@ const AllRecipesPage = ({
             onLoadMore,
           }}
           onViewChange={onViewChange}
-          imageSizes={'(min-width: 768px) 500w, 500px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
 
@@ -232,7 +233,7 @@ const AllRecipesPage = ({
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 600w, 600px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
         />
       </section>
 

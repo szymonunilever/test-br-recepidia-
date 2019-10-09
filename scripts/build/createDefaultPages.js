@@ -34,7 +34,7 @@ module.exports = async ({ graphql, createPage }) => {
                   id
                   ext
                   childImageSharp {
-                    fluid(maxWidth: 1088) {
+                    fluid {
                       base64
                       aspectRatio
                       sizes

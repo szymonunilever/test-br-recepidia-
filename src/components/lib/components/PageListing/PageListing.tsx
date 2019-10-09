@@ -20,6 +20,7 @@ const PageListing = ({
   pagesPerLoad = 4,
   titleLevel = 2,
   carouselConfig,
+  imageSizes,
 }: PageListingProps) => {
   const [pages, setPages] = useState({
     list: initialCount ? list : list.slice(0, initialCount),
@@ -64,7 +65,7 @@ const PageListing = ({
       <ul className="page-listing__list">
         {pages.list.map((item: ItemProps) => (
           <li key={item.title} className="page-listing__list-item">
-            <PageListingItem page={item} />
+            <PageListingItem page={item} imageSizes={imageSizes} />
           </li>
         ))}
       </ul>
@@ -95,6 +96,7 @@ const PageListing = ({
 
         <PageListingCarousel
           list={pages.list}
+          imageSizes={imageSizes}
           content={{ title }}
           config={resCarouselConfig as CarouselConfig}
         />

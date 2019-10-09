@@ -32,6 +32,7 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { Tags } from 'src/components/lib/components/Tags';
+import { IMAGE_SIZES } from 'src/constants';
 
 const RecipeCategoryPage = ({
   data,
@@ -109,6 +110,7 @@ const RecipeCategoryPage = ({
             className={theme.heroBgImage}
             localImage={localImage}
             alt={getImageAlt(title, category.fields.slug)}
+            sizes={'(max-width: 1366px) 100vw, 1100px'}
           />
         </section>
       )}
@@ -141,7 +143,7 @@ const RecipeCategoryPage = ({
           }}
           titleLevel={2}
           recipePerLoad={4}
-          imageSizes={'(min-width: 768px) 500w, 500px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (
@@ -191,6 +193,7 @@ const RecipeCategoryPage = ({
           carouselConfig={{
             arrowIcon: <ArrowIcon />,
           }}
+          imageSizes={IMAGE_SIZES.PAGE_LISTINGS.CAROUSEL}
         />
       </section>
     </Layout>

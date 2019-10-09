@@ -28,6 +28,7 @@ import useFavorite from 'src/utils/useFavorite';
 import { isQuizesStored, getRecipes } from './helpers';
 // Component Styles
 import '../../scss/pages/_home.scss';
+import { IMAGE_SIZES } from 'src/constants';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -153,7 +154,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 500w, 500px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         />
       </section>
 
@@ -186,7 +187,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             ],
             arrowIcon: <ArrowIcon />,
           }}
-          imageSizes={'(min-width: 768px) 600w, 600px'}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
         />
       </section>
 
@@ -205,6 +206,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           content={findPageComponentContent(components, 'PageListing')}
           list={pageListingData}
           initialCount={12}
+          imageSizes={IMAGE_SIZES.PAGE_LISTINGS.TILES}
         />
       </section>
     </Layout>
