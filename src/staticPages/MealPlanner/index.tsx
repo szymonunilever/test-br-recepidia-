@@ -176,6 +176,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             url={formUrl}
             host={formHost}
             pathToData={ProfileKey.mealPlannerAnswers}
+            containerClass="wizard--form"
           />
         </Wizard>
         <div className="wizard__privacy">
