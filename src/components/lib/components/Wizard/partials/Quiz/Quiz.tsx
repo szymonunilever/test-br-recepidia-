@@ -100,7 +100,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
     }
     // scroll container to top on quiz question change
     const wizardContainer = document.querySelector('.wizard__content');
-    wizardContainer && wizardContainer.scrollTo(0, 0);
+    wizardContainer && (wizardContainer.scrollTop = 0);
   }, [currentQuestionIndex]);
   useEffect(() => {
     Object.keys(answers).length && continueAction({ data: answers });
