@@ -427,12 +427,7 @@
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*",
-                      "validationRules": [
-                        {
-                          "type": "required"
-                        }
-                      ]
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*"
                     },
                     {
                       "type": "checkbox",
@@ -2424,7 +2419,7 @@
                       "type": "text",
                       "name": "firstName",
                       "label": "Nome*",
-                      "placeholder": "Nome*",
+                      "placeholder": "Nome",
                       "validationRules": [
                         {
                           "type": "required",
@@ -2441,7 +2436,7 @@
                       "type": "text",
                       "name": "lastName",
                       "label": "Sobrenome*",
-                      "placeholder": "Sobrenome*",
+                      "placeholder": "Sobrenome",
                       "validationRules": [
                         {
                           "type": "required",
@@ -2458,7 +2453,7 @@
                       "type": "email",
                       "name": "email",
                       "label": "Email*",
-                      "placeholder": "Email*",
+                      "placeholder": "Email",
                       "validationRules": [
                         {
                           "type": "required",
@@ -2472,19 +2467,27 @@
                       ]
                     },
                     {
+                      "name": "consentsFieldset",
+                      "type": "fieldset",
+                      "label": "Levamos a sua privacidade a sério! Para saber mais sobre como a Unilever usa e protege seus dados pessoais, acesse a <a target='_blank' href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' rel='noopener noreferrer' title='Política de Privacidade da Unilever. O link abre em uma nova janela'>Política de Privacidade da Unilever</a>."
+                    },
+                    {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
+                      "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia.*"
                     },
                     {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "subscriptions.optInOptOut.unilever.email.isSubscribed",
-                      "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\"> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
+                      "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\" rel='noopener noreferrer' title='marcas da Unilever. O link abre em uma nova janela'> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
                     },
                     {
                       "type": "checkbox",
+                      "fieldset": "consentsFieldset",
                       "name": "preferences.ageConsentGranted.isConsentGranted",
-                      "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a href=\"https://www.unileverprivacypolicy.com/pt_PT/policy.aspx\" target=\"_blank\"> Política de Privacidade da Unilever </a> e com os <a href=\"https://br.recepedia.com/termos-e-condicoes\" target=\"_blank\">Termos de Uso</a>.*",
+                      "label": "Sim, tenho 18 anos ou mais e estou de acordo com a <a href='https://www.unileverprivacypolicy.com/pt_PT/policy.aspx' target='_blank' rel='noopener noreferrer' tile='Política de Privacidade da Unilever. O link abre em uma nova janela'> Política de Privacidade da Unilever </a> e com os <a href='/termos-e-condicoes'>Termos de Uso</a>.*",
                       "validationRules": [
                         {
                           "type": "required",
@@ -2494,20 +2497,36 @@
                     }
                   ],
                   "submitButton": {
-                    "label": "Enviar"
+                    "label": "Conferir seu cardápio"
                   }
                 }
               },
               "wizardResultSection": {
-                "onResult": {
-                  "title": "Cardápio semanal",
-                  "subheading": "Aqui está o cardápio que preparei para sua semana",
-                  "primaryButtonLabel": "Conferir seu cardápio"
-                },
-                "noResult": {
-                  "title": "=/ Busquei por toda cozinha mas não encontrei o que você procurava!",
-                  "subheading": "Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.\nGostaria de tentar novamente?",
-                  "primaryButtonLabel": "Tentar novamente"
+                "content": {
+                  "onResult": {
+                    "title": "Cardápio semanal",
+                    "subheading": "Aqui está o cardápio que preparei para sua semana",
+                    "ctas": [
+                      {
+                        "type": "next",
+                        "content": {
+                          "label": "Data Capturing"
+                        }
+                      }
+                    ]
+                  },
+                  "noResult": {
+                    "title": "=/ Busquei por toda cozinha mas não encontrei o que você procurava!",
+                    "subheading": "Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.\nGostaria de tentar novamente?",
+                    "ctas": [
+                      {
+                        "type": "back",
+                        "content": {
+                          "label": "Tentar novamente"
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             }

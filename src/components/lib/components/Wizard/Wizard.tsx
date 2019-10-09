@@ -40,7 +40,6 @@ const Wizard: FunctionComponent<WizardProps> = ({
         actionCallback: nextAction,
         resultsStore: wizardDataStore,
       };
-
       enhancedChildren.push(React.cloneElement(child, newProps));
     }
   });
