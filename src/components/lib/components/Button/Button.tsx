@@ -11,6 +11,7 @@ export const Button = ({
   isDisabled = false,
   isSelected = false,
   onClick,
+  onKeyDown,
   hidden = false,
   className = '',
   children = '',
@@ -65,7 +66,12 @@ export const Button = ({
   }
 
   return (
-    <button className={buttonClasses} {...props} {...attributes}>
+    <button
+      className={buttonClasses}
+      {...props}
+      {...attributes}
+      onKeyDown={onKeyDown}
+    >
       {IconComponent && <IconComponent />}
       {label ? <span className="button__label">{label}</span> : null}
       {children}

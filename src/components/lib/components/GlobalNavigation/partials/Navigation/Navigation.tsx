@@ -4,6 +4,7 @@ import Menu from '../Menu';
 import { NavigationProps } from './models';
 import { Button as ButtonClose } from 'src/components/lib/components/Button';
 import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
+import { KeyCode } from '../../../constants';
 
 const Navigation = ({
   list,
@@ -18,6 +19,13 @@ const Navigation = ({
     active: isActive,
   });
 
+  const keyHandler = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.keyCode === KeyCode.Enter || e.keyCode === KeyCode.Space) {
+      e.stopPropagation();
+      handleToggleNavigationClick();
+    }
+  };
+
   return (
     <nav
       className={navigationClassNames}
@@ -27,12 +35,16 @@ const Navigation = ({
         list={list}
         className="menu"
         dropDownIcon={dropDownIcon}
+        closeMenu={() => {
+          handleToggleNavigationClick();
+        }}
         isAccordion={isAccordion}
       />
       {login}
       <ButtonClose
         onClick={handleToggleNavigationClick}
         Icon={buttonCloseIcon}
+        onKeyDown={keyHandler}
       />
     </nav>
   );

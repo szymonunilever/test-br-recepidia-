@@ -9,6 +9,7 @@ $submenu-text-color-desktop: $fish-blue-darker;
 
 .global-navigation {
   &.open {
+    // navigation is open on mobi;e, does not influence desktop
     position: fixed;
     width: 100%;
     height: 100%;
@@ -358,7 +359,8 @@ $submenu-text-color-desktop: $fish-blue-darker;
         display: flex;
         align-items: center;
         border-radius: 5px;
-        &:hover {
+        &:hover,
+        &:focus {
           color: $fish-blue-darker;
         }
       }
@@ -434,7 +436,8 @@ $submenu-text-color-desktop: $fish-blue-darker;
         font-size: 1.2rem;
         color: $submenu-text-color-desktop;
         padding: 6px 20px;
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: $apple-green;
           color: $black-blue;
         }
@@ -545,7 +548,9 @@ $submenu-text-color-desktop: $fish-blue-darker;
             }
           }
         }
-        &:hover {
+
+        &:hover,
+        &.active {
           @include respondTo(desktop) {
             .submenu__dropdown-icon {
               transform: rotate(-90deg);
@@ -572,7 +577,8 @@ $submenu-text-color-desktop: $fish-blue-darker;
             opacity 200ms;
         }
       }
-      &:hover {
+      &:hover,
+      &.active {
         @include respondTo(desktop) {
           .menu__dropdown-icon {
             transform: rotate(180deg);
