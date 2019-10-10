@@ -1,4 +1,4 @@
-import { titleLevel } from '../../globalModels';
+import { titleLevel } from '../../../models/globalModels';
 
 export interface RecipeCopyTitleProps {
   className?: string;

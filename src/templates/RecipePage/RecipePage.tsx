@@ -3,56 +3,54 @@ import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import RecipeHero from 'src/components/lib/components/RecipeHero';
-import Rating from 'src/components/lib/components/Rating';
-import RecipeCopy, {
-  RecipeCopyViewType,
-} from 'src/components/lib/components/RecipeCopy';
-import RecipeAttributes, {
+import {
+  Button,
+  Hero,
+  Rating,
+  RatingAndReviewsProvider,
+  RecipeAttributes,
   RecipeAttributesKeys,
-} from 'src/components/lib/components/RecipeAttributes';
+  RecipeCookingMethod,
+  RecipeCopy,
+  RecipeCopyViewType,
+  RecipeDietaryAttributes,
+  RecipeHero,
+  RecipeListing,
+  RecipeListViewType,
+  RecipeMicrodata,
+  RecipeNutrients,
+  RecipeNutrientsViewType,
+  Reviews,
+  SocialIcons,
+  SocialSharing,
+  SocialSharingViewType,
+  Tabs,
+  TagName,
+  Tags,
+  Text,
+} from 'src/components/lib';
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
-import RecipeCookingMethod from 'src/components/lib/components/RecipeCookingMethod';
-import RecipeNutrients, {
-  RecipeNutrientsViewType,
-} from 'src/components/lib/components/RecipeNutrients';
-import RecipeListing, {
-  RecipeListViewType,
-} from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
-import { Tabs } from 'src/components/lib/components/Tabs';
-import { Tab } from '../../components/lib/components/Tabs/partials';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import Reviews from 'src/components/lib/components/Reviews';
+import { Tab } from '../../components/lib';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import RecipeDietaryAttributes from 'src/components/lib/components/RecipeDietaryAttributes';
 import * as icons from 'src/svgs/attributes';
 import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
-import { Text, TagName } from 'src/components/lib/components/Text';
-import Button from '../../components/lib/components/Button';
-import SocialSharing, {
-  SocialSharingViewType,
-  SocialIcons,
-} from 'src/components/lib/components/SocialSharing';
 import AddThis from '../../../integrations/AddThis';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import { ReactComponent as PinterestIcon } from 'src/svgs/inline/pinterest.svg';
-import Hero from 'src/components/lib/components/Hero';
-import { RecipeMicrodata } from 'src/components/lib/components/RecipeMicrodata';
 import DigitalData from '../../../integrations/DigitalData';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { WindowLocation } from '@reach/router';
 import useMedia from 'src/utils/useMedia';
-import { updateFavorites, getUserProfileByKey } from 'src/utils/browserStorage';
+import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
-import { Tags } from 'src/components/lib/components/Tags';
 // Component Styles
 import '../../scss/pages/_recipePage.scss';
 import flatMap from 'lodash/flatMap';

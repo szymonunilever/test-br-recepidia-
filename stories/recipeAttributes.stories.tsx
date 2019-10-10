@@ -4,7 +4,7 @@ import {
   RecipeAttributeIcons,
   RecipeAttributes,
   RecipeAttributesKeys,
-} from 'src/components/lib/components/RecipeAttributes';
+} from 'src/components/lib';
 import dataSource from 'src/components/data/recipe.json';
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';

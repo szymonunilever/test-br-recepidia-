@@ -4,20 +4,22 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
-import RecipeListing, {
-  RecipeListViewType,
+import {
+  Hero,
   LoadMoreType,
-} from 'src/components/lib/components/RecipeListing';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import Hero from 'src/components/lib/components/Hero';
-import PageListing from 'src/components/lib/components/PageListing';
+  PageListing,
+  PageListingViewTypes,
+  RatingAndReviewsProvider,
+  RecipeListing,
+  RecipeListViewType,
+  Tags,
+} from 'src/components/lib';
 
 import cx from 'classnames';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
-import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -25,11 +27,9 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 // Component Styles
 import '../../scss/pages/_contentHub.scss';
 //TODO: add this part to main page json and remove this import
-import relatedArticlesComponent from 'src/components/data/relatedArticlesForContentHub.json';
 import useMedia from 'src/utils/useMedia';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
-import { Tags } from 'src/components/lib/components/Tags';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
 

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { ReactComponent as Icon } from 'src/svgs/inline/arrow-up.svg';
-import { BackToTop } from '../src/components/lib/components/BackToTop';
+import { BackToTop } from '../src/components/lib';
 
 const page = {
   height: '200vh',

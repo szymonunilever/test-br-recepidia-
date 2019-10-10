@@ -1,21 +1,22 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useStaticQuery, graphql, navigate } from 'gatsby';
-import GlobalFooter from 'src/components/lib/components/GlobalFooter';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
+import {
+  BackToTop,
+  BrandSocialChannels,
+  GeneratedForm,
+  GlobalFooter,
+} from 'src/components/lib';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-import BackToTop from '../lib/components/BackToTop/BackToTop';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
 import Navigation from '../Navigation/Navigation';
 import cx from 'classnames';
-import BrandSocialChannels from 'src/components/lib/components/BrandSocialChannels';
-import GeneratedForm from 'src/components/lib/components/GeneratedForm';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
+import find from 'lodash/find';
 // // Component Styles
 // import '../../scss/pages/_layout.scss';
-
-import find from 'lodash/find';
 
 const Layout = ({
   children,

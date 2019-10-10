@@ -1,20 +1,13 @@
 import React, {
-  FunctionComponent,
-  useEffect,
-  useCallback,
   Fragment,
+  FunctionComponent,
+  useCallback,
+  useEffect,
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
-import Tabs, { Tab } from 'src/components/lib/components/Tabs';
-import { UserPreferences } from 'src/components/lib/components/UserPreferences';
 import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
 import { Link } from 'gatsby';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import RecipeListing, {
-  RecipeListViewType,
-  LoadMoreType,
-} from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import SEO from 'src/components/Seo';
@@ -25,20 +18,30 @@ import {
   updateFavorites,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import { Text, TagName } from 'src/components/lib/components/Text';
 import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import Kritique from 'integrations/Kritique';
 import theme from './UserProfile.module.scss';
-import NullResult from 'src/components/lib/components/NullResult';
 import cx from 'classnames';
 import useFavorite from 'src/utils/useFavorite';
-import withLocation from 'src/components/lib/components/WithLocation';
-import { WithLocationProps } from 'src/components/lib/components/WithLocation/models';
 import useFavoritesSearch from './useFavoritesSearch';
 // Component Styles
 import '../../scss/pages/_userProfile.scss';
 import get from 'lodash/get';
 import { IMAGE_SIZES } from 'src/constants';
+import {
+  LoadMoreType,
+  NullResult,
+  RatingAndReviewsProvider,
+  RecipeListing,
+  RecipeListViewType,
+  Tab,
+  Tabs,
+  TagName,
+  Text,
+  UserPreferences,
+  WithLocation as withLocation,
+  WithLocationProps,
+} from 'src/components/lib';
 
 const carouselConfig = {
   breakpoints: [

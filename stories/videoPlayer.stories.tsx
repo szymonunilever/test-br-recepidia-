@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { VideoPlayer } from 'src/components/lib/components/VideoPlayer';
+import { TagName, VideoPlayer } from 'src/components/lib';
 import { ReactComponent as icon } from 'src/svgs/inline/plus.svg';
-import { TagName } from 'src/components/lib/components/Text';
 
 const preview: AppContent.VideoPlayer.VideoPreviewProps = {
   previewImage: {

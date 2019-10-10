@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 
 export interface RecipeHeroProps
   extends UnileverLibraryComponent<Internal.Recipe> {
