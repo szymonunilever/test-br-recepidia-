@@ -1,4 +1,4 @@
-import { WizardStepComponent } from '../../../globalModels';
+import { WizardStepComponent } from '../../../../models/globalModels';
 import { ResultsStore } from '../../models';
 import { AdaptiveImageProps } from '../../../AdaptiveImage/models';
 import { ReactNode } from 'react';

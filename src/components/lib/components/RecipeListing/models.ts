@@ -1,4 +1,7 @@
-import { titleLevel, UnileverLibraryComponent } from '../globalModels';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../models/globalModels';
 import { RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';

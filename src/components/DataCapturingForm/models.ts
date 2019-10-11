@@ -3,7 +3,7 @@ import {
   titleLevel,
   UnileverLibraryComponent,
   WizardStepComponent,
-} from '../lib/components/globalModels';
+} from '../lib/models/globalModels';
 
 export interface DataCapturingFormProps
   extends UnileverLibraryComponent<AppContent.GeneratedForm.Content>,

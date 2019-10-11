@@ -3,16 +3,17 @@ import cx from 'classnames';
 import { graphql } from 'gatsby';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
-import Hero from 'src/components/lib/components/Hero';
-import PageListing from 'src/components/lib/components/PageListing';
 import {
-  RecipeListViewType,
+  Hero,
+  PageListing,
+  RatingAndReviewsProvider,
   RecipeListing,
-} from 'src/components/lib/components/RecipeListing';
-import { TagName, Text } from 'src/components/lib/components/Text';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+  RecipeListViewType,
+  TagName,
+  Text,
+} from 'src/components/lib';
 import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -25,7 +26,7 @@ import theme from './home.module.scss';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
-import { isQuizesStored, getRecipes } from './helpers';
+import { getRecipes, isQuizesStored } from './helpers';
 // Component Styles
 import '../../scss/pages/_home.scss';
 import { IMAGE_SIZES } from 'src/constants';

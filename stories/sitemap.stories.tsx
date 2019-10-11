@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Sitemap } from '../src/components/lib/components/Sitemap';
-import { SitemapCategoryEntry } from '../src/components/lib/components/Sitemap/partials';
-import { TagName } from 'src/components/lib/components/Text';
+import { Sitemap, SitemapCategoryEntry } from '../src/components/lib';
+import { TagName } from 'src/components/lib';
 
 const content: SitemapCategoryEntry[] = [
   {

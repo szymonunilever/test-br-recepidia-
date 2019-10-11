@@ -3,15 +3,18 @@ import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent, getImageAlt } from 'src/utils';
-import RecipeListing, {
-  RecipeListViewType,
+import {
+  Hero,
   LoadMoreType,
-} from 'src/components/lib/components/RecipeListing';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import Hero from 'src/components/lib/components/Hero';
-import PageListing from 'src/components/lib/components/PageListing';
+  PageListing,
+  RatingAndReviewsProvider,
+  RecipeListing,
+  RecipeListViewType,
+  TagName,
+  Tags,
+  Text,
+} from 'src/components/lib';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import cx from 'classnames';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
 import RichText from '../../components/lib/components/RichText';
@@ -31,7 +34,6 @@ import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataA
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
-import { Tags } from 'src/components/lib/components/Tags';
 import { IMAGE_SIZES } from 'src/constants';
 
 const RecipeCategoryPage = ({

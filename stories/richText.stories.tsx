@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { RichText } from '../src/components/lib/components/RichText';
+import { RichText } from '../src/components/lib';
 
 const content: AppContent.RichTextContent = {
   text: `

@@ -1,18 +1,20 @@
 /* eslint-disable no-console */
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
-import Button from '../src/components/lib/components/Button';
-import Wizard from '../src/components/lib/components/Wizard';
-import { default as WizardIntroductionPanel } from '../src/components/lib/components/Wizard/partials/IntroductionPanel';
-import { default as WizardFinishPanel } from '../src/components/lib/components/Wizard/partials/FinishPanel';
-import { default as WizardQuiz } from '../src/components/lib/components/Wizard/partials/Quiz';
-import { default as WizardSignUp } from '../src/components/lib/components/Wizard/partials/SignUp';
-import { default as WizardResultSection } from '../src/components/lib/components/Wizard/partials/ResultSection';
+import {
+  Button,
+  FinishPanel as WizardFinishPanel,
+  IntroductionPanel as WizardIntroductionPanel,
+  Quiz as WizardQuiz,
+  RecipeListingCarousel,
+  ResultSection as WizardResultSection,
+  SignUp as WizardSignUp,
+  Wizard,
+} from '../src/components/lib';
 import IntroQuiz from '../src/components/page/IntroQuiz';
 import questions from './mocks/wizardQuizQuestions';
 import recipes from './mocks/recipes';
 import localImage from './assets/localImage';
-import RecipeListingCarousel from '../src/components/lib/components/RecipeListing/RecipeListingCarousel';
 
 const wizardAction = () => alert('wizard has finished his work');
 const image = {

@@ -1,16 +1,14 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import {
-  RecipeListing,
-  RecipeListViewType,
-} from '../src/components/lib/components/RecipeListing';
+import { RecipeListing, RecipeListViewType } from '../src/components/lib';
 import dataSource from 'src/components/data/recipes.json';
 import dataTags from 'src/components/data/allTags.json';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+
 const listing = dataSource.data.allRecipe.edges.map(item => item.node);
 
 const contents: AppContent.RecipeListing.Content[] = [

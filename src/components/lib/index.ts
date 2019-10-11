@@ -1,21 +1,12 @@
-import PageListing from './components/PageListing';
-import RecipeListing from './components/RecipeListing';
-import Hero from './components/Hero';
-import Wizard from './components/Wizard';
-import { default as WizardIntroductionPanel } from './components/Wizard/partials/IntroductionPanel';
-import { default as WizardFinishPanel } from './components/Wizard/partials/FinishPanel';
-import { default as WizardQuiz } from './components/Wizard/partials/Quiz';
-import { Tags } from './components/Tags';
+import * as components from './components';
+import * as models from './models';
+import * as utils from './utils';
+import * as services from './services';
 
-const components = {
-  PageListing,
-  RecipeListing,
-  Hero,
-  Tags,
-  Wizard,
-  WizardIntroductionPanel,
-  WizardFinishPanel,
-  WizardQuiz,
-};
+export * from './components';
+export * from './models';
+export * from './services';
+export * from './utils';
 
 export default components;
+export { components, models, services, utils };

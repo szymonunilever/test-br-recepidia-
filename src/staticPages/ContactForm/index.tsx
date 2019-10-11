@@ -4,10 +4,9 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
-import GeneratedForm from '../../components/lib/components/GeneratedForm';
+import { GeneratedForm, Modal } from 'src/components/lib';
 import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/form.service';
-import { Modal } from '../../components/lib/components/Modal';
 import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_contactForm.scss';

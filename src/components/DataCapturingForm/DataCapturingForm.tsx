@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import React, { FunctionComponent } from 'react';
-import GeneratedForm from 'src/components/lib/components/GeneratedForm';
-import { TagName, Text } from 'src/components/lib/components/Text';
+import { GeneratedForm, TagName, Text } from 'src/components/lib';
 import { getUserProfileByKey } from '../../utils/browserStorage';
 import theme from './DataCapturingForm.module.scss';
 import { DataCapturingFormProps } from './models';

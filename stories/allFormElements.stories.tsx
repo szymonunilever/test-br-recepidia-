@@ -1,20 +1,14 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Select } from '../src/components/lib/components/Select';
+import { CheckElem, checkElemTypes, Select } from '../src/components/lib';
 import selectOptions from '../src/components/data/select.json';
-import {
-  CheckElem,
-  checkElemTypes,
-} from '../src/components/lib/components/CheckElem';
 import cx from 'classnames';
 
 import {
-  Form,
-  Field,
-  required,
-  // mustBeNumber,
-  // minValue,
   composeValidators,
+  Field,
+  Form,
+  required,
   validEmail,
 } from '../src/components/lib/components/Form';
 

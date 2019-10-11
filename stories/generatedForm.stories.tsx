@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import GeneratedForm from 'src/components/lib/components/GeneratedForm';
+import { GeneratedForm } from 'src/components/lib';
 import signUpFormContent from 'src/components/data/signUpFormContent.json';
 
 const content: AppContent.GeneratedForm.Content = {

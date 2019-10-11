@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Modal } from 'src/components/lib/components/Modal';
+import { Modal } from 'src/components/lib';
 import { ReactComponent as Icon } from '../src/svgs/inline/logo.svg';
 
 /**react-modal API https://reactcommunity.org/react-modal/#usage */

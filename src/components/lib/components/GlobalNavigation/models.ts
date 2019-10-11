@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 import { LogoProps } from '../Logo/models';
 
 export interface GlobalNavigationProps

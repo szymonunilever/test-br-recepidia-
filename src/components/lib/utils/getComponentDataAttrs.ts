@@ -1,4 +1,4 @@
-const getComponentDataAttrs = (
+export const getComponentDataAttrs = (
   componentName: string,
   content?: AppContent.BaseContent
 ) => ({

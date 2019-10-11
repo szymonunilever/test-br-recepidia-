@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal';
-import { titleLevel } from '../globalModels';
+import { titleLevel } from '../../models/globalModels';
 
 export interface ModalProps extends ReactModal.Props {
   className?: string;

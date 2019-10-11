@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { useEffect, useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { getTagSlug } from 'src/utils';
-import { TagVariant } from 'src/components/lib/components/Tags/models';
-import Tags from 'src/components/lib/components/Tags/Tags';
+import { Tags, TagVariant } from 'src/components/lib';
 
 const addSlugToTags = (path: string, tags: Internal.Tag[]) =>
   tags.map(tag => ({
