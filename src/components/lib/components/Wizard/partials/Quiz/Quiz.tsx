@@ -100,7 +100,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
     }
     // scroll container to top on quiz question change
     const wizardContainer = document.querySelector('.wizard__content');
-    wizardContainer && wizardContainer.scrollTo(0, 0);
+    wizardContainer && (wizardContainer.scrollTop = 0);
   }, [currentQuestionIndex]);
   useEffect(() => {
     Object.keys(answers).length && continueAction({ data: answers });
@@ -123,6 +123,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const primaryButton = ctas.find(item => item.type === 'next');
   const backButton = ctas.find(item => item.type === 'back');
   const skipButton = ctas.find(item => item.type === 'skip');
+  const buttonPlaceholder = bottomContent;
   const backAction = useCallback(() => {
     if (currentQuestionIndex > 0) {
       setQuestionIndex(currentQuestionIndex - 1);
@@ -176,7 +177,9 @@ const Quiz: FunctionComponent<QuizProps> = ({
             />
           )}
         </div>
-        <div className="wizard__button-placeholder">{bottomContent}</div>
+        {buttonPlaceholder && (
+          <div className="wizard__button-placeholder">{bottomContent}</div>
+        )}
       </form>
     </Fragment>
   );

@@ -1,6 +1,5 @@
 @import '../../vars';
 @import '../../mixins';
-@import '../../components/Button/index';
 
 .wizard {
   position: fixed;
@@ -25,7 +24,6 @@
   &__info {
     h1 {
       font-size: 3rem;
-      // color: $black-blue;
       margin-bottom: 10px;
       @include respondTo(desktop) {
         margin-bottom: 18px;
@@ -161,6 +159,9 @@
     margin-bottom: 12px;
   }
   .generated-form {
+    &__item {
+      width: 100%;
+    }
     &__fields {
       @include respondTo(desktop) {
         display: flex;
@@ -184,6 +185,9 @@
       font: 400 1.6rem $arial;
       margin-bottom: 28px;
       letter-spacing: 0.1px;
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        letter-spacing: 0px;
+      }
     }
     .buttons {
       @extend .wizard__buttons;

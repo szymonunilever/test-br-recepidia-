@@ -4,10 +4,13 @@
   :global {
     .wizard {
       overflow-y: auto;
+      &:not(.wizard--intro) {
+        padding-bottom: 20px;
+      }
       &__logo {
         width: 100%;
         position: fixed;
-        height: 80px;
+        height: 77px;
         background-color: white;
         left: 0;
         top: 0;
@@ -18,7 +21,7 @@
         }
       }
       &__privacy {
-        position: absolute;
+        position: fixed;
         background: $white;
         width: 100%;
         bottom: 0;
