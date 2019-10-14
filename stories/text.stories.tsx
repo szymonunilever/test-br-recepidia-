@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Text, TagName } from '../src/components/lib/components/Text';
+import { Text, TagName } from '../src/components/lib';
 
 const headingTag = 'h1';
 const headingClassName = 'heading';

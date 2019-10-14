@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 export enum RecipeAttributesKeys {
   serves = 'serves',
   makes = 'makes',

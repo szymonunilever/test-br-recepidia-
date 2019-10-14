@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 
 export interface VideoPlayerProps
   extends UnileverLibraryComponent<AppContent.VideoPlayer.Content> {

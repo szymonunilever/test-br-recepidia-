@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import SocialSharing, {
+import {
+  SocialSharing,
   SocialIcons,
   SocialSharingViewType,
-} from 'src/components/lib/components/SocialSharing';
+} from 'src/components/lib';
 import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as Icon } from 'src/svgs/inline/placeholder.svg';
 import AddThis from '../integrations/AddThis';

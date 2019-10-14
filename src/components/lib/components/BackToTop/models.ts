@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ButtonViewType } from '../Button';
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 
 export interface BackToTopProps
   extends UnileverLibraryComponent<AppContent.BackToTopContent> {

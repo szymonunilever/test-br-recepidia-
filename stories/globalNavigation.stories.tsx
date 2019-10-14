@@ -5,10 +5,8 @@ import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg'
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
 
-import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
+import { Example, GlobalNavigation } from 'src/components/lib';
 import list from 'src/components/data/globalNavigationMenu.json';
-
-import Example from 'src/components/lib/components/Example';
 
 const config = {
   logo: {

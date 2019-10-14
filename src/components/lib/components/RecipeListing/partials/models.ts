@@ -1,4 +1,7 @@
-import { titleLevel, UnileverLibraryComponent } from '../../globalModels';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../../models/globalModels';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import { RecipeListingProps } from '../models';
 

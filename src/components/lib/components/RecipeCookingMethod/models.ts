@@ -1,4 +1,7 @@
-import { titleLevel, UnileverLibraryComponent } from '../globalModels';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../models/globalModels';
 
 export interface RecipeCookingMethodProps
   extends UnileverLibraryComponent<AppContent.RecipeCookingMethodContent> {

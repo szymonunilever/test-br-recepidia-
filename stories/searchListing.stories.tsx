@@ -2,11 +2,10 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import SearchListing from 'src/components/lib/components/SearchListing';
+import { RecipeListViewType, SearchListing } from 'src/components/lib';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as PlaceholderIcon } from '../src/svgs/inline/placeholder.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import { RecipeListViewType } from 'src/components/lib/components/RecipeListing';
 import recipes from 'src/components/data/newRecipes.json';
 import articles from 'src/components/data/articleList.json';
 

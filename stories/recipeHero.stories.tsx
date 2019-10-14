@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import RecipeHero from '../src/components/lib/components/RecipeHero';
-import { RecipeHeroProps } from '../src/components/lib/components/RecipeHero/models';
+import { RecipeHero, RecipeHeroProps } from '../src/components/lib';
 import dataSource from 'src/components/data/recipe.json';
 
 const page = {

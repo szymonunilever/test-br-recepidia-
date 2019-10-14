@@ -1,7 +1,5 @@
 import React from 'react';
-import { Text, TagName } from 'src/components/lib/components/Text';
-import AdaptiveImage from 'src/components/lib/components/AdaptiveImage';
-import RichText from 'src/components/lib/components/RichText';
+import { AdaptiveImage, RichText, TagName, Text } from 'src/components/lib';
 import { findPageComponentContent } from 'src/utils';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
@@ -11,6 +9,7 @@ import theme from './AboutUs.module.scss';
 import cx from 'classnames';
 // Component Styles
 import '../../scss/pages/_default.scss';
+
 const AboutUs = ({
   pageContext: {
     page: { seo, components, type },

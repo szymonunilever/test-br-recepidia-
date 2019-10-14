@@ -6,6 +6,6 @@ export const reloadKritique = () => {
   kritiqueWidget && kritiqueWidget.rrReloadWidget();
 };
 
-const reloadKritiqueWidget = debounce(reloadKritique, 500);
+export const reloadKritiqueWidget = debounce(reloadKritique, 500);
 
 export default reloadKritiqueWidget;
