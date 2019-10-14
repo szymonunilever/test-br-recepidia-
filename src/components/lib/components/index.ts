@@ -6,8 +6,6 @@ export * from './Button';
 export * from './Card';
 export * from './Carousel';
 export * from './CheckElem';
-export * from './CountrySelector';
-export * from './FlagIcon';
 export * from './Form';
 export * from './GeneratedForm';
 export * from './GlobalFooter';
