@@ -38,18 +38,22 @@
       }
     }
   }
-
+  #modal__description {
+    height: 100%;
+  }
   .filter-settings {
+    height: 95%;
     flex-basis: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
     &__tagGroups {
-      height: 79vh;
       list-style-type: none;
       margin: 0;
-      padding: 0;
-      overflow-y: auto;
+      height: 100%;
+      padding: 0 0 70px 0;
+      overflow: auto;
       backface-visibility: hidden;
       transform-style: preserve-3d;
       perspective: inherit;
@@ -57,17 +61,26 @@
       @include respondTo(desktop) {
         position: relative;
         display: flex;
-        height: 72vh;
         border-bottom: 1px solid $white-gray;
         border-top: 1px solid $white-gray;
         justify-content: space-between;
       }
     }
     &__buttons {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      background: $white;
       display: flex;
       justify-content: center;
-      padding: 15px 0;
+      padding: 15px 25px;
       width: 100%;
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @include respondTo(desktop) {
+          left: 70px;
+          right: 70px;
+        }
+      }
       button + button {
         margin-left: 10px;
         @include respondTo(desktop) {
@@ -85,6 +98,7 @@
       @extend .button--medium;
     }
     &__category-item {
+      position: relative;
       border-bottom: 1px solid $white-gray;
       flex: 1;
       padding: 10px 0;
