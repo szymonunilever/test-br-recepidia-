@@ -19,6 +19,7 @@ export interface ButtonProps {
   isDisabled?: boolean;
   isSelected?: boolean;
   onClick?: ButtonCallback;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void;
   children?: ReactNode | ReactNode[];
   viewType?: ButtonViewType;
   hidden?: boolean;
