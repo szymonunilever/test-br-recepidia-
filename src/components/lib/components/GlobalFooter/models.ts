@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 import * as React from 'react';
 
 export interface GlobalFooterProps

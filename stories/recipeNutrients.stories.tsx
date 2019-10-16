@@ -2,9 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import dataRecipe from 'src/components/data/recipe.json';
 import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
-import RecipeNutrients, {
-  RecipeNutrientsViewType,
-} from 'src/components/lib/components/RecipeNutrients';
+import { RecipeNutrients, RecipeNutrientsViewType } from 'src/components/lib';
 
 const content: AppContent.RecipeNutrientsContent = {
   buttonLabel: { label: 'Nutrients' },

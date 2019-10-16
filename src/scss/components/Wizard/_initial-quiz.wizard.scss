@@ -7,7 +7,7 @@
   height: 100%;
   .wizard {
     &__container {
-      padding: 50px 0 20px;
+      padding: 45px 0 20px;
       display: flex;
     }
     &__content {
@@ -23,11 +23,18 @@
         overflow-y: visible;
         margin-bottom: -25px;
       }
+      .quiz__item {
+        padding-bottom: 0;
+      }
+    }
+    &__description {
+      margin-bottom: 20px;
     }
     &__logo {
       justify-content: flex-start;
       margin-bottom: 10px;
       margin-top: 0;
+      top: 10px;
       @include respondTo(desktop) {
         float: left;
         position: static;
@@ -35,6 +42,7 @@
       }
     }
     &__info {
+      padding: 0 8px;
       h1 {
         @include respondTo(desktop) {
           font-size: 5.2rem;
@@ -65,6 +73,11 @@
       color: $black-blue;
       & > p {
         @extend h2;
+      }
+    }
+    .checkable {
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }

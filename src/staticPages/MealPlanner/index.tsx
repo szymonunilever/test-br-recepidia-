@@ -1,17 +1,22 @@
 import React, { useCallback, useState } from 'react';
 import SEO from '../../components/Seo';
-import Wizard from '../../components/lib/components/Wizard';
-import WizardIntroductionPanel from '../../components/lib/components/Wizard/partials/IntroductionPanel';
-import WizardQuiz from '../../components/lib/components/Wizard/partials/Quiz';
-import WizardResultSection from '../../components/lib/components/Wizard/partials/ResultSection';
+import {
+  IntroductionPanel as WizardIntroductionPanel,
+  Logo,
+  Quiz as WizardQuiz,
+  RatingAndReviewsProvider,
+  RecipeListing,
+  RecipeListViewType,
+  reloadKritiqueWidget as useKritiqueReload,
+  ResultSection as WizardResultSection,
+  Wizard,
+} from 'src/components/lib';
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
-import Logo from '../../components/lib/components/Logo';
-import { RatingAndReviewsProvider } from '../../components/lib/models/ratings&reviews';
 import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 import {
-  saveUserProfileByKey,
   getUserProfileByKey,
+  saveUserProfileByKey,
   updateFavorites,
 } from '../../utils/browserStorage';
 import { ProfileKey } from '../../utils/browserStorage/models';
@@ -21,21 +26,18 @@ import { WindowLocation } from '@reach/router';
 import DigitalData from 'integrations/DigitalData';
 import theme from './mealPlanner.module.scss';
 import Kritique from 'integrations/Kritique';
-import useKritiqueReload from 'src/components/lib/utils/useKritiqueReload';
 import generateQuery from '../../utils/queryGenerator';
-import { MealPlannerPersonalizationFormula, IMAGE_SIZES } from 'src/constants';
+import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import getPersonalizationSearchData, {
   FROM,
 } from '../../utils/getPersonalizationSearchData';
-import RecipeListing, {
-  RecipeListViewType,
-} from 'src/components/lib/components/RecipeListing';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
 import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
 import DataCapturingForm from '../../components/DataCapturingForm';
+
 const RESULT_SIZE = 7;
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {

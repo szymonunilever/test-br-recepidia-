@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { RecipeCookingMethod } from '../src/components/lib/components/RecipeCookingMethod';
+import { RecipeCookingMethod } from '../src/components/lib';
 import recipe from 'src/components/data/recipe.json';
 
 const methods: RMSData.CookingMethodGroup[] = recipe.methods;

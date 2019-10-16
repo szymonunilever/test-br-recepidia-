@@ -5,16 +5,20 @@ import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
-import { TagName, Text } from 'src/components/lib/components/Text';
-import { findPageComponentContent, useElasticSearch } from 'src/utils';
-import RecipeListing, {
-  RecipeListViewType,
+import {
+  Hero,
   LoadMoreType,
-} from 'src/components/lib/components/RecipeListing';
-import Hero from 'src/components/lib/components/Hero';
-import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+  RecipeListing,
+  RecipeListViewType,
+  TagName,
+  Text,
+} from 'src/components/lib';
+import { findPageComponentContent, useElasticSearch } from 'src/utils';
+import {
+  ReactComponent as ArrowIcon,
+  ReactComponent as OpenIcon,
+} from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
 import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
@@ -31,8 +35,8 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import useFavorite from 'src/utils/useFavorite';
 import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
 import {
-  WithInitialDataAndAsyncLoadMore,
   QueryString,
+  WithInitialDataAndAsyncLoadMore,
 } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { IMAGE_SIZES } from 'src/constants';
 

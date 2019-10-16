@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import AdaptiveImage from 'src/components/lib/components/AdaptiveImage';
+import { AdaptiveImage } from 'src/components/lib';
 import localImage from './assets/localImage';
 
 const image = {

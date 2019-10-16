@@ -1,19 +1,19 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { UserPreferences } from '../src/components/lib/components/UserPreferences';
-import { PreferencesQuiz } from '../src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
+import { PreferencesQuiz, UserPreferences } from '../src/components/lib';
 import {
-  questionsMock as anotherQuestions,
-  preferencesIntroDefault,
-  preferencesIntro,
-  preferencesIntroWithLinks,
-  noResultProps,
   buttonsContent,
-  resultLabelProps,
   entryUpdateProps,
+  noResultProps,
+  preferencesIntro,
+  preferencesIntroDefault,
+  preferencesIntroWithLinks,
+  questionsMock as anotherQuestions,
+  resultLabelProps,
 } from './mocks/userPreferencesQuestions';
 import questionsMock from './mocks/wizardQuizQuestions';
 import { QuestionFilterPropNameKeys } from 'src/components/lib/components/Wizard/partials/Quiz/models';
+
 const content: AppContent.GeneratedForm.Content = {
   view: 'NewsletterSubscriptions',
   submitButton: {

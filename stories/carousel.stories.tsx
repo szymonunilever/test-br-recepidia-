@@ -1,14 +1,14 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import {
+  PageListing,
   RecipeListing,
   RecipeListViewType,
-} from '../src/components/lib/components/RecipeListing';
-import PageListing from '../src/components/lib/components/PageListing/PageListing';
+} from '../src/components/lib';
 import recipes from 'src/components/data/recipes.json';
 import pages from 'src/components/data/pageListing.json';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { PageListingViewTypes } from 'src/components/lib/components/PageListing/models';
+import { PageListingViewTypes } from 'src/components/lib';
 
 const recipesList: Internal.Recipe[] = recipes.data.allRecipe.edges.map(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

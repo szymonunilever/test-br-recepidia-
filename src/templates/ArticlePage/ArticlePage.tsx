@@ -1,6 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { TagName, Text } from 'src/components/lib/components/Text';
+import { TagName, Text } from 'src/components/lib';
 import SEO from 'src/components/Seo/Seo';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
@@ -11,14 +11,15 @@ import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import AddThis from '../../../integrations/AddThis';
 import Layout from '../../components/Layout/Layout';
-import Hero from '../../components/lib/components/Hero';
-import RichText from '../../components/lib/components/RichText';
-import get from 'lodash/get';
-import SocialSharing, {
+import {
+  Hero,
+  RichText,
   SocialIcons,
+  SocialSharing,
   SocialSharingViewType,
-} from '../../components/lib/components/SocialSharing';
-import { VideoPlayer } from '../../components/lib/components/VideoPlayer';
+  VideoPlayer,
+} from '../../components/lib';
+import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 

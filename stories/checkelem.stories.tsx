@@ -1,9 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import {
-  CheckElem,
-  checkElemTypes,
-} from '../src/components/lib/components/CheckElem';
+import { CheckElem, checkElemTypes } from '../src/components/lib';
 
 storiesOf(
   'Components/Form elements/Checkbox+Radio button combined element',

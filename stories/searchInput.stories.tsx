@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ReactComponent as PlaceholderIcon } from '../src/svgs/inline/placeholder.svg';
 
-import SeachInput from 'src/components/lib/components/SearchInput';
+import { Modal, SearchInput } from 'src/components/lib';
 import searchData from 'src/components/data/search.json';
-import { Modal } from 'src/components/lib/components/Modal';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchSvg } from 'src/svgs/inline/search-icon.svg';
 
@@ -44,12 +43,12 @@ const config = {
 
 storiesOf('Components/SearchInput', module)
   .add('defaultView', () => {
-    return <SeachInput list={searchData} content={content} {...config} />;
+    return <SearchInput list={searchData} content={content} {...config} />;
   })
   .add('in modal', () => {
     return (
       <ModalStateControl className="modal--search" closeBtn={<CloseSvg />}>
-        <SeachInput list={searchData} content={content} {...config} />
+        <SearchInput list={searchData} content={content} {...config} />
       </ModalStateControl>
     );
   });

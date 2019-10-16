@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
-import SearchInput from '../lib/components/SearchInput/SearchInput';
-import { Modal } from 'src/components/lib/components/Modal';
-import { Button } from '../lib/components/Button';
+import {
+  Button,
+  Modal,
+  SearchInput,
+  SearchInputProps,
+  SearchParams,
+} from 'src/components/lib';
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
-import { SearchParams } from '../lib/components/SearchListing/models';
-import { SearchInputProps } from '../lib/components/SearchInput/models';
 import { getSearchSuggestionResponse } from 'src/utils/searchUtils';
 
 const GlobalSearch = ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Tabs, { Tab } from 'src/components/lib/components/Tabs';
+import { Tab, Tabs } from 'src/components/lib';
 
 const content: AppContent.Tabs.Content = {
   // titles: ['Ingredients', 'Methods', 'Cooking'],

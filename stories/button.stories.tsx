@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import Button from 'src/components/lib/components/Button';
+import { Button } from 'src/components/lib';
 import { ReactComponent as Facebook } from 'src/svgs/inline/facebook.svg';
 
 const onClick = () => alert('on click button action');

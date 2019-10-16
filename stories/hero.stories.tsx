@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Hero from 'src/components/lib/components/Hero';
-import { HeroProps } from '../src/components/lib/components/Hero/models';
+import { Hero } from 'src/components/lib';
+import { HeroProps } from '../src/components/lib';
 
 const config: HeroProps = {
   viewType: 'Image',

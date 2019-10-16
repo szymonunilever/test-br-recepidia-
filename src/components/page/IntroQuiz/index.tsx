@@ -13,10 +13,7 @@ import {
 } from '../../../utils/browserStorage';
 import { ProfileKey } from '../../../utils/browserStorage/models';
 import DataCapturingForm from '../../DataCapturingForm';
-import Logo from '../../lib/components/Logo';
-import { Modal } from '../../lib/components/Modal';
-import Wizard from '../../lib/components/Wizard';
-import WizardQuiz from '../../lib/components/Wizard/partials/Quiz';
+import { Logo, Modal, Wizard, Quiz as WizardQuiz } from 'src/components/lib';
 import { IntroQuizProps } from './models';
 
 const IntroQuiz: FunctionComponent<IntroQuizProps> = ({

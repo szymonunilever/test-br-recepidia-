@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import pageListingData from '../src/components/data/pageListing.json';
-import PageListing from '../src/components/lib/components/PageListing';
-import { PageListingProps } from '../src/components/lib/components/PageListing/models';
+import { PageListing, PageListingProps } from '../src/components/lib';
 
 const page = {
   maxWidth: '1090px',

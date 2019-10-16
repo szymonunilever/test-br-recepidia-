@@ -1,4 +1,4 @@
-import { WizardStepComponent } from '../../../globalModels';
+import { WizardStepComponent } from '../../../../models/globalModels';
 import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
 import { QuizButton } from 'src/components/page/IntroQuiz/models';
 
