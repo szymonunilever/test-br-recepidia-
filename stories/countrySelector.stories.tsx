@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { CountrySelector } from '../src/components/lib';
+import { CountrySelector } from '../src/components/lib/components/CountrySelector';
 import countriesList from 'src/components/data/countrySelector.json';
 
 storiesOf('Components/CountrySelector', module)
