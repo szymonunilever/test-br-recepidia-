@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import React, { Fragment, FunctionComponent } from 'react';
-import Button, { ButtonProps } from '../../../Button';
+import { Button } from '../../../Button';
 import { ResultSectionProps } from './models';
 import { TagName, Text } from '../../../Text';
 

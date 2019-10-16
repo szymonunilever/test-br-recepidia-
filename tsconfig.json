@@ -10,7 +10,9 @@
     "esModuleInterop": true,
     "noUnusedLocals": false,
     "baseUrl": "./",
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src",
+      "src/components/lib/stories"
+    ],
     "resolveJsonModule": true
   },
   "exclude": ["node_modules", "public", ".cache"]

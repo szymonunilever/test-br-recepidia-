@@ -2,7 +2,7 @@ import React from 'react';
 import { NullResult } from '../../NullResult';
 import { RecipeCard } from './index';
 import { RecipeListingTrivialProps } from './models';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import { RatingAndReviewsProvider } from '../../../models';
 
 const RecipeListingTrivial = ({
   list,

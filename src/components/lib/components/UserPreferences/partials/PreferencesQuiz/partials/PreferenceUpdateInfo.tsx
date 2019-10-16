@@ -1,8 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { PreferenceUpdateProps, PreferenceUpdateResultType } from './models';
+//TODO: get icons from props or children.
+/** Attention: now "src" is webpack alias for the folder "src/components/lib/stories" for storybook app.
+ * It was done for compatibility with site app.
+ * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
 import { ReactComponent as SuccessIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 import { ReactComponent as ErrorIcon } from 'src/svgs/inline/x-mark.svg';
-import { TagName, Text } from 'src/components/lib/components/Text';
+import { TagName, Text } from '../../../../Text';
 
 const classNameMap = {
   [PreferenceUpdateResultType.Success]: 'success',

@@ -2,7 +2,7 @@ import { ReactChild, ReactChildren } from 'react';
 import {
   UnileverLibraryComponent,
   WizardStepComponent,
-} from '../../../../models/globalModels';
+} from '../../../../models';
 
 export interface ResultSectionProps
   extends UnileverLibraryComponent<AppContent.WizardResultsSection.Content>,

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import GeneratedForm from 'src/components/lib/components/GeneratedForm';
+import GeneratedForm from '../GeneratedForm';
 import { NewsletterSubscriptionProps } from './index';
 
 const NewsletterSubscriptions: FunctionComponent<

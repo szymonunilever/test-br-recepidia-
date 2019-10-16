@@ -3,7 +3,7 @@ import React from 'react';
 import { TagName, Text } from '../../Text';
 import { RecipeCopyIngredientsProps } from './models';
 import theme from './RecipeCopyIngredients.module.scss';
-import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
+import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
 
 export const RecipeCopyIngredients = ({
   className,
