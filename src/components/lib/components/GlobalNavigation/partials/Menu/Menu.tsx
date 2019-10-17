@@ -144,7 +144,11 @@ const Menu = ({
     i: number,
     isSubmenuList: boolean
   ) => {
-    if (e.keyCode === KeyCode.Tab) {
+    if (
+      e.keyCode === KeyCode.Tab ||
+      ((e.keyCode === KeyCode.Enter || e.keyCode === KeyCode.Space) &&
+        !isSubmenuList)
+    ) {
       return true;
     }
     e.preventDefault();
