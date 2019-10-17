@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import Menu from '../Menu';
 import { NavigationProps } from './models';
-import { Button as ButtonClose } from 'src/components/lib/components/Button';
-import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
+import { Button as ButtonClose } from '../../../Button';
+import getComponentDataAttrs from '../../../../utils/getComponentDataAttrs';
 import { KeyCode } from '../../../constants';
 
 const Navigation = ({
