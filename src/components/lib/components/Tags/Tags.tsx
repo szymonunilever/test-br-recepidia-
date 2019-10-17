@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Button } from 'src/components/lib/components/Button';
+import { Button } from '../Button';
 import { TagsProps, TagViewType, TagVariant } from './models';
 import Tag from './partials/Tag';
 import includes from 'lodash/includes';

@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { OptionProps } from './models';
-import { ReactComponent as CheckMark } from '../../../../../../../../svgs/inline/checkmark-bigger.svg';
+//TODO: get icons from props or children.
+/** Attention: now "src" is webpack alias for the folder "src/components/lib/stories" for storybook app.
+ * It was done for compatibility with site app.
+ * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
+import { ReactComponent as CheckMark } from 'src/svgs/inline/checkmark-bigger.svg';
 import OptionLabel from '../OptionLabel';
 import AdaptiveImage from '../../../../../AdaptiveImage/AdaptiveImage';
 import cx from 'classnames';

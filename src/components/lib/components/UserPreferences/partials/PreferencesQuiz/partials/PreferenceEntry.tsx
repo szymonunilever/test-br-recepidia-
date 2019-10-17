@@ -5,9 +5,13 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { PreferenceEntryProps, PreferenceUpdateResultType } from './models';
-import Button from 'src/components/lib/components/Button';
-import Question from 'src/components/lib/components/Wizard/partials/Quiz/partials/Question';
-import QuestionLabel from 'src/components/lib/components/Wizard/partials/Quiz/partials/QuestionLabel';
+import Button from '../../../../Button';
+import Question from '../../../../Wizard/partials/Quiz/partials/Question';
+import QuestionLabel from '../../../../Wizard/partials/Quiz/partials/QuestionLabel';
+//TODO: get icons from props or children.
+/** Attention: now "src" is webpack alias for the folder "src/components/lib/stories" for storybook app.
+ * It was done for compatibility with site app.
+ * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
 import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
 import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
 import { PreferenceInteractionType } from '../index';

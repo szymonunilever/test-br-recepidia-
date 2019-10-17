@@ -5,16 +5,16 @@ import {
   LastInteraction,
   PreferenceInteractionType,
 } from './index';
-import { Text, TagName } from 'src/components/lib/components/Text';
-import sortByOrderIndex from 'src/components/lib/utils/sortByOrderIndex';
+import { Text, TagName } from '../../../Text';
+import sortByOrderIndex from '../../../../utils/sortByOrderIndex';
 import PreferenceUpdateInfo from './partials/PreferenceUpdateInfo';
-import { PreferenceUpdateResultType } from './partials/index';
+import { PreferenceUpdateResultType } from './partials';
 import {
   Question,
   QuestionFilterPropNameKeys,
 } from '../../../Wizard/partials/Quiz/models';
 import PreferenceUpdateBlock from './partials/PreferenceUpdateBlock';
-import { RecipeAttributesKeys } from '../../../RecipeAttributes/models';
+import { RecipeAttributesKeys } from '../../../RecipeAttributes';
 
 const PreferencesQuiz: FunctionComponent<PreferenceQuizProps> = ({
   questions,

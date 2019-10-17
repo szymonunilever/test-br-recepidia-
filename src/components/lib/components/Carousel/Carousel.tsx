@@ -1,5 +1,9 @@
 import React, { useState, useEffect, CSSProperties, useCallback } from 'react';
 import Arrow from './partials/Arrow';
+//TODO: get icons from props or children.
+/** Attention: now "src" is webpack alias for the folder "src/components/lib/stories" for storybook app.
+ * It was done for compatibility with site app.
+ * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import ProgressBar from './partials/ProgressBar';
 import { CarouselProps, BreakpointProps, CarouselConfig } from './models';

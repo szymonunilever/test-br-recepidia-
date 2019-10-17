@@ -7,9 +7,9 @@ import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 import Rating from '../../Rating';
 import AdaptiveImage from '../../AdaptiveImage';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
-import { getImageAlt } from 'src/utils';
-import getComponentDataAttrs from 'src/components/lib/utils/getComponentDataAttrs';
+import { RatingAndReviewsProvider } from '../../../models';
+import { getImageAlt } from '../../../utils';
+import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
 
 const RecipeCard = ({
   recipeId,

@@ -4,7 +4,7 @@ import theme from './Tabs.module.scss';
 import cx from 'classnames';
 import Button from '../Button';
 import { Tab } from './partials';
-import { TagName, Text } from 'src/components/lib/components/Text';
+import { TagName, Text } from '../Text';
 import get from 'lodash/get';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 

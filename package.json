@@ -134,8 +134,7 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
     "lint:fix": "yarn lint --fix",
-    "storybook": "start-storybook -p 6006 -s ./stories/static",
-    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled -s ./stories/static",
+    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled -s src/components/lib/stories/static",
     "build-storybook": "build-storybook"
   }
 }

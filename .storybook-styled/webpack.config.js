@@ -1,5 +1,5 @@
 const path = require('path');
-const pathToInlineSvg = path.resolve(__dirname, '../src/svgs/inline/');
+const pathToInlineSvg = path.resolve(__dirname, '../src/components/lib/stories/svgs/inline/');
 module.exports = ({ config }) => {
   // console.log(config.module.rules);
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
@@ -34,10 +34,10 @@ module.exports = ({ config }) => {
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
+  /** Attention: There is configuration src alias for compatibility with site app.
+   * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
   config.resolve.alias = {
-    src: path.resolve(__dirname, '../src'),
-    integrations: path.resolve(__dirname, '../integrations'),
-    'app-config': path.resolve(__dirname, '../app-config'),
+    src: path.resolve(__dirname, '../src/components/lib/stories'),
   };
 
   config.module.rules.push({

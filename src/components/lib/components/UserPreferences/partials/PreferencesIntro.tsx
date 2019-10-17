@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Text, TagName } from 'src/components/lib/components/Text';
+import { Text, TagName } from '../../Text';
 import { PreferencesIntroProps } from './models';
 import { Link } from 'gatsby';
 import { RichText } from '../../RichText';
