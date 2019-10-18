@@ -4,7 +4,8 @@ import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import '../../scss/pages/_newsletterSignUp.scss';
-import { isBrowser } from 'src/utils';
+import { isBrowser, findPageComponentContent } from 'src/utils';
+import { TagName, Text } from 'src/components/lib';
 
 const GIGYA_SCRIPT_SRC = `${process.env['gigya_script_src']}?apiKey=${
   process.env['gigya_script_api_key']
@@ -14,7 +15,7 @@ const NewsletterSignupPage: React.FunctionComponent<
   NewsletterSignupPageProps
 > = ({ pageContext, location }) => {
   const {
-    page: { seo, type },
+    page: { seo, type, components },
   } = pageContext;
 
   const [configScriptLoaded, setConfigScriptLoaded] = useState<boolean | null>(
@@ -25,12 +26,16 @@ const NewsletterSignupPage: React.FunctionComponent<
     isBrowser() && window.gigya && window.gigya.isGigya && window.gigya.isReady;
 
   useEffect(() => {
-    isGigyaLoaded() &&
-      // @ts-ignore
-      window.gigya.accounts.showScreenSet({
-        screenSet: process.env['newsletter_signUp_screenset_name'],
-        containerID: 'gigya-newsletter-screenset',
-      });
+    const gigyaCheck = setInterval(() => {
+      if (isGigyaLoaded()) {
+        clearInterval(gigyaCheck);
+        // @ts-ignore
+        window.gigya.accounts.showScreenSet({
+          screenSet: process.env['newsletter_signUp_screenset_name'],
+          containerID: 'gigya-newsletter-screenset',
+        });
+      }
+    }, 300);
   }, []);
 
   return (
@@ -79,7 +84,18 @@ const NewsletterSignupPage: React.FunctionComponent<
             className="gy-ui-screen-set"
             data-screen-set={process.env['newsletter_signUp_screenset_name']}
             id="gigya-newsletter-screenset"
-          />
+          >
+            <Text
+              text={
+                findPageComponentContent(
+                  components,
+                  'Text',
+                  'Loading screenset placeholder'
+                ).text
+              }
+              tag={TagName.h2}
+            />
+          </div>
         </div>
       </section>
     </Layout>
