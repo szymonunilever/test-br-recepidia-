@@ -50,9 +50,9 @@
     position: relative;
     &__tagGroups {
       list-style-type: none;
-      margin: 0;
+      margin: 0 0 50px 0;
       height: 100%;
-      padding: 0 0 70px 0;
+      padding: 0;
       overflow: auto;
       backface-visibility: hidden;
       transform-style: preserve-3d;
