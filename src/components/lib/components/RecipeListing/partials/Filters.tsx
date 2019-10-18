@@ -47,7 +47,7 @@ const Filter = ({
   const sortingOptions: Option[] = optionLabels
     ? map(enumToArray(RecipeSortingOptions), (item, key) => ({
         label: optionLabels[item],
-        value: '' + key,
+        value: '' + item,
       }))
     : [];
 
