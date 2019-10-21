@@ -2595,7 +2595,15 @@
       "type": "NewsletterSignUp",
       "relativePath": "/inscrever",
       "components": {
-        "items": []
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Loading screenset placeholder",
+              "text": "Carregando o conjunto de telas"
+            }
+          }
+        ]
       },
       "seo": {
         "title": "Inscreva-se em Recepedia",
