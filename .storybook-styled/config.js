@@ -2,7 +2,7 @@ import { configure, addParameters } from '@storybook/react';
 import '!style-loader!css-loader!sass-loader!../src/scss/main.scss';
 import { action } from '@storybook/addon-actions';
 
-const req = require.context('../stories', true, /\.stories\.tsx$/);
+const req = require.context('../src/components/lib/stories', true, /\.stories\.tsx$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));

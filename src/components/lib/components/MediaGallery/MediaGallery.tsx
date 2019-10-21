@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import cx from 'classnames';
 import { MediaGalleryProps } from './models';
 import { TagName, Text } from '../Text';
-import { Button } from 'src/components/lib/components/Button';
+import { Button } from '../Button';
 import MediaGalleryItem from './partials/MediaGalleryItem';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 

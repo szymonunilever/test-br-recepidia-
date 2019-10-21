@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import components from '../../lib';
+import { RecipeListing as RecipeListingComponent } from '../../lib';
 
 const RecipeListing = ({ content }: RecipeListingProps) => {
   let recipeList;
@@ -21,7 +21,7 @@ const RecipeListing = ({ content }: RecipeListingProps) => {
   }
 
   return (
-    <components.RecipeListing
+    <RecipeListingComponent
       list={recipeList.allRecipe.nodes}
       content={content}
       imageSizes={'(min-width: 768px) 500, 500px'}

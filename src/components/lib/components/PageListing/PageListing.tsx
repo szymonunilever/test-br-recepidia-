@@ -5,7 +5,7 @@ import { ItemProps } from './partials/PageListingItem/models';
 import { TagName, Text } from '../Text';
 import PageListingItem from './partials/PageListingItem';
 import PageListingCarousel from './PageListingCarousel';
-import { Button } from 'src/components/lib/components/Button';
+import { Button } from '../Button';
 import { CarouselConfig } from '../Carousel/models';
 import { defaultCarouselConfig } from '../Carousel/Carousel';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';

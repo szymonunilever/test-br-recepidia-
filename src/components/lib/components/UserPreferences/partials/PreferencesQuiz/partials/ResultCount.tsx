@@ -1,6 +1,10 @@
 import React, { useState, FunctionComponent, useCallback } from 'react';
-import { TagName, Text } from 'src/components/lib/components/Text';
+import { TagName, Text } from '../../../../Text';
 import { ResultCountProps } from './index';
+//TODO: get icons from props or children.
+/** Attention: now "src" is webpack alias for the folder "src/components/lib/stories" for storybook app.
+ * It was done for compatibility with site app.
+ * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
 import { ReactComponent as ArrowUp } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as ArrowDown } from 'src/svgs/inline/arrow-down.svg';
 

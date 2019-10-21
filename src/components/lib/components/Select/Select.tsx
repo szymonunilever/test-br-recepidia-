@@ -21,6 +21,7 @@ const CustomOption = (props: any) => {
       <div
         role="option"
         key={item.label + itemIndex}
+        id={item.value}
         aria-selected={isSelected}
         onClick={onClick}
         aria-label={item.label}
