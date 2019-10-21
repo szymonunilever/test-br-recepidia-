@@ -53,7 +53,7 @@ const Filter = ({
 
   const sortingChange = (val: Option[]) => {
     if (val.length && onChangeSorting) {
-      onChangeSorting(parseInt(val[0].value));
+      onChangeSorting((RecipeSortingOptions as any)[val[0].value]);
     }
   };
 
