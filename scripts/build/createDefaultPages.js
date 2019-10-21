@@ -79,6 +79,7 @@ module.exports = async ({ graphql, createPage }) => {
         'Search',
         'ContactUs',
         'ContactForm',
+        'ContactUsThankYou',
         'UserProfile',
         'NotFound',
         'AboutUs',
