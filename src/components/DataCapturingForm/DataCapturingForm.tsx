@@ -1,10 +1,15 @@
 import cx from 'classnames';
 import React, { FunctionComponent } from 'react';
 import { GeneratedForm, TagName, Text } from 'src/components/lib';
-import { getUserProfileByKey } from '../../utils/browserStorage';
+import {
+  getUserProfileByKey,
+  saveUserProfileByKey,
+} from '../../utils/browserStorage';
 import theme from './DataCapturingForm.module.scss';
-import { DataCapturingFormProps } from './models';
+import { DataCapturingFormProps, DataPrepopulateProps } from './models';
 import { sendForm } from './helpers';
+import { ProfileKey } from '../../utils/browserStorage/models';
+import isEmpty from 'lodash/isEmpty';
 
 const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
   className,
@@ -17,9 +22,29 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
   titleRenderer,
 }) => {
   const { title, subtitle, ...formContent } = content;
+  let formContentModified = formContent;
+  const dataPrePopulated = getUserProfileByKey(
+    ProfileKey.user
+  ) as DataPrepopulateProps;
+  if (!isEmpty(dataPrePopulated)) {
+    const emailField = formContentModified.fields.find(
+      ({ name }) => name === 'email'
+    );
+    const firstNameField = formContentModified.fields.find(
+      ({ name }) => name === 'firstName'
+    );
+    const lastNameField = formContentModified.fields.find(
+      ({ name }) => name === 'lastName'
+    );
+    emailField && (emailField.value = dataPrePopulated.email);
+    firstNameField && (firstNameField.value = dataPrePopulated.firstName);
+    lastNameField && (lastNameField.value = dataPrePopulated.lastName);
+  }
   const results = getUserProfileByKey(pathToData);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (values: any) => {
+    const { email, firstName, lastName } = values;
+    saveUserProfileByKey({ email, firstName, lastName }, ProfileKey.user);
     const data = { results, formData: values };
     sendForm(url, host, data)
       .then(() => {
@@ -47,7 +72,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
       <GeneratedForm
         className={cx(theme.dataCapturing, className)}
         onSubmit={onSubmit}
-        content={formContent}
+        content={formContentModified}
         shouldValidate
       />
     </>
