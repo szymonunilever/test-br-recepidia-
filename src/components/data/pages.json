@@ -1305,6 +1305,45 @@
       }
     },
     {
+      "type": "ContactUsThankYou",
+      "relativePath": "/obrigado",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "Obrigado!"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Description",
+              "text": "Não se preocupe, um dos nossos assistentes de cozinha irá te retornar em breve :)"
+            }
+          },
+          {
+            "name": "Button",
+            "content": {
+              "label": "Voltar para a página inicial",
+              "linkTo": "/"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Obrigado",
+        "description": "Não se preocupe, um dos nossos assistentes de cozinha irá te retornar em breve",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
       "title": "User Profile",
       "type": "UserProfile",
       "relativePath": "/perfil",
