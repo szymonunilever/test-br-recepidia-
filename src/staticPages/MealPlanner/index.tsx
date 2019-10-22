@@ -79,12 +79,14 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       if (data.body.hits.total.value === 0 && i < maxTry) {
         processSearchData(quizData, i);
       } else {
-        setRecipes(result);
-        useKritiqueReload();
-        saveUserProfileByKey(
-          result.map(item => item.recipeId),
-          ProfileKey.mealPlannerResults
-        );
+        if (result && result.length) {
+          setRecipes(result);
+          useKritiqueReload();
+          saveUserProfileByKey(
+            result.map(item => item.recipeId),
+            ProfileKey.mealPlannerResults
+          );
+        }
       }
     });
   };

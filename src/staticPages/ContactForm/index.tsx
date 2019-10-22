@@ -10,6 +10,7 @@ import sendForm from 'src/services/form.service';
 import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_contactForm.scss';
+import { navigate } from 'gatsby';
 
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,
@@ -42,6 +43,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
           });
         setTimeout(() => {
           setModalState({ ...modalState, isOpen: false });
+          navigate('/obrigado');
         }, 3000);
       } catch (e) {
         setModalState({

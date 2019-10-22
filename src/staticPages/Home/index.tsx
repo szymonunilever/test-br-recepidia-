@@ -18,7 +18,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
+import get from 'lodash/get';
 
 import IntroQuiz from '../../components/page/IntroQuiz';
 
@@ -30,9 +30,15 @@ import { getRecipes, isQuizesStored } from './helpers';
 // Component Styles
 import '../../scss/pages/_home.scss';
 import { IMAGE_SIZES } from 'src/constants';
+import xor from 'lodash/xor';
+import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
+  topRecipes.nodes = xor(topRecipes.nodes, latestAndGrates.nodes).slice(
+    FROM,
+    RESULT_SIZE
+  );
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
@@ -74,15 +80,28 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const searchRecipes = () => {
     setLoadedLatest(false);
     setLoadedTop(false);
-    Promise.all([
-      getRecipes(latestAndGrates.nodes),
-      getRecipes(topRecipes.nodes, { from: FROM + RESULT_SIZE }),
-    ])
-      .then(([latestResult, topResult]) => {
+    getRecipes(latestAndGrates.nodes, {
+      sort: [
+        { creationTime: { order: 'desc' } },
+        { averageRating: { order: 'desc' } },
+      ],
+    })
+      .then(latestResult => {
         setLatestAndGratestResult(latestResult);
         setLoadedLatest(true);
-        setTopRecipesResult(topResult);
-        setLoadedTop(true);
+        const recipeIds = latestResult.map(recipe => get(recipe, 'recipeId'));
+        getRecipes(topRecipes.nodes, {
+          sort: [
+            { averageRating: { order: 'desc' } },
+            { creationTime: { order: 'desc' } },
+          ],
+          exclude: [{ terms: { recipeId: recipeIds } }],
+        })
+          .then(topResult => {
+            setTopRecipesResult(topResult);
+            setLoadedTop(true);
+          })
+          .catch();
       })
       .catch();
   };
@@ -216,11 +235,10 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
 
 export default HomePage;
 
-//TODO: When we will have rating we need to change query sorting params for both requests latestAndGrates and topRecipes.
 export const pageQuery = graphql`
   {
     latestAndGrates: allRecipe(
-      sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
+      sort: { order: [DESC, DESC], fields: [creationTime, averageRating] }
       limit: 6
     ) {
       nodes {
@@ -230,8 +248,7 @@ export const pageQuery = graphql`
 
     topRecipes: allRecipe(
       sort: { order: [DESC, DESC], fields: [averageRating, creationTime] }
-      limit: 6
-      skip: 6
+      limit: 12
     ) {
       nodes {
         ...RecipeFields

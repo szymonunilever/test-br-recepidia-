@@ -3,7 +3,7 @@ import {
   titleLevel,
   UnileverLibraryComponent,
   WizardStepComponent,
-} from '../lib/models/globalModels';
+} from '../lib/models';
 
 export interface DataCapturingFormProps
   extends UnileverLibraryComponent<AppContent.GeneratedForm.Content>,
@@ -13,4 +13,10 @@ export interface DataCapturingFormProps
   url: string;
   host: string;
   pathToData: ProfileKey;
+}
+
+export interface DataPrepopulateProps {
+  email: string;
+  firstName: string;
+  lastName: string;
 }
