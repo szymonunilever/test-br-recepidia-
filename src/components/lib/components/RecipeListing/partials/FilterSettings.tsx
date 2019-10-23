@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import remove from 'lodash/remove';
-import get from 'lodash/get';
 import React from 'react';
 import { Accordion } from '../../Accordion';
 import { Button } from '../../Button';
@@ -50,7 +49,7 @@ const FilterSettings = ({
           <li key={key} className="filter-settings__category-item">
             <Accordion
               className="filter-settings__category-header"
-              title={item.label || item.name}
+              title={{ label: item.label, name: item.name }}
               Icon={OpenIcon}
               IconOpened={CloseIcon}
               isOpen={false}
