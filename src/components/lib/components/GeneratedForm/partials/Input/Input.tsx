@@ -4,7 +4,7 @@ import { InputProps } from './models';
 import cx from 'classnames';
 
 const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
-  <Field name={name} validate={validate}>
+  <Field name={name} validate={validate} initialValue={content.value}>
     {({ input, meta }) => {
       return (
         <div className="field">
@@ -40,7 +40,6 @@ const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
                     meta.invalid,
                 })}
                 placeholder={content.placeholder}
-                value={content.value}
               />
               {error(meta)}
             </div>
