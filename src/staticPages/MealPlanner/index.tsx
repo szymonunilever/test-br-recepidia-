@@ -141,7 +141,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           >
             {!isLoading ? (
               <div>
-                {recipes.length && (
+                {recipes.length > 0 && (
                   <RecipeListing
                     content={findPageComponentContent(components, 'Wizard')}
                     favorites={Array.isArray(favorites) ? favorites : []}
