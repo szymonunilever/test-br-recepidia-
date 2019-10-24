@@ -11,7 +11,7 @@ export interface DataCapturingFormProps
   titleRenderer?: (markup: JSX.Element) => JSX.Element;
   titleLevel?: titleLevel;
   url: string;
-  host: string;
+  formType: string;
   pathToData: ProfileKey;
 }
 
