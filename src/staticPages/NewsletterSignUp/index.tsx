@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
@@ -25,17 +25,23 @@ const NewsletterSignupPage: React.FunctionComponent<
     // @ts-ignore
     isBrowser() && window.gigya && window.gigya.isGigya && window.gigya.isReady;
 
+  const onAfterSubmit = useCallback(eventObject => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   useEffect(() => {
     const gigyaCheck = setInterval(() => {
-      if (isGigyaLoaded()) {
+      if (isGigyaLoaded() && !configScriptLoaded) {
         clearInterval(gigyaCheck);
         // @ts-ignore
         window.gigya.accounts.showScreenSet({
           screenSet: process.env['newsletter_signUp_screenset_name'],
           containerID: 'gigya-newsletter-screenset',
+          onAfterSubmit: onAfterSubmit,
         });
       }
     }, 300);
+    return () => clearInterval(gigyaCheck);
   }, []);
 
   return (
@@ -68,13 +74,6 @@ const NewsletterSignupPage: React.FunctionComponent<
             id="gigya-config-script"
             key="gigya-config-script"
           />,
-          configScriptLoaded && (
-            <script
-              type="text/javascript"
-              src={process.env['gigya_script_src2']}
-              key="gigya_source"
-            />
-          ),
         ]}
       </SEO>
       <DigitalData title={seo.title} type={type} />
