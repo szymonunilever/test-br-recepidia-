@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { titleLevel } from '../common/globalModels';
+import { titleLevel } from '../../models/globalModels';
 import { RecipeCopyProps, RecipeCopyViewType } from './models';
 import {
   RecipeCopyDescription,
@@ -9,9 +9,11 @@ import {
   RecipeCopyIngredients,
 } from './partials';
 import theme from './RecipeCopy.module.scss';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeCopy = ({
   className,
+  content,
   content: { title, subtitle },
   recipe,
   titleLevel = 1,
@@ -23,25 +25,8 @@ export const RecipeCopy = ({
     case RecipeCopyViewType.Title:
       view = <RecipeCopyTitle title={recipe.title} titleLevel={titleLevel} />;
       break;
-    case RecipeCopyViewType.ShortTitle:
-      view = recipe.shortTitle ? (
-        <RecipeCopyTitle
-          className="recipe-copy-short-title"
-          title={recipe.shortTitle}
-          titleLevel={titleLevel}
-        />
-      ) : null;
-      break;
     case RecipeCopyViewType.Description:
       view = <RecipeCopyDescription description={recipe.description} />;
-      break;
-    case RecipeCopyViewType.ShortDescription:
-      view = recipe.shortDescription ? (
-        <RecipeCopyDescription
-          className="recipe-copy-short-description"
-          description={recipe.shortDescription}
-        />
-      ) : null;
       break;
     case RecipeCopyViewType.Ingredients:
       view = (
@@ -55,7 +40,10 @@ export const RecipeCopy = ({
       break;
   }
   return (
-    <div className={classWrapper} data-componentname="recipeCopy">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeCopy', content)}
+    >
       {view}
     </div>
   );

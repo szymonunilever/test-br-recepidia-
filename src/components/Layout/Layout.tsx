@@ -1,43 +1,133 @@
-import React, { ReactNode } from 'react';
-import Search from 'src/components/Search/Search';
-import GlobalFooter from 'src/components/lib/components/GlobalFooter';
-import footerContent from 'src/components/data/globalFooterMenu.json';
-import LogoIcon from 'src/svgs/inline/logo.svg';
+import React, { ReactNode, useEffect } from 'react';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
+import {
+  BackToTop,
+  BrandSocialChannels,
+  GeneratedForm,
+  GlobalFooter,
+} from 'src/components/lib';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
-import ArrowDownIcon from 'src/svgs/inline/arrow-down.svg';
-import ButtonCloseIcon from 'src/svgs/inline/x-mark.svg';
-import GlobalNavigation from 'src/components/lib/components/GlobalNavigation';
-import globalMenuItems from 'src/components/data/globalNavigationMenu.json';
-import 'src/scss/main.scss';
-import BackToTop from '../lib/components/BackToTop/BackToTop';
-import Icon from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
+import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
+import Navigation from '../Navigation/Navigation';
+import cx from 'classnames';
+import { findPageComponentContent } from 'src/utils';
+import smartOutline from 'smart-outline';
+import find from 'lodash/find';
+// // Component Styles
+// import '../../scss/pages/_layout.scss';
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({
+  children,
+  className,
+  showNewsletterForm = true,
+}: LayoutProps) => {
+  const { allCommonComponent, allCategory } = useStaticQuery(graphql`
+    {
+      allCommonComponent {
+        nodes {
+          content
+          name
+        }
+      }
+      allCategory(filter: { inFooter: { eq: true } }) {
+        nodes {
+          title
+          inFooter
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  useEffect(() => {
+    smartOutline.init();
+  }, []);
+  const componentNodes = allCommonComponent.nodes;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  componentNodes.forEach((component: any) => {
+    component.content =
+      typeof component.content === 'string'
+        ? JSON.parse(component.content)
+        : component.content;
+  });
+  const components = { items: componentNodes };
+
+  const footerCategoryLinks: AppContent.GlobalFooter.MenuItem[] = allCategory.nodes.map(
+    (category: Partial<Internal.Category>) => ({
+      path: category.fields && category.fields.slug,
+      name: category.title,
+    })
+  );
+
+  const footerNavLists: AppContent.GlobalFooter.Content = findPageComponentContent(
+    components,
+    'GlobalFooter'
+  );
+  const footerCategoryList: AppContent.GlobalFooter.MenuList = {
+    items: footerCategoryLinks,
+  };
+
+  const categoryLinksInFooter = find(footerNavLists.lists, footerCategoryList);
+
+  if (!categoryLinksInFooter) {
+    footerNavLists.lists.unshift(footerCategoryList);
+  }
+
+  // eslint-disable-next-line no-console
+  const onSignUpCallback = () => {
+    navigate('/inscrever');
+  };
+
+  // @ts-ignore
   return (
-    <div className="global-container">
-      <BackToTop content={{ label: 'Back to top' }} Icon={Icon} />
+    <div className={cx('global-container', className)}>
+      <BackToTop content={{}} Icon={ArrowUpIcon} />
       <a className="skip-to-content" href="#content">
         Skip To Content
       </a>
-      <GlobalNavigation
-        logo={{
-          icon: (
-            <LogoIcon style={{ height: '40px' }} className="main-logo__icon" />
-          ),
-          path: '/',
-        }}
-        dropDownIcon={<ArrowDownIcon className="dropdown-icon" />}
-        buttonCloseIcon={ButtonCloseIcon}
-        content={{ list: globalMenuItems }}
-        isAccordion
-      >
-        <Search />
-      </GlobalNavigation>
-      <main id="content">{children}</main>
-      <GlobalFooter
-        logoIcon={<UnileverLogoIcon text="Unilever Logo" />}
-        content={footerContent}
+      <Navigation
+        navigationContent={
+          findPageComponentContent(
+            components,
+            'GlobalNavigation'
+          ) as AppContent.GlobalNavigation.Content
+        }
+        searchContent={
+          findPageComponentContent(
+            components,
+            'SearchInput'
+          ) as AppContent.SearchInput.Content
+        }
+        profileContent={
+          findPageComponentContent(
+            components,
+            'Profile'
+          ) as AppContent.ProfileHeader.Content
+        }
       />
+      <main id="content">{children}</main>
+      {showNewsletterForm && (
+        <GeneratedForm
+          shouldValidate={false}
+          onSubmit={onSignUpCallback}
+          recaptchaAction="SignUpEmail"
+          content={findPageComponentContent(components, 'Form', 'SignUpForm')}
+          className="general-signup"
+        />
+      )}
+      <GlobalFooter logoIcon={<UnileverLogoIcon />} content={footerNavLists}>
+        <BrandSocialChannels
+          content={findPageComponentContent(components, 'BrandSocialChannels')}
+          listIcons={{
+            facebook: <FacebookIcon />,
+            instagram: <InstagramIcon />,
+          }}
+        />
+      </GlobalFooter>
     </div>
   );
 };
@@ -48,4 +138,6 @@ interface LayoutProps {
   location?: Location;
   title?: string;
   children?: ReactNode | ReactNode[];
+  className?: string;
+  showNewsletterForm?: boolean;
 }

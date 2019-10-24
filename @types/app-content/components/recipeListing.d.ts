@@ -7,7 +7,8 @@ declare namespace AppContent.RecipeListing {
     optionLabels?: OptionLabels;
     sortSelectPlaceholder?: string;
     nullResult?: NullResult;
-    filtersCta?: FiltersCTA;
+    filtersPanel?: FiltersPanel;
+    staticList?: number[];
   }
   interface OptionLabels {
     preparationTime: string;
@@ -19,9 +20,12 @@ declare namespace AppContent.RecipeListing {
     [key: string]: string;
   }
 
-  interface FiltersCTA {
-    resetLabel: AppContent.CTAContent;
-    applyLabel: AppContent.CTAContent;
+  interface FiltersPanel {
+    title?: string;
+    ctas: {
+      reset: AppContent.CTAContent;
+      apply: AppContent.CTAContent;
+    };
   }
 
   interface NullResult {

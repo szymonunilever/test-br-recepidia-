@@ -1,3 +1,2 @@
-export { RecipeCopy } from './RecipeCopy';
-export { default } from './RecipeCopy';
+export { default, RecipeCopy } from './RecipeCopy';
 export * from './models';

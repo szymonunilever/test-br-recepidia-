@@ -1,0 +1,39 @@
+$carouselItemPadding: 5px;
+$carouselItemPaddingDesktop: 8px;
+
+.carousel {
+  position: relative;
+  &__images {
+    margin: 0 (-$carouselItemPadding);
+    @include respondTo(desktop) {
+      margin: 0 (-$carouselItemPaddingDesktop);
+    }
+  }
+  &__item {
+    padding: 0 $carouselItemPadding;
+    @include respondTo(desktop) {
+      padding: 0 $carouselItemPaddingDesktop;
+    }
+  }
+  .slide-arrow {
+    @extend .button;
+    @extend .button--control;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    &.left {
+      left: 0;
+      transform: translate(-50%, -50%);
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+    &.right {
+      right: 0;
+      transform: translate(50%, -50%);
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}

@@ -1,7 +1,2 @@
 [build]
-  command = "npm run build"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Basic-Auth = "unilever:@@Brazil!@@"
+  command = "yarn build updateES=true redirects-map=true"

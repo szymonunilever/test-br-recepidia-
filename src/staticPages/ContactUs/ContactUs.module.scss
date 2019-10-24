@@ -1,0 +1,46 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.contact-us {
+  padding: 22px $layout-indent-sm 100px $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding: 50px $layout-indent 100px $layout-indent;
+  }
+
+  h1 {
+    margin-bottom: 5px;
+    @include respondTo(desktop) {
+      margin-bottom: 18px;
+    }
+  }
+  :global {
+    .contact-us__description {
+      @include respondTo(desktop) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.cardholder {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  @include respondTo(desktop) {
+    margin-top: 30px;
+  }
+}
+
+.cardholder-item {
+  width: 100%;
+  @include respondTo(desktop) {
+    width: calc(50% - 7.5px);
+  }
+}
+
+.cardStretch {
+  height: 100%;
+}

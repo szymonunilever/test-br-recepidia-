@@ -1,0 +1,27 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.home-hero-carousel:global(.bg--half) {
+  &:before {
+    background-color: $white-gray;
+  }
+}
+
+.homeTitle {
+  padding: 0 25px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent;
+  }
+}
+
+.recipe-hidden {
+  :global(.carousel) {
+    min-height: 350px;
+    @include respondTo(desktop) {
+      min-height: 425px;
+    }
+    * {
+      display: none;
+    }
+  }
+}

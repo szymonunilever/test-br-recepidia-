@@ -1,0 +1,144 @@
+$footer-color: $black-blue;
+
+%global--links {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-family: $arial;
+  color: $footer-color;
+  text-decoration: none;
+  text-align: left;
+  padding: 8px 0;
+  position: relative;
+  @include respondTo(desktop) {
+    font-size: 1.5rem;
+    padding: 10px 0;
+  }
+  &[target='_blank'] {
+    @extend %link--external;
+  }
+}
+
+.global-footer {
+  background-color: $primary-bg-color;
+  border-top: 1px solid $footer-color;
+  @extend .wrapper;
+  padding-bottom: 80px;
+  @include respondTo(desktop) {
+    padding-bottom: 50px;
+  }
+
+  .footer-menu {
+    width: 100%;
+    padding: 20px 0;
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      @include respondTo(desktop) {
+        padding: 0 40px;
+        align-items: center;
+      }
+    }
+
+    &__item {
+      margin-bottom: 5px;
+      @include respondTo(desktop) {
+        margin: 20px 0;
+      }
+      &:nth-child(odd) {
+        width: 60%;
+        @include respondTo(desktop) {
+          width: auto;
+        }
+      }
+
+      &:nth-child(even) {
+        width: 40%;
+        @include respondTo(desktop) {
+          width: auto;
+        }
+      }
+    }
+
+    &__link {
+      @extend %global--links;
+      @extend .button__underlined;
+    }
+
+    &:first-child {
+      border-bottom: 1px solid $footer-color;
+      @include respondTo(desktop) {
+        padding: 15px 150px;
+      }
+      .footer-menu__list {
+        justify-content: space-between;
+      }
+
+      .footer-menu__link {
+        font-weight: bold;
+        @include respondTo(desktop) {
+          font-size: 1.8rem;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          padding: 10px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .footer-menu__list {
+        justify-content: space-between;
+      }
+      .footer-menu__item {
+        @include respondTo(desktop) {
+          &:nth-child(-n + 3) {
+            width: calc(99.9% / 3);
+            .footer-menu__link {
+              font-size: 1.8rem;
+            }
+          }
+          &:first-child {
+            text-align: right;
+          }
+          &:nth-child(2) {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 45px;
+    height: 50px;
+    background: url('~src/svgs/unilever-logo.svg') no-repeat; // path should be with tilda to make it works in storybook-styled
+    background-size: contain;
+    @include respondTo(desktop) {
+      display: block;
+      margin: 0 auto;
+      width: 60px;
+      height: 68px;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+      transition: fill 0.2s ease-out;
+    }
+  }
+  &__copyright {
+    display: inline-block;
+    margin-left: 35px;
+    font-size: 1.2rem;
+    color: $footer-color;
+    @include respondTo(desktop) {
+      display: block;
+      text-align: center;
+      margin-top: 17px;
+      margin-left: 0;
+    }
+  }
+}

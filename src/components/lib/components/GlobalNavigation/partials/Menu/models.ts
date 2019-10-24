@@ -3,6 +3,7 @@ export interface MenuProps {
   dropDownIcon: JSX.Element;
   list: AppContent.GlobalNavigation.MenuItem[];
   isOpened?: boolean;
+  closeMenu?: (menuIndex: number, isRoot?: boolean) => void;
   className: string;
 }
 

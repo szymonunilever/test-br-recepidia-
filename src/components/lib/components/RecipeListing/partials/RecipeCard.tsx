@@ -1,78 +1,106 @@
 import cx from 'classnames';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 import React from 'react';
 import { TagName, Text } from '../../Text';
-import { Button, ButtonViewType } from '../../common/Button';
+import { Button, ButtonViewType } from '../../Button';
 import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
-import { RatingProvider } from '../../Rating/models';
 import Rating from '../../Rating';
+import AdaptiveImage from '../../AdaptiveImage';
+import { RatingAndReviewsProvider } from '../../../models';
+import { getImageAlt } from '../../../utils';
+import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
 
 const RecipeCard = ({
-  id,
   recipeId,
+  content,
   content: { title },
   localImage,
   Icon,
   enableSelectFavorite = false,
-  titleLevel = 3,
   slug,
   className = '',
   inFavorite = false,
   onFavoriteChange,
   ratingProvider,
+  imageSizes,
+  isExternalLink = false,
 }: RecipeCardProps) => {
   const itemTitle = title ? (
     <Text
       // @ts-ignore
-      tag={TagName[`h${titleLevel}`]}
+      tag={TagName[`div`]}
       text={title}
       className="recipe-card__title"
     />
   ) : null;
   const onFavoriteToggle = (val: boolean) => {
     if (typeof onFavoriteChange !== 'undefined') {
-      onFavoriteChange({ id, val });
+      onFavoriteChange({ recipeId, val });
     }
   };
-  const wrapClasses = cx(theme['recipe-card'], className);
+  const wrapClasses = cx(theme['recipe-card'], 'recipe-card', className);
   const RatingWidget =
-    ratingProvider !== RatingProvider.none ? (
+    ratingProvider !== RatingAndReviewsProvider.none ? (
       <>
-        <Rating recipeId={recipeId} provider={ratingProvider} linkTo={slug} />
+        <Rating
+          className={'recipe-rating--stars'}
+          recipeId={recipeId}
+          provider={ratingProvider}
+          linkTo={slug}
+        />
       </>
     ) : null;
 
   const Image = localImage && (
-    <Img
+    <AdaptiveImage
       className="recipe-card__image"
-      fluid={localImage.childImageSharp.fluid}
+      localImage={localImage}
+      alt={title ? getImageAlt(title, slug) : 'Recipe image'}
+      sizes={imageSizes}
     />
   );
-  const view = enableSelectFavorite ? (
-    <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      <Button
-        className="recipe-card__favorite"
-        Icon={Icon}
-        isSelected={inFavorite}
-        onClick={onFavoriteToggle}
-        isToggle={true}
-        viewType={ButtonViewType.icon}
-      />
-      {Image}
-      {itemTitle}
-      {RatingWidget}
-    </Link>
-  ) : (
-    <Link to={slug} data-componentname="recipeCard" className={wrapClasses}>
-      {Image}
-      {itemTitle}
-      {RatingWidget}
-    </Link>
-  );
+  const LinkComponent = isExternalLink ? 'a' : Link;
+  const linkProps = {
+    'aria-label': title,
+    className: wrapClasses,
+  };
+  if (isExternalLink) {
+    // @ts-ignore
+    linkProps['target'] = '_blank';
+    // @ts-ignore
+    linkProps['href'] = slug;
+    // @ts-ignore
+    linkProps['rel'] = 'noopener noreferrer';
+  } else {
+    // @ts-ignore
+    linkProps['to'] = slug;
+  }
 
-  return view;
+  return (
+    // @ts-ignore
+    <LinkComponent
+      {...getComponentDataAttrs('recipeCard', content)}
+      {...linkProps}
+    >
+      {enableSelectFavorite && (
+        <Button
+          className="recipe-card__favorite"
+          Icon={Icon}
+          isSelected={inFavorite}
+          onClick={onFavoriteToggle}
+          isToggle={true}
+          viewType={ButtonViewType.icon}
+          attributes={{ 'aria-label': 'favorite toggle' }}
+        />
+      )}
+      {Image}
+      <div className="recipe-card__info">
+        {itemTitle}
+        {RatingWidget}
+      </div>
+    </LinkComponent>
+  );
 };
 
 export default RecipeCard;

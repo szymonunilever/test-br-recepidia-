@@ -1,0 +1,144 @@
+const Auth = require('@aws-amplify/auth').default;
+const Amplify = require('aws-amplify').default;
+//const config = require('../../app-config');
+const axios = require('axios');
+const times = require('lodash/times');
+
+// require('dotenv').config();
+global['fetch'] = require('node-fetch');
+
+const [
+  COGNITO_USER_POOL_ID,
+  COGNITO_WEB_CLIENT_ID,
+  BUILD_USER_PASSWORD,
+  indexUrl,
+  recipeIndex,
+  articleIndex,
+] = [
+  process.env['elasticSearch_COGNITO_USER_POOL_ID'],
+  process.env['elasticSearch_COGNITO_WEB_CLIENT_ID'],
+  process.env['elasticSearch_BUILD_USER_PASSWORD'],
+  process.env['elasticSearch_indexUrl'],
+  process.env['elasticSearch_recipeIndex'],
+  process.env['elasticSearch_articleIndex'],
+];
+
+const buildUser = 'staticFirstBuildUser';
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: 'eu-west-1',
+    userPoolId: COGNITO_USER_POOL_ID,
+    userPoolWebClientId: COGNITO_WEB_CLIENT_ID,
+  },
+});
+
+async function signIn() {
+  const user = await Auth.signIn(buildUser, BUILD_USER_PASSWORD);
+  return user.signInUserSession.idToken.jwtToken;
+}
+
+const tokenPromis = signIn();
+
+const BATCH_SIZE = 300;
+
+const bulkPost = (data, url, token) => {
+  return axios.post(`${url}/bulk`, data, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+  });
+};
+
+const clearIndex = (url, index, token) => {
+  axios.post(
+    `${url}/${index}/clear`,
+    {
+      query: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        match_all: {},
+      },
+    },
+    {
+      headers: { 'Content-Type': 'application/json', Authorization: token },
+    }
+  );
+};
+
+const bulkBatchPost = (
+  items,
+  idField,
+  esUrl,
+  esIndex,
+  fieldsToDelete,
+  token
+) => {
+  const noOfBatches = Math.ceil(items.length / BATCH_SIZE);
+
+  const promises = times(noOfBatches, i => {
+    const startItem = BATCH_SIZE * i;
+    const endItem = BATCH_SIZE * (i + 1);
+
+    const bulkRows = items.slice(startItem, endItem).map(item => {
+      if (item) {
+        // each datarow requires a header row like the below
+        const headerRow = {
+          index: {
+            _index: esIndex,
+            _type: '_doc',
+            _id: item[idField],
+          },
+        };
+
+        // Delete unnecessary fields
+        fieldsToDelete.forEach(field => delete item[field]);
+
+        return `${JSON.stringify(headerRow)}\n${JSON.stringify(item)}`;
+      }
+    });
+
+    // format required by ES needs newline at end of each row
+    return bulkPost(bulkRows.join('\n') + '\n', esUrl, token);
+  });
+
+  return Promise.all(promises);
+};
+
+const updateRecipes = async recipes => {
+  const index = recipeIndex;
+  const token = await tokenPromis;
+  await clearIndex(indexUrl, index, token);
+
+  return bulkBatchPost(
+    recipes,
+    'recipeId',
+    indexUrl,
+    index,
+    [
+      'parent',
+      'children',
+      'internal',
+      'methods',
+      'nutrients',
+      'nutrientsPerServing',
+    ],
+    token
+  );
+};
+
+const updateArticles = async articles => {
+  const index = articleIndex;
+  const token = await tokenPromis;
+  //if (await isIndexExists(indexUrl, index, token)) {
+  await clearIndex(indexUrl, index, token);
+  //}
+
+  return bulkBatchPost(
+    articles,
+    'id',
+    indexUrl,
+    index,
+    ['parent', 'children', 'internal'],
+    token
+  );
+};
+
+module.exports = { updateRecipes, updateArticles };

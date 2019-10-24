@@ -1,90 +1,81 @@
-import { FixedObject, FluidObject } from 'gatsby-image';
-import { RatingProvider } from '../../Rating/models';
 import {
   titleLevel,
   UnileverLibraryComponent,
-} from '../../common/globalModels';
-
-export interface LocalImage {
-  id: string;
-  childImageSharp: {
-    fluid?: FluidObject;
-    fixed?: FixedObject;
-  };
-}
-
-export interface RecipeItem extends RMSData.Recipe {
-  inFavorite?: boolean;
-  localImage: LocalImage;
-  fields: {
-    slug: string;
-  };
-  recipeId: string;
-  cookingTime: number;
-  preparationTime: number;
-  creationTime: Date;
-  ingredients: RMSData.Ingredient[];
-  tagGroups: RMSData.TagCategory[];
-}
+} from '../../../models/globalModels';
+import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
+import { RecipeListingProps } from '../models';
 
 export interface RecipeCardFavoriteCallback {
-  (selected: { id: string; val: boolean }): void;
+  (selected: { recipeId: number; val: boolean }): void;
 }
 
 export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
-  recipeId: string;
+  recipeId: number;
   enableSelectFavorite?: boolean;
-  localImage?: LocalImage;
+  localImage?: Internal.LocalImage;
   titleLevel?: titleLevel;
   slug: string;
   Icon?: JSX.Element;
   inFavorite?: boolean;
   onFavoriteChange?: RecipeCardFavoriteCallback;
-  ratingProvider: RatingProvider;
+  ratingProvider: RatingAndReviewsProvider;
+  imageSizes: string;
+  isExternalLink?: boolean;
 }
 
 export interface RecipeListingTrivialProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
-  list: RecipeItem[];
+  list: Internal.Recipe[];
   withFavorite: boolean;
   FavoriteIcon?: JSX.Element;
   titleLevel?: titleLevel;
   onFavoriteChange?: RecipeCardFavoriteCallback;
-  ratingProvider?: RatingProvider;
+  ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
+  dataFetched?: RecipeListingProps['dataFetched'];
 }
 
 export enum RecipeSortingOptions {
+  newest,
   preparationTime,
   cookingTime,
   averageRating,
-  newest,
-  recentlyUpdated,
   title,
 }
 
+export const RecipeSortingOptionsFieldsMappings = {
+  [RecipeSortingOptions.newest]: [{ creationTime: { order: 'desc' } }],
+  [RecipeSortingOptions.preparationTime]: 'recipeDetails.preperationTime',
+  [RecipeSortingOptions.cookingTime]: 'recipeDetails.cookTime',
+  [RecipeSortingOptions.averageRating]: [{ averageRating: { order: 'desc' } }],
+  [RecipeSortingOptions.title]: 'title.keyword',
+};
+
 export interface RecipeFilterOptions {
-  tagGroups: RMSData.TagCategory[];
+  tagGroups: Internal.TagGroup[];
+  displayCategories?: string[];
 }
 
 export interface RecipeFilterProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
   onChangeSorting: (sort: RecipeSortingOptions) => void;
-  onChangeFilter: (filter: RMSData.Tag[]) => void;
+  onChangeFilter: (filter: Internal.Tag[]) => void;
   results: number;
   sortSelectPlaceholder: string;
   OpenIcon?: JSX.Element;
   FilterIcon?: JSX.Element;
   RemoveTagIcon?: JSX.Element;
+  dataFetched?: RecipeListingProps['dataFetched'];
 }
 
 export interface FilterSettingsProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   allFilters: RecipeFilterOptions;
-  onFilterChange: (filter: RMSData.Tag[]) => void;
-  filtersSelected: RMSData.Tag[];
+  onFilterChange: (filter: Internal.Tag[]) => void;
+  filtersSelected: Internal.Tag[];
   hidden?: boolean;
   OpenIcon?: JSX.Element;
   CloseIcon?: JSX.Element;

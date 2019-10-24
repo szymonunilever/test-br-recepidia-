@@ -1,8 +1,4 @@
 .page-listing-item {
-  &__image {
-    border-radius: 5px;
-    overflow: hidden;
-  }
   &__link {
     text-decoration: none;
   }
@@ -11,10 +7,18 @@
     font-family: $rubik;
     font-weight: 500;
     color: $black-blue;
-    margin: 12px 0;
+    padding-top: 12px;
+    padding-bottom: 20px;
     outline: none;
+    margin: 0;
     @include respondTo(desktop) {
-      margin: 20px 0;
+      padding-top: 20px;
+    }
+  }
+  .adaptive-image__image {
+    height: $page-listing-image-height--mobile;
+    @include respondTo(desktop) {
+      height: $page-listing-image-height--desktop;
     }
   }
 }

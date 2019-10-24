@@ -1,15 +1,14 @@
 import cx from 'classnames';
-import { remove } from 'lodash';
-import React, { useState } from 'react';
-import { Button } from '../common/Button';
+import React, { useState, useEffect, memo, useCallback, useRef } from 'react';
+import { Button } from '../Button';
 import { TagName, Text } from '../Text';
-import { RecipeListingProps, RecipeListViewType } from './models';
+import { RecipeListingProps, RecipeListViewType, LoadMoreType } from './models';
 import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   RecipeFilter,
-  RecipeItem,
   RecipeListingTrivial,
   RecipeSortingOptions,
+  RecipeSortingOptionsFieldsMappings,
 } from './partials';
 import theme from './RecipeListing.module.scss';
 import {
@@ -18,6 +17,10 @@ import {
   applyingFavorites,
   sortBy,
 } from './utils';
+import get from 'lodash/get';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import reloadKritiqueWidget from '../../utils/useKritiqueReload';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeListing = ({
   className,
@@ -35,7 +38,10 @@ export const RecipeListing = ({
   list,
   initialCount = 4,
   onFavoriteChange,
+  onViewChange,
+  loadMoreConfig = { type: LoadMoreType.sync },
   tags = { tagGroups: [] },
+  dataFetched = true,
   carouselConfig = {
     breakpoints: [
       {
@@ -47,72 +53,142 @@ export const RecipeListing = ({
       },
     ],
   },
+  imageSizes,
+  isExternalItemLink = false,
 }: RecipeListingProps) => {
+  let loadButtonRef = React.createRef();
+  const isAsyncLoadMore = () =>
+    get(loadMoreConfig, 'type') === LoadMoreType.async;
   const { title, cta, sortSelectPlaceholder } = applyContentDefaults(content);
 
-  const wrapClasses = cx(theme.recipeList, className);
-  let listModified = sortBy(
-    RecipeSortingOptions.newest,
-    applyingFavorites(list, withFavorite, favorites)
-  );
+  const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
+  const listWithFavorites = applyingFavorites(list, withFavorite, favorites);
+  const [displayNumber, setDisplayNumber] = useState(initialCount);
 
-  const [listState, setListState] = useState<{
-    listItems: RecipeItem[];
-    filterLength: number;
-    filter: RMSData.Tag[];
-    sorting: RecipeSortingOptions;
-  }>({
-    listItems:
-      initialCount > 0 ? listModified.slice(0, initialCount) : listModified,
-    filterLength: listModified.length,
-    filter: [],
-    sorting: RecipeSortingOptions.newest,
-  });
+  useEffect(() => {
+    setDisplayNumber(Math.max(initialCount, displayNumber));
+  }, [initialCount]);
+  // Use loadMoreClickCount with useEffect which it use for activate scroll to loadMore button functionality
+  // const [loadMoreClickedCount, setLoadMoreClickedCount] = useState(0);
 
-  const changeFavorites = ({ id, val }: { id: string; val: boolean }) => {
-    val ? favorites.push(id) : remove(favorites, n => n === id);
-    if (onFavoriteChange) {
-      onFavoriteChange(favorites);
-    }
+  let listModified =
+    viewType === RecipeListViewType.Advanced
+      ? sortBy(RecipeSortingOptions.newest, listWithFavorites)
+      : listWithFavorites;
+
+  const getSlicedList = (recList = listModified): Internal.Recipe[] => {
+    return !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
   };
-  const onFilterChange = (filter: RMSData.Tag[]) => {
-    const recipeCount = listState.listItems.length;
-    listModified = sortBy(listState.sorting, listModified);
-    setListState({
-      ...listState,
-      listItems:
-        recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
-      filterLength: applyFilters(filter, listModified).length,
-      filter,
-    });
+
+  const [sortingValue, setSortingValue] = useState<RecipeSortingOptions>(
+    RecipeSortingOptions.newest
+  );
+  const [filteringValue, setFilteringValue] = useState<Internal.Tag[]>([]);
+  const [recipeList, setRecipeList] = useState<Internal.Recipe[]>(
+    getSlicedList()
+  );
+  const allCount = loadMoreConfig.allCount || recipeList.length;
+
+  useEffect(() => {
+    setRecipeList(getSlicedList(list));
+  }, [list, displayNumber]);
+
+  // useEffect(() => {
+  //   if (loadMoreClickedCount > 0) {
+  //     window &&
+  //       loadButtonRef.current &&
+  //       window.scrollTo({
+  //         //@ts-ignore
+  //         top: loadButtonRef.current.offsetTop,
+  //         behavior: 'smooth',
+  //       });
+  //   }
+  // }, [recipeList]);
+  const didMountRef = useRef(false);
+  useEffect(() => {
+    if (
+      didMountRef.current &&
+      ratingProvider === RatingAndReviewsProvider.kritique
+    ) {
+      reloadKritiqueWidget();
+    } else {
+      didMountRef.current = true;
+    }
+  }, [list]);
+
+  const changeFavorites = useCallback(
+    ({ recipeId, val }: { recipeId: number; val: boolean }) => {
+      const changes = val
+        ? [...favorites, recipeId]
+        : favorites.filter(id => id !== recipeId);
+      if (onFavoriteChange) {
+        onFavoriteChange(changes);
+      }
+    },
+    [favorites, onFavoriteChange]
+  );
+  const onFilterChange = (filter: Internal.Tag[]) => {
+    if (isAsyncLoadMore()) {
+      if (onViewChange) {
+        onViewChange(
+          filter,
+          RecipeSortingOptionsFieldsMappings[sortingValue]
+        ).then(() => {
+          setFilteringValue(filter);
+        });
+      }
+    } else {
+      const recipeCount = displayNumber;
+      const filtered = applyFilters(filter, sortBy(sortingValue, listModified));
+      setRecipeList(
+        recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered
+      );
+      setFilteringValue(filter);
+    }
   };
 
   const onChangeSorting = (sorting: RecipeSortingOptions) => {
-    const recipeCount = listState.listItems.length;
-    const { filter } = listState;
-    listModified = sortBy(sorting, listModified);
-    setListState({
-      ...listState,
-      listItems:
-        recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
-      sorting,
-    });
+    if (isAsyncLoadMore()) {
+      if (onViewChange) {
+        onViewChange(
+          filteringValue,
+          RecipeSortingOptionsFieldsMappings[sorting]
+        ).then(() => {
+          setSortingValue(sorting);
+        });
+      }
+    } else {
+      listModified = sortBy(sorting, listModified);
+
+      const recipeCount = displayNumber;
+      const filtered = applyFilters(filteringValue, listModified);
+      setSortingValue(sorting);
+      setRecipeList(
+        recipeCount > 0 ? filtered.slice(0, recipeCount) : filtered
+      );
+      setDisplayNumber(recipeCount);
+    }
   };
 
   const loadMore = () => {
-    const recipeCount = listState.listItems.length + recipePerLoad;
-    const { filter } = listState;
-    setListState({
-      ...listState,
-      listItems:
+    const recipeCount = displayNumber + recipePerLoad;
+
+    if (isAsyncLoadMore()) {
+      //@ts-ignore
+      loadMoreConfig.onLoadMore(
+        filteringValue,
+        RecipeSortingOptionsFieldsMappings[sortingValue],
+        recipePerLoad
+      );
+    } else {
+      setRecipeList(
         recipeCount > 0
-          ? applyFilters(filter, listModified).slice(0, recipeCount)
-          : applyFilters(filter, listModified),
-    });
+          ? applyFilters(filteringValue, listModified).slice(0, recipeCount)
+          : applyFilters(filteringValue, listModified)
+      );
+    }
+    setDisplayNumber(recipeCount);
+    // setLoadMoreClickedCount(loadMoreClickedCount + 1);
   };
 
   const listHeader = title ? (
@@ -124,25 +200,37 @@ export const RecipeListing = ({
     />
   ) : null;
 
+  const shouldLoadMoreAppear =
+    loadMoreConfig && isAsyncLoadMore()
+      ? list.length < allCount
+      : recipeList.length > 0 &&
+        initialCount !== 0 &&
+        displayNumber < list.length;
+
+  const listing = (
+    <RecipeListingTrivial
+      dataFetched={dataFetched}
+      list={recipeList}
+      recipeCount={recipeList.length}
+      FavoriteIcon={FavoriteIcon}
+      withFavorite={withFavorite}
+      ratingProvider={ratingProvider}
+      onFavoriteChange={changeFavorites}
+      content={content}
+      // @ts-ignore
+      titleLevel={titleLevel + 1}
+      imageSizes={imageSizes}
+    />
+  );
   const recipeListBasic = (
     <>
-      <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        content={content}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-      />
-      {listState.listItems.length > 0 && initialCount !== 0 ? (
+      {listing}
+      {shouldLoadMoreAppear ? (
         <Button
           className="recipe-list__load-more"
           onClick={loadMore}
-          hidden={listState.listItems.length === listState.filterLength}
           content={cta}
+          attributes={{ ref: loadButtonRef }}
         />
       ) : null}
     </>
@@ -150,30 +238,27 @@ export const RecipeListing = ({
 
   const view: JSX.Element =
     viewType == RecipeListViewType.Trivial ? (
-      <RecipeListingTrivial
-        list={listState.listItems}
-        recipeCount={listState.listItems.length}
-        FavoriteIcon={FavoriteIcon}
-        withFavorite={withFavorite}
-        ratingProvider={ratingProvider}
-        onFavoriteChange={changeFavorites}
-        // @ts-ignore
-        titleLevel={titleLevel + 1}
-      />
+      listing
     ) : viewType == RecipeListViewType.Base ? (
-      <>{recipeListBasic}</>
+      recipeListBasic
     ) : viewType == RecipeListViewType.Carousel ? (
       <RecipeListingCarousel
         withFavorite={withFavorite}
+        FavoriteIcon={FavoriteIcon}
         onFavoriteChange={changeFavorites}
-        list={list}
+        list={listModified}
         content={content}
         config={carouselConfig}
         ratingProvider={ratingProvider}
+        // @ts-ignore
+        titleLevel={titleLevel + 1}
+        imageSizes={imageSizes}
+        isExternalRecipeLink={isExternalItemLink}
       />
     ) : (
       <>
         <RecipeFilter
+          dataFetched={dataFetched}
           className="recipe-list__filter"
           allFilters={tags}
           OpenIcon={OpenIcon}
@@ -181,7 +266,9 @@ export const RecipeListing = ({
           RemoveTagIcon={RemoveTagIcon}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
-          results={listState.filterLength}
+          results={
+            (loadMoreConfig && loadMoreConfig.allCount) || recipeList.length
+          }
           content={content}
           sortSelectPlaceholder={sortSelectPlaceholder}
         />
@@ -190,11 +277,14 @@ export const RecipeListing = ({
     );
 
   return (
-    <div data-componentname="recipeListing" className={wrapClasses}>
+    <div
+      {...getComponentDataAttrs('recipeListing', content)}
+      className={wrapClasses}
+    >
       {listHeader}
       {view}
     </div>
   );
 };
 
-export default RecipeListing;
+export default memo(RecipeListing);

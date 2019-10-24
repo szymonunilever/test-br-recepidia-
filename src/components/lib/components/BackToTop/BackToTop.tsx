@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 import smoothScroll from 'smoothscroll-polyfill';
-import { Button } from '../common/Button';
+import { Button } from '../Button';
 import theme from './BackToTop.module.scss';
 import { BackToTopProps, CustomEventTarget } from './models';
 
@@ -46,7 +46,11 @@ export const BackToTop = ({
 
   return (
     <div className={wrapClasses}>
-      <Button {...props} onClick={onClick} />
+      <Button
+        {...props}
+        onClick={onClick}
+        attributes={{ 'aria-label': 'back to top' }}
+      />
       <span className="back-to-top--label">{content.label}</span>
     </div>
   );

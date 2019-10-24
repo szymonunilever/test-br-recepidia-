@@ -1,35 +1,56 @@
-import React from 'react';
-import keys from '../keys.json';
+import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
+// TODO: Integrations should be moved into lib folder
+import reloadKritiqueWidget from 'src/components/lib/utils/useKritiqueReload';
+import { isBrowser } from 'src/utils';
+
 const Kritique = () => {
-  const kritiqueWidgetSrc = `${keys.kritique.url}?brandid=${
-    keys.kritique.brandId
-  }&localeid=${keys.kritique.localeId}&apikey=${
-    keys.kritique.apiKey
-  }&sitesource=${keys.kritique.siteSource}`;
+  const kritiqueWidgetSrc = `${process.env['kritique_url']}?brandid=${
+    process.env['kritique_brandId']
+  }&localeid=${process.env['kritique_localeId']}&apikey=${
+    process.env['kritique_apiKey']
+  }&sitesource=${process.env['kritique_siteSource']}`;
+
+  const [injectScript, setInjectScript] = useState(false);
+
+  // @ts-ignore
+  const isLoadKritique = (): boolean => window.isLoadKritique;
+  const initKritique = () => {
+    // @ts-ignore
+    window.isLoadKritique = true;
+    setInjectScript(true);
+  };
+
+  useEffect(() => {
+    if (isLoadKritique()) {
+      setInjectScript(isLoadKritique);
+      setTimeout(reloadKritiqueWidget);
+    } else if (document.readyState === 'complete') {
+      initKritique();
+    } else {
+      // use mousemove and touchstart if WPT FPL need to be improved
+      window.addEventListener('load', () => {
+        initKritique();
+      });
+    }
+  }, []);
 
   return (
-    <Helmet>
-      <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossOrigin="anonymous"
-      />
-      <script
-        type="text/javascript"
-        async
-        id="rr-widget"
-        src={kritiqueWidgetSrc}
-      />
-      {/* apply this if needed */}
-      {/* <script type="text/javascript" async src="/config/RR_widget_config.js" /> */}
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="//eu.kritique.io/widget/resources/css/RR_widget.css"
-      />
-    </Helmet>
+    <>
+      {isBrowser() && (isLoadKritique() || injectScript) ? (
+        <Helmet
+          // @ts-ignore
+          script={[
+            {
+              id: 'rr-widget',
+              src: kritiqueWidgetSrc,
+              async: true,
+            },
+          ]}
+        />
+      ) : null}
+    </>
   );
 };
 

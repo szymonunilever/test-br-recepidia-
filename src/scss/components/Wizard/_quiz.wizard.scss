@@ -1,0 +1,318 @@
+$col-indent-mobile: 5px;
+$col-indent-medium: 8px;
+$col-indent-desktop: 8px;
+
+$one-col-width: 100%;
+$two-col-width: 100% / 2;
+$three-col-width: 100% / 3;
+$four-col-width: 100% / 4;
+
+$image-ratio-mobile: 62% !important;
+$image-ratio-desktop: 59% !important;
+
+.wizard--quiz {
+  .wizard {
+    &__container {
+      padding-bottom: 20px;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      & > form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow-y: hidden;
+        //Margin to remove indent
+        margin: 0 (-$col-indent-mobile);
+        @include respondTo(medium) {
+          margin: 0 (-$col-indent-medium);
+        }
+        .wizard__info {
+          padding: 0 $col-indent-mobile;
+          @include respondTo(medium) {
+            padding: 0 $col-indent-medium;
+          }
+        }
+        .wizard__buttons {
+          box-sizing: border-box;
+          padding-left: $col-indent-mobile;
+          padding-right: $col-indent-mobile;
+          @include respondTo(medium) {
+            padding-left: $col-indent-medium;
+            padding-right: $col-indent-medium;
+          }
+        }
+      }
+      // quiz scroll for small screen height
+      @media screen and (max-height: 550px),
+        screen and (orientation: landscape) and (max-width: 959px) {
+        display: block;
+        overflow-y: auto;
+        form {
+          margin: 0;
+        }
+        .quiz__list {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .quiz {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      flex: 1;
+      overflow-y: auto;
+      align-content: flex-start;
+      margin: 0;
+    }
+    &__item {
+      box-sizing: border-box;
+      padding: 0 $col-indent-mobile $col-indent-mobile;
+      @include respondTo(medium) {
+        padding: 0 $col-indent-medium $col-indent-medium;
+      }
+    }
+    &__item-label {
+      cursor: pointer;
+      display: block;
+      -webkit-tap-highlight-color: transparent;
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+          .quiz__label-checkmark {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &__label {
+      &-image-wrap {
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      &-image {
+        position: relative;
+      }
+      &-checkmark {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 2rem;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $item-overlay-color;
+        transition: opacity 0.3s;
+        opacity: 0;
+      }
+      &-title {
+        font-size: 1.6rem;
+        color: $black-blue;
+        font-family: $rubik;
+        font-weight: 500;
+        margin: 10px 0 20px;
+        @include respondTo(desktop) {
+          margin: 14px 0 25px;
+        }
+      }
+    }
+    &__item-input {
+      z-index: -1;
+      height: 0;
+      display: contents;
+      &:checked {
+        & + .quiz__label-content .quiz__label-checkmark {
+          opacity: 1;
+          svg {
+            display: block;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  .adaptive-image-svg {
+    padding-top: $image-ratio-mobile;
+    background-color: $white-gray;
+    @include respondTo(desktop) {
+      padding-top: $image-ratio-desktop;
+    }
+    img {
+      max-width: 70%;
+    }
+  }
+  .gatsby-image-wrapper {
+    & > div {
+      padding-bottom: $image-ratio-mobile;
+      @include respondTo(desktop) {
+        padding-bottom: $image-ratio-desktop;
+      }
+    }
+    //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      img {
+        max-height: 100%;
+      }
+    }
+  }
+  .adaptive-image {
+    //fix for IE related to gatsby-image downgrade. Polyfill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+    &:not(.adaptive-image-svg) {
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        img {
+          max-width: 100%;
+          max-height: none;
+        }
+      }
+    }
+  }
+}
+
+// text is under the image
+.quiz__label--bottom {
+  pointer-events: none;
+  .quiz {
+    &__label {
+      &-checkmark {
+        opacity: 0;
+        font-size: 3rem;
+        @include respondTo(medium) {
+          font-size: 4rem;
+        }
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+}
+// text is in front of the image
+.quiz {
+  &__item-input {
+    &:checked {
+      & + .quiz__label-content.quiz__label--inside .quiz__label-checkmark {
+        background-color: $item-overlay-color;
+        svg {
+          display: block;
+        }
+      }
+      & + .quiz__label-content .quiz__label-title {
+        color: darken($apple-green, 35%);
+      }
+    }
+  }
+  &__label--inside {
+    .quiz__label {
+      &-image {
+        background-color: $white-gray;
+      }
+      &-checkmark {
+        padding: 15px;
+        svg {
+          margin: 0 10px 0 0;
+          visibility: hidden;
+        }
+      }
+      &-title {
+        margin: 0;
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
+
+//column width for mobile-desktop
+.wizard-col-1-2 {
+  .quiz {
+    &__item {
+      flex-basis: $one-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$one-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $two-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-2 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        -ms-flex-preferred-size: calc(
+          #{$two-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-3 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}
+.wizard-col-2-4 {
+  .quiz {
+    &__item {
+      flex-basis: $two-col-width;
+      -ms-flex-preferred-size: calc(
+        #{$two-col-width} - #{$col-indent-mobile * 2}
+      );
+      @include respondTo(medium) {
+        flex-basis: $three-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$three-col-width} - #{$col-indent-medium * 2}
+        );
+      }
+      @include respondTo(desktop) {
+        flex-basis: $four-col-width;
+        -ms-flex-preferred-size: calc(
+          #{$four-col-width} - #{$col-indent-desktop * 2}
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.page-listing--carousel {
+  .carousel__item {
+    .gatsby-image-wrapper {
+      height: $page-listing-card-height--mobile;
+      @include respondTo(medium) {
+        height: $page-listing-card-height--desktop;
+      }
+    }
+  }
+  .carousel {
+    .slide-arrow {
+      &.right {
+        top: calc(#{$page-listing-card-height--mobile} / 2);
+        @include respondTo(medium) {
+          top: calc(#{$page-listing-card-height--desktop} / 2);
+        }
+      }
+      &.left {
+        top: calc(#{$page-listing-card-height--mobile} / 2);
+        @include respondTo(medium) {
+          top: calc(#{$page-listing-card-height--desktop} / 2);
+        }
+      }
+    }
+  }
+}

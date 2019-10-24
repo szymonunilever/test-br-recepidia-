@@ -1,0 +1,89 @@
+$col-width-mobile: 100% / 2;
+$col-width-medium: 100% / 4;
+$col-width-desktop: 100% / 4;
+$col-indent-mobile: 5px;
+$col-indent-medium: 8px;
+$col-indent-desktop: 8px;
+
+.recipe-list {
+  position: relative;
+  &--blue-header {
+    .recipe-list__header {
+      color: $fish-blue-darker;
+    }
+  }
+  &--wizard {
+    padding: 0;
+  }
+
+  &__title {
+    font: 500 2.1rem/3rem $rubik;
+    color: $black-blue;
+    margin: 0 0 20px 0;
+    @include respondTo(medium) {
+      font-size: 2.5rem;
+      margin: 0 0 50px 0;
+    }
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+      margin: 0 0 50px 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    //Margin to remove indent
+    margin: -$col-indent-mobile;
+    @include respondTo(medium) {
+      margin: -$col-indent-medium;
+    }
+    @include respondTo(desktop) {
+      margin: -$col-indent-desktop;
+    }
+  }
+  &__button-wrap {
+    margin-top: 25px;
+    text-align: center;
+  }
+  &__load-more {
+    @extend .button;
+    @extend .button--medium;
+    display: block !important;
+    margin: 40px auto 0 auto;
+  }
+
+  .recipe-list__item {
+    margin: $col-indent-mobile;
+    width: calc(#{$col-width-mobile} - #{$col-indent-mobile * 2});
+    @include respondTo(medium) {
+      width: calc(#{$col-width-medium} - #{$col-indent-medium * 2});
+      margin: $col-indent-medium;
+    }
+    @include respondTo(desktop) {
+      width: calc(#{$col-width-desktop} - #{$col-indent-desktop * 2});
+      margin: $col-indent-desktop;
+    }
+  }
+}
+
+.recommendations {
+  &__title {
+    font-size: 2.8rem;
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+    }
+  }
+  &__subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  &__item {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}

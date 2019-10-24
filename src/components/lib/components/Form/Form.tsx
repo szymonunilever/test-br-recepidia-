@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form as FinalForm, FormProps } from 'react-final-form';
+import { Form as FinalForm } from 'react-final-form';
+import { UnileverFormProps } from './models';
 
-const Form = (props: FormProps<object>) => {
+const Form = (props: UnileverFormProps) => {
   return <FinalForm {...props} />;
 };
 

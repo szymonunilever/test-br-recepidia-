@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-import { TagProps } from '../../models';
-import { Button } from 'src/components/lib/components/common/Button';
+import { TagProps, TagVariant } from '../../models';
+import { Button } from '../../../Button';
 import cx from 'classnames';
 
 const Tag = ({
   tag,
   handleClick,
   RemoveIcon,
-  isEditable,
   active = false,
   enableExternalManage = false,
   handleToggle,
-  isToggle,
+  variant,
 }: TagProps) => {
   const [state, setState] = useState(active);
-  const { name, path = '' } = tag;
+  const {
+    title,
+    fields: { slug: path },
+  } = tag;
   const classWrapper = cx('tags__item', {
-    'for-filter': isToggle,
+    'for-filter': variant === TagVariant.toggle,
   });
   const onButtonClick = () => {
     handleClick(tag);
@@ -35,31 +37,41 @@ const Tag = ({
     }
   });
 
-  const buttonDelete = isEditable ? (
-    <Button
-      Icon={RemoveIcon}
-      onClick={onButtonClick}
-      className="tags__button-delete"
-    />
-  ) : null;
-
-  const view = isToggle ? (
-    <Button
-      className="tags__link"
-      onClick={onTagClick}
-      toggleExternalManage
-      content={{ label: name }}
-      isSelected={state}
-      isToggle
-    />
-  ) : (
-    <>
-      <Link className="tags__link" to={path}>
-        {name}
-      </Link>
-      {buttonDelete}
-    </>
-  );
+  let view;
+  switch (variant) {
+    case TagVariant.toggle:
+      view = (
+        <Button
+          className="tags__toggle"
+          onClick={onTagClick}
+          content={{ label: title }}
+          isSelected={state}
+          isToggle={true}
+        />
+      );
+      break;
+    case TagVariant.link:
+      view = (
+        <Link className="tags__link" to={path}>
+          <span>{title}</span>
+        </Link>
+      );
+      break;
+    case TagVariant.removable:
+      view = (
+        <div className="tags__removable" tabIndex={0}>
+          <span>{title}</span>
+          <Button
+            className="tags__removable--button"
+            onClick={onButtonClick}
+            isSelected={state}
+            Icon={RemoveIcon}
+          />
+        </div>
+      );
+      break;
+    default:
+  }
 
   return <li className={classWrapper}>{view}</li>;
 };

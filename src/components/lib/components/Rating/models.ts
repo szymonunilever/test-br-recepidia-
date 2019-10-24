@@ -1,21 +1,8 @@
-export enum RatingProvider {
-  kritique,
-  bazaarvoice,
-  none,
-}
-
-export enum RatingEntityType {
-  recipe = 'recipe',
-  product = 'product',
-  article = 'article',
-}
-
-export enum RatingSymmaryTemplate {
-  inline01 = 'inline01',
-}
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 export interface RatingProps {
-  provider: RatingProvider;
+  provider: RatingAndReviewsProvider;
+  className?: string;
   linkTo?: string;
-  recipeId: string;
+  recipeId: number;
 }

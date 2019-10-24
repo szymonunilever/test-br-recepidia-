@@ -1,0 +1,113 @@
+.tags {
+  @extend ._pt--40;
+  @extend ._pb--40;
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+  }
+  &__item {
+    margin: 5px;
+
+    span {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $white-gray;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    color: $black-blue;
+    padding: 0 15px;
+    position: relative;
+    transition: 0.2s all ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    max-width: none;
+    font-weight: normal;
+    font-size: 1.4rem;
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        background: $apple-green;
+        color: $black-blue;
+      }
+    }
+
+    span {
+      display: table-cell;
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__toggle {
+    @extend .tags__link;
+  }
+
+  .button__selected {
+    background-color: $fish-blue-darker;
+    color: $white;
+  }
+
+  &__removable {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid $black-blue;
+    border-radius: 20px;
+    height: 32px;
+    padding: 0 45px 0 15px;
+    position: relative;
+    transition: 0.2s background ease-out;
+    cursor: pointer;
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        border-color: darken($apple-green, 10%);
+        background: $apple-green;
+        svg {
+          fill: $black-blue;
+        }
+      }
+    }
+    span {
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  }
+  .tags__removable--button {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    height: 100%;
+    line-height: 34px;
+    width: 40px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__load-more {
+    display: inline-block;
+    margin: 5px;
+    button {
+      @extend .tags__link;
+    }
+  }
+}

@@ -1,48 +1,88 @@
 export {
-  default as VegeterianActive,
+  ReactComponent as VegeterianActive,
 } from './inline/nutrition-vegetarian-yes.svg';
 export {
-  default as VegeterianInactive,
+  ReactComponent as VegeterianInactive,
 } from './inline/nutrition-vegetarian-no.svg';
 
-export { default as VeganActive } from './inline/nutrition-vegan-yes.svg';
-export { default as VeganInactive } from './inline/nutrition-vegan-no.svg';
-
-export { default as NutFreeActive } from './inline/nutrition-nut-free-yes.svg';
-export { default as NutFreeInactive } from './inline/nutrition-nut-free-no.svg';
+export {
+  ReactComponent as VeganActive,
+} from './inline/nutrition-vegan-yes.svg';
+export {
+  ReactComponent as VeganInactive,
+} from './inline/nutrition-vegan-no.svg';
 
 export {
-  default as PregnancySafeActive,
+  ReactComponent as NutFreeActive,
+} from './inline/nutrition-nut-free-yes.svg';
+export {
+  ReactComponent as NutFreeInactive,
+} from './inline/nutrition-nut-free-no.svg';
+
+export {
+  ReactComponent as PregnancySafeActive,
 } from './inline/nutrition-pregnancy-safe-yes.svg';
 export {
-  default as PregnancySafeInactive,
+  ReactComponent as PregnancySafeInactive,
 } from './inline/nutrition-pregnancy-safe-no.svg';
 
 export {
-  default as GlutenFreeActive,
+  ReactComponent as GlutenFreeActive,
 } from './inline/nutrition-gluten-free-yes.svg';
 export {
-  default as GlutenFreeInactive,
+  ReactComponent as GlutenFreeInactive,
 } from './inline/nutrition-gluten-free-no.svg';
 
 export {
-  default as LactoseFreeActive,
+  ReactComponent as LactoseFreeActive,
 } from './inline/nutrition-lactose-free-yes.svg';
 export {
-  default as LactoseFreeInactive,
+  ReactComponent as LactoseFreeInactive,
 } from './inline/nutrition-lactose-free-no.svg';
 
 export {
-  default as RawFoodActive,
+  ReactComponent as RawFoodActive,
 } from './inline/nutrition-lactose-free-yes.svg';
-export { default as RawFoodInactive } from './inline/nutrition-raw-food-no.svg';
-
-export { default as EggFreeActive } from './inline/nutrition-egg-free-yes.svg';
-export { default as EggFreeInactive } from './inline/nutrition-egg-free-no.svg';
+export {
+  ReactComponent as RawFoodInactive,
+} from './inline/nutrition-raw-food-no.svg';
 
 export {
-  default as PaleoDietActive,
+  ReactComponent as EggFreeActive,
+} from './inline/nutrition-egg-free-yes.svg';
+export {
+  ReactComponent as EggFreeInactive,
+} from './inline/nutrition-egg-free-no.svg';
+
+export {
+  ReactComponent as PaleoDietActive,
 } from './inline/nutrition-paleo-diet-yes.svg';
 export {
-  default as PaleoDietInactive,
+  ReactComponent as PaleoDietInactive,
 } from './inline/nutrition-paleo-diet-no.svg';
+
+export {
+  ReactComponent as DairyFreeActive,
+} from './inline/nutrition-dairy-free-active.svg';
+export {
+  ReactComponent as DairyFreeInactive,
+} from './inline/nutrition-dairy-free-inactive.svg';
+
+export {
+  ReactComponent as WheatFreeActive,
+} from './inline/nutrition-wheat-free-active.svg';
+export {
+  ReactComponent as WheatFreeInactive,
+} from './inline/nutrition-wheat-free-inactive.svg';
+
+export {
+  ReactComponent as SeafoodFreeActive,
+} from './inline/nutrition-seafood-free-yes.svg';
+
+export {
+  ReactComponent as SoyFreeActive,
+} from './inline/nutrition-soy-free-yes.svg';
+
+export {
+  ReactComponent as SugarFreeActive,
+} from './inline/nutrition-sugar-free-yes.svg';

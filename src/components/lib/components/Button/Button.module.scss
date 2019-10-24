@@ -1,0 +1,10 @@
+.button {
+  position: relative;
+}
+.icon {
+  background: transparent;
+  border: 0 none;
+  svg {
+    min-width: 100%;
+  }
+}

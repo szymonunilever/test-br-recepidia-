@@ -1,39 +1,42 @@
 import React, { SyntheticEvent, useState, useEffect } from 'react';
+import { RatingProps } from './models';
 import {
-  RatingProps,
-  RatingProvider,
-  RatingSymmaryTemplate,
-  RatingEntityType,
-} from './models';
+  RatingAndReviewsEntityType,
+  RatingAndReviewsProvider,
+  RatingSummaryTemplate,
+} from '../../models/ratings&reviews';
+import cx from 'classnames';
+import isBrowser from '../../utils/isBrowser';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
-const Rating = ({ recipeId, provider, linkTo = '' }: RatingProps) => {
+const Rating = ({
+  className,
+  recipeId,
+  provider,
+  linkTo = '',
+}: RatingProps) => {
+  const classNames = cx('recipe-rating', className);
   const [locationOrigin, setLocationOrigin] = useState('');
 
   useEffect(() => {
     setLocationOrigin(window.location.origin);
-  });
-
+  }, []);
   return (
     <>
-      {provider === RatingProvider.kritique ? (
-        <>
+      {provider === RatingAndReviewsProvider.kritique ? (
+        <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
           <div
             className="rr-widget-container rr-container"
-            data-summary-template={RatingSymmaryTemplate.inline01}
-            data-entity-type={RatingEntityType.recipe}
+            data-summary-template={RatingSummaryTemplate.inline01}
+            data-entity-type={RatingAndReviewsEntityType.recipe}
             data-unique-id={recipeId}
-            data-entity-url={
-              typeof window !== 'undefined' && `${locationOrigin}${linkTo}`
-            }
-            data-category-pageurl={
-              typeof window !== 'undefined' && `${locationOrigin}${'/recipes'}`
-            }
-            title="Recipeeeeeeeeeee"
+            data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
+            data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
             onClick={(e: SyntheticEvent) => {
               e.stopPropagation();
             }}
           />
-        </>
+        </div>
       ) : null}
     </>
   );

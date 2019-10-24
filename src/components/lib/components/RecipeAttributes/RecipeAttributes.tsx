@@ -1,16 +1,18 @@
-import cx from 'classnames';
 import React from 'react';
+import cx from 'classnames';
+import get from 'lodash/get';
 import { RecipeAttributesKeys, RecipeAttributesProps } from './models';
 import theme from './RecipeAttributes.module.scss';
 import { RecipeAttributeCard } from './partials';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeAttributes = ({
   className,
   content: { labels },
   recipe,
   visible = [
-    RecipeAttributesKeys.preparationTime,
-    RecipeAttributesKeys.cookingTime,
+    RecipeAttributesKeys.preperationTime,
+    RecipeAttributesKeys.cookTime,
     RecipeAttributesKeys.serves,
     RecipeAttributesKeys.difficulties,
   ],
@@ -22,9 +24,14 @@ export const RecipeAttributes = ({
       const difficulties = recipe.tagGroups.find(
         item => item.name === RecipeAttributesKeys[value]
       );
-      const difficultyVal = difficulties ? difficulties.tags[0].name : '';
+      const difficultyVal = get(difficulties, 'tags[0].name', '');
+      if (!difficultyVal) {
+        return null;
+      }
+
       return (
         <RecipeAttributeCard
+          type={value}
           key={index}
           value={difficultyVal}
           label={labels ? labels[RecipeAttributesKeys[value]] : undefined}
@@ -37,6 +44,8 @@ export const RecipeAttributes = ({
       if (attrValue) {
         return (
           <RecipeAttributeCard
+            key={index}
+            type={value}
             value={attrValue}
             label={labels ? labels[RecipeAttributesKeys[value]] : undefined}
             Icon={icons ? icons[RecipeAttributesKeys[value]] : undefined}
@@ -47,7 +56,10 @@ export const RecipeAttributes = ({
   });
 
   return (
-    <div className={classWrapper} data-componentname="recipeAttributes">
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeAttributes')}
+    >
       {view}
     </div>
   );

@@ -1,7 +1,12 @@
 import React from 'react';
 import { SocialChannelProps } from './models';
 
-const SocialChannel = ({ label, url, icon }: SocialChannelProps) => {
+const SocialChannel = ({
+  label,
+  url,
+  icon,
+  attributes = {},
+}: SocialChannelProps) => {
   const text = label ? (
     <div className="social-channels__text">{label}</div>
   ) : null;
@@ -11,7 +16,8 @@ const SocialChannel = ({ label, url, icon }: SocialChannelProps) => {
         className="social-channels__link"
         href={url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
+        {...attributes}
       >
         <div className="social-channels__icon">{icon}</div>
         {text}

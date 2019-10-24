@@ -40,3 +40,6 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)]()
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+ ## Known issues
+ Do not upgrade **gatsby-image** package. 
+ From **v2.1.0** it uses browser native lazy loading for images. Chrome native lazy loading use hardcoded values for Load-in distance threshold. Because of this, images are loading earler then need and it affects site performance. 

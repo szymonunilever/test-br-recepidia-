@@ -3,6 +3,7 @@ import React from 'react';
 import { TagName, Text } from '../../Text';
 import { RecipeCopyIngredientsProps } from './models';
 import theme from './RecipeCopyIngredients.module.scss';
+import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
 
 export const RecipeCopyIngredients = ({
   className,
@@ -31,17 +32,31 @@ export const RecipeCopyIngredients = ({
     />
   ) : null;
 
-  const items = ingredients.map((item, key) => (
-    <li key={key} className="recipe-copy-ingredients__item">
-      {item.description}
-    </li>
-  ));
+  const items = ingredients
+    .filter(ingredientGroup => ingredientGroup.list.length)
+    .map((ingredientGroup, index, filteredIngredientGroups) => (
+      <dl key={index} className="recipe-ingredients__group">
+        {filteredIngredientGroups.length > 1 ? (
+          <dt className="recipe-ingredients__group-title">
+            {ingredientGroup.title}
+          </dt>
+        ) : null}
+        {ingredientGroup.list.map((groupItem, key) => (
+          <dd key={key} className="recipe-ingredients__group-item">
+            {groupItem.description}
+          </dd>
+        ))}
+      </dl>
+    ));
 
   return (
-    <div className={classWrapper}>
+    <div
+      className={classWrapper}
+      {...getComponentDataAttrs('recipeCopyIngredients')}
+    >
       {Title}
       {Subtitle}
-      <ul className="recipe-copy-ingredients__list">{items}</ul>
+      <div className="recipe-ingredients">{items}</div>
     </div>
   );
 };

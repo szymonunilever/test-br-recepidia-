@@ -1,0 +1,100 @@
+.recipe-cooking-method {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    counter-reset: li;
+    @include respondTo(desktop) {
+      margin: 40px 0;
+    }
+  }
+  &__title {
+    font-size: 2.5rem;
+    color: $black-blue;
+  }
+  &__item {
+    font-size: 1.4rem;
+    @include respondTo(desktop) {
+      display: flex;
+      align-items: center;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include respondTo(desktop) {
+        margin-bottom: 40px;
+      }
+    }
+    &:before {
+      display: block;
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: $fish-blue-darker;
+      counter-increment: li;
+      content: counter(li);
+      margin-bottom: 10px;
+      @include respondTo(desktop) {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 50px;
+        font-size: 3.7rem;
+      }
+    }
+  }
+}
+.cooking-methods {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  @include respondTo(desktop) {
+    margin: 40px 0;
+  }
+  .cooking-methods__group {
+    position: relative;
+    margin: 35px 0;
+    counter-reset: dl;
+    &-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $black-blue;
+      margin-bottom: 15px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 15px;
+      color: $fish-blue-darker;
+      text-transform: capitalize;
+      @include respondTo(desktop) {
+        display: block;
+        margin-left: 40px;
+        margin-bottom: 25px;
+      }
+    }
+    &-subtitle {
+      font-size: 1.6rem;
+    }
+    &-item {
+      font-size: 1.4rem;
+      line-height: 1.29;
+      color: $black-blue;
+      margin: 0 0 28px;
+      @include respondTo(desktop) {
+        margin-left: 73px;
+        min-height: 74px;
+      }
+      &:before {
+        display: block;
+        font: 500 2.4rem/1.2 $rubik;
+        color: $fish-blue-darker;
+        counter-increment: dl;
+        content: counter(dl);
+        margin-bottom: 15px;
+        @include respondTo(desktop) {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          line-height: 1;
+          font-size: 3.7rem;
+        }
+      }
+    }
+  }
+}

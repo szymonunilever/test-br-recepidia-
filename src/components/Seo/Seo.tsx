@@ -8,8 +8,18 @@
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import truncate from 'lodash/truncate';
 
-function SEO({ description, lang, meta, title, children }: SeoProps) {
+function SEO({
+  description,
+  lang,
+  meta = [],
+  link = [],
+  title,
+  canonical,
+  onChangeClientState,
+  children,
+}: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,20 +34,30 @@ function SEO({ description, lang, meta, title, children }: SeoProps) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = truncate(
+    (description || site.siteMetadata.description)
+      .replace(/<*.\/?>/, '')
+      .replace(/<\/*.>/, ''),
+    { length: 150 }
+  );
 
   return (
     <Helmet
+      onChangeClientState={(newState: any) => {
+        onChangeClientState && onChangeClientState(newState);
+      }}
       htmlAttributes={{
         lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
+      link={[
         {
-          name: `robots`,
-          content: `noindex`,
+          rel: `canonical`,
+          href: canonical,
         },
+      ].concat(link)}
+      meta={[
         {
           name: `description`,
           content: metaDescription,
@@ -88,8 +108,11 @@ interface SeoProps {
   lang: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta: any;
+  link?: any;
   title?: string;
   children?: ReactNode | ReactNode[];
+  canonical?: string;
+  onChangeClientState?: (newState: any) => void;
 }
 
 export default SEO;

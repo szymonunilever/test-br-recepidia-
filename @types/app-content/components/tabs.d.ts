@@ -4,5 +4,7 @@ declare namespace AppContent.Tabs {
   }
   interface Tab extends BaseContent {
     title: string;
+    view: string;
+    resultsCount?: number;
   }
 }

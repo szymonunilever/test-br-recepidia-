@@ -4,7 +4,7 @@ declare namespace AppContent {
     shortSubheader?: string;
     longSubheader?: string;
     image?: AppContent.ImageContent;
-    primaryCTA?: AppContent.CTAContent;
-    secondaryCTA?: AppContent.CTAContent;
+    primaryCta?: AppContent.CTAContent;
+    secondaryCta?: AppContent.CTAContent;
   }
 }

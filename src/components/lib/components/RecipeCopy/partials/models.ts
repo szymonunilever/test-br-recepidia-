@@ -1,4 +1,4 @@
-import { titleLevel } from '../../common/globalModels';
+import { titleLevel } from '../../../models/globalModels';
 
 export interface RecipeCopyTitleProps {
   className?: string;
@@ -16,5 +16,5 @@ export interface RecipeCopyIngredientsProps {
   title?: string;
   subtitle?: string;
   titleLevel?: titleLevel;
-  ingredients: RMSData.Ingredient[];
+  ingredients: RMSData.IngredientGroup[];
 }

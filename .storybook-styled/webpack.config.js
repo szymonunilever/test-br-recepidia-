@@ -1,5 +1,5 @@
 const path = require('path');
-const pathToInlineSvg = path.resolve(__dirname, '../src/svgs/inline/');
+const pathToInlineSvg = path.resolve(__dirname, '../src/components/lib/stories/svgs/inline/');
 module.exports = ({ config }) => {
   // console.log(config.module.rules);
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
@@ -19,6 +19,7 @@ module.exports = ({ config }) => {
     require.resolve('@babel/plugin-proposal-class-properties'),
     // use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
     require.resolve('babel-plugin-remove-graphql-queries'),
+    require.resolve('babel-plugin-syntax-dynamic-import'),
   ];
 
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
@@ -33,7 +34,11 @@ module.exports = ({ config }) => {
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
-  config.resolve.alias = { src: path.resolve(__dirname, '../src') };
+  /** Attention: There is configuration src alias for compatibility with site app.
+   * So for storybook "src" - it's  "src/components/lib/stories" and for gatsby site src it's "src" folder*/
+  config.resolve.alias = {
+    src: path.resolve(__dirname, '../src/components/lib/stories'),
+  };
 
   config.module.rules.push({
     test: /\.scss$/,
@@ -62,6 +67,7 @@ module.exports = ({ config }) => {
     rule.test.test('.svg')
   );
   fileLoaderRule.exclude = pathToInlineSvg;
+  // @todo externalize svg loader config
   config.module.rules.push({
     test: /\.svg$/,
     include: pathToInlineSvg,
@@ -71,6 +77,9 @@ module.exports = ({ config }) => {
         options: {
           icon: true,
         },
+      },
+      {
+        loader: 'url-loader',
       },
     ],
   });

@@ -1,0 +1,201 @@
+.modal--filter {
+  .modal__overlay {
+    top: auto;
+    width: 100%;
+    height: 100%;
+  }
+  .modal__content {
+    display: flex;
+    flex-direction: column;
+    padding: 26px 25px 0 25px;
+    overflow: visible;
+    border-radius: 5px;
+    margin-top: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: inherit;
+    background-color: $white;
+    @include respondTo(desktop) {
+      padding: 42px 55px 0 55px;
+      bottom: 0;
+      top: 50px;
+      left: 70px;
+      right: 70px;
+      margin-top: 0;
+    }
+  }
+  .modal__header {
+    width: 100%;
+    color: $fish-blue-darker;
+    > * {
+      font-size: 2.5rem;
+      @include respondTo(desktop) {
+        font-size: 3.7rem;
+      }
+    }
+  }
+  #modal__description {
+    height: 100%;
+  }
+  .filter-settings {
+    height: 95%;
+    flex-basis: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &__tagGroups {
+      list-style-type: none;
+      margin: 0 0 50px 0;
+      height: 100%;
+      padding: 0;
+      overflow: auto;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      perspective: inherit;
+      will-change: transform;
+      @include respondTo(desktop) {
+        position: relative;
+        display: flex;
+        border-bottom: 1px solid $white-gray;
+        border-top: 1px solid $white-gray;
+        justify-content: space-between;
+      }
+    }
+    &__buttons {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      background: $white;
+      display: flex;
+      justify-content: center;
+      padding: 15px 25px;
+      width: 100%;
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @include respondTo(desktop) {
+          left: 70px;
+          right: 70px;
+        }
+      }
+      button + button {
+        margin-left: 10px;
+        @include respondTo(desktop) {
+          margin-left: 16px;
+        }
+      }
+    }
+    &__reset {
+      @extend .button;
+      @extend .button--secondary;
+      @extend .button--medium;
+    }
+    &__apply {
+      @extend .button;
+      @extend .button--medium;
+    }
+    &__category-item {
+      position: relative;
+      border-bottom: 1px solid $white-gray;
+      flex: 1;
+      padding: 10px 0;
+      @include respondTo(desktop) {
+        border-bottom: 0;
+      }
+    }
+    &__category-header {
+      @include respondTo(desktop) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .accordion__title {
+        @extend h4;
+        color: $fish-blue-darker;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        @include respondTo(desktop) {
+          max-width: 170px;
+        }
+        &::first-letter {
+          text-transform: uppercase;
+        }
+        svg {
+          position: absolute;
+          right: 5px;
+          transition: transform 0.2s;
+          @include respondTo(desktop) {
+            display: none;
+          }
+        }
+      }
+      .accordion__body {
+        transition: max-height 0.2s;
+        height: auto;
+        max-height: 80px;
+        overflow: hidden;
+        padding: 0;
+        @include respondTo(desktop) {
+          overflow: visible;
+          max-height: none;
+          flex: 1;
+          padding-bottom: 0;
+        }
+      }
+      &.is-opened {
+        .accordion__title {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        .accordion__body {
+          max-height: 2000px;
+        }
+        .tags__list {
+          white-space: normal;
+          overflow-x: initial;
+          flex-wrap: wrap;
+        }
+      }
+      .tags {
+        margin: 0;
+        padding: 10px 0 0 0;
+        transition: all 0.2s;
+        @include respondTo(desktop) {
+          padding: 0;
+        }
+
+        &__list {
+          padding: 10px 0;
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          @include respondTo(desktop) {
+            display: flex;
+            flex-direction: column;
+            white-space: normal;
+            overflow-x: initial;
+            margin: 0;
+            padding: 0 10px 0 2px;
+          }
+        }
+        &__item {
+          display: inline-block;
+          @include respondTo(desktop) {
+            margin: 5px 0;
+          }
+          .tags__toggle {
+            width: auto;
+            padding: 0 20px;
+          }
+        }
+        &__link {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

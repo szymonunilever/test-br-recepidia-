@@ -1,33 +1,29 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { PageListingProps } from './models';
-import { ItemProps } from './partials/models';
-
+import { PageListingProps, PageListingViewTypes } from './models';
+import { ItemProps } from './partials/PageListingItem/models';
+import { TagName, Text } from '../Text';
 import PageListingItem from './partials/PageListingItem';
 import PageListingCarousel from './PageListingCarousel';
-import { Button } from 'src/components/lib/components/common/Button';
+import { Button } from '../Button';
+import { CarouselConfig } from '../Carousel/models';
+import { defaultCarouselConfig } from '../Carousel/Carousel';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 const PageListing = ({
   list,
+  content,
   content: { title, subtitle, cta },
-  viewType,
+  viewType = PageListingViewTypes.default,
   initialCount,
   className,
   pagesPerLoad = 4,
-  carouselConfig = {
-    breakpoints: [
-      {
-        width: 1366,
-        switchElementsBelowBreakpoint: 1,
-        switchElementsAfterBreakpoint: 2,
-        visibleElementsBelowBreakpoint: 2,
-        visibleElementsAboveBreakpoint: 4,
-      },
-    ],
-  },
+  titleLevel = 2,
+  carouselConfig,
+  imageSizes,
 }: PageListingProps) => {
   const [pages, setPages] = useState({
-    list: list.slice(0, initialCount),
+    list: initialCount ? list : list.slice(0, initialCount),
   });
 
   const loadMore = () =>
@@ -46,37 +42,65 @@ const PageListing = ({
   ) : null;
 
   const subTitle = subtitle ? (
-    <div className={`page-listing__subtitle`}>{subtitle}</div>
+    <div className="page-listing__subtitle">{subtitle}</div>
   ) : null;
 
-  const classNames = cx('page-listing', className);
+  let classNames = cx('page-listing', className);
 
   let view = (
-    <div className={classNames} data-componentname="page-listing">
-      <h3 className={`page-listing__title`}>{title}</h3>
+    <div
+      className={classNames}
+      {...getComponentDataAttrs('page-listing', content)}
+    >
+      {title && (
+        <Text
+          className="page-listing__title"
+          // @ts-ignore
+          tag={TagName[`h${titleLevel}`]}
+          text={title}
+        />
+      )}
       {subTitle}
 
-      <ul className={`page-listing__list`}>
-        {pages.list.map((item: ItemProps) => {
-          return (
-            <li key={item.title} className={`page-listing__item`}>
-              <PageListingItem key={item.title} page={item} />;
-            </li>
-          );
-        })}
+      <ul className="page-listing__list">
+        {pages.list.map((item: ItemProps) => (
+          <li key={item.title} className="page-listing__list-item">
+            <PageListingItem page={item} imageSizes={imageSizes} />
+          </li>
+        ))}
       </ul>
 
       {loadMoreBtn}
     </div>
   );
 
-  if (viewType === 'carousel') {
+  const resCarouselConfig: CarouselConfig = {
+    ...defaultCarouselConfig,
+    ...carouselConfig,
+  };
+  if (viewType === PageListingViewTypes.carousel) {
+    let classNames = cx('page-listing--carousel', className);
     view = (
-      <PageListingCarousel
-        list={pages.list}
-        content={{ title, subtitle, cta }}
-        config={carouselConfig}
-      />
+      <div
+        className={classNames}
+        {...getComponentDataAttrs('page-listing', content)}
+      >
+        {title && (
+          <Text
+            className="page-listing__title"
+            // @ts-ignore
+            tag={TagName[`h${titleLevel}`]}
+            text={title}
+          />
+        )}
+
+        <PageListingCarousel
+          list={pages.list}
+          imageSizes={imageSizes}
+          content={{ title }}
+          config={resCarouselConfig as CarouselConfig}
+        />
+      </div>
     );
   }
 

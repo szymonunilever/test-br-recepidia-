@@ -1,12 +1,12 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
-import { GatsbyImageProps } from 'gatsby-image';
-import { titleLevel } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
+import { titleLevel } from '../../models/globalModels';
 
 export type HeroViewType = 'Text' | 'Image';
 
 export interface HeroProps extends UnileverLibraryComponent<HeroContent> {
   viewType: string;
   titleLevel?: titleLevel;
+  imageIsLink?: boolean;
 }
 
 export interface HeroContent extends AppContent.HeroContent {
@@ -14,8 +14,5 @@ export interface HeroContent extends AppContent.HeroContent {
 }
 
 export interface Image extends AppContent.ImageContent {
-  localImage?: {
-    id: string;
-    childImageSharp: GatsbyImageProps;
-  };
+  localImage?: Internal.LocalImage;
 }

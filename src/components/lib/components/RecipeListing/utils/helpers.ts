@@ -1,35 +1,34 @@
-import { sortBy as _sortBy, findIndex, filter, intersectionBy } from 'lodash';
-import { RecipeItem, RecipeSortingOptions } from '../partials';
+import _sortBy from 'lodash/sortBy';
+import findIndex from 'lodash/findIndex';
+import filter from 'lodash/filter';
+import { RecipeSortingOptions } from '../partials';
 
-const sortByPreparationTime = (list: RecipeItem[]) =>
-  _sortBy(list, ['recipeDetails.preparationTime', 'creationDate']);
+const sortByPreparationTime = (list: Internal.Recipe[]) =>
+  _sortBy(list, ['recipeDetails.preperationTime']);
 
-const sortByCookingTime = (list: RecipeItem[]) =>
-  _sortBy(list, ['recipeDetails.cookingTime', 'creationDate']);
+const sortByCookingTime = (list: Internal.Recipe[]) =>
+  _sortBy(list, ['recipeDetails.cookTime']);
 
-const sortByAverageRating = (list: RecipeItem[]) => {
+const sortByAverageRating = (list: Internal.Recipe[]) => {
   //TODO: find what property we can use for this and rewrite method
   return list;
 };
 
-const sortByNewest = (list: RecipeItem[]) => _sortBy(list, ['creationDate']);
+const sortByNewest = (list: Internal.Recipe[]) =>
+  _sortBy(list, ['creationTime']);
 
-const sortByRecentlyUpdate = (list: RecipeItem[]) => {
-  //TODO: find what property we can use for this and rewrite method
-  return list;
-};
-
-const sortByTitle = (list: RecipeItem[]) => _sortBy(list, ['title']);
+const sortByTitle = (list: Internal.Recipe[]) => _sortBy(list, ['title']);
 
 export function applyingFavorites(
-  list: RecipeItem[],
+  list: Internal.Recipe[],
   withFavorites: boolean,
-  favorites: string[]
+  favorites: number[]
 ) {
   return withFavorites && favorites.length > 0 && list.length > 0
     ? list.map(item => {
-        const inFavorite = !!findIndex(favorites, fav => fav === item.id);
-        return Object.assign(item, inFavorite);
+        const inFavorite =
+          findIndex(favorites, fav => fav === item.recipeId) > -1;
+        return Object.assign(item, { inFavorite: inFavorite });
       })
     : list;
 }
@@ -51,9 +50,12 @@ export function applyContentDefaults(
       title: '',
     },
     sortSelectPlaceholder = '',
-    filtersCta = {
-      resetLabel: { label: '' },
-      applyLabel: { label: '' },
+    filtersPanel = {
+      title: 'Filtros',
+      ctas: {
+        reset: { label: 'Limpar filtros' },
+        apply: { label: 'Aplicar filtros' },
+      },
     },
   } = content;
   return {
@@ -63,11 +65,11 @@ export function applyContentDefaults(
     resultLabelPlural,
     optionLabels,
     sortSelectPlaceholder,
-    filtersCta,
+    filtersPanel,
     ...content,
   };
 }
-export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
+export function sortBy(sort: RecipeSortingOptions, list: Internal.Recipe[]) {
   switch (sort) {
     case RecipeSortingOptions.preparationTime:
       return sortByPreparationTime(list);
@@ -75,8 +77,6 @@ export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
       return sortByCookingTime(list);
     case RecipeSortingOptions.averageRating:
       return sortByAverageRating(list);
-    case RecipeSortingOptions.recentlyUpdated:
-      return sortByRecentlyUpdate(list);
     case RecipeSortingOptions.title:
       return sortByTitle(list);
     case RecipeSortingOptions.newest:
@@ -87,19 +87,31 @@ export function sortBy(sort: RecipeSortingOptions, list: RecipeItem[]) {
 }
 
 export function applyFilters(
-  filters: RMSData.Tag[],
-  list: RecipeItem[]
-): RecipeItem[] {
+  filters: Internal.Tag[],
+  list: Internal.Recipe[]
+): Internal.Recipe[] {
   if (filters.length > 0) {
-    return filter(list, (item: RecipeItem) => {
+    const filteredList = filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
-      const includedTags = filter(tagGroups, (item: RMSData.TagCategory) => {
-        return (
-          intersectionBy(item.tags, filters, 'id').length >= filters.length
-        );
+
+      const includedTags = filter(tagGroups, (item: Internal.TagGroup) => {
+        if (filters) {
+          return !!filters.find(filter => {
+            if (item.tags) {
+              return !!item.tags.find(tag => tag.id === filter.tagId);
+            } else {
+              return false;
+            }
+          });
+        } else {
+          return false;
+        }
       });
+
       return includedTags.length > 0;
     });
+
+    return filteredList;
   } else {
     return list;
   }

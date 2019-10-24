@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Sem ovos",
+    "tagId": 2,
+    "name": "egg_free",
+    "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+    "fields": {
+      "slug": "/hub-de-conteudo/egg-free"
+    }
+  },
+  {
+    "title": "Glúten Free",
+    "tagId": 3,
+    "name": "gluten_free",
+    "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+    "fields": {
+      "slug": "/hub-de-conteudo/gluten-free"
+    }
+  },
+  {
+    "title": "Zero Lactose",
+    "tagId": 4,
+    "name": "lactose_free",
+    "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+    "fields": {
+      "slug": "/hub-de-conteudo/lactose-free"
+    }
+  },
+  {
+    "title": "Livre de nozes",
+    "tagId": 5,
+    "name": "nut_free",
+    "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+    "fields": {
+      "slug": "/hub-de-conteudo/nut-free"
+    }
+  },
+  {
+    "title": "Paleo diet",
+    "tagId": 6,
+    "name": "paleo_diet",
+    "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+    "fields": {
+      "slug": "/hub-de-conteudo/paleo-diet"
+    }
+  },
+  {
+    "title": "Seguro de gravidez",
+    "tagId": 7,
+    "name": "pregnancy_safe",
+    "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+    "fields": {
+      "slug": "/hub-de-conteudo/pregnancy-safe"
+    }
+  }
+]

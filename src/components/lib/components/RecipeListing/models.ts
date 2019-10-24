@@ -1,18 +1,21 @@
-import { RatingProvider } from '../Rating';
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
-import { RecipeFilterOptions, RecipeItem } from './partials';
-import { CarouselConfig } from '../common/Carousel/models';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../models/globalModels';
+import { RecipeFilterOptions } from './partials';
+import { CarouselConfig } from '../Carousel/models';
 import { RecipeCardFavoriteCallback } from './partials/models';
+import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
 
 export enum RecipeListViewType {
   Trivial,
-  Base,
-  Advanced,
   Carousel,
+  Advanced,
+  Base,
 }
 
 export interface OnFavoriteChange {
-  (favorites: string[]): void;
+  (favorites: number[]): void;
 }
 
 export interface RecipeListingProps
@@ -25,21 +28,50 @@ export interface RecipeListingProps
   OpenIcon?: JSX.Element;
   RemoveTagIcon?: JSX.Element;
   FilterIcon?: JSX.Element;
-  favorites?: string[];
-  list: RecipeItem[];
+  favorites?: number[];
+  list: Internal.Recipe[];
   viewType?: RecipeListViewType;
   onFavoriteChange?: OnFavoriteChange;
-  ratingProvider?: RatingProvider;
+  ratingProvider?: RatingAndReviewsProvider;
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
+  loadMoreConfig?: LoadMoreConfig;
+  imageSizes: string;
+  onViewChange?: onRecipeListingViewChanged;
+  dataFetched?: boolean;
+  isExternalItemLink?: boolean;
 }
 
-export interface RecipeListingCarouselProps
-  extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
+export type onRecipeListingViewChanged = (
+  tags: Internal.Tag[],
+  sortingOption: any
+) => Promise<void>;
+
+export type onLoadMore = (
+  tags: Internal.Tag[],
+  sortingOption: any,
+  size: number
+) => Promise<void>;
+
+export enum LoadMoreType {
+  async,
+  sync,
+}
+
+export interface LoadMoreConfig {
+  type: LoadMoreType;
+  onLoadMore?: onLoadMore;
+  allCount?: number;
+}
+
+export interface RecipeListingCarouselProps {
   withFavorite?: boolean;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  titleLevel?: titleLevel;
+  FavoriteIcon?: JSX.Element;
   onFavoriteChange: RecipeCardFavoriteCallback;
-  list: RecipeItem[];
+  list: Internal.Recipe[];
   config: CarouselConfig;
-  ratingProvider?: RatingProvider;
+  ratingProvider?: RatingAndReviewsProvider;
+  imageSizes: string;
+  isExternalRecipeLink?: boolean;
 }

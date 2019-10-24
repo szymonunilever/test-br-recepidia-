@@ -1,0 +1,24 @@
+.recipe-list--carousel {
+  .carousel {
+    .recipe-card__info {
+      min-height: 125px; //to avoid bottom content jumping depending on card title height (4 lines max)
+      @include respondTo(medium) {
+        min-height: 105px;
+      }
+    }
+    .slide-arrow {
+      &.right {
+        top: calc(#{$recipe-card-height--mobile} / 2);
+        @include respondTo(medium) {
+          top: calc(#{$recipe-card-height--desktop} / 2);
+        }
+      }
+      &.left {
+        top: calc(#{$recipe-card-height--mobile} / 2);
+        @include respondTo(medium) {
+          top: calc(#{$recipe-card-height--desktop} / 2);
+        }
+      }
+    }
+  }
+}

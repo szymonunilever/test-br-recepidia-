@@ -1,10 +1,11 @@
-import { titleLevel, UnileverLibraryComponent } from '../common/globalModels';
+import {
+  titleLevel,
+  UnileverLibraryComponent,
+} from '../../models/globalModels';
 
 export enum RecipeCopyViewType {
   Title,
-  ShortTitle,
   Description,
-  ShortDescription,
   Ingredients,
 }
 export interface RecipeCopyProps

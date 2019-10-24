@@ -1,0 +1,13 @@
+{
+  "buttons": [
+    {
+      "name": "facebook",
+      "label": "Facebook"
+    },
+    {
+      "name": "twitter",
+      "label": "Twitter"
+    }
+  ],
+  "modalTitle": "Share this recipe"
+}

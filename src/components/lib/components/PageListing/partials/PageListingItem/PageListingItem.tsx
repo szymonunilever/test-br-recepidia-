@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 
-import { PageProps } from '../models';
+import { PageProps } from './models';
+import AdaptiveImage from '../../../AdaptiveImage';
 
-const PageListingItem = ({ page }: PageProps) => {
+const PageListingItem = ({ page, imageSizes }: PageProps) => {
   const {
     title,
     path,
@@ -13,16 +13,17 @@ const PageListingItem = ({ page }: PageProps) => {
   } = page;
 
   return (
-    <li className={`page-listing-item`}>
-      <Link to={path} className={`page-listing-item__link`}>
-        <Img
-          className={`page-listing-item__image`}
-          fluid={localImage}
+    <div className="page-listing-item">
+      <Link to={path} aria-label={title} className="page-listing-item__link">
+        <AdaptiveImage
+          className="page-listing-item__image"
+          localImage={localImage}
           alt={alt}
+          sizes={imageSizes}
         />
-        <div className={`page-listing-item__title`}>{title}</div>
+        <div className="page-listing-item__title">{title}</div>
       </Link>
-    </li>
+    </div>
   );
 };
 

@@ -1,0 +1,103 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.search-page {
+  :global {
+    .search-input {
+      margin-bottom: 36px;
+    }
+
+    .tabs {
+      &__buttons {
+        display: none; // @todo remove this string when articles are there
+        background-color: transparent;
+        justify-content: flex-start;
+        height: auto;
+        button {
+          width: auto;
+          padding-right: 0;
+          padding-left: 0;
+          padding-bottom: 10px;
+          margin-right: 10px;
+          font-size: 1.6rem;
+          @include respondTo(medium) {
+            margin-right: 35px;
+            font-size: 1.8rem;
+          }
+          &[disabled] {
+            pointer-events: none;
+            color: #636363;
+            cursor: default;
+          }
+          &:nth-last-child(1) {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &__items {
+        .search-listing__results-header {
+          padding-left: 0;
+          padding-right: 0;
+          font-size: 2.4rem;
+          line-height: 1.17;
+          @include respondTo(desktop) {
+            font-size: 2.5rem;
+            line-height: 1.12;
+          }
+        }
+      }
+    }
+
+    .search-listing__null-results {
+      margin-bottom: 50px;
+    }
+    .search-listing__results-header {
+      font-size: 2.4rem;
+      line-height: 1.17;
+      @include respondTo(desktop) {
+        font-size: 2.5rem;
+        line-height: 1.12;
+      }
+    }
+  }
+  [data-componentname='tabs'] {
+    padding-left: $layout-indent-sm;
+    padding-right: $layout-indent-sm;
+    @include respondTo(desktop) {
+      padding-left: $layout-indent;
+      padding-right: $layout-indent;
+    }
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 80px;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      background-color: $white-gray;
+      border-radius: 24px;
+      @include respondTo(desktop) {
+        top: 170px;
+        bottom: -40px;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.searchBottomCarousel {
+  padding-left: $layout-indent-sm;
+  padding-right: $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding: 30px $layout-indent;
+  }
+}
+.tag-list {
+  padding: 20px $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding: 30px $layout-indent;
+  }
+}

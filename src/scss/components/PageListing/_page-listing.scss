@@ -6,14 +6,12 @@ $col-indent-desktop: 8px;
 .page-listing {
   overflow: hidden;
   &__title {
-    font-size: 2.1rem;
-    line-height: 3rem;
+    font: 500 2.1rem/3rem $rubik;
     color: $black-blue;
-    font-family: $rubik;
     margin: 0 0 20px 0;
     @include respondTo(desktop) {
       font-size: 2.5rem;
-      margin: 0 0 50px 0;
+      margin: 0 0 25px 0;
     }
   }
   &__list {
@@ -27,17 +25,23 @@ $col-indent-desktop: 8px;
       margin: -$col-indent-desktop;
     }
   }
-  &__button-wrap {
-    margin-top: 25px;
-    text-align: center;
-  }
-
-  .page-listing-item {
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
     margin: $col-indent-mobile;
     width: calc(#{$col-width-mobile} - #{$col-indent-mobile * 2});
     @include respondTo(desktop) {
       width: calc(#{$col-width-desktop} - #{$col-indent-desktop * 2});
       margin: $col-indent-desktop;
     }
+  }
+  &__button-wrap {
+    margin-top: 25px;
+    text-align: center;
   }
 }

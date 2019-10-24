@@ -1,0 +1,50 @@
+.social-channels {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  @include respondTo(desktop) {
+    justify-content: center;
+  }
+
+  &__item {
+    margin-right: 36px;
+    font-size: 1.4rem;
+    &:nth-last-child(1) {
+      margin-right: 0;
+    }
+    @include respondTo(desktop) {
+      margin-right: 75px;
+    }
+  }
+
+  &__icon {
+    border-bottom: 2px solid transparent;
+    svg {
+      height: 22px;
+      width: 22px;
+      fill: $black-blue;
+      transition: transform 0.2s ease-out;
+      @include respondTo(desktop) {
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+  &__link {
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        .social-channels__icon {
+          svg {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+}

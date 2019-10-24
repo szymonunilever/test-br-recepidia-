@@ -1,72 +1,298 @@
+@import '../../vars';
+@import '../../mixins';
+// @import '../../theme';
+// @import '../../components/Button/index';
 //class name for body to prevent scroll when modal is open
-.modal--open{
-  @extend .no-scroll;
+.modal--open {
+  .global-container {
+    position: fixed;
+    overflow-y: scroll;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+  }
+  .modal__content {
+    animation: modalanimatemobile 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
+    @include respondTo(desktop) {
+      animation: modalanimate 0.5s cubic-bezier(0.17, 0.67, 0.36, 1.11);
+    }
+  }
+  %modal__overlay--flex,
+  .modal--quiz,
+  .modal--filter {
+    .modal__content {
+      animation: modalanimatemobile 0.25s cubic-bezier(0.17, 0.67, 0.36, 1.11);
+    }
+  }
 }
-.modal{
-  &__overlay{
+
+@keyframes modalanimatemobile {
+  from {
+    transform: translate(0, -50%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes modalanimate {
+  from {
+    transform: translate(-50%, -100%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+.modal {
+  &__overlay {
     position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
     background-color: $blue-overlay-40;
+    z-index: 100;
+    will-change: transform;
+    //IE scroll lagging fix
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: inherit;
   }
-  &__content{
+
+  &__content {
     position: absolute;
     overflow: auto;
     outline: none;
     padding: 20px;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
   }
-  &__btn-close{
-    @extend .button--icon;
+
+  &__btn-close {
+    @extend .button;
+    @extend .button--flat;
     position: absolute;
     right: 0;
     top: 0;
     width: 54px;
     height: 54px;
     display: flex;
-    svg{
+
+    svg {
       width: 16px;
       height: 16px;
       display: block;
-      margin:auto;
+      margin: auto;
     }
   }
 }
-.modal--search{ //fullscreen mobile, small window on desktop
-  @extend .container;
-   .modal{
-    &__content{
-      background-color: $white-gray;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
-      max-height: 100%;
-      @include respondTo(desktop) {
-        top: 50%;
-        left: 50%;
-        right: auto;
-        bottom: auto;
-        width: 720px;
-        height: 475px;
-        transform: translate(-50%, -50%);
-        overflow: hidden;
-        max-height:96vh;
-      }
-    } 
+
+%modal__content--small {
+  //fullscreen mobile, small window on desktop
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  max-height: 100%;
+  @include respondTo(desktop) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+    bottom: auto;
+    width: 720px;
+    height: auto;
+    overflow: hidden;
+    max-height: 96vh;
   }
 }
-.modal--bordered{
-    // top: 40px;
-    // left: 40px;
-    // right: 40px;
-    // bottom: 40px;
-    // border-radius: 5px;
+
+.modal--search {
+  .modal {
+    &__content {
+      @extend %modal__content--small;
+      background-color: $white-gray;
+      padding: 100px 25px 25px;
+      @include respondTo(desktop) {
+        height: 475px;
+        padding: 65px 90px;
+        border-radius: 5px;
+      }
+    }
+    &__btn-close {
+      svg {
+        margin: 0;
+      }
+    }
+  }
+  #modal__description {
+    height: 100%;
+  }
+  .search-input {
+    &__title {
+      font-size: 3.4rem;
+      @include respondTo(desktop) {
+        font-size: 4.5rem;
+      }
+    }
+  }
 }
-.modal--fullscreen{
-  
+
+.modal--quiz {
+  #modal__description {
+    width: 100%;
+    height: auto;
+  }
+  .modal {
+    &__overlay {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      @include respondTo(medium) {
+        align-items: center;
+      }
+    }
+    &__content {
+      height: auto;
+      max-height: calc(100% - 12px);
+      width: 100%;
+      display: flex;
+      position: relative;
+      border-radius: 5px;
+      padding: 0;
+      @include respondTo(medium) {
+        width: calc(100% - 48px);
+        max-height: calc(100% - 48px);
+      }
+      @include respondTo(desktop) {
+        width: 1188px;
+      }
+    }
+    &__btn-close {
+      svg {
+        margin: 0;
+      }
+    }
+  }
 }
-.modal--grounded{
-  
+
+%modal__overlay--flex {
+  align-items: flex-start;
+  overflow: auto;
+  background-color: rgba(54, 56, 64, 0.4);
+  display: flex;
+  justify-content: center;
+}
+%modal__content--flex {
+  position: relative;
+  padding: 20px 0;
+  background-color: $white;
+  border-radius: 20px;
+  width: 100%;
+  @include respondTo(medium) {
+    width: 720px;
+    padding: 45px 0;
+    border-radius: 5px;
+  }
+}
+%modal__header--flex {
+  * {
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 1.33;
+    color: $fish-blue-darker;
+    margin-bottom: 28px;
+    @include respondTo(medium) {
+      color: $black-blue;
+    }
+  }
+}
+%modal__btn-close--flex {
+  justify-content: center;
+  align-items: center;
+  svg {
+    margin: 0;
+  }
+}
+
+.recipe-nutrients__modal {
+  .modal {
+    &__overlay {
+      @extend %modal__overlay--flex;
+      display: block;
+    }
+    &__header {
+      @extend %modal__header--flex;
+      * {
+        margin-bottom: 35px;
+        padding: 0 24px;
+        @include respondTo(medium) {
+          padding: 0 90px;
+        }
+      }
+    }
+    &__title {
+      font-size: 2.5rem;
+    }
+    &__content {
+      @extend %modal__content--flex;
+      margin: 47px auto;
+    }
+    &__btn-close {
+      @extend %modal__btn-close--flex;
+    }
+  }
+}
+
+.social-sharing__dialog {
+  .modal {
+    &__overlay {
+      @extend %modal__overlay--flex;
+      padding-left: 24px;
+      padding-right: 24px;
+      align-items: center;
+    }
+    &__content {
+      @extend %modal__content--flex;
+      padding: 28px 28px 40px;
+      @include respondTo(medium) {
+        padding: 56px 92px 78px;
+        border-radius: 20px;
+      }
+    }
+    &__header {
+      @extend %modal__header--flex;
+    }
+    &__heading {
+      padding-right: 15px;
+    }
+    &__btn-close {
+      @extend %modal__btn-close--flex;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.contact-form--result {
+  @extend .social-sharing__dialog;
+  .modal {
+    &__content {
+      @extend %modal__content--flex;
+      padding: 28px;
+      @include respondTo(medium) {
+        padding: 56px 92px 56px;
+      }
+    }
+  }
+  #modal__description {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 }

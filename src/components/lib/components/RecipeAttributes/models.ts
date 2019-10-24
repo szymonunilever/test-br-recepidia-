@@ -1,24 +1,18 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 export enum RecipeAttributesKeys {
-  serves,
-  makes,
-  difficulties,
-  cookingTime,
-  preparationTime,
-  waitingTime,
-  marinateTime,
-  ovenTime,
-  freezeTime,
-  chillTime,
-  brewTime,
-  totalTime,
+  serves = 'serves',
+  makes = 'makes',
+  difficulties = 'difficulties',
+  cookTime = 'cookTime',
+  preperationTime = 'preperationTime',
+  totalTime = 'totalTime',
 }
 
 export interface RecipeAttributeIcons {
   serves?: JSX.Element;
   makes?: JSX.Element;
   difficulties?: JSX.Element;
-  cookingTime?: JSX.Element;
+  cookTime?: JSX.Element;
   preparationTime?: JSX.Element;
   waitingTime?: JSX.Element;
   marinateTime?: JSX.Element;

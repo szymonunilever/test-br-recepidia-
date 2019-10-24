@@ -1,0 +1,70 @@
+.recipe-copy-ingredients {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    @include respondTo(desktop) {
+      margin: 40px 0;
+    }
+  }
+  &__title {
+    font-size: 2.5rem;
+    color: $black-blue;
+  }
+  &__item {
+    font-size: 1.4rem;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.recipe-ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  @include respondTo(desktop) {
+    margin: 40px 0;
+  }
+  .recipe-ingredients__group {
+    position: relative;
+    margin: 35px 0;
+    &-title {
+      text-transform: capitalize;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $black-blue;
+      margin-bottom: 24px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 15px;
+      color: $fish-blue-darker;
+      @include respondTo(desktop) {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 25px;
+      }
+    }
+    &-subtitle {
+      font-size: 1.6rem;
+    }
+    &-item {
+      font-size: 1.4rem;
+      color: $black-blue;
+      margin: 0 0 24px 0;
+      position: relative;
+
+      &:before {
+        display: inline-block;
+        font-size: 2rem;
+        line-height: 0.8;
+        font-weight: bold;
+        color: $fish-blue-darker;
+        @include respondTo(desktop) {
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+}

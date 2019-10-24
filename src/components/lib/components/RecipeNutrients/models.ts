@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 export enum RecipeNutrientsViewType {
   Base,
   WithAction,

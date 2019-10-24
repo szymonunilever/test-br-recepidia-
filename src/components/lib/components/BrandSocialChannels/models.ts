@@ -1,4 +1,4 @@
-import { UnileverLibraryComponent } from '../common/globalModels';
+import { UnileverLibraryComponent } from '../../models/globalModels';
 
 export interface BrandSocialChannelsProps
   extends UnileverLibraryComponent<AppContent.BrandSocialChannels.Content> {
@@ -9,7 +9,5 @@ export interface BrandSocialChannelsProps
 interface SocialIcons {
   facebook: JSX.Element;
   instagram: JSX.Element;
-  twitter: JSX.Element;
-  youtube: JSX.Element;
   [key: string]: JSX.Element;
 }
