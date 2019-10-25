@@ -44,8 +44,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  const formUrl = process.env['mealPlanerDataCapturing_url'] as string;
-  const formHost = process.env['mealPlanerDataCapturing_host'] as string;
   const componentContent = findPageComponentContent(components, 'Wizard');
   const { dataCapturing } = componentContent;
   const linksContent = findPageComponentContent(components, 'Links');
@@ -107,6 +105,11 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const pageUpdate = useCallback(() => {
     window.location.reload();
   }, []);
+
+  const [formUrl, formType] = [
+    process.env['mealPlanerDataCapturing_url'] as string,
+    process.env['mealPlanerDataCapturing_formType'] as string,
+  ];
 
   return (
     <div className={theme.mealPlanner}>
@@ -178,7 +181,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           <DataCapturingForm
             {...dataCapturing}
             url={formUrl}
-            host={formHost}
+            formType={formType}
             pathToData={ProfileKey.mealPlannerAnswers}
             containerClass="wizard--form"
           />

@@ -26,10 +26,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   const [userProfileIQ, setUserProfileIQ] = useState(
     getUserProfileByKey(ProfileKey.initialQuiz)
   );
-  const formUrl = process.env['quizDataCapturing_url'] as string;
-  const formHost = process.env['quizDataCapturing_host'] as string;
   const { dataCapturing } = quizContent;
-
   const titleRenderer = (markup: JSX.Element) => (
     <div className="wizard__info">
       <div className="wizard__title">{markup}</div>
@@ -47,7 +44,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     setIsQuizPassed(true);
     setUserProfileIQ(wizardData.data.quiz);
     saveUserProfileByKey(wizardData.data.quiz, ProfileKey.initialQuiz);
-    isQuizPassed && onClose && onClose();
+    onClose && onClose();
   }, []);
 
   const stepResultsCallback = useCallback(
@@ -59,6 +56,11 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     onClose && onClose();
     return setIsQuizOpened(false);
   }, []);
+
+  const [formUrl, formType] = [
+    process.env['quizDataCapturing_url'] as string,
+    process.env['quizDataCapturing_formType'] as string,
+  ];
 
   return (
     <Modal
@@ -95,9 +97,9 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
           <DataCapturingForm
             {...dataCapturing}
             titleRenderer={titleRenderer}
-            stepId="dataCapturing"
             url={formUrl}
-            host={formHost}
+            formType={formType}
+            stepId="dataCapturing"
             pathToData={ProfileKey.initialQuiz}
             containerClass="wizard--quiz wizard--quiz-initial"
           />

@@ -6,7 +6,7 @@ import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
 import { GeneratedForm, Modal } from 'src/components/lib';
 import theme from './/ContactForm.module.scss';
-import sendForm from 'src/services/form.service';
+import sendForm from 'src/services/transactionalServiceAdapter';
 import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_contactForm.scss';
@@ -30,10 +30,55 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
     text: '',
     className: '',
   });
-  const submitHandler = async (values: object) => {
+  const submitHandler = async (values: any) => {
     if (sendForm) {
       try {
-        const result = await sendForm(values);
+        const {
+          givenName,
+          familyName,
+          email,
+          phoneNumber,
+          formType,
+          formUrl,
+          locale,
+          reCaptchaToken,
+          comments,
+          inquiryType,
+          recipe,
+        } = values;
+
+        const contact = {
+          givenName,
+          familyName,
+          email,
+          phoneNumbers: [
+            {
+              value: phoneNumber,
+            },
+          ],
+          languagePref: process.env['dataCapturing_contact_languagePref'],
+          country: process.env['dataCapturing_contact_country'],
+        };
+        const contactUs = {
+          product: recipe,
+          comments,
+          inquiryType: inquiryType.value,
+          brand: process.env['dataCapturing_commonProps_brand'],
+        };
+        const commonProps = {
+          brand: process.env['dataCapturing_commonProps_brand'],
+          locale,
+          formType,
+          entity: process.env['contactForm_commonProps_entity'],
+          formUrl,
+          inquiryTypeDropdown: inquiryType.value,
+        };
+
+        const result = await sendForm(
+          commonProps,
+          { contact, contactUs },
+          reCaptchaToken
+        );
         // eslint-disable-next-line no-console
         if (result && result.status === 'Ok')
           setModalState({
