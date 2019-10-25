@@ -44,7 +44,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     setIsQuizPassed(true);
     setUserProfileIQ(wizardData.data.quiz);
     saveUserProfileByKey(wizardData.data.quiz, ProfileKey.initialQuiz);
-    isQuizPassed && onClose && onClose();
+    onClose && onClose();
   }, []);
 
   const stepResultsCallback = useCallback(
