@@ -63,8 +63,17 @@ const Quiz: FunctionComponent<QuizProps> = ({
   };
   const putCurrentAnswer = useCallback(() => {
     const updatedAnswers = { ...answers };
+    const answer = Array.isArray(currentAnswer)
+      ? currentAnswer.map(answer =>
+          question.options.find(option => option.value === answer)
+        )
+      : question.options.find(option => option.value === currentAnswer);
+
     // @ts-ignore
     updatedAnswers[question.key] = {
+      id: question.id,
+      question: question.label,
+      answer,
       value: currentAnswer,
       filterPropName: question.filterPropName,
     };

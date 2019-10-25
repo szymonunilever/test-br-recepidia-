@@ -47,13 +47,13 @@ const Filter = ({
   const sortingOptions: Option[] = optionLabels
     ? map(enumToArray(RecipeSortingOptions), (item, key) => ({
         label: optionLabels[item],
-        value: '' + key,
+        value: '' + item,
       }))
     : [];
 
   const sortingChange = (val: Option[]) => {
     if (val.length && onChangeSorting) {
-      onChangeSorting(parseInt(val[0].value));
+      onChangeSorting((RecipeSortingOptions as any)[val[0].value]);
     }
   };
 

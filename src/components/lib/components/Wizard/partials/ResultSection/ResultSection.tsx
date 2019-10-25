@@ -21,12 +21,11 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
         return callbacks[cta.type] ? callbacks[cta.type] : undefined;
       }
     };
-    const buttonClassName = cta.type === 'next' ? 'primary' : 'secondary';
     return (
       <Button
         key={`button-${cta.type}`}
         onClick={onClick()}
-        className={`wizard__button wizard__button--${buttonClassName}`}
+        className={`wizard__button wizard__button--primary`}
         content={cta.content}
       />
     );

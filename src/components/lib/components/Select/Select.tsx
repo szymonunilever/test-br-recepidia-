@@ -58,6 +58,7 @@ const Select = ({
     if (changeHandler) {
       changeHandler(values);
     }
+    input && input.onChange(values);
   };
 
   const onItemRenderer = () => {
@@ -90,10 +91,10 @@ const Select = ({
     className,
     searchable,
     placeholder,
-    onChange,
     itemRenderer: onItemRenderer(),
     closeOnSelect: true,
     ...input,
+    onChange, // overrides input.onChange method of react-final-form library field props, includes input.onChange(values) call.
   };
 
   return <DropdownSelect {...props} />;

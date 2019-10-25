@@ -4,7 +4,7 @@ import cx from 'classnames';
 import theme from './Hero.modules.scss';
 import Text from '../Text/Text';
 import { TagName } from '../Text';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import get from 'lodash/get';
 import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
@@ -15,16 +15,13 @@ const Hero = ({ imageIsLink = true, ...props }: HeroProps) => {
   const containerStyles = cx('hero', props.className, theme.container);
   const imageStyles = cx('hero__image', theme.image);
   const copyStyles = cx('hero__copy', theme.copy);
+  const { primaryCta } = props.content;
+  const { secondaryCta } = props.content;
 
-  const goByPrimaryCTA = () => {
-    const { primaryCta } = props.content;
-    primaryCta && primaryCta.linkTo && navigate(primaryCta.linkTo);
-  };
-
-  const goBySecondaryCTA = () => {
-    const { secondaryCta } = props.content;
-    secondaryCta && secondaryCta.linkTo && navigate(secondaryCta.linkTo);
-  };
+  const primaryCtaLink = primaryCta && primaryCta.linkTo;
+  const secondaryCtaLink = secondaryCta && secondaryCta.linkTo;
+  const goByPrimaryCTA = () => primaryCtaLink && navigate(primaryCtaLink);
+  const goBySecondaryCTA = () => secondaryCtaLink && navigate(secondaryCtaLink);
   const image = get(props, 'content.image');
 
   return (
@@ -68,19 +65,23 @@ const Hero = ({ imageIsLink = true, ...props }: HeroProps) => {
             </div>
           )}
 
-          {props.content.primaryCta && (
+          {primaryCta && (
             <div className="hero__cta-primary">
-              <Button onClick={goByPrimaryCTA}>
-                {props.content.primaryCta.label}
-              </Button>
+              {primaryCtaLink ? (
+                <Link to={primaryCtaLink}>{primaryCta.label}</Link>
+              ) : (
+                <Button onClick={goByPrimaryCTA}>{primaryCta.label}</Button>
+              )}
             </div>
           )}
 
-          {props.content.secondaryCta && (
+          {secondaryCta && (
             <div className="hero__cta-secondary">
-              <Button onClick={goBySecondaryCTA}>
-                {props.content.secondaryCta.label}
-              </Button>
+              {secondaryCtaLink ? (
+                <Link to={secondaryCtaLink}>{secondaryCta.label}</Link>
+              ) : (
+                <Button onClick={goBySecondaryCTA}>{secondaryCta.label}</Button>
+              )}
             </div>
           )}
         </div>

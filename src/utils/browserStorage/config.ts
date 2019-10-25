@@ -4,4 +4,5 @@ export const userProfileDefaultStructure = {
   favorites: [],
   mealPlannerAnswers: {},
   mealPlannerResults: {},
+  user: {},
 };

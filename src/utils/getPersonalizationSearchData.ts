@@ -9,7 +9,8 @@ function getPersonalizationSearchData(
     from = FROM,
     size = RESULT_SIZE,
     sort = [],
-  }: { from?: number; size?: number; sort?: any[] }
+    exclude = [],
+  }: { from?: number; size?: number; sort?: any[]; exclude?: any[] }
 ) {
   const searchParams = {
     index: process.env['elasticSearch_recipeIndex'] as string,
@@ -19,9 +20,27 @@ function getPersonalizationSearchData(
       sort,
       query: {
         // eslint-disable-next-line @typescript-eslint/camelcase
-        query_string: {
-          query: `${searchQuery}`,
-        },
+        query_string:
+          exclude.length === 0
+            ? {
+                query: `${searchQuery}`,
+              }
+            : undefined,
+        bool:
+          exclude.length > 0
+            ? {
+                must: [
+                  {
+                    // eslint-disable-next-line @typescript-eslint/camelcase
+                    query_string: {
+                      query: `${searchQuery}`,
+                    },
+                  },
+                ],
+                // eslint-disable-next-line @typescript-eslint/camelcase
+                must_not: exclude,
+              }
+            : undefined,
       },
     },
   };
