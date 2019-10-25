@@ -18,6 +18,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
   stepResultsCallback,
   ctas,
   bottomContent,
+  imageSizes,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isFormDirty, setFormDirty] = useState(false);
@@ -152,6 +153,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
             progress,
             onChangeCallback,
             selectedOptions: currentAnswer,
+            imageSizes: imageSizes,
           }}
         />
         <div className="wizard__buttons">

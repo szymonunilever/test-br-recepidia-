@@ -5,4 +5,5 @@ export interface QuestionProps {
   progress?: number;
   selectedOptions?: string | string[];
   onChangeCallback: (key: string, value: string | object | null) => void;
+  imageSizes?: string;
 }
