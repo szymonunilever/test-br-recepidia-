@@ -70,7 +70,7 @@
               "questions": [
                 {
                   "orderIndex": 1,
-                  "id": 1,
+                  "id": 90001296,
                   "key": "question1",
                   "label": "Você é do tipo que",
                   "type": {
@@ -80,6 +80,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001559,
                       "value": "1523;1525;1552;1414;1424;1427;1433;1411;1441;1295;1296;1415;1298;1419;1299;1300;1304;1306;1307;1405;1409;1412;1413;1449;1416;1417;1425;1428;1430;1434;1435;1438;1443;1445;1446;1287;1451",
                       "label": {
                         "text": "Experimenta de tudo",
@@ -90,6 +91,7 @@
                       }
                     },
                     {
+                      "id": 90001560,
                       "value": "1527;1408;1422;1483;1485;665;1491",
                       "label": {
                         "text": "Ama mais salgado do que doce",
@@ -100,6 +102,7 @@
                       }
                     },
                     {
+                      "id": 90001561,
                       "value": "1466;1397;1467;1315;1481;693;1319;1317;1478;1469;1504",
                       "label": {
                         "text": "Rouba os docinhos antes do parabéns",
@@ -110,6 +113,7 @@
                       }
                     },
                     {
+                      "id": 90001562,
                       "value": "1477;1488;1465;1497;1501;1431",
                       "label": {
                         "text": "Não divide o hambúrguer",
@@ -120,6 +124,7 @@
                       }
                     },
                     {
+                      "id": 90001563,
                       "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;10939",
                       "label": {
                         "text": "Chef preferido das crianças",
@@ -130,6 +135,7 @@
                       }
                     },
                     {
+                      "id": 90001562,
                       "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
@@ -140,6 +146,7 @@
                       }
                     },
                     {
+                      "id": 90001564,
                       "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053;10939;12909;13153",
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
@@ -153,7 +160,7 @@
                 },
                 {
                   "orderIndex": 2,
-                  "id": 2,
+                  "id": 90001297,
                   "key": "question2",
                   "label": "Você segue alguma dieta especial?",
                   "type": {
@@ -163,6 +170,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001565,
                       "value": "",
                       "label": {
                         "text": "Sem restrições",
@@ -173,6 +181,7 @@
                       }
                     },
                     {
+                      "id": 90001566,
                       "value": "10;13153",
                       "label": {
                         "text": "Sem produtos de origem animal",
@@ -183,6 +192,7 @@
                       }
                     },
                     {
+                      "id": 90001567,
                       "value": "11;12909",
                       "label": {
                         "text": "Sem carne",
@@ -193,6 +203,7 @@
                       }
                     },
                     {
+                      "id": 90001568,
                       "value": "2;12886",
                       "label": {
                         "text": "Sem ovo",
@@ -203,6 +214,7 @@
                       }
                     },
                     {
+                      "id": 90001569,
                       "value": "1;12914",
                       "label": {
                         "text": "Sem leite",
@@ -213,6 +225,7 @@
                       }
                     },
                     {
+                      "id": 90001570,
                       "value": "12913",
                       "label": {
                         "text": "Sem açúcar",
@@ -223,6 +236,7 @@
                       }
                     },
                     {
+                      "id": 90001571,
                       "value": "4;12886",
                       "label": {
                         "text": "Sem lactose",
@@ -233,6 +247,7 @@
                       }
                     },
                     {
+                      "id": 90001572,
                       "value": "3;12941",
                       "label": {
                         "text": "Sem glúten",
@@ -243,6 +258,7 @@
                       }
                     },
                     {
+                      "id": 90001573,
                       "value": "12912",
                       "label": {
                         "text": "Sem frutos do mar",
@@ -253,6 +269,7 @@
                       }
                     },
                     {
+                      "id": 90001574,
                       "value": "12906",
                       "label": {
                         "text": "Sem soja",
@@ -266,7 +283,7 @@
                 },
                 {
                   "orderIndex": 3,
-                  "id": 3,
+                  "id": 90001298,
                   "key": "question3",
                   "label": "Como seria um jantar perfeito?",
                   "type": {
@@ -276,6 +293,7 @@
                   "filterPropName": "serves",
                   "options": [
                     {
+                      "id": 90001575,
                       "value": ">=3",
                       "label": {
                         "text": "Com a galera",
@@ -286,6 +304,7 @@
                       }
                     },
                     {
+                      "id": 90001576,
                       "value": "1 or 2",
                       "label": {
                         "text": "Com o crush",
@@ -296,6 +315,7 @@
                       }
                     },
                     {
+                      "id": 90001577,
                       "value": ">3",
                       "label": {
                         "text": "Com meus filhos",
@@ -306,6 +326,7 @@
                       }
                     },
                     {
+                      "id": 90001578,
                       "value": "2",
                       "label": {
                         "text": "Com meus netos",
@@ -319,7 +340,7 @@
                 },
                 {
                   "orderIndex": 4,
-                  "id": 4,
+                  "id": 90001299,
                   "key": "question4",
                   "label": "Como você é na cozinha?",
                   "type": {
@@ -329,6 +350,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001579,
                       "value": "1457",
                       "label": {
                         "text": "Só sei fazer gelo",
@@ -339,6 +361,7 @@
                       }
                     },
                     {
+                      "id": 90001580,
                       "value": "1460",
                       "label": {
                         "text": "Me viro bem",
@@ -349,6 +372,7 @@
                       }
                     },
                     {
+                      "id": 90001581,
                       "value": "1458;1459",
                       "label": {
                         "text": "Me chame de chef!",
@@ -426,13 +450,13 @@
                     {
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
-                      "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
+                      "name": "optIn.brand",
                       "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
                     },
                     {
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
-                      "name": "subscriptions.optInOptOut.unilever.email.isSubscribed",
+                      "name": "optIn.corporate",
                       "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\" rel='noopener noreferrer' title='marcas da Unilever. O link abre em uma nova janela'> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
                     },
                     {
@@ -1305,6 +1329,45 @@
       }
     },
     {
+      "type": "ContactUsThankYou",
+      "relativePath": "/obrigado",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "Obrigado!"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "Description",
+              "text": "Não se preocupe, um dos nossos assistentes de cozinha irá te retornar em breve :)"
+            }
+          },
+          {
+            "name": "Button",
+            "content": {
+              "label": "Voltar para a página inicial",
+              "linkTo": "/"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Obrigado",
+        "description": "Não se preocupe, um dos nossos assistentes de cozinha irá te retornar em breve",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
       "title": "User Profile",
       "type": "UserProfile",
       "relativePath": "/perfil",
@@ -1427,7 +1490,7 @@
               "questions": [
                 {
                   "orderIndex": 1,
-                  "id": 1,
+                  "id": 90001296,
                   "key": "question1",
                   "label": "Você é do tipo que",
                   "type": {
@@ -1437,6 +1500,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001559,
                       "value": "1523;1525;1552;1414;1424;1427;1433;1411;1441;1295;1296;1415;1298;1419;1299;1300;1304;1306;1307;1405;1409;1412;1413;1449;1416;1417;1425;1428;1430;1434;1435;1438;1443;1445;1446;1287;1451",
                       "label": {
                         "text": "Experimenta de tudo",
@@ -1447,6 +1511,7 @@
                       }
                     },
                     {
+                      "id": 90001560,
                       "value": "1527;1408;1422;1483;1485;665;1491",
                       "label": {
                         "text": "Ama mais salgado do que doce",
@@ -1457,6 +1522,7 @@
                       }
                     },
                     {
+                      "id": 90001561,
                       "value": "1466;1397;1467;1315;1481;693;1319;1317;1478;1469;1504",
                       "label": {
                         "text": "Rouba os docinhos antes do parabéns",
@@ -1467,6 +1533,7 @@
                       }
                     },
                     {
+                      "id": 90001562,
                       "value": "1477;1488;1465;1497;1501;1431",
                       "label": {
                         "text": "Não divide o hambúrguer",
@@ -1477,6 +1544,7 @@
                       }
                     },
                     {
+                      "id": 90001563,
                       "value": "1521;1522;1528;700;1529;1524;1498;2074;2078;1346;1053;1504;1518;1506;2091;10939",
                       "label": {
                         "text": "Chef preferido das crianças",
@@ -1487,6 +1555,7 @@
                       }
                     },
                     {
+                      "id": 90001562,
                       "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
@@ -1497,6 +1566,7 @@
                       }
                     },
                     {
+                      "id": 90001564,
                       "value": "1487;1498;2074;2078;1346;1511;1509;1518;2085;2082;1053;10939;12909;13153",
                       "label": {
                         "text": "Cuida da alimentação e do planeta",
@@ -1510,7 +1580,7 @@
                 },
                 {
                   "orderIndex": 2,
-                  "id": 2,
+                  "id": 90001297,
                   "key": "question2",
                   "label": "Você segue alguma dieta especial?",
                   "type": {
@@ -1520,6 +1590,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001565,
                       "value": "",
                       "label": {
                         "text": "Sem restrições",
@@ -1530,6 +1601,7 @@
                       }
                     },
                     {
+                      "id": 90001566,
                       "value": "10;13153",
                       "label": {
                         "text": "Sem produtos de origem animal",
@@ -1540,6 +1612,7 @@
                       }
                     },
                     {
+                      "id": 90001567,
                       "value": "11;12909",
                       "label": {
                         "text": "Sem carne",
@@ -1550,6 +1623,7 @@
                       }
                     },
                     {
+                      "id": 90001568,
                       "value": "2;12886",
                       "label": {
                         "text": "Sem ovo",
@@ -1560,6 +1634,7 @@
                       }
                     },
                     {
+                      "id": 90001569,
                       "value": "1;12914",
                       "label": {
                         "text": "Sem leite",
@@ -1570,6 +1645,7 @@
                       }
                     },
                     {
+                      "id": 90001570,
                       "value": "12913",
                       "label": {
                         "text": "Sem açúcar",
@@ -1580,6 +1656,7 @@
                       }
                     },
                     {
+                      "id": 90001571,
                       "value": "4;12886",
                       "label": {
                         "text": "Sem lactose",
@@ -1590,6 +1667,7 @@
                       }
                     },
                     {
+                      "id": 90001572,
                       "value": "3;12941",
                       "label": {
                         "text": "Sem glúten",
@@ -1600,6 +1678,7 @@
                       }
                     },
                     {
+                      "id": 90001573,
                       "value": "12912",
                       "label": {
                         "text": "Sem frutos do mar",
@@ -1610,6 +1689,7 @@
                       }
                     },
                     {
+                      "id": 90001574,
                       "value": "12906",
                       "label": {
                         "text": "Sem soja",
@@ -1623,7 +1703,7 @@
                 },
                 {
                   "orderIndex": 3,
-                  "id": 3,
+                  "id": 90001298,
                   "key": "question3",
                   "label": "Como seria um jantar perfeito?",
                   "type": {
@@ -1633,6 +1713,7 @@
                   "filterPropName": "serves",
                   "options": [
                     {
+                      "id": 90001575,
                       "value": ">=3",
                       "label": {
                         "text": "Com a galera",
@@ -1643,6 +1724,7 @@
                       }
                     },
                     {
+                      "id": 90001576,
                       "value": "1 or 2",
                       "label": {
                         "text": "Com o crush",
@@ -1653,6 +1735,7 @@
                       }
                     },
                     {
+                      "id": 90001577,
                       "value": ">3",
                       "label": {
                         "text": "Com meus filhos",
@@ -1663,6 +1746,7 @@
                       }
                     },
                     {
+                      "id": 90001578,
                       "value": "2",
                       "label": {
                         "text": "Com meus netos",
@@ -1676,7 +1760,7 @@
                 },
                 {
                   "orderIndex": 4,
-                  "id": 4,
+                  "id": 90001299,
                   "key": "question4",
                   "label": "Como você é na cozinha?",
                   "type": {
@@ -1686,6 +1770,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001579,
                       "value": "1457",
                       "label": {
                         "text": "Só sei fazer gelo",
@@ -1696,6 +1781,7 @@
                       }
                     },
                     {
+                      "id": 90001580,
                       "value": "1460",
                       "label": {
                         "text": "Me viro bem",
@@ -1706,6 +1792,7 @@
                       }
                     },
                     {
+                      "id": 90001581,
                       "value": "1458;1459",
                       "label": {
                         "text": "Me chame de chef!",
@@ -1728,7 +1815,7 @@
               "questions": [
                 {
                   "orderIndex": 1,
-                  "id": 1,
+                  "id": 90001300,
                   "key": "mealPlannerQuestion1",
                   "label": "O que não pode faltar na sua semana?",
                   "type": {
@@ -1738,6 +1825,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001582,
                       "value": "1503;1484",
                       "label": {
                         "text": "Frango",
@@ -1748,6 +1836,7 @@
                       }
                     },
                     {
+                      "id": 90001583,
                       "value": "1397;1467;1315;1466;1469;1481;693;1319;1317;1478",
                       "label": {
                         "text": "Doces e Sobremesas",
@@ -1758,6 +1847,7 @@
                       }
                     },
                     {
+                      "id": 90001584,
                       "value": "665",
                       "label": {
                         "text": "Pizza",
@@ -1768,6 +1858,7 @@
                       }
                     },
                     {
+                      "id": 90001585,
                       "value": "1475;1490;1321",
                       "label": {
                         "text": "Peixe",
@@ -1778,6 +1869,7 @@
                       }
                     },
                     {
+                      "id": 90001586,
                       "value": "1477;1488;1465;1497",
                       "label": {
                         "text": "Lanches",
@@ -1788,6 +1880,7 @@
                       }
                     },
                     {
+                      "id": 90001587,
                       "value": "1479;1492;1499",
                       "label": {
                         "text": "Carne",
@@ -1798,6 +1891,7 @@
                       }
                     },
                     {
+                      "id": 90001588,
                       "value": "664;1480;699",
                       "label": {
                         "text": "Massa",
@@ -1808,6 +1902,7 @@
                       }
                     },
                     {
+                      "id": 90001589,
                       "value": "1483;1485",
                       "label": {
                         "text": "Tortas",
@@ -1818,6 +1913,7 @@
                       }
                     },
                     {
+                      "id": 90001590,
                       "value": "1487;1108;1476;1495;1473;10939",
                       "label": {
                         "text": "Comida saudável",
@@ -1828,6 +1924,7 @@
                       }
                     },
                     {
+                      "id": 90001591,
                       "value": "1491",
                       "label": {
                         "text": "Sopas",
@@ -1841,7 +1938,7 @@
                 },
                 {
                   "orderIndex": 2,
-                  "id": 2,
+                  "id": 90001301,
                   "key": "mealPlannerQuestion2",
                   "label": "Pretende seguir alguma dieta específica essa semana?",
                   "type": {
@@ -1851,6 +1948,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001565,
                       "value": "",
                       "label": {
                         "text": "Sem restrições",
@@ -1861,6 +1959,7 @@
                       }
                     },
                     {
+                      "id": 90001566,
                       "value": "10;13153",
                       "label": {
                         "text": "Sem produtos de origem animal",
@@ -1871,6 +1970,7 @@
                       }
                     },
                     {
+                      "id": 90001567,
                       "value": "11;12909",
                       "label": {
                         "text": "Sem carne",
@@ -1881,6 +1981,7 @@
                       }
                     },
                     {
+                      "id": 90001571,
                       "value": "4;12886",
                       "label": {
                         "text": "Sem lactose",
@@ -1891,6 +1992,7 @@
                       }
                     },
                     {
+                      "id": 90001572,
                       "value": "3;12941",
                       "label": {
                         "text": "Sem glúten",
@@ -1904,7 +2006,7 @@
                 },
                 {
                   "orderIndex": 3,
-                  "id": 3,
+                  "id": 90001302,
                   "key": "mealPlannerQuestion3",
                   "label": "Quanto tempo quer gastar na cozinha?",
                   "type": {
@@ -1914,6 +2016,7 @@
                   "filterPropName": "cookTime",
                   "options": [
                     {
+                      "id": 90001592,
                       "value": "<21",
                       "label": {
                         "text": "Quero ser rápido!",
@@ -1924,6 +2027,7 @@
                       }
                     },
                     {
+                      "id": 90001593,
                       "value": "<999",
                       "label": {
                         "text": "Tenho tempo",
@@ -1937,7 +2041,7 @@
                 },
                 {
                   "orderIndex": 4,
-                  "id": 4,
+                  "id": 90001303,
                   "key": "mealPlannerQuestion4",
                   "label": "Essa semana você quer",
                   "type": {
@@ -1947,6 +2051,7 @@
                   "filterPropName": "tags",
                   "options": [
                     {
+                      "id": 90001594,
                       "value": "1371",
                       "label": {
                         "text": "Gastar um pouco mais",
@@ -1957,6 +2062,7 @@
                       }
                     },
                     {
+                      "id": 90001595,
                       "value": "1369;1370",
                       "label": {
                         "text": "Algo bom, bonito e barato",
@@ -1970,7 +2076,7 @@
                 },
                 {
                   "orderIndex": 5,
-                  "id": 5,
+                  "id": 90001304,
                   "key": "mealPlannerQuestion5",
                   "label": "Receitas para quantas pessoas?",
                   "type": {
@@ -1980,6 +2086,7 @@
                   "filterPropName": "serves",
                   "options": [
                     {
+                      "id": 90001596,
                       "value": "[1 TO 2]",
                       "label": {
                         "text": "1 ou 2 pessoas",
@@ -1990,6 +2097,7 @@
                       }
                     },
                     {
+                      "id": 90001597,
                       "value": "[3 TO 5]",
                       "label": {
                         "text": "3 a 5 pessoas",
@@ -2000,6 +2108,7 @@
                       }
                     },
                     {
+                      "id": 90001598,
                       "value": "[5 TO *]",
                       "label": {
                         "text": "Mais de 5 pessoas",
@@ -2119,7 +2228,7 @@
                 "questions": [
                   {
                     "orderIndex": 1,
-                    "id": 1,
+                    "id": 90001300,
                     "key": "mealPlannerQuestion1",
                     "label": "O que não pode faltar na sua semana?",
                     "type": {
@@ -2232,7 +2341,7 @@
                   },
                   {
                     "orderIndex": 2,
-                    "id": 2,
+                    "id": 90001301,
                     "key": "mealPlannerQuestion2",
                     "label": "Pretende seguir alguma dieta específica essa semana?",
                     "type": {
@@ -2295,7 +2404,7 @@
                   },
                   {
                     "orderIndex": 3,
-                    "id": 3,
+                    "id": 90001302,
                     "key": "mealPlannerQuestion3",
                     "label": "Quanto tempo quer gastar na cozinha?",
                     "type": {
@@ -2328,7 +2437,7 @@
                   },
                   {
                     "orderIndex": 4,
-                    "id": 4,
+                    "id": 90001303,
                     "key": "mealPlannerQuestion4",
                     "label": "Essa semana você quer",
                     "type": {
@@ -2361,7 +2470,7 @@
                   },
                   {
                     "orderIndex": 5,
-                    "id": 5,
+                    "id": 90001304,
                     "key": "mealPlannerQuestion5",
                     "label": "Receitas para quantas pessoas?",
                     "type": {
@@ -2474,13 +2583,13 @@
                     {
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
-                      "name": "subscriptions.optInOptOut.BRAND_BR_BF8813_EML.email.isSubscribed",
+                      "name": "optIn.brand",
                       "label": "Sim! Quero receber novidades, receitas, campanhas promocionais e ofertas personalizadas sobre Recepedia."
                     },
                     {
                       "type": "checkbox",
                       "fieldset": "consentsFieldset",
-                      "name": "subscriptions.optInOptOut.unilever.email.isSubscribed",
+                      "name": "optIn.corporate",
                       "label": "Sim! Quero receber novidades, campanhas promocionais e ofertas personalizadas sobre as demais <a href=\"https://www.unilever.com.br/brands/\" target=\"_blank\" rel='noopener noreferrer' title='marcas da Unilever. O link abre em uma nova janela'> marcas da Unilever</a> e sobre as suas ações para fazer o bem."
                     },
                     {
@@ -2595,7 +2704,15 @@
       "type": "NewsletterSignUp",
       "relativePath": "/inscrever",
       "components": {
-        "items": []
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Loading screenset placeholder",
+              "text": "Carregando o conjunto de telas"
+            }
+          }
+        ]
       },
       "seo": {
         "title": "Inscreva-se em Recepedia",

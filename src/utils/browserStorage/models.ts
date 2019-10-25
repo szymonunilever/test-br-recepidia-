@@ -3,4 +3,5 @@ export enum ProfileKey {
   favorites = 'favorites',
   mealPlannerAnswers = 'mealPlannerAnswers',
   mealPlannerResults = 'mealPlannerResults',
+  user = 'user',
 }

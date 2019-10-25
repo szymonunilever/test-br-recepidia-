@@ -3,7 +3,7 @@ import {
   titleLevel,
   UnileverLibraryComponent,
   WizardStepComponent,
-} from '../lib/models/globalModels';
+} from '../lib/models';
 
 export interface DataCapturingFormProps
   extends UnileverLibraryComponent<AppContent.GeneratedForm.Content>,
@@ -11,6 +11,12 @@ export interface DataCapturingFormProps
   titleRenderer?: (markup: JSX.Element) => JSX.Element;
   titleLevel?: titleLevel;
   url: string;
-  host: string;
+  formType: string;
   pathToData: ProfileKey;
+}
+
+export interface DataPrepopulateProps {
+  email: string;
+  firstName: string;
+  lastName: string;
 }

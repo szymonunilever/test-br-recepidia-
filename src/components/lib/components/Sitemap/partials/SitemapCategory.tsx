@@ -9,7 +9,7 @@ const SitemapCategory = ({ item }: SitemapCategoryProps) => {
   if (!title && !isNestedCategories) return null;
 
   const categoryItem = (
-    <li className="sitemap__category">
+    <>
       {title &&
         (path ? (
           <Link className="sitemap__category-title" to={path}>
@@ -27,7 +27,7 @@ const SitemapCategory = ({ item }: SitemapCategoryProps) => {
             ))}
         </ul>
       )}
-    </li>
+    </>
   );
 
   return categoryItem;

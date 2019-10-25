@@ -44,8 +44,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  const formUrl = process.env['mealPlanerDataCapturing_url'] as string;
-  const formHost = process.env['mealPlanerDataCapturing_host'] as string;
   const componentContent = findPageComponentContent(components, 'Wizard');
   const { dataCapturing } = componentContent;
   const linksContent = findPageComponentContent(components, 'Links');
@@ -79,12 +77,14 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       if (data.body.hits.total.value === 0 && i < maxTry) {
         processSearchData(quizData, i);
       } else {
-        setRecipes(result);
-        useKritiqueReload();
-        saveUserProfileByKey(
-          result.map(item => item.recipeId),
-          ProfileKey.mealPlannerResults
-        );
+        if (result && result.length) {
+          setRecipes(result);
+          useKritiqueReload();
+          saveUserProfileByKey(
+            result.map(item => item.recipeId),
+            ProfileKey.mealPlannerResults
+          );
+        }
       }
     });
   };
@@ -105,6 +105,11 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const pageUpdate = useCallback(() => {
     window.location.reload();
   }, []);
+
+  const [formUrl, formType] = [
+    process.env['mealPlanerDataCapturing_url'] as string,
+    process.env['mealPlanerDataCapturing_formType'] as string,
+  ];
 
   return (
     <div className={theme.mealPlanner}>
@@ -139,7 +144,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           >
             {!isLoading ? (
               <div>
-                {recipes.length && (
+                {recipes.length > 0 && (
                   <RecipeListing
                     content={findPageComponentContent(components, 'Wizard')}
                     favorites={Array.isArray(favorites) ? favorites : []}
@@ -176,7 +181,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           <DataCapturingForm
             {...dataCapturing}
             url={formUrl}
-            host={formHost}
+            formType={formType}
             pathToData={ProfileKey.mealPlannerAnswers}
             containerClass="wizard--form"
           />

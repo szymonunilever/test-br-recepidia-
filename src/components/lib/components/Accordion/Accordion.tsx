@@ -29,14 +29,15 @@ export const Accordion = ({
     <div className={classWrapper} {...getComponentDataAttrs('accordion')}>
       <div
         role="tree"
+        id={title && title.name}
         className="accordion__title"
         onClick={onToggle}
         tabIndex={0}
         aria-expanded={state}
-        aria-label={title}
+        aria-label={title && title.label}
         onKeyUp={onToggleKeyboard}
       >
-        {title ? title : null}
+        {title && title.label ? title.label : null}
         {state ? IconOpened ? <IconOpened /> : null : Icon ? <Icon /> : null}
       </div>
 

@@ -70,4 +70,5 @@ export interface SearchParams {
   size?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sort?: any[];
+  exclude?: any[];
 }
