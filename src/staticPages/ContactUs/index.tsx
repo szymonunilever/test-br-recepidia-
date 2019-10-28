@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
@@ -40,14 +39,14 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
               Icon={MapMarker}
             />
           </div>
-          <div className={theme.cardholderItem}>
+          {/*<div className={theme.cardholderItem}>
             <Card
               className={cx(theme.cardStretch, 'card')}
               titleLevel={2}
               content={findPageComponentContent(components, 'Card', 'Contact')}
               Icon={MapMarker}
             />
-          </div>
+          </div>*/}
         </div>
       </section>
     </Layout>
