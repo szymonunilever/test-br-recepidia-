@@ -13,13 +13,14 @@ const Question: FunctionComponent<QuestionProps> = ({
   progress,
   selectedOptions,
   onChangeCallback,
+  imageSizes,
 }) => {
   // @ts-ignore
   const Component = componentsMap[question.type.control];
 
   return Component ? (
     <Component
-      {...{ question, progress, selectedOptions, onChangeCallback }}
+      {...{ question, progress, selectedOptions, onChangeCallback, imageSizes }}
       key={question.id}
     />
   ) : null;
