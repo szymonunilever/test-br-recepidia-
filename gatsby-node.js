@@ -360,6 +360,24 @@ exports.onCreateWebpackConfig = ({
     });
   }
 
+  if (stage === `build-javascript`) {
+    const cssExtractIndex = config.plugins.findIndex(
+      pl => pl instanceof MiniCssExtractPlugin
+    );
+
+    config.plugins[cssExtractIndex] = new MiniCssExtractPlugin({
+      filename: `[name].css`,
+      chunkFilename: `[name].css`,
+    });
+
+    config.output = {
+      filename: `[name].js`,
+      chunkFilename: `[name].js`,
+      path: getConfig().output.path,
+      publicPath: getConfig().output.publicPath,
+    };
+  }
+
   actions.replaceWebpackConfig(config);
 };
 

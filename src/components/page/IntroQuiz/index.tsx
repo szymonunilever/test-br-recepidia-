@@ -20,6 +20,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   introContent,
   quizContent,
   onClose,
+  imageSizes,
 }) => {
   const [isQuizOpened, setIsQuizOpened] = useState(false);
   const [isQuizPassed, setIsQuizPassed] = useState(false);
@@ -92,6 +93,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
           }}
           containerClass="wizard--quiz wizard--quiz-initial"
           stepId="quiz"
+          imageSizes={imageSizes}
         />
         {dataCapturing && (
           <DataCapturingForm
