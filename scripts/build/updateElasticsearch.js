@@ -1,40 +1,41 @@
 const Auth = require('@aws-amplify/auth').default;
 const Amplify = require('aws-amplify').default;
-//const config = require('../../app-config');
 const axios = require('axios');
 const times = require('lodash/times');
 
-// require('dotenv').config();
 global['fetch'] = require('node-fetch');
 
 const [
-  COGNITO_USER_POOL_ID,
-  COGNITO_WEB_CLIENT_ID,
-  BUILD_USER_PASSWORD,
+  region,
+  userPoolId,
+  userPoolWebClientId,
+  buildUser,
+  buildUserPassword,
   indexUrl,
   recipeIndex,
   articleIndex,
 ] = [
-  process.env['elasticSearch_COGNITO_USER_POOL_ID'],
-  process.env['elasticSearch_COGNITO_WEB_CLIENT_ID'],
-  process.env['elasticSearch_BUILD_USER_PASSWORD'],
+  process.env['elasticSearch_region'],
+  process.env['elasticSearch_userPoolId'],
+  process.env['elasticSearch_userPoolWebClientId'],
+  process.env['elasticSearch_buildUser'],
+  process.env['elasticSearch_buildUserPassword'],
   process.env['elasticSearch_indexUrl'],
   process.env['elasticSearch_recipeIndex'],
   process.env['elasticSearch_articleIndex'],
 ];
 
-const buildUser = 'staticFirstBuildUser';
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,
-    region: 'eu-west-1',
-    userPoolId: COGNITO_USER_POOL_ID,
-    userPoolWebClientId: COGNITO_WEB_CLIENT_ID,
+    region,
+    userPoolId,
+    userPoolWebClientId,
   },
 });
 
 async function signIn() {
-  const user = await Auth.signIn(buildUser, BUILD_USER_PASSWORD);
+  const user = await Auth.signIn(buildUser, buildUserPassword);
   return user.signInUserSession.idToken.jwtToken;
 }
 

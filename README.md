@@ -12,7 +12,18 @@
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    .env.development file should be created for local development. It should contain following keys:
+    * app_local_middleware_key
+    * app_local_kritique_apiKey
+    * app_local_addThis_key
+    * app_local_AemAssetsCredentials_password
+    * app_local_AemAssetsCredentials_staticFirstApiKey
+    * app_local_AemAssetsCredentials_Authorization
+    * app_local_ReCaptcha_clientKey
+    * app_local_elasticSearch_buildUserPassword
+    * app_local_gigya_script_api_key
+
+    Once create it, navigate into your new site’s directory and start it up.
 
     ```sh
     yarn install
