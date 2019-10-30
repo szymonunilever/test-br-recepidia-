@@ -75,22 +75,16 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
           // @ts-ignore */}
         <WizardQuiz
           intro={
-            <Fragment>
-              <div className="wizard__info">
-                <div className="wizard__logo">
-                  <Logo icon={<WizardLogo />} path="/" />
-                </div>
-                <h1>{introContent.title}</h1>
-                <p className="wizard__description">
-                  {introContent.description}
-                </p>
+            <div className="wizard__info">
+              <div className="wizard__logo">
+                <Logo icon={<WizardLogo />} path="/" />
               </div>
-            </Fragment>
+              <h1>{introContent.title}</h1>
+              <p className="wizard__description">{introContent.description}</p>
+            </div>
           }
-          {...{
-            ...quizContent,
-            stepResultsCallback,
-          }}
+          {...quizContent}
+          stepResultsCallback={stepResultsCallback}
           containerClass="wizard--quiz wizard--quiz-initial"
           stepId="quiz"
           imageSizes={imageSizes}

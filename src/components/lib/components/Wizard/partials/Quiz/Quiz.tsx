@@ -5,11 +5,13 @@ import React, {
   useCallback,
   FunctionComponent,
 } from 'react';
+import get from 'lodash/get';
+
 import Question from './partials/Question';
 import Button from '../../../Button';
 import { QuizProps } from './models';
 import { ResultsStore } from '../../models';
-import get from 'lodash/get';
+import { useQuizTracking } from '../../../../../../tracking/quiz-tracking';
 
 const Quiz: FunctionComponent<QuizProps> = ({
   intro,
@@ -25,12 +27,14 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const [answers, setAnswers] = useState({});
   const question = questions[currentQuestionIndex];
   const [currentAnswer, setCurrentAnswer] = useState();
-  const progress = Math.round(
-    ((currentQuestionIndex + 1) / questions.length) * 100
-  );
   const isAnswerProvided = useCallback(
     () => !!currentAnswer && !!currentAnswer.length,
     [currentAnswer]
+  );
+  useQuizTracking(currentQuestionIndex);
+
+  const progress = Math.round(
+    ((currentQuestionIndex + 1) / questions.length) * 100
   );
 
   const setQuestionIndex = (index: number) => {
