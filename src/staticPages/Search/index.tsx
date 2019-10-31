@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
@@ -33,7 +33,7 @@ import { IMAGE_SIZES } from 'src/constants';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
-    page: { seo, components, type },
+    page: { seo, components, type, relativePath },
   } = pageContext;
   const { allTag, allCategory } = data;
   const pageListingData = allCategory.nodes.map(category => ({
@@ -42,7 +42,6 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   }));
 
   const {
-    getSearchData,
     getRecipeSearchData,
     getArticleSearchData,
     getSearchSuggestionData,
@@ -53,6 +52,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     initialRecipesCount,
     initialTagsCount,
   } = useSearchResults(searchQuery);
+
+  const updateUrlParams = (searchStr: string) => {
+    return navigate(`${relativePath}?searchQuery=${searchStr}`);
+  };
 
   const [tagList, setTagList] = useState<Internal.Tag[]>([]);
   const { updateFavoriteState, favorites } = useFavorite(
@@ -81,7 +84,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           config={{
             searchInputConfig: {
               getSearchSuggestionData,
-              onClickSearchResultsItem: getSearchData,
+              onClickSearchResultsItem: updateUrlParams,
               searchResultsCount: 8,
               labelIcon: <SearchIcon />,
               buttonResetIcon: <CloseSvg />,
