@@ -35,6 +35,9 @@ export interface RecipePersonalizationFormulaProps {
 }
 
 export const IMAGE_SIZES = {
+  QUIZ_OPTIONS: {
+    INTRO_QUIZ: '(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px',
+  },
   RECIPE_LISTINGS: {
     STANDARD: '(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px',
     NON_STANDARD: '(max-width: 768px) 100vw, (max-width: 1366px) 50vw, 500px',

@@ -132,6 +132,16 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             containerClass="wizard--quiz"
             stepId="quiz"
           />
+          {recipes.length > 0 && (
+            <DataCapturingForm
+              {...dataCapturing}
+              url={formUrl}
+              formType={formType}
+              pathToData={ProfileKey.mealPlannerAnswers}
+              containerClass="wizard--form"
+            />
+          )}
+
           <WizardResultSection
             {...wizardResultSection}
             containerClass="wizard--result"
@@ -178,13 +188,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
               </div>
             )}
           </WizardResultSection>
-          <DataCapturingForm
-            {...dataCapturing}
-            url={formUrl}
-            formType={formType}
-            pathToData={ProfileKey.mealPlannerAnswers}
-            containerClass="wizard--form"
-          />
         </Wizard>
         <div className="wizard__privacy">
           <Menu list={linksContent.list} />

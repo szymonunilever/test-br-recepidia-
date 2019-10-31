@@ -135,7 +135,7 @@
                       }
                     },
                     {
-                      "id": 90001562,
+                      "id": 90001599,
                       "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
@@ -473,7 +473,7 @@
                     }
                   ],
                   "submitButton": {
-                    "label": "Conferir seu cardápio"
+                    "label": "Ir para página inicial"
                   }
                 }
               },
@@ -1555,7 +1555,7 @@
                       }
                     },
                     {
-                      "id": 90001562,
+                      "id": 90001599,
                       "value": "1479;1492;1499;1503;1484;1477;1520;1512;2088;2073",
                       "label": {
                         "text": "Louco por carne",
@@ -2727,12 +2727,12 @@
     },
     {
       "type": "PreferenceCenter",
-      "relativePath": "/preference-center",
+      "relativePath": "/centro-de-preferencias",
       "components": {
         "items": []
       },
       "seo": {
-        "title": "Preferences",
+        "title": "Centro de preferencias",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {

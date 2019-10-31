@@ -360,6 +360,24 @@ exports.onCreateWebpackConfig = ({
     });
   }
 
+  if (stage === `build-javascript`) {
+    const cssExtractIndex = config.plugins.findIndex(
+      pl => pl instanceof MiniCssExtractPlugin
+    );
+
+    config.plugins[cssExtractIndex] = new MiniCssExtractPlugin({
+      filename: `[name].css`,
+      chunkFilename: `[name].css`,
+    });
+
+    config.output = {
+      filename: `[name].js`,
+      chunkFilename: `[name].js`,
+      path: getConfig().output.path,
+      publicPath: getConfig().output.publicPath,
+    };
+  }
+
   actions.replaceWebpackConfig(config);
 };
 
@@ -418,7 +436,7 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
     const hrstart = process.hrtime();
     const promises = [
       updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
-      updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
+      //updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
     ];
     await Promise.all(promises);
     const hrend = process.hrtime(hrstart);

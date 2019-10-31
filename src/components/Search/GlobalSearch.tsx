@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { navigate } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import {
   Button,
   Modal,
@@ -16,6 +16,16 @@ const GlobalSearch = ({
 }: {
   searchContent: AppContent.SearchInput.Content;
 }) => {
+  const {
+    page: { relativePath },
+  } = useStaticQuery(graphql`
+    {
+      page(type: { eq: "Search" }) {
+        relativePath
+      }
+    }
+  `);
+
   const [modalState, setModalState] = useState(false);
   const [searchInputResults, setSearchInputResults] = useState<
     SearchInputProps['searchResults']
@@ -64,7 +74,7 @@ const GlobalSearch = ({
         <SearchInput
           getSearchResults={getSearchSuggestionData}
           onClickSearchResultsItem={(value: string) => {
-            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`${relativePath}?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           content={searchContent}
@@ -73,7 +83,7 @@ const GlobalSearch = ({
           buttonResetIcon={<ButtonCloseIcon />}
           buttonSubmitIcon={<SearchIcon />}
           onSubmit={async value => {
-            navigate(`/procurar?searchQuery=${value}`); // get URL from Pages when search Page is there
+            navigate(`${relativePath}?searchQuery=${value}`); // get URL from Pages when search Page is there
             setModalState(false);
           }}
           autoFocus

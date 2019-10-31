@@ -23,6 +23,7 @@ const Multi: FunctionComponent<QuestionProps> = ({
   progress,
   selectedOptions,
   onChangeCallback,
+  imageSizes,
 }) => {
   const defaultValue = getSelectedOptions(selectedOptions);
   const [val, setVal] = useState<string[]>(defaultValue);
@@ -64,7 +65,7 @@ const Multi: FunctionComponent<QuestionProps> = ({
                 checked={val.includes(option.value)}
                 onChange={onChange}
               />
-              <Option {...{ option, question }} />
+              <Option {...{ option, question, imageSizes }} />
             </label>
           </li>
         ))}
