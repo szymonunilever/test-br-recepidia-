@@ -473,7 +473,7 @@
                     }
                   ],
                   "submitButton": {
-                    "label": "Conferir seu cardápio"
+                    "label": "Ir para página inicial"
                   }
                 }
               },
@@ -2727,12 +2727,12 @@
     },
     {
       "type": "PreferenceCenter",
-      "relativePath": "/preference-center",
+      "relativePath": "/centro-de-preferencias",
       "components": {
         "items": []
       },
       "seo": {
-        "title": "Preferences",
+        "title": "Centro de preferencias",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {

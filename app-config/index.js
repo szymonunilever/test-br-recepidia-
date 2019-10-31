@@ -7,7 +7,8 @@ const filter = require('lodash/filter');
 const reduce = require('lodash/reduce');
 const flow = require('lodash/flow');
 
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
+require('dotenv').config({ path: '.env.development' });
 
 // Prefix to identify local env variables described in .env file
 const localVarPrefix = `app_local_`;
@@ -80,6 +81,17 @@ function _getConfig() {
     }
   }
 
+  // prevent adding timestamp for local development
+  if (process.env.BRANCH) {
+    const timestamp = Date.now();
+    ciVars['elasticSearch_recipeIndex'] = `${
+      ciVars['elasticSearch_recipeIndex']
+    }--${timestamp}`;
+
+    ciVars['elasticSearch_articleIndex'] = `${
+      ciVars['elasticSearch_articleIndex']
+    }--${timestamp}`;
+  }
   // Merge local and branch-related env variables.
   // Branch variables have priority and will override local variables in case of name collision
   return merge(localVars, ciVars);

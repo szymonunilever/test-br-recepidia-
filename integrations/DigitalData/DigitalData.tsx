@@ -29,17 +29,6 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
         tool: JSON.parse(process.env['digitalData_trackingInfo_tool'] || ''),
       },
     },
-    UDM: {
-      globalbrand: process.env['UDM_globalbrand'],
-      localbrand: process.env['UDM_localbrand'],
-      category: process.env['UDM_category'],
-      channel: process.env['UDM_channel'],
-      country: process.env['UDM_country'],
-      sitetype: process.env['UDM_sitetype'],
-      evq: JSON.parse(process.env['UDM_evq'] || ''),
-      gid: process.env['UDM_gid'],
-      gaa: process.env['UDM_gaa'],
-    },
   };
   // use JSON.stringify for string variables to avoid bugs
   // 'let' and 'const' do not work for SPAs, only 'var'
@@ -54,9 +43,6 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
       var digitalData = digitalData ? Object.assign(digitalData, ${JSON.stringify(
         config.digitalData
       )}) : ${JSON.stringify(config.digitalData)};
-      var UDM = UDM ? Object.assign(UDM, ${JSON.stringify(
-        config.UDM
-      )}): ${JSON.stringify(config.UDM)};
       digitalData.siteInfo['channel'] = channelVal;
       digitalData.page.category = {
          pageType: type,
