@@ -470,6 +470,10 @@
                           "errorMessage": "Deve ter idade de 18 anos para se inscrever"
                         }
                       ]
+                    },
+                    {
+                      "type": "captcha",
+                      "name": "captcha"
                     }
                   ],
                   "submitButton": {
@@ -2603,6 +2607,10 @@
                           "errorMessage": "Deve ter idade de 18 anos para se inscrever"
                         }
                       ]
+                    },
+                    {
+                      "type": "captcha",
+                      "name": "captcha"
                     }
                   ],
                   "submitButton": {
