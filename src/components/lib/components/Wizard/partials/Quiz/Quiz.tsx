@@ -11,13 +11,13 @@ import Question from './partials/Question';
 import Button from '../../../Button';
 import { QuizProps } from './models';
 import { ResultsStore } from '../../models';
-import { useQuizTracking } from '../../../../../../tracking/quiz-tracking';
 
 const Quiz: FunctionComponent<QuizProps> = ({
   intro,
   questions,
   actionCallback,
   stepResultsCallback,
+  onClose,
   ctas,
   bottomContent,
   imageSizes,
@@ -31,7 +31,12 @@ const Quiz: FunctionComponent<QuizProps> = ({
     () => !!currentAnswer && !!currentAnswer.length,
     [currentAnswer]
   );
-  useQuizTracking(currentQuestionIndex);
+  useEffect(
+    () => () => {
+      onClose && onClose();
+    },
+    []
+  );
 
   const progress = Math.round(
     ((currentQuestionIndex + 1) / questions.length) * 100

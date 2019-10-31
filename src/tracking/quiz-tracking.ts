@@ -4,7 +4,7 @@ import { ctConstants } from './ct-constants.js';
 
 const DIAGNOSTIC_LABEL = `DIAGNOSTIC TOOL - `;
 
-const trackQuiz = (label: string) => {
+export const trackQuiz = (label: string) => {
   pushEvent({
     type: ctConstants.diagtooleve,
     category: {
@@ -14,17 +14,4 @@ const trackQuiz = (label: string) => {
     action: ctConstants.diagtooleve,
     label: `${DIAGNOSTIC_LABEL}${label}`,
   });
-};
-
-export const useQuizTracking = (step: number) => {
-  useEffect(() => {
-    trackQuiz(`Step ${step}`);
-  }, [step]);
-
-  useEffect(
-    () => () => {
-      trackQuiz(`Completed`);
-    },
-    []
-  );
 };
