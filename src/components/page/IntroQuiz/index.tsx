@@ -15,6 +15,7 @@ import { ProfileKey } from '../../../utils/browserStorage/models';
 import DataCapturingForm from '../../DataCapturingForm';
 import { Logo, Modal, Wizard, Quiz as WizardQuiz } from 'src/components/lib';
 import { IntroQuizProps } from './models';
+import { trackQuiz } from 'src/tracking/quiz-tracking';
 
 const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
   introContent,
@@ -48,15 +49,18 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     onClose && onClose();
   }, []);
 
-  const stepResultsCallback = useCallback(
-    quizData => saveUserProfileByKey(quizData.data, ProfileKey.initialQuiz),
-    []
-  );
+  const stepResultsCallback = useCallback(quizData => {
+    trackQuiz(`Step ${Object.keys(quizData.data).length}`);
+    saveUserProfileByKey(quizData.data, ProfileKey.initialQuiz);
+  }, []);
 
   const closeCallback = useCallback(() => {
     onClose && onClose();
     return setIsQuizOpened(false);
   }, []);
+  const onCloseQuiz = useCallback(() => {
+    trackQuiz(`Completed`);
+  }, [trackQuiz]);
 
   const [formUrl, formType] = [
     process.env['quizDataCapturing_url'] as string,
@@ -75,25 +79,20 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
           // @ts-ignore */}
         <WizardQuiz
           intro={
-            <Fragment>
-              <div className="wizard__info">
-                <div className="wizard__logo">
-                  <Logo icon={<WizardLogo />} path="/" />
-                </div>
-                <h1>{introContent.title}</h1>
-                <p className="wizard__description">
-                  {introContent.description}
-                </p>
+            <div className="wizard__info">
+              <div className="wizard__logo">
+                <Logo icon={<WizardLogo />} path="/" />
               </div>
-            </Fragment>
+              <h1>{introContent.title}</h1>
+              <p className="wizard__description">{introContent.description}</p>
+            </div>
           }
-          {...{
-            ...quizContent,
-            stepResultsCallback,
-          }}
+          {...quizContent}
+          stepResultsCallback={stepResultsCallback}
           containerClass="wizard--quiz wizard--quiz-initial"
           stepId="quiz"
           imageSizes={imageSizes}
+          onClose={onCloseQuiz}
         />
         {dataCapturing && (
           <DataCapturingForm

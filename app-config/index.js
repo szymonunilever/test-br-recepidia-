@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const path = require('path');
 const startsWith = require('lodash/startsWith');
 const isEmpty = require('lodash/isEmpty');
 const merge = require('lodash/merge');
@@ -7,8 +8,10 @@ const filter = require('lodash/filter');
 const reduce = require('lodash/reduce');
 const flow = require('lodash/flow');
 
-require('dotenv').config({ path: '.env' });
-require('dotenv').config({ path: '.env.development' });
+require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
+require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env.development'),
+});
 
 // Prefix to identify local env variables described in .env file
 const localVarPrefix = `app_local_`;

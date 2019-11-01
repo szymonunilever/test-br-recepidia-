@@ -5,17 +5,19 @@ import React, {
   useCallback,
   FunctionComponent,
 } from 'react';
+import get from 'lodash/get';
+
 import Question from './partials/Question';
 import Button from '../../../Button';
 import { QuizProps } from './models';
 import { ResultsStore } from '../../models';
-import get from 'lodash/get';
 
 const Quiz: FunctionComponent<QuizProps> = ({
   intro,
   questions,
   actionCallback,
   stepResultsCallback,
+  onClose,
   ctas,
   bottomContent,
   imageSizes,
@@ -25,12 +27,19 @@ const Quiz: FunctionComponent<QuizProps> = ({
   const [answers, setAnswers] = useState({});
   const question = questions[currentQuestionIndex];
   const [currentAnswer, setCurrentAnswer] = useState();
-  const progress = Math.round(
-    ((currentQuestionIndex + 1) / questions.length) * 100
-  );
   const isAnswerProvided = useCallback(
     () => !!currentAnswer && !!currentAnswer.length,
     [currentAnswer]
+  );
+  useEffect(
+    () => () => {
+      onClose && onClose();
+    },
+    []
+  );
+
+  const progress = Math.round(
+    ((currentQuestionIndex + 1) / questions.length) * 100
   );
 
   const setQuestionIndex = (index: number) => {
