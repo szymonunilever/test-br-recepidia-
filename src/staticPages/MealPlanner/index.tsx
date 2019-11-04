@@ -129,6 +129,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           <WizardQuiz
             {...componentContent.wizardQuiz}
             {...{ stepResultsCallback }}
+            imageSizes={IMAGE_SIZES.QUIZ_OPTIONS.MP_QUIZ}
             containerClass="wizard--quiz"
             stepId="quiz"
           />
