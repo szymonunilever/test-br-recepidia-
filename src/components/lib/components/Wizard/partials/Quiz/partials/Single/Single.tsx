@@ -21,6 +21,7 @@ const Single: FunctionComponent<QuestionProps> = ({
   progress,
   selectedOptions,
   onChangeCallback,
+  imageSizes,
 }) => {
   const defaultValue = getSelectedOptions(selectedOptions);
   const [val, setVal] = useState(defaultValue);
@@ -52,7 +53,7 @@ const Single: FunctionComponent<QuestionProps> = ({
                 className="quiz__item-input"
                 aria-label={option.label.text + ' radio'}
               />
-              <Option {...{ option, question }} />
+              <Option {...{ option, question, imageSizes }} />
             </label>
           </li>
         ))}

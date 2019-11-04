@@ -28,6 +28,24 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
             {/* END preconnects */}
 
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.addEventListener('load', function() {
+                  var head = document.getElementsByTagName('head')[0];
+                  var script = document.createElement('script');
+                  script.type = 'text/javascript';
+                  script.src = ${JSON.stringify(
+                    process.env['analytics_adobe_url']
+                  )};
+                  head.appendChild(script);
+                });
+              `,
+              }}
+              id="adobe_analytics"
+            />
+
             {/* START kritique preloads */}
             <link
               rel="preload"
@@ -65,25 +83,6 @@ export default function HTML(props) {
               }}
             /> */}
             {/* END NewRelic */}
-
-            {/* Evidon Cookie popup */}
-            {/* <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={{
-                __html: `
-              (function(w){
-                w.addEventListener('load', function() {
-                  var head = document.getElementsByTagName('head')[0];
-                  var script = document.createElement('script');
-                  script.type = 'text/javascript';
-                  script.src = '//assets.adobedtm.com/launch-EN778e3b07c50b4ae08fac5c37112ab05d.min.js';
-                  head.appendChild(script);
-                });
-              })(window);
-              `,
-              }}
-              id="evidon"
-            /> */}
           </>
         )}
         <script

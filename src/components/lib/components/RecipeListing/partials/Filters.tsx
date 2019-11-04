@@ -87,7 +87,7 @@ const Filter = ({
       {counter}
       <div className="filter__sort-block">
         {optionLabels ? (
-          <label className="filter__sort-label">
+          <div className="filter__sort-label">
             <span className="filter__sort-label-text">sorting</span>
             <Select
               options={sortingOptions}
@@ -95,7 +95,7 @@ const Filter = ({
               placeholder={sortSelectPlaceholder}
               changeHandler={sortingChange}
             />
-          </label>
+          </div>
         ) : null}
         <Button
           className="filter__button"

@@ -12,6 +12,7 @@ export interface IntroQuizProps {
     ctas: QuizButton[];
   };
   onClose?: () => void;
+  imageSizes?: string;
 }
 
 export interface QuizButton {
