@@ -23,3 +23,5 @@ declare module 'smart-outline' {
   const content: any;
   export default content;
 }
+
+declare module '*';
