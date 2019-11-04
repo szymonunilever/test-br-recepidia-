@@ -1,3 +1,5 @@
+import { DataCapturingFormProps } from './models';
+
 export function sendForm(
   url: string,
   host: string,
@@ -24,6 +26,17 @@ export function sendForm(
     },
     body: JSON.stringify(formDataFormatted),
   });
+}
+
+export function checkReCaptchaEnabled(
+  formFieldsData: AppContent.GeneratedForm.Content
+): AppContent.GeneratedForm.Content {
+  if (process.env['ReCaptcha_enabled'] === 'false') {
+    formFieldsData.fields = formFieldsData.fields.filter(
+      (field: AppContent.GeneratedForm.Field) => field.type !== 'captcha'
+    );
+  }
+  return formFieldsData;
 }
 
 export interface DataCapturingFormData {

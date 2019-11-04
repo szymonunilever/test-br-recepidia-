@@ -11,6 +11,7 @@ import sendForm from '../../services/transactionalServiceAdapter';
 import { DataCapturingFormProps, DataPrepopulateProps } from './models';
 import { ProfileKey } from '../../utils/browserStorage/models';
 import isEmpty from 'lodash/isEmpty';
+import { checkReCaptchaEnabled } from './helpers';
 
 const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
   className,
@@ -24,6 +25,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
 }) => {
   const { title, subtitle, ...formContent } = content;
   let formContentModified = formContent;
+  formContentModified = checkReCaptchaEnabled(formContentModified);
   const dataPrePopulated = getUserProfileByKey(
     ProfileKey.user
   ) as DataPrepopulateProps;
@@ -92,6 +94,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
         .catch(e => {
           // eslint-disable-next-line no-console
           console.error(e);
+          actionCallback && actionCallback({});
         });
   };
 
