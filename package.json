@@ -125,6 +125,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "cross-env NODE_ENV=development && gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
