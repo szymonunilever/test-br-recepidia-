@@ -61,7 +61,7 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Serei o seu assistente de cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
+              "text": "Serei o seu aliado na cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
             }
           },
           {
@@ -470,6 +470,10 @@
                           "errorMessage": "Deve ter idade de 18 anos para se inscrever"
                         }
                       ]
+                    },
+                    {
+                      "type": "captcha",
+                      "name": "captcha"
                     }
                   ],
                   "submitButton": {
@@ -487,7 +491,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - O seu assistente de cozinha",
+        "title": "Recepedia - O seu aliado na cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -2147,7 +2151,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - O seu assistente de cozinha",
+        "title": "Recepedia - O seu aliado na cozinha",
         "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
@@ -2238,6 +2242,7 @@
                     "filterPropName": "tags",
                     "options": [
                       {
+                        "id": 90001582,
                         "value": "1503;1484",
                         "label": {
                           "text": "Frango",
@@ -2248,6 +2253,7 @@
                         }
                       },
                       {
+                        "id": 90001583,
                         "value": "1397;1467;1315;1466;1469;1481;693;1319;1317;1478",
                         "label": {
                           "text": "Doces e Sobremesas",
@@ -2258,6 +2264,7 @@
                         }
                       },
                       {
+                        "id": 90001584,
                         "value": "665",
                         "label": {
                           "text": "Pizza",
@@ -2268,6 +2275,7 @@
                         }
                       },
                       {
+                        "id": 90001585,
                         "value": "1475;1490;1321",
                         "label": {
                           "text": "Peixe",
@@ -2278,6 +2286,7 @@
                         }
                       },
                       {
+                        "id": 90001586,
                         "value": "1477;1488;1465;1497",
                         "label": {
                           "text": "Lanches",
@@ -2288,6 +2297,7 @@
                         }
                       },
                       {
+                        "id": 90001587,
                         "value": "1479;1492;1499",
                         "label": {
                           "text": "Carne",
@@ -2298,6 +2308,7 @@
                         }
                       },
                       {
+                        "id": 90001588,
                         "value": "664;1480;699",
                         "label": {
                           "text": "Massa",
@@ -2308,6 +2319,7 @@
                         }
                       },
                       {
+                        "id": 90001589,
                         "value": "1483;1485",
                         "label": {
                           "text": "Tortas",
@@ -2318,6 +2330,7 @@
                         }
                       },
                       {
+                        "id": 90001590,
                         "value": "1487;1108;1476;1495;1473;10939",
                         "label": {
                           "text": "Comida saudável",
@@ -2328,6 +2341,7 @@
                         }
                       },
                       {
+                        "id": 90001591,
                         "value": "1491",
                         "label": {
                           "text": "Sopas",
@@ -2351,6 +2365,7 @@
                     "filterPropName": "tags",
                     "options": [
                       {
+                        "id": 90001565,
                         "value": "",
                         "label": {
                           "text": "Sem restrições",
@@ -2361,6 +2376,7 @@
                         }
                       },
                       {
+                        "id": 90001566,
                         "value": "10;13153",
                         "label": {
                           "text": "Sem produtos de origem animal",
@@ -2371,6 +2387,7 @@
                         }
                       },
                       {
+                        "id": 90001567,
                         "value": "11;12909",
                         "label": {
                           "text": "Sem carne",
@@ -2381,6 +2398,7 @@
                         }
                       },
                       {
+                        "id": 90001571,
                         "value": "4;12886",
                         "label": {
                           "text": "Sem lactose",
@@ -2391,6 +2409,7 @@
                         }
                       },
                       {
+                        "id": 90001572,
                         "value": "3;12941",
                         "label": {
                           "text": "Sem glúten",
@@ -2414,6 +2433,7 @@
                     "filterPropName": "cookTime",
                     "options": [
                       {
+                        "id": 90001592,
                         "value": "<21",
                         "label": {
                           "text": "Quero ser rápido!",
@@ -2424,6 +2444,7 @@
                         }
                       },
                       {
+                        "id": 90001593,
                         "value": "<999",
                         "label": {
                           "text": "Tenho tempo",
@@ -2447,22 +2468,24 @@
                     "filterPropName": "tags",
                     "options": [
                       {
-                        "value": "1369;1370",
-                        "label": {
-                          "text": "Algo bom, bonito e barato",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
-                            "alt": "Algo bom, bonito e barato"
-                          }
-                        }
-                      },
-                      {
+                        "id": 90001594,
                         "value": "1371",
                         "label": {
                           "text": "Gastar um pouco mais",
                           "image": {
                             "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
                             "alt": "Gastar um pouco mais"
+                          }
+                        }
+                      },
+                      {
+                        "id": 90001595,
+                        "value": "1369;1370",
+                        "label": {
+                          "text": "Algo bom, bonito e barato",
+                          "image": {
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
+                            "alt": "Algo bom, bonito e barato"
                           }
                         }
                       }
@@ -2480,6 +2503,7 @@
                     "filterPropName": "serves",
                     "options": [
                       {
+                        "id": 90001596,
                         "value": "[1 TO 2]",
                         "label": {
                           "text": "1 ou 2 pessoas",
@@ -2490,6 +2514,7 @@
                         }
                       },
                       {
+                        "id": 90001597,
                         "value": "[3 TO 5]",
                         "label": {
                           "text": "3 a 5 pessoas",
@@ -2500,6 +2525,7 @@
                         }
                       },
                       {
+                        "id": 90001598,
                         "value": "[5 TO *]",
                         "label": {
                           "text": "Mais de 5 pessoas",
@@ -2603,6 +2629,10 @@
                           "errorMessage": "Deve ter idade de 18 anos para se inscrever"
                         }
                       ]
+                    },
+                    {
+                      "type": "captcha",
+                      "name": "captcha"
                     }
                   ],
                   "submitButton": {

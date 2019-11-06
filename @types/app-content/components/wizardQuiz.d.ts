@@ -19,6 +19,7 @@ declare namespace AppContent.WizardQuiz {
 
   interface QuestionOption {
     value: string;
+    id: number;
     label: {
       text: string;
       image: {
