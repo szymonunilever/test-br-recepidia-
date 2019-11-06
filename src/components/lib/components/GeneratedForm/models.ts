@@ -10,4 +10,5 @@ export interface GeneratedFormProps
   shouldValidate?: boolean;
   recaptchaAction?: string;
   hasCaptcha?: boolean;
+  recaptchaKey?: string;
 }

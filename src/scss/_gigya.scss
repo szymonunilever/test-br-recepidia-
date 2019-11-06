@@ -86,10 +86,25 @@
         .gigya-button {
           @extend .button;
           @extend .button--fullwidth;
+        }
+        .gigya-input-submit {
           box-sizing: border-box;
           margin: 31px auto 0;
           @include respondTo(desktop) {
             margin: 50px auto 0;
+          }
+        }
+        &.gigya-button-link {
+          box-sizing: border-box;
+          margin: 31px auto 0;
+          padding: 0;
+          @extend .button--fullwidth;
+          @include respondTo(desktop) {
+            margin: 50px auto 0;
+          }
+          .gigya-button {
+            box-sizing: border-box;
+            margin: 0;
           }
         }
 

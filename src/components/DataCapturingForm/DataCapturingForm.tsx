@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React, { FunctionComponent } from 'react';
 import { GeneratedForm, TagName, Text } from 'src/components/lib';
+import ReCaptchaInit from '../../../integrations/RecaptchaV3';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -88,14 +89,13 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
         { contact, dcuConfig, surveyResponseList, optIn: optInMerged },
         reCaptchaToken
       )
-        .then(() => {
-          actionCallback && actionCallback({});
-        })
+        .then(() => {})
         .catch(e => {
           // eslint-disable-next-line no-console
           console.error(e);
-          actionCallback && actionCallback({});
         });
+    // we silently close form and don't handle API response due to long response time.
+    actionCallback && actionCallback({});
   };
 
   // @ts-ignore
@@ -111,9 +111,11 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
 
   return (
     <>
+      <ReCaptchaInit />
       {titleRenderer ? titleRenderer(titles) : titles}
       <GeneratedForm
         className={cx(theme.dataCapturing, className)}
+        recaptchaKey={process.env['ReCaptcha_clientKey']}
         onSubmit={onSubmit}
         content={formContentModified}
         shouldValidate

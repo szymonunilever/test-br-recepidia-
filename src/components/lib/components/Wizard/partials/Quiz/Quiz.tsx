@@ -20,7 +20,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
   onClose,
   ctas,
   bottomContent,
-  imageSizes,
+  imageSizesOptions,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isFormDirty, setFormDirty] = useState(false);
@@ -149,6 +149,11 @@ const Quiz: FunctionComponent<QuizProps> = ({
       setFormDirty(true);
     }
   }, [currentQuestionIndex]);
+
+  const imageSizes: string | undefined =
+    desktopCols > 3
+      ? imageSizesOptions && imageSizesOptions.QUIZ_SMALL
+      : imageSizesOptions && imageSizesOptions.QUIZ_BIG;
 
   return (
     <Fragment>

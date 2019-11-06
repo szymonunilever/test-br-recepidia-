@@ -37,6 +37,11 @@ export interface QuizProps extends WizardStepComponent {
   questions: Question[];
   ctas: QuizButton[];
   bottomContent?: JSX.Element;
-  imageSizes?: string;
+  imageSizesOptions?: ImageSizesOptionsProps;
   onClose(): any;
+}
+
+export interface ImageSizesOptionsProps {
+  QUIZ_SMALL: string;
+  QUIZ_BIG: string;
 }
