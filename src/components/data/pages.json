@@ -61,7 +61,7 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Serei o seu assistente de cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
+              "text": "Serei o seu aliado na cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
             }
           },
           {
@@ -491,7 +491,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - O seu assistente de cozinha",
+        "title": "Recepedia - O seu aliado na cozinha",
         "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
         "meta": [
           {
@@ -2151,7 +2151,7 @@
         ]
       },
       "seo": {
-        "title": "Recepedia - O seu assistente de cozinha",
+        "title": "Recepedia - O seu aliado na cozinha",
         "description": "Veja as suas receitas favoritas em Recepedia",
         "meta": [
           {
