@@ -1,5 +1,8 @@
 import { DataCapturingFormProps } from '../../DataCapturingForm';
-import { Question } from '../../lib/components/Wizard/partials/Quiz/models';
+import {
+  Question,
+  ImageSizesOptionsProps,
+} from '../../lib/components/Wizard/partials/Quiz/models';
 
 export interface IntroQuizProps {
   introContent: {
@@ -12,7 +15,7 @@ export interface IntroQuizProps {
     ctas: QuizButton[];
   };
   onClose?: () => void;
-  imageSizes?: string;
+  imageSizesOptions?: ImageSizesOptionsProps;
 }
 
 export interface QuizButton {
