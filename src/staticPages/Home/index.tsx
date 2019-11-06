@@ -135,7 +135,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           introContent={introContent}
           quizContent={quizContent}
           onClose={isIntroDone}
-          imageSizes={IMAGE_SIZES.QUIZ_OPTIONS.INTRO_QUIZ}
+          imageSizesOptions={IMAGE_SIZES.QUIZ_OPTIONS}
         />
       )}
       <Kritique />

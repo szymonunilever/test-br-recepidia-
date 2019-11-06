@@ -11,7 +11,7 @@ const TransactionalServiceAdapter = ({ url, host }: FormServiceProps) => {
       ...sections,
       g: {
         recaptcha: {
-          type: 'captcha',
+          type: 'recaptcha',
           response: reCaptchaToken || 'perfskip1234134',
         },
       },

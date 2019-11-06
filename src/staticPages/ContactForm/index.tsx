@@ -3,6 +3,7 @@ import cx from 'classnames';
 import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
+import ReCaptchaInit from '../../../integrations/RecaptchaV3';
 import Layout from '../../components/Layout/Layout';
 import { GeneratedForm, Modal } from 'src/components/lib';
 import theme from './/ContactForm.module.scss';
@@ -104,6 +105,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   };
   return (
     <Layout>
+      <ReCaptchaInit />
       <SEO {...seo} canonical={location.href} />
       <DigitalData type={type} title={title} />
       <Modal isOpen={modalState.isOpen} className={modalState.className}>
@@ -114,6 +116,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
           className={cx(theme.contactGeneratedForm, 'wrapper')}
           onSubmit={submitHandler}
           content={contactFormComponent}
+          recaptchaKey={process.env['ReCaptcha_clientKey']}
           shouldValidate
           titleLevel={1}
         />

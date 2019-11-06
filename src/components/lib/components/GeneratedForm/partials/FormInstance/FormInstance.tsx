@@ -1,4 +1,9 @@
-import React, { FormEvent } from 'react';
+import React, {
+  FormEvent,
+  FunctionComponent,
+  useCallback,
+  useState,
+} from 'react';
 import { Form } from '../../../Form';
 import { GeneratedFormProps } from '../../models';
 import { TagName, Text } from '../../../Text';
@@ -6,19 +11,20 @@ import groupBy from 'lodash/groupBy';
 import findIndex from 'lodash/findIndex';
 import GeneratedField from '../GeneratedField';
 import cx from 'classnames';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { ReCaptcha } from 'react-recaptcha-v3';
 
-const GeneratedFormInstance = ({
+const GeneratedFormInstance: FunctionComponent<GeneratedFormProps> = ({
   className,
   hasCaptcha,
+  recaptchaKey,
   recaptchaAction = 'formSubmit',
   content: { title, subtitle, fields, submitButton, resetButton },
   onSubmit,
   shouldValidate = false,
   titleLevel,
-}: GeneratedFormProps) => {
-  const { executeRecaptcha } = useGoogleReCaptcha();
+}) => {
   const classWrapper = cx('generated-form', className);
+  const [token, setToken] = useState<string | undefined>();
   const Title = title ? (
     <Text
       // @ts-ignore
@@ -119,12 +125,12 @@ const GeneratedFormInstance = ({
       );
     });
 
-  const preSubmit = async (val: object) => {
-    if (hasCaptcha) {
-      if (!executeRecaptcha) {
-        return;
-      }
-      const token = await executeRecaptcha(recaptchaAction);
+  const verifyCallback = useCallback((recaptchaToken: string | undefined) => {
+    setToken(recaptchaToken);
+  }, []);
+
+  const preSubmit = (val: object) => {
+    if (hasCaptcha && token) {
       const formObj = { ...val, reCaptchaToken: token };
       onSubmit(formObj);
     } else {
@@ -154,6 +160,13 @@ const GeneratedFormInstance = ({
             className={classWrapper}
             noValidate={shouldValidate}
           >
+            {hasCaptcha && (
+              <ReCaptcha
+                sitekey={recaptchaKey}
+                action={recaptchaAction}
+                verifyCallback={verifyCallback}
+              />
+            )}
             <div className="generated-form__container">
               {Title}
               {Subtitle}
