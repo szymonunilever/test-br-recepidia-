@@ -97,7 +97,7 @@ module.exports = {
     title: 'Recepedia',
     author: 'Unilever',
     description: 'Recipedia application',
-    siteUrl: 'https://recipedia.netlify.com/',
+    siteUrl: 'https://br.recepedia.com/',
     lang: 'pt-br',
   },
   plugins,
