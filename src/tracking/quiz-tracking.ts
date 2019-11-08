@@ -24,7 +24,7 @@ export const trackQuiz = ({
       primaryCategory: ctConstants.engagement,
     },
     subcategory: 'Interest',
-    action: ctConstants.diagtooleve,
+    action: ctConstants.diagtoolcta,
     label: `${DIAGNOSTIC_LABEL}${label}`,
   };
 
