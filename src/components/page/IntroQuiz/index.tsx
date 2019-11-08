@@ -49,17 +49,30 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     onClose && onClose();
   }, []);
 
-  const stepResultsCallback = useCallback(quizData => {
-    trackQuiz(`Step ${Object.keys(quizData.data).length}`);
-    saveUserProfileByKey(quizData.data, ProfileKey.initialQuiz);
-  }, []);
+  const stepResultsCallback = useCallback(
+    quizData => {
+      const step = Object.keys(quizData.data).length;
+      const { question, answer } = quizData.data[`question${step}`];
+      const finalAnswer = Array.isArray(answer)
+        ? answer.map((a: { label: { text: string } }) => a.label.text).join(',')
+        : answer.label.text;
+
+      trackQuiz({
+        label: `Step ${step}`,
+        question,
+        answer: finalAnswer,
+      });
+      saveUserProfileByKey(quizData.data, ProfileKey.initialQuiz);
+    },
+    [trackQuiz, saveUserProfileByKey]
+  );
 
   const closeCallback = useCallback(() => {
     onClose && onClose();
     return setIsQuizOpened(false);
   }, []);
   const onCloseQuiz = useCallback(() => {
-    trackQuiz(`Completed`);
+    trackQuiz({ label: `Completed`, result: `Complete` });
   }, [trackQuiz]);
 
   const [formUrl, formType] = [
