@@ -163,11 +163,22 @@ $image-ratio-desktop: 59% !important;
         max-height: 100%;
       }
     }
+    @supports (-ms-ime-align: auto) {
+      img {
+        max-height: 100%;
+      }
+    }
   }
   .adaptive-image {
     //fix for IE related to gatsby-image downgrade. Polyfill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
     &:not(.adaptive-image-svg) {
       @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        img {
+          max-width: 100%;
+          max-height: none;
+        }
+      }
+      @supports (-ms-ime-align: auto) {
         img {
           max-width: 100%;
           max-height: none;
