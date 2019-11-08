@@ -20,25 +20,6 @@ export const trackQuiz = ({
     eventInfo: {
       type: ctConstants.diagtooleve,
     },
-    component: [
-      {
-        attributes: {
-          position: '',
-          listPosition: '',
-          componentVariant: '',
-          DTResult: result,
-          DTMSARes: '',
-          subattributes: [
-            {
-              DTQns: question,
-              DTAns: answer,
-              DTQnsID: '',
-              DTAnsID: '',
-            },
-          ],
-        },
-      },
-    ],
     category: {
       primaryCategory: ctConstants.engagement,
     },
@@ -46,6 +27,26 @@ export const trackQuiz = ({
     action: ctConstants.diagtooleve,
     label: `${DIAGNOSTIC_LABEL}${label}`,
   };
+
+  if (digitalData) {
+    digitalData.component.push({
+      attributes: {
+        position: '',
+        listPosition: '',
+        componentVariant: '',
+        DTResult: result,
+        DTMSARes: '',
+        subattributes: [
+          {
+            DTQns: question,
+            DTAns: answer,
+            DTQnsID: '',
+            DTAnsID: '',
+          },
+        ],
+      },
+    });
+  }
   // eslint-disable-next-line no-console
   console.log('Quiz Tracking::', event);
   pushEvent(event);
