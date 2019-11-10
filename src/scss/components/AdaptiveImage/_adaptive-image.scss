@@ -12,6 +12,17 @@
         transform: translate(-50%, -50%);
       }
     }
+    @supports (-ms-ime-align: auto) {
+      img {
+        height: auto !important;
+        width: auto !important;
+        top: 50% !important;
+        left: 50% !important;
+        min-height: 100%;
+        min-width: 100%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
   //END of fix
   &-svg {
