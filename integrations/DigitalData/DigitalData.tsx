@@ -46,16 +46,30 @@ const DigitalData = ({ title, type }: DigitalDataProps) => {
           })(navigator.userAgent || navigator.vendor || window.opera);
           return check;
       }
-      var analyticsConfig = {};
-      analyticsConfig.channelVal = "";
+      var digitalData = ${JSON.stringify(config.digitalData)};
+      var channelVal = "";
       if (isMobile()) {
-          analyticsConfig.channelVal = "Mobile Site";
+          channelVal = "Mobile Site";
       } else {
-          analyticsConfig.channelVal = "Brand Site";
+          channelVal = "Brand Site";
       }
-      analyticsConfig.pageTitle = ${JSON.stringify(title)};
-      analyticsConfig.pageType = ${JSON.stringify(type)};
-      analyticsConfig.appDigitalData = ${JSON.stringify(config.digitalData)};
+      var pageTitle = ${JSON.stringify(title)};
+      var pageType = ${JSON.stringify(type)};
+      digitalData.component = [];
+      digitalData.siteInfo.channel = channelVal;
+      digitalData.page.category = {
+        pageType: pageType,
+        primaryCategory: channelVal,
+      };
+      digitalData.privacy = { accessCategories: [{ domains: [] }] };
+      digitalData.page.pageInfo = {
+        pageName: pageTitle,
+        destinationURL: window.location.href,
+      };
+      digitalData.page.attributes.contentType = pageType;
+      if (pageType === "ArticleDetail") {
+        digitalData.page.attributes.articleName = pageTitle;
+      }
       `}</script>
     </Helmet>
   ) : (
