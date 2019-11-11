@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState, useEffect } from 'react';
+import { reloadKritiqueWidget } from '../../utils';
 import { RatingProps } from './models';
 import {
   RatingAndReviewsEntityType,
@@ -21,6 +22,9 @@ const Rating = ({
   useEffect(() => {
     setLocationOrigin(window.location.origin);
   }, []);
+  useEffect(() => {
+    reloadKritiqueWidget();
+  });
   return (
     <>
       {provider === RatingAndReviewsProvider.kritique ? (
