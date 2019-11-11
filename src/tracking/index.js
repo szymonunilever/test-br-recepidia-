@@ -10,6 +10,7 @@ const queue = [];
 
 const processQueue = () => {
   digitalData = merge(digitalData, analyticsConfig.appDigitalData);
+  digitalData.component = [];
   digitalData.siteInfo.channel = analyticsConfig.channelVal;
   digitalData.page.category = {
     pageType: analyticsConfig.pageType,
@@ -33,7 +34,8 @@ const processQueue = () => {
   if (queue.length > 0) processQueue();
 };
 
-export const loaded = () => window.__satelliteLoaded === true && digitalData;
+export const loaded = () =>
+  window.__satelliteLoaded === true && typeof digitalData !== 'undefined';
 
 export const startTracking = () => {
   const pollingId = setInterval(() => {
