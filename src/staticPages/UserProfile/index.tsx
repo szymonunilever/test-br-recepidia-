@@ -265,6 +265,8 @@ const FavoritesRecipeListingPage: FunctionComponent<
             <RecipeListingCarousel
               list={mealPlannerResults || []}
               config={carouselConfig}
+              withFavorite
+              FavoriteIcon={FavoriteIcon}
               titleLevel={1}
               onFavoriteChange={() => {}}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
