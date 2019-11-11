@@ -1,4 +1,4 @@
-import { pushEvent } from './index.js';
+import { pushEvent, loaded } from './index.js';
 import { ctConstants } from './ct-constants.js';
 
 const DIAGNOSTIC_LABEL = `DIAGNOSTIC TOOL - `;
@@ -28,7 +28,7 @@ export const trackQuiz = ({
     label: `${DIAGNOSTIC_LABEL}${label}`,
   };
 
-  if (digitalData) {
+  if (loaded()) {
     digitalData.component.push({
       attributes: {
         position: '',

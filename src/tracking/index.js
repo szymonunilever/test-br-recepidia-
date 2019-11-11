@@ -33,7 +33,7 @@ const processQueue = () => {
   if (queue.length > 0) processQueue();
 };
 
-const loaded = () => window.__satelliteLoaded === true && digitalData;
+export const loaded = () => window.__satelliteLoaded === true && digitalData;
 
 export const startTracking = () => {
   const pollingId = setInterval(() => {

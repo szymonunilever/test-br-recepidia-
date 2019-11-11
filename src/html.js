@@ -28,6 +28,11 @@ export default function HTML(props) {
             <link rel="preconnect" href="https://js-agent.newrelic.com" />
             {/* END preconnects */}
 
+            {/* START NewRelic */}
+            {/* Having script inline improves FCP/FMP. Loading newRelic script async is not allowed*/}
+            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
+            {/* END NewRelic */}
+
             <script
               type="text/javascript"
               dangerouslySetInnerHTML={{
@@ -61,28 +66,6 @@ export default function HTML(props) {
               as="style"
             />
             {/* END kritique preloads */}
-
-            {/* START NewRelic */}
-
-            {/* Having script inline improves FCP/FMP. Loading newRelic script async is not allowed*/}
-            <script type="text/javascript" dangerouslySetInnerHTML={newRelic} />
-            {/* <script
-              type="text/javascript"
-              src="/config/newRelicScript.js"
-              id="newRelicScript"
-            />
-            <script
-              type="text/javascript"
-              id="newRelicConfig"
-              dangerouslySetInnerHTML={{
-                __html: `NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"${
-                  process.env['sitespeed_licenseKey']
-                }",applicationID:"${
-                  process.env['sitespeed_applicationID']
-                }",sa:1}`,
-              }}
-            /> */}
-            {/* END NewRelic */}
           </>
         )}
         <script
