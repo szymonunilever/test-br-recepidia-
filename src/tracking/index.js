@@ -3,6 +3,8 @@
 // 3. When window.__satelliteLoaded is false load event into singleton queue for later processing
 // 4. When window.__satelliteLoaded is true load event into global digitalData object.
 
+// eslint-disable-next-line lodash/import-scope
+
 const queue = [];
 
 const processQueue = () => {
@@ -14,8 +16,8 @@ const processQueue = () => {
   if (queue.length > 0) processQueue();
 };
 
-const loaded = () =>
-  window.__satelliteLoaded === true && digitalData && digitalData.event;
+export const loaded = () =>
+  window.__satelliteLoaded === true && typeof digitalData !== 'undefined';
 
 export const startTracking = () => {
   const pollingId = setInterval(() => {

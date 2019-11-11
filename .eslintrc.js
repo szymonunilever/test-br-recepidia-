@@ -41,5 +41,6 @@ module.exports = {
   ],
   globals: {
     digitalData: true,
+    analyticsConfig: true,
   },
 };
