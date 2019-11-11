@@ -3,9 +3,28 @@
 // 3. When window.__satelliteLoaded is false load event into singleton queue for later processing
 // 4. When window.__satelliteLoaded is true load event into global digitalData object.
 
+// eslint-disable-next-line lodash/import-scope
+const merge = require('lodash.merge');
+
 const queue = [];
 
 const processQueue = () => {
+  digitalData = merge(digitalData, analyticsConfig.appDigitalData);
+  digitalData.siteInfo.channel = analyticsConfig.channelVal;
+  digitalData.page.category = {
+    pageType: analyticsConfig.pageType,
+    primaryCategory: analyticsConfig.channelVal,
+  };
+  digitalData.privacy = { accessCategories: [{ domains: [] }] };
+  digitalData.page.pageInfo = {
+    pageName: analyticsConfig.pageTitle,
+    destinationURL: window.location.href,
+  };
+  digitalData.page.attributes.contentType = analyticsConfig.pageType;
+  if (analyticsConfig.pageType === 'ArticleDetail') {
+    digitalData.page.attributes.articleName = analyticsConfig.pageTitle;
+  }
+
   if (queue.length === 0) return;
   let event = queue.pop();
 
@@ -14,8 +33,7 @@ const processQueue = () => {
   if (queue.length > 0) processQueue();
 };
 
-const loaded = () =>
-  window.__satelliteLoaded === true && digitalData && digitalData.event;
+const loaded = () => window.__satelliteLoaded === true && digitalData;
 
 export const startTracking = () => {
   const pollingId = setInterval(() => {
