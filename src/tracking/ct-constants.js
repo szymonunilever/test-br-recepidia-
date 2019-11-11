@@ -188,4 +188,5 @@ export const ctConstants = {
   micrositecampaign: 'micrositecampaign',
   addFavourite: 'Add Favourite',
   refundenhanced: 'refundenhanced',
+  trackAjaxPageLoad: 'trackAjaxPageLoad',
 };
