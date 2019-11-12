@@ -47,7 +47,5 @@ export const trackQuiz = ({
       },
     });
   }
-  // eslint-disable-next-line no-console
-  console.log('Quiz Tracking::', event);
   pushEvent(event);
 };
