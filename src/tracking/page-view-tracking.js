@@ -1,7 +1,9 @@
 import { pushEvent } from './';
 import { ctConstants } from './ct-constants';
 
-export const pageViewTracking = () => {
+export const pageViewTracking = ({ prevLocation }) => {
+  if (!prevLocation) return;
+
   pushEvent({
     eventInfo: {
       type: ctConstants.trackAjaxPageLoad,

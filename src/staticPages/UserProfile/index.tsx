@@ -18,7 +18,6 @@ import {
   updateFavorites,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import RecipeListingCarousel from 'src/components/lib/components/RecipeListing/RecipeListingCarousel';
 import Kritique from 'integrations/Kritique';
 import theme from './UserProfile.module.scss';
 import cx from 'classnames';
@@ -261,14 +260,16 @@ const FavoritesRecipeListingPage: FunctionComponent<
           className="recipe-list--carousel"
         >
           <Fragment>
-            <Text tag={TagName.h2} text={mealPlanResultsContent.title} />
-            <RecipeListingCarousel
+            <RecipeListing
+              content={{ title: mealPlanResultsContent.title }}
+              viewType={RecipeListViewType.Carousel}
               list={mealPlannerResults || []}
-              config={carouselConfig}
+              carouselConfig={carouselConfig}
               withFavorite
+              favorites={Array.isArray(favorites) ? favorites : []}
+              onFavoriteChange={updateFavoriteState}
               FavoriteIcon={FavoriteIcon}
-              titleLevel={1}
-              onFavoriteChange={() => {}}
+              titleLevel={2}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
               ratingProvider={RatingAndReviewsProvider.kritique}
             />
