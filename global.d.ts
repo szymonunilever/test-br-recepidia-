@@ -24,4 +24,6 @@ declare module 'smart-outline' {
   export default content;
 }
 
+declare var digitalData: any;
+
 declare module '*';
