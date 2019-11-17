@@ -8,8 +8,8 @@ const {
   createDictionaryNodes,
   createDisclaimerNodes,
 } = createNodes;
-const pagesMock = require('../../src/components/data/pages.json');
-const componentsMock = require('../../src/components/data/components.json');
+const pagesMock = require('./data/pages.json');
+const componentsMock = require('./data/components.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(

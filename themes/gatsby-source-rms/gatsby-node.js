@@ -1,7 +1,24 @@
 const createNodes = require('./createNodes');
 const { createRecipeNodes, createTagGroupingsNodes } = createNodes;
 const { getCategoryTags, getRecipesByPage } = require('./apiService');
-const constants = require('../../scripts/constants');
+// todo pass as options?
+const constants = {
+  NODE_TYPES: {
+    RECIPE: 'Recipe',
+    ARTICLE: 'Article',
+    CATEGORY: 'Category',
+    TAG: 'Tag',
+    PAGE: 'Page',
+    DICTIONARY: 'Dictionary',
+    DISCLAIMER: 'Disclaimer',
+  },
+  TEMPLATE_PAGE_TYPES: {
+    RECIPE: 'RecipeDetail',
+    ARTICLE: 'ArticleDetail',
+    CATEGORY: 'RecipeCategory',
+    TAG: 'ContentHub',
+  }
+};
 
 const RECIPE_PAGE_SIZE = 250;
 
