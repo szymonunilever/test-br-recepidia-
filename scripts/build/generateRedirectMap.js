@@ -37,21 +37,23 @@ module.exports = async ({
   }
 
   const oldUrls = urls.map(url => url.replace(oldDomain, ''));
-  const unmappedUrls = [...newUrls];
+  let unmappedOldUrls = [...oldUrls];
+  let unmappedUrls = [...newUrls];
   const redirects = [];
-
   for (let url of oldUrls) {
-    if (newUrls.find(newUrl => newUrl === url || newUrl === `${url}/`)) {
+    const equal = newUrls.find(
+      newUrl => newUrl === url || newUrl === `${url}/`
+    );
+    if (equal) {
+      unmappedOldUrls.splice(unmappedOldUrls.indexOf(url), 1);
+      unmappedUrls.splice(unmappedUrls.indexOf(equal), 1);
       continue;
     }
-
     const urlRedirects = [];
     for (let rule of redirectRules) {
       const result = url.match(rule.from);
-
       if (result) {
         let redirectToRule = rule.to;
-
         if (result.groups) {
           keys(result.groups).forEach(
             key =>
@@ -62,13 +64,31 @@ module.exports = async ({
           );
         }
 
-        const mathchedUrl = newUrls.find(url => url.match(redirectToRule));
+        const matchedUrl = newUrls.find(url => url.match(redirectToRule));
 
-        if (mathchedUrl) {
-          urlRedirects.push({ from: url, to: mathchedUrl });
-          unmappedUrls.splice(unmappedUrls.indexOf(mathchedUrl), 1);
-          // only one redirect URL is available which is not isOtherwise so the first matched URL will be used
-          break;
+        if (matchedUrl) {
+          const existRedirect = urlRedirects.find(
+            redirect => redirect.from === url
+          );
+          if (!existRedirect) {
+            urlRedirects.push({ from: url, to: matchedUrl });
+            if (unmappedOldUrls.indexOf(url) !== -1) {
+              unmappedOldUrls.splice(unmappedOldUrls.indexOf(url), 1);
+            }
+            if (unmappedUrls.indexOf(matchedUrl) !== -1) {
+              unmappedUrls.splice(unmappedUrls.indexOf(matchedUrl), 1);
+            }
+          } else {
+            if (existRedirect.to === rule.otherwise) {
+              existRedirect.to = matchedUrl;
+              if (unmappedOldUrls.indexOf(url) !== -1) {
+                unmappedOldUrls.splice(unmappedOldUrls.indexOf(url), 1);
+              }
+              if (unmappedUrls.indexOf(matchedUrl) !== -1) {
+                unmappedUrls.splice(unmappedUrls.indexOf(matchedUrl), 1);
+              }
+            }
+          }
         } else {
           urlRedirects.push({
             from: url,
@@ -92,9 +112,9 @@ module.exports = async ({
       redirects.push({ from: url, to: otherwiseRedirectTo });
     }
   }
-
   // For debug purposes only
   fs.writeFileSync('unmappedNewUrls.txt', unmappedUrls.join('\n'));
+  fs.writeFileSync('oldUrlsMappedToRoot.txt', unmappedOldUrls.join('\n'));
 
   console.log(`${redirects.length} redirect rules created`);
 
