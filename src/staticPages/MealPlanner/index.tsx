@@ -169,7 +169,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     carouselConfig={{
                       breakpoints: [
                         {
-                          width: 1366,
+                          width: 1365,
                           switchElementsBelowBreakpoint: 1,
                           switchElementsAfterBreakpoint: 1,
                           visibleElementsBelowBreakpoint: 2,
