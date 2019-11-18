@@ -23,7 +23,9 @@ const ciDefaultVarPrefix = `app_${defaultBranch}_`;
 
 // Reference to the current branch. `BRANCH` env variable will be set by Netlify automatically
 // env vars support only alphanumeric characters and _
-const branch = process.env.BRANCH.replace(/\W/g , '_');
+const branch = process.env.BRANCH
+  ? process.env.BRANCH.replace(/\W/g, '_')
+  : process.env.BRANCH;
 const ciVarPrefix = `app_${branch}_`;
 
 function _getConfig() {
