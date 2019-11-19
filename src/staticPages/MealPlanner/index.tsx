@@ -125,6 +125,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             {...componentContent.wizardIntroductionPanel}
             containerClass="wizard--intro"
             stepId="intro"
+            imageSizes={IMAGE_SIZES.MEAL_PLANNER.INTRODUCTION}
           />
           <WizardQuiz
             {...componentContent.wizardQuiz}

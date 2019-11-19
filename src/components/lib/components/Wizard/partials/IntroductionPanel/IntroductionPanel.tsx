@@ -9,12 +9,13 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   title,
   description,
   image,
+  imageSizes,
   primaryButtonLabel,
   secondaryButtonLabel,
   actionCallback,
   bottomContent,
 }) => {
-  if (!image.sizes) image.sizes = '(max-width: 1365px) 100vw, 800px';
+  if (!image.sizes && imageSizes) image.sizes = imageSizes;
   return (
     <Fragment>
       <div className="wizard__info">
