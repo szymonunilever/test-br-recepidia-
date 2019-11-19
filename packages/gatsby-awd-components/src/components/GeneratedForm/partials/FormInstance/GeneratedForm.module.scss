@@ -1,0 +1,387 @@
+@import '../../../../scss/config';
+
+%input-general {
+  border: $input-border;
+  border-radius: $input-border-radius;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  width: 100%;
+  line-height: $input-line-height;
+  padding: $input-padding;
+  box-sizing: border-box;
+}
+
+.generated-form {
+  :global {
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .field {
+      &__label-text,
+      &__group--label {
+        font-family: $font-family-headings;
+        font-weight: $font-weight-headings;
+        display: block;
+      }
+      &__input {
+        @extend %input-general;
+        height: $input-height;
+      }
+      &__textarea {
+        @extend %input-general;
+      }
+      &__error {
+        font-size: $form-alert-msg-fz;
+        color: $alert-color;
+        height: $form-alert-msg-height;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    .field__wrap,
+    .checkable.checkbox {
+      position: relative;
+      padding-bottom: $form-alert-msg-height;
+      &:after {
+        display: flex;
+        border-radius: 100%;
+        width: $form-validation-icon-size;
+        height: $form-validation-icon-size;
+        color: $white;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: $form-validation-icon-right;
+        top: calc(
+          50% - #{$form-validation-icon-size/2} - #{$form-alert-msg-height/2}
+        );
+        font-size: $form-validation-icon-fz;
+      }
+    }
+
+    .valid {
+      %input-general {
+        border-color: $valid-color;
+      }
+      &.field__wrap,
+      &.checkable.checkbox {
+        &:after {
+          content: $form-valid-symbol;
+          background-color: $valid-color;
+        }
+      }
+    }
+    .invalid {
+      %input-general {
+        border-color: $alert-color;
+      }
+      &.field__wrap,
+      &.checkable.checkbox {
+        padding-bottom: 0;
+        &:after {
+          content: $form-invalid-symbol;
+          background-color: $alert-color;
+        }
+      }
+    }
+    ::placeholder {
+      color: $input-placeholder-color;
+    }
+
+    // Select component styles
+    // body {
+    //body is used to override default styles
+    .react-dropdown-select {
+      @extend %input-general;
+      min-height: $input-height;
+      cursor: pointer;
+      color: $input-color;
+      &:hover {
+        border-color: inherit;
+      }
+      &-input {
+        font-size: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      &-dropdown {
+        border: 0;
+        &-handle {
+          svg {
+            width: $select-icon-size;
+            height: $select-icon-size;
+          }
+        }
+        .option {
+          display: flex;
+          align-items: center;
+          &.is-selected {
+            background-color: $select-option-selected-bg;
+            color: $select-option-selected-color;
+          }
+          &.active {
+            background-color: $blue-overlay-40;
+          }
+          &:hover {
+            color: $select-option-hovered-color;
+            background-color: $select-option-hovered-bg;
+          }
+        }
+      }
+    }
+    // }
+    // Select component styles END
+
+    // CheckElem component styles
+    .checkable {
+      &__label {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+      }
+      &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked {
+          & + .checkable__checkelem .checkable__checkmark {
+            display: block;
+          }
+        }
+      }
+      &__checkelem {
+        border: $input-border;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        margin-right: 1rem;
+        .checkable__checkmark {
+          display: none;
+          background-color: $input-border-color;
+        }
+      }
+      &.invalid {
+        .checkable__checkelem {
+          border-color: $alert-color;
+          .checkable__checkmark {
+            background-color: $alert-color;
+          }
+        }
+      }
+    }
+    .checkbox {
+      .checkable__checkelem {
+        height: $checkbox-outer-size;
+        width: $checkbox-outer-size;
+        .checkable__checkmark {
+          width: $checkbox-inner-size;
+          height: $checkbox-inner-size;
+        }
+      }
+    }
+    .radiobtn {
+      align-items: center;
+      .checkable__label {
+        display: flex;
+        align-items: center;
+      }
+      .checkable__checkelem {
+        height: $radiobtn-outer-size;
+        width: $radiobtn-outer-size;
+        border-radius: 100%;
+        .checkable__checkmark {
+          border-radius: 100%;
+          width: $radiobtn-inner-size;
+          height: $radiobtn-inner-size;
+        }
+      }
+    }
+    // CheckElem component styles END
+
+    /////----------- CUSTOM -----------/////
+    .generated-form {
+      a {
+        // @extend %link--inline;
+        // &[target='_blank'] {
+        //   @extend %link--external;
+        // }
+      }
+      &__title {
+        font-size: 3.4rem;
+        color: $fish-blue-darker;
+        font-family: $rubik;
+        font-weight: 500;
+        margin-bottom: 23px;
+        @include respondTo(desktop) {
+          font-size: 4.5rem;
+        }
+      }
+      &__fields {
+        & > .field {
+          margin-bottom: 16px;
+        }
+      }
+      &__item {
+        align-items: flex-start;
+        &-legend {
+          display: block;
+          width: 100%;
+          font-size: 2.1rem;
+          font-weight: 500;
+          font-family: $rubik;
+          margin-bottom: 18px;
+          @include respondTo(desktop) {
+            font-size: 2.5rem;
+          }
+        }
+        &:last-child {
+          .generated-form__item-legend {
+            font: 400 1.6rem $arial;
+            margin-bottom: 28px;
+          }
+        }
+        .field__group {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 30px;
+          & > div {
+            margin-right: 35px;
+          }
+        }
+        .checkable .checkable__checkelem {
+          margin-right: 18px;
+        }
+      }
+      &__button--primary,
+      &__button--secondary {
+        display: block;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        @include respondTo(desktop) {
+          display: block;
+          width: 352px;
+        }
+      }
+
+      .buttons {
+        margin-top: 31px;
+        @include respondTo(desktop) {
+          margin-top: 50px;
+        }
+      }
+    }
+
+    .field {
+      margin-bottom: 20px;
+      &__label-text,
+      &__group--label {
+        font-size: 1.6rem;
+        margin: 0 0 14px;
+        @include respondTo(desktop) {
+          margin: 0 0 19px;
+        }
+      }
+      &__input {
+        &--large {
+          height: 52px;
+        }
+      }
+      &__hint {
+        margin: 13px 0 0;
+        font-size: 1.2rem;
+      }
+      &__textarea {
+        padding: 12px 18px;
+      }
+      @include respondTo(desktop) {
+        margin-bottom: 0;
+      }
+      &__input,
+      &__select {
+        padding: 6px 18px;
+        @include respondTo(desktop) {
+          height: 46px;
+          line-height: 1.6rem;
+          padding: 15px 18px;
+        }
+      }
+      @include respondTo(desktop) {
+        @media (hover) {
+          .select [class*='control']:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .field__wrap,
+    .checkable.checkbox {
+      &:after {
+        @include respondTo(desktop) {
+          right: -35px;
+        }
+      }
+      &--inline {
+        display: flex;
+        .checkable {
+          margin-right: 30px;
+        }
+      }
+    }
+    .checkable.checkbox {
+      margin-bottom: 20px;
+    }
+
+    // Select component styles
+    // body {
+    //body is used to override default styles
+    .react-dropdown-select {
+      padding-left: 18px;
+      box-sizing: border-box;
+      &-separator {
+        display: none;
+      }
+      &-dropdown {
+        .option {
+          padding: 16px 18px;
+          box-sizing: border-box;
+          @include respondTo(desktop) {
+            padding: 10px 18px;
+          }
+          &.is-selected {
+            background-color: $black-blue;
+            color: $white;
+          }
+          &.active {
+            background-color: $blue-overlay-40;
+          }
+          &:hover {
+            color: $black-blue;
+            background-color: $apple-green;
+          }
+        }
+      }
+    }
+    // }
+    // Select component styles END
+
+    // CheckElem component styles
+    .checkable {
+      &__label {
+        font-size: 1.6rem;
+      }
+      &__checkelem {
+        margin-right: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../scss/config';
+
+:global {
+  .modal--open {
+    overflow: hidden;
+    .global-container {
+      position: fixed;
+      overflow-y: scroll;
+      //IE scroll lagging fix
+      will-change: transform;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      width: 100%;
+    }
+  }
+}
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $modal-overlay-bg;
+    z-index: 100;
+    will-change: transform;
+    //IE scroll lagging fix
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: inherit;
+  }
+
+  &__content {
+    position: absolute;
+    overflow: auto;
+    outline: none;
+    top: $modal-content-position-top;
+    right: $modal-content-position-right;
+    bottom: $modal-content-position-bottom;
+    left: $modal-content-position-left;
+    padding: $modal-content-padding;
+    background: $modal-content-bg;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  &__header {
+    position: relative;
+  }
+  &__title {
+    margin-top: 0;
+  }
+  &__btn-close {
+    position: absolute;
+    border: none;
+    background: none;
+    right: 0;
+    top: 0;
+    width: 54px;
+    height: 54px;
+    display: flex;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+      margin: auto;
+    }
+  }
+}

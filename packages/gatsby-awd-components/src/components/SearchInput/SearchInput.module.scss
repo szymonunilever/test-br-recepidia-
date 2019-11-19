@@ -1,0 +1,180 @@
+@import '../../scss/config';
+
+.search-input {
+  :global {
+    .search-input {
+      &__list {
+        margin: 0;
+        list-style-type: none;
+        font-size: $search-input-list-fz;
+        padding: 0;
+        background-color: $search-input-list-bg;
+        box-sizing: border-box;
+        @include respondTo(desktop) {
+          overflow: auto;
+        }
+      }
+      &__item {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &__link {
+        display: block;
+        text-decoration: none;
+        font-size: $search-input-list-fz;
+        &:hover,
+        &.active {
+          background-color: $select-option-hovered-bg;
+          color: $select-option-hovered-color;
+        }
+      }
+    }
+    .form {
+      &__group {
+        position: relative;
+      }
+      &__button-submit {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: $search-input-submit-btn-width;
+        height: 100%;
+        transform: translateY(-50%);
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &__button-reset {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: $search-input-reset-btn-width;
+        height: 100%;
+        transform: translateY(-50%);
+      }
+      &__label {
+        @extend %sr-only;
+      }
+      &__input {
+        width: 100%;
+        background-color: transparent;
+        color: $black-blue;
+        height: $search-input-height;
+        padding-right: $search-input-reset-btn-width;
+        border: none;
+        border-bottom: $search-input-border-bottom;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        &::-ms-clear {
+          display: none;
+        }
+      }
+    }
+  }
+}
+/////----------- CUSTOM -----------/////
+:global {
+  .search {
+    &-input {
+      &__list {
+        margin: 15px 0 0;
+        box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),
+          0 4px 11px hsla(0, 0%, 0%, 0.1);
+        border-radius: $radius;
+      }
+      &__link {
+        padding: 14px 18px;
+        color: $black-blue;
+        line-height: 1.43;
+        letter-spacing: 0.28px;
+        @include respondTo(desktop) {
+          padding: 7px 15px;
+        }
+      }
+    }
+  }
+  .form {
+    @include respondTo(desktop) {
+      max-width: 384px;
+      margin: 0 auto;
+    }
+    &__button-submit {
+      width: 30px;
+      &:hover {
+        svg {
+          stroke: $apple-green;
+        }
+      }
+      svg {
+        transition: all 0.2s ease-out;
+        stroke: $black-blue;
+        height: 23px;
+        width: 30px;
+      }
+    }
+    &__button-reset {
+      justify-content: flex-end;
+      padding: 0;
+      @include respondTo(desktop) {
+        justify-content: center;
+        padding: 0 15px;
+      }
+      svg {
+        height: 12px;
+        width: 12px;
+      }
+    }
+    &__label {
+      @extend %sr-only;
+    }
+    &__input {
+      padding-left: 40px;
+      font-size: 2rem;
+      letter-spacing: 0.4px;
+      line-height: 1.25;
+      border-radius: 0;
+    }
+  }
+
+  //in modal
+  .modal {
+    .search-input {
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      &__title {
+        text-align: center;
+        color: $fish-blue-darker;
+        // @extend %h2--bigger;
+      }
+
+      &__list {
+        overflow-y: auto;
+        flex-shrink: 1;
+        @include respondTo(desktop) {
+          @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            height: 155px;
+          }
+        }
+      }
+      .form {
+        @include respondTo(desktop) {
+          max-width: 100%;
+          margin: 0;
+        }
+        &__input {
+          font-size: 1.6rem;
+          @include respondTo(desktop) {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

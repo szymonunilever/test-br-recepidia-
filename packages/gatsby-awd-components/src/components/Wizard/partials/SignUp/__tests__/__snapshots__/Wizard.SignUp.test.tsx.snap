@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp /> matches the snapshot 1`] = `
+<SignUp
+  actionCallback={[Function]}
+  containerClass="test"
+  formContent={
+    Object {
+      "fields": Array [
+        Object {
+          "name": "email input",
+          "placeholder": "Your email address",
+          "type": "email",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+            Object {
+              "errorMessage": "This field is too long.",
+              "type": "maxLength",
+              "value": 20,
+            },
+            Object {
+              "errorMessage": "This field is too short.",
+              "type": "minLength",
+              "value": 4,
+            },
+            Object {
+              "errorMessage": "Should be a valid email.",
+              "type": "email",
+            },
+          ],
+        },
+      ],
+      "submitButton": Object {
+        "label": "Sign Up!",
+      },
+      "title": "Easy & healthy recipes every week",
+    }
+  }
+  stepId="test"
+  title="Lorem ipsum"
+>
+  <div
+    className="wizard__info"
+  >
+    <div
+      className="wizard__title"
+    >
+      <Text
+        className=""
+        tag={1}
+        text="Lorem ipsum"
+      >
+        <h2
+          className=""
+        >
+          Lorem ipsum
+        </h2>
+      </Text>
+    </div>
+  </div>
+  <GeneratedForm
+    className=""
+    content={
+      Object {
+        "fields": Array [
+          Object {
+            "name": "email input",
+            "placeholder": "Your email address",
+            "type": "email",
+            "validationRules": Array [
+              Object {
+                "errorMessage": "This field is required.",
+                "type": "required",
+              },
+              Object {
+                "errorMessage": "This field is too long.",
+                "type": "maxLength",
+                "value": 20,
+              },
+              Object {
+                "errorMessage": "This field is too short.",
+                "type": "minLength",
+                "value": 4,
+              },
+              Object {
+                "errorMessage": "Should be a valid email.",
+                "type": "email",
+              },
+            ],
+          },
+        ],
+        "submitButton": Object {
+          "label": "Sign Up!",
+        },
+        "title": "Easy & healthy recipes every week",
+      }
+    }
+    onSubmit={[Function]}
+    shouldValidate={true}
+  >
+    <GeneratedFormInstance
+      className=""
+      content={
+        Object {
+          "fields": Array [
+            Object {
+              "name": "email input",
+              "placeholder": "Your email address",
+              "type": "email",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+                Object {
+                  "errorMessage": "This field is too long.",
+                  "type": "maxLength",
+                  "value": 20,
+                },
+                Object {
+                  "errorMessage": "This field is too short.",
+                  "type": "minLength",
+                  "value": 4,
+                },
+                Object {
+                  "errorMessage": "Should be a valid email.",
+                  "type": "email",
+                },
+              ],
+            },
+          ],
+          "submitButton": Object {
+            "label": "Sign Up!",
+          },
+          "title": "Easy & healthy recipes every week",
+        }
+      }
+      hasCaptcha={false}
+      onSubmit={[Function]}
+      shouldValidate={true}
+    >
+      <Form
+        className="generatedForm generated-form"
+        onSubmit={[Function]}
+        render={[Function]}
+        subscription={
+          Object {
+            "submitting": true,
+          }
+        }
+      >
+        <ReactFinalForm
+          className="generatedForm generated-form"
+          onSubmit={[Function]}
+          render={[Function]}
+          subscription={
+            Object {
+              "submitting": true,
+            }
+          }
+        >
+          <form
+            className="generatedForm generated-form"
+            noValidate={true}
+            onSubmit={[Function]}
+          >
+            <div
+              className="generated-form__container"
+            >
+              <Text
+                className="generated-form__title"
+                tag={6}
+                text="Easy & healthy recipes every week"
+              >
+                <div
+                  className="generated-form__title"
+                >
+                  Easy & healthy recipes every week
+                </div>
+              </Text>
+              <div
+                className="generated-form__fields"
+              >
+                <GeneratedField
+                  className="generated-form__item"
+                  content={
+                    Object {
+                      "name": "email input",
+                      "placeholder": "Your email address",
+                      "type": "email",
+                      "validationRules": Array [
+                        Object {
+                          "errorMessage": "This field is required.",
+                          "type": "required",
+                        },
+                        Object {
+                          "errorMessage": "This field is too long.",
+                          "type": "maxLength",
+                          "value": 20,
+                        },
+                        Object {
+                          "errorMessage": "This field is too short.",
+                          "type": "minLength",
+                          "value": 4,
+                        },
+                        Object {
+                          "errorMessage": "Should be a valid email.",
+                          "type": "email",
+                        },
+                      ],
+                    }
+                  }
+                  key="0"
+                  shouldValidate={true}
+                >
+                  <Input
+                    content={
+                      Object {
+                        "placeholder": "Your email address",
+                      }
+                    }
+                    error={[Function]}
+                    name="email input"
+                    rules={
+                      Array [
+                        Object {
+                          "errorMessage": "This field is required.",
+                          "type": "required",
+                        },
+                        Object {
+                          "errorMessage": "This field is too long.",
+                          "type": "maxLength",
+                          "value": 20,
+                        },
+                        Object {
+                          "errorMessage": "This field is too short.",
+                          "type": "minLength",
+                          "value": 4,
+                        },
+                        Object {
+                          "errorMessage": "Should be a valid email.",
+                          "type": "email",
+                        },
+                      ]
+                    }
+                    type="email"
+                    validate={[Function]}
+                  >
+                    <Field
+                      name="email input"
+                      validate={[Function]}
+                    >
+                      <Field
+                        name="email input"
+                        validate={[Function]}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <label
+                            className="field__label"
+                          >
+                            <span
+                              className="field__label-text"
+                            />
+                            <div
+                              className="field__wrap"
+                            >
+                              <input
+                                className="field__input"
+                                name="email input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="Your email address"
+                                type="email"
+                                value=""
+                              />
+                            </div>
+                          </label>
+                          <p
+                            className="field__hint"
+                          />
+                        </div>
+                      </Field>
+                    </Field>
+                  </Input>
+                </GeneratedField>
+              </div>
+              <div
+                className="buttons"
+              >
+                <Component
+                  className="generated-form__button--primary"
+                  isDisabled={false}
+                  type="submit"
+                >
+                  <button
+                    className="button button generated-form__button--primary"
+                    data-componentname="button"
+                    data-componentview="button"
+                    disabled={false}
+                    hidden={false}
+                    onClick={[Function]}
+                    type="submit"
+                  >
+                    Sign Up!
+                  </button>
+                </Component>
+              </div>
+            </div>
+          </form>
+        </ReactFinalForm>
+      </Form>
+    </GeneratedFormInstance>
+  </GeneratedForm>
+  <div
+    className="wizard__buttons wizard__buttons"
+  >
+    <Component
+      className="wizard__button wizard__button--secondary"
+      content={
+        Object {
+          "label": "Skip",
+        }
+      }
+      onClick={[Function]}
+    >
+      <button
+        className="button button wizard__button wizard__button--secondary"
+        data-componentname="button"
+        data-componentview="button"
+        disabled={false}
+        hidden={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="button__label"
+        >
+          Skip
+        </span>
+      </button>
+    </Component>
+  </div>
+</SignUp>
+`;

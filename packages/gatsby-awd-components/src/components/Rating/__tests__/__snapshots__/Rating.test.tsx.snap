@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rating /> matches the snapshot 1`] = `
+<Rating
+  provider={0}
+  recipeId={1}
+>
+  <div
+    className="recipeRating recipe-rating"
+    data-componentname="recipe-rating"
+    data-componentview="recipe-rating"
+  >
+    <div
+      className="rr-widget-container rr-container"
+      data-category-pageurl="http://localhost/recipes"
+      data-entity-type="recipe"
+      data-entity-url="http://localhost"
+      data-summary-template="inline01"
+      data-unique-id={1}
+      onClick={[Function]}
+    />
+  </div>
+</Rating>
+`;

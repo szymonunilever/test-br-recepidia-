@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BrandSocialChannels /> matches the snapshot 1`] = `
+<BrandSocialChannels
+  content={
+    Object {
+      "socialItems": Object {
+        "facebook": Object {
+          "label": "Facebook",
+          "url": "https://www.facebook.com/",
+        },
+        "instagram": Object {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/",
+        },
+        "pinterest": Object {
+          "label": "Pinterest",
+          "url": "https://www.pinterest.com/",
+        },
+        "twitter": Object {
+          "label": "Twitter",
+          "url": "https://twitter.com/",
+        },
+      },
+    }
+  }
+  listIcons={
+    Object {
+      "facebook": <div>
+        Facebook
+      </div>,
+      "instagram": <div>
+        Instagram
+      </div>,
+    }
+  }
+>
+  <ul
+    className="socialChannels social-channels"
+    data-componentname="social-channels"
+    data-componentview="social-channels"
+  >
+    <SocialChannel
+      attributes={
+        Object {
+          "aria-label": "facebook",
+        }
+      }
+      icon={
+        <div>
+          Facebook
+        </div>
+      }
+      key="facebook"
+      label={false}
+      url="https://www.facebook.com/"
+    >
+      <li
+        className="socialChannels__item social-channels__item"
+      >
+        <a
+          aria-label="facebook"
+          className="socialChannels__link social-channels__link"
+          href="https://www.facebook.com/"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+        >
+          <div
+            className="socialChannels__icon social-channels__icon"
+          >
+            <div>
+              Facebook
+            </div>
+          </div>
+        </a>
+      </li>
+    </SocialChannel>
+    <SocialChannel
+      attributes={
+        Object {
+          "aria-label": "instagram",
+        }
+      }
+      icon={
+        <div>
+          Instagram
+        </div>
+      }
+      key="instagram"
+      label={false}
+      url="https://www.instagram.com/"
+    >
+      <li
+        className="socialChannels__item social-channels__item"
+      >
+        <a
+          aria-label="instagram"
+          className="socialChannels__link social-channels__link"
+          href="https://www.instagram.com/"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+        >
+          <div
+            className="socialChannels__icon social-channels__icon"
+          >
+            <div>
+              Instagram
+            </div>
+          </div>
+        </a>
+      </li>
+    </SocialChannel>
+  </ul>
+</BrandSocialChannels>
+`;

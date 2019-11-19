@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckElem /> matches the snapshot 1`] = `
+<CheckElem
+  type={1}
+  value="checkbox"
+>
+  <label
+    className="checkable__label checkbox"
+  >
+    <input
+      className="checkable__input"
+      type="checkbox"
+      value="checkbox"
+    />
+    <span
+      className="checkable__checkelem"
+    >
+      <span
+        className="checkable__checkmark"
+      />
+    </span>
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+    />
+  </label>
+</CheckElem>
+`;

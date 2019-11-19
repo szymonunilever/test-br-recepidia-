@@ -1,0 +1,11 @@
+@import '../../scss/config';
+
+.recipe-attributes {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin: $recipe-attributes-indent;
+  @include respondTo(desktop) {
+    margin: $recipe-attributes-indent-lg;
+  }
+}

@@ -1,0 +1,207 @@
+{
+	"view": "TestGeneratedForm",
+	"submitButton": {
+		"label": "Submit"
+	},
+	"resetButton": {
+		"label": "Clear form"
+	},
+	"title": "Test generated form",
+	"subtitle": "Story of form generator",
+	"fields": [
+		{
+			"name": "description",
+			"type": "description",
+			"label": "This is form description field."
+		},
+		{
+			"name": "testFieldset",
+			"type": "fieldset",
+			"label": "Test Fieldset"
+		},
+		{
+			"name": "testFieldset3",
+			"type": "group",
+			"label": "Test Fieldset3"
+		},
+		{
+			"name": "testInput One",
+			"type": "text",
+			"label": "Test text input One",
+			"placeholder": "Test text input One",
+			"value": "I",
+			"hint": "Enter some text",
+			"fieldset": "testFieldset",
+			"validationRules": [
+				{
+					"type": "maxLength",
+					"value": 4,
+					"errorMessage": "This field is too long."
+				},
+				{
+					"type": "minLength",
+					"value": 2,
+					"errorMessage": "This field is too short."
+				}
+			]
+		},
+		{
+			"name": "testInput Two",
+			"type": "text",
+			"label": "Test text input Two",
+			"value": "Test value",
+			"placeholder": "Test text input Two",
+			"hint": "Enter some text",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				},
+				{
+					"type": "maxLength",
+					"value": 4,
+					"errorMessage": "This field is too long."
+				},
+				{
+					"type": "minLength",
+					"value": 2,
+					"errorMessage": "This field is too short."
+				}
+			]
+		},
+		{
+			"name": "testInput Three",
+			"type": "text",
+			"label": "Test text input Three",
+			"value": "Test value 1",
+			"placeholder": "Test text input Three",
+			"hint": "Enter some text",
+			"validationRules": [
+				{
+					"type": "pattern",
+					"value": ",/^[A-Z]/",
+					"errorMessage": "Should start with uppercase"
+				},
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				},
+				{
+					"type": "maxLength",
+					"value": 4,
+					"errorMessage": "This field is too long."
+				},
+				{
+					"type": "minLength",
+					"value": 2,
+					"errorMessage": "This field is too short."
+				}
+			]
+		},
+		{
+			"name": "testTextarea",
+			"type": "textarea",
+			"label": "Test textarea",
+			"placeholder": "Test textarea",
+			"rows": 6,
+			"hint": "Enter some text",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "radio buttons group one",
+			"type": "radio",
+			"label": "Test Radiobutton One",
+			"value": "Radio Button value One",
+			"hint": "Choose one",
+			"fieldset": "testFieldset",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "radio buttons group one",
+			"type": "radio",
+			"label": "Test Radiobutton Two",
+			"value": "Radio Button value Two ",
+			"hint": "Choose one",
+			"fieldset": "testFieldset",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "Checkbox One",
+			"type": "checkbox",
+			"label": "Test Checkbox One",
+			"value": "Checkbox value One",
+			"hint": "Choose one",
+			"fieldset": "testFieldset3",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "Checkbox Two",
+			"type": "checkbox",
+			"label": "Test Checkbox Two",
+			"value": "Checkbox value Two",
+			"hint": "Choose one",
+			"fieldset": "testFieldset3",
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "testSelect",
+			"type": "select",
+			"label": "Test Select",
+			"hint": "Choose one",
+			"placeholder": "select value",
+			"options": [
+				{
+					"label": "test 1",
+					"value": "0"
+				},
+				{
+					"label": "test 2",
+					"value": "1"
+				},
+				{
+					"label": "test 3",
+					"value": "2"
+				}
+			],
+			"validationRules": [
+				{
+					"type": "required",
+					"errorMessage": "This field is required."
+				}
+			]
+		},
+		{
+			"name": "hidden",
+			"type": "hidden"
+		},
+		{
+			"type": "captcha",
+			"name": "recaptcha"
+		}
+	]
+}

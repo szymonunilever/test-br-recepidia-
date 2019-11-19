@@ -1,0 +1,27 @@
+@import '../../scss/config';
+
+.recipe-list {
+  position: relative;
+  &__header {
+    font-weight: 500;
+    font-size: $listing-title-fz;
+    font-family: $listing-title-ff;
+    color: $listing-title-color;
+    line-height: 3rem;
+    @include respondTo(medium) {
+      font-size: $listing-title-fz-lg;
+    }
+  }
+  &__load-more {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    margin: 40px auto 0px;
+  }
+  &__filter {
+    :global(.tags) {
+      width: 100%;
+      margin: 40px 0;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecipeCookingMethod /> matches the snapshot 1`] = `
+<Component
+  content={
+    Object {
+      "subtitle": "Subtitle",
+      "title": "Title",
+    }
+  }
+  methodList={
+    Array [
+      Object {
+        "list": Array [
+          Object {
+            "description": "Use uma forma pequena de fundo removível de 17,5cm de diâmetro. Molhe um papel manteiga (para ficar maleável) e forre a forma toda, inclusive as laterais.",
+            "position": 1,
+          },
+          Object {
+            "description": "Pré-aqueça o forno à 200°C por 10 minutos.",
+            "position": 2,
+          },
+        ],
+        "position": 0,
+        "title": "desagrupados",
+      },
+      Object {
+        "list": Array [
+          Object {
+            "description": "Pique as tâmaras e castanhas em pedaços pequenos. Em um processador, bata todos os ingredientes da base. Se necessário, adicione óleo de coco para bater. Retire a mistura do processador, pegue um pouco com as mãos, aperte para ficar mais compacto e vá forrando o fundo da forma, apertando bem com os dedos. A farofinha fica solta mesmo, mas no forno ela dá a liga. Reserve.",
+            "position": 3,
+          },
+        ],
+        "position": 1,
+        "title": "Base",
+      },
+      Object {
+        "list": Array [
+          Object {
+            "description": "Leve a polpa de maracujá e o açúcar ao fogo alto. Quando começar a ferver, abaixe o fogo e mexa até engrossar levemente e dissolver o açúcar. Aproximadamente 7 minutos. Leve todos os ingredientes ao processador e bata até ficar homogêneo. 
+Leve ao forno por 20 minutos. Deixe esfriar e leve ao congelador por 8 horas.",
+            "position": 4,
+          },
+        ],
+        "position": 2,
+        "title": "Recheio",
+      },
+      Object {
+        "list": Array [
+          Object {
+            "description": "Prepare a ganache próximo do momento de servir. Prepare primeiro o creme de castanhas, batendo 1/4 xícara de chá de amêndoa ou castanha de caju com 1/2 xícara de chá de água. Você também pode usar o próprio leite de coco ou creme de leite de soja. Derreta o chocolate no microondas ou banho-maria.",
+            "position": 5,
+          },
+          Object {
+            "description": "No micro-ondas, ajuste a potência para \\"média\\". Coloque o chocolate em uma tigela apropriada e aqueça por 1 minuto. Retire, mexa com uma colher para ir homogeneizando e leve novamente por mais 1 minuto ao micro-ondas, repetindo o processo até derreter por completo (2 ou 3 vezes, no máximo). Acrescente o creme de castanhas e misture bem, até virar um creme homogêneo. Você pode acrescentar um pouco de leite de coco para ficar mais fluída, porque a ganache tem textura bem densa.",
+            "position": 6,
+          },
+          Object {
+            "description": "Cubra a torta com a ganache e decore como desejar. Eu usei lascas de chocolate 70%, mas você pode colocar gotas de chocolate, nibs de cacau, castanhas picadas ou servir assim mesmo ao que já fica bem bom.",
+            "position": 7,
+          },
+        ],
+        "position": 3,
+        "title": "Ganache",
+      },
+    ]
+  }
+>
+  <div
+    className="recipeCookingMethod"
+    data-componentname="recipeCookingMethod"
+    data-componentview="recipeCookingMethod"
+  >
+    <Text
+      className="recipeCookingMethod__title recipe-cooking-method__title"
+      tag={1}
+      text="Title"
+    >
+      <h2
+        className="recipeCookingMethod__title recipe-cooking-method__title"
+      >
+        Title
+      </h2>
+    </Text>
+    <Text
+      className="recipeCookingMethod__subtitle recipe-cooking-method__subtitle"
+      tag={2}
+      text="Subtitle"
+    >
+      <h3
+        className="recipeCookingMethod__subtitle recipe-cooking-method__subtitle"
+      >
+        Subtitle
+      </h3>
+    </Text>
+    <div
+      className="cookingMethods cooking-methods"
+    >
+      <dl
+        className="cookingMethods__group cooking-methods__group"
+        key="0"
+      >
+        <dt
+          className="cookingMethods__groupTitle cooking-methods__group-title"
+        >
+          desagrupados
+        </dt>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="0"
+        >
+          Use uma forma pequena de fundo removível de 17,5cm de diâmetro. Molhe um papel manteiga (para ficar maleável) e forre a forma toda, inclusive as laterais.
+        </dd>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="1"
+        >
+          Pré-aqueça o forno à 200°C por 10 minutos.
+        </dd>
+      </dl>
+      <dl
+        className="cookingMethods__group cooking-methods__group"
+        key="1"
+      >
+        <dt
+          className="cookingMethods__groupTitle cooking-methods__group-title"
+        >
+          Base
+        </dt>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="0"
+        >
+          Pique as tâmaras e castanhas em pedaços pequenos. Em um processador, bata todos os ingredientes da base. Se necessário, adicione óleo de coco para bater. Retire a mistura do processador, pegue um pouco com as mãos, aperte para ficar mais compacto e vá forrando o fundo da forma, apertando bem com os dedos. A farofinha fica solta mesmo, mas no forno ela dá a liga. Reserve.
+        </dd>
+      </dl>
+      <dl
+        className="cookingMethods__group cooking-methods__group"
+        key="2"
+      >
+        <dt
+          className="cookingMethods__groupTitle cooking-methods__group-title"
+        >
+          Recheio
+        </dt>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="0"
+        >
+          Leve a polpa de maracujá e o açúcar ao fogo alto. Quando começar a ferver, abaixe o fogo e mexa até engrossar levemente e dissolver o açúcar. Aproximadamente 7 minutos. Leve todos os ingredientes ao processador e bata até ficar homogêneo. 
+Leve ao forno por 20 minutos. Deixe esfriar e leve ao congelador por 8 horas.
+        </dd>
+      </dl>
+      <dl
+        className="cookingMethods__group cooking-methods__group"
+        key="3"
+      >
+        <dt
+          className="cookingMethods__groupTitle cooking-methods__group-title"
+        >
+          Ganache
+        </dt>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="0"
+        >
+          Prepare a ganache próximo do momento de servir. Prepare primeiro o creme de castanhas, batendo 1/4 xícara de chá de amêndoa ou castanha de caju com 1/2 xícara de chá de água. Você também pode usar o próprio leite de coco ou creme de leite de soja. Derreta o chocolate no microondas ou banho-maria.
+        </dd>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="1"
+        >
+          No micro-ondas, ajuste a potência para "média". Coloque o chocolate em uma tigela apropriada e aqueça por 1 minuto. Retire, mexa com uma colher para ir homogeneizando e leve novamente por mais 1 minuto ao micro-ondas, repetindo o processo até derreter por completo (2 ou 3 vezes, no máximo). Acrescente o creme de castanhas e misture bem, até virar um creme homogêneo. Você pode acrescentar um pouco de leite de coco para ficar mais fluída, porque a ganache tem textura bem densa.
+        </dd>
+        <dd
+          className="cookingMethods__groupItem cooking-methods__group-item"
+          key="2"
+        >
+          Cubra a torta com a ganache e decore como desejar. Eu usei lascas de chocolate 70%, mas você pode colocar gotas de chocolate, nibs de cacau, castanhas picadas ou servir assim mesmo ao que já fica bem bom.
+        </dd>
+      </dl>
+    </div>
+  </div>
+</Component>
+`;

@@ -1,0 +1,99 @@
+@import '../../../scss/config';
+
+.recipe-card {
+  position: relative;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+
+  &__title {
+    font-size: $card-title-fz;
+    font-family: $card-title-ff;
+    font-weight: $card-title-fw;
+    color: $card-title-color;
+    outline: none;
+    margin: $card-title-indent;
+    @include respondTo(medium) {
+      margin: $card-title-indent-lg;
+    }
+  }
+
+  &__image {
+    position: relative;
+    min-width: 100%;
+    background-color: $white-gray;
+  }
+}
+
+/////----------- CUSTOM -----------/////
+
+.recipe-card {
+  &__favorite {
+    position: absolute;
+    z-index: 1;
+    font-size: 3rem;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    svg {
+      stroke: $white;
+      fill-opacity: 0;
+      transition: stroke 0.2s ease-out;
+      height: 26px;
+      width: 100%;
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      @include respondTo(medium) {
+        &:hover {
+          svg {
+            fill: $luminous-yellow;
+            stroke: $luminous-yellow;
+            fill-opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  &__image {
+    :global {
+      .adaptive-image__image {
+        & > div {
+          padding-bottom: $recipe-card-height--mobile !important;
+          @include respondTo(medium) {
+            padding-bottom: $recipe-card-height--desktop !important;
+          }
+        }
+
+        //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+        @include respondTo(medium) {
+          @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            img {
+              max-height: 100%;
+            }
+          }
+          @supports (-ms-ime-align: auto) {
+            img {
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:global(.recipe-card__favorite.button__selected) {
+  svg {
+    fill: $luminous-yellow;
+    stroke: $luminous-yellow;
+    fill-opacity: 1;
+  }
+}

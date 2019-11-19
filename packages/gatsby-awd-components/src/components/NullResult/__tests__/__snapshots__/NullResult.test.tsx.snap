@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NullResult /> matches the snapshot 1`] = `
+<Component
+  content={
+    Object {
+      "subtitle": "Maybe try the following:",
+      "textList": Array [
+        "Don't use too many filters at once",
+        "Try using only filters",
+      ],
+      "title": "Oops! No results",
+    }
+  }
+>
+  <div
+    className="wrapper recommendations"
+    data-componentname="nullResult"
+    data-componentview="nullResult"
+  >
+    <Text
+      className="recommendations__title recommendations__title"
+      tag={1}
+      text="Oops! No results"
+    >
+      <h2
+        className="recommendations__title recommendations__title"
+      >
+        Oops! No results
+      </h2>
+    </Text>
+    <Text
+      className="recommendations__subtitle recommendations__subtitle"
+      tag={2}
+      text="Maybe try the following:"
+    >
+      <h3
+        className="recommendations__subtitle recommendations__subtitle"
+      >
+        Maybe try the following:
+      </h3>
+    </Text>
+    <ul
+      className="recommendations__list recommendations__list"
+    >
+      <li
+        className="recommendations__item recommendations__item"
+        key="0"
+      >
+        Don't use too many filters at once
+      </li>
+      <li
+        className="recommendations__item recommendations__item"
+        key="1"
+      >
+        Try using only filters
+      </li>
+    </ul>
+  </div>
+</Component>
+`;
+
+exports[`<NullResult /> matches the snapshot 2`] = `
+<Component
+  content={
+    Object {
+      "subtitle": "Maybe try the following:",
+      "textList": Array [
+        "Don't use too many filters at once",
+        "Try using only filters",
+      ],
+    }
+  }
+>
+  <div
+    className="wrapper recommendations"
+    data-componentname="nullResult"
+    data-componentview="nullResult"
+  >
+    <Text
+      className="recommendations__subtitle recommendations__subtitle"
+      tag={2}
+      text="Maybe try the following:"
+    >
+      <h3
+        className="recommendations__subtitle recommendations__subtitle"
+      >
+        Maybe try the following:
+      </h3>
+    </Text>
+    <ul
+      className="recommendations__list recommendations__list"
+    >
+      <li
+        className="recommendations__item recommendations__item"
+        key="0"
+      >
+        Don't use too many filters at once
+      </li>
+      <li
+        className="recommendations__item recommendations__item"
+        key="1"
+      >
+        Try using only filters
+      </li>
+    </ul>
+  </div>
+</Component>
+`;
+
+exports[`<NullResult /> matches the snapshot 3`] = `
+<Component
+  content={
+    Object {
+      "textList": Array [
+        "Don't use too many filters at once",
+        "Try using only filters",
+      ],
+      "title": "Oops! No results",
+    }
+  }
+>
+  <div
+    className="wrapper recommendations"
+    data-componentname="nullResult"
+    data-componentview="nullResult"
+  >
+    <Text
+      className="recommendations__title recommendations__title"
+      tag={1}
+      text="Oops! No results"
+    >
+      <h2
+        className="recommendations__title recommendations__title"
+      >
+        Oops! No results
+      </h2>
+    </Text>
+    <ul
+      className="recommendations__list recommendations__list"
+    >
+      <li
+        className="recommendations__item recommendations__item"
+        key="0"
+      >
+        Don't use too many filters at once
+      </li>
+      <li
+        className="recommendations__item recommendations__item"
+        key="1"
+      >
+        Try using only filters
+      </li>
+    </ul>
+  </div>
+</Component>
+`;

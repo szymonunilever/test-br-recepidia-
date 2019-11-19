@@ -1,7 +1,6 @@
 {
   "private": "true",
   "workspaces": [
-    "br.recepedia.com",
     "packages/*"
   ]
 }

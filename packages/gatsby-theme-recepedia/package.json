@@ -18,6 +18,7 @@
     "fs-extra": "^8.1.0",
     "gatsby": "2.17.0",
     "gatsby-image": "2.0.41",
+    "gatsby-awd-components": "1.0.0",
     "gatsby-plugin-google-analytics": "^2.1.6",
     "gatsby-plugin-lodash": "^3.1.2",
     "gatsby-plugin-manifest": "2.2.4",
@@ -134,8 +135,6 @@
     "type-check": "tsc",
     "format": "prettier --write src/**/*.{ts,tsx}",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx",
-    "lint:fix": "yarn lint --fix",
-    "storybook-styled": "start-storybook -p 6007 -c .storybook-styled -s src/components/lib/stories/static",
-    "build-storybook": "build-storybook"
+    "lint:fix": "yarn lint --fix"
   }
 }

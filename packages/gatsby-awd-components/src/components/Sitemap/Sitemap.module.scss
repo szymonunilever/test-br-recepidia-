@@ -1,0 +1,105 @@
+@import '../../scss/config';
+
+.sitemap {
+  :global {
+    .sitemap {
+      &__categories {
+        display: flex;
+        flex-direction: column;
+        @include respondTo(medium) {
+          flex-direction: row;
+        }
+
+        & > .sitemap__category {
+          @include respondTo(medium) {
+            text-align: left;
+            box-sizing: border-box;
+            flex: 1;
+          }
+        }
+      }
+
+      &__category {
+        &-title {
+          font-size: $sitemap-category-heading-fz;
+        }
+        &-items {
+          a {
+            font-size: $sitemap-subheading-fz;
+          }
+        }
+      }
+      &__block {
+        flex-basis: 100% / $sitemap-columns-number;
+        @include respondTo(medium) {
+          flex-basis: 100% / $sitemap-columns-number-lg;
+        }
+      }
+      /////----------- CUSTOM -----------/////
+      &__categories {
+        & > .sitemap__category {
+          margin: 0 0 32px 0;
+          text-align: center;
+          @include respondTo(medium) {
+            text-align: left;
+            box-sizing: border-box;
+            width: calc(100% / 2);
+            padding: 0 24px 0 0;
+          }
+          @include respondTo(desktop) {
+            width: calc(99.9% / 3);
+          }
+        }
+      }
+
+      &__category {
+        &-title {
+          font-size: 1.8rem;
+          margin: 0 0 10px;
+          text-transform: uppercase;
+          line-height: 1.6;
+          font-weight: 700;
+          @include respondTo(medium) {
+            font-size: 2.4rem;
+          }
+        }
+
+        &-items {
+          a {
+            line-height: 1;
+            text-transform: none;
+            font-weight: 500;
+            @include respondTo(medium) {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+
+      a {
+        line-height: 1.4;
+        font-family: $rubik;
+        font-weight: 500;
+        padding-right: 20px;
+      }
+      /////----------- CUSTOM END -----------/////
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      color: $sitemap-link-color;
+      transition: $sitemap-link-transition;
+      &:hover {
+        color: $sitemap-link-hover-color;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+}
+.sitemap {
+}

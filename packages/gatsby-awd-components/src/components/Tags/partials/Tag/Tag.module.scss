@@ -1,0 +1,84 @@
+@import '../../../../scss/config';
+
+.tags {
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    margin: $tags-indent;
+
+    .tags__link,
+    .tags__removable,
+    .tags__toggle {
+      height: $tag-height;
+      color: $tag-color;
+      font-size: $tag-fz;
+      background: $tag-background;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      padding: $tag-padding;
+      transition: all $theme-transition;
+      cursor: pointer;
+      font-weight: normal;
+      text-decoration: none;
+      border-radius: $tag-border-radius;
+      border: none;
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+          background: $tag-background-hover;
+          color: $tag-color-hover;
+        }
+      }
+      span {
+        display: table-cell;
+        white-space: nowrap;
+      }
+    }
+    .tags__removable {
+      background: $tag-removable-bg;
+      border: $tag-border;
+      height: $tag-removable-height;
+      padding: $tag-removable-padding;
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+          border-color: darken($tag-background-hover, 10%);
+
+          svg {
+            fill: $tag-color;
+          }
+        }
+      }
+    }
+    span {
+      font-size: $tag-fz;
+      cursor: pointer;
+    }
+  }
+}
+
+:global(.tags__toggle.button__selected) {
+  background: $tag-background-selected;
+  color: $tag-color-selected;
+}
+:global(.button.tags__removable--button) {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  height: 100%;
+  line-height: 1;
+  width: 40px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+}

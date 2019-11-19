@@ -1,0 +1,40 @@
+@import '../../../scss/config';
+
+.social-channels {
+  &__item {
+    &:not(:last-child) {
+      margin-right: $social-channels-indent;
+    }
+    @include respondTo(desktop) {
+      &:not(:last-child) {
+        margin-right: $social-channels-indent-lg;
+      }
+    }
+  }
+
+  &__icon {
+    svg {
+      height: $social-channels-icon-size;
+      width: $social-channels-icon-size;
+      fill: $social-channels-icon-fill;
+      transition: transform 0.2s ease-out;
+      @include respondTo(desktop) {
+        height: $social-channels-icon-size-lg;
+        width: $social-channels-icon-size-lg;
+      }
+    }
+  }
+  &__link {
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        .social-channels__icon {
+          svg {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+}
