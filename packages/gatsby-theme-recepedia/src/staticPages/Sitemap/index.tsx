@@ -2,8 +2,12 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
-import { Sitemap, TagName, Text } from 'src/components/lib';
-import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
+import {
+  Sitemap,
+  TagName,
+  Text,
+  SitemapCategoryEntry,
+} from 'gatsby-awd-components/src';
 import {
   getSitemapFromPaths,
   SiteMapRawData,

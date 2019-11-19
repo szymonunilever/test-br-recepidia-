@@ -1,5 +1,5 @@
 import capitalize from 'lodash/capitalize';
-import { SitemapCategoryEntry } from 'src/components/lib/components/Sitemap/partials';
+import { SitemapCategoryEntry } from 'gatsby-awd-components/src';
 import remove from 'lodash/remove';
 import groupBy from 'lodash/groupBy';
 import values from 'lodash/values';

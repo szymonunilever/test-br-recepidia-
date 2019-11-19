@@ -44,7 +44,7 @@ describe('Button', () => {
     expect(testClick).toEqual(false);
   });
 
-  it('Render Icon button', () => {
+  it('Render RecipeDietaryAttributeIcon button', () => {
     expect(buttonIcon.find('button[componentname="button"]')).toBeTruthy();
     expect(buttonIcon.find('svg')).toBeTruthy();
   });

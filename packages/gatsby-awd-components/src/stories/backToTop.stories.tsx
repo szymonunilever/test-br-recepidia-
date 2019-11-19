@@ -15,7 +15,7 @@ const content: AppContent.BackToTopContent = {
 
 storiesOf('Generic/Back To Top', module)
   .add(
-    'with Icon',
+    'with RecipeDietaryAttributeIcon',
     () => (
       <>
         <div style={page}>
@@ -27,7 +27,7 @@ storiesOf('Generic/Back To Top', module)
     { inline: false }
   )
   .add(
-    'with Icon and Text',
+    'with RecipeDietaryAttributeIcon and Text',
     () => (
       <>
         <div style={page}>
@@ -39,7 +39,7 @@ storiesOf('Generic/Back To Top', module)
     { inline: false }
   )
   .add(
-    'with Icon viewType',
+    'with RecipeDietaryAttributeIcon viewType',
     () => (
       <>
         <div style={page}>

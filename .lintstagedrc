@@ -1,4 +1,0 @@
-{
-  "**/*.{ts,tsx}": ["yarn lint", "git add"],
-  "**/*.scss": ["prettier --write", "git add"]
-}

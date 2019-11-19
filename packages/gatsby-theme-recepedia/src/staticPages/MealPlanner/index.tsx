@@ -4,16 +4,15 @@ import {
   IntroductionPanel as WizardIntroductionPanel,
   Logo,
   Quiz as WizardQuiz,
-  RatingAndReviewsProvider,
   RecipeListing,
   RecipeListViewType,
   reloadKritiqueWidget as useKritiqueReload,
   ResultSection as WizardResultSection,
   Wizard,
-} from 'src/components/lib';
-import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
-import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
-import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
+  RatingAndReviewsProvider,
+  RecipeListingIcons,
+} from 'gatsby-awd-components/src';
+
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -33,11 +32,31 @@ import getPersonalizationSearchData, {
 } from '../../utils/getPersonalizationSearchData';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
-import Menu from 'src/components/lib/components/GlobalFooter/partials/Menu';
+import Menu from 'gatsby-awd-components/src/components/GlobalFooter/partials/Menu';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
 import DataCapturingForm from '../../components/DataCapturingForm';
-
+import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
+import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
+import {
+  ReactComponent as ArrowIcon,
+  ReactComponent as OpenIcon,
+} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from 'src/svgs/inline/x-mark.svg';
+const icons: RecipeListingIcons = {
+  close: CloseSvg,
+  closed: ClosedIcon,
+  favorite: FavoriteIcon,
+  filter: FilterIcon,
+  open: OpenIcon,
+  removeTag: RemoveTagIcon,
+};
 const RESULT_SIZE = 7;
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
@@ -127,6 +146,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             stepId="intro"
           />
           <WizardQuiz
+            CheckMarkIcon={CheckMarkIcon}
             {...componentContent.wizardQuiz}
             {...{ stepResultsCallback }}
             imageSizesOptions={IMAGE_SIZES.QUIZ_OPTIONS}
@@ -157,10 +177,10 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
               <div>
                 {recipes.length > 0 && (
                   <RecipeListing
+                    icons={icons}
                     content={findPageComponentContent(components, 'Wizard')}
                     favorites={Array.isArray(favorites) ? favorites : []}
                     onFavoriteChange={updateFavoriteState}
-                    FavoriteIcon={FavoriteIcon}
                     withFavorite={true}
                     list={recipes}
                     ratingProvider={RatingAndReviewsProvider.kritique}

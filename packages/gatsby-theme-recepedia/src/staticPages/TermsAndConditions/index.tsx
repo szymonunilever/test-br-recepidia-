@@ -3,7 +3,7 @@ import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
-import { RichText, TagName, Text } from 'src/components/lib';
+import { RichText, TagName, Text } from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import theme from './termsAndConditions.module.scss';
 import cx from 'classnames';

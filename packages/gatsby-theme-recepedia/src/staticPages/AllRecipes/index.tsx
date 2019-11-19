@@ -9,26 +9,20 @@ import {
   Hero,
   LoadMoreType,
   RecipeListing,
+  RecipeListingIcons,
   RecipeListViewType,
   TagName,
   Text,
-} from 'src/components/lib';
+  RatingAndReviewsProvider,
+} from 'gatsby-awd-components/src';
 import { findPageComponentContent, useElasticSearch } from 'src/utils';
-import {
-  ReactComponent as ArrowIcon,
-  ReactComponent as OpenIcon,
-} from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
-import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
-import { RatingAndReviewsProvider } from 'src/components/lib/models/ratings&reviews';
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
 // Component Styles
 import '../../scss/pages/_allRecipes.scss';
 
-import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import { SearchParams } from 'gatsby-awd-components/src';
 import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -39,6 +33,26 @@ import {
   WithInitialDataAndAsyncLoadMore,
 } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { IMAGE_SIZES } from 'src/constants';
+
+import {
+  ReactComponent as ArrowIcon,
+  ReactComponent as OpenIcon,
+} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from 'src/svgs/inline/x-mark.svg';
+export const icons: RecipeListingIcons = {
+  close: CloseSvg,
+  closed: ClosedIcon,
+  favorite: FavoriteIcon,
+  filter: FilterIcon,
+  open: OpenIcon,
+  removeTag: RemoveTagIcon,
+};
 
 const AllRecipesPage = ({
   data,
@@ -161,6 +175,7 @@ const AllRecipesPage = ({
         className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
       >
         <RecipeListing
+          icons={icons}
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
           content={{
@@ -172,7 +187,6 @@ const AllRecipesPage = ({
           }}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
           withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
@@ -189,9 +203,6 @@ const AllRecipesPage = ({
             ],
           }}
           className="recipe-list--carousel cards--2-4"
-          OpenIcon={OpenIcon}
-          FilterIcon={FilterIcon}
-          RemoveTagIcon={RemoveTagIcon}
           // @ts-ignore
           loadMoreConfig={{
             type: LoadMoreType.async,
@@ -210,6 +221,7 @@ const AllRecipesPage = ({
         )}
       >
         <RecipeListing
+          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',
@@ -217,7 +229,6 @@ const AllRecipesPage = ({
           )}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
           withFavorite={true}
           list={promotionalRecipes.nodes}
           ratingProvider={RatingAndReviewsProvider.kritique}

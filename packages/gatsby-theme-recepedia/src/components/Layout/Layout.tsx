@@ -5,7 +5,7 @@ import {
   BrandSocialChannels,
   GeneratedForm,
   GlobalFooter,
-} from 'src/components/lib';
+} from 'gatsby-awd-components/src';
 import UnileverLogoIcon from 'src/svgs/inline/unilever-logo.svg';
 import { ReactComponent as ArrowUpIcon } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';

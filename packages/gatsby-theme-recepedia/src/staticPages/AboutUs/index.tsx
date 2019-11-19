@@ -1,5 +1,10 @@
 import React from 'react';
-import { AdaptiveImage, RichText, TagName, Text } from 'src/components/lib';
+import {
+  AdaptiveImage,
+  RichText,
+  TagName,
+  Text,
+} from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';

@@ -7,13 +7,19 @@ import React, {
 } from 'react';
 import { ReactComponent as WizardLogo } from '../../../svgs/inline/wizard-logo.svg';
 import { ReactComponent as CloseSvg } from '../../../svgs/inline/x-mark.svg';
+import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
 } from '../../../utils/browserStorage';
 import { ProfileKey } from '../../../utils/browserStorage/models';
 import DataCapturingForm from '../../DataCapturingForm';
-import { Logo, Modal, Wizard, Quiz as WizardQuiz } from 'src/components/lib';
+import {
+  Logo,
+  Modal,
+  Wizard,
+  Quiz as WizardQuiz,
+} from 'gatsby-awd-components/src';
 import { IntroQuizProps } from './models';
 import { trackQuiz } from 'src/tracking/quiz-tracking';
 
@@ -91,6 +97,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
         {/*
           // @ts-ignore */}
         <WizardQuiz
+          CheckMarkIcon={CheckMarkIcon}
           intro={
             <div className="wizard__info">
               <div className="wizard__logo">

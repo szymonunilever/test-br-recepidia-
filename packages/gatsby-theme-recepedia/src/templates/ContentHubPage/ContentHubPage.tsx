@@ -13,13 +13,14 @@ import {
   RecipeListing,
   RecipeListViewType,
   Tags,
-} from 'src/components/lib';
+} from 'gatsby-awd-components/src';
 
 import cx from 'classnames';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -74,6 +75,11 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     });
   }, [recipeResultsList]);
 
+  const recipeListingIcons = {
+    close: CloseIcon,
+    favorite: FavoriteIcon,
+  };
+
   return (
     <Layout className={classWrapper}>
       <SEO
@@ -95,7 +101,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           }}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
+          icons={recipeListingIcons}
           withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}

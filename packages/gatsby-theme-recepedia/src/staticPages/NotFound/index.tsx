@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
-import { Text, TagName } from 'src/components/lib';
+import { Text, TagName } from 'gatsby-awd-components/src';
 import DigitalData from 'integrations/DigitalData';
 import { findPageComponentContent } from 'src/utils';
 import '../../scss/pages/_notFound.scss';

@@ -7,21 +7,19 @@ import {
   Hero,
   PageListing,
   PageListingViewTypes,
-  RatingAndReviewsProvider,
   RecipeListViewType,
   SearchListing,
   Tags,
+  RatingAndReviewsProvider,
   WithLocation as withLocation,
   WithLocationProps,
-} from 'src/components/lib';
+  RecipeListingIcons,
+} from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
-import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import DigitalData from '../../../integrations/DigitalData';
 import theme from './search.module.scss';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
-import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import useSearchResults from './useSearchResults';
 import { getTagsFromRecipes } from 'src/utils/getTagsFromRecipes';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -30,6 +28,26 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import '../../scss/pages/_searchListing.scss';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
+
+import {
+  ReactComponent as ArrowIcon,
+  ReactComponent as OpenIcon,
+} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from 'src/svgs/inline/x-mark.svg';
+export const icons: RecipeListingIcons = {
+  close: CloseSvg,
+  closed: ClosedIcon,
+  favorite: FavoriteIcon,
+  filter: FilterIcon,
+  open: OpenIcon,
+  removeTag: RemoveTagIcon,
+};
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -91,9 +109,9 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               buttonSubmitIcon: <SearchIcon />,
             },
             recipeConfig: {
+              icons,
               getRecipeSearchData,
               viewType: RecipeListViewType.Base,
-              FavoriteIcon,
               withFavorite: true,
               initialCount: initialRecipesCount,
               recipePerLoad: 4,

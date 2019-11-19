@@ -12,9 +12,7 @@ const PreferenceCenterPage: React.FunctionComponent<
     page: { seo, type },
   } = pageContext;
 
-  const GIGYA_SCRIPT_SRC = `${process.env['gigya_script_src']}?apiKey=${
-    process.env['gigya_script_api_key']
-  }&lang=${process.env['gigya_script_lang']}`;
+  const GIGYA_SCRIPT_SRC = `${process.env['gigya_script_src']}?apiKey=${process.env['gigya_script_api_key']}&lang=${process.env['gigya_script_lang']}`;
 
   return (
     <Layout>
