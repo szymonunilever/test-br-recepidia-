@@ -54,6 +54,15 @@ storiesOf('Recipe related/Recipe Listing', module)
   .add(
     'Recipes Carousel default',
     () => (
+      <RecipeListing {...recipeListingPropsVariants.carousel} />
+    ),
+    {
+      info: { inline: false },
+    }
+  )
+  .add(
+    'Recipes Carousel with Favorites',
+    () => (
       <RecipeListing {...recipeListingPropsVariants.carouselWithFavorites} />
     ),
     {

@@ -1,9 +1,12 @@
+import { IMAGE_SIZES } from 'gatsby-theme-recepedia/src/constants';
 import React, {
   useState,
   useEffect,
   useCallback,
   FunctionComponent,
 } from 'react';
+import { Button } from '../Button';
+import { RecipeCard } from '../RecipeListing/partials';
 import SearchInput from '../SearchInput';
 import { Tabs, Tab } from '../Tabs';
 import RecipeListing, { LoadMoreType } from '../RecipeListing';
@@ -127,7 +130,19 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         content={content.recipesContent}
         ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
-      />
+      >
+        {recipeResults.list ? recipeResults.list.map(recipe=>(
+          <RecipeCard
+            key={recipe.id}
+            {...recipe}
+            slug={recipe.fields.slug}
+            ratingProvider={RatingAndReviewsProvider.kritique}
+            imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+            content={{title: recipe.title}}>
+            <Button {...recipeConfig.recipeCardButtonPropsDefault} isSelected={recipeConfig.favorites.indexOf(recipe.recipeId)!== -1} onClick={recipeConfig.onFavoriteChange}/>
+          </RecipeCard>
+        )): []}
+      </RecipeListing>
     );
 
   const articles = !!content.tabsContent.tabs.find(

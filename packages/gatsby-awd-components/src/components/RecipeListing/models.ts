@@ -1,12 +1,5 @@
-import {
-  Icon,
-  titleLevel,
-  UnileverLibraryComponent,
-} from '../../models/globalModels';
-import { FilterIcons, RecipeFilterOptions } from './partials';
 import { CarouselConfig } from '../Carousel/models';
-import { RecipeCardFavoriteCallback } from './partials/models';
-import { RatingAndReviewsProvider } from '../../models/ratings&reviews';
+import { FilterIcons, RecipeFilterOptions, RecipeListingTrivialProps } from './partials';
 
 export enum RecipeListViewType {
   Trivial,
@@ -15,40 +8,29 @@ export enum RecipeListViewType {
   Base,
 }
 
-export interface OnFavoriteChange {
-  (favorites: number[]): void;
-}
-
 export interface RecipeListingProps
-  extends UnileverLibraryComponent<AppContent.RecipeListing.Content> {
-  titleLevel?: titleLevel;
+  extends RecipeListingTrivialProps {
+  list: Internal.Recipe[];
   initialCount?: number;
   recipePerLoad?: number;
-  withFavorite?: boolean;
-  favorites?: number[];
-  list: Internal.Recipe[];
-  icons: RecipeListingIcons;
+  icons: FilterIcons;
   viewType?: RecipeListViewType;
-  onFavoriteChange?: OnFavoriteChange;
-  ratingProvider?: RatingAndReviewsProvider;
   tags?: RecipeFilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
-  imageSizes: string;
   onViewChange?: onRecipeListingViewChanged;
-  dataFetched?: boolean;
   isExternalItemLink?: boolean;
 }
 
 export type onRecipeListingViewChanged = (
   tags: Internal.Tag[],
-  sortingOption: any
+  sortingOption: any,
 ) => Promise<void>;
 
 export type onLoadMore = (
   tags: Internal.Tag[],
   sortingOption: any,
-  size: number
+  size: number,
 ) => Promise<void>;
 
 export enum LoadMoreType {
@@ -62,18 +44,9 @@ export interface LoadMoreConfig {
   allCount?: number;
 }
 
-export interface RecipeListingCarouselProps {
-  withFavorite?: boolean;
-  titleLevel?: titleLevel;
-  FavoriteIcon?: Icon;
-  onFavoriteChange: RecipeCardFavoriteCallback;
+export interface RecipeListingCarouselProps extends RecipeListingTrivialProps {
   list: Internal.Recipe[];
   config: CarouselConfig;
-  ratingProvider?: RatingAndReviewsProvider;
-  imageSizes: string;
   isExternalRecipeLink?: boolean;
 }
 
-export interface RecipeListingIcons extends FilterIcons {
-  favorite?: Icon;
-}

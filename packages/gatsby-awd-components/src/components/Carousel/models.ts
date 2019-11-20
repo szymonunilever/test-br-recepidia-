@@ -1,8 +1,10 @@
+import { ReactChild, ReactElement } from 'react';
 import { Icon } from '../../models';
+import { RecipeCardProps } from '../RecipeListing/partials/models';
 
 export interface CreateElement {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (itemData: any): JSX.Element;
+  (itemData: any): ReactElement<RecipeCardProps> | undefined;
 }
 
 export interface BreakpointProps {

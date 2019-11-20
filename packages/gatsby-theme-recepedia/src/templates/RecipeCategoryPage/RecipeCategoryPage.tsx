@@ -1,3 +1,4 @@
+import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
@@ -15,16 +16,14 @@ import {
   Text,
   RatingAndReviewsProvider,
   RichText,
-  PageListingViewTypes,
+  PageListingViewTypes, Button,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import cx from 'classnames';
-// import MediaGallery from '../../components/lib/components/MediaGallery';
+import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
-import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
 // Component Styles
@@ -80,11 +79,6 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
-  const recipeListingIcons = {
-    close: CloseIcon,
-    favorite: FavoriteIcon,
-  };
-
   return (
     <Layout className={classWrapper}>
       <SEO
@@ -136,10 +130,7 @@ const RecipeCategoryPage = ({
               recipeResultsCount
             ),
           }}
-          favorites={Array.isArray(favorites) ? favorites : []}
-          onFavoriteChange={updateFavoriteState}
           icons={recipeListingIcons}
-          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
@@ -151,7 +142,19 @@ const RecipeCategoryPage = ({
           titleLevel={2}
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-        />
+        >
+          {recipeResultsList ? recipeResultsList.map(recipe=>(
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{title: recipe.title}}>
+              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+            </RecipeCard>
+          )): []}
+        </RecipeListing>
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40">

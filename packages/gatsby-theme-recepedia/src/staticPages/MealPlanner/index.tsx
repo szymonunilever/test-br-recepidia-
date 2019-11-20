@@ -1,4 +1,6 @@
+import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React, { useCallback, useState } from 'react';
+
 import SEO from '../../components/Seo';
 import {
   IntroductionPanel as WizardIntroductionPanel,
@@ -10,8 +12,9 @@ import {
   ResultSection as WizardResultSection,
   Wizard,
   RatingAndReviewsProvider,
-  RecipeListingIcons,
+  Button,
 } from 'gatsby-awd-components/src';
+import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
 
 import {
   getUserProfileByKey,
@@ -30,7 +33,6 @@ import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import getPersonalizationSearchData, {
   FROM,
 } from '../../utils/getPersonalizationSearchData';
-import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import useFavorite from 'src/utils/useFavorite';
 import Menu from 'gatsby-awd-components/src/components/GlobalFooter/partials/Menu';
 // Component Styles
@@ -49,14 +51,7 @@ import {
   ReactComponent as RemoveTagIcon,
   ReactComponent as CloseSvg,
 } from 'src/svgs/inline/x-mark.svg';
-const icons: RecipeListingIcons = {
-  close: CloseSvg,
-  closed: ClosedIcon,
-  favorite: FavoriteIcon,
-  filter: FilterIcon,
-  open: OpenIcon,
-  removeTag: RemoveTagIcon,
-};
+
 const RESULT_SIZE = 7;
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
@@ -179,9 +174,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                   <RecipeListing
                     icons={icons}
                     content={findPageComponentContent(components, 'Wizard')}
-                    favorites={Array.isArray(favorites) ? favorites : []}
-                    onFavoriteChange={updateFavoriteState}
-                    withFavorite={true}
                     list={recipes}
                     ratingProvider={RatingAndReviewsProvider.kritique}
                     viewType={RecipeListViewType.Carousel}
@@ -200,7 +192,19 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     }}
                     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
                     isExternalItemLink={true}
-                  />
+                  >
+                    {recipes ? recipes.map(recipe=>(
+                      <RecipeCard
+                        key={recipe.id}
+                        {...recipe}
+                        slug={recipe.fields.slug}
+                        ratingProvider={RatingAndReviewsProvider.kritique}
+                        imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                        content={{title: recipe.title}}>
+                        <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+                      </RecipeCard>
+                    )): []}
+                  </RecipeListing>
                 )}
               </div>
             ) : (

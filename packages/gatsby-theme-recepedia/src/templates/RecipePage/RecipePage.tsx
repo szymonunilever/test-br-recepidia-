@@ -1,3 +1,4 @@
+import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
@@ -34,6 +35,7 @@ import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg'
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
@@ -55,7 +57,6 @@ import useFavorite from 'src/utils/useFavorite';
 import '../../scss/pages/_recipePage.scss';
 import flatMap from 'lodash/flatMap';
 import isEmpty from 'lodash/isEmpty';
-import remove from 'lodash/remove';
 import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
@@ -112,10 +113,7 @@ const socialIcons: SocialIcons = {
   twitter: TwitterIcon,
   pinterest: PinterestIcon,
 };
-const recipeListingIcons = {
-  close: CloseIcon,
-  favorite: FavoriteIcon,
-};
+
 
 const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
   Boolean(recipe.description) && !isEmpty(tagIds);
@@ -159,18 +157,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             Icon={FavoriteIcon}
             isSelected={favorites.includes(recipe.recipeId)}
             onClick={() => {
-              // @ts-ignore
-              const favorites: number[] = Array.isArray(
-                getUserProfileByKey(ProfileKey.favorites)
-              )
-                ? getUserProfileByKey(ProfileKey.favorites)
-                : [];
-              if (favorites.includes(recipe.recipeId)) {
-                remove(favorites, n => n === recipe.recipeId);
-              } else {
-                favorites.push(recipe.recipeId);
-              }
-              updateFavoriteState(favorites);
+              updateFavoriteState(!favorites.includes(recipe.recipeId), recipe.recipeId);
             }}
             isToggle={true}
             className="action-button"
@@ -380,10 +367,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             'RecipeListing',
             'RelatedRecipes'
           )}
-          favorites={Array.isArray(favorites) ? favorites : []}
-          onFavoriteChange={updateFavoriteState}
           icons={recipeListingIcons}
-          withFavorite={true}
           list={relatedRecipes}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
@@ -402,7 +386,19 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-        />
+        >
+          {relatedRecipes ? relatedRecipes.map(recipe=>(
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{title: recipe.title}}>
+              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+            </RecipeCard>
+          )): []}
+        </RecipeListing>
       </section>
     </Layout>
   );

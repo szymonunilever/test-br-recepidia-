@@ -1,44 +1,50 @@
 import cx from 'classnames';
 import { Link } from 'gatsby';
-import React from 'react';
-import { TagName, Text } from '../../Text';
-import { Button, ButtonViewType } from '../../Button';
-import { RecipeCardProps } from './models';
-import theme from './RecipeCard.module.scss';
-import Rating from '../../Rating';
-import AdaptiveImage from '../../AdaptiveImage';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { RatingAndReviewsProvider } from '../../../models';
-import { getImageAlt, iconNormalize } from '../../../utils';
+import { getImageAlt } from '../../../utils';
 import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
+import AdaptiveImage from '../../AdaptiveImage';
+import { ButtonProps } from '../../Button';
+import Rating from '../../Rating';
+import { TagName, Text } from '../../Text';
+import { RecipeCardLinkProps, RecipeCardProps } from './models';
+import theme from './RecipeCard.module.scss';
 
-const RecipeCard = ({
+const RecipeCard: FunctionComponent<RecipeCardProps> = ({
   recipeId,
   content,
-  content: { title },
+  children,
   localImage,
-  Icon,
-  enableSelectFavorite = false,
   slug,
   className = '',
-  inFavorite = false,
-  onFavoriteChange,
   ratingProvider,
   imageSizes,
   isExternalLink = false,
-}: RecipeCardProps) => {
-  const itemTitle = title ? (
+}) => {
+   const itemTitle = content.title ? (
     <Text
-      // @ts-ignore
-      tag={TagName[`div`]}
-      text={title}
+      tag={TagName[ `div` ]}
+      text={content.title}
       className={cx(theme.recipeCard__title, 'recipe-card__title')}
     />
   ) : null;
-  const onFavoriteToggle = (val: boolean) => {
-    if (typeof onFavoriteChange !== 'undefined') {
-      onFavoriteChange({ recipeId, val });
-    }
-  };
+
+  const modifiedChildren = children && React.Children.map(children, child =>{
+    return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
+    child,
+    {
+      onClick : (val: boolean) => {
+        child
+        && child.props.onClick
+        && child.props.onClick.apply(
+          child.props.onClick,
+          [ val, recipeId ],
+        );
+      }
+    })
+  });
+
   const wrapClasses = cx(theme.recipeCard, 'recipe-card', className);
   const RatingWidget =
     ratingProvider !== RatingAndReviewsProvider.none ? (
@@ -56,25 +62,21 @@ const RecipeCard = ({
     <AdaptiveImage
       className={cx(theme.recipeCard__image, 'recipe-card__image')}
       localImage={localImage}
-      alt={title ? getImageAlt(title, slug) : 'Recipe image'}
+      alt={content.title ? getImageAlt(content.title, slug) : 'Recipe image'}
       sizes={imageSizes}
     />
   );
   const LinkComponent = isExternalLink ? 'a' : Link;
-  const linkProps = {
-    'aria-label': title,
-    className: wrapClasses,
+  const linkProps: RecipeCardLinkProps = {
+    'aria-label' : content.title,
+    className : wrapClasses,
   };
-  if (isExternalLink) {
-    // @ts-ignore
-    linkProps['target'] = '_blank';
-    // @ts-ignore
-    linkProps['href'] = slug;
-    // @ts-ignore
-    linkProps['rel'] = 'noopener noreferrer';
+  if (isExternalLink && slug) {
+    linkProps[ 'target' ] = '_blank';
+    linkProps[ 'href' ] = slug;
+    linkProps[ 'rel' ] = 'noopener noreferrer';
   } else {
-    // @ts-ignore
-    linkProps['to'] = slug;
+    linkProps[ 'to' ] = slug;
   }
 
   return (
@@ -83,17 +85,9 @@ const RecipeCard = ({
       {...getComponentDataAttrs('recipeCard', content)}
       {...linkProps}
     >
-      {enableSelectFavorite && (
-        <Button
-          className={cx(theme.recipeCard__favorite, 'recipe-card__favorite')}
-          Icon={iconNormalize(Icon)}
-          isSelected={inFavorite}
-          onClick={onFavoriteToggle}
-          isToggle={true}
-          viewType={ButtonViewType.icon}
-          attributes={{ 'aria-label': 'favorite toggle' }}
-        />
-      )}
+      <div className="recipe-card__buttons">
+        {modifiedChildren}
+      </div>
       {Image}
       <div className={cx(theme.recipeCard__info, 'recipe-card__info')}>
         {itemTitle}

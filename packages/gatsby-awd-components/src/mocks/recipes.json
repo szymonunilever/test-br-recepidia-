@@ -6,6 +6,7 @@
         {
           "node": {
             "id": "069cee1a-b673-51ae-829a-cfac76de0223",
+            "recipeId": 11234,
             "shortTitle": "Salada Francesa do @caio",
             "recipeDetails": {
               "serves": "2",
@@ -102,6 +103,7 @@
         {
           "node": {
             "id": "f6e357c8-5af6-56b7-bbb2-c947f06f17a9",
+            "recipeId": 21234,
             "shortTitle": "Strogonoff com Maionese do @brogui",
             "recipeDetails": {
               "serves": "2",
@@ -210,6 +212,7 @@
         {
           "node": {
             "id": "c9b4c983-03d8-5ba7-8c29-ecc7293405b7",
+            "recipeId": 31234,
             "shortTitle": "Bolinho de Tapioca, carne e queijo da @crispimichele",
             "recipeDetails": {
               "serves": "4",
@@ -320,6 +323,7 @@
         {
           "node": {
             "id": "f941cf66-dfc9-554b-9088-7efb63805757",
+            "recipeId": 41234,
             "shortTitle": "Rosebife de filé mignon do @andremifano",
             "recipeDetails": {
               "serves": "4",
@@ -486,6 +490,7 @@
         {
           "node": {
             "id": "7d441014-33f5-54d0-93ef-b78d5c2e07ca",
+            "recipeId": 51234,
             "shortTitle": "CARNE LOUCA CREMOSA",
             "recipeDetails": {
               "serves": "1",
@@ -606,6 +611,7 @@
         {
           "node": {
             "id": "e02e3fb1-82e7-52ea-abfa-8001cc7a2cfa",
+            "recipeId": 61234,
             "shortTitle": "SALADA GREGA Vegana",
             "recipeDetails": {
               "serves": "4",
@@ -692,6 +698,7 @@
         {
           "node": {
             "id": "11826b1e-0248-56b4-ad0a-201f54143382",
+            "recipeId": 71234,
             "shortTitle": "Estrogonofe de Cogumelos Vegano",
             "recipeDetails": {
               "serves": "4",
@@ -803,6 +810,7 @@
         {
           "node": {
             "id": "d3ff2b89-9c1f-5ebb-8471-7641bb65e815",
+            "recipeId": 81234,
             "shortTitle": "Fideuá com Molho Branco Vegano",
             "recipeDetails": {
               "serves": "5",
@@ -913,6 +921,7 @@
         {
           "node": {
             "id": "0f31e4a9-9c39-5212-bbda-5c5830b8dbf8",
+            "recipeId": 91234,
             "shortTitle": "HAMBÚRGUER VEGANO",
             "recipeDetails": {
               "serves": "4",
@@ -1015,6 +1024,7 @@
         {
           "node": {
             "id": "3e9795f6-f490-59a4-91f7-0d6f287e6a9f",
+            "recipeId": 12234,
             "shortTitle": "Fritas Burger",
             "recipeDetails": {
               "serves": "2",

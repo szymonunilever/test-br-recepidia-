@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "theme-develop": "yarn workspace gatsby-theme-recepedia develop"
+    "theme-develop": "yarn workspace gatsby-theme-recepedia develop",
+    "awd-develop": "yarn workspace gatsby-awd-components storybook"
   }
 }
