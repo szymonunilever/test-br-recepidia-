@@ -1,77 +1,8 @@
-// Button vars
-$button-border: none !default;
-$button-font-size: 1.4rem !default;
-$button-icon-font-size: 1.3rem !default;
-$button-height: 40px !default;
-$button-height-desktop: 46px !default;
-$button-padding: 0 15px !default;
-$button-radius: 5px !default;
-
-// Button colors
-$button-color: $black-blue !default;
-$button-background: $apple-green !default;
-$button-color-hover: $white !default;
-$button-background-hover: $black-blue !default;
-
-$button-secondary-color: $black-blue !default;
-$button-secondary-background: $white-gray !default;
-
-// Disabled styles
-$button-disabled-background: #dfdfdf !default;
-$button-disabled-color: #636363 !default;
+@import '../../../../../gatsby-awd-components/src/scss/config'; // way of including library config may be reviewed later
 
 .button {
-  border: $button-border;
-  border-radius: $button-radius;
-  display: inline-flex;
-  align-items: center;
-  font-size: $button-font-size;
-  justify-content: center;
-  font-weight: bold;
-  height: $button-height;
-  line-height: normal;
-  padding: $button-padding;
-  text-transform: none;
-  text-decoration: none;
-  vertical-align: middle;
-  -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
-  background-color: $button-background;
-  color: $button-color;
-  fill: currentColor;
-  transition: all 0.2s ease-out;
-  @include respondTo(desktop) {
-    height: $button-height-desktop;
-  }
+  @extend %button;
 
-  @media (hover: hover),
-    (-ms-high-contrast: none),
-    (-ms-high-contrast: active) {
-    &:hover {
-      background-color: $button-background-hover;
-      color: $button-color-hover;
-      fill: $button-color-hover;
-    }
-  }
-
-  @include respondTo(desktop) {
-    font-size: 1.6rem;
-  }
-
-  &[disabled] {
-    pointer-events: none;
-    background-color: $button-disabled-background;
-    color: $button-disabled-color;
-    cursor: default;
-
-    @media (hover: hover),
-      (-ms-high-contrast: none),
-      (-ms-high-contrast: active) {
-      &:hover {
-        background-color: $button-disabled-background !important;
-        color: $button-disabled-color !important;
-      }
-    }
-  }
   &--rounded {
     border-radius: 20px;
   }
@@ -102,45 +33,26 @@ $button-disabled-color: #636363 !default;
     }
   }
 
-  &--flat {
-    background: transparent;
-    color: $black-blue;
-    border: none;
-
-    @media (hover: hover),
-      (-ms-high-contrast: none),
-      (-ms-high-contrast: active) {
-      &:hover {
-        background-color: transparent;
-        color: $apple-green;
-        fill: currentColor;
-        g {
-          stroke: $apple-green;
-        }
-      }
-    }
-  }
-
   // Button size modification
 
   &--fullwidth {
     width: 100%;
-    max-width: 350px;
+    max-width: $button-large-max-width;
   }
 
   &--medium {
     width: 100%;
-    max-width: 160px;
+    max-width: $button-medium-max-width;
     @include respondTo(desktop) {
-      max-width: 260px;
+      max-width: $button-medium-max-width-lg;
     }
   }
 
   &--small {
     width: 100%;
-    max-width: 110px;
+    max-width: $button-small-max-width;
     @include respondTo(desktop) {
-      max-width: 160px;
+      max-width: $button-small-max-width-lg;
     }
   }
 
@@ -210,7 +122,7 @@ $button-disabled-color: #636363 !default;
 }
 
 .action-button {
-  @extend .button;
+  @extend %button;
   @extend .button--circle;
   padding: 0;
   background: $white;

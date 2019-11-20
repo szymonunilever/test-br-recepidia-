@@ -39,10 +39,6 @@
     position: absolute;
     overflow: auto;
     outline: none;
-    top: $modal-content-position-top;
-    right: $modal-content-position-right;
-    bottom: $modal-content-position-bottom;
-    left: $modal-content-position-left;
     padding: $modal-content-padding;
     background: $modal-content-bg;
     will-change: transform;

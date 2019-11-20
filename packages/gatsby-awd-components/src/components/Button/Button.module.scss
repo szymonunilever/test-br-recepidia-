@@ -8,6 +8,9 @@
     background: transparent;
     border: 0 none;
     font-size: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &[disabled] {

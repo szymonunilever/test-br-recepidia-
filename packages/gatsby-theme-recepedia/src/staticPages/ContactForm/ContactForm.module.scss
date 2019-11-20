@@ -93,10 +93,6 @@
         }
       }
       &__button--primary {
-        display: block;
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
         @include respondTo(desktop) {
           display: block;
           width: 352px;
@@ -139,13 +135,6 @@
           height: 46px;
           line-height: 1.6rem;
           padding: 15px 18px;
-        }
-      }
-      @include respondTo(desktop) {
-        @media (hover) {
-          .select [class*='control']:hover {
-            cursor: pointer;
-          }
         }
       }
     }

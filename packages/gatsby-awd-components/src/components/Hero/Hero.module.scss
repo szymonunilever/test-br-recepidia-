@@ -24,6 +24,7 @@
     }
   }
   &__cta-link {
+    @extend %button;
   }
 }
 
@@ -86,10 +87,6 @@
           }
         }
 
-        .gatsby-image-wrapper {
-          // height: 300px;
-        }
-
         @include respondTo(desktop) {
           position: absolute;
           top: 0;
@@ -97,15 +94,15 @@
           width: 50%;
           height: 100%;
           overflow: visible;
-          // .gatsby-image-wrapper {
-          //   height: 612px;
-          //   bottom: -48px;
-          // }
         }
       }
 
       &__container {
+        padding-left: $layout-indent-sm;
+        padding-right: $layout-indent-sm;
         @include respondTo(desktop) {
+          padding-left: $layout-indent;
+          padding-right: $layout-indent;
           width: 100%;
           & > div {
             box-sizing: border-box;
@@ -158,6 +155,12 @@
       }
 
       &__cta-link {
+        width: 100%;
+        max-width: $button-large-max-width;
+        &:not(:hover) {
+          background-color: $button-cta-background;
+          color: $button-cta-color;
+        }
       }
     }
   }

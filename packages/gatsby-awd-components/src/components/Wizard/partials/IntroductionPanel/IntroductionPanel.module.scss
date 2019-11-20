@@ -36,7 +36,6 @@
           left: 0;
           bottom: 0;
           right: 0;
-          // overflow: hidden;
           @include respondTo(desktop) {
             border-radius: $radius 0 0 $radius;
           }
@@ -59,6 +58,8 @@
       }
       &__description {
         line-height: 1.38;
+        font-family: $rubik;
+        font-weight: 500;
       }
       &__buttons {
         @include respondTo(desktop) {
@@ -67,7 +68,6 @@
         }
       }
       &__button {
-        // flex-shrink: 0;
         width: 100%;
         margin: 0;
         max-width: $button-large-max-width;

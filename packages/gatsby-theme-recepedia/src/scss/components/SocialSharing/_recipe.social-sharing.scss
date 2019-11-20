@@ -4,16 +4,6 @@
 }
 
 .social-sharing {
-  &__dialog {
-    .social-sharing-in-modal {
-      position: relative;
-      left: auto;
-      bottom: auto;
-      right: auto;
-      top: auto;
-    }
-  }
-
   &-in-modal {
     .social-sharing {
       &__dialog-open-button {
@@ -23,10 +13,6 @@
         background-color: transparent;
         border: none;
         padding: 0;
-        margin-right: 45px;
-        &:nth-last-child(1) {
-          margin-right: 0;
-        }
         &:hover {
           background-color: transparent;
           path {

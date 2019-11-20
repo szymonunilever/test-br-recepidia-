@@ -368,6 +368,7 @@ exports.onCreateWebpackConfig = ({
     config.plugins[cssExtractIndex] = new MiniCssExtractPlugin({
       filename: `[name].css`,
       chunkFilename: `[name].css`,
+      ignoreOrder: true,
     });
 
     config.output = {

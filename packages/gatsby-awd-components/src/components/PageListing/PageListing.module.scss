@@ -3,7 +3,6 @@
 .page-listing {
   &__title {
     font: 500 $listing-title-fz/3rem $listing-title-ff;
-    color: $listing-title-color;
     line-height: 3rem;
     margin: 0 0 20px 0;
     @include respondTo(desktop) {

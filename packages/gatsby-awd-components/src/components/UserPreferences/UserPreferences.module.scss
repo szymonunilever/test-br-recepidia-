@@ -61,6 +61,7 @@
           &-cancel {
             background-color: $button-secondary-background;
             color: $button-secondary-color;
+            font-weight: normal;
             @media (hover: hover),
               (-ms-high-contrast: none),
               (-ms-high-contrast: active) {

@@ -60,6 +60,7 @@ import isEmpty from 'lodash/isEmpty';
 import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
+import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
 
 const infoIcon = <InfoIcon />;
 const dietaryAttributesIcons = [
@@ -172,6 +173,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             icons={socialIcons}
             titleLevel={4}
             WidgetScript={AddThis}
+            OpenModelButtonIcon={OpenModelButtonIcon}
           />
         </>
       </div>

@@ -6,6 +6,7 @@ import {
   SearchInput,
   SearchInputProps,
   SearchParams,
+  ButtonViewType,
 } from 'gatsby-awd-components/src';
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
@@ -62,6 +63,7 @@ const GlobalSearch = ({
         className="searchBar"
         onClick={openModal}
         attributes={{ 'aria-label': 'search' }}
+        viewType={ButtonViewType.icon}
       >
         <SearchIcon className="searchBar__icon" />
       </Button>

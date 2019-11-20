@@ -317,8 +317,8 @@ $card-title-fz: 1.6rem !default;
 $card-title-fw: 500 !default;
 $card-title-ff: $font-family-headings !default;
 $card-title-color: $font-color-base !default;
-$card-title-indent: 15px 0 10px 0 !default;
-$card-title-indent-lg: 20px 0 10px 0 !default;
+$card-title-indent: 15px 0 0 0 !default;
+$card-title-indent-lg: 20px 0 0 0 !default;
 
 /* ----------------------------------------------------------------------------- *\
    RECIPE ATTRIBUTES
@@ -383,7 +383,6 @@ $recipe-dietary-attributes-item-width-lg: calc(99.9% / 7);
 $listing-title-fz: 2.1rem !default;
 $listing-title-fz-lg: 2.5rem !default;
 $listing-title-ff: $font-family-headings !default;
-$listing-title-color: $fish-blue-darker !default;
 
 $page-listing-image-height--mobile: 180px !default;
 $page-listing-image-height--desktop: 315px !default;

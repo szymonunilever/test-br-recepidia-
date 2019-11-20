@@ -10,13 +10,15 @@
     bottom: $back-to-top-bottom-lg;
     right: $back-to-top-right-lg;
   }
-  &__button {
-    padding: 0;
-    width: $back-to-top-size;
-    height: $back-to-top-size;
-    @include respondTo(desktop) {
-      width: $back-to-top-size-lg;
-      height: $back-to-top-size-lg;
+  :global {
+    .back-to-top__button {
+      padding: 0;
+      width: $back-to-top-size;
+      height: $back-to-top-size;
+      @include respondTo(desktop) {
+        width: $back-to-top-size-lg;
+        height: $back-to-top-size-lg;
+      }
     }
   }
   &[hidden] {

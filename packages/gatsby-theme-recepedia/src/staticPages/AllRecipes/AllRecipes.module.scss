@@ -10,12 +10,16 @@
         font-size: 2rem;
       }
     }
+    .tags {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
   }
   .allRecipesSortListing {
     background: $white-gray;
     border-radius: 15px;
     @include respondTo(desktop) {
-      border-radius: 0 ;
+      border-radius: 0;
     }
   }
 }

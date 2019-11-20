@@ -1,8 +1,5 @@
 .media-gallery {
   position: relative;
-  &__list {
-    @extend .recipe-list__list;
-  }
   &__item {
     margin: 5px;
     width: calc(50% - 10px);
