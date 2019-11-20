@@ -11,7 +11,7 @@ storiesOf('Generic/Card', module)
     inline: false,
   })
   .add(
-    'with Title, Text and Icon ',
+    'with Title, Text and RecipeDietaryAttributeIcon ',
     () => <Card {...cards[0]} Icon={Phone} className="card" />,
     { inline: false }
   )

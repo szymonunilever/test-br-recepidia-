@@ -2,9 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 export const AddThis = ({ callback }: { callback: (e: Event) => void }) => {
-  const widgetSrc = `${process.env['addThis_url']}#pubid=${
-    process.env['addThis_key']
-  }`;
+  const widgetSrc = `${process.env['addThis_url']}#pubid=${process.env['addThis_key']}`;
 
   // @ts-ignore
   const handleScriptInject = ({ scriptTags }) => {

@@ -8,16 +8,17 @@ import Layout from 'src/components/Layout/Layout';
 import {
   Hero,
   PageListing,
-  RatingAndReviewsProvider,
   RecipeListing,
   RecipeListViewType,
   TagName,
+  RatingAndReviewsProvider,
   Text,
-} from 'src/components/lib';
+  RecipeListingIcons,
+} from 'gatsby-awd-components/src';
+
 import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
-import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
+
 import get from 'lodash/get';
 
 import IntroQuiz from '../../components/page/IntroQuiz';
@@ -32,6 +33,25 @@ import '../../scss/pages/_home.scss';
 import { IMAGE_SIZES } from 'src/constants';
 import xor from 'lodash/xor';
 import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
+import {
+  ReactComponent as ArrowIcon,
+  ReactComponent as OpenIcon,
+} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from 'src/svgs/inline/x-mark.svg';
+export const icons: RecipeListingIcons = {
+  close: CloseSvg,
+  closed: ClosedIcon,
+  favorite: FavoriteIcon,
+  filter: FilterIcon,
+  open: OpenIcon,
+  removeTag: RemoveTagIcon,
+};
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -148,6 +168,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       </section>
       <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
         <RecipeListing
+          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',
@@ -155,7 +176,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           )}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
           withFavorite={true}
           list={latestAndGratestResult}
           ratingProvider={RatingAndReviewsProvider.kritique}
@@ -181,6 +201,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
 
       <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
         <RecipeListing
+          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',
@@ -188,7 +209,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           )}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
           withFavorite={true}
           list={topRecipesResult}
           ratingProvider={RatingAndReviewsProvider.kritique}

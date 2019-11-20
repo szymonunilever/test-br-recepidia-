@@ -5,7 +5,7 @@ import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import ReCaptchaInit from '../../../integrations/RecaptchaV3';
 import Layout from '../../components/Layout/Layout';
-import { GeneratedForm, Modal } from 'src/components/lib';
+import { GeneratedForm, Modal } from 'gatsby-awd-components/src';
 import theme from './/ContactForm.module.scss';
 import sendForm from 'src/services/transactionalServiceAdapter';
 import { WindowLocation } from '@reach/router';

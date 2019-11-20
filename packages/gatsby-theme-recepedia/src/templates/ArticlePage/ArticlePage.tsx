@@ -1,6 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { TagName, Text } from 'src/components/lib';
+import { TagName, Text } from 'gatsby-awd-components/src';
 import SEO from 'src/components/Seo/Seo';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
@@ -18,7 +18,7 @@ import {
   SocialSharing,
   SocialSharingViewType,
   VideoPlayer,
-} from '../../components/lib';
+} from 'gatsby-awd-components/src';
 import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';

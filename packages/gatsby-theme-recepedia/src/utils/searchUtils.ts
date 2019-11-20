@@ -1,5 +1,5 @@
 import { useElasticSearch } from '../utils';
-import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import { SearchParams } from 'gatsby-awd-components/src';
 
 const filteredRecipeSearchParams = (
   query: string,

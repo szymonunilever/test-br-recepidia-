@@ -3,7 +3,7 @@ import {
   titleLevel,
   UnileverLibraryComponent,
   WizardStepComponent,
-} from '../lib/models';
+} from 'gatsby-awd-components/src';
 
 export interface DataCapturingFormProps
   extends UnileverLibraryComponent<AppContent.GeneratedForm.Content>,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTagsFromRecipes } from '../../utils/getTagsFromRecipes';
 import { useElasticSearch } from '../../utils';
-import { SearchParams } from 'src/components/lib';
+import { SearchParams } from 'gatsby-awd-components/src';
 import useMedia from 'src/utils/useMedia';
 import _values from 'lodash/values';
 import _compact from 'lodash/compact';

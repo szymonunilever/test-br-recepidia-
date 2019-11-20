@@ -4,26 +4,27 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import {
+  AdaptiveImage,
   Hero,
   LoadMoreType,
   PageListing,
-  RatingAndReviewsProvider,
   RecipeListing,
   RecipeListViewType,
   TagName,
   Tags,
   Text,
-} from 'src/components/lib';
+  RatingAndReviewsProvider,
+  RichText,
+  PageListingViewTypes,
+} from 'gatsby-awd-components/src';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import cx from 'classnames';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
-import RichText from '../../components/lib/components/RichText';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import { PageListingViewTypes } from '../../components/lib/components/PageListing/models';
-import AdaptiveImage from '../../components/lib/components/AdaptiveImage';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import useMedia from 'src/utils/useMedia';
 import { WindowLocation } from '@reach/router';
 // Component Styles
@@ -79,6 +80,10 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
+  const recipeListingIcons = {
+    close: CloseIcon,
+    favorite: FavoriteIcon,
+  };
 
   return (
     <Layout className={classWrapper}>
@@ -133,7 +138,7 @@ const RecipeCategoryPage = ({
           }}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
+          icons={recipeListingIcons}
           withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}

@@ -1,8 +1,5 @@
 import { DataCapturingFormProps } from '../../DataCapturingForm';
-import {
-  Question,
-  ImageSizesOptionsProps,
-} from '../../lib/components/Wizard/partials/Quiz/models';
+import { Question, ImageSizesOptionsProps } from 'gatsby-awd-components/src';
 
 export interface IntroQuizProps {
   introContent: {

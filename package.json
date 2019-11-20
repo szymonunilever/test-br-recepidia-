@@ -2,5 +2,8 @@
   "private": "true",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "theme-develop": "yarn workspace gatsby-theme-recepedia develop"
+  }
 }

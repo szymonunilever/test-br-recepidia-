@@ -4,7 +4,7 @@ import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
 import { navigate } from 'gatsby';
-import { TagName, Text, Button } from 'src/components/lib';
+import { TagName, Text, Button } from 'gatsby-awd-components/src';
 import { WindowLocation } from '@reach/router';
 import theme from './ContactUsThankYou.module.scss';
 // Component Styles

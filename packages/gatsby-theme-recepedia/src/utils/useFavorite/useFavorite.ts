@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { OnFavoriteChange } from 'src/components/lib/components/RecipeListing';
+import { OnFavoriteChange } from 'gatsby-awd-components/src';
 
 const useFavorite = (
   initFavorites: () => number[],

@@ -6,7 +6,7 @@ import {
   SearchInput,
   SearchInputProps,
   SearchParams,
-} from 'src/components/lib';
+} from 'gatsby-awd-components/src';
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
 import { getSearchSuggestionResponse } from 'src/utils/searchUtils';

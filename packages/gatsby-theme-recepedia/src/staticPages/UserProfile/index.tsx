@@ -6,10 +6,12 @@ import React, {
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
-import { PreferencesQuiz } from 'src/components/lib/components/UserPreferences/partials/PreferencesQuiz';
+import {
+  PreferencesQuiz,
+  UserPreferencesIcons,
+} from 'gatsby-awd-components/src';
 import { Link } from 'gatsby';
-import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+
 import SEO from 'src/components/Seo';
 import DigitalData from '../../../integrations/DigitalData';
 import {
@@ -30,17 +32,50 @@ import { IMAGE_SIZES } from 'src/constants';
 import {
   LoadMoreType,
   NullResult,
-  RatingAndReviewsProvider,
   RecipeListing,
   RecipeListViewType,
   Tab,
   Tabs,
-  TagName,
-  Text,
   UserPreferences,
+  RatingAndReviewsProvider,
   WithLocation as withLocation,
   WithLocationProps,
-} from 'src/components/lib';
+  RecipeListingIcons,
+} from 'gatsby-awd-components/src';
+
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { ReactComponent as IconArrowUp } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from 'src/svgs/inline/x-mark.svg';
+
+import { ReactComponent as IconArrowDown } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as IconSuccess } from 'src/svgs/inline/checkmark-bigger.svg';
+import { ReactComponent as IconError } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
+import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
+import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
+
+const icons: RecipeListingIcons = {
+  close: CloseSvg,
+  closed: IconArrowUp,
+  favorite: FavoriteIcon,
+  filter: FilterIcon,
+  open: IconArrowDown,
+  removeTag: RemoveTagIcon,
+};
+
+const userPreferencisIcons: UserPreferencesIcons = {
+  arrowUp: <IconArrowUp />,
+  arrowDown: <IconArrowDown />,
+  error: <IconError />,
+  success: <IconSuccess />,
+  edit: <IconEdit />,
+  delete: <IconDelete />,
+  checkMark: <CheckMarkIcon />,
+};
 
 const carouselConfig = {
   breakpoints: [
@@ -52,7 +87,7 @@ const carouselConfig = {
       visibleElementsAboveBreakpoint: 4,
     },
   ],
-  arrowIcon: <ArrowIcon />,
+  arrowIcon: <IconArrowDown />,
 };
 
 const FavoritesRecipeListingPage: FunctionComponent<
@@ -199,10 +234,10 @@ const FavoritesRecipeListingPage: FunctionComponent<
           <div className="user-profile-favorites">
             {hasFavorites === undefined ? null : hasFavorites ? (
               <RecipeListing
+                icons={icons}
                 content={recipeContent}
                 favorites={Array.isArray(favorites) ? favorites : []}
                 onFavoriteChange={updateFavoriteState}
-                FavoriteIcon={FavoriteIcon}
                 withFavorite={true}
                 list={recipeList || []}
                 ratingProvider={RatingAndReviewsProvider.kritique}
@@ -233,6 +268,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
         </Tab>
         <Tab view="UserPreferences" className={theme.userPreferences}>
           <UserPreferences
+            icons={userPreferencisIcons}
             deleteQuestion={deleteQuestion}
             saveQuestion={saveQuestion}
             onNewsletterFormSubmit={onNewsletterFormSubmit}
@@ -261,6 +297,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
         >
           <Fragment>
             <RecipeListing
+              icons={icons}
               content={{ title: mealPlanResultsContent.title }}
               viewType={RecipeListViewType.Carousel}
               list={mealPlannerResults || []}
@@ -268,7 +305,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
               withFavorite
               favorites={Array.isArray(favorites) ? favorites : []}
               onFavoriteChange={updateFavoriteState}
-              FavoriteIcon={FavoriteIcon}
               titleLevel={2}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
               ratingProvider={RatingAndReviewsProvider.kritique}

@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 import get from 'lodash/get';
-import { SearchInputProps } from 'src/components/lib/components/SearchInput/models';
+import { SearchInputProps } from 'gatsby-awd-components/src';
 import {
   getRecipeResponse,
   getArticleResponse,
   getSearchSuggestionResponse,
 } from 'src/utils/searchUtils';
-import { SearchParams } from 'src/components/lib/components/SearchListing/models';
+import { SearchParams } from 'gatsby-awd-components/src';
 import useResponsiveScreenInitialSearch from 'src/utils/useElasticSearch/useResponsiveScreenInitialSearch';
 import useMedia from 'src/utils/useMedia';
 

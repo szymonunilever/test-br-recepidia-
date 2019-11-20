@@ -7,7 +7,6 @@ import {
   Button,
   Hero,
   Rating,
-  RatingAndReviewsProvider,
   RecipeAttributes,
   RecipeAttributesKeys,
   RecipeCookingMethod,
@@ -25,21 +24,22 @@ import {
   SocialSharing,
   SocialSharingViewType,
   Tabs,
+  Tab,
   TagName,
   Tags,
+  RatingAndReviewsProvider,
   Text,
-} from 'src/components/lib';
+} from 'gatsby-awd-components/src';
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
-import { Tab } from '../../components/lib';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
 import * as icons from 'src/svgs/attributes';
-import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import AddThis from '../../../integrations/AddThis';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
@@ -112,6 +112,10 @@ const socialIcons: SocialIcons = {
   twitter: TwitterIcon,
   pinterest: PinterestIcon,
 };
+const recipeListingIcons = {
+  close: CloseIcon,
+  favorite: FavoriteIcon,
+};
 
 const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
   Boolean(recipe.description) && !isEmpty(tagIds);
@@ -177,7 +181,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           <SocialSharing
             content={findPageComponentContent(components, 'SocialSharing')}
             viewType={SocialSharingViewType.Modal}
-            CloseButtonIcon={CloseButton}
+            CloseButtonIcon={CloseIcon}
             icons={socialIcons}
             titleLevel={4}
             WidgetScript={AddThis}
@@ -336,7 +340,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             recipe={recipe}
             content={findPageComponentContent(components, 'RecipeNutrients')}
             viewType={RecipeNutrientsViewType.WithAction}
-            CloseButton={CloseButton}
+            CloseButton={CloseIcon}
           />
         </section>
       ) : null}
@@ -378,7 +382,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           )}
           favorites={Array.isArray(favorites) ? favorites : []}
           onFavoriteChange={updateFavoriteState}
-          FavoriteIcon={FavoriteIcon}
+          icons={recipeListingIcons}
           withFavorite={true}
           list={relatedRecipes}
           ratingProvider={RatingAndReviewsProvider.kritique}
