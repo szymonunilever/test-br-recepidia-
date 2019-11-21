@@ -7,6 +7,7 @@ export interface IntroductionPanelProps extends WizardStepComponent {
   title: string;
   description: string;
   image: AdaptiveImageProps;
+  imageSizes?: string;
   primaryButtonLabel: string;
   secondaryButtonLabel?: string;
   resultsStore: ResultsStore;

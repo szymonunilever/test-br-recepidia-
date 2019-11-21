@@ -218,6 +218,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           viewType="Image"
           imageIsLink={false}
           className="hero--planner color--inverted"
+          imageSizes={IMAGE_SIZES.HERO}
         />
       </section>
       <section

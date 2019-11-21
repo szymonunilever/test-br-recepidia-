@@ -127,6 +127,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
+          imageSizes={IMAGE_SIZES.HERO}
         />
       </section>
 
