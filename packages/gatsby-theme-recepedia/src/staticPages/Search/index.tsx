@@ -13,11 +13,11 @@ import {
   RatingAndReviewsProvider,
   WithLocation as withLocation,
   WithLocationProps,
-  RecipeListingIcons,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
 import DigitalData from '../../../integrations/DigitalData';
+import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
 import theme from './search.module.scss';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
 import useSearchResults from './useSearchResults';
@@ -40,14 +40,6 @@ import {
   ReactComponent as RemoveTagIcon,
   ReactComponent as CloseSvg,
 } from 'src/svgs/inline/x-mark.svg';
-export const icons: RecipeListingIcons = {
-  close: CloseSvg,
-  closed: ClosedIcon,
-  favorite: FavoriteIcon,
-  filter: FilterIcon,
-  open: OpenIcon,
-  removeTag: RemoveTagIcon,
-};
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -112,10 +104,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               icons,
               getRecipeSearchData,
               viewType: RecipeListViewType.Base,
-              withFavorite: true,
               initialCount: initialRecipesCount,
               recipePerLoad: 4,
               favorites: favorites,
+              recipeCardButtonPropsDefault: favoriteButtonDefaults,
               onFavoriteChange: updateFavoriteState,
               imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
               ratingProvider: RatingAndReviewsProvider.kritique,

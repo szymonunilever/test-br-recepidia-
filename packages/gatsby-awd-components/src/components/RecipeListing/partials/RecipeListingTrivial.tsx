@@ -1,22 +1,17 @@
-import React from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 import { NullResult } from '../../NullResult';
-import { RecipeCard } from './index';
+import { RecipeCard, RecipeCardProps } from './index';
 import { RecipeListingTrivialProps } from './models';
 import { RatingAndReviewsProvider } from '../../../models';
 import cx from 'classnames';
 import theme from './RecipeListingTrivial.module.scss';
 
-const RecipeListingTrivial = ({
-  list,
-  withFavorite,
-  FavoriteIcon,
+const RecipeListingTrivial: FunctionComponent<RecipeListingTrivialProps> = ({
   titleLevel = 3,
-  onFavoriteChange,
   content: { nullResult },
-  ratingProvider = RatingAndReviewsProvider.none,
-  imageSizes,
-  dataFetched,
-}: RecipeListingTrivialProps) => {
+  dataFetched = true,
+  children,
+}) => {
   const noResults =
     nullResult && dataFetched ? (
       <NullResult
@@ -29,33 +24,32 @@ const RecipeListingTrivial = ({
       />
     ) : null;
 
+  let listItems;
+
+    if (Array.isArray(children) && children.length > 0) {
+      const items = children as ReactElement<RecipeCardProps>[];
+      listItems = items.map(item => {
+        return (
+          <li
+            key={item.props.id}
+            className={cx(theme.recipeList__item, 'recipe-list__item')}
+          >
+            {item}
+          </li>
+        );
+      });
+    } else if(children && children.hasOwnProperty('props')) {
+      const child = children as ReactElement<RecipeCardProps>;
+      listItems =  <li
+        key={child.props.id}
+        className={cx(theme.recipeList__item, 'recipe-list__item')}
+      >
+        {child}
+      </li>
+    }
   return (
     <ul className={cx(theme.recipeList__list, 'recipe-list__list')}>
-      {list.length > 0
-        ? list.map(item => {
-            return (
-              <li
-                key={item.id}
-                className={cx(theme.recipeList__item, 'recipe-list__item')}
-              >
-                <RecipeCard
-                  id={item.id}
-                  recipeId={item.recipeId}
-                  inFavorite={withFavorite ? item.inFavorite : false}
-                  enableSelectFavorite={withFavorite}
-                  Icon={FavoriteIcon}
-                  titleLevel={titleLevel}
-                  localImage={item.localImage}
-                  content={{ title: item.title }}
-                  slug={item.fields.slug}
-                  onFavoriteChange={onFavoriteChange}
-                  ratingProvider={ratingProvider}
-                  imageSizes={imageSizes}
-                />
-              </li>
-            );
-          })
-        : noResults}
+      {listItems || noResults}
     </ul>
   );
 };

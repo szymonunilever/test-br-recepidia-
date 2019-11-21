@@ -2,11 +2,11 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { RecipeListViewType, SearchListing } from '../index';
+import { ButtonViewType, RecipeListViewType, SearchListing } from '../index';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchSvg } from 'src/svgs/inline/search-icon.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import recipes from '../mocks/newRecipes.json';
+import {list as recipes} from '../mocks/RecipeListing';
 import articles from '../mocks/articleList.json';
 
 const searchInputContent: AppContent.SearchInput.Content = {
@@ -77,8 +77,14 @@ const articleConfig = {
 export const recipeConfig = {
   viewType: RecipeListViewType.Base,
   icons: { favorite: FavoriteIcon, close: CloseSvg },
-  withFavorite: true,
   initialCount: 2,
+  recipeCardButtonPropsDefault: {
+    className:"recipe-card__favorite",
+    Icon: FavoriteIcon,
+    isToggle: true,
+    viewType: ButtonViewType.icon,
+    attributes: { 'aria-label' : 'favorite toggle', name: 'favorite' }
+  },
   recipePerLoad: 2,
   favorites: [],
   onFavoriteChange: action('favorites were changed'),

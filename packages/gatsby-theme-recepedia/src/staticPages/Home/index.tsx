@@ -1,6 +1,7 @@
 import { WindowLocation } from '@reach/router';
 import cx from 'classnames';
 import { graphql } from 'gatsby';
+import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -13,7 +14,7 @@ import {
   TagName,
   RatingAndReviewsProvider,
   Text,
-  RecipeListingIcons,
+  Button,
 } from 'gatsby-awd-components/src';
 
 import SEO from 'src/components/Seo';
@@ -22,6 +23,7 @@ import { findPageComponentContent } from 'src/utils';
 import get from 'lodash/get';
 
 import IntroQuiz from '../../components/page/IntroQuiz';
+import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
 
 import theme from './home.module.scss';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -35,23 +37,8 @@ import xor from 'lodash/xor';
 import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
 import {
   ReactComponent as ArrowIcon,
-  ReactComponent as OpenIcon,
+
 } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
-import {
-  ReactComponent as RemoveTagIcon,
-  ReactComponent as CloseSvg,
-} from 'src/svgs/inline/x-mark.svg';
-export const icons: RecipeListingIcons = {
-  close: CloseSvg,
-  closed: ClosedIcon,
-  favorite: FavoriteIcon,
-  filter: FilterIcon,
-  open: OpenIcon,
-  removeTag: RemoveTagIcon,
-};
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -59,6 +46,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     FROM,
     RESULT_SIZE
   );
+
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
@@ -174,9 +162,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             'RecipeListing',
             'LatestAndGreatest'
           )}
-          favorites={Array.isArray(favorites) ? favorites : []}
-          onFavoriteChange={updateFavoriteState}
-          withFavorite={true}
           list={latestAndGratestResult}
           ratingProvider={RatingAndReviewsProvider.kritique}
           className={`${!loadedLatest &&
@@ -196,7 +181,19 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-        />
+        >
+          {latestAndGratestResult && latestAndGratestResult.map(recipe=>(
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{title: recipe.title}}>
+              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+            </RecipeCard>
+          ))}
+        </RecipeListing>
       </section>
 
       <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
@@ -207,9 +204,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             'RecipeListing',
             'TopRecipes'
           )}
-          favorites={Array.isArray(favorites) ? favorites : []}
-          onFavoriteChange={updateFavoriteState}
-          withFavorite={true}
           list={topRecipesResult}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Carousel}
@@ -229,7 +223,19 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
-        />
+        >
+          {topRecipesResult && topRecipesResult.map(recipe=>(
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{title: recipe.title}}>
+              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+            </RecipeCard>
+          ))}
+        </RecipeListing>
       </section>
 
       <section className="_pb--40">

@@ -1,3 +1,4 @@
+import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
@@ -5,6 +6,7 @@ import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import {
+  Button,
   Hero,
   LoadMoreType,
   PageListing,
@@ -16,6 +18,7 @@ import {
 } from 'gatsby-awd-components/src';
 
 import cx from 'classnames';
+import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
@@ -75,10 +78,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     });
   }, [recipeResultsList]);
 
-  const recipeListingIcons = {
-    close: CloseIcon,
-    favorite: FavoriteIcon,
-  };
 
   return (
     <Layout className={classWrapper}>
@@ -99,10 +98,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               .replace('{numRes}', recipeResultsCount)
               .replace('{categoryName}', `\n${tag.title}`),
           }}
-          favorites={Array.isArray(favorites) ? favorites : []}
-          onFavoriteChange={updateFavoriteState}
           icons={recipeListingIcons}
-          withFavorite={true}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.kritique}
           viewType={RecipeListViewType.Base}
@@ -115,7 +111,19 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           titleLevel={1}
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-        />
+        >
+          {recipeResultsList ? recipeResultsList.map(recipe=>(
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.kritique}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{title: recipe.title}}>
+              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
+            </RecipeCard>
+          )): []}
+        </RecipeListing>
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (
         <section className="_pb--40 _pt--40 wrapper">

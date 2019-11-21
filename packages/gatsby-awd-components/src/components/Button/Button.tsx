@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import cx from 'classnames';
-import React, { MouseEvent, useEffect, useState } from 'react';
+import React, { FunctionComponent, MouseEvent, useEffect, useState } from 'react';
 import theme from './Button.module.scss';
 import { ButtonProps, ButtonViewType } from './models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import { iconNormalize } from '../../utils';
 
-export const Button = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   Icon,
   IconSelected = Icon,
   isDisabled = false,
@@ -22,7 +22,7 @@ export const Button = ({
   content,
   role,
   attributes = {},
-}: ButtonProps) => {
+}) => {
   const { label } = content || { label: '' };
   const [selected, setSelected] = useState<boolean | undefined>(isSelected);
   useEffect(() => {

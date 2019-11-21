@@ -2,7 +2,8 @@ import { ReactNode } from 'react';
 import { Icon } from '../../models';
 
 export interface ButtonCallback {
-  (selected: boolean): void;
+  // @ts-ignore
+  (...arg): void;
 }
 export enum ButtonViewType {
   classic,
@@ -11,9 +12,7 @@ export enum ButtonViewType {
 
 export interface ButtonProps {
   className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon?: Icon;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   IconSelected?: Icon;
   content?: AppContent.CTAContent;
   role?: string;

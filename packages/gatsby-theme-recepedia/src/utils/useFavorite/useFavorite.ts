@@ -1,14 +1,22 @@
 import { useState, useEffect } from 'react';
-import { OnFavoriteChange } from 'gatsby-awd-components/src';
 
 const useFavorite = (
   initFavorites: () => number[],
-  updateFavorites: OnFavoriteChange
+  updateFavorites: (favorites: number[]) => void
 ) => {
   const [favorites, setFavorites] = useState<number[]>([]);
-  const updateFavoriteState: OnFavoriteChange = (newFavorites: number[]) => {
-    updateFavorites(newFavorites);
-    setFavorites(newFavorites);
+  const updateFavoriteState = (val: boolean, recipeId:number) => {
+    const index = favorites.indexOf(recipeId);
+    let newFavorites = [...favorites];
+    if(index !== -1 && !val){
+      newFavorites.splice(index, 1);
+      setFavorites(newFavorites);
+      updateFavorites(newFavorites);
+    }else if(index === -1 && val){
+      newFavorites.push(recipeId);
+      setFavorites(newFavorites);
+      updateFavorites(newFavorites);
+    }
   };
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import { ButtonProps } from '../Button';
+import { RecipeCardProps } from '../RecipeListing/partials/models';
 import { SearchInputProps } from '../SearchInput/models';
 import { RecipeListingIcons, RecipeListingProps } from '../RecipeListing';
 
@@ -49,11 +51,12 @@ interface RecipeConfig {
   getRecipeSearchData?: getSearchData;
   viewType: RecipeListingProps['viewType'];
   icons: RecipeListingIcons;
-  withFavorite: RecipeListingProps['withFavorite'];
+  // withFavorite: RecipeListingProps['withFavorite'];
   initialCount: RecipeListingProps['initialCount'];
   recipePerLoad: RecipeListingProps['recipePerLoad'];
-  favorites: RecipeListingProps['favorites'];
-  onFavoriteChange: RecipeListingProps['onFavoriteChange'];
+  favorites: number[];
+  onFavoriteChange: (val:boolean, recipeId:number)=>void;
+  recipeCardButtonPropsDefault: ButtonProps;
   imageSizes: RecipeListingProps['imageSizes'];
   ratingProvider?: RecipeListingProps['ratingProvider'];
 }
