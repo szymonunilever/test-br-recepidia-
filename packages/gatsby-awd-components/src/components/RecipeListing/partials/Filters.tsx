@@ -16,6 +16,7 @@ import { TagVariant } from '../../Tags';
 const Filter: FunctionComponent<RecipeFilterProps> = ({
   className,
   allFilters,
+  filterTitle,
   icons,
   onChangeSorting,
   onChangeFilter,
@@ -68,11 +69,13 @@ const Filter: FunctionComponent<RecipeFilterProps> = ({
 
   const counter = (
     <span className={cx(theme.filter__count, 'filter__count')}>
-      {dataFetched ? (
+      {filterTitle ? (
+        <>{filterTitle}</>
+      ) : (
         <>
           {results} {results > 1 ? resultLabelPlural : resultLabel}
         </>
-      ) : null}
+      )}
     </span>
   );
 

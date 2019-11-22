@@ -1,5 +1,5 @@
 import { graphql, navigate } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
@@ -17,7 +17,10 @@ import {
 import { findPageComponentContent } from 'src/utils';
 import Kritique from 'integrations/Kritique';
 import DigitalData from '../../../integrations/DigitalData';
-import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
+import {
+  favoriteButtonDefaults,
+  RecipeListingIcons as icons,
+} from '../../themeDefaultComponentProps';
 import theme from './search.module.scss';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
 import useSearchResults from './useSearchResults';
@@ -28,31 +31,23 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import '../../scss/pages/_searchListing.scss';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
+import groupBy from 'lodash/groupBy';
+import map from 'lodash/map';
 
-import {
-  ReactComponent as ArrowIcon,
-  ReactComponent as OpenIcon,
-} from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
-import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
-import {
-  ReactComponent as RemoveTagIcon,
-  ReactComponent as CloseSvg,
-} from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
     page: { seo, components, type, relativePath },
   } = pageContext;
-  const { allTag, allCategory } = data;
+  const { allTag, allCategory, allTagGroupings } = data;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
   }));
 
   const {
-    getRecipeSearchData,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,
@@ -61,6 +56,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     resultsFetched,
     initialRecipesCount,
     initialTagsCount,
+    getRecipeSearchData,
+    getTagRecipeSearchData,
   } = useSearchResults(searchQuery);
 
   const updateUrlParams = (searchStr: string) => {
@@ -72,6 +69,38 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
+
+  const getFilterQuery = useCallback((tags: Internal.Tag[]) => {
+    const tagsWithCategories = tags.map(tag => {
+      const category = allTagGroupings.nodes.find(
+        // @ts-ignore
+        cat => cat.children.findIndex(el => el.id === tag.id) !== -1
+      );
+      let tagWithCategory: Internal.Tag & { category?: string } = tag;
+      category && (tagWithCategory.category = category.name);
+      return tagWithCategory;
+    });
+
+    const grouped = map(
+      groupBy(tagsWithCategories, 'category'),
+      item => item
+    ).map(cat => cat.map(tag => tag.tagId));
+    return grouped.map(inCat => `(${inCat.join(' OR ')})`).join(' AND ') || '';
+  }, []);
+
+  const onViewChange = useCallback(
+    (tags: Internal.Tag[]) => {
+      return getTagRecipeSearchData(
+        searchQuery,
+        {
+          size: Math.max(initialRecipesCount, recipeResults.list.length),
+        },
+        getFilterQuery(tags)
+      );
+    },
+    [initialRecipesCount, recipeResults]
+  );
+
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
   }, [recipeResults]);
@@ -103,7 +132,19 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             recipeConfig: {
               icons,
               getRecipeSearchData,
-              viewType: RecipeListViewType.Base,
+              viewType: RecipeListViewType.Advanced,
+              onViewChange,
+              tags: {
+                tagGroups: allTagGroupings.nodes,
+                displayCategories: [
+                  'dishes',
+                  'mainIngredient',
+                  'cuisines',
+                  'difficulties',
+                  'dietary',
+                  'budgets',
+                ],
+              },
               initialCount: initialRecipesCount,
               recipePerLoad: 4,
               favorites: favorites,
@@ -169,6 +210,24 @@ export const pageQuery = graphql`
         ...TagFields
       }
     }
+    allTagGroupings {
+      nodes {
+        children {
+          ... on Tag {
+            fields {
+              slug
+            }
+            id
+            name
+            title
+            tagId
+          }
+        }
+        id
+        name
+        label
+      }
+    }
     allCategory(
       limit: 15
       filter: { showOnHomepage: { ne: 0 } }
@@ -188,6 +247,9 @@ export interface SearchPageProps {
     };
     allCategory: {
       nodes: Internal.Category[];
+    };
+    allTagGroupings: {
+      nodes: Internal.TagGroup[];
     };
   };
   pageContext: {

@@ -938,7 +938,25 @@
                 ]
               },
               "recipesContent": {
-                "cta": { "label": "Ver mais receitas" }
+                "cta": { "label": "Ver mais receitas" },
+                "resultLabel": "receita encontrada",
+                "resultLabelPlural": "receitas encontradas",
+                "filtersPanel": {
+                  "title": "Filtros",
+                  "ctas": {
+                    "reset": { "label": "Limpar filtros" },
+                    "apply": { "label": "Aplicar filtros" }
+                  }
+                },
+                "nullResultContent": {
+                  "subtitle": "Minha chance de encontrar aumenta quando você:",
+                  "textList": [
+                    "Usa palavras curtas na pesquisa",
+                    "Não busca por frases",
+                    "Não usa muitos filtros de uma vez",
+                    "Usa apenas um filtro"
+                  ]
+                }
               },
               "nullResultContent": {
                 "subtitle": "Minha chance de encontrar aumenta quando você:",

@@ -86,7 +86,6 @@ const SearchInput = ({
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
       const trimmedValue = trim(value);
-
       if (trimmedValue.length <= maxLength) {
         setInputValue(value);
       }

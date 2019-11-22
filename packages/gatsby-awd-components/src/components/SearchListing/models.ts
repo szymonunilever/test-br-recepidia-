@@ -1,7 +1,6 @@
 import { ButtonProps } from '../Button';
-import { RecipeCardProps } from '../RecipeListing/partials/models';
-import { SearchInputProps } from '../SearchInput/models';
-import { RecipeListingIcons, RecipeListingProps } from '../RecipeListing';
+import { SearchInputProps } from '../SearchInput';
+import { RecipeListingProps, FilterIcons, onRecipeListingViewChanged, RecipeFilterOptions } from '../RecipeListing';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
@@ -10,6 +9,7 @@ export declare interface SearchListingProps {
   searchResultTitleLevel?: number;
   searchQuery: string;
   searchResults: SearchResults;
+  filterTitle?: string;
 }
 
 export declare interface SearchResults {
@@ -50,7 +50,7 @@ interface SearchInputConfig {
 interface RecipeConfig {
   getRecipeSearchData?: getSearchData;
   viewType: RecipeListingProps['viewType'];
-  icons: RecipeListingIcons;
+  icons: FilterIcons;
   // withFavorite: RecipeListingProps['withFavorite'];
   initialCount: RecipeListingProps['initialCount'];
   recipePerLoad: RecipeListingProps['recipePerLoad'];
@@ -59,6 +59,8 @@ interface RecipeConfig {
   recipeCardButtonPropsDefault: ButtonProps;
   imageSizes: RecipeListingProps['imageSizes'];
   ratingProvider?: RecipeListingProps['ratingProvider'];
+  onViewChange?: onRecipeListingViewChanged;
+  tags: RecipeFilterOptions,
 }
 
 export declare interface SearchListingContent {

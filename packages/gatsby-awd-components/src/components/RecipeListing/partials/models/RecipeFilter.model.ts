@@ -28,6 +28,7 @@ export interface RecipeFilterProps
   onChangeSorting: (sort: RecipeSortingOptions) => void;
   onChangeFilter: (filter: Internal.Tag[]) => void;
   results: number;
+  filterTitle?: string;
   icons: FilterIcons;
   sortSelectPlaceholder: string;
   dataFetched?: RecipeListingProps['dataFetched'];

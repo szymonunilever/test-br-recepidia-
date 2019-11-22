@@ -13,6 +13,7 @@ export interface RecipeListingProps
   list: Internal.Recipe[];
   initialCount?: number;
   recipePerLoad?: number;
+  filterTitle?: string;
   icons: FilterIcons;
   viewType?: RecipeListViewType;
   tags?: RecipeFilterOptions;
