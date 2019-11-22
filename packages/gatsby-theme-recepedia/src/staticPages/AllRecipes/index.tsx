@@ -14,10 +14,15 @@ import {
   RecipeListViewType,
   TagName,
   Text,
-  RatingAndReviewsProvider, Button, ButtonViewType,
+  RatingAndReviewsProvider,
+  Button,
+  ButtonViewType,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, useElasticSearch } from 'src/utils';
-import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
+import {
+  favoriteButtonDefaults,
+  RecipeListingIcons as icons,
+} from '../../themeDefaultComponentProps';
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
@@ -35,9 +40,7 @@ import {
   WithInitialDataAndAsyncLoadMore,
 } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { IMAGE_SIZES } from 'src/constants';
-import {
-  ReactComponent as ArrowIcon,
-} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 
 const AllRecipesPage = ({
   data,
@@ -193,17 +196,24 @@ const AllRecipesPage = ({
           onViewChange={onViewChange}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         >
-          {recipeResultsList ? recipeResultsList.map(recipe=>(
-            <RecipeCard
-              key={recipe.id}
-              {...recipe}
-              slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-              content={{title: recipe.title}}>
-              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-            </RecipeCard>
-          )): []}
+          {recipeResultsList
+            ? recipeResultsList.map(recipe => (
+                <RecipeCard
+                  key={recipe.id}
+                  {...recipe}
+                  slug={recipe.fields.slug}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                  content={{ title: recipe.title }}
+                >
+                  <Button
+                    {...favoriteButtonDefaults}
+                    isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                    onClick={updateFavoriteState}
+                  />
+                </RecipeCard>
+              ))
+            : []}
         </RecipeListing>
       </section>
 
@@ -240,17 +250,24 @@ const AllRecipesPage = ({
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
         >
-          {promotionalRecipes.nodes ? promotionalRecipes.nodes.map(recipe=>(
-            <RecipeCard
-              key={recipe.id}
-              {...recipe}
-              slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-              content={{title: recipe.title}}>
-              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-            </RecipeCard>
-          )): []}
+          {promotionalRecipes.nodes
+            ? promotionalRecipes.nodes.map(recipe => (
+                <RecipeCard
+                  key={recipe.id}
+                  {...recipe}
+                  slug={recipe.fields.slug}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                  content={{ title: recipe.title }}
+                >
+                  <Button
+                    {...favoriteButtonDefaults}
+                    isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                    onClick={updateFavoriteState}
+                  />
+                </RecipeCard>
+              ))
+            : []}
         </RecipeListing>
       </section>
 

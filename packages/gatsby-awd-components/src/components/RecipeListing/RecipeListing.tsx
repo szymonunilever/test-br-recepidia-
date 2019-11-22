@@ -1,9 +1,5 @@
 import cx from 'classnames';
-import get from 'lodash/get';
 import React, { FunctionComponent, memo, ReactElement, useEffect, useRef, useState } from 'react';
-import { RatingAndReviewsProvider } from '../../models';
-import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
-import reloadKritiqueWidget from '../../utils/useKritiqueReload';
 import { Button } from '../Button';
 import { TagName, Text } from '../Text';
 import { LoadMoreType, RecipeListingProps, RecipeListViewType } from './models';
@@ -16,7 +12,16 @@ import {
 } from './partials';
 import theme from './RecipeListing.module.scss';
 import RecipeListingCarousel from './RecipeListingCarousel';
-import { applyContentDefaults, applyFilters, sortBy } from './utils';
+import {
+  applyContentDefaults,
+  applyFilters,
+  applyingFavorites,
+  sortBy,
+} from './utils';
+import get from 'lodash/get';
+import { RatingAndReviewsProvider } from '../../models';
+import reloadKritiqueWidget from '../../utils/useKritiqueReload';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 
 export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   className,
@@ -25,6 +30,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   initialCount = 4,
   onViewChange,
   titleLevel,
+  filterTitle,
   loadMoreConfig = { type : LoadMoreType.sync },
   tags = { tagGroups : [] },
   carouselConfig = {
@@ -222,6 +228,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
           className={cx(theme.recipeList__filter, 'recipe-list__filter')}
           allFilters={tags}
           icons={icons}
+          filterTitle={filterTitle}
           onChangeFilter={onFilterChange}
           onChangeSorting={onChangeSorting}
           results={

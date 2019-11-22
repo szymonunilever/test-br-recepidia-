@@ -53,6 +53,24 @@ const useSearchResults = (searchQuery: string) => {
     [recipeResults]
   );
 
+  const getTagRecipeSearchData = useCallback(
+    async (searchQeury, params, filter) =>
+      getRecipeResponse(searchQeury, params, filter)
+        .then(res => {
+          setRecipeResults({
+            list: params.from
+              ? [
+                  ...recipeResults.list,
+                  ...res.body.hits.hits.map(resItem => resItem._source),
+                ]
+              : res.body.hits.hits.map(resItem => resItem._source),
+            count: res.body.hits.total.value,
+          });
+        })
+        .catch(() => {}),
+    [recipeResults]
+  );
+
   const getArticleSearchData = useCallback(
     // async (searchQeury, params) =>
     //   getArticleResponse(searchQeury, params).then(res => {
@@ -114,6 +132,7 @@ const useSearchResults = (searchQuery: string) => {
   return {
     getSearchData,
     getRecipeSearchData,
+    getTagRecipeSearchData,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,

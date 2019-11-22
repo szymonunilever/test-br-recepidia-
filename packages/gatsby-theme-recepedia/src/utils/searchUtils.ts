@@ -45,16 +45,13 @@ const filteredRecipeSearchParams = (
 
 const recipeSearchParams = (
   searchQuery: string,
-  { from, size, _source }: SearchParams
-) => ({
-  index: process.env['elasticSearch_recipeIndex'] as string,
-  body: {
-    from,
-    size,
-    _source,
-    query: {
+  { from, size, _source }: SearchParams,
+  filter: string
+) => {
+  const mustQuery = [
+    {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      simple_query_string: {
+      query_string: {
         // eslint-disable-next-line @typescript-eslint/camelcase
         analyze_wildcard: true,
         query: `${searchQuery}*`,
@@ -66,8 +63,33 @@ const recipeSearchParams = (
         ],
       },
     },
-  },
-});
+  ];
+
+  filter &&
+    mustQuery.push({
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: filter,
+        fields: ['tagGroups.tags.id'],
+      },
+    });
+
+  return {
+    index: process.env['elasticSearch_recipeIndex'] as string,
+    body: {
+      from,
+      size,
+      _source,
+      query: {
+        bool: {
+          must: mustQuery,
+        },
+      },
+    },
+  };
+};
 
 const recipeIdSearchParams = (
   searchQuery: string,
@@ -148,8 +170,12 @@ export const getRecipesByIdsResponse = async (
 
 export const getRecipeResponse = async (
   searchQuery: string,
-  params: SearchParams
-) => useElasticSearch<Internal.Recipe>(recipeSearchParams(searchQuery, params));
+  params: SearchParams,
+  filter: string = ''
+) =>
+  useElasticSearch<Internal.Recipe>(
+    recipeSearchParams(searchQuery, params, filter)
+  );
 
 export const getArticleResponse = async (
   searchQuery: string,
@@ -159,11 +185,16 @@ export const getArticleResponse = async (
 
 export const getSearchSuggestionResponse = async (
   searchQuery: string,
-  { from, size }: SearchParams
+  { from, size }: SearchParams,
+  filter: string = ''
 ) => {
   return Promise.all([
     useElasticSearch<Internal.Recipe>(
-      recipeSearchParams(searchQuery, { from, size, _source: ['title'] })
+      recipeSearchParams(
+        searchQuery,
+        { from, size, _source: ['title'] },
+        filter
+      )
     ),
     // useElasticSearch<Internal.Article>(
     //   articleSearchParams(searchQuery, { from, size, _source: ['title'] })

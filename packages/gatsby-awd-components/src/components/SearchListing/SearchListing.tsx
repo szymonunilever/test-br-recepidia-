@@ -12,7 +12,6 @@ import { Tabs, Tab } from '../Tabs';
 import RecipeListing, { LoadMoreType } from '../RecipeListing';
 import cx from 'classnames';
 
-import { Text, TagName } from '../Text';
 import NullResult from '../NullResult';
 import get from 'lodash/get';
 import trim from 'lodash/trim';
@@ -28,7 +27,6 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   config: { recipeConfig, searchInputConfig, articleConfig },
   searchQuery,
   className,
-  searchResultTitleLevel = 3,
   searchResults: {
     recipeResults,
     searchInputResults,
@@ -99,12 +97,8 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     []
   );
 
-  const searchResultsText = resultsFetched ? (
-    <Text
-      className="search-listing__results-header wrapper"
-      // @ts-ignore
-      tag={TagName[`h${searchResultTitleLevel}`]}
-      text={content.searchListingContent.title
+  const searchResultsText = resultsFetched
+    ? content.searchListingContent.title
         .replace(
           '{numRes}',
           (recipeResults.count + articleResults.count).toString()
@@ -112,14 +106,9 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         .replace(
           '{searchInputValue}',
           `${defaultSearchValue ? `\n"${trim(defaultSearchValue)}"` : '" "'}`
-        )}
-    />
-  ) : null;
-
-  const recipes = !!content.tabsContent.tabs.find(
-    tab => get(tab, 'view') === 'recipes'
-  ) &&
-    !!recipeResults.list.length && (
+        )
+    : undefined;
+  const recipes = (
       <RecipeListing
         loadMoreConfig={{
           type: LoadMoreType.async,
@@ -129,6 +118,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         list={recipeResults.list}
         content={content.recipesContent}
         ratingProvider={RatingAndReviewsProvider.kritique}
+        filterTitle={searchResultsText}
         {...recipeConfig}
       >
         {recipeResults.list ? recipeResults.list.map(recipe=>(
@@ -144,7 +134,6 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         )): []}
       </RecipeListing>
     );
-
   const articles = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'articles'
   ) &&
@@ -240,13 +229,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
 
-      {searchResultsText}
-      {tabs.list.length &&
-      (articleResults.list.length || recipeResults.list.length) ? (
-        <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
-      ) : (
-        nullResult
-      )}
+      <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
     </div>
   );
 };
