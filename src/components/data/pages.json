@@ -2222,7 +2222,7 @@
                 "title": "Planejamento semanal",
                 "description": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
                 "image": {
-                  "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/start-image.jpg",
+                  "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/introduction.jpg",
                   "alt": "Planejamento semanal"
                 },
                 "primaryButtonLabel": "Comece agora!",
