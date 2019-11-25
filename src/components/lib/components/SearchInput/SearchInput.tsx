@@ -141,12 +141,12 @@ const SearchInput = ({
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       submitHandler(e);
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === 'ArrowDown' && data.length) {
       let newActiveItemIndex =
         activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0;
       setInputValue(data[newActiveItemIndex]);
       setActiveItemIndex(newActiveItemIndex);
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowUp' && data.length) {
       let newActiveItemIndex =
         activeItemIndex <= 0 ? data.length - 1 : activeItemIndex - 1;
       setInputValue(data[newActiveItemIndex]);
@@ -169,7 +169,7 @@ const SearchInput = ({
     }
   };
 
-  const inputHasValidValue = !!(inputValue.length >= minLength);
+  const inputHasValidValue = inputValue.length >= minLength;
   const buttonReset = inputValue.length ? (
     <button
       className="form__button-reset"
