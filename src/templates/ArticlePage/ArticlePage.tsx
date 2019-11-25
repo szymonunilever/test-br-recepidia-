@@ -22,6 +22,7 @@ import {
 import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
+import { IMAGE_SIZES } from 'src/constants';
 
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
@@ -80,7 +81,11 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       {mainImageHero && (
         <section className={cx(theme.articleImage, 'bg--half')}>
           <div className="article-image__wrap">
-            <Hero viewType="Image" content={mainImageHero} />
+            <Hero
+              viewType="Image"
+              content={mainImageHero}
+              imageSizes={IMAGE_SIZES.HERO}
+            />
             <SocialSharing
               content={findPageComponentContent(components, 'SocialSharing')}
               className={theme.articleSocial}
@@ -125,6 +130,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
                 }}
                 viewType="Image"
                 titleLevel={2}
+                imageSizes={IMAGE_SIZES.HERO}
               />
             </Link>
           </div>
@@ -135,6 +141,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
+          imageSizes={IMAGE_SIZES.HERO}
         />
       </section>
     </Layout>

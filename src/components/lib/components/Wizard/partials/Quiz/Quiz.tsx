@@ -150,10 +150,9 @@ const Quiz: FunctionComponent<QuizProps> = ({
     }
   }, [currentQuestionIndex]);
 
-  const imageSizes: string | undefined =
-    desktopCols > 3
-      ? imageSizesOptions && imageSizesOptions.QUIZ_SMALL
-      : imageSizesOptions && imageSizesOptions.QUIZ_BIG;
+  const imageSizes: string =
+    // @ts-ignore
+    imageSizesOptions && imageSizesOptions[`QUIZ_${desktopCols}_IN_LINE`];
 
   return (
     <Fragment>

@@ -125,6 +125,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             {...componentContent.wizardIntroductionPanel}
             containerClass="wizard--intro"
             stepId="intro"
+            imageSizes={IMAGE_SIZES.MEAL_PLANNER.INTRODUCTION}
           />
           <WizardQuiz
             {...componentContent.wizardQuiz}
@@ -169,7 +170,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
                     carouselConfig={{
                       breakpoints: [
                         {
-                          width: 1366,
+                          width: 1365,
                           switchElementsBelowBreakpoint: 1,
                           switchElementsAfterBreakpoint: 1,
                           visibleElementsBelowBreakpoint: 2,
