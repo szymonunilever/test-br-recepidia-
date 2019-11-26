@@ -47,4 +47,8 @@
   @include respondTo(desktop) {
     padding: 30px $layout-indent;
   }
+  :global(.tags) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }

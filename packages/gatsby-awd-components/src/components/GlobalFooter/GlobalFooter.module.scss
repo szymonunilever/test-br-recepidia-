@@ -8,7 +8,11 @@
   .global-footer {
     border-top: 1px solid $footer-links-color;
     padding-bottom: 80px;
+    padding-left: $layout-indent-sm;
+    padding-right: $layout-indent-sm;
     @include respondTo(desktop) {
+      padding-left: $layout-indent;
+      padding-right: $layout-indent;
       padding-bottom: 50px;
     }
 

@@ -1,5 +1,4 @@
 @import '../../scss/config';
-
 .sitemap {
   :global {
     .sitemap {
@@ -57,8 +56,8 @@
           font-size: 1.8rem;
           margin: 0 0 10px;
           text-transform: uppercase;
-          line-height: 1.6;
-          font-weight: 700;
+          font-family: $rubik;
+          font-weight: 500;
           @include respondTo(medium) {
             font-size: 2.4rem;
           }
@@ -71,19 +70,19 @@
             font-weight: 500;
             @include respondTo(medium) {
               font-size: 1.4rem;
+              line-height: 1.4;
             }
           }
         }
       }
-
-      a {
-        line-height: 1.4;
-        font-family: $rubik;
-        font-weight: 500;
-        padding-right: 20px;
-      }
-      /////----------- CUSTOM END -----------/////
     }
+    a {
+      line-height: 1.4;
+      font-family: $rubik;
+      font-weight: 500;
+      padding-right: 20px;
+    }
+    /////----------- CUSTOM END -----------/////
     a {
       display: block;
       text-decoration: none;
@@ -100,6 +99,4 @@
       padding: 0;
     }
   }
-}
-.sitemap {
 }

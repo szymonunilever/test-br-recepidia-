@@ -208,75 +208,12 @@
 
     /////----------- CUSTOM -----------/////
     .generated-form {
-      a {
-        // @extend %link--inline;
-        // &[target='_blank'] {
-        //   @extend %link--external;
-        // }
-      }
-      &__title {
-        font-size: 3.4rem;
-        color: $fish-blue-darker;
-        font-family: $rubik;
-        font-weight: 500;
-        margin-bottom: 23px;
-        @include respondTo(desktop) {
-          font-size: 4.5rem;
-        }
-      }
-      &__fields {
-        & > .field {
-          margin-bottom: 16px;
-        }
-      }
-      &__item {
-        align-items: flex-start;
-        &-legend {
-          display: block;
-          width: 100%;
-          font-size: 2.1rem;
-          font-weight: 500;
-          font-family: $rubik;
-          margin-bottom: 18px;
-          @include respondTo(desktop) {
-            font-size: 2.5rem;
-          }
-        }
-        &:last-child {
-          .generated-form__item-legend {
-            font: 400 1.6rem $arial;
-            margin-bottom: 28px;
-          }
-        }
-        .field__group {
-          display: flex;
-          align-items: flex-start;
-          margin-bottom: 30px;
-          & > div {
-            margin-right: 35px;
-          }
-        }
-        .checkable .checkable__checkelem {
-          margin-right: 18px;
-        }
-      }
       &__button--primary,
       &__button--secondary {
         display: block;
         width: 100%;
         max-width: 350px;
         margin: 0 auto;
-        @include respondTo(desktop) {
-          display: block;
-          width: 352px;
-        }
-      }
-
-      .buttons {
-        margin-top: 31px;
-        @include respondTo(desktop) {
-          margin-top: 50px;
-        }
       }
     }
 
@@ -285,33 +222,11 @@
       &__label-text,
       &__group--label {
         font-size: 1.6rem;
-        margin: 0 0 14px;
-        @include respondTo(desktop) {
-          margin: 0 0 19px;
-        }
+        margin: 0 0 9px 0;
       }
       &__input {
         &--large {
           height: 52px;
-        }
-      }
-      &__hint {
-        margin: 13px 0 0;
-        font-size: 1.2rem;
-      }
-      &__textarea {
-        padding: 12px 18px;
-      }
-      @include respondTo(desktop) {
-        margin-bottom: 0;
-      }
-      &__input,
-      &__select {
-        padding: 6px 18px;
-        @include respondTo(desktop) {
-          height: 46px;
-          line-height: 1.6rem;
-          padding: 15px 18px;
         }
       }
       @include respondTo(desktop) {
@@ -342,8 +257,6 @@
     }
 
     // Select component styles
-    // body {
-    //body is used to override default styles
     .react-dropdown-select {
       padding-left: 18px;
       box-sizing: border-box;
@@ -371,7 +284,6 @@
         }
       }
     }
-    // }
     // Select component styles END
 
     // CheckElem component styles

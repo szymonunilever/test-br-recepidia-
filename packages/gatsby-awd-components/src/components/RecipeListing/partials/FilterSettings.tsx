@@ -89,7 +89,11 @@ const FilterSettings = ({
         )}
       >
         <Button
-          className={cx(theme.filterSettings__reset, 'filter-settings__reset')}
+          className={cx(
+            theme.filterSettings__reset,
+            'filter-settings__reset',
+            'button--secondary'
+          )}
           onClick={onReset}
           content={filtersPanel && filtersPanel.ctas.reset}
         />

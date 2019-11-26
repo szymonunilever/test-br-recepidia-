@@ -76,6 +76,9 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  &:hover {
+    background-color: transparent;
+  }
 
   svg {
     width: 10px;

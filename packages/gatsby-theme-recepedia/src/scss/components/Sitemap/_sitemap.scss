@@ -1,50 +1,4 @@
 .sitemap {
-  &__categories {
-    display: flex;
-    flex-direction: column;
-    @include respondTo(medium) {
-      flex-direction: row;
-    }
-
-    & > .sitemap__category {
-      margin: 0 0 32px 0;
-      text-align: center;
-      @include respondTo(medium) {
-        text-align: left;
-        box-sizing: border-box;
-        width: calc(100% / 2);
-        padding: 0 24px 0 0;
-      }
-      @include respondTo(desktop) {
-        width: calc(99.9% / 3);
-      }
-    }
-  }
-
-  &__category {
-    &-title {
-      font-size: 1.8rem;
-      margin: 0 0 10px;
-      text-transform: uppercase;
-      line-height: 1.6;
-      font-weight: 700;
-      @include respondTo(medium) {
-        font-size: 2.4rem;
-      }
-    }
-
-    &-items {
-      a {
-        font-size: 1.2rem;
-        line-height: 1;
-        text-transform: none;
-        font-weight: 500;
-        @include respondTo(medium) {
-          font-size: 1.4rem;
-        }
-      }
-    }
-  }
   &__block {
     flex-basis: 100%;
     &:last-child {
@@ -62,22 +16,11 @@
   }
 
   a {
-    display: block;
-    line-height: 1.4;
-    text-decoration: none;
-    cursor: pointer;
     font-family: $rubik;
     font-weight: 500;
     color: $black-blue;
-    transition: color 0.2s ease-out;
-    padding-right: 20px;
     &:hover {
       color: $apple-green;
     }
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
   }
 }

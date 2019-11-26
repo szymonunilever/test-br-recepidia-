@@ -40,35 +40,6 @@
           font-size: 1.6rem;
         }
       }
-      &__logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-        position: absolute;
-        left: 24px;
-        top: 24px;
-        @include respondTo(desktop) {
-          left: 38px;
-          top: 38px;
-        }
-        svg {
-          width: 29px;
-          height: 36px;
-          display: block;
-          margin: auto;
-          @include respondTo(desktop) {
-            width: 48px;
-            height: 58px;
-          }
-        }
-        .main-logo {
-          &__text {
-            @extend %sr-only;
-          }
-        }
-      }
-
       &__title {
         color: $fish-blue-darker;
         width: 100%;
@@ -82,7 +53,6 @@
           }
         }
         .subheading {
-          // @extend .subheading;
           color: $black-blue;
         }
         @include respondTo(desktop) {
@@ -128,49 +98,46 @@
           }
         }
       }
-      .generated-form {
-        &__item {
-          width: 100%;
+    }
+    .generated-form {
+      &__item {
+        width: 100%;
+      }
+      &__fields {
+        @include respondTo(desktop) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
         }
-        &__fields {
+        .field {
           @include respondTo(desktop) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-          }
-          .field {
-            @include respondTo(desktop) {
-              width: 42%;
-            }
-          }
-          .checkbox {
-            @include respondTo(desktop) {
-              width: 100%;
-            }
+            width: 42%;
           }
         }
-        &__item-legend {
-          display: block;
-          width: 100%;
-          font: 400 1.6rem $arial;
-          margin-bottom: 28px;
-          letter-spacing: 0.1px;
-          @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            letter-spacing: 0px;
+        .checkbox {
+          @include respondTo(desktop) {
+            width: 100%;
           }
         }
-        .buttons {
-          // @extend .wizard__buttons;
-          // button[type='submit'] {
-          //   @extend .wizard__button--primary;
-          // }
+      }
+      &__item-legend {
+        display: block;
+        width: 100%;
+        font: 400 1.6rem $arial;
+        margin-bottom: 28px;
+        letter-spacing: 0.1px;
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          letter-spacing: 0px;
         }
-        .field__wrap,
-        .checkable.checkbox {
-          padding-right: 1px;
-          &:after {
-            right: -20px;
-          }
+      }
+      .buttons {
+        @extend .wizard__buttons;
+      }
+      .field__wrap,
+      .checkable.checkbox {
+        padding-right: 1px;
+        &:after {
+          right: -20px;
         }
       }
     }

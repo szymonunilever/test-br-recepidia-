@@ -239,7 +239,6 @@
           }
         }
         a {
-          @extend .button;
           @extend .button--secondary;
           font-size: 1.4rem;
           font-family: $arial;

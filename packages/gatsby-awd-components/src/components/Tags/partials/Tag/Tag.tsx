@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import { TagProps, TagVariant } from '../../models';
-import { Button } from '../../../Button';
+import { Button, ButtonViewType } from '../../../Button';
 import cx from 'classnames';
 import theme from './Tag.module.scss';
 

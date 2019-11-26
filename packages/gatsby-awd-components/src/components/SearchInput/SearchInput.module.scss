@@ -34,7 +34,8 @@
       &__group {
         position: relative;
       }
-      &__button-submit {
+      &__button-submit,
+      &__button-submit[disabled] {
         position: absolute;
         left: 0;
         top: 50%;
@@ -46,6 +47,7 @@
         border: none;
         &:hover {
           cursor: pointer;
+          background-color: transparent;
         }
       }
       &__button-reset {
@@ -129,6 +131,11 @@
         height: 12px;
         width: 12px;
       }
+      &:hover {
+        svg {
+          stroke: $apple-green;
+        }
+      }
     }
     &__label {
       @extend %sr-only;
@@ -151,7 +158,6 @@
       &__title {
         text-align: center;
         color: $fish-blue-darker;
-        // @extend %h2--bigger;
       }
 
       &__list {
