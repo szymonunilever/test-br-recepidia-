@@ -60,6 +60,7 @@
         line-height: 1.38;
         font-family: $rubik;
         font-weight: 500;
+        font-size: 1.6rem;
       }
       &__buttons {
         @include respondTo(desktop) {
