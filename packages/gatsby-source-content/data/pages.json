@@ -948,7 +948,7 @@
                     "apply": { "label": "Aplicar filtros" }
                   }
                 },
-                "nullResultContent": {
+                "nullResult": {
                   "subtitle": "Minha chance de encontrar aumenta quando você:",
                   "textList": [
                     "Usa palavras curtas na pesquisa",
@@ -958,7 +958,7 @@
                   ]
                 }
               },
-              "nullResultContent": {
+              "nullResult": {
                 "subtitle": "Minha chance de encontrar aumenta quando você:",
                 "textList": [
                   "Usa palavras curtas na pesquisa",
