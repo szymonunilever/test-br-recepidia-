@@ -82,9 +82,10 @@ const Filter: FunctionComponent<RecipeFilterProps> = ({
   return (
     <div className={classWrapper}>
       {counter}
-      <div className={cx(theme.filter__sortBlock, 'filter__sort-block')}>
-        {optionLabels ? (
-          <div className={cx(theme.filter__sortLabel, 'filter__sort-label')}>
+      {!results && !filterTags.length ? null : (
+        <div className={cx(theme.filter__sortBlock, 'filter__sort-block')}>
+          {optionLabels ? (
+            <div className={cx(theme.filter__sortLabel, 'filter__sort-label')}>
             <span
               className={cx(
                 theme.filter__sortLabelText,
@@ -93,25 +94,26 @@ const Filter: FunctionComponent<RecipeFilterProps> = ({
             >
               sorting
             </span>
-            <Select
-              options={sortingOptions}
-              className={cx(theme.filter__sort, 'filter__sort')}
-              placeholder={sortSelectPlaceholder}
-              changeHandler={sortingChange}
-            />
-          </div>
-        ) : null}
-        <Button
-          className={cx(theme.filter__button, 'filter__button')}
-          Icon={icons.filter}
-          viewType={ButtonViewType.classic}
-          onClick={() => {
-            toggleFilterSettings();
-            setSelectedTags(filterTags);
-          }}
-          attributes={{ 'aria-label': 'open modal with fiter settings' }}
-        />
-      </div>
+              <Select
+                options={sortingOptions}
+                className={cx(theme.filter__sort, 'filter__sort')}
+                placeholder={sortSelectPlaceholder}
+                changeHandler={sortingChange}
+              />
+            </div>
+          ) : null}
+          <Button
+            className={cx(theme.filter__button, 'filter__button')}
+            Icon={icons.filter}
+            viewType={ButtonViewType.classic}
+            onClick={() => {
+              toggleFilterSettings();
+              setSelectedTags(filterTags);
+            }}
+            attributes={{ 'aria-label': 'open modal with fiter settings' }}
+          />
+        </div>
+      )}
       <Modal
         isOpen={showFilterSettings}
         close={toggleFilterSettings}
