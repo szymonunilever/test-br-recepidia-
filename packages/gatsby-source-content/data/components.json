@@ -142,7 +142,17 @@
     "no soy": "Sem soja",
     "zero açúcar": "Zero açúcar",
     "vegan": "Sem produtos de origem animal",
-    "vegetarian": "Sem carne"
+    "vegetarian": "Sem carne",
+    "energy_kcal": "Valor Energético (kcal)",
+    "energy_kj": "Valor Energético (kJ)",
+    "protein":  "Proteínas (g)",
+    "carbohydrate_excl_fibre":  "Carboidratos (g)",
+    "sugar":  "Açúcares (g)",
+    "fibre":  "Fibra Alimentar (g)",
+    "fat":  "Gorduras Totais (g)",
+    "saturated_fat":  "Gorduras Saturadas (g)",
+    "trans_fat":  "Gorduras Trans (g)",
+    "sodium":  "Sódio (mg)"
   },
   "disclaimer": {
     "11": "Garanta que os ingredientes que você compre para essa receita não contenham carnes ou embutidos",
