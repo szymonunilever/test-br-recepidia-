@@ -27,6 +27,7 @@ $footer-color: $black-blue;
   }
 
   &__logo {
-    background: url('~src/svgs/unilever-logo.svg') no-repeat;
+    background-image: url('~src/svgs/unilever-logo.svg');
+    background-repeat: no-repeat;
   }
 }
