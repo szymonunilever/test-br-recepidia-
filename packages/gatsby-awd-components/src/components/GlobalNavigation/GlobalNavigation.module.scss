@@ -266,7 +266,7 @@
         stroke: $primary-color;
         font-size: 3rem;
         cursor: pointer;
-
+        padding: 0;
         width: $header-search-icon-width;
         transition: all 0.2s ease-out;
         @media (hover: hover),

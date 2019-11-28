@@ -7,7 +7,7 @@
     font-size: $listing-title-fz;
     font-family: $listing-title-ff;
     line-height: 3rem;
-    @include respondTo(medium) {
+    @include respondTo(desktop) {
       font-size: $listing-title-fz-lg;
     }
   }
