@@ -23,6 +23,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
   url,
   actionCallback,
   titleRenderer,
+  stepResultsCallback,
 }) => {
   const { title, subtitle, ...formContent } = content;
   let formContentModified = formContent;
@@ -96,6 +97,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
         });
     // we silently close form and don't handle API response due to long response time.
     actionCallback && actionCallback({});
+    stepResultsCallback && stepResultsCallback({});
   };
 
   // @ts-ignore

@@ -1,4 +1,3 @@
-import { RecipeCard, RecipeCardLinkWrapper } from 'gatsby-awd-components/src';
 import React, {
   Fragment,
   FunctionComponent,
@@ -7,15 +6,8 @@ import React, {
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import { findPageComponentContent } from 'src/utils';
-import {
-  Button,
-  PreferencesQuiz,
-  UserPreferencesIcons,
-} from 'gatsby-awd-components/src';
 import { Link } from 'gatsby';
-
 import SEO from 'src/components/Seo';
-import DigitalData from '../../../integrations/DigitalData';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -23,7 +15,6 @@ import {
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import Kritique from 'integrations/Kritique';
-
 import {
   favoriteButtonDefaults,
   RecipeListingIcons as icons,
@@ -32,11 +23,17 @@ import theme from './UserProfile.module.scss';
 import cx from 'classnames';
 import useFavorite from 'src/utils/useFavorite';
 import useFavoritesSearch from './useFavoritesSearch';
+import DigitalData from '../../../integrations/DigitalData';
 // Component Styles
 import '../../scss/pages/_userProfile.scss';
 import get from 'lodash/get';
 import { IMAGE_SIZES } from 'src/constants';
 import {
+  RecipeCard,
+  RecipeCardLinkWrapper,
+  Button,
+  PreferencesQuiz,
+  UserPreferencesIcons,
   LoadMoreType,
   NullResult,
   RecipeListing,
@@ -48,15 +45,7 @@ import {
   WithLocation as withLocation,
   WithLocationProps,
 } from 'gatsby-awd-components/src';
-
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as IconArrowUp } from 'src/svgs/inline/arrow-up.svg';
-import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
-import {
-  ReactComponent as RemoveTagIcon,
-  ReactComponent as CloseSvg,
-} from 'src/svgs/inline/x-mark.svg';
-
 import { ReactComponent as IconArrowDown } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as IconSuccess } from 'src/svgs/inline/checkmark-bigger.svg';
 import { ReactComponent as IconError } from 'src/svgs/inline/x-mark.svg';
@@ -64,7 +53,7 @@ import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
 import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 
-const userPreferencisIcons: UserPreferencesIcons = {
+const userPreferencesIcons: UserPreferencesIcons = {
   arrowUp: <IconArrowUp />,
   arrowDown: <IconArrowDown />,
   error: <IconError />,
@@ -73,7 +62,6 @@ const userPreferencisIcons: UserPreferencesIcons = {
   delete: <IconDelete />,
   checkMark: <CheckMarkIcon />,
 };
-
 const carouselConfig = {
   breakpoints: [
     {
@@ -86,7 +74,6 @@ const carouselConfig = {
   ],
   arrowIcon: <IconArrowDown />,
 };
-
 const FavoritesRecipeListingPage: FunctionComponent<
   FavoriteRecipeListingProps
 > = ({
@@ -210,7 +197,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
       replacement: (totalCount || 0).toString(),
     },
   ];
-
+  const mealPlannerName =
+    getUserProfileByKey(ProfileKey.mealPlannerName) ||
+    mealPlanResultsContent.title;
   return (
     <Layout className="header--bg">
       <SEO {...seo} />
@@ -290,7 +279,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
         </Tab>
         <Tab view="UserPreferences" className={theme.userPreferences}>
           <UserPreferences
-            icons={userPreferencisIcons}
+            icons={userPreferencesIcons}
             deleteQuestion={deleteQuestion}
             saveQuestion={saveQuestion}
             onNewsletterFormSubmit={onNewsletterFormSubmit}
@@ -320,7 +309,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
           <Fragment>
             <RecipeListing
               icons={icons}
-              content={{ title: mealPlanResultsContent.title }}
+              content={{ title: mealPlannerName }}
               viewType={RecipeListViewType.Carousel}
               list={mealPlannerResults || []}
               carouselConfig={carouselConfig}

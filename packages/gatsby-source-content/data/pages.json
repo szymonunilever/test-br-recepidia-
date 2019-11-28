@@ -2689,6 +2689,24 @@
             }
           },
           {
+            "name": "GeneratedForm",
+            "content": {
+              "view": "MealPlanerRename",
+              "title": "Rename Meal Planer",
+              "submitButton": {
+                "label": "Enviar"
+              },
+              "fields": [
+                {
+                  "name": "mealPlannerTitle",
+                  "type": "text",
+                  "label": "Weekly menu name",
+                  "placeholder": "EX. Doe"
+                }
+              ]
+            }
+          },
+          {
             "name": "Links",
             "content": {
               "list": {
