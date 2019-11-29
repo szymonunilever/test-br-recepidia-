@@ -1,4 +1,3 @@
-import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
@@ -6,6 +5,8 @@ import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import {
+  RecipeCard,
+  RecipeCardLinkWrapper,
   Button,
   Hero,
   LoadMoreType,
@@ -18,7 +19,10 @@ import {
 } from 'gatsby-awd-components/src';
 
 import cx from 'classnames';
-import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
+import {
+  favoriteButtonDefaults,
+  RecipeListingIcons as recipeListingIcons,
+} from '../../themeDefaultComponentProps';
 // import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
@@ -78,7 +82,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     });
   }, [recipeResultsList]);
 
-
   return (
     <Layout className={classWrapper}>
       <SEO
@@ -112,17 +115,30 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         >
-          {recipeResultsList ? recipeResultsList.map(recipe=>(
-            <RecipeCard
-              key={recipe.id}
-              {...recipe}
-              slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-              content={{title: recipe.title}}>
-              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-            </RecipeCard>
-          )): []}
+          {recipeResultsList
+            ? recipeResultsList.map(recipe => (
+                <RecipeCardLinkWrapper
+                  title={recipe.title}
+                  key={recipe.id}
+                  slug={recipe.fields.slug}
+                >
+                  <RecipeCard
+                    key={recipe.id}
+                    {...recipe}
+                    slug={recipe.fields.slug}
+                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                    content={{ title: recipe.title }}
+                  >
+                    <Button
+                      {...favoriteButtonDefaults}
+                      isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                      onClick={updateFavoriteState}
+                    />
+                  </RecipeCard>
+                </RecipeCardLinkWrapper>
+              ))
+            : []}
         </RecipeListing>
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (

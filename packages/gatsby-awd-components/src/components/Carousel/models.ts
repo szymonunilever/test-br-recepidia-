@@ -1,6 +1,6 @@
-import { ReactChild, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Icon } from '../../models';
-import { RecipeCardProps } from '../RecipeListing/partials/models';
+import {RecipeCardProps} from '../RecipeCard';
 
 export interface CreateElement {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

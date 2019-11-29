@@ -6,7 +6,7 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { Button } from '../Button';
-import { RecipeCard } from '../RecipeListing/partials';
+import {RecipeCard} from '../RecipeCard';
 import SearchInput from '../SearchInput';
 import { Tabs, Tab } from '../Tabs';
 import RecipeListing, { LoadMoreType } from '../RecipeListing';

@@ -5,7 +5,7 @@ import {
   recipeCardPropVariants as propVariants,
   recipeCardPropsDefault as propsDefault,
 } from '../../../../mocks/RecipeListing';
-import { RecipeCard } from '../index';
+import {RecipeCard} from '../../../RecipeCard';
 
 describe('<RecipeCard />', () => {
   let wrapper: ReactWrapper;

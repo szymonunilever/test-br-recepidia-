@@ -8,7 +8,7 @@ export interface ResultSectionProps
   extends UnileverLibraryComponent<AppContent.WizardResultsSection.Content>,
     WizardStepComponent {
   resultSize: number;
-  children?: ReactChild | ReactChildren | null;
+  children?: ReactChild | ReactChildren | null | boolean;
   isLoading?: boolean;
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

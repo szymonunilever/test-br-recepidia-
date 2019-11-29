@@ -42,3 +42,5 @@ export * from './VideoPlayer';
 export * from './WithLocation';
 export * from './Wizard';
 export * from './Reviews';
+export * from './RecipeCardLinkWrapper';
+export * from './RecipeCard';

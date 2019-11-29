@@ -1,4 +1,4 @@
-@import '../../../scss/config';
+@import '../../scss/config';
 
 .recipe-card {
   position: relative;
@@ -37,38 +37,15 @@
 
 :global {
   .recipe-card {
-    &__favorite {
+    &__favorite,
+    &__remove {
       position: absolute;
       z-index: 1;
       font-size: 3rem;
       right: 10px;
       top: 10px;
-      width: 50px;
-      height: 50px;
-      background: transparent;
-      border: none;
-      padding: 0;
-      svg {
-        stroke: $white;
-        fill-opacity: 0;
-        transition: stroke 0.2s ease-out;
-        height: 26px;
-        width: 100%;
-      }
-      @media (hover: hover),
-        (-ms-high-contrast: none),
-        (-ms-high-contrast: active) {
-        @include respondTo(medium) {
-          &:hover {
-            svg {
-              fill: $luminous-yellow;
-              stroke: $luminous-yellow;
-              fill-opacity: 1;
-            }
-          }
-        }
-      }
     }
+
     &__image {
       .adaptive-image__image {
         & > div {
@@ -93,13 +70,5 @@
         }
       }
     }
-  }
-}
-
-:global(.recipe-card__favorite.button__selected) {
-  svg {
-    fill: $luminous-yellow;
-    stroke: $luminous-yellow;
-    fill-opacity: 1;
   }
 }

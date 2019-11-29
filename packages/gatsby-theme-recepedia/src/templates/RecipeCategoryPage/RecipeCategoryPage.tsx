@@ -1,10 +1,11 @@
-import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import {
+  RecipeCard,
+  RecipeCardLinkWrapper,
   AdaptiveImage,
   Hero,
   LoadMoreType,
@@ -16,11 +17,15 @@ import {
   Text,
   RatingAndReviewsProvider,
   RichText,
-  PageListingViewTypes, Button,
+  PageListingViewTypes,
+  Button,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import cx from 'classnames';
-import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
+import {
+  favoriteButtonDefaults,
+  RecipeListingIcons as recipeListingIcons,
+} from '../../themeDefaultComponentProps';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -143,17 +148,29 @@ const RecipeCategoryPage = ({
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         >
-          {recipeResultsList ? recipeResultsList.map(recipe=>(
-            <RecipeCard
-              key={recipe.id}
-              {...recipe}
-              slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-              content={{title: recipe.title}}>
-              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-            </RecipeCard>
-          )): []}
+          {recipeResultsList
+            ? recipeResultsList.map(recipe => (
+                <RecipeCardLinkWrapper
+                  title={recipe.title}
+                  key={recipe.id}
+                  slug={recipe.fields.slug}
+                >
+                  <RecipeCard
+                    {...recipe}
+                    slug={recipe.fields.slug}
+                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                    content={{ title: recipe.title }}
+                  >
+                    <Button
+                      {...favoriteButtonDefaults}
+                      isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                      onClick={updateFavoriteState}
+                    />
+                  </RecipeCard>
+                </RecipeCardLinkWrapper>
+              ))
+            : []}
         </RecipeListing>
       </section>
       {/* {!!allArticle && allArticle.nodes.length > 0 && (

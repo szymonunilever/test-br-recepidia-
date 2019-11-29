@@ -948,7 +948,7 @@
                     "apply": { "label": "Aplicar filtros" }
                   }
                 },
-                "nullResult": {
+                "nullResultContent": {
                   "subtitle": "Minha chance de encontrar aumenta quando você:",
                   "textList": [
                     "Usa palavras curtas na pesquisa",
@@ -958,7 +958,7 @@
                   ]
                 }
               },
-              "nullResult": {
+              "nullResultContent": {
                 "subtitle": "Minha chance de encontrar aumenta quando você:",
                 "textList": [
                   "Usa palavras curtas na pesquisa",
@@ -2706,6 +2706,76 @@
                     "path": "/mapa-do-site"
                   }
                 ]
+              }
+            }
+          },
+          {
+            "name": "Confirmation",
+            "content": {
+              "view": "RemoveFromMPConfirmation",
+              "text": "We have selected the new recipe for You already. Do You want to make a choice by yourself?",
+              "yesButtonText": {
+                "label": "Yes"
+              },
+              "noButtonText": {
+                "label": "No"
+              }
+            }
+          },
+          {
+            "name": "SearchCustomRecipeModal",
+            "content": {
+              "title": "O que você esta buscando?",
+              "placeholderText": "No mínimo 3 caracteres"
+            }
+          },
+          {
+            "name": "SearchCustomRecipeResult",
+            "content": {
+              "onResult": {
+                "title": "Result",
+                "subheading": "Encontrei {numRes} resultados para: {searchInputValue}",
+                "ctas": [
+                  {
+                    "type": "next",
+                    "content": {
+                      "label": "Add it to my meal plan"
+                    }
+                  },
+                  {
+                    "type": "back",
+                    "content": {
+                      "label": "Search again"
+                    }
+                  }
+                ]
+              },
+              "noResult": {
+                "title": "No results",
+                "subheading": "Try again",
+                "ctas": [
+                  {
+                    "type": "back",
+                    "content": {
+                      "label": "Use relevant to meal planer"
+                    }
+                  },
+                  {
+                    "type": "next",
+                    "content": {
+                      "label": "Search again"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "view": "MPCustomSearchResult",
+              "cta": {
+                "label": "Ver mais receitas"
               }
             }
           }

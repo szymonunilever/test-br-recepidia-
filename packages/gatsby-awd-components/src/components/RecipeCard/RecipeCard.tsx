@@ -1,26 +1,24 @@
 import cx from 'classnames';
-import { Link } from 'gatsby';
-import React, { FunctionComponent, useEffect, useState } from 'react';
-import { RatingAndReviewsProvider } from '../../../models';
-import { getImageAlt } from '../../../utils';
-import getComponentDataAttrs from '../../../utils/getComponentDataAttrs';
-import AdaptiveImage from '../../AdaptiveImage';
-import { ButtonProps } from '../../Button';
-import Rating from '../../Rating';
-import { TagName, Text } from '../../Text';
-import { RecipeCardLinkProps, RecipeCardProps } from './models';
+import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { RatingAndReviewsProvider } from '../../models';
+import { getImageAlt } from '../../utils';
+import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import AdaptiveImage from '../AdaptiveImage';
+import { ButtonProps } from '../Button';
+import Rating from '../Rating';
+import { TagName, Text } from '../Text';
+import { RecipeCardProps } from './models';
 import theme from './RecipeCard.module.scss';
 
-const RecipeCard: FunctionComponent<RecipeCardProps> = ({
+export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
   recipeId,
   content,
   children,
-  localImage,
   slug,
+  localImage,
   className = '',
   ratingProvider,
   imageSizes,
-  isExternalLink = false,
 }) => {
    const itemTitle = content.title ? (
     <Text
@@ -29,7 +27,6 @@ const RecipeCard: FunctionComponent<RecipeCardProps> = ({
       className={cx(theme.recipeCard__title, 'recipe-card__title')}
     />
   ) : null;
-
   const modifiedChildren = children && React.Children.map(children, child =>{
     return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
     child,
@@ -44,7 +41,6 @@ const RecipeCard: FunctionComponent<RecipeCardProps> = ({
       }
     })
   });
-
   const wrapClasses = cx(theme.recipeCard, 'recipe-card', className);
   const RatingWidget =
     ratingProvider !== RatingAndReviewsProvider.none ? (
@@ -66,24 +62,10 @@ const RecipeCard: FunctionComponent<RecipeCardProps> = ({
       sizes={imageSizes}
     />
   );
-  const LinkComponent = isExternalLink ? 'a' : Link;
-  const linkProps: RecipeCardLinkProps = {
-    'aria-label' : content.title,
-    className : wrapClasses,
-  };
-  if (isExternalLink && slug) {
-    linkProps[ 'target' ] = '_blank';
-    linkProps[ 'href' ] = slug;
-    linkProps[ 'rel' ] = 'noopener noreferrer';
-  } else {
-    linkProps[ 'to' ] = slug;
-  }
-
   return (
     // @ts-ignore
-    <LinkComponent
+    <div className={wrapClasses}
       {...getComponentDataAttrs('recipeCard', content)}
-      {...linkProps}
     >
       <div className="recipe-card__buttons">
         {modifiedChildren}
@@ -93,7 +75,7 @@ const RecipeCard: FunctionComponent<RecipeCardProps> = ({
         {itemTitle}
         {RatingWidget}
       </div>
-    </LinkComponent>
+    </div>
   );
 };
 

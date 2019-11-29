@@ -1,12 +1,13 @@
 import { WindowLocation } from '@reach/router';
 import cx from 'classnames';
 import { graphql } from 'gatsby';
-import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import DigitalData from 'integrations/DigitalData';
 import Kritique from 'integrations/Kritique';
 import React, { useCallback, useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import {
+  RecipeCard,
+  RecipeCardLinkWrapper,
   Hero,
   PageListing,
   RecipeListing,
@@ -184,20 +185,26 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         >
           {latestAndGratestResult &&
             latestAndGratestResult.map(recipe => (
-              <RecipeCard
+              <RecipeCardLinkWrapper
                 key={recipe.id}
-                {...recipe}
                 slug={recipe.fields.slug}
-                ratingProvider={RatingAndReviewsProvider.kritique}
-                imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-                content={{ title: recipe.title }}
+                title={recipe.title}
               >
-                <Button
-                  {...favoriteButtonDefaults}
-                  isSelected={favorites.indexOf(recipe.recipeId) !== -1}
-                  onClick={updateFavoriteState}
-                />
-              </RecipeCard>
+                <RecipeCard
+                  key={recipe.id}
+                  {...recipe}
+                  slug={recipe.fields.slug}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                  content={{ title: recipe.title }}
+                >
+                  <Button
+                    {...favoriteButtonDefaults}
+                    isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                    onClick={updateFavoriteState}
+                  />
+                </RecipeCard>
+              </RecipeCardLinkWrapper>
             ))}
         </RecipeListing>
       </section>
@@ -232,20 +239,26 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         >
           {topRecipesResult &&
             topRecipesResult.map(recipe => (
-              <RecipeCard
+              <RecipeCardLinkWrapper
+                title={recipe.title}
                 key={recipe.id}
-                {...recipe}
                 slug={recipe.fields.slug}
-                ratingProvider={RatingAndReviewsProvider.kritique}
-                imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-                content={{ title: recipe.title }}
               >
-                <Button
-                  {...favoriteButtonDefaults}
-                  isSelected={favorites.indexOf(recipe.recipeId) !== -1}
-                  onClick={updateFavoriteState}
-                />
-              </RecipeCard>
+                <RecipeCard
+                  key={recipe.id}
+                  {...recipe}
+                  slug={recipe.fields.slug}
+                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                  content={{ title: recipe.title }}
+                >
+                  <Button
+                    {...favoriteButtonDefaults}
+                    isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                    onClick={updateFavoriteState}
+                  />
+                </RecipeCard>
+              </RecipeCardLinkWrapper>
             ))}
         </RecipeListing>
       </section>
