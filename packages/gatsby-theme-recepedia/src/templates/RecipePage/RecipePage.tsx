@@ -1,11 +1,11 @@
-import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import {
-  Button,
+  RecipeCard,
+  RecipeCardLinkWrapper,
   Hero,
   Rating,
   RecipeAttributes,
@@ -28,6 +28,7 @@ import {
   Tab,
   TagName,
   Tags,
+  Button,
   RatingAndReviewsProvider,
   Text,
 } from 'gatsby-awd-components/src';
@@ -35,7 +36,10 @@ import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg'
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { favoriteButtonDefaults, RecipeListingIcons as recipeListingIcons } from '../../themeDefaultComponentProps';
+import {
+  favoriteButtonDefaults,
+  RecipeListingIcons as recipeListingIcons,
+} from '../../themeDefaultComponentProps';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
@@ -115,7 +119,6 @@ const socialIcons: SocialIcons = {
   pinterest: PinterestIcon,
 };
 
-
 const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
   Boolean(recipe.description) && !isEmpty(tagIds);
 
@@ -158,10 +161,13 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             Icon={FavoriteIcon}
             isSelected={favorites.includes(recipe.recipeId)}
             onClick={() => {
-              updateFavoriteState(!favorites.includes(recipe.recipeId), recipe.recipeId);
+              updateFavoriteState(
+                !favorites.includes(recipe.recipeId),
+                recipe.recipeId
+              );
             }}
             isToggle={true}
-            className="action-button"
+            className="recipe-hero__favorite action-button"
             attributes={{ 'aria-label': 'favorite toggle' }}
           />
         </div>
@@ -389,17 +395,29 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
         >
-          {relatedRecipes ? relatedRecipes.map(recipe=>(
-            <RecipeCard
-              key={recipe.id}
-              {...recipe}
-              slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
-              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-              content={{title: recipe.title}}>
-              <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-            </RecipeCard>
-          )): []}
+          {relatedRecipes
+            ? relatedRecipes.map(recipe => (
+                <RecipeCardLinkWrapper
+                  title={recipe.title}
+                  key={recipe.id}
+                  slug={recipe.fields.slug}
+                >
+                  <RecipeCard
+                    {...recipe}
+                    slug={recipe.fields.slug}
+                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                    content={{ title: recipe.title }}
+                  >
+                    <Button
+                      {...favoriteButtonDefaults}
+                      isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                      onClick={updateFavoriteState}
+                    />
+                  </RecipeCard>
+                </RecipeCardLinkWrapper>
+              ))
+            : []}
         </RecipeListing>
       </section>
     </Layout>

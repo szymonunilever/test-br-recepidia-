@@ -2,8 +2,9 @@ import React, { ReactElement, useCallback } from 'react';
 import { RatingAndReviewsProvider } from '../../models';
 import reloadKritiqueWidget from '../../utils/useKritiqueReload';
 import Carousel from '../Carousel/Carousel';
+import { RecipeCardLinkWrapperProps } from '../RecipeCardLinkWrapper';
 import { RecipeListingCarouselProps } from './models';
-import { RecipeCardProps } from './partials/models';
+import {RecipeCardProps} from '../RecipeCard';
 
 const RecipeListingCarousel = ({
   titleLevel = 1,
@@ -15,11 +16,14 @@ const RecipeListingCarousel = ({
 }: RecipeListingCarouselProps) => {
   const getCurrentItem =  useCallback(
     (item: Internal.Recipe) => {
-        const actual =  Array.isArray(children) ? children.find(child => child.props.recipeId===item.recipeId): children as ReactElement<RecipeCardProps>;
-        return React.isValidElement<RecipeCardProps>(actual) ? React.cloneElement<RecipeCardProps>(
-          actual,
-          { imageSizes, ratingProvider }
-        ): actual;
+      // @ts-ignore
+      return Array.isArray(children) ? children.find(child => {
+        if (child.props.hasOwnProperty('recipeId')) {
+          return child.props.recipeId === item.recipeId;
+        } else {
+          return child.props.children.props.recipeId === item.recipeId;
+        }
+      }) : children as ReactElement<RecipeCardLinkWrapperProps> | ReactElement<RecipeCardProps>;
     },
     [
       titleLevel,

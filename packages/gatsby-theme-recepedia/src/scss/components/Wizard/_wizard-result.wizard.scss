@@ -1,0 +1,74 @@
+.wizard--results.wizard--quiz {
+  .recipe-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &__list {
+      flex: 1 1;
+      align-content: flex-start;
+    }
+    &__load-more {
+      @extend .button--medium;
+      flex-shrink: 0;
+      margin-bottom: 40px;
+    }
+  }
+  .recipe-card__image .adaptive-image__image > div,
+  .quiz__label-image .gatsby-image-wrapper > div {
+    padding-bottom: $recipe-card-height--mobile !important;
+    @include respondTo(medium) {
+      padding-bottom: $recipe-card-height--desktop !important;
+    }
+  }
+  form {
+    .wizard__title * {
+      @extend .subheading;
+      color: $black-blue;
+    }
+  }
+}
+.wizard-meal-planer--custom-search {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .wizard {
+    &__button {
+      @extend .button--medium;
+      &:first-child {
+        margin-left: 10px;
+        @include respondTo(medium) {
+          margin-left: 16px;
+        }
+      }
+      & + button {
+        @extend .button--secondary;
+      }
+    }
+  }
+  .recipe-card__buttons {
+    position: relative;
+    .custom-search_check {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      background-color: transparent;
+      border: 0;
+      height: $recipe-card-height--mobile;
+      border-radius: $radius;
+      @include respondTo(medium) {
+        height: $recipe-card-height--desktop;
+      }
+      svg {
+        display: none;
+      }
+      &.button__selected {
+        background-color: $item-overlay-color;
+        svg {
+          display: block;
+        }
+      }
+    }
+  }
+}

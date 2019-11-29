@@ -1,2 +1,2 @@
-export { default } from './Menu';
-export { default as FooterMenu } from './Menu';
+export { default, default as Menu } from './Menu';
+

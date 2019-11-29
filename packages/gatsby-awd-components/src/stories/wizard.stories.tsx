@@ -6,7 +6,7 @@ import {
   IntroductionPanel as WizardIntroductionPanel,
   Quiz as WizardQuiz,
   RecipeListing,
-  RecipeListingIcons,
+  FilterIcons,
   RecipeListViewType,
   ResultSection as WizardResultSection,
   SignUp as WizardSignUp,
@@ -24,9 +24,8 @@ import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
-const icons: RecipeListingIcons = {
+const icons: FilterIcons = {
   close: CloseSvg,
-  favorite: FavoriteIcon,
   filter: FilterIcon,
   open: OpenIcon,
   removeTag: RemoveTagIcon,

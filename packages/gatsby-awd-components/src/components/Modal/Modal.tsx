@@ -47,16 +47,16 @@ const Modal: FunctionComponent<ModalProps> = ({
           />
         </div>
       )}
-
       <div id="modal__description">{props.children}</div>
-      <Button
+      {closeBtn && (
+        <Button
         onClick={close}
         aria-label="Close"
         className={cx(theme.modal__btnClose, 'modal__btn-close')}
-        viewType={ButtonViewType.icon}
-      >
+        viewType={ButtonViewType.icon}>
         {closeBtn}
       </Button>
+      )}
     </ReactModal>
   );
 };

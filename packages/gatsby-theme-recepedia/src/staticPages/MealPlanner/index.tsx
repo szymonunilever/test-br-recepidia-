@@ -1,58 +1,40 @@
-import { RecipeCard } from 'gatsby-awd-components/src/components/RecipeListing/partials';
-import React, { useCallback, useState } from 'react';
-
-import SEO from '../../components/Seo';
+import { navigate } from 'gatsby';
 import {
   IntroductionPanel as WizardIntroductionPanel,
   Logo,
   Quiz as WizardQuiz,
-  RecipeListing,
-  RecipeListViewType,
   reloadKritiqueWidget as useKritiqueReload,
-  ResultSection as WizardResultSection,
   Wizard,
-  RatingAndReviewsProvider,
-  Button,
+  Menu,
 } from 'gatsby-awd-components/src';
-import { favoriteButtonDefaults, RecipeListingIcons as icons } from '../../themeDefaultComponentProps';
+
+import DigitalData from 'integrations/DigitalData';
+import Kritique from 'integrations/Kritique';
+import React, { useCallback, useState } from 'react';
+import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
+import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
+import DataCapturingForm from '../../components/DataCapturingForm';
+
+import SEO from '../../components/Seo';
+// Component Styles
+import '../../scss/pages/_mealPlanner.scss';
+import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
+import { findPageComponentContent } from '../../utils';
 
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
-  updateFavorites,
 } from '../../utils/browserStorage';
 import { ProfileKey } from '../../utils/browserStorage/models';
-import { navigate } from 'gatsby';
-import { findPageComponentContent } from '../../utils';
-import { WindowLocation } from '@reach/router';
-import DigitalData from 'integrations/DigitalData';
-import theme from './mealPlanner.module.scss';
-import Kritique from 'integrations/Kritique';
-import generateQuery from '../../utils/queryGenerator';
-import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import getPersonalizationSearchData, {
   FROM,
 } from '../../utils/getPersonalizationSearchData';
-import useFavorite from 'src/utils/useFavorite';
-import Menu from 'gatsby-awd-components/src/components/GlobalFooter/partials/Menu';
-// Component Styles
-import '../../scss/pages/_mealPlanner.scss';
-import DataCapturingForm from '../../components/DataCapturingForm';
-import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
-import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
-import {
-  ReactComponent as ArrowIcon,
-  ReactComponent as OpenIcon,
-} from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
-import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
-import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
-import {
-  ReactComponent as RemoveTagIcon,
-  ReactComponent as CloseSvg,
-} from 'src/svgs/inline/x-mark.svg';
+import generateQuery from '../../utils/queryGenerator';
+import theme from './mealPlanner.module.scss';
+import MealPlannerResults from 'src/components/MealPannerResults';
 
-const RESULT_SIZE = 7;
+const MAX_PER_MP = 7;
+const RESULT_SIZE = MAX_PER_MP * 2;
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const {
@@ -63,13 +45,24 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const wizardResultSection = componentContent.wizardResultSection;
-  const { updateFavoriteState, favorites } = useFavorite(
-    () => getUserProfileByKey(ProfileKey.favorites) as number[],
-    updateFavorites
-  );
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const processSearchData = (quizData: any, i: number = 0) => {
+
+  const [lastSearchProps, setLastSearchProps] = useState<{
+    i: number;
+    fromChanged: number;
+    total: number;
+  }>({ i: 0, fromChanged: FROM, total: 0 });
+
+  const processSearchData = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    quizData: any,
+    i: number = 0,
+    fromChanged = FROM
+  ) => {
+    setLastSearchProps({
+      ...lastSearchProps,
+      i,
+    });
+
     setIsLoading(true);
     const maxTry = MealPlannerPersonalizationFormula.template.length;
     const queryString = generateQuery(
@@ -81,18 +74,23 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     saveUserProfileByKey(quizData.data, ProfileKey.mealPlannerAnswers);
 
     getPersonalizationSearchData(queryString, {
-      from: FROM,
+      from: fromChanged,
       size: RESULT_SIZE,
       sort: [{ creationTime: { order: 'desc' } }],
     }).then(data => {
-      setIsLoading(false);
       const result = data.body.hits.hits.map(hit => hit._source);
+      setIsLoading(false);
       i++;
       if (data.body.hits.total.value === 0 && i < maxTry) {
         processSearchData(quizData, i);
       } else {
         if (result && result.length) {
-          setRecipes(result);
+          setRecipes(fromChanged === FROM ? result : [...recipes, ...result]);
+          setLastSearchProps({
+            ...lastSearchProps,
+            fromChanged: fromChanged + result.length,
+            total: data.body.hits.total.value,
+          });
           useKritiqueReload();
           saveUserProfileByKey(
             result.map(item => item.recipeId),
@@ -102,7 +100,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       }
     });
   };
-
   const stepResultsCallback = useCallback(quizData => {
     if (
       Object.keys(quizData.data).length ===
@@ -111,19 +108,42 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       processSearchData(quizData);
     }
   }, []);
-
   const wizardCallback = useCallback(() => {
     navigate('/perfil?tabOpen=MealPlanner');
   }, []);
-
   const pageUpdate = useCallback(() => {
     window.location.reload();
   }, []);
-
   const [formUrl, formType] = [
     process.env['mealPlanerDataCapturing_url'] as string,
     process.env['mealPlanerDataCapturing_formType'] as string,
   ];
+  const refreshResults = useCallback(
+    (results: Internal.Recipe[], needFetchNewData = false) => {
+      if (needFetchNewData) {
+        if (lastSearchProps.total > lastSearchProps.fromChanged) {
+          processSearchData(
+            { data: getUserProfileByKey(ProfileKey.mealPlannerAnswers) },
+            lastSearchProps.i,
+            lastSearchProps.fromChanged
+          );
+        } else {
+          setRecipes(results);
+          saveUserProfileByKey(
+            results.map(item => item.recipeId),
+            ProfileKey.mealPlannerResults
+          );
+        }
+      } else {
+        setRecipes(results);
+        saveUserProfileByKey(
+          results.map(item => item.recipeId),
+          ProfileKey.mealPlannerResults
+        );
+      }
+    },
+    []
+  );
 
   return (
     <div className={theme.mealPlanner}>
@@ -157,63 +177,20 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
               containerClass="wizard--form"
             />
           )}
-
-          <WizardResultSection
-            {...wizardResultSection}
-            containerClass="wizard--result"
+          {/*
+           // @ts-ignore */}
+          <MealPlannerResults
+            {...{ components }}
             stepId="result"
+            containerClass="wizard--results wizard--quiz"
+            resultsDefault={recipes}
+            maxResults={MAX_PER_MP}
+            refreshResults={refreshResults}
+            callback={pageUpdate}
             isLoading={isLoading}
-            resultSize={recipes.length}
-            callbacks={{
-              back: pageUpdate,
-            }}
-          >
-            {!isLoading ? (
-              <div>
-                {recipes.length > 0 && (
-                  <RecipeListing
-                    icons={icons}
-                    content={findPageComponentContent(components, 'Wizard')}
-                    list={recipes}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
-                    viewType={RecipeListViewType.Carousel}
-                    className="recipe-list--wizard recipe-list--carousel"
-                    carouselConfig={{
-                      breakpoints: [
-                        {
-                          width: 1366,
-                          switchElementsBelowBreakpoint: 1,
-                          switchElementsAfterBreakpoint: 1,
-                          visibleElementsBelowBreakpoint: 2,
-                          visibleElementsAboveBreakpoint: 4,
-                        },
-                      ],
-                      arrowIcon: <ArrowIcon />,
-                    }}
-                    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
-                    isExternalItemLink={true}
-                  >
-                    {recipes ? recipes.map(recipe=>(
-                      <RecipeCard
-                        key={recipe.id}
-                        {...recipe}
-                        slug={recipe.fields.slug}
-                        ratingProvider={RatingAndReviewsProvider.kritique}
-                        imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-                        content={{title: recipe.title}}>
-                        <Button {...favoriteButtonDefaults} isSelected={favorites.indexOf(recipe.recipeId)!== -1} onClick={updateFavoriteState}/>
-                      </RecipeCard>
-                    )): []}
-                  </RecipeListing>
-                )}
-              </div>
-            ) : (
-              <div className={theme.spinner}>
-                <Spinner />
-              </div>
-            )}
-          </WizardResultSection>
+          />
         </Wizard>
+
         <div className="wizard__privacy">
           <Menu list={linksContent.list} />
         </div>
@@ -226,6 +203,7 @@ interface MealPlannerProps {
   pageContext: {
     page: AppContent.Page;
   };
+  // @ts-ignore
   location: WindowLocation;
 }
 

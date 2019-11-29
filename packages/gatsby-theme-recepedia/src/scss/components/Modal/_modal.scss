@@ -232,6 +232,41 @@
     }
   }
 }
+.confirmation__dialog {
+  .modal {
+    &__overlay {
+      @extend %modal__overlay--flex;
+      padding-left: 24px;
+      padding-right: 24px;
+      align-items: center;
+    }
+    &__content {
+      @extend %modal__content--flex;
+      padding: 22px 28px 34px;
+      @include respondTo(medium) {
+        width: 536px;
+        padding: 61px 92px 66px;
+      }
+    }
+  }
+  h2 {
+    color: $fish-blue-darker;
+    line-height: 1.33;
+    @include respondTo(medium) {
+      line-height: 1.2;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    button + button {
+      margin-left: 10px;
+      @include respondTo(medium) {
+        margin-left: 16px;
+      }
+    }
+  }
+}
 
 .contact-form--result {
   @extend .social-sharing__dialog;
