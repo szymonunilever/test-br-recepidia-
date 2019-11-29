@@ -3,5 +3,6 @@ export enum ProfileKey {
   favorites = 'favorites',
   mealPlannerAnswers = 'mealPlannerAnswers',
   mealPlannerResults = 'mealPlannerResults',
+  mealPlannerName = 'mealPlannerName',
   user = 'user',
 }

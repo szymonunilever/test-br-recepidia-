@@ -66,6 +66,13 @@
     }
   }
 }
+:global {
+  .meal-planner_rename-dialog {
+    h2 {
+      width: calc(100% - 40px);
+    }
+  }
+}
 .spinner {
   position: absolute;
   top: 50%;

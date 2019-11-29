@@ -1,3 +1,4 @@
+import { WindowLocation } from '@reach/router';
 import { navigate } from 'gatsby';
 import {
   IntroductionPanel as WizardIntroductionPanel,
@@ -20,7 +21,7 @@ import SEO from '../../components/Seo';
 import '../../scss/pages/_mealPlanner.scss';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import { findPageComponentContent } from '../../utils';
-
+import { MealPlannerRenameDialog } from '../../components/MealPlannerRenameDialog/MealPlannerRenameDialog';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -41,11 +42,18 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     page: { seo, components, type },
   } = pageContext;
   const componentContent = findPageComponentContent(components, 'Wizard');
+  const renameDialogContent: AppContent.GeneratedForm.Content = findPageComponentContent(
+    components,
+    'GeneratedForm',
+    'MealPlanerRename'
+  );
   const { dataCapturing } = componentContent;
+  const wizardResultSection = componentContent.wizardResultSection;
   const linksContent = findPageComponentContent(components, 'Links');
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [renameDialogShow, setRenameDialogShow] = useState(false);
+  const [mpResultContent, setMpResultContent] = useState(wizardResultSection);
   const [lastSearchProps, setLastSearchProps] = useState<{
     i: number;
     fromChanged: number;
@@ -100,6 +108,25 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       }
     });
   };
+
+  const dataCapturingDone = useCallback(() => {
+    setRenameDialogShow(true);
+  }, [recipes]);
+
+  const renameMealPlanner = useCallback(
+    (val?: string) => {
+      if (renameDialogShow) {
+        const name = val || wizardResultSection.content.onResult.title;
+        saveUserProfileByKey(name, ProfileKey.mealPlannerName);
+        let newMPContent = { ...wizardResultSection };
+        newMPContent.content.onResult.title = name;
+        setMpResultContent(newMPContent);
+      }
+      setRenameDialogShow(false);
+    },
+    [renameDialogShow]
+  );
+
   const stepResultsCallback = useCallback(quizData => {
     if (
       Object.keys(quizData.data).length ===
@@ -172,6 +199,8 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             <DataCapturingForm
               {...dataCapturing}
               url={formUrl}
+              stepResultsCallback={dataCapturingDone}
+              stepId="mealPlannerDataCapturing"
               formType={formType}
               pathToData={ProfileKey.mealPlannerAnswers}
               containerClass="wizard--form"
@@ -180,7 +209,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           {/*
            // @ts-ignore */}
           <MealPlannerResults
-            {...{ components }}
+            {...{
+              components: {
+                ...components,
+                wizardResultSection: mpResultContent,
+              },
+            }}
             stepId="result"
             containerClass="wizard--results wizard--quiz"
             resultsDefault={recipes}
@@ -191,6 +225,12 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           />
         </Wizard>
 
+        <MealPlannerRenameDialog
+          className="confirmation__dialog meal-planner_rename-dialog"
+          callback={renameMealPlanner}
+          content={renameDialogContent}
+          isOpen={renameDialogShow}
+        />
         <div className="wizard__privacy">
           <Menu list={linksContent.list} />
         </div>
