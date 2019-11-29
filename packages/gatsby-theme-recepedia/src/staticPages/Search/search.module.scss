@@ -9,9 +9,9 @@
 
     .tabs {
       &__buttons {
-        display: none; // @todo remove this string when articles are there
         background-color: transparent;
         justify-content: flex-start;
+        margin: 40px 0 50px;
         height: auto;
         button {
           width: auto;
@@ -50,7 +50,7 @@
     }
 
     .search-listing__null-results {
-      margin-bottom: 50px;
+      margin: 40px 0 50px;
     }
     .search-listing__results-header {
       font-size: 2.4rem;
@@ -73,14 +73,13 @@
       content: '';
       display: block;
       position: absolute;
-      top: 80px;
       bottom: -20px;
       left: 0;
       width: 100%;
       background-color: $white-gray;
       border-radius: 24px;
       @include respondTo(desktop) {
-        top: -30px;
+        top: -20px;
         bottom: -40px;
         border-radius: 0;
       }

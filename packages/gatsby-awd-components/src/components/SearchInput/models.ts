@@ -1,5 +1,5 @@
-import { getSearchData } from '../SearchListing/models';
-import { UnileverLibraryComponent } from '../../models/globalModels';
+import { getSearchData } from '../SearchListing';
+import { UnileverLibraryComponent } from '../../models';
 
 export interface SearchInputProps
   extends UnileverLibraryComponent<AppContent.SearchInput.Content> {

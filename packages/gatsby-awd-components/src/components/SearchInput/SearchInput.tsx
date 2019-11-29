@@ -1,5 +1,6 @@
 import React, { useState, KeyboardEvent, useEffect, useCallback } from 'react';
 import SearchResults from './partials/SearchResults';
+import { navigate } from 'gatsby';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
 import trim from 'lodash/trim';
@@ -112,6 +113,7 @@ const SearchInput = ({
   const submitHandler = useCallback(() => {
     setData([]);
     setInputIsDirty(false);
+    navigate(`${window.location.pathname.split('?')[0]}?searchQuery=${inputValue}`);
 
     if (
       trim(inputValue).length >= minLength &&

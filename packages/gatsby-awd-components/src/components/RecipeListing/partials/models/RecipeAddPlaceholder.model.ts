@@ -1,5 +1,4 @@
-import { Icon, RatingAndReviewsProvider } from '../../../../models';
-import { RecipeCardProps } from '../../../RecipeCard/models';
+import { Icon }  from '../../../../models';
 
 export interface RecipeAddPlaceholderProps {
   onClick (): void;

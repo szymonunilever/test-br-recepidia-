@@ -1,6 +1,7 @@
 import { ButtonProps } from '../Button';
 import { SearchInputProps } from '../SearchInput';
-import { RecipeListingProps, FilterIcons, onRecipeListingViewChanged, RecipeFilterOptions } from '../RecipeListing';
+import { RecipeListingProps, onRecipeListingViewChanged } from '../RecipeListing';
+import { FilterIcons, FilterOptions } from '../Filter';
 
 export declare interface SearchListingProps {
   content: SearchListingContent;
@@ -36,6 +37,7 @@ export declare interface SearchListingConfig {
 
 interface ArticleConfig {
   getArticleSearchData?: getSearchData;
+  onArticleViewChange: onRecipeListingViewChanged;
 }
 
 interface SearchInputConfig {
@@ -60,7 +62,8 @@ interface RecipeConfig {
   imageSizes: RecipeListingProps['imageSizes'];
   ratingProvider?: RecipeListingProps['ratingProvider'];
   onViewChange?: onRecipeListingViewChanged;
-  tags: RecipeFilterOptions,
+  tags?: FilterOptions,
+  showFilters: boolean,
 }
 
 export declare interface SearchListingContent {
@@ -75,7 +78,8 @@ export declare interface SearchListingContent {
 export type triggerGetSearchData = (size: number) => void;
 export type getSearchData = (
   searchQuery: string,
-  params: SearchParams
+  params: SearchParams,
+  filter?: string
 ) => Promise<void>;
 
 export interface SearchParams {

@@ -4,6 +4,16 @@
 .search-listing {
   :global {
     .search {
+      &-filter {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .tags {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
       &-input {
         position: relative;
         z-index: 2;

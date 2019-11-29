@@ -1,29 +1,31 @@
-import cx from 'classnames';
 import React, { FunctionComponent, memo, ReactElement, useEffect, useRef, useState } from 'react';
-import { Button } from '../Button';
+import {
+  Button,
+  Text,
+  Filter,
+  TagName,
+  RecipeCardProps,
+  SortingOptions,
+  RecipeSortingOptionsFieldsMappings,
+} from '../';
 import { RecipeCardLinkWrapperProps } from '../RecipeCardLinkWrapper';
-import { TagName, Text } from '../Text';
 import { LoadMoreType, RecipeListingProps, RecipeListViewType } from './models';
 import {
   RecipeAddPlaceholderProps,
-  RecipeFilter,
-  RecipeListingTrivial, RecipeListingTrivialProps,
-  RecipeSortingOptions,
-  RecipeSortingOptionsFieldsMappings,
+  RecipeListingTrivialProps,
+  RecipeListingTrivial,
 } from './partials';
-import {RecipeCardProps} from '../RecipeCard';
+import cx from 'classnames';
 import theme from './RecipeListing.module.scss';
 import RecipeListingCarousel from './RecipeListingCarousel';
 import {
   applyContentDefaults,
   applyFilters,
-  applyingFavorites,
   sortBy,
-} from './utils';
+} from '../Filter/utils';
 import get from 'lodash/get';
 import { RatingAndReviewsProvider } from '../../models';
-import reloadKritiqueWidget from '../../utils/useKritiqueReload';
-import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import { reloadKritiqueWidget, getComponentDataAttrs } from '../../utils';
 
 export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   className,
@@ -32,7 +34,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   initialCount = 4,
   onViewChange,
   titleLevel,
-  filterTitle,
+  preFilteringValue = [],
   loadMoreConfig = { type : LoadMoreType.sync },
   tags = { tagGroups : [] },
   carouselConfig = {
@@ -47,10 +49,10 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
     ],
   },
   isExternalItemLink = false,
-  icons,
   ratingProvider,
   list,
   children,
+  hideFilter = false,
   ...props
 }) => {
 
@@ -65,21 +67,19 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
     // @ts-ignore
     cards.push(children);
   }
-useEffect(()=>{
-  cards = [];
-  holders = [];
-  if(Array.isArray(children)){
-    children.forEach(child=>{
+  useEffect(()=>{
+    cards = [];
+    holders = [];
+    if(Array.isArray(children)){
+      children.forEach(child=>{
+        // @ts-ignore
+        child && child.props.hasOwnProperty('slug')? cards.push(child) : holders.push(child);
+      })
+    }else{
       // @ts-ignore
-      child && child.props.hasOwnProperty('slug')? cards.push(child) : holders.push(child);
-    })
-  }else{
-    // @ts-ignore
-    cards.push(children);
-  }
-}, [children]);
-
-
+      cards.push(children);
+    }
+  }, [children]);
 
   let loadButtonRef = React.createRef();
   const getActualChildren = (list:Internal.Recipe[], children:RecipeListingTrivialProps['children']): ReactElement<RecipeCardProps>[]|ReactElement<RecipeCardLinkWrapperProps>[] =>{
@@ -111,17 +111,17 @@ useEffect(()=>{
   const wrapClasses = cx(theme.recipeList, 'recipe-list', className);
   let listModified =
     viewType === RecipeListViewType.Advanced
-      ? sortBy(RecipeSortingOptions.newest, list)
+      ? sortBy(SortingOptions.newest, list)
       : list;
   const getSlicedList = (recList = listModified): Internal.Recipe[] => {
     return !isAsyncLoadMore() ? recList.slice(0, displayNumber) : recList;
   };
 
   const [ displayNumber, setDisplayNumber ] = useState(initialCount);
-  const [ sortingValue, setSortingValue ] = useState<RecipeSortingOptions>(
-    RecipeSortingOptions.newest,
+  const [ sortingValue, setSortingValue ] = useState<SortingOptions>(
+    SortingOptions.newest,
   );
-  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([]);
+  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([...preFilteringValue]);
   const [ actualChildren, setActualChildren ] = useState<ReactElement<RecipeCardProps>[] | ReactElement<RecipeCardLinkWrapperProps>[]>(
     getActualChildren(getSlicedList(), cards),
   );
@@ -135,6 +135,10 @@ useEffect(()=>{
   useEffect(() => {
     setActualChildren(getActualChildren(getSlicedList(list), cards));
   }, [ list, displayNumber, children ]);
+
+  useEffect(() => {
+    setFilteringValue(preFilteringValue)
+  }, [preFilteringValue]);
 
   const didMountRef = useRef(false);
   useEffect(() => {
@@ -168,7 +172,7 @@ useEffect(()=>{
     }
   };
 
-  const onChangeSorting = (sorting: RecipeSortingOptions) => {
+  const onChangeSorting = (sorting: SortingOptions) => {
     if (isAsyncLoadMore()) {
       if (onViewChange) {
         onViewChange(
@@ -263,13 +267,12 @@ useEffect(()=>{
         {cards}
       </RecipeListingCarousel>
     ) : (
-      <>
-        <RecipeFilter
+      <>{!hideFilter ? (
+        <Filter
           className={cx(theme.recipeList__filter, 'recipe-list__filter')}
           allFilters={tags}
-          icons={icons}
-          filterTitle={filterTitle}
           onChangeFilter={onFilterChange}
+          // @ts-ignore
           onChangeSorting={onChangeSorting}
           results={
             (loadMoreConfig && loadMoreConfig.allCount) || actualChildren.length
@@ -277,6 +280,7 @@ useEffect(()=>{
           sortSelectPlaceholder={sortSelectPlaceholder}
           {...props}
         />
+      ) : null}
         <>{recipeListBasic}</>
       </>
     );
