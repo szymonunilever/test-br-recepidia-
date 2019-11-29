@@ -4,9 +4,9 @@ import { Link } from 'gatsby';
 import theme from './Menu.module.scss';
 import cx from 'classnames';
 
-const Menu = ({ list }: MenuProps) => {
+const Menu = ({ list, className }: MenuProps) => {
   return (
-    <div className={cx(theme.footerMenu, 'footer-menu')}>
+    <div className={cx(theme.footerMenu, className, 'footer-menu')}>
       {list.title && (
         <label className={cx(theme.footerMenu__label, 'footer-menu__label')}>
           {list.title}

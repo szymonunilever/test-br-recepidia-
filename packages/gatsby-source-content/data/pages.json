@@ -2827,6 +2827,63 @@
           }
         ]
       }
+    },
+    {
+      "type": "FAQ",
+      "title": "Frequently asked questions about Recepedia",
+      "relativePath": "/faq",
+      "components": {
+        "items": [
+          {
+            "name": "Text",
+            "content": {
+              "view": "Title",
+              "text": "Frequently asked questions about Recepedia"
+            }
+          },
+          {
+            "name": "FAQs",
+            "content": {
+              "questions": [
+                {
+                  "question": {
+                    "label": "Question 1"
+                  },
+                  "answer": {
+                    "text": "<div>Text 1 with <a rel='noopener noreferrer' href='/'>link</a></div>"
+                  }
+                },
+                {
+                  "question": {
+                    "label": "Question 2"
+                  },
+                  "answer": {
+                    "text": "<div>Text 2 with <a rel='noopener noreferrer' href='/'>link</a></div>"
+                  }
+                },
+                {
+                  "question": {
+                    "label": "Long question Long question Long question Long question Long question Long question Long question Long question Long question Long question Long question"
+                  },
+                  "answer": {
+                    "text": "<p>Text 3 with <a rel='noopener noreferrer' href='/'>link</a></p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio. Eget sit amet tellus cras adipiscing enim. Nibh tortor id aliquet lectus proin nibh nisl. Tellus mauris a diam maecenas sed. Sit amet cursus sit amet. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Accumsan in nisl nisi scelerisque. Non tellus orci ac auctor augue. Cras tincidunt lobortis feugiat vivamus at augue eget. Nulla pellentesque dignissim enim sit amet venenatis urna.</p>"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Frequently asked questions about Recepedia",
+        "description": "Frequently asked questions page description",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
     }
   ]
 }

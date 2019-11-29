@@ -33,20 +33,6 @@
         @include respondTo(desktop) {
           margin: 20px 0;
         }
-
-        &:nth-child(odd) {
-          width: 60%;
-          @include respondTo(desktop) {
-            width: auto;
-          }
-        }
-
-        &:nth-child(even) {
-          width: 40%;
-          @include respondTo(desktop) {
-            width: auto;
-          }
-        }
       }
 
       &__link {
@@ -65,6 +51,21 @@
           padding: 15px 150px;
         }
 
+        .footer-menu__item {
+          &:nth-child(odd) {
+            width: 60%;
+            @include respondTo(desktop) {
+              width: auto;
+            }
+          }
+
+          &:nth-child(even) {
+            width: 40%;
+            @include respondTo(desktop) {
+              width: auto;
+            }
+          }
+        }
         .footer-menu__list {
           justify-content: space-between;
         }
@@ -81,24 +82,10 @@
       }
 
       &:nth-child(2) {
-        .footer-menu__list {
-          justify-content: space-between;
-        }
-
         .footer-menu__item {
           @include respondTo(desktop) {
-            &:nth-child(-n + 3) {
-              width: calc(99.9% / 3);
-
-              .footer-menu__link {
-                font-size: 1.8rem;
-              }
-            }
-            &:first-child {
-              text-align: right;
-            }
-            &:nth-child(2) {
-              text-align: center;
+            .footer-menu__link {
+              font-size: 1.8rem;
             }
           }
         }

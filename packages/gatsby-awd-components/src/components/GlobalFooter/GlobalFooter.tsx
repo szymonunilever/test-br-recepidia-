@@ -20,7 +20,7 @@ const GlobalFooter = ({
       {...getComponentDataAttrs('global-footer', content)}
     >
       {lists.map((list, index) => (
-        <Menu list={list} key={index} />
+        <Menu list={list} key={index} className={'footer-menu-' + index} />
       ))}
       {children}
       <a

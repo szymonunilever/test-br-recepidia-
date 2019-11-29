@@ -1,0 +1,95 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.faq {
+  padding: 0 $layout-indent-sm 167px;
+  @include respondTo(desktop) {
+    padding: 0 $layout-indent 145px;
+  }
+  &__title {
+    margin-bottom: 28px;
+  }
+  &__list {
+    margin: 0;
+    padding: 0 45px 0 0;
+    list-style-type: none;
+    @include respondTo(desktop) {
+      padding: 0 185px 0 0;
+    }
+    &-item {
+      overflow: hidden;
+      & + .faq__list-item {
+        border-top: 1px solid $black-blue;
+      }
+      &:first-child {
+        border-radius: 5px 5px 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 5px 5px;
+      }
+    }
+  }
+  &__question {
+    :global {
+      .accordion__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $white-gray;
+        min-height: 40px;
+        font: bold 1.2rem/1.33 $arial;
+        padding: 5px 5px 5px 15px;
+        @include respondTo(desktop) {
+          min-height: 60px;
+          padding: 8px 10px 8px 27px;
+          font-size: 1.4rem;
+          line-height: 1.29;
+        }
+        svg {
+          transition: all 0.3s;
+          will-change: transform;
+          display: inline-block;
+          flex-shrink: 0;
+          margin: 10px;
+        }
+      }
+      .accordion__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s linear;
+        will-change: max-height;
+        background-color: $white-gray;
+        & * {
+          font: normal 1.2rem/1.33 $arial;
+          @include respondTo(desktop) {
+            font: normal 1.4rem/1.29 $arial;
+          }
+        }
+      }
+    }
+    &:global(.is-opened) {
+      :global {
+        .accordion__title {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        .accordion__body {
+          max-height: 400px;
+          a {
+            @extend %link--inline;
+            &[target='_blank'] {
+              @extend %link--external;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__answer {
+    padding: 20px 15px;
+    @include respondTo(desktop) {
+      padding: 20px 20px 20px 27px;
+    }
+  }
+}
