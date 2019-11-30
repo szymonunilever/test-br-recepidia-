@@ -12,7 +12,6 @@ const customRedirects = {
   '/receita/187204-panqueca-de-carne-moida-pratica-com-molho-de-tomate':
     '/receita/',
   '/search/bolinho de chuva': '/procurar/?searchQuery=bolinho%20de%20chuva',
-  '/receita/186634-feijoada-completa-tradicional-deliciosa': '/receita/',
   '/search/bolo de chocolate': '/procurar?searchQuery=bolo%20de%20chocolate',
   '/receita/187033-salada-de-batata-pratica-e-deliciosa-com-ovo-e-maionese':
     '/receita/',
@@ -26,8 +25,6 @@ const customRedirects = {
     '/receita/panquecas-e-waffles/177590-panqueca-de-carne/',
   '/search/arroz': '/procurar?searchQuery=arroz',
   '/search/salada': '/procurar?searchQuery=salada',
-  '/receita/186900-torta-de-frango-facil-e-cremosa-de-liquidificador-com-ervilha-e-milho':
-    '/receita/',
   '/search/Sanduiche': '/procurar?searchQuery=Sanduiche',
   '/pudim-de-leite-condensado/receitas/195555': '/receita/',
   '/bolo-de-cenoura-com-cobertura-de-chantilate/receitas/197624':
@@ -109,6 +106,24 @@ const customRedirects = {
   '/receita/197714-bolo-formigueiro-facil-e-rapido': '/receita/',
   '/receita/197717-bolo-de-leite-simples': '/receita/',
   '/receita/186695-iscas-de-figado-refogadas-com-pimentao': '/receita/',
+  '/receita/186900-torta-de-frango-facil-e-cremosa-de-liquidificador-com-ervilha-e-milho':
+    '/receita/torta/54507-torta-de-frango-facil-e-cremosa-de-liquidificador-com-ervilha-e-milho/',
+  '/receita/196445-macarrao-presunto-e-queijo':
+    '/receita/macarrao/54530-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate/',
+  '/receita/192219-bolo-de-fuba-de-liquidificador':
+    '/receita/bolo/94621-bolo-de-fuba-cremoso/',
+  '/receita/195555-pudim-de-leite-condensado':
+    '/receita/pudins/101178-pudim-de-leite/',
+  '/receita/197696-bolo-de-banana-de-liquidificador-pratico-e-caseiro':
+    '/receita/sobremesa/67407-bolo-de-banana-de-liquidificador-pratico-e-caseiro/',
+  '/receita/186823-receita-simples-de-molho-branco-com-maizena-e-noz-moscada':
+    '/receita/molho/54170-receita-simples-de-molho-branco-com-maizena-e-noz-moscada/',
+  '/receita/186900-torta-de-frango-de-liquidificador':
+    '/receita/torta/149049-torta-de-frango-de-liquidificador/',
+  '/receita/189638-como-montar-hamburguer':
+    '/receita/hamburguer/111033-hamburguer-com-maionese-verde/',
+  '/receita/186634-feijoada-completa-tradicional-deliciosa':
+    '/receita/carne/54349-feijoada-completa-tradicional-deliciosa/',
 };
 
 module.exports = async ({
@@ -144,7 +159,7 @@ module.exports = async ({
   const oldUrls = urls.map(url => url.replace(oldDomain, ''));
   let unmappedOldUrls = [...oldUrls];
   let unmappedUrls = [...newUrls];
-  const redirects = [];
+  let redirects = [];
   for (let url of oldUrls) {
     const equal = newUrls.find(
       newUrl => newUrl === url || newUrl === `${url}/`
@@ -218,12 +233,17 @@ module.exports = async ({
     }
   }
 
-  Object.keys(customRedirects).forEach(fromUrl =>
+  Object.keys(customRedirects).forEach(fromUrl => {
+    const existingRedirect = redirects.find(row => row.fromUrl === fromUrl);
+
+    existingRedirect &&
+      redirects.splice(redirects.indexOf(existingRedirect), 1);
+
     redirects.push({
       from: fromUrl,
       to: customRedirects[fromUrl],
-    })
-  );
+    });
+  });
   // For debug purposes only
   fs.writeFileSync('unmappedNewUrls.txt', unmappedUrls.join('\n'));
   fs.writeFileSync('oldUrlsMappedToRoot.txt', unmappedOldUrls.join('\n'));
