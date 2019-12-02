@@ -22,6 +22,16 @@
       height: $page-listing-image-height--mobile;
       @include respondTo(desktop) {
         height: $page-listing-image-height--desktop;
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          img {
+            max-height: 100%;
+          }
+        }
+        @supports (-ms-ime-align: auto) {
+          img {
+            max-height: 100%;
+          }
+        }
       }
     }
   }

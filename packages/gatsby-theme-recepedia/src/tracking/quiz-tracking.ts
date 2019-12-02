@@ -10,16 +10,33 @@ interface TrackingProps {
   answer?: string;
 }
 
+interface EventInfo {
+  type: string;
+  eventAction?: string;
+  eventLabel?: string;
+  eventValue?: number;
+}
+
 export const trackQuiz = ({
   label,
   result = '',
   question,
   answer,
 }: TrackingProps) => {
+  let eventInfo: EventInfo = {
+    type: ctConstants.diagtooleve,
+  };
+
+  if (result === `Complete`) {
+    eventInfo = {
+      type: ctConstants.trackEvent,
+      eventAction: ctConstants.DiagnosticToolResults,
+      eventLabel: 'DIAGNOSTIC TOOL NAME-EVENT LABEL',
+      eventValue: 1,
+    };
+  }
   const event = {
-    eventInfo: {
-      type: ctConstants.diagtooleve,
-    },
+    eventInfo,
     category: {
       primaryCategory: ctConstants.engagement,
     },

@@ -132,12 +132,12 @@ const SearchInput = ({
     if (e.key === 'Enter') {
       e.preventDefault();
       submitHandler();
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === 'ArrowDown' && data.length) {
       let newActiveItemIndex =
         activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0;
       setInputValue(data[newActiveItemIndex]);
       setActiveItemIndex(newActiveItemIndex);
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowUp' && data.length) {
       let newActiveItemIndex =
         activeItemIndex <= 0 ? data.length - 1 : activeItemIndex - 1;
       setInputValue(data[newActiveItemIndex]);

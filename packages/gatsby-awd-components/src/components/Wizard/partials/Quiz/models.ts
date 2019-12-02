@@ -48,6 +48,7 @@ export interface QuizProps extends WizardStepComponent {
 }
 
 export interface ImageSizesOptionsProps {
-  QUIZ_SMALL: string;
-  QUIZ_BIG: string;
+  QUIZ_4_IN_LINE: string;
+  QUIZ_3_IN_LINE: string;
+  QUIZ_2_IN_LINE: string;
 }

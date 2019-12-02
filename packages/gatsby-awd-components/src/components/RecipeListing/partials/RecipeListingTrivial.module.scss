@@ -27,6 +27,15 @@
       width: calc(#{$four-col-width} - #{$col-indent-desktop * 2});
       margin: $col-indent-desktop;
     }
+    @supports (-ms-ime-align: auto) {
+      width: calc(#{$two-col-width} - #{$col-indent-mobile * 2} - 0.01px);
+      @include respondTo(medium) {
+        width: calc(#{$four-col-width} - #{$col-indent-medium * 2} - 0.01px);
+      }
+      @include respondTo(desktop) {
+        width: calc(#{$four-col-width} - #{$col-indent-desktop * 2} - 0.01px);
+      }
+    }
   }
   &__null-results {
     margin: $col-indent-mobile;

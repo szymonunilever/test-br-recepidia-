@@ -361,6 +361,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
           className="hero--planner color--inverted"
+          imageSizes={IMAGE_SIZES.HERO}
         />
       </section>
       <section
