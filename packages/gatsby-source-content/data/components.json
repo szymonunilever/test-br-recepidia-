@@ -56,6 +56,14 @@
                     "path": "/fale-comigo"
                   },
                   {
+                    "name": "FAQ",
+                    "path": "/faq"
+                  }
+                ]
+              },
+              {
+                "items": [
+                  {
                     "name": "Acessibilidade",
                     "path": "https://www.unilever.com.br/accessibility.html"
                   },
@@ -145,14 +153,14 @@
     "vegetarian": "Sem carne",
     "energy_kcal": "Valor Energético (kcal)",
     "energy_kj": "Valor Energético (kJ)",
-    "protein":  "Proteínas (g)",
-    "carbohydrate_excl_fibre":  "Carboidratos (g)",
-    "sugar":  "Açúcares (g)",
-    "fibre":  "Fibra Alimentar (g)",
-    "fat":  "Gorduras Totais (g)",
-    "saturated_fat":  "Gorduras Saturadas (g)",
-    "trans_fat":  "Gorduras Trans (g)",
-    "sodium":  "Sódio (mg)"
+    "protein": "Proteínas (g)",
+    "carbohydrate_excl_fibre": "Carboidratos (g)",
+    "sugar": "Açúcares (g)",
+    "fibre": "Fibra Alimentar (g)",
+    "fat": "Gorduras Totais (g)",
+    "saturated_fat": "Gorduras Saturadas (g)",
+    "trans_fat": "Gorduras Trans (g)",
+    "sodium": "Sódio (mg)"
   },
   "disclaimer": {
     "11": "Garanta que os ingredientes que você compre para essa receita não contenham carnes ou embutidos",

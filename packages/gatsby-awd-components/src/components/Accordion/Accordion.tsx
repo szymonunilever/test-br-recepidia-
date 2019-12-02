@@ -25,6 +25,15 @@ export const Accordion = ({
 
   const classWrapper = cx(theme.accordion, className, state && 'is-opened');
 
+  let titleIcon = null;
+  if (Icon && !IconOpened) {
+    titleIcon = <Icon />;
+  } else if (Icon && IconOpened) {
+    titleIcon = state ? <IconOpened /> : <Icon />;
+  } else if (IconOpened) {
+    titleIcon = <IconOpened />;
+  }
+
   return (
     <div className={classWrapper} {...getComponentDataAttrs('accordion')}>
       <div
@@ -38,10 +47,8 @@ export const Accordion = ({
         onKeyUp={onToggleKeyboard}
       >
         {title && title.label ? title.label : null}
-        {state ? IconOpened ? <IconOpened /> : null : Icon ? <Icon /> : null}
+        {titleIcon}
       </div>
-
-      {/* <div className="accordion__body" hidden={!state}> */}
       <div className="accordion__body">{children}</div>
     </div>
   );
