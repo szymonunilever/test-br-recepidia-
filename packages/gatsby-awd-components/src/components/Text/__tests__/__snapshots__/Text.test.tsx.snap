@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> matches the snapshot 1`] = `
+<Text
+  className="text-component"
+  tag={0}
+  text="Test text"
+>
+  <h1
+    className="text-component"
+  >
+    Test text
+  </h1>
+</Text>
+`;

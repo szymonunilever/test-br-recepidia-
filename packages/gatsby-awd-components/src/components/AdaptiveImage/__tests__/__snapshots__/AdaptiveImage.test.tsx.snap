@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdaptiveImage /> matches the snapshot 1`] = `
+<Composition
+  alt="Alt"
+  className="testClass"
+  link="/"
+  localImage={
+    Object {
+      "childImageSharp": Object {
+        "fixed": "fixed",
+        "fluid": Object {
+          "aspectRatio": 1,
+          "sizes": "string",
+          "src": "path",
+          "srcSet": "path",
+        },
+      },
+      "ext": ".svg",
+      "fields": Object {
+        "publicURL": "/",
+      },
+    }
+  }
+  sizes="size"
+  view="view"
+>
+  <ForwardRef
+    className="adaptive-image__link"
+    to="/"
+  >
+    <GatsbyLink
+      className="adaptive-image__link"
+      innerRef={null}
+      to="/"
+    >
+      <ForwardRef
+        className="adaptive-image__link"
+        getProps={[Function]}
+        innerRef={[Function]}
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        to="/"
+      >
+        <Location>
+          <LocationProvider
+            history={
+              Object {
+                "_onTransitionComplete": [Function],
+                "listen": [Function],
+                "location": Object {
+                  "assign": [Function],
+                  "hash": "",
+                  "host": "localhost",
+                  "hostname": "localhost",
+                  "href": "http://localhost/",
+                  "key": "initial",
+                  "origin": "http://localhost",
+                  "pathname": "/",
+                  "port": "",
+                  "protocol": "http:",
+                  "reload": [Function],
+                  "replace": [Function],
+                  "search": "",
+                  "state": null,
+                  "toString": [Function],
+                },
+                "navigate": [Function],
+                "transitioning": false,
+              }
+            }
+          >
+            <a
+              aria-current="page"
+              className="adaptive-image__link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              style={Object {}}
+            >
+              <AdaptiveImage
+                alt="Alt"
+                className="testClass"
+                link="/"
+                localImage={
+                  Object {
+                    "childImageSharp": Object {
+                      "fixed": "fixed",
+                      "fluid": Object {
+                        "aspectRatio": 1,
+                        "sizes": "string",
+                        "src": "path",
+                        "srcSet": "path",
+                      },
+                    },
+                    "ext": ".svg",
+                    "fields": Object {
+                      "publicURL": "/",
+                    },
+                  }
+                }
+                sizes="size"
+                view="view"
+              >
+                <ImageContainer
+                  classNames="adaptive-image adaptiveImageSvg testClass adaptive-image-svg"
+                  view="view"
+                >
+                  <div
+                    className="adaptive-image adaptiveImageSvg testClass adaptive-image-svg"
+                    data-componentname="adaptive-image"
+                    data-componentview="view"
+                  >
+                    <img
+                      alt="Alt"
+                      className="adaptive-image__image"
+                      src="/"
+                    />
+                  </div>
+                </ImageContainer>
+              </AdaptiveImage>
+            </a>
+          </LocationProvider>
+        </Location>
+      </ForwardRef>
+    </GatsbyLink>
+  </ForwardRef>
+</Composition>
+`;

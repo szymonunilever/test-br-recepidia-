@@ -1,0 +1,75 @@
+@import '../../../../scss/config';
+
+.recipe-dietary-attributes {
+  &__list {
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include respondTo(medium) {
+      margin: 0 -$recipe-dietary-attributes-item-indent;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: $recipe-dietary-attributes-item-padding;
+    margin-bottom: $recipe-dietary-attributes-item-indent;
+    width: $recipe-dietary-attributes-item-width;
+    @include respondTo(medium) {
+      width: $recipe-dietary-attributes-item-width-md;
+    }
+    @include respondTo(desktop) {
+      padding: $recipe-dietary-attributes-item-padding-lg;
+      width: $recipe-dietary-attributes-item-width-lg;
+    }
+  }
+
+  &__icon {
+    width: $recipe-dietary-attributes-icon-width;
+    height: $recipe-dietary-attributes-icon-height;
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    font-size: $recipe-dietary-attributes-text-fz;
+    color: $recipe-dietary-attributes-text-color;
+  }
+}
+
+.recipe-dietary-attributes {
+  &__tooltip {
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    top: -3.5px;
+    z-index: 2;
+    &.active {
+      .info_svg__path1 {
+        fill: $apple-green;
+      }
+      .info_svg__path2 {
+        fill: $fish-blue-darker;
+      }
+    }
+    svg {
+      width: 18px;
+      position: relative;
+    }
+  }
+
+  &__text {
+    line-height: 1.2;
+    position: relative;
+    display: flex;
+    margin-top: 13px;
+    @include respondTo(desktop) {
+      margin-top: 15px;
+      max-width: 150px;
+    }
+  }
+}

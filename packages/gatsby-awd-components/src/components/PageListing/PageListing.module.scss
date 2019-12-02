@@ -1,0 +1,45 @@
+@import '../../scss/config';
+
+.page-listing {
+  &__title {
+    font: 500 $listing-title-fz/3rem $listing-title-ff;
+    line-height: 3rem;
+    margin: 0 0 20px 0;
+    @include respondTo(desktop) {
+      font-size: $listing-title-fz-lg;
+      margin: 0 0 25px 0;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    //Margin to remove indent
+    margin: -$col-indent-mobile;
+    @include respondTo(desktop) {
+      margin: -$col-indent-desktop;
+    }
+  }
+
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
+    margin: $col-indent-mobile;
+    width: calc(#{$two-col-width} - #{$col-indent-mobile * 2});
+    @include respondTo(desktop) {
+      width: calc(#{$three-col-width} - #{$col-indent-desktop * 2});
+      margin: $col-indent-desktop;
+    }
+  }
+  &__button-wrap {
+    margin-top: 25px;
+    text-align: center;
+  }
+}

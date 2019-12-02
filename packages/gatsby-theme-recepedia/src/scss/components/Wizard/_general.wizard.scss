@@ -1,0 +1,33 @@
+@import '../../vars';
+@import '../../mixins';
+
+.wizard {
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    @include respondTo(desktop) {
+      left: 38px;
+      top: 38px;
+    }
+    svg {
+      width: 29px;
+      height: 36px;
+      display: block;
+      margin: auto;
+      @include respondTo(desktop) {
+        width: 48px;
+        height: 58px;
+      }
+    }
+    .main-logo {
+      &__text {
+        @extend .sr-only;
+      }
+    }
+  }
+}

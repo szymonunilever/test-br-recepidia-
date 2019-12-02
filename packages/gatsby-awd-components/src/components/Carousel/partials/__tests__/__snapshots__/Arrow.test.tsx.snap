@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Arrow /> matches the snapshot 1`] = `
+<Arrow
+  clickFunction={[Function]}
+  icon={
+    <div>
+      Icon
+    </div>
+  }
+>
+  <button
+    aria-label="right"
+    className="slideArrow slide-arrow right"
+    onClick={[Function]}
+  >
+    <div>
+      Icon
+    </div>
+  </button>
+</Arrow>
+`;

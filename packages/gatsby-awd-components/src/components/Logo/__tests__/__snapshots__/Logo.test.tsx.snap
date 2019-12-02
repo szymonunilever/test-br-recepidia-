@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> matches the snapshot 1`] = `
+<Logo
+  icon={
+    <div>
+      Logo
+    </div>
+  }
+  path="/"
+>
+  <div
+    className="main-logo"
+    data-componentname="main-logo"
+    data-componentview="main-logo"
+  >
+    <mockConstructor
+      className="main-logo__link"
+      to="/"
+    >
+      <a
+        className="main-logo__link"
+        href="/"
+      >
+        <span
+          className="main-logo__text"
+        >
+          Home page
+        </span>
+        <div>
+          Logo
+        </div>
+      </a>
+    </mockConstructor>
+  </div>
+</Logo>
+`;

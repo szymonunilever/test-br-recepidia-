@@ -1,0 +1,72 @@
+$alert-msg-height: 28px;
+$validation-icon-size: 18px;
+
+%input-general {
+  border: 1px solid $black-blue;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  width: 100%;
+  padding: 2px 10px;
+}
+
+.generated-form {
+  a {
+    @extend %link--inline;
+    &[target='_blank'] {
+      @extend %link--external;
+    }
+  }
+}
+
+// Select component styles
+body {
+  //body is used to override default styles
+  .react-dropdown-select {
+    @extend %input-general;
+    min-height: 40px;
+    cursor: pointer;
+    color: $black-blue;
+    padding-left: 18px;
+    &:hover {
+      border-color: inherit;
+    }
+    &-input {
+      font-size: inherit;
+      margin: 0;
+      padding: 0;
+    }
+    &-separator {
+      display: none;
+    }
+    &-dropdown {
+      border: 0;
+      &-handle {
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .option {
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        @include respondTo(desktop) {
+          padding: 10px 18px;
+        }
+        &.is-selected {
+          background-color: $black-blue;
+          color: $white;
+        }
+        &.active {
+          background-color: $blue-overlay-40;
+        }
+        &:hover {
+          color: $black-blue;
+          background-color: $apple-green;
+        }
+      }
+    }
+  }
+}
+// Select component styles END

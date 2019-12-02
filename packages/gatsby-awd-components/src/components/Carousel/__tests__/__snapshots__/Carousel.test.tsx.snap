@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Carousel /> matches the snapshot 1`] = `
+<Carousel
+  config={Object {}}
+  createElementFunction={[Function]}
+  list={
+    Array [
+      1,
+      2,
+      3,
+    ]
+  }
+>
+  <ProgressBar
+    percentage={100}
+  >
+    <div
+      className="progressBar progress-bar"
+    >
+      <progress
+        aria-label="progress"
+        className="progressBar__content progress-bar__content"
+        max="100"
+        role="progressbar"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        value="100"
+      >
+        100
+        % complete
+      </progress>
+    </div>
+  </ProgressBar>
+  <div
+    className="carousel carousel"
+  >
+    <div
+      className="carousel__images carousel__images"
+    >
+      <div
+        className="carousel__imagesTracker carousel__images-tracker"
+        style={
+          Object {
+            "transform": "translateX(0%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          aria-hidden={false}
+          className="carousel__item carousel__item"
+          key="0"
+          style={
+            Object {
+              "flexBasis": "33.333333333333336%",
+              "transition": "all .5s",
+              "visibility": "visible",
+            }
+          }
+        >
+          <div>
+            123
+          </div>
+        </div>
+        <div
+          aria-hidden={false}
+          className="carousel__item carousel__item"
+          key="1"
+          style={
+            Object {
+              "flexBasis": "33.333333333333336%",
+              "transition": "all .5s",
+              "visibility": "visible",
+            }
+          }
+        >
+          <div>
+            123
+          </div>
+        </div>
+        <div
+          aria-hidden={false}
+          className="carousel__item carousel__item"
+          key="2"
+          style={
+            Object {
+              "flexBasis": "33.333333333333336%",
+              "transition": "all .5s",
+              "visibility": "visible",
+            }
+          }
+        >
+          <div>
+            123
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Carousel>
+`;

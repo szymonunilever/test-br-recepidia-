@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tags /> matches the snapshot 1`] = `
+<Tags
+  className="custom-class"
+  content={
+    Object {
+      "loadMoreButton": Object {
+        "label": "Custom button text",
+      },
+      "title": "Custom title text",
+    }
+  }
+  initialCount={2}
+  isEditable={true}
+  list={
+    Array [
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/egg-free",
+        },
+        "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+        "name": "egg_free",
+        "tagId": 2,
+        "title": "Sem ovos",
+      },
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/gluten-free",
+        },
+        "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+        "name": "gluten_free",
+        "tagId": 3,
+        "title": "Glúten Free",
+      },
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/lactose-free",
+        },
+        "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+        "name": "lactose_free",
+        "tagId": 4,
+        "title": "Zero Lactose",
+      },
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/nut-free",
+        },
+        "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+        "name": "nut_free",
+        "tagId": 5,
+        "title": "Livre de nozes",
+      },
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/paleo-diet",
+        },
+        "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+        "name": "paleo_diet",
+        "tagId": 6,
+        "title": "Paleo diet",
+      },
+      Object {
+        "fields": Object {
+          "slug": "/hub-de-conteudo/pregnancy-safe",
+        },
+        "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+        "name": "pregnancy_safe",
+        "tagId": 7,
+        "title": "Seguro de gravidez",
+      },
+    ]
+  }
+  tagsPerLoad={1}
+>
+  <div
+    className="tags tags custom-class"
+    data-componentname="tags"
+    data-componentview="tags"
+  >
+    <Text
+      className="tags__title tags__title"
+      tag={1}
+      text="Custom title text"
+    >
+      <h2
+        className="tags__title tags__title"
+      >
+        Custom title text
+      </h2>
+    </Text>
+    <ul
+      className="tags__list tags__list"
+    >
+      <Tag
+        handleClick={[Function]}
+        key="d717752e-4a33-54a7-9273-05763e8773ce"
+        tag={
+          Object {
+            "fields": Object {
+              "slug": "/hub-de-conteudo/egg-free",
+            },
+            "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+            "name": "egg_free",
+            "tagId": 2,
+            "title": "Sem ovos",
+          }
+        }
+        variant={1}
+      >
+        <li
+          className="tags__item tags__item"
+        >
+          <mockConstructor
+            className="tags__link tags__link"
+            to="/hub-de-conteudo/egg-free"
+          >
+            <a
+              className="tags__link tags__link"
+              href="/hub-de-conteudo/egg-free"
+            >
+              <span>
+                Sem ovos
+              </span>
+            </a>
+          </mockConstructor>
+        </li>
+      </Tag>
+      <Tag
+        handleClick={[Function]}
+        key="6661e4bb-4176-5612-8341-04e2a9379d09"
+        tag={
+          Object {
+            "fields": Object {
+              "slug": "/hub-de-conteudo/gluten-free",
+            },
+            "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+            "name": "gluten_free",
+            "tagId": 3,
+            "title": "Glúten Free",
+          }
+        }
+        variant={1}
+      >
+        <li
+          className="tags__item tags__item"
+        >
+          <mockConstructor
+            className="tags__link tags__link"
+            to="/hub-de-conteudo/gluten-free"
+          >
+            <a
+              className="tags__link tags__link"
+              href="/hub-de-conteudo/gluten-free"
+            >
+              <span>
+                Glúten Free
+              </span>
+            </a>
+          </mockConstructor>
+        </li>
+      </Tag>
+      <li
+        className="tags__loadMore tags__load-more"
+      >
+        <Component
+          className="tags__button tags__button"
+          onClick={[Function]}
+        >
+          <button
+            className="button button tags__button tags__button"
+            data-componentname="button"
+            data-componentview="button"
+            disabled={false}
+            hidden={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Custom button text
+            </span>
+          </button>
+        </Component>
+      </li>
+    </ul>
+  </div>
+</Tags>
+`;

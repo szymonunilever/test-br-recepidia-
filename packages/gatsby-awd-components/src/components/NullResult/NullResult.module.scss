@@ -1,0 +1,27 @@
+@import '../../scss/config';
+
+.recommendations {
+  &__title {
+    font-size: $null-result-title-fz;
+    @include respondTo(desktop) {
+      font-size: $null-result-title-fz-lg;
+    }
+  }
+  &__subtitle {
+    font-size: $null-result-subtitle-fz;
+    margin-bottom: 25px;
+    @include respondTo(desktop) {
+      font-size: $null-result-subtitle-fz-lg;
+    }
+  }
+  &__item {
+    font-size: $null-result-item-fz;
+    margin-bottom: 15px;
+    @include respondTo(desktop) {
+      font-size: $null-result-item-fz-lg;
+    }
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}

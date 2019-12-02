@@ -1,0 +1,229 @@
+@import 'vars';
+@import 'mixins';
+@import 'base.scss';
+
+html,
+body {
+  font-family: $arial;
+  font-size: 62.5%;
+  color: $black-blue;
+}
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.subheading {
+  font-family: $rubik;
+  font-weight: 500;
+  margin-top: 0;
+}
+h1 {
+  font-size: 3.4rem;
+  line-height: 1.19;
+  color: $fish-blue-darker;
+  @include respondTo(desktop) {
+    font-size: 5.2rem;
+  }
+}
+%h1--smaller {
+  font-size: 3rem;
+  line-height: 1.07;
+  color: $fish-blue-darker;
+  @include respondTo(desktop) {
+    font-size: 4.5rem;
+  }
+}
+%h2--bigger {
+  font-size: 2.4rem;
+  line-height: 1.06;
+  color: $fish-blue-darker;
+  @include respondTo(desktop) {
+    font-size: 3.7rem;
+  }
+}
+h2 {
+  font-size: 2.1rem;
+  line-height: 1.06;
+  @include respondTo(desktop) {
+    font-size: 2.5rem;
+  }
+}
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.33;
+}
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.22;
+}
+.subheading {
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+p {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+.color--inverted {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    color: $white;
+  }
+}
+
+.skip-to-content {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+}
+
+.no-scroll {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.rr-box-wrapper:not(:first-child) {
+  display: none;
+}
+
+// END recipe rating widget
+
+._pb--40 {
+  padding-bottom: 20px;
+  @include respondTo(desktop) {
+    padding-bottom: 40px;
+  }
+}
+._pt--40 {
+  padding-top: 20px;
+  @include respondTo(desktop) {
+    padding-top: 40px;
+  }
+}
+._bg--main {
+  background-color: $primary-bg-color;
+  h1 {
+    margin: 0;
+    padding: 0.67em 0;
+  }
+}
+.header--bg {
+  header {
+    background-color: $primary-bg-color;
+  }
+}
+[hidden] {
+  display: none !important;
+}
+._desktop-50 {
+  @include respondTo(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.bg--half {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 180px;
+    width: 100%;
+    z-index: 0;
+    background-color: $white-gray;
+    border-radius: 0 0 24px 24px;
+    @include respondTo(medium) {
+      height: 228px;
+      border-radius: 0;
+    }
+    @include respondTo(desktop) {
+      height: 234px;
+    }
+  }
+}
+
+//custom scrollbar
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  background-color: $fish-blue-darker;
+}
+
+// Slider progress bar common styles
+progress[value] {
+  border: none; /* Needed for Firefox */
+  height: 2px;
+  -webkit-appearance: none; /* Needed for WebKit/Blink */
+}
+progress[value]::-webkit-progress-bar {
+  background-color: $fish-blue-darker;
+}
+progress[value]::-webkit-progress-value {
+  background-color: $fish-blue-darker;
+}
+progress::-moz-progress-bar {
+  height: 2px;
+  background-color: $fish-blue-darker;
+}
+
+progress::-ms-fill {
+  background: $fish-blue-darker;
+}
+
+.adaptive-image {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.wrapper {
+  padding-left: $layout-indent-sm;
+  padding-right: $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding-left: $layout-indent;
+    padding-right: $layout-indent;
+  }
+}

@@ -1,0 +1,38 @@
+@import '../../../../scss/config';
+
+.page-listing-item {
+  &__link {
+    text-decoration: none;
+  }
+  &__title {
+    font-size: $page-listing--item-title-fz;
+    font-family: $page-listing--item-title-ff;
+    color: $page-listing--item-title-color;
+    padding-top: 12px;
+    padding-bottom: 20px;
+    outline: none;
+    margin: 0;
+    font-weight: 500;
+    @include respondTo(desktop) {
+      padding-top: 20px;
+    }
+  }
+  :global {
+    .adaptive-image__image {
+      height: $page-listing-image-height--mobile;
+      @include respondTo(desktop) {
+        height: $page-listing-image-height--desktop;
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          img {
+            max-height: 100%;
+          }
+        }
+        @supports (-ms-ime-align: auto) {
+          img {
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

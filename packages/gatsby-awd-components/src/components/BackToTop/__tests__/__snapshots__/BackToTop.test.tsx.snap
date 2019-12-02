@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Back to top matches the snapshot 1`] = `
+<div
+  style={
+    Object {
+      "fontSize": "2rem",
+      "height": "200vh",
+    }
+  }
+>
+  <Component
+    content={
+      Object {
+        "label": "Back to top",
+      }
+    }
+    viewType={1}
+  >
+    <div
+      className="back-to-top backToTop"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "back to top",
+          }
+        }
+        className="backToTop__button back-to-top__button"
+        onClick={[Function]}
+        viewType={1}
+      >
+        <button
+          aria-label="back to top"
+          className="buttonIcon button--icon backToTop__button back-to-top__button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          type="button"
+        />
+      </Component>
+      <span
+        className="back-to-top__label"
+      >
+        Back to top
+      </span>
+    </div>
+  </Component>
+</div>
+`;

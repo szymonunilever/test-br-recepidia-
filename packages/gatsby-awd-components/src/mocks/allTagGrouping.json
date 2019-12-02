@@ -1,0 +1,5094 @@
+{
+  "allTagGroupings": {
+    "nodes": [
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/economica/"
+            },
+            "id": "2bf46c4b-81a7-5f6f-9b47-751e7cc2da50",
+            "name": "econômica",
+            "title": "Econômica",
+            "tagId": 1370
+          },
+          {
+            "fields": {
+              "slug": "/preco-medio/"
+            },
+            "id": "b0b763e0-f357-501f-99a4-ddd70021f9b8",
+            "name": "preço médio",
+            "title": "Preço médio",
+            "tagId": 1369
+          },
+          {
+            "fields": {
+              "slug": "/preco-alto/"
+            },
+            "id": "6fc6c6aa-3aa2-5d6e-9202-1adfe97edd22",
+            "name": "preço alto",
+            "title": "Preço alto",
+            "tagId": 1371
+          }
+        ],
+        "id": "a3528f6e-149e-5eba-9d85-292b1d4c8de5",
+        "name": "budgets",
+        "label": "Preço",
+        "tags": [
+          {
+            "id": 1370,
+            "name": "econômica"
+          },
+          {
+            "id": 1369,
+            "name": "preço médio"
+          },
+          {
+            "id": 1371,
+            "name": "preço alto"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/assado/"
+            },
+            "id": "5fee78db-86fc-5a0b-8a41-61d62820df39",
+            "name": "assado",
+            "title": "Assado",
+            "tagId": 1384
+          },
+          {
+            "fields": {
+              "slug": "/deixar-cozinhar/"
+            },
+            "id": "5664bf95-39ba-5826-94cc-11d37871e0cd",
+            "name": "deixar cozinhar",
+            "title": "Deixar cozinhar",
+            "tagId": 1387
+          },
+          {
+            "fields": {
+              "slug": "/frito/"
+            },
+            "id": "1f7096e4-ff02-53e6-a5b2-eaadd92ecada",
+            "name": "frito",
+            "title": "Frito",
+            "tagId": 1379
+          },
+          {
+            "fields": {
+              "slug": "/outro/"
+            },
+            "id": "c28a5482-c20e-50df-bda1-20337b8f1621",
+            "name": "outro",
+            "title": "Outro",
+            "tagId": 1383
+          },
+          {
+            "fields": {
+              "slug": "/cozimento-lento/"
+            },
+            "id": "dbae98e6-3a14-551c-9b5d-a7ca198d538f",
+            "name": "cozimento lento",
+            "title": "Cozimento lento",
+            "tagId": 1390
+          },
+          {
+            "fields": {
+              "slug": "/banho-maria/"
+            },
+            "id": "e7854f96-8cfd-5853-8e1b-28b2d1b73e51",
+            "name": "banho maria",
+            "title": "Banho maria",
+            "tagId": 1373
+          },
+          {
+            "fields": {
+              "slug": "/refogado/"
+            },
+            "id": "053ece14-72f1-554b-88e0-3396b8c5ed1b",
+            "name": "refogado",
+            "title": "Refogado",
+            "tagId": 1386
+          },
+          {
+            "fields": {
+              "slug": "/grelhado/"
+            },
+            "id": "64e82caf-e622-58c0-b6d7-8b5f8ed07a4c",
+            "name": "grelhado",
+            "title": "Grelhado",
+            "tagId": 1393
+          },
+          {
+            "fields": {
+              "slug": "/sem-cozimento/"
+            },
+            "id": "338eebd3-7191-537f-b720-ea0e4701c58a",
+            "name": "sem cozimento",
+            "title": "Sem cozimento",
+            "tagId": 1376
+          },
+          {
+            "fields": {
+              "slug": "/micro-ondas/"
+            },
+            "id": "a88411f3-8f1f-5776-8ca1-b3d1c4b54d00",
+            "name": "micro-ondas",
+            "title": "Micro ondas",
+            "tagId": 1382
+          },
+          {
+            "fields": {
+              "slug": "/escaldado/"
+            },
+            "id": "0ce66f7f-b559-5fad-af7c-b6b9184debf8",
+            "name": "escaldado",
+            "title": "Escaldado",
+            "tagId": 1375
+          },
+          {
+            "fields": {
+              "slug": "/panela-de-pressao/"
+            },
+            "id": "4d97f2c4-7897-5660-84aa-3bdb2fef7f93",
+            "name": "panela de pressão",
+            "title": "Panela de pressão",
+            "tagId": 1394
+          },
+          {
+            "fields": {
+              "slug": "/torrado/"
+            },
+            "id": "77ca991d-220e-542a-a891-438a2b87d508",
+            "name": "torrado",
+            "title": "Torrado",
+            "tagId": 1385
+          },
+          {
+            "fields": {
+              "slug": "/fervido/"
+            },
+            "id": "2570a3c6-6d02-5b90-b213-5a566f44ea39",
+            "name": "fervido",
+            "title": "Fervido",
+            "tagId": 1377
+          }
+        ],
+        "id": "303ab388-bd18-5fe5-b562-bcd10d3aefe8",
+        "name": "cookingMethod",
+        "label": "Método de cozimento",
+        "tags": [
+          {
+            "id": 1384,
+            "name": "assado"
+          },
+          {
+            "id": 1387,
+            "name": "deixar cozinhar"
+          },
+          {
+            "id": 1379,
+            "name": "frito"
+          },
+          {
+            "id": 1383,
+            "name": "outro"
+          },
+          {
+            "id": 1390,
+            "name": "cozimento lento"
+          },
+          {
+            "id": 1373,
+            "name": "banho maria"
+          },
+          {
+            "id": 1386,
+            "name": "refogado"
+          },
+          {
+            "id": 1393,
+            "name": "grelhado"
+          },
+          {
+            "id": 1376,
+            "name": "sem cozimento"
+          },
+          {
+            "id": 1382,
+            "name": "micro-ondas"
+          },
+          {
+            "id": 1375,
+            "name": "escaldado"
+          },
+          {
+            "id": 1394,
+            "name": "panela de pressão"
+          },
+          {
+            "id": 1385,
+            "name": "torrado"
+          },
+          {
+            "id": 1377,
+            "name": "fervido"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/acompanhamento/"
+            },
+            "id": "41baa011-e683-5519-97bd-419a5582d487",
+            "name": "acompanhamento",
+            "title": "Acompanhamento",
+            "tagId": 1401
+          },
+          {
+            "fields": {
+              "slug": "/lanche/"
+            },
+            "id": "346208a8-8f8a-5d2e-b2fc-892c8aaf5d4e",
+            "name": "lanche",
+            "title": "Lanche",
+            "tagId": 1402
+          },
+          {
+            "fields": {
+              "slug": "/prato-principal/"
+            },
+            "id": "066fafae-2331-5565-a583-12b3ce43ea62",
+            "name": "prato principal",
+            "title": "Prato principal",
+            "tagId": 1400
+          },
+          {
+            "fields": {
+              "slug": "/entrada/"
+            },
+            "id": "956b10ee-6130-5a99-ae82-95cfa1258de5",
+            "name": "entrada",
+            "title": "Entrada",
+            "tagId": 1404
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa/"
+            },
+            "id": "34389ba3-2482-5d1c-ab58-bfedb52ad56a",
+            "name": "sobremesa",
+            "title": "Sobremesa",
+            "tagId": 1397
+          },
+          {
+            "fields": {
+              "slug": "/aperitivo/"
+            },
+            "id": "ece5bcb0-9fb7-58f6-a1e2-380d3d8391ab",
+            "name": "aperitivo",
+            "title": "Aperitivo",
+            "tagId": 1399
+          },
+          {
+            "fields": {
+              "slug": "/bebidas/"
+            },
+            "id": "55c5e70c-7557-5e3a-af60-5bb08b93d37e",
+            "name": "bebidas",
+            "title": "Bebidas",
+            "tagId": 1398
+          },
+          {
+            "fields": {
+              "slug": "/queijo/"
+            },
+            "id": "7da46784-5f94-5af8-83f0-dfecf71b648c",
+            "name": "queijo",
+            "title": "Queijo",
+            "tagId": 1403
+          }
+        ],
+        "id": "bdd411fa-785d-5b88-be51-c443163d4097",
+        "name": "courses",
+        "label": "Cursos",
+        "tags": [
+          {
+            "id": 1401,
+            "name": "acompanhamento"
+          },
+          {
+            "id": 1402,
+            "name": "lanche"
+          },
+          {
+            "id": 1400,
+            "name": "prato principal"
+          },
+          {
+            "id": 1404,
+            "name": "entrada"
+          },
+          {
+            "id": 1397,
+            "name": "sobremesa"
+          },
+          {
+            "id": 1399,
+            "name": "aperitivo"
+          },
+          {
+            "id": 1398,
+            "name": "bebidas"
+          },
+          {
+            "id": 1403,
+            "name": "queijo"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/facil/"
+            },
+            "id": "d84cb28d-2165-5ae4-ae6b-56dfaffdeb0d",
+            "name": "fácil",
+            "title": "Fácil",
+            "tagId": 1457
+          },
+          {
+            "fields": {
+              "slug": "/dificuldade-media/"
+            },
+            "id": "af40052d-d071-5c5d-afda-f5a18b03c963",
+            "name": "dificuldade média",
+            "title": "Dificuldade média",
+            "tagId": 1460
+          },
+          {
+            "fields": {
+              "slug": "/dificil/"
+            },
+            "id": "341cc5be-e122-504b-ab5f-c994518048aa",
+            "name": "difícil",
+            "title": "Difícil",
+            "tagId": 1459
+          },
+          {
+            "fields": {
+              "slug": "/muito-dificil/"
+            },
+            "id": "0f489844-3aee-5ac9-befd-b9a16e52fe9e",
+            "name": "muito difícil",
+            "title": "Muito difícil",
+            "tagId": 1458
+          }
+        ],
+        "id": "5625b557-a6b1-515b-89a0-3515b08fa03a",
+        "name": "difficulties",
+        "label": "Dificuldade",
+        "tags": [
+          {
+            "id": 1457,
+            "name": "fácil"
+          },
+          {
+            "id": 1460,
+            "name": "dificuldade média"
+          },
+          {
+            "id": 1459,
+            "name": "difícil"
+          },
+          {
+            "id": 1458,
+            "name": "muito difícil"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/torta/"
+            },
+            "id": "5f5d2e8c-b489-50cf-af07-647b6ae432f9",
+            "name": "torta",
+            "title": "Torta",
+            "tagId": 1483
+          },
+          {
+            "fields": {
+              "slug": "/molho/"
+            },
+            "id": "708c9383-58d6-5aff-b615-99ae4efa2a8a",
+            "name": "molho",
+            "title": "Molho",
+            "tagId": 1489
+          },
+          {
+            "fields": {
+              "slug": "/carne/"
+            },
+            "id": "a37b86d3-06c8-5702-ad66-7f1a61c552c2",
+            "name": "carne",
+            "title": "Carne",
+            "tagId": 1479
+          },
+          {
+            "fields": {
+              "slug": "/ovos/"
+            },
+            "id": "ddd33b05-c709-5dac-a6bb-b1de0d411ad6",
+            "name": "ovos",
+            "title": "Ovos",
+            "tagId": 1474
+          },
+          {
+            "fields": {
+              "slug": "/salada/"
+            },
+            "id": "aa59ca6b-6f28-5f1f-ad72-ebf2f64e6844",
+            "name": "salada",
+            "title": "Salada",
+            "tagId": 1487
+          },
+          {
+            "fields": {
+              "slug": "/bolo/"
+            },
+            "id": "c00ddf42-0435-50e5-9cd9-f78bf2fce9d2",
+            "name": "bolo",
+            "title": "Bolo",
+            "tagId": 1466
+          },
+          {
+            "fields": {
+              "slug": "/macarrao/"
+            },
+            "id": "48716db9-b72f-57b4-9f4e-080adcebd502",
+            "name": "macarrão",
+            "title": "Macarrão",
+            "tagId": 1480
+          },
+          {
+            "fields": {
+              "slug": "/biscoito/"
+            },
+            "id": "cae5df47-4559-5ac0-bc01-89d927ac3069",
+            "name": "biscoito",
+            "title": "Biscoito",
+            "tagId": 1315
+          },
+          {
+            "fields": {
+              "slug": "/pao/"
+            },
+            "id": "9a123b07-eceb-583a-819f-130f6389f3ec",
+            "name": "pão",
+            "title": "Pão",
+            "tagId": 1465
+          },
+          {
+            "fields": {
+              "slug": "/arroz/"
+            },
+            "id": "27a7dd99-9629-556e-901a-42c739e5da6b",
+            "name": "arroz",
+            "title": "Arroz",
+            "tagId": 1486
+          },
+          {
+            "fields": {
+              "slug": "/bebidas/"
+            },
+            "id": "b4b8df89-1644-526c-85e0-e68ef7199f19",
+            "name": "bebidas",
+            "title": "Bebidas",
+            "tagId": 1464
+          },
+          {
+            "fields": {
+              "slug": "/frutas/"
+            },
+            "id": "dec07f3a-d9ad-5d51-b6db-f5f6c51178be",
+            "name": "frutas",
+            "title": "Frutas",
+            "tagId": 1108
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa-gelada/"
+            },
+            "id": "aedf9e85-399f-5360-bd9c-1045ba5e591d",
+            "name": "sobremesa gelada",
+            "title": "Sobremesa gelada",
+            "tagId": 1317
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa/"
+            },
+            "id": "12fb6843-ea19-58f0-99bc-d0a3397b1664",
+            "name": "sobremesa",
+            "title": "Sobremesa",
+            "tagId": 710
+          },
+          {
+            "fields": {
+              "slug": "/balas-e-doces/"
+            },
+            "id": "a342efd4-f5b4-5bd8-a011-e7f6493bb3ae",
+            "name": "balas e doces",
+            "title": "Balas e doces",
+            "tagId": 1467
+          },
+          {
+            "fields": {
+              "slug": "/sorvete/"
+            },
+            "id": "4f594c1c-4011-5830-bee9-b19396e9bbd3",
+            "name": "sorvete",
+            "title": "Sorvete",
+            "tagId": 1478
+          },
+          {
+            "fields": {
+              "slug": "/aves/"
+            },
+            "id": "743db4d0-60a5-5853-b5d5-252d10b3280a",
+            "name": "aves",
+            "title": "Aves",
+            "tagId": 1484
+          },
+          {
+            "fields": {
+              "slug": "/sanduiche/"
+            },
+            "id": "70695382-5e12-5fc9-90af-556bb3a0243c",
+            "name": "sanduíche",
+            "title": "Sanduíche",
+            "tagId": 1488
+          },
+          {
+            "fields": {
+              "slug": "/sopa/"
+            },
+            "id": "732ff092-c675-5870-9e03-c2a6f0c95bcb",
+            "name": "sopa",
+            "title": "Sopa",
+            "tagId": 1491
+          },
+          {
+            "fields": {
+              "slug": "/peixe/"
+            },
+            "id": "f6d006f7-82c0-5f0e-88c8-c5a618727125",
+            "name": "peixe",
+            "title": "Peixe",
+            "tagId": 1475
+          },
+          {
+            "fields": {
+              "slug": "/calda/"
+            },
+            "id": "de3ced58-cd39-5fdf-b301-ecdcda5e227e",
+            "name": "calda",
+            "title": "Calda",
+            "tagId": 1320
+          },
+          {
+            "fields": {
+              "slug": "/verduras-e-legumes/"
+            },
+            "id": "a1dfbb5b-3e87-5ca1-9c83-5c8fac9a57b7",
+            "name": "verduras e legumes",
+            "title": "Verduras e legumes",
+            "tagId": 1495
+          },
+          {
+            "fields": {
+              "slug": "/salgados/"
+            },
+            "id": "455adda1-0e7a-5e37-821f-c822591c6549",
+            "name": "salgados",
+            "title": "Salgados",
+            "tagId": 1482
+          },
+          {
+            "fields": {
+              "slug": "/queijo/"
+            },
+            "id": "8be0a378-e867-5ef2-9a00-68cd16037ec3",
+            "name": "queijo",
+            "title": "Queijo",
+            "tagId": 1316
+          },
+          {
+            "fields": {
+              "slug": "/terrine-e-pate/"
+            },
+            "id": "e7b25de6-170d-5248-89f1-6fe7525d21f2",
+            "name": "terrine e patê",
+            "title": "Terrine e patê",
+            "tagId": 1322
+          },
+          {
+            "fields": {
+              "slug": "/massa/"
+            },
+            "id": "9c41be72-24eb-5b02-b0e2-efa7bbbe902f",
+            "name": "massa",
+            "title": "Massa",
+            "tagId": 664
+          },
+          {
+            "fields": {
+              "slug": "/recheio/"
+            },
+            "id": "6316ab68-fa62-5b1b-b4ed-207b36d2d283",
+            "name": "recheio",
+            "title": "Recheio",
+            "tagId": 1494
+          },
+          {
+            "fields": {
+              "slug": "/frutos-do-mar/"
+            },
+            "id": "374bf994-9ac5-5f39-9df5-0b65a34f39de",
+            "name": "frutos do mar",
+            "title": "Frutos do mar",
+            "tagId": 1490
+          },
+          {
+            "fields": {
+              "slug": "/panquecas-e-waffles/"
+            },
+            "id": "16966f6d-ebd1-5def-867f-d9f957e690e7",
+            "name": "panquecas e waffles",
+            "title": "Panquecas e waffles",
+            "tagId": 1481
+          },
+          {
+            "fields": {
+              "slug": "/animais-de-caca/"
+            },
+            "id": "0261291a-d1b0-51c5-843a-5a8afe95828d",
+            "name": "animais de caça",
+            "title": "Animais de caça",
+            "tagId": 1496
+          },
+          {
+            "fields": {
+              "slug": "/bife/"
+            },
+            "id": "a65e5575-659f-5dc2-b303-34ef43a3ca66",
+            "name": "bife",
+            "title": "Bife",
+            "tagId": 1492
+          },
+          {
+            "fields": {
+              "slug": "/molho-para-salada/"
+            },
+            "id": "acd718a3-4382-55fa-9f8b-f8eb0f0cd20e",
+            "name": "molho para salada",
+            "title": "Molho para salada",
+            "tagId": 1473
+          },
+          {
+            "fields": {
+              "slug": "/marinada/"
+            },
+            "id": "a3c6f348-8de5-5a3e-ab5d-f21f8b170a0e",
+            "name": "marinada",
+            "title": "Marinada",
+            "tagId": 690
+          },
+          {
+            "fields": {
+              "slug": "/pastas/"
+            },
+            "id": "196ecdb3-5e92-5a8c-a801-0c19a3351091",
+            "name": "pastas",
+            "title": "Pastas",
+            "tagId": 1472
+          },
+          {
+            "fields": {
+              "slug": "/hamburguer/"
+            },
+            "id": "86858856-41c0-59a1-af1a-db08e159f0a1",
+            "name": "hambúrguer",
+            "title": "Hambúrguer",
+            "tagId": 1477
+          },
+          {
+            "fields": {
+              "slug": "/pizza/"
+            },
+            "id": "3036ad84-3953-5c11-90cb-4b2a8cf896f1",
+            "name": "pizza",
+            "title": "Pizza",
+            "tagId": 665
+          },
+          {
+            "fields": {
+              "slug": "/antepasto/"
+            },
+            "id": "6496d5b3-0461-52b2-9a8a-c1377c2d4650",
+            "name": "antepasto",
+            "title": "Antepasto",
+            "tagId": 698
+          },
+          {
+            "fields": {
+              "slug": "/graos/"
+            },
+            "id": "b3bf01e5-1334-5e80-8e2a-212a7f21fc0e",
+            "name": "grãos",
+            "title": "Grãos",
+            "tagId": 1476
+          },
+          {
+            "fields": {
+              "slug": "/curry/"
+            },
+            "id": "7e2f137b-6f42-5d4a-9939-d4ee0be7be83",
+            "name": "curry",
+            "title": "Curry",
+            "tagId": 1470
+          },
+          {
+            "fields": {
+              "slug": "/gratinado/"
+            },
+            "id": "c822bd2b-f9c9-5326-98ed-f08b695975cb",
+            "name": "gratinado",
+            "title": "Gratinado",
+            "tagId": 683
+          },
+          {
+            "fields": {
+              "slug": "/wrap/"
+            },
+            "id": "eff036d7-9fa8-5725-89dc-173242e6589c",
+            "name": "wrap",
+            "title": "Wrap",
+            "tagId": 1497
+          },
+          {
+            "fields": {
+              "slug": "/pudins/"
+            },
+            "id": "6a4490c8-0a6e-553a-bb20-35e27118e517",
+            "name": "pudins",
+            "title": "Pudins",
+            "tagId": 693
+          },
+          {
+            "fields": {
+              "slug": "/ensopado/"
+            },
+            "id": "f48c8726-060c-5812-8527-cd4da14e6b4c",
+            "name": "ensopado",
+            "title": "Ensopado",
+            "tagId": 1468
+          },
+          {
+            "fields": {
+              "slug": "/quiche/"
+            },
+            "id": "2d8bc11d-026b-50e0-8016-46b47b68c507",
+            "name": "quiche",
+            "title": "Quiche",
+            "tagId": 1485
+          },
+          {
+            "fields": {
+              "slug": "/laticinio/"
+            },
+            "id": "25c19865-96f2-50d9-84ca-90fa710c1212",
+            "name": "laticínio",
+            "title": "Laticínio",
+            "tagId": 1471
+          },
+          {
+            "fields": {
+              "slug": "/pudim-e-fla/"
+            },
+            "id": "02df0bcd-f8f6-585e-915d-6575b92eb940",
+            "name": "pudim e flã",
+            "title": "Pudim e flã",
+            "tagId": 1319
+          },
+          {
+            "fields": {
+              "slug": "/guisado/"
+            },
+            "id": "039db713-7d27-5ef5-a1dc-e761aed8f4a4",
+            "name": "guisado",
+            "title": "Guisado",
+            "tagId": 1493
+          },
+          {
+            "fields": {
+              "slug": "/risoto/"
+            },
+            "id": "649430e4-f57e-5d6b-8c15-e4335aed6051",
+            "name": "risoto",
+            "title": "Risoto",
+            "tagId": 699
+          }
+        ],
+        "id": "c97a05a3-6898-5a19-9299-a49b2fdcadab",
+        "name": "dishes",
+        "label": "Receitas",
+        "tags": [
+          {
+            "id": 1483,
+            "name": "torta"
+          },
+          {
+            "id": 1489,
+            "name": "molho"
+          },
+          {
+            "id": 1479,
+            "name": "carne"
+          },
+          {
+            "id": 1474,
+            "name": "ovos"
+          },
+          {
+            "id": 1487,
+            "name": "salada"
+          },
+          {
+            "id": 1466,
+            "name": "bolo"
+          },
+          {
+            "id": 1480,
+            "name": "macarrão"
+          },
+          {
+            "id": 1315,
+            "name": "biscoito"
+          },
+          {
+            "id": 1465,
+            "name": "pão"
+          },
+          {
+            "id": 1486,
+            "name": "arroz"
+          },
+          {
+            "id": 1464,
+            "name": "bebidas"
+          },
+          {
+            "id": 1108,
+            "name": "frutas"
+          },
+          {
+            "id": 1317,
+            "name": "sobremesa gelada"
+          },
+          {
+            "id": 710,
+            "name": "sobremesa"
+          },
+          {
+            "id": 1467,
+            "name": "balas e doces"
+          },
+          {
+            "id": 1478,
+            "name": "sorvete"
+          },
+          {
+            "id": 1484,
+            "name": "aves"
+          },
+          {
+            "id": 1488,
+            "name": "sanduíche"
+          },
+          {
+            "id": 1491,
+            "name": "sopa"
+          },
+          {
+            "id": 1475,
+            "name": "peixe"
+          },
+          {
+            "id": 1320,
+            "name": "calda"
+          },
+          {
+            "id": 1495,
+            "name": "verduras e legumes"
+          },
+          {
+            "id": 1482,
+            "name": "salgados"
+          },
+          {
+            "id": 1316,
+            "name": "queijo"
+          },
+          {
+            "id": 1322,
+            "name": "terrine e patê"
+          },
+          {
+            "id": 664,
+            "name": "massa"
+          },
+          {
+            "id": 1494,
+            "name": "recheio"
+          },
+          {
+            "id": 1490,
+            "name": "frutos do mar"
+          },
+          {
+            "id": 1481,
+            "name": "panquecas e waffles"
+          },
+          {
+            "id": 1496,
+            "name": "animais de caça"
+          },
+          {
+            "id": 1492,
+            "name": "bife"
+          },
+          {
+            "id": 1473,
+            "name": "molho para salada"
+          },
+          {
+            "id": 690,
+            "name": "marinada"
+          },
+          {
+            "id": 1472,
+            "name": "pastas"
+          },
+          {
+            "id": 1477,
+            "name": "hambúrguer"
+          },
+          {
+            "id": 665,
+            "name": "pizza"
+          },
+          {
+            "id": 698,
+            "name": "antepasto"
+          },
+          {
+            "id": 1476,
+            "name": "grãos"
+          },
+          {
+            "id": 1470,
+            "name": "curry"
+          },
+          {
+            "id": 683,
+            "name": "gratinado"
+          },
+          {
+            "id": 1497,
+            "name": "wrap"
+          },
+          {
+            "id": 693,
+            "name": "pudins"
+          },
+          {
+            "id": 1468,
+            "name": "ensopado"
+          },
+          {
+            "id": 1485,
+            "name": "quiche"
+          },
+          {
+            "id": 1471,
+            "name": "laticínio"
+          },
+          {
+            "id": 1319,
+            "name": "pudim e flã"
+          },
+          {
+            "id": 1493,
+            "name": "guisado"
+          },
+          {
+            "id": 699,
+            "name": "risoto"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/atum/"
+            },
+            "id": "1352d67a-2185-5c63-b225-1be4a2cb99b3",
+            "name": "atum",
+            "title": "Atum",
+            "tagId": 2094
+          },
+          {
+            "fields": {
+              "slug": "/frango/"
+            },
+            "id": "67390efa-8f78-53dd-9a6a-7c832b153d72",
+            "name": "frango",
+            "title": "Frango",
+            "tagId": 1503
+          },
+          {
+            "fields": {
+              "slug": "/carne-de-boi/"
+            },
+            "id": "aabc35e1-c285-51e5-9b7a-ddcd050808e2",
+            "name": "carne de boi",
+            "title": "Carne de boi",
+            "tagId": 1499
+          },
+          {
+            "fields": {
+              "slug": "/leguminosas/"
+            },
+            "id": "819d7399-f7d8-590b-92ff-95d2da78afe6",
+            "name": "leguminosas",
+            "title": "Leguminosas",
+            "tagId": 1498
+          },
+          {
+            "fields": {
+              "slug": "/ovos/"
+            },
+            "id": "a9b3bd25-5509-5371-8733-d893c6e6590e",
+            "name": "ovos",
+            "title": "Ovos",
+            "tagId": 1506
+          },
+          {
+            "fields": {
+              "slug": "/verduras-e-legumes/"
+            },
+            "id": "d0cdfc16-b542-593d-8f4a-5f2e9823d95e",
+            "name": "verduras e legumes",
+            "title": "Verduras e legumes",
+            "tagId": 1518
+          },
+          {
+            "fields": {
+              "slug": "/chocolate/"
+            },
+            "id": "aa3e63c5-9894-5b55-8bda-d00f91eaaffa",
+            "name": "chocolate",
+            "title": "Chocolate",
+            "tagId": 1504
+          },
+          {
+            "fields": {
+              "slug": "/nozes-e-sementes/"
+            },
+            "id": "b849c61a-3c40-5ec5-aefd-4603972497f5",
+            "name": "nozes e sementes",
+            "title": "Nozes e sementes",
+            "tagId": 1511
+          },
+          {
+            "fields": {
+              "slug": "/frutas/"
+            },
+            "id": "7dcfc83f-e936-5a91-93a0-547805f148bb",
+            "name": "frutas",
+            "title": "Frutas",
+            "tagId": 1053
+          },
+          {
+            "fields": {
+              "slug": "/queijo/"
+            },
+            "id": "5193aa1b-ae05-5131-9003-70f33f07575a",
+            "name": "queijo",
+            "title": "Queijo",
+            "tagId": 1502
+          },
+          {
+            "fields": {
+              "slug": "/arroz/"
+            },
+            "id": "a31ef78c-7456-57a6-ad04-60a91a67552b",
+            "name": "arroz",
+            "title": "Arroz",
+            "tagId": 1514
+          },
+          {
+            "fields": {
+              "slug": "/porco/"
+            },
+            "id": "3191d692-f53f-5027-a430-6a980ba356a7",
+            "name": "porco",
+            "title": "Porco",
+            "tagId": 1512
+          },
+          {
+            "fields": {
+              "slug": "/grao/"
+            },
+            "id": "dc38b0fa-4bfa-5ef4-a951-1e28de34b4e3",
+            "name": "grão",
+            "title": "Grão",
+            "tagId": 1509
+          },
+          {
+            "fields": {
+              "slug": "/peixe/"
+            },
+            "id": "d88717bd-3074-566e-82b1-2f2854e18258",
+            "name": "peixe",
+            "title": "Peixe",
+            "tagId": 1507
+          },
+          {
+            "fields": {
+              "slug": "/aboboras/"
+            },
+            "id": "f2c4f8c2-8045-5a4d-8f10-21995d79598a",
+            "name": "abóboras",
+            "title": "Abóboras",
+            "tagId": 2085
+          },
+          {
+            "fields": {
+              "slug": "/cogumelos/"
+            },
+            "id": "9835d9a9-2aea-56a7-a980-005d448d473d",
+            "name": "cogumelos",
+            "title": "Cogumelos",
+            "tagId": 2082
+          },
+          {
+            "fields": {
+              "slug": "/massa/"
+            },
+            "id": "75216e87-16d3-5fcc-a625-766e4c8db8d4",
+            "name": "massa",
+            "title": "Massa",
+            "tagId": 1047
+          },
+          {
+            "fields": {
+              "slug": "/manteiga/"
+            },
+            "id": "83cf1fd3-7618-598a-b6c3-d33d6a066bce",
+            "name": "manteiga",
+            "title": "Manteiga",
+            "tagId": 1331
+          },
+          {
+            "fields": {
+              "slug": "/pao/"
+            },
+            "id": "e80345ab-6f00-503c-a6a5-66f0e67f8a12",
+            "name": "pão",
+            "title": "Pão",
+            "tagId": 1501
+          },
+          {
+            "fields": {
+              "slug": "/galinha/"
+            },
+            "id": "0c79e93e-1685-50e9-9566-610d34069eb9",
+            "name": "galinha",
+            "title": "Galinha",
+            "tagId": 1340
+          },
+          {
+            "fields": {
+              "slug": "/tomates/"
+            },
+            "id": "26bea628-7b61-5e00-acd6-d33c86700b34",
+            "name": "tomates",
+            "title": "Tomates",
+            "tagId": 2091
+          },
+          {
+            "fields": {
+              "slug": "/peixe-branco/"
+            },
+            "id": "814aba89-a007-58ab-9b04-7a9fbfc238c5",
+            "name": "peixe branco",
+            "title": "Peixe branco",
+            "tagId": 2095
+          },
+          {
+            "fields": {
+              "slug": "/peru/"
+            },
+            "id": "f82008ff-4e52-5d5d-bb77-127b042416e5",
+            "name": "peru",
+            "title": "Peru",
+            "tagId": 1516
+          },
+          {
+            "fields": {
+              "slug": "/verduras-verdes/"
+            },
+            "id": "f166f555-1170-535b-9fed-fbbc13d72380",
+            "name": "verduras verdes",
+            "title": "Verduras verdes",
+            "tagId": 2077
+          },
+          {
+            "fields": {
+              "slug": "/batata/"
+            },
+            "id": "c6c43809-3a59-5df7-852d-1f9f035fac3b",
+            "name": "batata",
+            "title": "Batata",
+            "tagId": 1513
+          },
+          {
+            "fields": {
+              "slug": "/feijao/"
+            },
+            "id": "18bb1547-9ad2-5168-89b2-29146f9fbd4d",
+            "name": "feijão",
+            "title": "Feijão",
+            "tagId": 2074
+          },
+          {
+            "fields": {
+              "slug": "/salsichas-e-linguicas/"
+            },
+            "id": "01dfd119-1533-5a94-981c-75ea035d79c5",
+            "name": "salsichas e linguiças",
+            "title": "Salsichas e linguiças",
+            "tagId": 2088
+          },
+          {
+            "fields": {
+              "slug": "/cafe/"
+            },
+            "id": "dc667eab-52ad-53fe-a0e5-691839561bb0",
+            "name": "café",
+            "title": "Café",
+            "tagId": 1505
+          },
+          {
+            "fields": {
+              "slug": "/frutos-do-mar/"
+            },
+            "id": "353aabac-315d-5e1d-923b-1ff842081a51",
+            "name": "frutos do mar",
+            "title": "Frutos do mar",
+            "tagId": 1515
+          },
+          {
+            "fields": {
+              "slug": "/salmao/"
+            },
+            "id": "0ed8e11f-ec5e-507a-bad6-c56f37b468f5",
+            "name": "salmão",
+            "title": "Salmão",
+            "tagId": 2087
+          },
+          {
+            "fields": {
+              "slug": "/leite/"
+            },
+            "id": "c9e3b948-8706-569e-8988-8785feb3497f",
+            "name": "leite",
+            "title": "Leite",
+            "tagId": 1326
+          },
+          {
+            "fields": {
+              "slug": "/tofu/"
+            },
+            "id": "51294ca8-77d0-586b-9dd8-cf1f66c30cf2",
+            "name": "tofu",
+            "title": "Tofu",
+            "tagId": 1346
+          },
+          {
+            "fields": {
+              "slug": "/frutas-tropicais/"
+            },
+            "id": "4ff2733c-a71f-5cea-996a-cd6be9893447",
+            "name": "frutas tropicais",
+            "title": "Frutas tropicais",
+            "tagId": 2092
+          },
+          {
+            "fields": {
+              "slug": "/camarao/"
+            },
+            "id": "d6a37a26-fbf8-5336-8917-1a939cd5172e",
+            "name": "camarão ",
+            "title": "Camarão",
+            "tagId": 2084
+          },
+          {
+            "fields": {
+              "slug": "/lentilhas/"
+            },
+            "id": "930cc652-8801-52d2-a810-655448f18382",
+            "name": "lentilhas",
+            "title": "Lentilhas",
+            "tagId": 2078
+          },
+          {
+            "fields": {
+              "slug": "/iogurte/"
+            },
+            "id": "0fcc6322-ece8-5ff2-ab16-98be9865badf",
+            "name": "iogurte",
+            "title": "Iogurte",
+            "tagId": 1327
+          },
+          {
+            "fields": {
+              "slug": "/creme-de-leite/"
+            },
+            "id": "f38a8ba3-10fb-5b20-a0f3-396d3eb9219d",
+            "name": "creme de leite",
+            "title": "Creme de leite",
+            "tagId": 1328
+          },
+          {
+            "fields": {
+              "slug": "/bacon/"
+            },
+            "id": "9a89ce3c-3193-5644-bde9-4c22ffc725c5",
+            "name": "bacon",
+            "title": "Bacon",
+            "tagId": 2073
+          }
+        ],
+        "id": "dd7b7cd1-ad38-5ce9-a431-ef3df65ce29b",
+        "name": "mainIngredient",
+        "label": "Ingredientes que tenho",
+        "tags": [
+          {
+            "id": 2094,
+            "name": "atum"
+          },
+          {
+            "id": 1503,
+            "name": "frango"
+          },
+          {
+            "id": 1499,
+            "name": "carne de boi"
+          },
+          {
+            "id": 1498,
+            "name": "leguminosas"
+          },
+          {
+            "id": 1506,
+            "name": "ovos"
+          },
+          {
+            "id": 1518,
+            "name": "verduras e legumes"
+          },
+          {
+            "id": 1504,
+            "name": "chocolate"
+          },
+          {
+            "id": 1511,
+            "name": "nozes e sementes"
+          },
+          {
+            "id": 1053,
+            "name": "frutas"
+          },
+          {
+            "id": 1502,
+            "name": "queijo"
+          },
+          {
+            "id": 1514,
+            "name": "arroz"
+          },
+          {
+            "id": 1512,
+            "name": "porco"
+          },
+          {
+            "id": 1509,
+            "name": "grão"
+          },
+          {
+            "id": 1507,
+            "name": "peixe"
+          },
+          {
+            "id": 2085,
+            "name": "abóboras"
+          },
+          {
+            "id": 2082,
+            "name": "cogumelos"
+          },
+          {
+            "id": 1047,
+            "name": "massa"
+          },
+          {
+            "id": 1331,
+            "name": "manteiga"
+          },
+          {
+            "id": 1501,
+            "name": "pão"
+          },
+          {
+            "id": 1340,
+            "name": "galinha"
+          },
+          {
+            "id": 2091,
+            "name": "tomates"
+          },
+          {
+            "id": 2095,
+            "name": "peixe branco"
+          },
+          {
+            "id": 1516,
+            "name": "peru"
+          },
+          {
+            "id": 2077,
+            "name": "verduras verdes"
+          },
+          {
+            "id": 1513,
+            "name": "batata"
+          },
+          {
+            "id": 2074,
+            "name": "feijão"
+          },
+          {
+            "id": 2088,
+            "name": "salsichas e linguiças"
+          },
+          {
+            "id": 1505,
+            "name": "café"
+          },
+          {
+            "id": 1515,
+            "name": "frutos do mar"
+          },
+          {
+            "id": 2087,
+            "name": "salmão"
+          },
+          {
+            "id": 1326,
+            "name": "leite"
+          },
+          {
+            "id": 1346,
+            "name": "tofu"
+          },
+          {
+            "id": 2092,
+            "name": "frutas tropicais"
+          },
+          {
+            "id": 2084,
+            "name": "camarão "
+          },
+          {
+            "id": 2078,
+            "name": "lentilhas"
+          },
+          {
+            "id": 1327,
+            "name": "iogurte"
+          },
+          {
+            "id": 1328,
+            "name": "creme de leite"
+          },
+          {
+            "id": 2073,
+            "name": "bacon"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/a-dois/"
+            },
+            "id": "dbe2f4b2-1c1f-5c02-8a90-3c2fe23c87a4",
+            "name": "a dois",
+            "title": "A dois",
+            "tagId": 1526
+          },
+          {
+            "fields": {
+              "slug": "/para-criancas/"
+            },
+            "id": "69d4a400-de2a-563b-9a7f-79a117c5384c",
+            "name": "para crianças",
+            "title": "Para crianças",
+            "tagId": 1521
+          },
+          {
+            "fields": {
+              "slug": "/dia-a-dia/"
+            },
+            "id": "8f8cee53-c0d3-5862-9b52-6e7e14067149",
+            "name": "dia a dia",
+            "title": "Dia a dia",
+            "tagId": 1527
+          },
+          {
+            "fields": {
+              "slug": "/jantar/"
+            },
+            "id": "e15f06e5-e722-579f-8f04-59e7fda74137",
+            "name": "jantar",
+            "title": "Jantar",
+            "tagId": 1525
+          },
+          {
+            "fields": {
+              "slug": "/aniversario/"
+            },
+            "id": "cd06589f-b308-5c20-b7e0-fb65cfb88ba0",
+            "name": "aniversário",
+            "title": "Aniversário",
+            "tagId": 1524
+          },
+          {
+            "fields": {
+              "slug": "/festa-infantil/"
+            },
+            "id": "e5d77d12-ab6d-5c1a-bfeb-0dba40407a73",
+            "name": "festa infantil",
+            "title": "Festa infantil",
+            "tagId": 1528
+          },
+          {
+            "fields": {
+              "slug": "/festa/"
+            },
+            "id": "0b2b4d36-5135-5bae-a5cc-6b73fa89658b",
+            "name": "festa",
+            "title": "Festa",
+            "tagId": 1529
+          },
+          {
+            "fields": {
+              "slug": "/cozinhando-com-criancas/"
+            },
+            "id": "69267a67-e569-5353-9018-1da7f277606a",
+            "name": "cozinhando com crianças",
+            "title": "Cozinhando com crianças",
+            "tagId": 1522
+          },
+          {
+            "fields": {
+              "slug": "/piquenique/"
+            },
+            "id": "d7b06262-5c93-54fe-a204-bda043c53169",
+            "name": "piquenique",
+            "title": "Piquenique",
+            "tagId": 1530
+          },
+          {
+            "fields": {
+              "slug": "/cha-da-tarde/"
+            },
+            "id": "e5da5ed9-1940-5c93-8935-70e83fb877ae",
+            "name": "chá da tarde",
+            "title": "Chá da tarde",
+            "tagId": 1531
+          },
+          {
+            "fields": {
+              "slug": "/bufe/"
+            },
+            "id": "1f34d3b6-951b-5642-a42a-98331d01b2f3",
+            "name": "bufê",
+            "title": "Bufê",
+            "tagId": 700
+          },
+          {
+            "fields": {
+              "slug": "/jantar-de-gala/"
+            },
+            "id": "089a0407-b780-584f-a335-2048aa41ff3a",
+            "name": "jantar de gala",
+            "title": "Jantar de gala",
+            "tagId": 1523
+          },
+          {
+            "fields": {
+              "slug": "/churrasco/"
+            },
+            "id": "b768c8bc-23f0-54da-bad0-360a7ed30d4c",
+            "name": "churrasco",
+            "title": "Churrasco",
+            "tagId": 1520
+          }
+        ],
+        "id": "75279a8f-d661-5e6d-8c29-44d8466ff2bb",
+        "name": "occasions",
+        "label": "Ocasiões",
+        "tags": [
+          {
+            "id": 1526,
+            "name": "a dois"
+          },
+          {
+            "id": 1521,
+            "name": "para crianças"
+          },
+          {
+            "id": 1527,
+            "name": "dia a dia"
+          },
+          {
+            "id": 1525,
+            "name": "jantar"
+          },
+          {
+            "id": 1524,
+            "name": "aniversário"
+          },
+          {
+            "id": 1528,
+            "name": "festa infantil"
+          },
+          {
+            "id": 1529,
+            "name": "festa"
+          },
+          {
+            "id": 1522,
+            "name": "cozinhando com crianças"
+          },
+          {
+            "id": 1530,
+            "name": "piquenique"
+          },
+          {
+            "id": 1531,
+            "name": "chá da tarde"
+          },
+          {
+            "id": 700,
+            "name": "bufê"
+          },
+          {
+            "id": 1523,
+            "name": "jantar de gala"
+          },
+          {
+            "id": 1520,
+            "name": "churrasco"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/verao/"
+            },
+            "id": "abb0a92a-9d45-54f7-814a-a6fdef42f4be",
+            "name": "verão",
+            "title": "Verão",
+            "tagId": 1544
+          },
+          {
+            "fields": {
+              "slug": "/outono/"
+            },
+            "id": "48652ce0-ce46-5b17-9666-a295ff524888",
+            "name": "outono",
+            "title": "Outono",
+            "tagId": 1542
+          },
+          {
+            "fields": {
+              "slug": "/inverno/"
+            },
+            "id": "d2bdf1f2-7240-53ab-a907-4bacbf9f3a9c",
+            "name": "inverno",
+            "title": "Inverno",
+            "tagId": 623
+          },
+          {
+            "fields": {
+              "slug": "/primavera/"
+            },
+            "id": "3a1cd322-e41a-5333-98a0-2c320b7faac5",
+            "name": "primavera",
+            "title": "Primavera",
+            "tagId": 1543
+          }
+        ],
+        "id": "0b7812b5-25d8-5b63-ad3d-2cf9f19296d7",
+        "name": "seasons",
+        "label": "Temporadas",
+        "tags": [
+          {
+            "id": 1544,
+            "name": "verão"
+          },
+          {
+            "id": 1542,
+            "name": "outono"
+          },
+          {
+            "id": 623,
+            "name": "inverno"
+          },
+          {
+            "id": 1543,
+            "name": "primavera"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/lanche/"
+            },
+            "id": "f7564c4f-f99e-5613-bf6b-491a97f7b11a",
+            "name": "lanche",
+            "title": "Lanche",
+            "tagId": 1553
+          },
+          {
+            "fields": {
+              "slug": "/ceia/"
+            },
+            "id": "7ee79396-da0c-5532-a126-b9c093464e5a",
+            "name": "ceia",
+            "title": "Ceia",
+            "tagId": 1554
+          },
+          {
+            "fields": {
+              "slug": "/almoco/"
+            },
+            "id": "69e707f1-d141-55bb-834a-85d3cb2fb427",
+            "name": "almoço",
+            "title": "Almoço",
+            "tagId": 617
+          },
+          {
+            "fields": {
+              "slug": "/jantar/"
+            },
+            "id": "2394a7fa-c740-5de7-bec3-4edf06d41f7c",
+            "name": "jantar",
+            "title": "Jantar",
+            "tagId": 1552
+          },
+          {
+            "fields": {
+              "slug": "/brunch/"
+            },
+            "id": "b54baa02-f4f0-5b8c-becd-1228cc3a398a",
+            "name": "brunch",
+            "title": "Brunch",
+            "tagId": 619
+          },
+          {
+            "fields": {
+              "slug": "/cafe-da-manha/"
+            },
+            "id": "48d63042-5a2a-5f06-99e3-04d4ca5082e7",
+            "name": "café da manhã",
+            "title": "Café da manhã",
+            "tagId": 1551
+          },
+          {
+            "fields": {
+              "slug": "/hora-de-dormir/"
+            },
+            "id": "ced8534f-9e86-5c05-88a0-d5b3c41b4ed4",
+            "name": "hora de dormir",
+            "title": "Hora de dormir",
+            "tagId": 1367
+          }
+        ],
+        "id": "21c9f7c5-37b1-5738-9f13-8917576c50b2",
+        "name": "timesOfDay",
+        "label": "Horas do dia",
+        "tags": [
+          {
+            "id": 1553,
+            "name": "lanche"
+          },
+          {
+            "id": 1554,
+            "name": "ceia"
+          },
+          {
+            "id": 617,
+            "name": "almoço"
+          },
+          {
+            "id": 1552,
+            "name": "jantar"
+          },
+          {
+            "id": 619,
+            "name": "brunch"
+          },
+          {
+            "id": 1551,
+            "name": "café da manhã"
+          },
+          {
+            "id": 1367,
+            "name": "hora de dormir"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/marmita/"
+            },
+            "id": "e4b7f54e-6c8e-5559-be83-58098f2253c1",
+            "name": "marmita",
+            "title": "Marmita",
+            "tagId": 1549
+          },
+          {
+            "fields": {
+              "slug": "/congelavel/"
+            },
+            "id": "b31b5fc5-6ad2-5f83-9ef4-70a7bade4db9",
+            "name": "congelável",
+            "title": "Congelável",
+            "tagId": 1548
+          },
+          {
+            "fields": {
+              "slug": "/fazer-com-antecedencia/"
+            },
+            "id": "9e02e477-3526-53b5-ae7a-a941631e11ab",
+            "name": "fazer com antecedência",
+            "title": "Fazer com antecedência",
+            "tagId": 1550
+          }
+        ],
+        "id": "3f2ecfb0-cd45-596f-be2d-b810fc499477",
+        "name": "suitability",
+        "label": "Aptidão",
+        "tags": [
+          {
+            "id": 1549,
+            "name": "marmita"
+          },
+          {
+            "id": 1548,
+            "name": "congelável"
+          },
+          {
+            "id": 1550,
+            "name": "fazer com antecedência"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/sobras-carroussel/"
+            },
+            "id": "306559a6-c8a2-5475-9af4-5906e670e1e7",
+            "name": "sobras_carroussel",
+            "title": "Sobras carroussel",
+            "tagId": 11598
+          },
+          {
+            "fields": {
+              "slug": "/sem-frutos-do-mar/"
+            },
+            "id": "3926414f-c3ab-5113-8d32-21d2fe0df19b",
+            "name": "sem frutos do mar",
+            "title": "Sem frutos do mar",
+            "tagId": 12912
+          },
+          {
+            "fields": {
+              "slug": "/hellmann´s/"
+            },
+            "id": "b158b349-2fa8-5125-9a83-c596daee466f",
+            "name": "hellmann´s",
+            "title": "Hellmann´s",
+            "tagId": 8078
+          },
+          {
+            "fields": {
+              "slug": "/omelete/"
+            },
+            "id": "17cd9891-fc56-5c8e-9c0e-f21c50356cda",
+            "name": "omelete",
+            "title": "Omelete",
+            "tagId": 13147
+          },
+          {
+            "fields": {
+              "slug": "/baixo-custo/"
+            },
+            "id": "e6588a09-aaf3-5664-bd8d-c6df5c268fb1",
+            "name": "baixo custo",
+            "title": "Baixo custo",
+            "tagId": 13148
+          },
+          {
+            "fields": {
+              "slug": "/salada-carroussel/"
+            },
+            "id": "c93fb557-7ac5-599e-9848-bb25ea284ed0",
+            "name": "salada_carroussel",
+            "title": "Salada carroussel",
+            "tagId": 11597
+          },
+          {
+            "fields": {
+              "slug": "/saudavel/"
+            },
+            "id": "48818689-cbaf-5191-b989-7164ddc25ff4",
+            "name": "saudável",
+            "title": "Saudável",
+            "tagId": 10939
+          },
+          {
+            "fields": {
+              "slug": "/sem-gluten/"
+            },
+            "id": "27ea7538-1cc0-5f97-8884-38f95d51fc9b",
+            "name": "sem gluten",
+            "title": "Sem gluten",
+            "tagId": 12941
+          },
+          {
+            "fields": {
+              "slug": "/dia-a-dia/"
+            },
+            "id": "e010b3ce-0d4e-58d6-b1cc-42782ff07541",
+            "name": "dia-a-dia",
+            "title": "Dia a-dia",
+            "tagId": 11270
+          },
+          {
+            "fields": {
+              "slug": "/marmita-saudavel/"
+            },
+            "id": "b4851950-2e20-54cb-a029-b7bc801efe19",
+            "name": "marmita-saudavel",
+            "title": "Marmita saudavel",
+            "tagId": 11271
+          },
+          {
+            "fields": {
+              "slug": "/veganas/"
+            },
+            "id": "3c7c758a-c1a0-51b5-978d-6f9fb7658800",
+            "name": "veganas",
+            "title": "Veganas",
+            "tagId": 11343
+          },
+          {
+            "fields": {
+              "slug": "/sem-leite/"
+            },
+            "id": "0ecf25b4-623a-5905-be15-38f5edb25e3d",
+            "name": "sem-leite",
+            "title": "Sem leite",
+            "tagId": 11341
+          },
+          {
+            "fields": {
+              "slug": "/pra-acompanhar/"
+            },
+            "id": "ef683836-feb2-5450-b50f-5bdcaba8e214",
+            "name": "pra-acompanhar",
+            "title": "Pra acompanhar",
+            "tagId": 11272
+          },
+          {
+            "fields": {
+              "slug": "/nao-precisa-aquecer/"
+            },
+            "id": "55b7a9dd-ef1c-5241-a37f-a3c2ca0e6fd1",
+            "name": "não-precisa-aquecer",
+            "title": "Não precisa-aquecer",
+            "tagId": 11360
+          },
+          {
+            "fields": {
+              "slug": "/baixas-carboidrato/"
+            },
+            "id": "b0136281-797d-57de-973a-005cf91134b8",
+            "name": "baixas-carboidrato",
+            "title": "Baixas carboidrato",
+            "tagId": 11359
+          },
+          {
+            "fields": {
+              "slug": "/novo/"
+            },
+            "id": "2bdb254d-3177-5bfd-8b8d-9d873afdf5cc",
+            "name": "novo",
+            "title": "Novo",
+            "tagId": 11184
+          },
+          {
+            "fields": {
+              "slug": "/sem-lactose/"
+            },
+            "id": "9ff26522-7e02-5a88-b304-901b45338a50",
+            "name": "sem lactose",
+            "title": "Sem lactose",
+            "tagId": 12886
+          },
+          {
+            "fields": {
+              "slug": "/sem-leite-e-derivados/"
+            },
+            "id": "6d9b9c98-7c55-5b6e-a206-cd859cb22d5a",
+            "name": "sem leite e derivados",
+            "title": "Sem leite e derivados",
+            "tagId": 13926
+          },
+          {
+            "fields": {
+              "slug": "/sem-leite/"
+            },
+            "id": "f180cbac-69f3-5c75-a3e4-b0e75199b5aa",
+            "name": "sem leite",
+            "title": "Sem leite",
+            "tagId": 12914
+          },
+          {
+            "fields": {
+              "slug": "/sem-soja/"
+            },
+            "id": "2839aff8-658f-5869-aa0e-2c9967555d4b",
+            "name": " sem soja",
+            "title": "Sem soja",
+            "tagId": 13065
+          },
+          {
+            "fields": {
+              "slug": "/receitas-doces/"
+            },
+            "id": "26055997-3329-5589-8ca3-0d58e15cbe94",
+            "name": "receitas-doces",
+            "title": "Receitas doces",
+            "tagId": 8914
+          },
+          {
+            "fields": {
+              "slug": "/sem-carne/"
+            },
+            "id": "10bafdbc-0b39-5c9d-b9e0-30fe6bc92cc0",
+            "name": "sem carne",
+            "title": "Sem carne",
+            "tagId": 12909
+          },
+          {
+            "fields": {
+              "slug": "/sem-ovos/"
+            },
+            "id": "11f728db-1068-5319-bcf0-55041d1d41fc",
+            "name": "sem ovos",
+            "title": "Sem ovos",
+            "tagId": 12942
+          },
+          {
+            "fields": {
+              "slug": "/bela-gil/"
+            },
+            "id": "9c22340c-b033-5ed6-acc2-138c10c04984",
+            "name": "bela-gil",
+            "title": "Bela gil",
+            "tagId": 11277
+          },
+          {
+            "fields": {
+              "slug": "/doces-ocasioes-especiais/"
+            },
+            "id": "9eaffc14-2b8b-5dc8-b255-bdbfd0b69c6c",
+            "name": "doces-ocasioes-especiais",
+            "title": "Doces ocasioes-especiais",
+            "tagId": 11268
+          },
+          {
+            "fields": {
+              "slug": "/docinhos-a-la-mt/"
+            },
+            "id": "9fa687cb-fcc1-5bf6-9956-72bd44fb6531",
+            "name": "docinhos-a-la-mt",
+            "title": "Docinhos a-la-mt",
+            "tagId": 11339
+          },
+          {
+            "fields": {
+              "slug": "/bolos/"
+            },
+            "id": "62638703-81b6-5bdf-b066-f7974dfdbe2f",
+            "name": "bolos",
+            "title": "Bolos",
+            "tagId": 11361
+          },
+          {
+            "fields": {
+              "slug": "/energeticas/"
+            },
+            "id": "59de98c8-b706-54df-a015-915de6d2e3ed",
+            "name": "energéticas",
+            "title": "Energéticas",
+            "tagId": 11407
+          },
+          {
+            "fields": {
+              "slug": "/lancheira-saudavel/"
+            },
+            "id": "dc7c66f9-782d-54b6-b258-f53c3742e0bb",
+            "name": "lancheira-saudavel",
+            "title": "Lancheira saudavel",
+            "tagId": 11414
+          },
+          {
+            "fields": {
+              "slug": "/pra-fazer-junto/"
+            },
+            "id": "7483bf00-7972-5316-a7e5-f77beb8a22d3",
+            "name": "pra-fazer-junto",
+            "title": "Pra fazer-junto",
+            "tagId": 11267
+          },
+          {
+            "fields": {
+              "slug": "/vegetariano/"
+            },
+            "id": "3bbf7de1-fca6-54b1-8d5d-3066ce406501",
+            "name": "vegetariano",
+            "title": "Vegetariano",
+            "tagId": 12994
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa/"
+            },
+            "id": "de0f8147-4ec8-5162-8432-c54363e0f0ae",
+            "name": "sobremesa",
+            "title": "Sobremesa",
+            "tagId": 3962
+          },
+          {
+            "fields": {
+              "slug": "/carne/"
+            },
+            "id": "7b203a55-6915-500f-9125-46002186c54c",
+            "name": "carne",
+            "title": "Carne",
+            "tagId": 12598
+          },
+          {
+            "fields": {
+              "slug": "/sopa/"
+            },
+            "id": "ca9db30e-e265-5dab-8974-de37a54f4394",
+            "name": "sopa",
+            "title": "Sopa",
+            "tagId": 12666
+          },
+          {
+            "fields": {
+              "slug": "/legumes/"
+            },
+            "id": "42d80e93-e73c-5eba-8bed-2da1affdbac9",
+            "name": "legumes",
+            "title": "Legumes",
+            "tagId": 3982
+          },
+          {
+            "fields": {
+              "slug": "/faceis-e-rapidas/"
+            },
+            "id": "10707b15-cdcc-5cb0-b9d0-7e607050f008",
+            "name": "faceis e rapidas",
+            "title": "Faceis e rapidas",
+            "tagId": 4580
+          },
+          {
+            "fields": {
+              "slug": "/zero-acucar/"
+            },
+            "id": "243288d6-470f-5a64-aefa-4dcde7a97aff",
+            "name": "zero açucar",
+            "title": "Zero açucar",
+            "tagId": 12913
+          },
+          {
+            "fields": {
+              "slug": "/sem-acucar/"
+            },
+            "id": "0fb9b499-46ed-58a0-ba44-cae3d4dde3d0",
+            "name": "sem açúcar",
+            "title": "Sem açúcar",
+            "tagId": 12915
+          },
+          {
+            "fields": {
+              "slug": "/populares/"
+            },
+            "id": "18af36e3-4ef5-572d-8ff0-8f06746a36ae",
+            "name": "populares",
+            "title": "Populares",
+            "tagId": 4581
+          },
+          {
+            "fields": {
+              "slug": "/sem-nozes/"
+            },
+            "id": "39d91b4c-118e-5f67-9b64-868aba685652",
+            "name": "sem nozes",
+            "title": "Sem nozes",
+            "tagId": 13092
+          },
+          {
+            "fields": {
+              "slug": "/sem-soja/"
+            },
+            "id": "c5526ed8-e027-5836-bf9c-e7f2539efdf5",
+            "name": "sem soja",
+            "title": "Sem soja",
+            "tagId": 12906
+          },
+          {
+            "fields": {
+              "slug": "/receitas-salgadas/"
+            },
+            "id": "557198f9-7cc7-5bc9-81ad-f453fe7d986b",
+            "name": "receitas-salgadas",
+            "title": "Receitas salgadas",
+            "tagId": 8915
+          },
+          {
+            "fields": {
+              "slug": "/pra-levar-na-bolsa/"
+            },
+            "id": "e04d280b-129b-5feb-8fd7-2e954009d43b",
+            "name": "pra-levar-na-bolsa",
+            "title": "Pra levar-na-bolsa",
+            "tagId": 11185
+          },
+          {
+            "fields": {
+              "slug": "/pra-comer-em-casa/"
+            },
+            "id": "b7adb556-21aa-52f8-93b5-e4fab1d8b2af",
+            "name": "pra-comer-em-casa",
+            "title": "Pra comer-em-casa",
+            "tagId": 11186
+          },
+          {
+            "fields": {
+              "slug": "/sanduiche/"
+            },
+            "id": "17cfdf48-904d-5cca-9033-fbb5e0de302f",
+            "name": "sanduiche",
+            "title": "Sanduiche",
+            "tagId": 3977
+          },
+          {
+            "fields": {
+              "slug": "/sanduiche-carroussel/"
+            },
+            "id": "20745609-ec72-5a95-a73b-fdd849e407b3",
+            "name": "sanduiche_carroussel",
+            "title": "Sanduiche carroussel",
+            "tagId": 11596
+          },
+          {
+            "fields": {
+              "slug": "/lanches/"
+            },
+            "id": "0542df9b-a142-5146-8f84-a6ba85ab55f3",
+            "name": "lanches",
+            "title": "Lanches",
+            "tagId": 11356
+          },
+          {
+            "fields": {
+              "slug": "/acompanhamento/"
+            },
+            "id": "2e3317ec-c160-5d64-a2a6-26243ee40630",
+            "name": "acompanhamento",
+            "title": "Acompanhamento",
+            "tagId": 12969
+          },
+          {
+            "fields": {
+              "slug": "/trending/"
+            },
+            "id": "bbae1e48-1d29-58e6-9495-caf7095edc77",
+            "name": "trending",
+            "title": "Trending",
+            "tagId": 4584
+          },
+          {
+            "fields": {
+              "slug": "/almoco/"
+            },
+            "id": "e53176b1-4c45-5910-8b23-047f86e2aa7f",
+            "name": "almoço",
+            "title": "Almoço",
+            "tagId": 3980
+          },
+          {
+            "fields": {
+              "slug": "/fogao/"
+            },
+            "id": "6fad46fa-6cdd-52a0-8789-705798f674fb",
+            "name": "fogão",
+            "title": "Fogão",
+            "tagId": 1996
+          },
+          {
+            "fields": {
+              "slug": "/lanche/"
+            },
+            "id": "503228db-07e1-59b0-afd9-b173210e7839",
+            "name": "lanche",
+            "title": "Lanche",
+            "tagId": 3964
+          },
+          {
+            "fields": {
+              "slug": "/aperitivo/"
+            },
+            "id": "6da95334-fc6a-5a0a-ac66-731ba59af5b1",
+            "name": "aperitivo",
+            "title": "Aperitivo",
+            "tagId": 3974
+          },
+          {
+            "fields": {
+              "slug": "/entrada/"
+            },
+            "id": "6d718110-9a62-5ff3-955d-7966ea52debd",
+            "name": "entrada",
+            "title": "Entrada",
+            "tagId": 3973
+          },
+          {
+            "fields": {
+              "slug": "/pascoa/"
+            },
+            "id": "358ce534-c799-5aae-95b9-ceb4a63f98ad",
+            "name": "pascoa",
+            "title": "Pascoa",
+            "tagId": 10943
+          },
+          {
+            "fields": {
+              "slug": "/bacalhau/"
+            },
+            "id": "b20362c7-df42-5ebb-96fa-a8af15570668",
+            "name": "bacalhau",
+            "title": "Bacalhau",
+            "tagId": 1998
+          },
+          {
+            "fields": {
+              "slug": "/adocicadas/"
+            },
+            "id": "5fdc6e9b-3971-592b-9f24-362c9ecc3c8b",
+            "name": "adocicadas",
+            "title": "Adocicadas",
+            "tagId": 11405
+          },
+          {
+            "fields": {
+              "slug": "/sem-soja/"
+            },
+            "id": "49adeb7e-a517-5433-ab30-cc712311e59c",
+            "name": "no soy",
+            "title": "Sem soja",
+            "tagId": 12628
+          },
+          {
+            "fields": {
+              "slug": "/sem-frutos-do-mar/"
+            },
+            "id": "6909dc30-8597-5e7d-acd9-9520cae9fda6",
+            "name": "no seafood",
+            "title": "Sem frutos do mar",
+            "tagId": 12595
+          },
+          {
+            "fields": {
+              "slug": "/peixes/"
+            },
+            "id": "bf43708f-b18f-5516-b811-f89d225dc547",
+            "name": "peixes",
+            "title": "Peixes",
+            "tagId": 13112
+          },
+          {
+            "fields": {
+              "slug": "/frutos-do-mar/"
+            },
+            "id": "1d53fca5-48ab-5cea-ae56-b5633ccfc810",
+            "name": "frutos do mar",
+            "title": "Frutos do mar",
+            "tagId": 12970
+          },
+          {
+            "fields": {
+              "slug": "/churrasco/"
+            },
+            "id": "60c23eba-f8fb-559d-a2bb-846ae326b9a9",
+            "name": "churrasco",
+            "title": "Churrasco",
+            "tagId": 9922
+          },
+          {
+            "fields": {
+              "slug": "/com-carne/"
+            },
+            "id": "24adcd70-6b0a-591c-b427-47ff18829351",
+            "name": "com carne",
+            "title": "Com carne",
+            "tagId": 12998
+          },
+          {
+            "fields": {
+              "slug": "/sem-forno/"
+            },
+            "id": "ac6b18cc-b7c4-5fdc-b69e-2c84057f4b0b",
+            "name": "sem-forno",
+            "title": "Sem forno",
+            "tagId": 11402
+          },
+          {
+            "fields": {
+              "slug": "/ocasioes-especiais/"
+            },
+            "id": "b19b8c8f-b7dc-501d-ab1a-1093e95d6066",
+            "name": "ocasioes-especiais",
+            "title": "Ocasioes especiais",
+            "tagId": 11276
+          },
+          {
+            "fields": {
+              "slug": "/fim-de-ano/"
+            },
+            "id": "0c60afd4-5a87-5521-a7bf-8062717430f1",
+            "name": "fim-de-ano",
+            "title": "Fim de-ano",
+            "tagId": 11362
+          },
+          {
+            "fields": {
+              "slug": "/peixe/"
+            },
+            "id": "0eb092ab-ec01-53ac-b823-22eebcac9991",
+            "name": "peixe",
+            "title": "Peixe",
+            "tagId": 3988
+          },
+          {
+            "fields": {
+              "slug": "/cacao/"
+            },
+            "id": "d0ffc82d-2083-5ab4-963b-fffd110fee0b",
+            "name": "cação",
+            "title": "Cação",
+            "tagId": 12678
+          },
+          {
+            "fields": {
+              "slug": "/sem-gluten/"
+            },
+            "id": "23b531f6-830d-5d98-a7e7-8d369e1774ec",
+            "name": "sem-gluten",
+            "title": "Sem gluten",
+            "tagId": 11342
+          },
+          {
+            "fields": {
+              "slug": "/forno/"
+            },
+            "id": "4bf95fac-15cf-58e2-8e07-824ecbfefb5f",
+            "name": "forno",
+            "title": "Forno",
+            "tagId": 1997
+          },
+          {
+            "fields": {
+              "slug": "/jantar/"
+            },
+            "id": "b8007ff4-d0ab-5711-b425-7c632442fd2a",
+            "name": "jantar",
+            "title": "Jantar",
+            "tagId": 3966
+          },
+          {
+            "fields": {
+              "slug": "/verduras/"
+            },
+            "id": "799689d9-c33e-5037-a551-78b35e512072",
+            "name": "verduras",
+            "title": "Verduras",
+            "tagId": 11404
+          },
+          {
+            "fields": {
+              "slug": "/knorr/"
+            },
+            "id": "9aaedfaf-ceb9-54f2-ada3-7b5d1562f285",
+            "name": "knorr",
+            "title": "Knorr",
+            "tagId": 7910
+          },
+          {
+            "fields": {
+              "slug": "/baixo-sodio/"
+            },
+            "id": "a1994c24-863b-5104-8f7e-d8fca7863850",
+            "name": "baixo sódio",
+            "title": "Baixo sódio",
+            "tagId": 1822
+          },
+          {
+            "fields": {
+              "slug": "/porco/"
+            },
+            "id": "db8970de-c38b-5893-a9a8-61d219e69d1d",
+            "name": "porco",
+            "title": "Porco",
+            "tagId": 13097
+          },
+          {
+            "fields": {
+              "slug": "/arabe/"
+            },
+            "id": "e5fe5f92-1378-5dd9-a240-87006d825ae3",
+            "name": "arabe",
+            "title": "Arabe",
+            "tagId": 13117
+          },
+          {
+            "fields": {
+              "slug": "/f50/"
+            },
+            "id": "26771fa0-2faf-5721-8c24-d50b03306753",
+            "name": "f50",
+            "title": "F50",
+            "tagId": 10878
+          },
+          {
+            "fields": {
+              "slug": "/sem-produtos-de-origem-animal/"
+            },
+            "id": "98413237-7218-501a-8ae5-e9b499b0c3a6",
+            "name": "sem produtos de origem animal",
+            "title": "Sem produtos de origem animal",
+            "tagId": 13153
+          },
+          {
+            "fields": {
+              "slug": "/sem-lei/"
+            },
+            "id": "bc4db990-15ee-5586-bf6e-31043edf8e1b",
+            "name": "sem lei",
+            "title": "Sem lei",
+            "tagId": 13830
+          },
+          {
+            "fields": {
+              "slug": "/frutas/"
+            },
+            "id": "ea2f6ee7-95f0-5fa1-ad8e-86c83d33fae9",
+            "name": "frutas",
+            "title": "Frutas",
+            "tagId": 10931
+          },
+          {
+            "fields": {
+              "slug": "/paes/"
+            },
+            "id": "64d20d70-5fdf-5840-952c-e5a08d621513",
+            "name": "pães",
+            "title": "Pães",
+            "tagId": 13096
+          },
+          {
+            "fields": {
+              "slug": "/massas/"
+            },
+            "id": "1ba7e7ec-a0a7-57f3-9411-3aab2c4c6fc8",
+            "name": "massas",
+            "title": "Massas",
+            "tagId": 11358
+          },
+          {
+            "fields": {
+              "slug": "/massa/"
+            },
+            "id": "5b376a45-90f7-51af-8eb5-e1f7b29c360f",
+            "name": "massa",
+            "title": "Massa",
+            "tagId": 3985
+          },
+          {
+            "fields": {
+              "slug": "/baixo-colesterol/"
+            },
+            "id": "cf47eba9-2c11-5ca8-9bc3-efefbf47e7f4",
+            "name": "baixo colesterol",
+            "title": "Baixo colesterol",
+            "tagId": 1823
+          },
+          {
+            "fields": {
+              "slug": "/especial/"
+            },
+            "id": "ef7a8791-6d09-55d5-941e-d9935b7dd9c9",
+            "name": "especial",
+            "title": "Especial",
+            "tagId": 3975
+          },
+          {
+            "fields": {
+              "slug": "/molho-pesto/"
+            },
+            "id": "28c91716-45ea-544f-aafc-80cdc34769f3",
+            "name": "molho pesto",
+            "title": "Molho pesto",
+            "tagId": 3984
+          },
+          {
+            "fields": {
+              "slug": "/legumes-assados/"
+            },
+            "id": "6f1649b8-151b-5cc6-82df-5faf95793487",
+            "name": "legumes assados",
+            "title": "Legumes assados",
+            "tagId": 3983
+          },
+          {
+            "fields": {
+              "slug": "/pasta/"
+            },
+            "id": "0e1e8f25-4c8d-5968-a288-d7a817638a40",
+            "name": "pasta",
+            "title": "Pasta",
+            "tagId": 3986
+          },
+          {
+            "fields": {
+              "slug": "/margarina/"
+            },
+            "id": "951fc181-fa1a-5c47-9b52-83995423658d",
+            "name": "margarina",
+            "title": "Margarina",
+            "tagId": 3967
+          },
+          {
+            "fields": {
+              "slug": "/brunch/"
+            },
+            "id": "b67fa82d-bd50-5e82-a378-2e00b749b798",
+            "name": "brunch",
+            "title": "Brunch",
+            "tagId": 3965
+          },
+          {
+            "fields": {
+              "slug": "/pro-activ/"
+            },
+            "id": "c748c45c-a521-512b-aa77-fc344941229c",
+            "name": "pro activ",
+            "title": "Pro activ",
+            "tagId": 3969
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa-de-milho-verde/"
+            },
+            "id": "ef14c0c9-2ab8-549e-bc2b-97d354318a9e",
+            "name": "sobremesa de milho verde",
+            "title": "Sobremesa de milho verde",
+            "tagId": 3961
+          },
+          {
+            "fields": {
+              "slug": "/milho-verde/"
+            },
+            "id": "29817f5d-09a0-5516-86a3-5eb890e8251e",
+            "name": "milho verde",
+            "title": "Milho verde",
+            "tagId": 3963
+          },
+          {
+            "fields": {
+              "slug": "/becel-pro-activ/"
+            },
+            "id": "c61f9ae1-a608-53ac-8987-d327e9a8cc21",
+            "name": "becel pro activ",
+            "title": "Becel pro activ",
+            "tagId": 3968
+          },
+          {
+            "fields": {
+              "slug": "/sem-carnes/"
+            },
+            "id": "3277ccd7-6c7e-54bd-8496-ea4e30388d0f",
+            "name": "sem carnes",
+            "title": "Sem carnes",
+            "tagId": 13828
+          },
+          {
+            "fields": {
+              "slug": "/saladas/"
+            },
+            "id": "e6a947e6-8e9f-5466-9cc5-395ac4e55d3c",
+            "name": "saladas",
+            "title": "Saladas",
+            "tagId": 11406
+          },
+          {
+            "fields": {
+              "slug": "/mousse/"
+            },
+            "id": "e82ccb5d-b07b-5afd-abc1-d849be86bd9e",
+            "name": "mousse",
+            "title": "Mousse",
+            "tagId": 10942
+          },
+          {
+            "fields": {
+              "slug": "/arroz/"
+            },
+            "id": "f5b225a8-2c6b-5469-a039-3a34a2fbc110",
+            "name": "arroz",
+            "title": "Arroz",
+            "tagId": 11021
+          },
+          {
+            "fields": {
+              "slug": "/tentacoes-a-la-mae-terra/"
+            },
+            "id": "284ffaed-fb81-554e-a347-e12f81c6c838",
+            "name": "Tentações à la Mãe Terra",
+            "title": "Tentações à la mãe terra",
+            "tagId": 12477
+          },
+          {
+            "fields": {
+              "slug": "/comemoracoes/"
+            },
+            "id": "20cafc40-ff40-5017-9bb2-edf86862e2f9",
+            "name": "comemoracoes",
+            "title": "Comemoracoes",
+            "tagId": 11365
+          },
+          {
+            "fields": {
+              "slug": "/saladadebatata/"
+            },
+            "id": "b3e59523-79bf-5fc4-bad6-272c7a944253",
+            "name": "saladadebatata",
+            "title": "Saladadebatata",
+            "tagId": 8077
+          },
+          {
+            "fields": {
+              "slug": "/salada/"
+            },
+            "id": "ab84ac63-5e2d-5e8f-9385-b0f6623735be",
+            "name": "salada",
+            "title": "Salada",
+            "tagId": 8076
+          },
+          {
+            "fields": {
+              "slug": "/natal/"
+            },
+            "id": "8259b79e-885b-5a2c-9d55-cda89d5bce3b",
+            "name": "natal",
+            "title": "Natal",
+            "tagId": 2151
+          },
+          {
+            "fields": {
+              "slug": "/organico/"
+            },
+            "id": "af458c4d-0e68-5b76-bf4d-ec93c795b33e",
+            "name": "orgânico",
+            "title": "Orgânico",
+            "tagId": 13826
+          },
+          {
+            "fields": {
+              "slug": "/popular/"
+            },
+            "id": "69a159ae-6da9-5ecd-a865-c7e9fbd02459",
+            "name": "popular",
+            "title": "Popular",
+            "tagId": 4579
+          },
+          {
+            "fields": {
+              "slug": "/no-meat/"
+            },
+            "id": "7410fb1e-e5ac-5161-959d-50b4b86431f1",
+            "name": "no meat",
+            "title": "No meat",
+            "tagId": 12596
+          },
+          {
+            "fields": {
+              "slug": "/vegano/"
+            },
+            "id": "978d95d6-0d28-5f93-a9c7-0a1a1182700b",
+            "name": "vegano",
+            "title": "Vegano",
+            "tagId": 10947
+          },
+          {
+            "fields": {
+              "slug": "/frango/"
+            },
+            "id": "1e487a71-1ac4-5ed8-b79a-5d14d00721af",
+            "name": "frango",
+            "title": "Frango",
+            "tagId": 9898
+          },
+          {
+            "fields": {
+              "slug": "/light/"
+            },
+            "id": "333346d2-0597-5c77-b921-feb6342c48d7",
+            "name": "light",
+            "title": "Light",
+            "tagId": 1821
+          },
+          {
+            "fields": {
+              "slug": "/abobora/"
+            },
+            "id": "b82b84de-89e9-5eba-8063-55fc8aec3621",
+            "name": "abóbora",
+            "title": "Abóbora",
+            "tagId": 11001
+          },
+          {
+            "fields": {
+              "slug": "/porcoes/"
+            },
+            "id": "e76cb81e-c90e-518a-8153-1f544f4efc3a",
+            "name": "porções",
+            "title": "Porções",
+            "tagId": 13062
+          },
+          {
+            "fields": {
+              "slug": "/carne-de-porco/"
+            },
+            "id": "28d4c948-5ffc-5618-8c71-d6795a919257",
+            "name": "carne de porco",
+            "title": "Carne de porco",
+            "tagId": 12995
+          },
+          {
+            "fields": {
+              "slug": "/healthy/"
+            },
+            "id": "603f530d-4ed8-5e6f-8756-7cba4c31b784",
+            "name": "healthy",
+            "title": "Healthy",
+            "tagId": 12679
+          },
+          {
+            "fields": {
+              "slug": "/sem-produtos-de-origem-animal/"
+            },
+            "id": "6ec9b110-26d8-5ef8-89c7-33fc1c76dd38",
+            "name": "vegan",
+            "title": "Sem produtos de origem animal",
+            "tagId": 12680
+          },
+          {
+            "fields": {
+              "slug": "/salmao/"
+            },
+            "id": "a33ebf21-345b-573a-a2f1-fc1153d0b674",
+            "name": "salmão",
+            "title": "Salmão",
+            "tagId": 3989
+          },
+          {
+            "fields": {
+              "slug": "/risoto-com-iscas-de-salmao/"
+            },
+            "id": "b0621473-e69d-5758-a6ea-afed0b1e3a88",
+            "name": "risoto com iscas de salmão",
+            "title": "Risoto com iscas de salmão",
+            "tagId": 3990
+          },
+          {
+            "fields": {
+              "slug": "/risoto/"
+            },
+            "id": "ef67b668-8452-5033-95fd-4e3021fecb36",
+            "name": "risoto",
+            "title": "Risoto",
+            "tagId": 3987
+          },
+          {
+            "fields": {
+              "slug": "/veganas-acucar/"
+            },
+            "id": "442a9b69-e68f-5a15-bc22-4b181b379325",
+            "name": "veganas-acucar",
+            "title": "Veganas acucar",
+            "tagId": 11410
+          },
+          {
+            "fields": {
+              "slug": "/doces/"
+            },
+            "id": "3f21a162-80fa-59a2-89b2-ff504a276586",
+            "name": "doces",
+            "title": "Doces",
+            "tagId": 11363
+          },
+          {
+            "fields": {
+              "slug": "/saladinhas/"
+            },
+            "id": "22fef42b-0fea-5dee-960c-ed699684be85",
+            "name": "saladinhas",
+            "title": "Saladinhas",
+            "tagId": 11403
+          },
+          {
+            "fields": {
+              "slug": "/batata/"
+            },
+            "id": "29e3b4f9-43e9-5243-b61f-f7d56fcbcd93",
+            "name": "batata",
+            "title": "Batata",
+            "tagId": 12910
+          },
+          {
+            "fields": {
+              "slug": "/camarao/"
+            },
+            "id": "c4b2bda1-66fe-58d1-97e1-8ea119ee51a6",
+            "name": "camarão",
+            "title": "Camarão",
+            "tagId": 10349
+          },
+          {
+            "fields": {
+              "slug": "/ovo/"
+            },
+            "id": "246fc55e-a6a9-5336-b383-f4b81b790fa1",
+            "name": "ovo",
+            "title": "Ovo",
+            "tagId": 10348
+          },
+          {
+            "fields": {
+              "slug": "/canape-de-carpaccio-com-damasco/"
+            },
+            "id": "d45b8f30-25fc-5ca7-81ae-ed0a2bfa7cf4",
+            "name": "canapé de carpaccio com damasco",
+            "title": "Canapé de carpaccio com damasco",
+            "tagId": 3970
+          },
+          {
+            "fields": {
+              "slug": "/gala/"
+            },
+            "id": "7ed180b1-531c-56b2-b1a9-b7ea4a3e01d5",
+            "name": "gala",
+            "title": "Gala",
+            "tagId": 3976
+          },
+          {
+            "fields": {
+              "slug": "/canape/"
+            },
+            "id": "8fe164b2-96e5-5c18-8fd3-f32d069af43a",
+            "name": "canapé",
+            "title": "Canapé",
+            "tagId": 3972
+          },
+          {
+            "fields": {
+              "slug": "/burger-carroussel/"
+            },
+            "id": "9e6d1067-431c-5be4-9888-5ff5472aacc6",
+            "name": "burger_carroussel",
+            "title": "Burger carroussel",
+            "tagId": 11599
+          },
+          {
+            "fields": {
+              "slug": "/saduiche-de-tofu-e-pepino-japones/"
+            },
+            "id": "0b9c366d-48c3-5c53-b91c-ef7f3855f7ef",
+            "name": "saduíche de tofu e pepino japonês",
+            "title": "Saduíche de tofu e pepino japonês",
+            "tagId": 3981
+          },
+          {
+            "fields": {
+              "slug": "/tofu/"
+            },
+            "id": "1091f45b-301d-5695-9960-3b4b6ea8d7ca",
+            "name": "tofu",
+            "title": "Tofu",
+            "tagId": 3978
+          },
+          {
+            "fields": {
+              "slug": "/pepino/"
+            },
+            "id": "511906f0-5df1-5a1d-9359-984028247ead",
+            "name": "pepino",
+            "title": "Pepino",
+            "tagId": 3979
+          },
+          {
+            "fields": {
+              "slug": "/com-acucar/"
+            },
+            "id": "da47cfe7-b8b4-5633-a206-9397e0b45708",
+            "name": "com açucar",
+            "title": "Com açucar",
+            "tagId": 13090
+          },
+          {
+            "fields": {
+              "slug": "/maionese/"
+            },
+            "id": "d37babea-2a7d-54f8-a736-6e1c5ab554e8",
+            "name": "maionese",
+            "title": "Maionese",
+            "tagId": 12179
+          },
+          {
+            "fields": {
+              "slug": "/salgadas/"
+            },
+            "id": "058d3bc5-ca40-5272-a9a9-718ea87fb1f7",
+            "name": "salgadas",
+            "title": "Salgadas",
+            "tagId": 11415
+          },
+          {
+            "fields": {
+              "slug": "/sobremesa/"
+            },
+            "id": "1d38d9a0-9531-5c7c-bcdb-fc23ac4a95b5",
+            "name": "sobremesa",
+            "title": "Sobremesa",
+            "tagId": 9534
+          },
+          {
+            "fields": {
+              "slug": "/vegetal/"
+            },
+            "id": "44dec905-ef40-59c2-9f71-8c1d10d61ae2",
+            "name": "vegetal",
+            "title": "Vegetal",
+            "tagId": 12599
+          },
+          {
+            "fields": {
+              "slug": "/agridoce/"
+            },
+            "id": "ce1d8126-17a5-5eb0-b0f0-797134b5233b",
+            "name": "agridoce",
+            "title": "Agridoce",
+            "tagId": 12600
+          },
+          {
+            "fields": {
+              "slug": "/paes-bolos-tapiocas-mais/"
+            },
+            "id": "53776258-237c-5f1b-baad-6f7e13a6acdf",
+            "name": "paes-bolos-tapiocas-mais",
+            "title": "Paes bolos-tapiocas-mais",
+            "tagId": 11366
+          },
+          {
+            "fields": {
+              "slug": "/sem-acucar/"
+            },
+            "id": "6a566f1e-2a33-5648-a890-5651d00618c0",
+            "name": "sem-acucar",
+            "title": "Sem acucar",
+            "tagId": 11357
+          },
+          {
+            "fields": {
+              "slug": "/outros/"
+            },
+            "id": "483e0887-2c84-5633-be2b-d32704fe9fc7",
+            "name": "outros",
+            "title": "Outros",
+            "tagId": 4583
+          },
+          {
+            "fields": {
+              "slug": "/couve-flor/"
+            },
+            "id": "6aa072d3-d634-5f67-9cda-556458fa8308",
+            "name": "couve-flor",
+            "title": "Couve flor",
+            "tagId": 12605
+          },
+          {
+            "fields": {
+              "slug": "/almondega/"
+            },
+            "id": "7e016b95-2548-52b9-ac59-abe74473daae",
+            "name": "almôndega",
+            "title": "Almôndega",
+            "tagId": 12604
+          },
+          {
+            "fields": {
+              "slug": "/receitas-de-inverno/"
+            },
+            "id": "3ad37ad2-6785-5dbd-844c-5132b5a8165c",
+            "name": "receitas de inverno",
+            "title": "Receitas de inverno",
+            "tagId": 13000
+          },
+          {
+            "fields": {
+              "slug": "/sazonais/"
+            },
+            "id": "4a05647a-42f7-5991-b8d3-e8c672c3135c",
+            "name": "sazonais",
+            "title": "Sazonais",
+            "tagId": 4582
+          },
+          {
+            "fields": {
+              "slug": "/no-lactose/"
+            },
+            "id": "f688cc23-c59e-586d-b1fa-7d48b39abaa0",
+            "name": "no lactose",
+            "title": "No lactose",
+            "tagId": 12876
+          },
+          {
+            "fields": {
+              "slug": "/dairy-free/"
+            },
+            "id": "59fdbf23-252a-58a1-b8f1-0a58ab464257",
+            "name": "dairy free",
+            "title": "Dairy free",
+            "tagId": 13154
+          },
+          {
+            "fields": {
+              "slug": "/frutas-iogurtes-cereais/"
+            },
+            "id": "8fb587de-9310-5e2d-90a1-babe37d6abb1",
+            "name": "frutas-iogurtes-cereais",
+            "title": "Frutas iogurtes-cereais",
+            "tagId": 11278
+          },
+          {
+            "fields": {
+              "slug": "/vegana/"
+            },
+            "id": "2ee2a3a8-f7f8-5964-98c3-bd1d1e635ab6",
+            "name": "vegana",
+            "title": "Vegana",
+            "tagId": 12964
+          },
+          {
+            "fields": {
+              "slug": "/pronto-em-10-min/"
+            },
+            "id": "955626c4-172e-5e58-bb13-bab3b2f9e54c",
+            "name": "pronto-em-10-min",
+            "title": "Pronto em-10-min",
+            "tagId": 11279
+          },
+          {
+            "fields": {
+              "slug": "/combinacoes-gluten/"
+            },
+            "id": "e5cd8818-6967-5253-8989-789262807705",
+            "name": "combinações-gluten",
+            "title": "Combinações gluten",
+            "tagId": 11408
+          },
+          {
+            "fields": {
+              "slug": "/penne/"
+            },
+            "id": "135b0ec1-43dd-5a91-b1f1-477c8fa69099",
+            "name": "penne",
+            "title": "Penne",
+            "tagId": 11007
+          },
+          {
+            "fields": {
+              "slug": "/gourmet/"
+            },
+            "id": "c77e4393-1809-59ff-b55c-e0aadad5f4c1",
+            "name": "gourmet",
+            "title": "Gourmet",
+            "tagId": 12180
+          },
+          {
+            "fields": {
+              "slug": "/festa-junina/"
+            },
+            "id": "7300f3c5-79e4-556f-928f-1c2948fffff4",
+            "name": "festa-junina",
+            "title": "Festa junina",
+            "tagId": 11688
+          },
+          {
+            "fields": {
+              "slug": "/lanchinhos-rico-proteina/"
+            },
+            "id": "9a707449-b083-554f-a0ff-e80628cbbb52",
+            "name": "lanchinhos-rico-proteina",
+            "title": "Lanchinhos rico-proteina",
+            "tagId": 11368
+          },
+          {
+            "fields": {
+              "slug": "/construtoras/"
+            },
+            "id": "00aa9c85-6583-5e94-9f00-a9f04a236f6b",
+            "name": "construtoras",
+            "title": "Construtoras",
+            "tagId": 11416
+          },
+          {
+            "fields": {
+              "slug": "/pratos/"
+            },
+            "id": "1d3d4658-6add-560f-b85b-477f10acb729",
+            "name": "pratos",
+            "title": "Pratos",
+            "tagId": 11367
+          },
+          {
+            "fields": {
+              "slug": "/tentacoes-a-la-mt/"
+            },
+            "id": "23f3efa4-9a54-530f-b972-3c2445bc5668",
+            "name": "tentacoes-a-la-mt",
+            "title": "Tentacoes a-la-mt",
+            "tagId": 11183
+          },
+          {
+            "fields": {
+              "slug": "/sem-noz/"
+            },
+            "id": "d2fc916e-a5a9-5f47-85f9-202573a65425",
+            "name": "sem noz",
+            "title": "Sem noz",
+            "tagId": 13091
+          },
+          {
+            "fields": {
+              "slug": "/docinhos-sem-acucar/"
+            },
+            "id": "0e3991f3-4d11-59d1-9dee-1c4241771a00",
+            "name": "docinhos-sem-acucar",
+            "title": "Docinhos sem-acucar",
+            "tagId": 11409
+          },
+          {
+            "fields": {
+              "slug": "/funcionais-livre-de-acucar/"
+            },
+            "id": "37aece07-c4f8-5c86-accf-fbabf5782126",
+            "name": "funcionais-livre-de-acucar",
+            "title": "Funcionais livre-de-acucar",
+            "tagId": 11187
+          },
+          {
+            "fields": {
+              "slug": "/feijao/"
+            },
+            "id": "eea2232c-0534-55a9-af42-848ae584f36d",
+            "name": "feijão",
+            "title": "Feijão",
+            "tagId": 12597
+          },
+          {
+            "fields": {
+              "slug": "/salgados/"
+            },
+            "id": "b2354352-810f-5c40-ad1f-41ff94bc8ac5",
+            "name": "salgados",
+            "title": "Salgados",
+            "tagId": 13064
+          },
+          {
+            "fields": {
+              "slug": "/cuscuz/"
+            },
+            "id": "89c9662d-d97c-58b0-a35a-09ef04d6b040",
+            "name": "cuscuz",
+            "title": "Cuscuz",
+            "tagId": 12668
+          },
+          {
+            "fields": {
+              "slug": "/pra-beber/"
+            },
+            "id": "90bc6506-8f11-560d-910f-03ee49345ff6",
+            "name": "pra-beber",
+            "title": "Pra beber",
+            "tagId": 11401
+          },
+          {
+            "fields": {
+              "slug": "/vitaminas/"
+            },
+            "id": "d7b3fe86-a767-57f8-95e4-ab4f0b7b96a1",
+            "name": "vitaminas",
+            "title": "Vitaminas",
+            "tagId": 11420
+          },
+          {
+            "fields": {
+              "slug": "/ricos-em-proteinas/"
+            },
+            "id": "9834cdcd-f066-512c-a14a-86c6a235d768",
+            "name": "ricos-em-proteinas",
+            "title": "Ricos em-proteinas",
+            "tagId": 11273
+          },
+          {
+            "fields": {
+              "slug": "/reguladoras/"
+            },
+            "id": "c52e58f2-c450-594b-a80a-a05724add598",
+            "name": "reguladoras",
+            "title": "Reguladoras",
+            "tagId": 11417
+          }
+        ],
+        "id": "ea41255c-7861-577d-a3dc-2891095233b7",
+        "name": "freeFormTags",
+        "label": "Tags de formulário grátis",
+        "tags": [
+          {
+            "id": 11598,
+            "name": "sobras_carroussel"
+          },
+          {
+            "id": 12912,
+            "name": "sem frutos do mar"
+          },
+          {
+            "id": 8078,
+            "name": "hellmann´s"
+          },
+          {
+            "id": 13147,
+            "name": "omelete"
+          },
+          {
+            "id": 13148,
+            "name": "baixo custo"
+          },
+          {
+            "id": 11597,
+            "name": "salada_carroussel"
+          },
+          {
+            "id": 10939,
+            "name": "saudável"
+          },
+          {
+            "id": 12941,
+            "name": "sem gluten"
+          },
+          {
+            "id": 11270,
+            "name": "dia-a-dia"
+          },
+          {
+            "id": 11271,
+            "name": "marmita-saudavel"
+          },
+          {
+            "id": 11343,
+            "name": "veganas"
+          },
+          {
+            "id": 11341,
+            "name": "sem-leite"
+          },
+          {
+            "id": 11272,
+            "name": "pra-acompanhar"
+          },
+          {
+            "id": 11360,
+            "name": "não-precisa-aquecer"
+          },
+          {
+            "id": 11359,
+            "name": "baixas-carboidrato"
+          },
+          {
+            "id": 11184,
+            "name": "novo"
+          },
+          {
+            "id": 12886,
+            "name": "sem lactose"
+          },
+          {
+            "id": 13926,
+            "name": "sem leite e derivados"
+          },
+          {
+            "id": 12914,
+            "name": "sem leite"
+          },
+          {
+            "id": 13065,
+            "name": " sem soja"
+          },
+          {
+            "id": 8914,
+            "name": "receitas-doces"
+          },
+          {
+            "id": 12909,
+            "name": "sem carne"
+          },
+          {
+            "id": 12942,
+            "name": "sem ovos"
+          },
+          {
+            "id": 11277,
+            "name": "bela-gil"
+          },
+          {
+            "id": 11268,
+            "name": "doces-ocasioes-especiais"
+          },
+          {
+            "id": 11339,
+            "name": "docinhos-a-la-mt"
+          },
+          {
+            "id": 11361,
+            "name": "bolos"
+          },
+          {
+            "id": 11407,
+            "name": "energéticas"
+          },
+          {
+            "id": 11414,
+            "name": "lancheira-saudavel"
+          },
+          {
+            "id": 11267,
+            "name": "pra-fazer-junto"
+          },
+          {
+            "id": 12994,
+            "name": "vegetariano"
+          },
+          {
+            "id": 3962,
+            "name": "sobremesa"
+          },
+          {
+            "id": 12598,
+            "name": "carne"
+          },
+          {
+            "id": 12666,
+            "name": "sopa"
+          },
+          {
+            "id": 3982,
+            "name": "legumes"
+          },
+          {
+            "id": 4580,
+            "name": "faceis e rapidas"
+          },
+          {
+            "id": 12913,
+            "name": "zero açucar"
+          },
+          {
+            "id": 12915,
+            "name": "sem açúcar"
+          },
+          {
+            "id": 4581,
+            "name": "populares"
+          },
+          {
+            "id": 13092,
+            "name": "sem nozes"
+          },
+          {
+            "id": 12906,
+            "name": "sem soja"
+          },
+          {
+            "id": 8915,
+            "name": "receitas-salgadas"
+          },
+          {
+            "id": 11185,
+            "name": "pra-levar-na-bolsa"
+          },
+          {
+            "id": 11186,
+            "name": "pra-comer-em-casa"
+          },
+          {
+            "id": 3977,
+            "name": "sanduiche"
+          },
+          {
+            "id": 11596,
+            "name": "sanduiche_carroussel"
+          },
+          {
+            "id": 11356,
+            "name": "lanches"
+          },
+          {
+            "id": 12969,
+            "name": "acompanhamento"
+          },
+          {
+            "id": 4584,
+            "name": "trending"
+          },
+          {
+            "id": 3980,
+            "name": "almoço"
+          },
+          {
+            "id": 1996,
+            "name": "fogão"
+          },
+          {
+            "id": 3964,
+            "name": "lanche"
+          },
+          {
+            "id": 3974,
+            "name": "aperitivo"
+          },
+          {
+            "id": 3973,
+            "name": "entrada"
+          },
+          {
+            "id": 10943,
+            "name": "pascoa"
+          },
+          {
+            "id": 1998,
+            "name": "bacalhau"
+          },
+          {
+            "id": 11405,
+            "name": "adocicadas"
+          },
+          {
+            "id": 12628,
+            "name": "no soy"
+          },
+          {
+            "id": 12595,
+            "name": "no seafood"
+          },
+          {
+            "id": 13112,
+            "name": "peixes"
+          },
+          {
+            "id": 12970,
+            "name": "frutos do mar"
+          },
+          {
+            "id": 9922,
+            "name": "churrasco"
+          },
+          {
+            "id": 12998,
+            "name": "com carne"
+          },
+          {
+            "id": 11402,
+            "name": "sem-forno"
+          },
+          {
+            "id": 11276,
+            "name": "ocasioes-especiais"
+          },
+          {
+            "id": 11362,
+            "name": "fim-de-ano"
+          },
+          {
+            "id": 3988,
+            "name": "peixe"
+          },
+          {
+            "id": 12678,
+            "name": "cação"
+          },
+          {
+            "id": 11342,
+            "name": "sem-gluten"
+          },
+          {
+            "id": 1997,
+            "name": "forno"
+          },
+          {
+            "id": 3966,
+            "name": "jantar"
+          },
+          {
+            "id": 11404,
+            "name": "verduras"
+          },
+          {
+            "id": 7910,
+            "name": "knorr"
+          },
+          {
+            "id": 1822,
+            "name": "baixo sódio"
+          },
+          {
+            "id": 13097,
+            "name": "porco"
+          },
+          {
+            "id": 13117,
+            "name": "arabe"
+          },
+          {
+            "id": 10878,
+            "name": "f50"
+          },
+          {
+            "id": 13153,
+            "name": "sem produtos de origem animal"
+          },
+          {
+            "id": 13830,
+            "name": "sem lei"
+          },
+          {
+            "id": 10931,
+            "name": "frutas"
+          },
+          {
+            "id": 13096,
+            "name": "pães"
+          },
+          {
+            "id": 11358,
+            "name": "massas"
+          },
+          {
+            "id": 3985,
+            "name": "massa"
+          },
+          {
+            "id": 1823,
+            "name": "baixo colesterol"
+          },
+          {
+            "id": 3975,
+            "name": "especial"
+          },
+          {
+            "id": 3984,
+            "name": "molho pesto"
+          },
+          {
+            "id": 3983,
+            "name": "legumes assados"
+          },
+          {
+            "id": 3986,
+            "name": "pasta"
+          },
+          {
+            "id": 3967,
+            "name": "margarina"
+          },
+          {
+            "id": 3965,
+            "name": "brunch"
+          },
+          {
+            "id": 3969,
+            "name": "pro activ"
+          },
+          {
+            "id": 3961,
+            "name": "sobremesa de milho verde"
+          },
+          {
+            "id": 3963,
+            "name": "milho verde"
+          },
+          {
+            "id": 3968,
+            "name": "becel pro activ"
+          },
+          {
+            "id": 13828,
+            "name": "sem carnes"
+          },
+          {
+            "id": 11406,
+            "name": "saladas"
+          },
+          {
+            "id": 10942,
+            "name": "mousse"
+          },
+          {
+            "id": 11021,
+            "name": "arroz"
+          },
+          {
+            "id": 12477,
+            "name": "Tentações à la Mãe Terra"
+          },
+          {
+            "id": 11365,
+            "name": "comemoracoes"
+          },
+          {
+            "id": 8077,
+            "name": "saladadebatata"
+          },
+          {
+            "id": 8076,
+            "name": "salada"
+          },
+          {
+            "id": 2151,
+            "name": "natal"
+          },
+          {
+            "id": 13826,
+            "name": "orgânico"
+          },
+          {
+            "id": 4579,
+            "name": "popular"
+          },
+          {
+            "id": 12596,
+            "name": "no meat"
+          },
+          {
+            "id": 10947,
+            "name": "vegano"
+          },
+          {
+            "id": 9898,
+            "name": "frango"
+          },
+          {
+            "id": 1821,
+            "name": "light"
+          },
+          {
+            "id": 11001,
+            "name": "abóbora"
+          },
+          {
+            "id": 13062,
+            "name": "porções"
+          },
+          {
+            "id": 12995,
+            "name": "carne de porco"
+          },
+          {
+            "id": 12679,
+            "name": "healthy"
+          },
+          {
+            "id": 12680,
+            "name": "vegan"
+          },
+          {
+            "id": 3989,
+            "name": "salmão"
+          },
+          {
+            "id": 3990,
+            "name": "risoto com iscas de salmão"
+          },
+          {
+            "id": 3987,
+            "name": "risoto"
+          },
+          {
+            "id": 11410,
+            "name": "veganas-acucar"
+          },
+          {
+            "id": 11363,
+            "name": "doces"
+          },
+          {
+            "id": 11403,
+            "name": "saladinhas"
+          },
+          {
+            "id": 12910,
+            "name": "batata"
+          },
+          {
+            "id": 10349,
+            "name": "camarão"
+          },
+          {
+            "id": 10348,
+            "name": "ovo"
+          },
+          {
+            "id": 3970,
+            "name": "canapé de carpaccio com damasco"
+          },
+          {
+            "id": 3976,
+            "name": "gala"
+          },
+          {
+            "id": 3972,
+            "name": "canapé"
+          },
+          {
+            "id": 11599,
+            "name": "burger_carroussel"
+          },
+          {
+            "id": 3981,
+            "name": "saduíche de tofu e pepino japonês"
+          },
+          {
+            "id": 3978,
+            "name": "tofu"
+          },
+          {
+            "id": 3979,
+            "name": "pepino"
+          },
+          {
+            "id": 13090,
+            "name": "com açucar"
+          },
+          {
+            "id": 12179,
+            "name": "maionese"
+          },
+          {
+            "id": 11415,
+            "name": "salgadas"
+          },
+          {
+            "id": 9534,
+            "name": "sobremesa"
+          },
+          {
+            "id": 12599,
+            "name": "vegetal"
+          },
+          {
+            "id": 12600,
+            "name": "agridoce"
+          },
+          {
+            "id": 11366,
+            "name": "paes-bolos-tapiocas-mais"
+          },
+          {
+            "id": 11357,
+            "name": "sem-acucar"
+          },
+          {
+            "id": 4583,
+            "name": "outros"
+          },
+          {
+            "id": 12605,
+            "name": "couve-flor"
+          },
+          {
+            "id": 12604,
+            "name": "almôndega"
+          },
+          {
+            "id": 13000,
+            "name": "receitas de inverno"
+          },
+          {
+            "id": 4582,
+            "name": "sazonais"
+          },
+          {
+            "id": 12876,
+            "name": "no lactose"
+          },
+          {
+            "id": 13154,
+            "name": "dairy free"
+          },
+          {
+            "id": 11278,
+            "name": "frutas-iogurtes-cereais"
+          },
+          {
+            "id": 12964,
+            "name": "vegana"
+          },
+          {
+            "id": 11279,
+            "name": "pronto-em-10-min"
+          },
+          {
+            "id": 11408,
+            "name": "combinações-gluten"
+          },
+          {
+            "id": 11007,
+            "name": "penne"
+          },
+          {
+            "id": 12180,
+            "name": "gourmet"
+          },
+          {
+            "id": 11688,
+            "name": "festa-junina"
+          },
+          {
+            "id": 11368,
+            "name": "lanchinhos-rico-proteina"
+          },
+          {
+            "id": 11416,
+            "name": "construtoras"
+          },
+          {
+            "id": 11367,
+            "name": "pratos"
+          },
+          {
+            "id": 11183,
+            "name": "tentacoes-a-la-mt"
+          },
+          {
+            "id": 13091,
+            "name": "sem noz"
+          },
+          {
+            "id": 11409,
+            "name": "docinhos-sem-acucar"
+          },
+          {
+            "id": 11187,
+            "name": "funcionais-livre-de-acucar"
+          },
+          {
+            "id": 12597,
+            "name": "feijão"
+          },
+          {
+            "id": 13064,
+            "name": "salgados"
+          },
+          {
+            "id": 12668,
+            "name": "cuscuz"
+          },
+          {
+            "id": 11401,
+            "name": "pra-beber"
+          },
+          {
+            "id": 11420,
+            "name": "vitaminas"
+          },
+          {
+            "id": 11273,
+            "name": "ricos-em-proteinas"
+          },
+          {
+            "id": 11417,
+            "name": "reguladoras"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/russa/"
+            },
+            "id": "e5cf6441-f1ef-5547-b507-4ea5ea67985b",
+            "name": "russa",
+            "title": "Russa",
+            "tagId": 1443
+          },
+          {
+            "fields": {
+              "slug": "/brasileira/"
+            },
+            "id": "310a618d-a956-5bf5-a7ca-4873e857a36b",
+            "name": "brasileira",
+            "title": "Brasileira",
+            "tagId": 1408
+          },
+          {
+            "fields": {
+              "slug": "/italiana/"
+            },
+            "id": "acea6c4c-599b-5e12-a920-bfd31b38cb1b",
+            "name": "italiana",
+            "title": "Italiana",
+            "tagId": 1422
+          },
+          {
+            "fields": {
+              "slug": "/europeia/"
+            },
+            "id": "aff21687-2391-5ac4-9676-f74271d7b4ab",
+            "name": "europeia",
+            "title": "Europeia",
+            "tagId": 1434
+          },
+          {
+            "fields": {
+              "slug": "/portuguesa/"
+            },
+            "id": "860a71d2-368c-5457-9091-63a108572354",
+            "name": "portuguesa",
+            "title": "Portuguesa",
+            "tagId": 1441
+          },
+          {
+            "fields": {
+              "slug": "/francesa/"
+            },
+            "id": "4ff9b897-89bf-5170-b6a2-a2a6eca09d8d",
+            "name": "francesa",
+            "title": "Francesa",
+            "tagId": 1414
+          },
+          {
+            "fields": {
+              "slug": "/argentina/"
+            },
+            "id": "57334d70-d4a7-5d8d-b58f-fb79bc5b853a",
+            "name": "argentina",
+            "title": "Argentina",
+            "tagId": 1287
+          },
+          {
+            "fields": {
+              "slug": "/chilena/"
+            },
+            "id": "276d3b0a-f3df-54b5-ba1e-b807d75df03c",
+            "name": "chilena",
+            "title": "Chilena",
+            "tagId": 1299
+          },
+          {
+            "fields": {
+              "slug": "/indiana/"
+            },
+            "id": "4a8a9e41-5a5a-5a09-bfc2-376a7bc0f6d2",
+            "name": "indiana",
+            "title": "Indiana",
+            "tagId": 1419
+          },
+          {
+            "fields": {
+              "slug": "/asiatica/"
+            },
+            "id": "01359ecb-f5ad-568a-87da-1279bfc19872",
+            "name": "asiática",
+            "title": "Asiática",
+            "tagId": 1433
+          },
+          {
+            "fields": {
+              "slug": "/japonesa/"
+            },
+            "id": "9868669a-ffab-5ed8-89a5-33bd7fbe1ba4",
+            "name": "japonesa",
+            "title": "Japonesa",
+            "tagId": 1424
+          },
+          {
+            "fields": {
+              "slug": "/arabe/"
+            },
+            "id": "351fa580-25cb-54e2-89f6-753965140a26",
+            "name": "árabe",
+            "title": "Árabe",
+            "tagId": 1428
+          },
+          {
+            "fields": {
+              "slug": "/norte-americana/"
+            },
+            "id": "cd889d34-c65c-51d5-9dcf-6da2d522963e",
+            "name": "norte-americana",
+            "title": "Norte americana",
+            "tagId": 1431
+          },
+          {
+            "fields": {
+              "slug": "/mexicana/"
+            },
+            "id": "b1282fec-909a-5559-ab3f-f702dad5f8ee",
+            "name": "mexicana",
+            "title": "Mexicana",
+            "tagId": 1427
+          },
+          {
+            "fields": {
+              "slug": "/chinesa/"
+            },
+            "id": "43bafaf8-6e92-55fc-9fc0-353a5813217d",
+            "name": "chinesa",
+            "title": "Chinesa",
+            "tagId": 1411
+          },
+          {
+            "fields": {
+              "slug": "/libanesa/"
+            },
+            "id": "3c325d72-ec4b-5103-b0c5-cb4d76fc9f59",
+            "name": "libanesa",
+            "title": "Libanesa",
+            "tagId": 1308
+          },
+          {
+            "fields": {
+              "slug": "/mediterranea/"
+            },
+            "id": "0fc665c8-85bb-552d-8bf5-3f9bd546a57d",
+            "name": "mediterrânea",
+            "title": "Mediterrânea",
+            "tagId": 1435
+          },
+          {
+            "fields": {
+              "slug": "/franco-canadense/"
+            },
+            "id": "88c95e9e-6d5b-5f2a-bb1d-08962a5b6d72",
+            "name": "franco-canadense",
+            "title": "Franco canadense",
+            "tagId": 1296
+          },
+          {
+            "fields": {
+              "slug": "/alema/"
+            },
+            "id": "b4596720-eb75-564a-8330-e8a45a2189ac",
+            "name": "alemã",
+            "title": "Alemã",
+            "tagId": 1415
+          },
+          {
+            "fields": {
+              "slug": "/grega/"
+            },
+            "id": "7598eee7-f854-57d7-8037-027eafbdeb61",
+            "name": "grega",
+            "title": "Grega",
+            "tagId": 1416
+          },
+          {
+            "fields": {
+              "slug": "/hungara/"
+            },
+            "id": "94575c99-b538-5af3-8963-61ed9cc4740a",
+            "name": "húngara",
+            "title": "Húngara",
+            "tagId": 1306
+          },
+          {
+            "fields": {
+              "slug": "/coreana/"
+            },
+            "id": "240608ee-5b94-5c8e-85e4-b81ff0c32a06",
+            "name": "coreana",
+            "title": "Coreana",
+            "tagId": 1425
+          },
+          {
+            "fields": {
+              "slug": "/norte-africana/"
+            },
+            "id": "022481aa-f752-55ab-bc97-cd71dd042343",
+            "name": "norte-africana",
+            "title": "Norte africana",
+            "tagId": 1430
+          },
+          {
+            "fields": {
+              "slug": "/peruana/"
+            },
+            "id": "01d942f7-2b7e-56e9-af21-5bf174ae8e35",
+            "name": "peruana",
+            "title": "Peruana",
+            "tagId": 1438
+          },
+          {
+            "fields": {
+              "slug": "/britanica/"
+            },
+            "id": "2ae5304d-c032-56e3-9c8b-266b5d7d8def",
+            "name": "britânica",
+            "title": "Britânica",
+            "tagId": 1409
+          },
+          {
+            "fields": {
+              "slug": "/espanhola/"
+            },
+            "id": "111ea44c-173b-51f2-9f29-7829dd3f7d79",
+            "name": "espanhola",
+            "title": "Espanhola",
+            "tagId": 1449
+          },
+          {
+            "fields": {
+              "slug": "/holandesa/"
+            },
+            "id": "2337fbb1-4fcf-5132-8574-bb6aa16b3207",
+            "name": "holandesa",
+            "title": "Holandesa",
+            "tagId": 1412
+          },
+          {
+            "fields": {
+              "slug": "/colombiana/"
+            },
+            "id": "f79f46a9-6444-5669-9e4d-a7424c763ce0",
+            "name": "colombiana",
+            "title": "Colombiana",
+            "tagId": 1300
+          },
+          {
+            "fields": {
+              "slug": "/sul-africana/"
+            },
+            "id": "18e03b9d-cdbd-5734-85e0-ef385c99648a",
+            "name": "sul-africana",
+            "title": "Sul africana",
+            "tagId": 1445
+          },
+          {
+            "fields": {
+              "slug": "/egipcia/"
+            },
+            "id": "c34bdcff-813f-5d03-89c5-9adb7e740636",
+            "name": "egípcia",
+            "title": "Egípcia",
+            "tagId": 1304
+          },
+          {
+            "fields": {
+              "slug": "/havaiano/"
+            },
+            "id": "9f36da74-967f-5d79-a538-899d7f727629",
+            "name": "Havaiano",
+            "title": "Havaiano",
+            "tagId": 1417
+          }
+        ],
+        "id": "241a852f-02d6-53f0-8527-d4530375c039",
+        "name": "cuisines",
+        "label": "Culinária",
+        "tags": [
+          {
+            "id": 1443,
+            "name": "russa"
+          },
+          {
+            "id": 1408,
+            "name": "brasileira"
+          },
+          {
+            "id": 1422,
+            "name": "italiana"
+          },
+          {
+            "id": 1434,
+            "name": "europeia"
+          },
+          {
+            "id": 1441,
+            "name": "portuguesa"
+          },
+          {
+            "id": 1414,
+            "name": "francesa"
+          },
+          {
+            "id": 1287,
+            "name": "argentina"
+          },
+          {
+            "id": 1299,
+            "name": "chilena"
+          },
+          {
+            "id": 1419,
+            "name": "indiana"
+          },
+          {
+            "id": 1433,
+            "name": "asiática"
+          },
+          {
+            "id": 1424,
+            "name": "japonesa"
+          },
+          {
+            "id": 1428,
+            "name": "árabe"
+          },
+          {
+            "id": 1431,
+            "name": "norte-americana"
+          },
+          {
+            "id": 1427,
+            "name": "mexicana"
+          },
+          {
+            "id": 1411,
+            "name": "chinesa"
+          },
+          {
+            "id": 1308,
+            "name": "libanesa"
+          },
+          {
+            "id": 1435,
+            "name": "mediterrânea"
+          },
+          {
+            "id": 1296,
+            "name": "franco-canadense"
+          },
+          {
+            "id": 1415,
+            "name": "alemã"
+          },
+          {
+            "id": 1416,
+            "name": "grega"
+          },
+          {
+            "id": 1306,
+            "name": "húngara"
+          },
+          {
+            "id": 1425,
+            "name": "coreana"
+          },
+          {
+            "id": 1430,
+            "name": "norte-africana"
+          },
+          {
+            "id": 1438,
+            "name": "peruana"
+          },
+          {
+            "id": 1409,
+            "name": "britânica"
+          },
+          {
+            "id": 1449,
+            "name": "espanhola"
+          },
+          {
+            "id": 1412,
+            "name": "holandesa"
+          },
+          {
+            "id": 1300,
+            "name": "colombiana"
+          },
+          {
+            "id": 1445,
+            "name": "sul-africana"
+          },
+          {
+            "id": 1304,
+            "name": "egípcia"
+          },
+          {
+            "id": 1417,
+            "name": "Havaiano"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/dia-dos-namorados/"
+            },
+            "id": "24cdda49-784b-53e6-9c31-bd1b2795e14b",
+            "name": "dia dos namorados",
+            "title": "Dia dos namorados",
+            "tagId": 1350
+          },
+          {
+            "fields": {
+              "slug": "/dia-dos-pais/"
+            },
+            "id": "f4c71422-22bc-510a-8a16-2042b4ec5e0b",
+            "name": "dia dos pais",
+            "title": "Dia dos pais",
+            "tagId": 1357
+          },
+          {
+            "fields": {
+              "slug": "/dia-das-maes/"
+            },
+            "id": "3208f763-dad3-51b1-803c-a6a827e858d2",
+            "name": "dia das mães",
+            "title": "Dia das mães",
+            "tagId": 1358
+          },
+          {
+            "fields": {
+              "slug": "/festa-de-sao-joao/"
+            },
+            "id": "ed42a780-526b-579c-a5b3-4cb70285b56d",
+            "name": "Festa de São João",
+            "title": "Festa de são joão",
+            "tagId": 1990
+          },
+          {
+            "fields": {
+              "slug": "/festas-de-fim-de-ano/"
+            },
+            "id": "3d21819b-0005-5e0e-862b-5bf9e0de48f1",
+            "name": "festas de fim de ano",
+            "title": "Festas de fim de ano",
+            "tagId": 1535
+          },
+          {
+            "fields": {
+              "slug": "/new-years-day/"
+            },
+            "id": "16ac2dd8-a0d6-5d57-a999-628816b7cc8c",
+            "name": "New Year's Day",
+            "title": "New year's day",
+            "tagId": 1347
+          },
+          {
+            "fields": {
+              "slug": "/dia-de-acao-de-gracas/"
+            },
+            "id": "570801ee-b6f3-51ec-82f5-31e2ba1fcc21",
+            "name": "Dia de Ação de Graças",
+            "title": "Dia de ação de graças",
+            "tagId": 1349
+          },
+          {
+            "fields": {
+              "slug": "/independence-day/"
+            },
+            "id": "3a71e80c-b1b8-5b51-85e1-b7f0476e6556",
+            "name": "Independence Day",
+            "title": "Independence day",
+            "tagId": 1359
+          },
+          {
+            "fields": {
+              "slug": "/pascoa/"
+            },
+            "id": "571c7a62-6669-550c-970c-4c8482da76b0",
+            "name": "páscoa",
+            "title": "Páscoa",
+            "tagId": 1534
+          },
+          {
+            "fields": {
+              "slug": "/halloween/"
+            },
+            "id": "dbea2a18-ec5d-5b2f-af6d-eefbc5e90c31",
+            "name": "halloween",
+            "title": "Halloween",
+            "tagId": 1539
+          },
+          {
+            "fields": {
+              "slug": "/natal/"
+            },
+            "id": "fb2bf099-35d0-55aa-b34f-75e1db77a4a9",
+            "name": "natal",
+            "title": "Natal",
+            "tagId": 1533
+          },
+          {
+            "fields": {
+              "slug": "/festa-junina/"
+            },
+            "id": "83d6709b-3a9d-554b-ab7f-32392635ca20",
+            "name": "festa junina",
+            "title": "Festa junina",
+            "tagId": 1605
+          },
+          {
+            "fields": {
+              "slug": "/festa-de-sao-joao/"
+            },
+            "id": "668e199b-600e-5a92-b572-dfb81d19208a",
+            "name": "festa de são joão",
+            "title": "Festa de são joão",
+            "tagId": 1936
+          },
+          {
+            "fields": {
+              "slug": "/semana-santa/"
+            },
+            "id": "6279c1c2-7d49-5bcc-8a3c-1864c1742f8e",
+            "name": "Semana Santa",
+            "title": "Semana santa",
+            "tagId": 1991
+          },
+          {
+            "fields": {
+              "slug": "/sexta-feira-santa/"
+            },
+            "id": "139634d2-11ce-5a6c-a59d-97d3c6ef166c",
+            "name": "Sexta-Feira Santa",
+            "title": "Sexta feira santa",
+            "tagId": 1992
+          },
+          {
+            "fields": {
+              "slug": "/semana-santa/"
+            },
+            "id": "65739315-ee73-52eb-b54c-4c91e4313dfa",
+            "name": "semana santa",
+            "title": "Semana santa",
+            "tagId": 1606
+          },
+          {
+            "fields": {
+              "slug": "/dia-de-canada/"
+            },
+            "id": "d9715f28-d572-5c86-b168-b3b03097e026",
+            "name": "Dia de Canadá",
+            "title": "Dia de canadá",
+            "tagId": 1355
+          },
+          {
+            "fields": {
+              "slug": "/world-baking-day/"
+            },
+            "id": "1e7ba266-de7b-5cb6-bd77-301d9dbdd560",
+            "name": "World Baking Day",
+            "title": "World baking day",
+            "tagId": 1541
+          },
+          {
+            "fields": {
+              "slug": "/sexta-feira-santa/"
+            },
+            "id": "8110b061-d89d-59cb-b576-002b898899a4",
+            "name": "sexta-feira santa",
+            "title": "Sexta feira santa",
+            "tagId": 1607
+          },
+          {
+            "fields": {
+              "slug": "/quaresma/"
+            },
+            "id": "7166aa7e-840b-52e0-b031-77a0e1ce3fca",
+            "name": "quaresma",
+            "title": "Quaresma",
+            "tagId": 1361
+          },
+          {
+            "fields": {
+              "slug": "/ano-novo-chines/"
+            },
+            "id": "16ac513f-b678-5631-9e42-b44c0d5f7abf",
+            "name": "ano novo chinês",
+            "title": "Ano novo chinês",
+            "tagId": 1365
+          },
+          {
+            "fields": {
+              "slug": "/boxing-day/"
+            },
+            "id": "e4c427e6-5ab5-594c-b6bf-9f6ef5a3a48b",
+            "name": "Boxing Day",
+            "title": "Boxing day",
+            "tagId": 1532
+          },
+          {
+            "fields": {
+              "slug": "/dia-de-sao-patricio/"
+            },
+            "id": "c9a63878-2ecf-515c-9459-1feb5e1ba78c",
+            "name": "Dia de São Patrício",
+            "title": "Dia de são patrício",
+            "tagId": 1364
+          },
+          {
+            "fields": {
+              "slug": "/cinco-de-mayo/"
+            },
+            "id": "4631dd85-586a-5d98-9ac3-973e81c2f443",
+            "name": "Cinco de Mayo",
+            "title": "Cinco de mayo",
+            "tagId": 1356
+          },
+          {
+            "fields": {
+              "slug": "/labor-day/"
+            },
+            "id": "153df313-d466-556a-b6d8-b978e574c8f8",
+            "name": "Labor Day",
+            "title": "Labor day",
+            "tagId": 1360
+          },
+          {
+            "fields": {
+              "slug": "/dia-de-sao-nicolau/"
+            },
+            "id": "950312f7-9f55-5ce7-8dd2-f239676dd46c",
+            "name": "Dia de São Nicolau",
+            "title": "Dia de são nicolau",
+            "tagId": 1348
+          },
+          {
+            "fields": {
+              "slug": "/may-24th-weekend/"
+            },
+            "id": "25a539c1-e368-5957-804b-4d30cc2b2f87",
+            "name": "May 24th Weekend",
+            "title": "May 24th weekend",
+            "tagId": 1540
+          },
+          {
+            "fields": {
+              "slug": "/memorial-day/"
+            },
+            "id": "9e1bdb05-bd56-5491-833a-e02333479125",
+            "name": "Memorial Day",
+            "title": "Memorial day",
+            "tagId": 1362
+          }
+        ],
+        "id": "312036a0-99a7-5ea5-a6e6-8839e581c7be",
+        "name": "annualEvents",
+        "label": "Eventos anuais",
+        "tags": [
+          {
+            "id": 1350,
+            "name": "dia dos namorados"
+          },
+          {
+            "id": 1357,
+            "name": "dia dos pais"
+          },
+          {
+            "id": 1358,
+            "name": "dia das mães"
+          },
+          {
+            "id": 1990,
+            "name": "Festa de São João"
+          },
+          {
+            "id": 1535,
+            "name": "festas de fim de ano"
+          },
+          {
+            "id": 1347,
+            "name": "New Year's Day"
+          },
+          {
+            "id": 1349,
+            "name": "Dia de Ação de Graças"
+          },
+          {
+            "id": 1359,
+            "name": "Independence Day"
+          },
+          {
+            "id": 1534,
+            "name": "páscoa"
+          },
+          {
+            "id": 1539,
+            "name": "halloween"
+          },
+          {
+            "id": 1533,
+            "name": "natal"
+          },
+          {
+            "id": 1605,
+            "name": "festa junina"
+          },
+          {
+            "id": 1936,
+            "name": "festa de são joão"
+          },
+          {
+            "id": 1991,
+            "name": "Semana Santa"
+          },
+          {
+            "id": 1992,
+            "name": "Sexta-Feira Santa"
+          },
+          {
+            "id": 1606,
+            "name": "semana santa"
+          },
+          {
+            "id": 1355,
+            "name": "Dia de Canadá"
+          },
+          {
+            "id": 1541,
+            "name": "World Baking Day"
+          },
+          {
+            "id": 1607,
+            "name": "sexta-feira santa"
+          },
+          {
+            "id": 1361,
+            "name": "quaresma"
+          },
+          {
+            "id": 1365,
+            "name": "ano novo chinês"
+          },
+          {
+            "id": 1532,
+            "name": "Boxing Day"
+          },
+          {
+            "id": 1364,
+            "name": "Dia de São Patrício"
+          },
+          {
+            "id": 1356,
+            "name": "Cinco de Mayo"
+          },
+          {
+            "id": 1360,
+            "name": "Labor Day"
+          },
+          {
+            "id": 1348,
+            "name": "Dia de São Nicolau"
+          },
+          {
+            "id": 1540,
+            "name": "May 24th Weekend"
+          },
+          {
+            "id": 1362,
+            "name": "Memorial Day"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/suave/"
+            },
+            "id": "7add87b6-29de-5267-ae5e-7e6aa173b17d",
+            "name": "suave",
+            "title": "Suave",
+            "tagId": 1545
+          },
+          {
+            "fields": {
+              "slug": "/picante/"
+            },
+            "id": "440db888-58d8-5f82-b895-42c0c86e22ef",
+            "name": "picante",
+            "title": "Picante",
+            "tagId": 1547
+          },
+          {
+            "fields": {
+              "slug": "/levemente-picante/"
+            },
+            "id": "8932aa0f-607b-5a70-a1aa-0a8a3f0eb20d",
+            "name": "levemente picante",
+            "title": "Levemente picante",
+            "tagId": 1174
+          }
+        ],
+        "id": "c8970def-537c-59fa-9215-601600280b33",
+        "name": "spiciness",
+        "label": "Tempero",
+        "tags": [
+          {
+            "id": 1545,
+            "name": "suave"
+          },
+          {
+            "id": 1547,
+            "name": "picante"
+          },
+          {
+            "id": 1174,
+            "name": "levemente picante"
+          }
+        ]
+      },
+      {
+        "children": [
+          {
+            "fields": {
+              "slug": "/sem-leite-e-derivados/"
+            },
+            "id": "e4b4b6f6-5ede-5ca7-b47d-fcf40b100ae2",
+            "name": "dairy_free",
+            "title": "Sem leite e derivados",
+            "tagId": 1
+          },
+          {
+            "fields": {
+              "slug": "/sem-ovos/"
+            },
+            "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+            "name": "egg_free",
+            "title": "Sem ovos",
+            "tagId": 2
+          },
+          {
+            "fields": {
+              "slug": "/sem-gluten/"
+            },
+            "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+            "name": "gluten_free",
+            "title": "Sem glúten",
+            "tagId": 3
+          },
+          {
+            "fields": {
+              "slug": "/sem-lactose/"
+            },
+            "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+            "name": "lactose_free",
+            "title": "Sem lactose",
+            "tagId": 4
+          },
+          {
+            "fields": {
+              "slug": "/sem-nozes/"
+            },
+            "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+            "name": "nut_free",
+            "title": "Sem nozes",
+            "tagId": 5
+          },
+          {
+            "fields": {
+              "slug": "/paleo-diet/"
+            },
+            "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+            "name": "paleo_diet",
+            "title": "Paleo diet",
+            "tagId": 6
+          },
+          {
+            "fields": {
+              "slug": "/seguro-de-gravidez/"
+            },
+            "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+            "name": "pregnancy_safe",
+            "title": "Seguro de gravidez",
+            "tagId": 7
+          },
+          {
+            "fields": {
+              "slug": "/comida-crua/"
+            },
+            "id": "42d334d0-31f6-59ec-8e42-02030670ad99",
+            "name": "raw_food",
+            "title": "Comida crua",
+            "tagId": 8
+          },
+          {
+            "fields": {
+              "slug": "/sem-trigo/"
+            },
+            "id": "8639cfb9-aed4-5a76-a8fd-0e87f13bb6a3",
+            "name": "wheat_free",
+            "title": "Sem trigo",
+            "tagId": 9
+          },
+          {
+            "fields": {
+              "slug": "/sem-produtos-de-origem-animal/"
+            },
+            "id": "d7553790-f635-5035-89a8-6f8bf0f1e328",
+            "name": "vegan",
+            "title": "Sem produtos de origem animal",
+            "tagId": 10
+          },
+          {
+            "fields": {
+              "slug": "/sem-carne/"
+            },
+            "id": "c60c0e91-6ff4-5b9d-9c8e-2b1b0e8b1180",
+            "name": "vegetarian",
+            "title": "Sem carne",
+            "tagId": 11
+          }
+        ],
+        "id": "61352487-d4f6-5359-bf71-ab9418f9a59e",
+        "name": "dietary",
+        "label": "Dietas",
+        "tags": [
+          {
+            "id": 1,
+            "name": "dairy_free"
+          },
+          {
+            "id": 2,
+            "name": "egg_free"
+          },
+          {
+            "id": 3,
+            "name": "gluten_free"
+          },
+          {
+            "id": 4,
+            "name": "lactose_free"
+          },
+          {
+            "id": 5,
+            "name": "nut_free"
+          },
+          {
+            "id": 6,
+            "name": "paleo_diet"
+          },
+          {
+            "id": 7,
+            "name": "pregnancy_safe"
+          },
+          {
+            "id": 8,
+            "name": "raw_food"
+          },
+          {
+            "id": 9,
+            "name": "wheat_free"
+          },
+          {
+            "id": 10,
+            "name": "vegan"
+          },
+          {
+            "id": 11,
+            "name": "vegetarian"
+          }
+        ]
+      }
+    ]
+  }
+}

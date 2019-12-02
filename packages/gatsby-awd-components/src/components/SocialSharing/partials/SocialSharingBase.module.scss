@@ -1,0 +1,35 @@
+@import '../../../scss/config';
+.social-sharing {
+  position: relative;
+}
+.social-sharing-button {
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  path {
+    transition: all 0.2s ease-out;
+    fill: $social-sharing-fill-color;
+    stroke: $social-sharing-fill-color;
+  }
+  svg {
+    pointer-events: none;
+    width: $social-sharing-btn-width;
+    height: $social-sharing-btn-height;
+    @include respondTo(medium) {
+      width: $social-sharing-btn-width-lg;
+      height: $social-sharing-btn-height-lg;
+    }
+  }
+  span {
+    pointer-events: none;
+  }
+  &:hover {
+    background-color: transparent;
+    path {
+      fill: $social-sharing-fill-color-hover;
+      stroke: $social-sharing-fill-color-hover;
+    }
+  }
+}

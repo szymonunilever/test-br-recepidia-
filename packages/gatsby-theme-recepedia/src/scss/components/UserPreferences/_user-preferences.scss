@@ -1,0 +1,14 @@
+.preferences {
+  h3 {
+    @extend h2;
+    @include respondTo(desktop) {
+      font-size: 2.1rem;
+    }
+  }
+
+  form:nth-child(1) {
+    .preferences__title {
+      margin-top: 24px;
+    }
+  }
+}

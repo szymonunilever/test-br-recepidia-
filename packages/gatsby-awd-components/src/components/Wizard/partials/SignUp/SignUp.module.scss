@@ -1,0 +1,13 @@
+/////----------- CUSTOM -----------/////
+.wizard__buttons {
+  box-sizing: border-box;
+}
+:global {
+  .wizard--form {
+    .wizard {
+      &__container {
+        height: auto;
+      }
+    }
+  }
+}

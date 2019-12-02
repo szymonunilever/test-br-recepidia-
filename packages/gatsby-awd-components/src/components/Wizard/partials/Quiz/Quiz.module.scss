@@ -1,0 +1,391 @@
+@import '../../../../scss/config';
+:global {
+  .wizard--quiz {
+    .wizard {
+      &__content {
+        display: flex;
+        flex-direction: column;
+        form {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          overflow-y: hidden;
+          //Margin to remove indent
+          margin: 0 (-$col-indent-mobile);
+          @include respondTo(medium) {
+            margin: 0 (-$col-indent-medium);
+          }
+          .wizard__info {
+            padding: 0 $col-indent-mobile;
+            @include respondTo(medium) {
+              padding: 0 $col-indent-medium;
+            }
+          }
+          .wizard__buttons {
+            box-sizing: border-box;
+            padding-left: $col-indent-mobile;
+            padding-right: $col-indent-mobile;
+            @include respondTo(medium) {
+              padding-left: $col-indent-medium;
+              padding-right: $col-indent-medium;
+            }
+            button + button {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+      &__button--secondary {
+        font-weight: normal;
+      }
+    }
+
+    .adaptive-image-svg {
+      background-color: $quiz-image-background-color;
+    }
+    .gatsby-image-wrapper {
+      //fix for IE related to gatsby-image downgrade. Polifill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        img {
+          max-height: 100%;
+        }
+      }
+      @supports (-ms-ime-align: auto) {
+        img {
+          max-height: 100%;
+        }
+      }
+    }
+    .adaptive-image {
+      //fix for IE related to gatsby-image downgrade. Polyfill for IE is not stable https://www.gatsbyjs.org/packages/gatsby-image/#polyfilling-object-fitobject-position-for-ie. Is to be removed when gatsby-image is updated.
+      &:not(.adaptive-image-svg) {
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          img {
+            max-width: 100%;
+            max-height: none;
+          }
+        }
+        @supports (-ms-ime-align: auto) {
+          img {
+            max-width: 100%;
+            max-height: none;
+          }
+        }
+      }
+    }
+
+    //column width for mobile-desktop
+    .wizard-col-1-2 {
+      .quiz {
+        &__item {
+          flex-basis: $one-col-width;
+          -ms-flex-preferred-size: calc(
+            #{$one-col-width} - #{$col-indent-mobile * 2}
+          );
+          @include respondTo(medium) {
+            flex-basis: $two-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$two-col-width} - #{$col-indent-medium * 2}
+            );
+          }
+          @include respondTo(desktop) {
+            -ms-flex-preferred-size: calc(
+              #{$two-col-width} - #{$col-indent-desktop * 2}
+            );
+          }
+        }
+      }
+    }
+    .wizard-col-2-2 {
+      .quiz {
+        &__item {
+          flex-basis: $two-col-width;
+          -ms-flex-preferred-size: calc(
+            #{$two-col-width} - #{$col-indent-mobile * 2}
+          );
+          @include respondTo(medium) {
+            -ms-flex-preferred-size: calc(
+              #{$two-col-width} - #{$col-indent-medium * 2}
+            );
+          }
+          @include respondTo(desktop) {
+            -ms-flex-preferred-size: calc(
+              #{$two-col-width} - #{$col-indent-desktop * 2}
+            );
+          }
+        }
+      }
+    }
+    .wizard-col-2-3 {
+      .quiz {
+        &__item {
+          flex-basis: $two-col-width;
+          -ms-flex-preferred-size: calc(
+            #{$two-col-width} - #{$col-indent-mobile * 2}
+          );
+          @include respondTo(medium) {
+            flex-basis: $three-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$three-col-width} - #{$col-indent-medium * 2}
+            );
+          }
+          @include respondTo(desktop) {
+            flex-basis: $three-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$three-col-width} - #{$col-indent-desktop * 2}
+            );
+          }
+        }
+      }
+    }
+    .wizard-col-2-4 {
+      .quiz {
+        &__item {
+          flex-basis: $two-col-width;
+          -ms-flex-preferred-size: calc(
+            #{$two-col-width} - #{$col-indent-mobile * 2}
+          );
+          @include respondTo(medium) {
+            flex-basis: $three-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$three-col-width} - #{$col-indent-medium * 2}
+            );
+          }
+          @include respondTo(desktop) {
+            flex-basis: $four-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$four-col-width} - #{$col-indent-desktop * 2}
+            );
+          }
+        }
+      }
+    }
+  }
+}
+.quiz-form {
+  :global {
+    .quiz {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        overflow-y: auto;
+        align-content: flex-start;
+      }
+      &__item {
+        box-sizing: border-box;
+        padding: 0 $col-indent-mobile $col-indent-mobile;
+        @include respondTo(medium) {
+          padding: 0 $col-indent-medium $col-indent-medium;
+        }
+      }
+      &__label {
+        &-image-wrap {
+          position: relative;
+          border-radius: $radius;
+          overflow: hidden;
+        }
+        &-image {
+          position: relative;
+        }
+        &-checkmark {
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          font-size: 2rem;
+          z-index: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $quiz-item-overlay-color;
+          transition: $quiz-item-overlay-transition;
+          border-radius: $radius;
+        }
+      }
+      &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      &__label-checkmark {
+        opacity: 0;
+      }
+      &__item-label {
+        cursor: pointer;
+        display: block;
+        -webkit-tap-highlight-color: transparent;
+        @media (hover: hover),
+          (-ms-high-contrast: none),
+          (-ms-high-contrast: active) {
+          &:hover {
+            .quiz__label-checkmark {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &__item-input {
+        z-index: -1;
+        height: 0;
+        display: contents;
+        &:checked {
+          & + .quiz__label-content .quiz__label-checkmark {
+            opacity: 1;
+            svg {
+              display: block;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+
+    // text is under the image
+    .quiz__label--bottom {
+      pointer-events: none;
+      .quiz {
+        &__label {
+          &-checkmark {
+            opacity: 0;
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    // text is in front of the image
+    .quiz {
+      &__item-input {
+        &:checked {
+          & + .quiz__label-content.quiz__label--inside .quiz__label-checkmark {
+            svg {
+              display: block;
+            }
+          }
+        }
+      }
+      &__label--inside {
+        .quiz__label {
+          &-checkmark {
+            svg {
+              visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.wizard__button--secondary {
+  background-color: $button-secondary-background;
+  color: $button-secondary-color;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      background-color: $button-background-hover;
+      color: $white;
+    }
+  }
+}
+
+/////----------- CUSTOM -----------/////
+:global {
+  .wizard--quiz {
+    .wizard {
+      &__container {
+        padding-bottom: 20px;
+      }
+      &__content {
+        // quiz scroll for small screen height
+        @media screen and (max-height: 550px),
+          screen and (orientation: landscape) and (max-width: 959px) {
+          display: block;
+          overflow-y: auto;
+          form {
+            margin: 0;
+          }
+          .quiz__list {
+            margin: 0;
+          }
+        }
+      }
+    }
+    .quiz {
+      &__label {
+        &-title {
+          font-size: 1.6rem;
+          color: $black-blue;
+          font-family: $rubik;
+          font-weight: 500;
+          margin: 10px 0 20px;
+          @include respondTo(desktop) {
+            margin: 14px 0 25px;
+          }
+        }
+      }
+    }
+    .adaptive-image-svg {
+      padding-top: $quiz-image-ratio-mobile;
+      background-color: $white-gray;
+      @include respondTo(desktop) {
+        padding-top: $quiz-image-ratio-desktop;
+      }
+      img {
+        max-width: 70%;
+      }
+    }
+    .gatsby-image-wrapper {
+      & > div {
+        padding-bottom: $quiz-image-ratio-mobile;
+        @include respondTo(desktop) {
+          padding-bottom: $quiz-image-ratio-desktop;
+        }
+      }
+    }
+  }
+
+  // text is under the image
+  .quiz__label--bottom {
+    .quiz {
+      &__label {
+        &-checkmark {
+          font-size: 3rem;
+          @include respondTo(medium) {
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+  }
+  // text is in front of the image
+  .quiz {
+    &__item-input {
+      &:checked {
+        & + .quiz__label-content .quiz__label-title {
+          color: darken($apple-green, 35%);
+        }
+      }
+    }
+    &__label--inside {
+      .quiz__label {
+        &-image {
+          background-color: $white-gray;
+        }
+        &-checkmark {
+          padding: 15px;
+          svg {
+            margin: 0 10px 0 0;
+          }
+        }
+        &-title {
+          margin: 0;
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+}

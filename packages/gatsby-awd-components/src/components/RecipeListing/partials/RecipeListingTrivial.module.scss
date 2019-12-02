@@ -1,0 +1,46 @@
+@import '../../../scss/config';
+
+.recipe-list {
+  position: relative;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    //Margin to remove indent
+    margin: -$col-indent-mobile;
+    @include respondTo(medium) {
+      margin: -$col-indent-medium;
+    }
+    @include respondTo(desktop) {
+      margin: -$col-indent-desktop;
+    }
+  }
+  &__item {
+    margin: $col-indent-mobile;
+    width: calc(#{$two-col-width} - #{$col-indent-mobile * 2});
+    @include respondTo(medium) {
+      width: calc(#{$four-col-width} - #{$col-indent-medium * 2});
+      margin: $col-indent-medium;
+    }
+    @include respondTo(desktop) {
+      width: calc(#{$four-col-width} - #{$col-indent-desktop * 2});
+      margin: $col-indent-desktop;
+    }
+    @supports (-ms-ime-align: auto) {
+      width: calc(#{$two-col-width} - #{$col-indent-mobile * 2} - 0.01px);
+      @include respondTo(medium) {
+        width: calc(#{$four-col-width} - #{$col-indent-medium * 2} - 0.01px);
+      }
+      @include respondTo(desktop) {
+        width: calc(#{$four-col-width} - #{$col-indent-desktop * 2} - 0.01px);
+      }
+    }
+  }
+  &__null-results {
+    margin: $col-indent-mobile;
+    @include respondTo(medium) {
+      margin: $col-indent-desktop;
+    }
+  }
+}

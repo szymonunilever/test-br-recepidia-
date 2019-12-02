@@ -1,0 +1,26 @@
+.sitemap {
+  &__block {
+    flex-basis: 100%;
+    &:last-child {
+      order: 0;
+    }
+    &:nth-child(2) {
+      order: 1;
+    }
+    &:first-child {
+      order: 3;
+    }
+    @include respondTo(medium) {
+      flex-basis: 33.33%;
+    }
+  }
+
+  a {
+    font-family: $rubik;
+    font-weight: 500;
+    color: $black-blue;
+    &:hover {
+      color: $apple-green;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../scss/config';
+
+.social-sharing {
+  &__dialog {
+    :global {
+      .social-sharing-in-modal {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        top: auto;
+      }
+    }
+  }
+}
+:global {
+  .social-sharing {
+    &__button {
+      margin-right: 45px;
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
+    }
+  }
+}

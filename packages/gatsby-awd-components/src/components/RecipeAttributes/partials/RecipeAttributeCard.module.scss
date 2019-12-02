@@ -1,0 +1,40 @@
+@import '../../../scss/config';
+
+.recipe-attribute-card {
+  position: relative;
+  &:not(:last-child) {
+    margin: $recipe-attribute-card-indent;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    svg {
+      width: $recipe-attribute-icon-width;
+      height: $recipe-attribute-icon-height;
+    }
+  }
+  &__label {
+    color: $recipe-attribute-label-color;
+    font-size: $recipe-attribute-label-fz;
+    margin: $recipe-attribute-label-indent;
+    font-weight: bold;
+  }
+  &__value {
+    color: $recipe-attribute-label-color;
+    font-size: $recipe-attribute-label-fz;
+    margin: $recipe-attribute-label-indent;
+    font-weight: bold;
+  }
+  &__icon {
+    max-height: $recipe-attribute-icon-height;
+    max-width: $recipe-attribute-icon-width;
+  }
+
+  &__units {
+    font-weight: normal;
+    margin-left: 5px;
+  }
+}
