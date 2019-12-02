@@ -10,52 +10,50 @@ import cx from 'classnames';
 const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   title,
   description,
+  imageSizes,
   image,
   primaryButtonLabel,
   secondaryButtonLabel,
   actionCallback,
   bottomContent,
-}) => (
-  <Fragment>
-    <div className="wizard__info">
-      <div className="wizard__title">
-        <Text className="" tag={TagName.h1} text={title} />
-      </div>
-      <Text
-        className="wizard__description"
-        tag={TagName.p}
-        text={description}
-      />
-    </div>
-
-    <div className="wizard__image">
-      <AdaptiveImage {...image} />
-    </div>
-    <div className="wizard__buttons">
-      <Button
-        attributes={{ 'aria-label': 'Start the Meal Planner quiz' }}
-        className={cx(
-          theme.wizard__buttonPrimary,
-          'wizard__button wizard__button--primary'
-        )}
-        onClick={actionCallback}
-        content={{ label: primaryButtonLabel }}
-      />
-      {secondaryButtonLabel && (
-        <Button
-          className={cx(
-            theme.wizard__buttonSecondary,
-            'wizard__button wizard__button--secondary'
-          )}
-          onClick={console.log}
-          content={{ label: secondaryButtonLabel }}
+                                                                      }) => {
+  if (!image.sizes && imageSizes) image.sizes = imageSizes;
+  return (
+    <Fragment>
+      <div className="wizard__info">
+        <div className="wizard__title">
+          <Text className="" tag={TagName.h1} text={title}/>
+        </div>
+        <Text
+          className="wizard__description"
+          tag={TagName.p}
+          text={description}
         />
-      )}
-      {bottomContent != undefined && (
-        <div className="wizard__button-placeholder">{bottomContent}</div>
-      )}
-    </div>
-  </Fragment>
-);
+      </div>
+
+      <div className="wizard__image">
+        <AdaptiveImage {...image} />
+      </div>
+      <div className="wizard__buttons">
+        <Button
+          attributes={{ 'aria-label' : 'Start the Meal Planner quiz' }}
+          className="wizard__button wizard__button--primary"
+          onClick={actionCallback}
+          content={{ label : primaryButtonLabel }}
+        />
+        {secondaryButtonLabel && (
+          <Button
+            className="wizard__button wizard__button--secondary"
+            onClick={console.log}
+            content={{ label : secondaryButtonLabel }}
+          />
+        )}
+        {bottomContent != undefined && (
+          <div className="wizard__button-placeholder">{bottomContent}</div>
+        )}
+      </div>
+    </Fragment>
+  );
+};
 
 export default IntroductionPanel;

@@ -47,13 +47,24 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
       setIsQuizOpened(true);
   }, [isQuizPassed]);
 
-  const wizardAction = useCallback(wizardData => {
-    setIsQuizOpened(false);
-    setIsQuizPassed(true);
-    setUserProfileIQ(wizardData.data.quiz);
-    saveUserProfileByKey(wizardData.data.quiz, ProfileKey.initialQuiz);
-    onClose && onClose();
-  }, []);
+  const wizardAction = useCallback(
+    wizardData => {
+      setIsQuizOpened(false);
+      setIsQuizPassed(true);
+      setUserProfileIQ(wizardData.data.quiz);
+      saveUserProfileByKey(wizardData.data.quiz, ProfileKey.initialQuiz);
+      trackQuiz({ label: `Completed`, result: `Complete` });
+      onClose && onClose();
+    },
+    [
+      setIsQuizOpened,
+      setIsQuizPassed,
+      setUserProfileIQ,
+      saveUserProfileByKey,
+      onClose,
+      trackQuiz,
+    ]
+  );
 
   const stepResultsCallback = useCallback(
     quizData => {
@@ -77,9 +88,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     onClose && onClose();
     return setIsQuizOpened(false);
   }, []);
-  const onCloseQuiz = useCallback(() => {
-    trackQuiz({ label: `Completed`, result: `Complete` });
-  }, [trackQuiz]);
+
 
   const [formUrl, formType] = [
     process.env['quizDataCapturing_url'] as string,
@@ -112,7 +121,6 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
           containerClass="wizard--quiz wizard--quiz-initial"
           stepId="quiz"
           imageSizesOptions={imageSizesOptions}
-          onClose={onCloseQuiz}
         />
         {dataCapturing && (
           <DataCapturingForm

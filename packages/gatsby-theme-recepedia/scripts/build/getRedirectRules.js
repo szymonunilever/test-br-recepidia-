@@ -1,11 +1,18 @@
 const directUrlsMap = {
   '/momentos/dia-dia': '/dia-a-dia/',
+  '/cozinha/espanhola': '/espanhola/',
   '/tipos-de-receita/bolo': '/categoria/bolos/',
   '/tipos-de-receita/peixe': '/categoria/peixes/',
   '/tipos-de-receita/carne': '/categoria/carnes/',
   '/tipos-de-receita/massa': '/categoria/massas/',
   '/tipos-de-receita/salada': '/categoria/saladas/',
   '/tipos-de-receita/sopa': '/categoria/sopas/',
+  '/cozinha/portuguesa': '/categoria/portugues/',
+  '/cozinha/taiwanesa': '/categoria/asiatica/',
+  '/cozinha/norte-americana': '/categoria/americana/',
+  '/tipos-de-prato/lanche': '/categoria/lanches/',
+  '/momentos/dois': '/categoria/mesa-para-dois/',
+  '/fale-conosco': '/fale-comigo/',
 };
 
 const getFromCategoryOrTag = oldSiteFromUrlPartial => {
@@ -31,6 +38,15 @@ const getRedirectRules = () => [
     to: '/receita/.*/[0-9]*-?<name>/$',
     otherwise: '/receita/',
   },
+  {
+    from: '/(?<name>.+)/(difficulty|time-day)',
+    to: '/?<name>/$',
+    otherwise: '/',
+  },
+  ...Object.keys(directUrlsMap).map(key => ({
+    from: key,
+    to: directUrlsMap[key],
+  })),
   ...[
     '/dietas-especiais',
     '/tipos-de-receita',
@@ -41,10 +57,6 @@ const getRedirectRules = () => [
     acc.push(...getFromCategoryOrTag(oldSiteFromUrlPartial));
     return acc;
   }, []),
-  ...Object.keys(directUrlsMap).map(key => ({
-    from: key,
-    to: directUrlsMap[key],
-  })),
 ];
 
 // console.log(getRedirectRules());

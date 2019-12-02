@@ -7,6 +7,7 @@ export interface HeroProps extends UnileverLibraryComponent<HeroContent> {
   viewType: string;
   titleLevel?: titleLevel;
   imageIsLink?: boolean;
+  imageSizes?: string;
 }
 
 export interface HeroContent extends AppContent.HeroContent {
