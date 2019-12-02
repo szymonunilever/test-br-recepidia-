@@ -16,13 +16,13 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
   secondaryButtonLabel,
   actionCallback,
   bottomContent,
-                                                                      }) => {
+}) => {
   if (!image.sizes && imageSizes) image.sizes = imageSizes;
   return (
     <Fragment>
       <div className="wizard__info">
         <div className="wizard__title">
-          <Text className="" tag={TagName.h1} text={title}/>
+          <Text className="" tag={TagName.h1} text={title} />
         </div>
         <Text
           className="wizard__description"
@@ -36,16 +36,22 @@ const IntroductionPanel: FunctionComponent<IntroductionPanelProps> = ({
       </div>
       <div className="wizard__buttons">
         <Button
-          attributes={{ 'aria-label' : 'Start the Meal Planner quiz' }}
-          className="wizard__button wizard__button--primary"
+          attributes={{ 'aria-label': 'Start the Meal Planner quiz' }}
+          className={cx(
+            theme.wizard__buttonPrimary,
+            'wizard__button wizard__button--primary'
+          )}
           onClick={actionCallback}
-          content={{ label : primaryButtonLabel }}
+          content={{ label: primaryButtonLabel }}
         />
         {secondaryButtonLabel && (
           <Button
-            className="wizard__button wizard__button--secondary"
+            className={cx(
+              theme.wizard__buttonSecondary,
+              'wizard__button wizard__button--secondary'
+            )}
             onClick={console.log}
-            content={{ label : secondaryButtonLabel }}
+            content={{ label: secondaryButtonLabel }}
           />
         )}
         {bottomContent != undefined && (

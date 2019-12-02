@@ -83,6 +83,9 @@
               @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
                 max-height: 100%;
               }
+              @supports (-ms-ime-align: auto) {
+                max-height: 100%;
+              }
             }
           }
         }
