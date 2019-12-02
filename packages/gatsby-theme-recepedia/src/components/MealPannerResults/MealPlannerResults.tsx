@@ -41,6 +41,7 @@ import {
   getSearchSuggestionResponse,
 } from '../../utils/searchUtils';
 import { MealPannerResultsProps } from './models';
+import differenceBy from 'lodash/differenceBy';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -126,27 +127,31 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     },
     [showRemoveConfirmation]
   );
-  const openCustomRecipeSelector = useCallback(value => {
-    setCustomSearchInProcess(true);
-    getRecipeResponse(value, {}).then(res => {
-      customSearchContent.onResult.subheading = customSearchContent.onResult.subheading
-        .replace('{numRes}', `${res.body.hits.hits.length}`)
-        .replace('{searchInputValue}', value);
-      setCustomSearchResultContent(customSearchContent);
-      let recipes: Internal.Recipe[] = [];
-      if (res.body.hits.total.value === 0) {
-        setRecipesToSelect([]);
-        setShowCustomSelector(true);
+  const openCustomRecipeSelector = useCallback(
+    value => {
+      setCustomSearchInProcess(true);
+      getRecipeResponse(value, {}).then(res => {
+        setCustomSearchResultContent(customSearchContent);
+        let recipes: Internal.Recipe[] = [];
+        if (res.body.hits.total.value === 0) {
+          setRecipesToSelect([]);
+          setShowCustomSelector(true);
+          setCustomSearchInProcess(false);
+          return;
+        }
+        res.body.hits.hits.forEach(resItem => {
+          recipes.push(resItem._source as Internal.Recipe);
+        });
+        recipes = differenceBy(recipes, resultsDefault, 'recipeId');
+        customSearchContent.onResult.subheading = customSearchContent.onResult.subheading
+          .replace('{numRes}', `${recipes.length}`)
+          .replace('{searchInputValue}', value);
+        setRecipesToSelect(recipes);
         setCustomSearchInProcess(false);
-        return;
-      }
-      res.body.hits.hits.forEach(resItem => {
-        recipes.push(resItem._source as Internal.Recipe);
       });
-      setRecipesToSelect(recipes);
-      setCustomSearchInProcess(false);
-    });
-  }, []);
+    },
+    [resultsDefault]
+  );
   const onCustomRecipeSelected = useCallback(() => {
     if (recipesToSelect && recipesToSelect.length > 0) {
       const recipeList = [...resultsDefault];
@@ -170,7 +175,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       setRecipesToSelect([]);
       refreshResults(recipeList);
     }
-  }, [recipesToSelect, recipeSelected]);
+  }, [recipesToSelect, recipeSelected, resultsDefault]);
   const searchAgain = useCallback(() => {
     setShowCustomSelector(false);
     setShowSearchModal(true);
