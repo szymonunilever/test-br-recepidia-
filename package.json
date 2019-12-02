@@ -5,6 +5,9 @@
   ],
   "scripts": {
     "theme-develop": "yarn workspace gatsby-theme-recepedia develop",
-    "awd-develop": "yarn workspace gatsby-awd-components storybook"
+    "awd-develop": "yarn workspace gatsby-awd-components storybook",
+    "lint": "echo 'ok'",
+    "storybook-styled": "yarn workspace gatsby-awd-components storybook",
+    "build-storybook": "yarn workspace gatsby-awd-components build-storybook"
   }
 }
