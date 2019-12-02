@@ -9,16 +9,34 @@ import {
 import cx from 'classnames';
 import isBrowser from '../../utils/isBrowser';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
-import theme from './Rating.module.scss';
+import { ReactComponent as RatingIcon } from 'src/svgs/inline/rating.svg';
 
 const Rating = ({
   className,
   recipeId,
   provider,
+  averageRating = 0,
   linkTo = '',
 }: RatingProps) => {
-  const classNames = cx(theme.recipeRating, 'recipe-rating', className);
+  const classNames = cx(
+    'recipe-rating',
+    className,
+    provider === RatingAndReviewsProvider.kritique
+      ? ''
+      : 'recipe-rating--inline'
+  );
   const [locationOrigin, setLocationOrigin] = useState('');
+  const ratingPercentage = averageRating * 20 + '%';
+  const rating = (
+    <>
+      <div style={{ width: ratingPercentage }}>
+        <RatingIcon />
+      </div>
+      <div>
+        <RatingIcon />
+      </div>
+    </>
+  );
 
   useEffect(() => {
     setLocationOrigin(window.location.origin);
@@ -26,24 +44,27 @@ const Rating = ({
   useEffect(() => {
     reloadKritiqueWidget();
   });
+
   return (
-    <>
+    <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
       {provider === RatingAndReviewsProvider.kritique ? (
-        <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
-          <div
-            className="rr-widget-container rr-container"
-            data-summary-template={RatingSummaryTemplate.inline01}
-            data-entity-type={RatingAndReviewsEntityType.recipe}
-            data-unique-id={recipeId}
-            data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
-            data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
-            onClick={(e: SyntheticEvent) => {
-              e.stopPropagation();
-            }}
-          />
+        <div
+          className="rr-widget-container rr-container"
+          data-summary-template={RatingSummaryTemplate.inline01}
+          data-entity-type={RatingAndReviewsEntityType.recipe}
+          data-unique-id={recipeId}
+          data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
+          data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
+          onClick={(e: SyntheticEvent) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className="recipe-rating--inline">{rating}</div>
         </div>
+      ) : provider === RatingAndReviewsProvider.inline ? (
+        rating
       ) : null}
-    </>
+    </div>
   );
 };
 

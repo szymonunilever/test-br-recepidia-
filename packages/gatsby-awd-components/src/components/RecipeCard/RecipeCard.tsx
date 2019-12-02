@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { RatingAndReviewsProvider } from '../../models';
 import { getImageAlt } from '../../utils';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
@@ -12,6 +12,7 @@ import theme from './RecipeCard.module.scss';
 
 export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
   recipeId,
+  averageRating = 0,
   content,
   children,
   slug,
@@ -49,6 +50,7 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
           className={cx(theme.recipeRatingStars, 'recipe-rating--stars')}
           recipeId={recipeId}
           provider={ratingProvider}
+          averageRating={averageRating}
           linkTo={slug}
         />
       </>

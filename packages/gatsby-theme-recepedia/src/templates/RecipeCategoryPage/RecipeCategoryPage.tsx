@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
-import Kritique from 'integrations/Kritique';
 import {
   RecipeCard,
   RecipeCardLinkWrapper,
@@ -93,7 +92,6 @@ const RecipeCategoryPage = ({
         canonical={location.href}
       />
       <DigitalData title={title} type={type} />
-      <Kritique />
       <section className="_pt--40">
         <Text
           className={cx(theme.heroTitle, 'wrapper')}
@@ -137,7 +135,7 @@ const RecipeCategoryPage = ({
           }}
           icons={recipeListingIcons}
           list={recipeResultsList}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{
             type: LoadMoreType.async,
@@ -158,7 +156,7 @@ const RecipeCategoryPage = ({
                   <RecipeCard
                     {...recipe}
                     slug={recipe.fields.slug}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    ratingProvider={RatingAndReviewsProvider.inline}
                     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                     content={{ title: recipe.title }}
                   >

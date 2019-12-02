@@ -117,7 +117,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         }}
         list={recipeResults.list}
         content={content.recipesContent}
-        ratingProvider={RatingAndReviewsProvider.kritique}
+        ratingProvider={RatingAndReviewsProvider.inline}
         filterTitle={searchResultsText}
         {...recipeConfig}
       >
@@ -126,7 +126,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             key={recipe.id}
             {...recipe}
             slug={recipe.fields.slug}
-            ratingProvider={RatingAndReviewsProvider.kritique}
+            ratingProvider={RatingAndReviewsProvider.inline}
             imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
             content={{title: recipe.title}}>
             <Button {...recipeConfig.recipeCardButtonPropsDefault} isSelected={recipeConfig.favorites.indexOf(recipe.recipeId)!== -1} onClick={recipeConfig.onFavoriteChange}/>

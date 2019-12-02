@@ -38,12 +38,16 @@
     }
   }
 
+  &__loader {
+    width: 36px;
+    height: 36px;
+  }
+
   .agRatingSelect,
   .agRatingDeSelect {
     height: 100%;
 
     img {
-      width: auto;
       height: 17px;
       width: 100px;
     }
@@ -61,6 +65,54 @@
     }
     .aggregateRating {
       display: inline-block;
+    }
+  }
+
+  &--inline {
+    min-height: 17px;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+
+    > div {
+      &:first-child {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        svg {
+          fill: $luminous-yellow;
+        }
+      }
+
+      &:last-child {
+        display: block;
+        z-index: 0;
+
+        svg {
+          fill: $gray;
+        }
+      }
+    }
+
+    svg {
+      height: 17px;
+    }
+  }
+
+  &--stars {
+    > div {
+      padding-top: 10px;
+    }
+
+    svg {
+      height: 10px;
+      @include respondTo(medium) {
+        height: 13px;
+      }
     }
   }
 }

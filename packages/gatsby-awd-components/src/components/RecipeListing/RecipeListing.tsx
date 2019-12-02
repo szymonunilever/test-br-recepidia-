@@ -140,7 +140,7 @@ useEffect(()=>{
   useEffect(() => {
     if (
       didMountRef.current &&
-      ratingProvider === RatingAndReviewsProvider.kritique
+      ratingProvider === RatingAndReviewsProvider.inline
     ) {
       reloadKritiqueWidget();
     } else {

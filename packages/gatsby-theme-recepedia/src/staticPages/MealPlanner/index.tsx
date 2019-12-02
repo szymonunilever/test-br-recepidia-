@@ -4,13 +4,12 @@ import {
   IntroductionPanel as WizardIntroductionPanel,
   Logo,
   Quiz as WizardQuiz,
-  reloadKritiqueWidget as useKritiqueReload,
   Wizard,
   Menu,
 } from 'gatsby-awd-components/src';
 
 import DigitalData from 'integrations/DigitalData';
-import Kritique from 'integrations/Kritique';
+
 import React, { useCallback, useState } from 'react';
 import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
@@ -99,7 +98,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             fromChanged: fromChanged + result.length,
             total: data.body.hits.total.value,
           });
-          useKritiqueReload();
           saveUserProfileByKey(
             result.map(item => item.recipeId),
             ProfileKey.mealPlannerResults
@@ -180,7 +178,6 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
         <Logo icon={<WizardLogo />} path="/" />
       </div>
       <section>
-        <Kritique />
         <Wizard actionCallback={wizardCallback}>
           <WizardIntroductionPanel
             {...componentContent.wizardIntroductionPanel}

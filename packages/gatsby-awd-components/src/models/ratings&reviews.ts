@@ -1,6 +1,7 @@
 export enum RatingAndReviewsProvider {
   kritique,
   bazaarvoice,
+  inline,
   none,
 }
 

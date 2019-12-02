@@ -15,7 +15,6 @@ import {
   WithLocationProps,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
-import Kritique from 'integrations/Kritique';
 import DigitalData from '../../../integrations/DigitalData';
 import {
   favoriteButtonDefaults,
@@ -109,7 +108,6 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     <Layout className={cx('search-page', theme.searchPage)}>
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
-      <Kritique />
       <section className={cx('_pt--40 _pb--40', theme.searchListingWrap)}>
         <SearchListing
           searchQuery={searchQuery}
@@ -151,7 +149,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               recipeCardButtonPropsDefault: favoriteButtonDefaults,
               onFavoriteChange: updateFavoriteState,
               imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
-              ratingProvider: RatingAndReviewsProvider.kritique,
+              ratingProvider: RatingAndReviewsProvider.inline,
             },
             articleConfig: {
               getArticleSearchData,

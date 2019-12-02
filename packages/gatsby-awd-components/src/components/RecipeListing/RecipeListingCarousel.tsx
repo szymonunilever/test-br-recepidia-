@@ -14,7 +14,7 @@ const RecipeListingCarousel = ({
   imageSizes,
   children,
 }: RecipeListingCarouselProps) => {
-  const getCurrentItem =  useCallback(
+  const getCurrentItem = useCallback(
     (item: Internal.Recipe) => {
       // @ts-ignore
       return Array.isArray(children) ? children.find(child => {
@@ -36,7 +36,7 @@ const RecipeListingCarousel = ({
   const handleVisibleElementsChanged = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (visibleElements: number) => {
-      if (ratingProvider === RatingAndReviewsProvider.kritique) {
+      if (ratingProvider === RatingAndReviewsProvider.inline) {
         reloadKritiqueWidget();
       }
     },

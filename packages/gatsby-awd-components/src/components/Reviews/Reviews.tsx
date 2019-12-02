@@ -4,7 +4,7 @@ import {
   RatingAndReviewsEntityType,
   ReviewsSummaryTemplate,
   RatingAndReviewsProvider,
-} from '../../models/ratings&reviews';
+} from '../../models';
 import cx from 'classnames';
 import isBrowser from '../../utils/isBrowser';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';

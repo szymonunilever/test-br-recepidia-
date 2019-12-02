@@ -2,12 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import newRelic from '../static/config/newRelic';
 
-const kritiqueWidgetSrc = `${process.env['kritique_url']}?brandid=${
-  process.env['kritique_brandId']
-}&localeid=${process.env['kritique_localeId']}&apikey=${
-  process.env['kritique_apiKey']
-}&sitesource=${process.env['kritique_siteSource']}`;
-
 const config = {
   digitalData: {
     siteInfo: {
@@ -107,22 +101,6 @@ export default function HTML(props) {
               }}
               id="adobe_analytics"
             />
-
-            {/* START kritique preloads */}
-            <link
-              rel="preload"
-              href="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-              as="script"
-            />
-            <link rel="preload" href={kritiqueWidgetSrc} as="script" />
-            <link
-              rel="preload"
-              href={`${
-                process.env['kritique_baseUrl']
-              }/widget/resources/css/RR_widget.css`}
-              as="style"
-            />
-            {/* END kritique preloads */}
           </>
         )}
         <script

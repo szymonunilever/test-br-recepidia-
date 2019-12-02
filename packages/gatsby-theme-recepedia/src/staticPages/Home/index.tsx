@@ -2,7 +2,6 @@ import { WindowLocation } from '@reach/router';
 import cx from 'classnames';
 import { graphql } from 'gatsby';
 import DigitalData from 'integrations/DigitalData';
-import Kritique from 'integrations/Kritique';
 import React, { useCallback, useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import {
@@ -147,7 +146,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
           imageSizesOptions={IMAGE_SIZES.QUIZ_OPTIONS}
         />
       )}
-      <Kritique />
       <DigitalData title={seo.title} type={type} />
       <section className={cx(theme.homeTitle, '_bg--main wrapper')}>
         <Text
@@ -164,7 +162,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             'LatestAndGreatest'
           )}
           list={latestAndGratestResult}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           className={`${!loadedLatest &&
             theme.recipeHidden} recipe-list--blue-header recipe-list--carousel`}
           viewType={RecipeListViewType.Carousel}
@@ -194,7 +192,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
                   key={recipe.id}
                   {...recipe}
                   slug={recipe.fields.slug}
-                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  ratingProvider={RatingAndReviewsProvider.inline}
                   imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                   content={{ title: recipe.title }}
                 >
@@ -218,7 +216,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             'TopRecipes'
           )}
           list={topRecipesResult}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Carousel}
           className={`${!loadedTop &&
             theme.recipeHidden} recipe-list--carousel`}
@@ -248,7 +246,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
                   key={recipe.id}
                   {...recipe}
                   slug={recipe.fields.slug}
-                  ratingProvider={RatingAndReviewsProvider.kritique}
+                  ratingProvider={RatingAndReviewsProvider.inline}
                   imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                   content={{ title: recipe.title }}
                 >

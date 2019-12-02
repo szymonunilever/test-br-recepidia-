@@ -16,12 +16,12 @@ const Kritique = () => {
     // @ts-ignore
     window.isLoadKritique = true;
     setInjectScript(true);
+    setTimeout(reloadKritiqueWidget);
   };
 
   useEffect(() => {
     if (isLoadKritique()) {
       setInjectScript(isLoadKritique);
-      setTimeout(reloadKritiqueWidget);
     } else if (document.readyState === 'complete') {
       initKritique();
     } else {
@@ -34,7 +34,7 @@ const Kritique = () => {
 
   return (
     <>
-      {isBrowser() && (isLoadKritique() || injectScript) ? (
+      {isBrowser() && !injectScript ? (
         <Helmet
           // @ts-ignore
           script={[
