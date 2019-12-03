@@ -23,10 +23,7 @@ import { findPageComponentContent } from 'src/utils';
 import get from 'lodash/get';
 
 import IntroQuiz from '../../components/page/IntroQuiz';
-import {
-  favoriteButtonDefaults,
-  RecipeListingIcons as icons,
-} from '../../themeDefaultComponentProps';
+import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
 
 import theme from './home.module.scss';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -155,7 +152,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
       </section>
       <section className={cx(theme.homeHeroCarousel, 'bg--half wrapper')}>
         <RecipeListing
-          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',
@@ -209,7 +205,6 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
 
       <section className={cx(theme.homeMiddleCarousel, 'wrapper')}>
         <RecipeListing
-          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',

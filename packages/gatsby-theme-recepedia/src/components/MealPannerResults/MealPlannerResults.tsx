@@ -31,10 +31,7 @@ import { ReactComponent as SearchIcon } from '../../svgs/inline/search-icon.svg'
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import { ReactComponent as ButtonCloseIcon } from '../../svgs/inline/x-mark.svg';
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
-import {
-  RecipeListingIcons as icons,
-  removeRecipeCardButtonDefaults,
-} from '../../themeDefaultComponentProps';
+import { removeRecipeCardButtonDefaults } from '../../themeDefaultComponentProps';
 import { findPageComponentContent } from '../../utils';
 import {
   getRecipeResponse,
@@ -166,13 +163,14 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           recipe => recipe.recipeId === recipeToRemove
         );
         recipeShouldAdd && recipeList.splice(recipeIndex, 1, recipeShouldAdd);
-        setRecipeToRemove(undefined);
       } else {
         recipeShouldAdd && recipeList.push(recipeShouldAdd);
       }
 
       setShowCustomSelector(false);
       setRecipesToSelect([]);
+      setRecipeSelected(undefined);
+      setRecipeToRemove(undefined);
       refreshResults(recipeList);
     }
   }, [recipesToSelect, recipeSelected, resultsDefault]);
@@ -223,7 +221,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
             <RecipeCard
               {...recipe}
               slug={recipe.fields.slug}
-              ratingProvider={RatingAndReviewsProvider.kritique}
+              ratingProvider={RatingAndReviewsProvider.inline}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
               content={{ title: recipe.title }}
             >
@@ -295,7 +293,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       className="modal--search"
       isOpen={showSearchModal}
       close={() => {
-        removeFromMP(false);
+        recipeToRemove && removeFromMP(false);
         setShowSearchModal(false);
       }}
       closeBtn={<ButtonCloseIcon />}
@@ -324,7 +322,6 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
       list={recipesToSelect}
       initialCount={CUSTOM_SEARCH_RESULT_INITIAL_COUNT}
-      icons={icons}
       content={customSearchRecipeList}
     >
       {recipesToSelect.map(recipe => (
@@ -333,7 +330,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           key={recipe.id}
           {...recipe}
           slug={recipe.fields.slug}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
           content={{ title: recipe.title }}
         >
@@ -396,10 +393,9 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
                   ? recipeCards.length
                   : maxResults
               }
-              icons={icons}
               content={findPageComponentContent(components, 'Wizard')}
               list={resultsDefault}
-              ratingProvider={RatingAndReviewsProvider.kritique}
+              ratingProvider={RatingAndReviewsProvider.inline}
               viewType={RecipeListViewType.Trivial}
               className="recipe-list--wizard"
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
