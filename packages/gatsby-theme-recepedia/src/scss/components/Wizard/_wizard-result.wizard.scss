@@ -1,25 +1,50 @@
 .wizard--results.wizard--quiz {
   .recipe-list {
-    display: flex;
-    flex-direction: column;
+    display: block;
     flex: 1 1;
     overflow-y: auto;
     overflow-x: hidden;
     &__list {
-      flex: 1 1;
       align-content: flex-start;
+      margin: 0 #{-$col-indent-mobile};
+      @include respondTo(medium) {
+        margin: 0 #{-$col-indent-medium};
+      }
+      @include respondTo(desktop) {
+        margin: 0 #{-$col-indent-desktop};
+      }
+    }
+    &__item {
+      margin: 0 $col-indent-mobile #{$col-indent-mobile * 2};
+      @include respondTo(medium) {
+        margin: 0 $col-indent-medium #{$col-indent-medium * 2};
+      }
+      @include respondTo(desktop) {
+        margin: 0 $col-indent-desktop #{$col-indent-desktop * 2};
+      }
     }
     &__load-more {
       @extend .button--medium;
-      flex-shrink: 0;
       margin-bottom: 40px;
     }
   }
-  .recipe-card__image .adaptive-image__image > div,
-  .quiz__label-image .gatsby-image-wrapper > div {
-    padding-bottom: $recipe-card-height--mobile !important;
-    @include respondTo(medium) {
-      padding-bottom: $recipe-card-height--desktop !important;
+  .recipe-card__image .adaptive-image__image,
+  .quiz__label-image .gatsby-image-wrapper {
+    & > div {
+      padding-bottom: $recipe-card-height--mobile !important;
+      @include respondTo(medium) {
+        padding-bottom: $recipe-card-height--desktop !important;
+      }
+    }
+    img {
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        max-width: none;
+        max-height: 100%;
+      }
+      @supports (-ms-ime-align: auto) {
+        max-width: none;
+        max-height: 100%;
+      }
     }
   }
   form {
