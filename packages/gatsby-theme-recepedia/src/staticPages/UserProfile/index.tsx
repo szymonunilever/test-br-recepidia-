@@ -14,7 +14,6 @@ import {
   updateFavorites,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
-import Kritique from 'integrations/Kritique';
 import {
   favoriteButtonDefaults,
   RecipeListingIcons as icons,
@@ -203,7 +202,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
   return (
     <Layout className="header--bg">
       <SEO {...seo} />
-      <Kritique />
       <DigitalData title={seo && seo.title} type={type} />
       <Tabs
         content={tabsContent.tabsContent}
@@ -224,7 +222,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 icons={icons}
                 content={recipeContent}
                 list={recipeList || []}
-                ratingProvider={RatingAndReviewsProvider.kritique}
+                ratingProvider={RatingAndReviewsProvider.inline}
                 className="recipe-list recipe-list--carousel favorites"
                 initialCount={8}
                 titleLevel={2}
@@ -247,7 +245,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                         <RecipeCard
                           {...recipe}
                           slug={recipe.fields.slug}
-                          ratingProvider={RatingAndReviewsProvider.kritique}
+                          ratingProvider={RatingAndReviewsProvider.inline}
                           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                           content={{ title: recipe.title }}
                         >
@@ -315,7 +313,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
               carouselConfig={carouselConfig}
               titleLevel={2}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
-              ratingProvider={RatingAndReviewsProvider.kritique}
+              ratingProvider={RatingAndReviewsProvider.inline}
             >
               {mealPlannerResults
                 ? mealPlannerResults.map(recipe => (
@@ -329,7 +327,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                         key={recipe.id}
                         {...recipe}
                         slug={recipe.fields.slug}
-                        ratingProvider={RatingAndReviewsProvider.kritique}
+                        ratingProvider={RatingAndReviewsProvider.inline}
                         imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                         content={{ title: recipe.title }}
                       >

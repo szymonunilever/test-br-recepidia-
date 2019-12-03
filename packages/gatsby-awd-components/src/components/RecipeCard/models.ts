@@ -6,6 +6,7 @@ export interface RecipeCardProps
   extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   id: string;
   recipeId: number;
+  averageRating?: number;
   slug: string;
   localImage?: Internal.LocalImage;
   ratingProvider: RatingAndReviewsProvider;

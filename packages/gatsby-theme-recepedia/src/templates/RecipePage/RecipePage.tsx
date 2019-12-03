@@ -224,6 +224,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                 <Rating
                   recipeId={recipe.recipeId}
                   provider={RatingAndReviewsProvider.kritique}
+                  averageRating={recipe.averageRating}
                   linkTo={recipe.fields.slug}
                 />
               ) : null}
@@ -378,7 +379,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           )}
           icons={recipeListingIcons}
           list={relatedRecipes}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Carousel}
           className="recipe-list--carousel"
           titleLevel={2}

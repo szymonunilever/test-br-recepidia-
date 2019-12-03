@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
-import Kritique from 'integrations/Kritique';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import {
   RecipeCard,
@@ -23,11 +22,8 @@ import {
   favoriteButtonDefaults,
   RecipeListingIcons as recipeListingIcons,
 } from '../../themeDefaultComponentProps';
-// import MediaGallery from '../../components/lib/components/MediaGallery';
 import theme from './ContentHubPage.module.scss';
-import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
@@ -91,7 +87,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         canonical={location.href}
       />
       <DigitalData title={tag.title} type={type} />
-      <Kritique />
 
       <section className={cx(theme.contentHubRecipes, 'bg--half wrapper')}>
         <RecipeListing
@@ -103,7 +98,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           }}
           icons={recipeListingIcons}
           list={recipeResultsList}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Base}
           loadMoreConfig={{
             type: LoadMoreType.async,
@@ -126,7 +121,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
                     key={recipe.id}
                     {...recipe}
                     slug={recipe.fields.slug}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    ratingProvider={RatingAndReviewsProvider.inline}
                     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                     content={{ title: recipe.title }}
                   >

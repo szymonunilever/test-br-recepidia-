@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
 import SEO from 'src/components/Seo';
-import Kritique from 'integrations/Kritique';
+
 import {
   RecipeCard,
   RecipeCardLinkWrapper,
@@ -148,7 +148,6 @@ const AllRecipesPage = ({
     <Layout className={theme.allRecipes}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <Kritique />
       <section className="_pt--40">
         <Text
           className={cx(theme.themeTitle, 'wrapper')}
@@ -172,7 +171,7 @@ const AllRecipesPage = ({
             ),
           }}
           list={recipeResultsList}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           titleLevel={3}
           tags={{
             tagGroups: allTagGroupings.nodes,
@@ -206,7 +205,7 @@ const AllRecipesPage = ({
                     key={recipe.id}
                     {...recipe}
                     slug={recipe.fields.slug}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    ratingProvider={RatingAndReviewsProvider.inline}
                     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                     content={{ title: recipe.title }}
                   >
@@ -236,7 +235,7 @@ const AllRecipesPage = ({
             'SeasonalPromotionalRecipes'
           )}
           list={promotionalRecipes.nodes}
-          ratingProvider={RatingAndReviewsProvider.kritique}
+          ratingProvider={RatingAndReviewsProvider.inline}
           titleLevel={2}
           initialCount={initialRecipesCount}
           viewType={RecipeListViewType.Carousel}
@@ -266,7 +265,7 @@ const AllRecipesPage = ({
                     key={recipe.id}
                     {...recipe}
                     slug={recipe.fields.slug}
-                    ratingProvider={RatingAndReviewsProvider.kritique}
+                    ratingProvider={RatingAndReviewsProvider.inline}
                     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                     content={{ title: recipe.title }}
                   >

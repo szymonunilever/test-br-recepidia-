@@ -7,7 +7,6 @@
     .agRatingDeSelect {
       height: 100%;
       img {
-        width: auto;
         height: 10px;
         width: 59px;
         @include respondTo(medium) {
