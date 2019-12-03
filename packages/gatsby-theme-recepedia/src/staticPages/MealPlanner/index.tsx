@@ -52,6 +52,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const [recipes, setRecipes] = useState<Internal.Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [renameDialogShow, setRenameDialogShow] = useState(false);
+  const [holdWizardStates, setHoldWizardStates] = useState(false);
   const [mpResultContent, setMpResultContent] = useState(wizardResultSection);
   const [lastSearchProps, setLastSearchProps] = useState<{
     i: number;
@@ -109,6 +110,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
 
   const dataCapturingDone = useCallback(() => {
     setRenameDialogShow(true);
+    setHoldWizardStates(true);
   }, [recipes]);
 
   const renameMealPlanner = useCallback(
@@ -193,7 +195,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
             containerClass="wizard--quiz"
             stepId="quiz"
           />
-          {recipes.length > 0 && (
+          {(recipes.length > 0 || holdWizardStates) && (
             <DataCapturingForm
               {...dataCapturing}
               url={formUrl}

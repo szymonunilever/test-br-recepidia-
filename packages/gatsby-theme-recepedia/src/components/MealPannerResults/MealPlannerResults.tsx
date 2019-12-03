@@ -388,7 +388,8 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       }}
     >
       {!isLoading
-        ? recipeCards && (
+        ? recipeCards &&
+          resultsDefault.length > 0 && (
             <RecipeListing
               initialCount={
                 recipeCards.length <= maxResults
