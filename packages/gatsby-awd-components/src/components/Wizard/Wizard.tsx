@@ -18,7 +18,6 @@ const Wizard: FunctionComponent<WizardProps> = ({
   const [wizardDataStore, setWizardDataStore] = useState<ResultsStore>({});
   let wizardClassName;
   let enhancedChildren: ReactChild[] = [];
-
   const nextAction = useCallback(
     ({ data }: NextAction) => {
       const currentComponent: ReactChild = enhancedChildren[currentStep];
