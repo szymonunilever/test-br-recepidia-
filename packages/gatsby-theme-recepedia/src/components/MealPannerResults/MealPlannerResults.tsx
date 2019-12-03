@@ -362,6 +362,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         content={customSearchResultContent}
         containerClass={containerClass}
         stepId="customNoResult"
+        nextDisabled={!recipeSelected}
         isLoading={false}
         resultSize={recipesToSelect.length}
         actionCallback={
