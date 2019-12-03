@@ -51,6 +51,9 @@
           display: inline-block;
           flex-shrink: 0;
           margin: 10px;
+          @include respondTo(desktop) {
+            margin: 15px;
+          }
         }
       }
       .accordion__body {

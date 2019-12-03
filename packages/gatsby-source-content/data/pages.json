@@ -2744,7 +2744,7 @@
           {
             "name": "SearchCustomRecipeModal",
             "content": {
-              "title": "O que você esta buscando?",
+              "title": "Type a recipe you love!",
               "placeholderText": "No mínimo 3 caracteres"
             }
           },

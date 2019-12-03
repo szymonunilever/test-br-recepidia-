@@ -132,6 +132,11 @@
       }
       .buttons {
         @extend .wizard__buttons;
+        @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          button {
+            margin: 0;
+          }
+        }
       }
       .field__wrap,
       .checkable.checkbox {
