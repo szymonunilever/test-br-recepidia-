@@ -2,6 +2,7 @@
 
 .recipe-list {
   position: relative;
+  margin-bottom: 60px;
   &__header {
     font-weight: 500;
     font-size: $listing-title-fz;
@@ -20,7 +21,7 @@
     width: 100%;
     max-width: 260px;
     display: flex;
-    margin: 40px auto 0px;
+    margin: 40px auto 0;
   }
 }
 :global(.recipe-list--blue-header) {

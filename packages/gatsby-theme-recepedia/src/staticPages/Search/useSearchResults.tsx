@@ -36,24 +36,6 @@ const useSearchResults = (searchQuery: string) => {
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const getRecipeSearchData = useCallback(
-    async (searchQeury, params) =>
-      getRecipeResponse(searchQeury, params)
-        .then(res => {
-          setRecipeResults({
-            list: params.from
-              ? [
-                  ...recipeResults.list,
-                  ...res.body.hits.hits.map(resItem => resItem._source),
-                ]
-              : res.body.hits.hits.map(resItem => resItem._source),
-            count: res.body.hits.total.value,
-          });
-        })
-        .catch(() => {}),
-    [recipeResults]
-  );
-
-  const getTagRecipeSearchData = useCallback(
     async (searchQeury, params, filter) =>
       getRecipeResponse(searchQeury, params, filter)
         .then(res => {
@@ -72,19 +54,18 @@ const useSearchResults = (searchQuery: string) => {
   );
 
   const getArticleSearchData = useCallback(
-    // async (searchQeury, params) =>
-    //   getArticleResponse(searchQeury, params).then(res => {
-    //     setArticleResults({
-    //       list: params.from
-    //         ? [
-    //             ...articleResults.list,
-    //             ...res.hits.hits.map(resItem => resItem._source),
-    //           ]
-    //         : res.hits.hits.map(resItem => resItem._source),
-    //       count: res.hits.total,
-    //     });
-    //   }),
-    async (searchQeury, params) => {}, // @todo remove this line and uncomment the a lines above when articles are there
+    async (searchQeury, params, filter) =>
+      getArticleResponse(searchQeury, params, filter).then(res => {
+        setArticleResults({
+          list: params.from
+            ? [
+                ...articleResults.list,
+                ...res.body.hits.hits.map(resItem => resItem._source),
+              ]
+            : res.body.hits.hits.map(resItem => resItem._source),
+          count: res.body.hits.total.value,
+        });
+      }),
     [articleResults]
   );
 
@@ -92,8 +73,7 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQuery, params) =>
       getSearchSuggestionResponse(searchQuery, params)
         .then(res => {
-          // const [recipeSearchResponse, articleSearchResponse] = res;
-          const [recipeSearchResponse] = res; // @todo remove this line and uncomment the a line above when articles are there
+          const [recipeSearchResponse, articleSearchResponse] = res;
 
           setSearchInputResults({
             ...searchInputResults,
@@ -101,9 +81,9 @@ const useSearchResults = (searchQuery: string) => {
               ...recipeSearchResponse.body.hits.hits.map(
                 item => item._source.title
               ),
-              // ...articleSearchResponse.hits.hits.map(  // @todo uncomment these lines when articles are there
-              //   item => item._source.title
-              // ),
+              ...articleSearchResponse.hits.hits.map(
+                (item: { _source: { title: string } }) => item._source.title
+              ),
             ],
           });
         })
@@ -116,8 +96,8 @@ const useSearchResults = (searchQuery: string) => {
 
   const getSearchData = async (searchQeury: string, params: SearchParams) => {
     Promise.all([
-      // getArticleSearchData(searchQeury, params),
-      getRecipeSearchData(searchQeury, params),
+      getArticleSearchData(searchQeury, params, ''),
+      getRecipeSearchData(searchQeury, params, ''),
     ]).then(() => {
       setResultsFetched(true);
     });
@@ -129,10 +109,15 @@ const useSearchResults = (searchQuery: string) => {
     [searchQuery]
   );
 
+  const initialArticlesCount = useResponsiveScreenInitialSearch(
+    (size: number) => getSearchData(searchQuery, { size }),
+    get(articleResults, 'list.length', 0),
+    [searchQuery]
+  );
+
   return {
     getSearchData,
     getRecipeSearchData,
-    getTagRecipeSearchData,
     getArticleSearchData,
     getSearchSuggestionData,
     recipeResults,
@@ -140,6 +125,7 @@ const useSearchResults = (searchQuery: string) => {
     searchInputResults,
     resultsFetched,
     initialRecipesCount,
+    initialArticlesCount,
     initialTagsCount,
   };
 };

@@ -2,11 +2,10 @@ import { ReactElement } from 'react';
 import { RatingAndReviewsProvider, UnileverLibraryComponent, titleLevel } from '../../models';
 import { CarouselConfig } from '../Carousel/models';
 import {
-  FilterIcons,
   RecipeAddPlaceholderProps,
-  RecipeFilterOptions,
   RecipeListingTrivialProps,
 } from './partials';
+import { FilterOptions } from '../Filter';
 
 export enum RecipeListViewType {
   Trivial,
@@ -24,20 +23,21 @@ export interface RecipeListingProps extends UnileverLibraryComponent<Partial<App
   list: Internal.Recipe[];
   initialCount?: number;
   recipePerLoad?: number;
-  filterTitle?: string;
-  icons: FilterIcons;
   viewType?: RecipeListViewType;
-  tags?: RecipeFilterOptions;
+  preFilteringValue?: Internal.Tag[];
+  tags?: FilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;
   onViewChange?: onRecipeListingViewChanged;
   isExternalItemLink?: boolean;
+  hideFilter?: boolean;
   children?: RecipeListingTrivialProps['children'] | ReactElement<RecipeAddPlaceholderProps>[]
 }
 
 export type onRecipeListingViewChanged = (
   tags: Internal.Tag[],
   sortingOption: any,
+  filter?: string,
 ) => Promise<void>;
 
 export type onLoadMore = (

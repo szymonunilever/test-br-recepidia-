@@ -1,31 +1,25 @@
-import cx from 'classnames';
-import remove from 'lodash/remove';
-import get from 'lodash/get';
 import React from 'react';
-import { Accordion } from '../../Accordion';
-import { Button } from '../../Button';
-import { Tags } from '../../Tags';
-import { TagToggleHandler, TagViewType, TagVariant } from '../../Tags/models';
+import cx from 'classnames';
+import { Accordion, Button, Tags, TagToggleHandler, TagViewType, TagVariant } from '../../';
 import theme from './FilterSettings.module.scss';
-import { FilterSettingsProps } from './models';
+import { FilterSettingsProps } from '..';
 
 const FilterSettings = ({
   allFilters,
-  filtersSelected,
+  selectedTags,
   onFilterChange,
   className,
-  hidden,
   icons,
   onApply,
   content: { filtersPanel },
 }: FilterSettingsProps) => {
   const classWrapper = cx(theme.filterSettings, 'filter-settings', className);
   const onToggleFilter = (val: TagToggleHandler) => {
-    const filters = [...filtersSelected];
+    const filters = [...selectedTags];
     if (val.state) {
       filters.push(val.tag);
     } else if (filters.length > 0) {
-      remove(filters, (t: Internal.Tag) => t.id === val.tag.id);
+      filters.splice(filters.findIndex((t: Internal.Tag) => t.id === val.tag.id), 1);
     }
     onFilterChange(filters);
   };
@@ -43,7 +37,7 @@ const FilterSettings = ({
       : allFilters.tagGroups;
 
   return (
-    <div className={classWrapper} hidden={hidden}>
+    <div className={classWrapper}>
       <ul
         className={cx(
           theme.filterSettings__tagGroups,
@@ -72,7 +66,7 @@ const FilterSettings = ({
                 list={item.children}
                 content={{ title: undefined, loadMoreButton: undefined }}
                 enableExternalManage
-                selectedTags={filtersSelected}
+                selectedTags={selectedTags}
                 viewType={TagViewType.filter}
                 initialCount={0}
                 handleTagToggle={onToggleFilter}

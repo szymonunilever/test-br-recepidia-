@@ -21,6 +21,8 @@ import { SearchListingProps } from './models';
 import { RatingAndReviewsProvider } from '../../models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import theme from './SearchListing.module.scss';
+import { icons } from '../../mocks/RecipeListing';
+import Filter from '../Filter/Filter';
 
 const SearchListing: FunctionComponent<SearchListingProps> = ({
   content,
@@ -35,7 +37,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   },
 }) => {
   const classNames = cx(theme.searchListing, 'search-listing', className);
-
+  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([]);
   const [defaultSearchValue, setDefaultSearchValue] = useState(searchQuery);
 
   useEffect(() => {
@@ -108,18 +110,25 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
           `${defaultSearchValue ? `\n"${trim(defaultSearchValue)}"` : '" "'}`
         )
     : undefined;
-  const recipes = (
+
+  const loadMoreConfig = {
+    type: LoadMoreType.async,
+      onLoadMore: onLoadMoreRecipes,
+      allCount: recipeResults.count,
+  };
+
+  const recipes = !!recipeResults.list.length && (
       <RecipeListing
-        loadMoreConfig={{
-          type: LoadMoreType.async,
-          onLoadMore: onLoadMoreRecipes,
-          allCount: recipeResults.count,
-        }}
         list={recipeResults.list}
+        titleLevel={2}
         content={content.recipesContent}
         ratingProvider={RatingAndReviewsProvider.inline}
         filterTitle={searchResultsText}
+        loadMoreConfig={loadMoreConfig}
+        preFilteringValue={filteringValue}
+        ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
+        hideFilter
       >
         {recipeResults.list ? recipeResults.list.map(recipe=>(
           <RecipeCard
@@ -206,13 +215,31 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     { list: [], content: { tabs: [] } }
   );
 
-  const nullResult = resultsFetched ? (
+  const onFilterChange = (filter: Internal.Tag[]) => {
+    if (recipeConfig.onViewChange) {
+      recipeConfig.onViewChange(
+        filter,
+        null,
+      ).then(() => {
+        setFilteringValue(filter);
+      });
+    }
+
+    if (articleConfig.onArticleViewChange) {
+      articleConfig.onArticleViewChange(
+        filter,
+        null,
+      );
+    }
+  };
+
+  const nullResult = recipeResults.count + articleResults.count ? null : (
     <NullResult
       content={content.nullResultContent}
       className="search-listing__null-results"
       titleLevel={3}
     />
-  ) : null;
+  );
 
   return (
     <div
@@ -228,8 +255,19 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         onSubmit={onSubmit}
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
-
-      <Tabs content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs>
+      <Filter
+        className={cx(theme.recipeList__filter, 'wrapper search-filter')}
+        // @ts-ignore
+        allFilters={recipeConfig.tags}
+        icons={icons}
+        onChangeFilter={onFilterChange}
+        content={content.recipesContent}
+        filterTitle={searchResultsText}
+        searchQuery={defaultSearchValue}
+        results={recipeResults.count + articleResults.count}
+      />
+      {recipeResults.count + articleResults.count ? <Tabs className="search-listing__tabs" content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs> : null}
+      {nullResult}
     </div>
   );
 };

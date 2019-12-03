@@ -142,22 +142,44 @@ const recipeIdSearchParams = (
 
 const articleSearchParams = (
   searchQuery: string,
-  { from, size, _source }: SearchParams
-) => ({
-  index: process.env['elasticSearch_articleIndex'] as string,
-  body: {
-    from,
-    size,
-    _source,
-    query: {
+  { from, size, _source }: SearchParams,
+  filter: string
+) => {
+  const mustQuery = [
+    {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      simple_query_string: {
-        query: `${searchQuery}`,
+      query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: `${searchQuery}*`,
         fields: ['title^5', 'articleText.text^2'],
       },
     },
-  },
-});
+  ];
+
+  filter && mustQuery.push({
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    query_string: {
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      analyze_wildcard: true,
+      query: filter,
+      fields: ['tagGroups.tags.id'],
+    },
+  });
+  return {
+    index: process.env['elasticSearch_articleIndex'] as string,
+    body: {
+      from,
+      size,
+      _source,
+      query: {
+        bool: {
+          must: mustQuery,
+        },
+      },
+    },
+  };
+};
 
 export const getRecipesByIdsResponse = async (
   searchQuery: string,
@@ -179,9 +201,10 @@ export const getRecipeResponse = async (
 
 export const getArticleResponse = async (
   searchQuery: string,
-  params: SearchParams
+  params: SearchParams,
+  filter: string
 ) =>
-  useElasticSearch<Internal.Article>(articleSearchParams(searchQuery, params));
+  useElasticSearch<Internal.Article>(articleSearchParams(searchQuery, params, filter));
 
 export const getSearchSuggestionResponse = async (
   searchQuery: string,

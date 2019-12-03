@@ -1,4 +1,5 @@
 export interface SearchResponse<T> {
+  hits: any;
   body: {
     hits: {
       hits: Hit<T>[];

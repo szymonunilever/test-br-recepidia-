@@ -940,6 +940,7 @@
               "recipesContent": {
                 "cta": { "label": "Ver mais receitas" },
                 "resultLabel": "receita encontrada",
+                "title": "Receitas",
                 "resultLabelPlural": "receitas encontradas",
                 "filtersPanel": {
                   "title": "Filtros",

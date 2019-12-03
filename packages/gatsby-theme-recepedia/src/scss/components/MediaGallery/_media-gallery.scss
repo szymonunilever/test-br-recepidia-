@@ -1,5 +1,20 @@
 .media-gallery {
   position: relative;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: -5px;
+  }
+
+  &__button {
+    &-wrap {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
   &__item {
     margin: 5px;
     width: calc(50% - 10px);
@@ -33,6 +48,8 @@
     &-image {
       background-color: #ccc;
     }
+
+
 
     .gatsby-image-wrapper > div {
       padding-bottom: 225px !important;

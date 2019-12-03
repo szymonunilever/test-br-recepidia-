@@ -70,6 +70,7 @@
       font: 500 1.8rem $rubik;
       margin-top: 0;
       color: $fish-blue-darker;
+      font-size: 1.8rem;
       margin-bottom: 20px;
       @include respondTo(desktop) {
         max-width: 170px;

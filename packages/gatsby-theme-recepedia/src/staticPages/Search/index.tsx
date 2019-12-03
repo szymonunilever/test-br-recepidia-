@@ -54,9 +54,9 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     searchInputResults,
     resultsFetched,
     initialRecipesCount,
+    initialArticlesCount,
     initialTagsCount,
     getRecipeSearchData,
-    getTagRecipeSearchData,
   } = useSearchResults(searchQuery);
 
   const updateUrlParams = (searchStr: string) => {
@@ -89,7 +89,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const onViewChange = useCallback(
     (tags: Internal.Tag[]) => {
-      return getTagRecipeSearchData(
+      return getRecipeSearchData(
         searchQuery,
         {
           size: Math.max(initialRecipesCount, recipeResults.list.length),
@@ -98,6 +98,19 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       );
     },
     [initialRecipesCount, recipeResults]
+  );
+
+  const onArticleViewChange = useCallback(
+    (tags: Internal.Tag[]) => {
+      return getArticleSearchData(
+        searchQuery,
+        {
+          size: Math.max(initialArticlesCount, articleResults.list.length),
+        },
+        getFilterQuery(tags)
+      );
+    },
+    [initialArticlesCount, articleResults]
   );
 
   useEffect(() => {
@@ -143,6 +156,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                   'budgets',
                 ],
               },
+              showFilters: false,
               initialCount: initialRecipesCount,
               recipePerLoad: 4,
               favorites: favorites,
@@ -153,6 +167,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             },
             articleConfig: {
               getArticleSearchData,
+              onArticleViewChange
             },
           }}
           content={{

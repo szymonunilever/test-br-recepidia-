@@ -19,13 +19,10 @@ import {
 } from '../components/RecipeListing';
 import {
   RecipeCard,
-  FilterIcons,
   RecipeCardProps,
-  RecipeFilterOptions,
-  RecipeFilterProps,
   RecipeListingTrivialProps,
-} from '../components/RecipeListing/partials';
-import { ReactComponent as Icon } from '../svgs/inline/favorite.svg';
+} from '../components/';
+import { FilterOptions, FilterProps, FilterIcons } from '../components/Filter'
 import tagGroupsData from './allTagGrouping.json';
 import recipes from './recipes';
 import dataSource from './recipes.json';
@@ -87,7 +84,7 @@ contents.advanced = {
 };
 const tagGroups: Internal.TagGroup[] =
   tagGroupsData.allTagGroupings.nodes || [];
-export const tags: RecipeFilterOptions = {
+export const tags: FilterOptions = {
   tagGroups,
   displayCategories: [
     'dishes',
@@ -102,7 +99,7 @@ export const list: Internal.Recipe[] = dataSource.data.allRecipe.edges.map(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (item: { node: Internal.Recipe | any }) => item.node
 );
-const optionLabels: RecipeFilterProps['content']['optionLabels'] = {
+const optionLabels: FilterProps['content']['optionLabels'] = {
   preparationTime: 'Preparation time Test',
   cookingTime: 'Cooking time',
   averageRating: 'Average rating',
@@ -111,7 +108,7 @@ const optionLabels: RecipeFilterProps['content']['optionLabels'] = {
   title: 'title',
 };
 
-const filtersContentDefault: RecipeFilterProps['content'] = {
+const filtersContentDefault: FilterProps['content'] = {
   resultLabel: 'recipe',
   resultLabelPlural: 'recipes',
   filtersPanel: {
@@ -162,10 +159,11 @@ export const recipeCardPropVariants: RecipeCardProps[] = [
   { ...recipeCardPropsDefault, ratingProvider: 0 },
   { ...recipeCardPropsDefault, ratingProvider: 1},
   { ...recipeCardPropsDefault, content: {}},
+  // @ts-ignore
   { ...recipeCardPropsDefault, isExternalLink: true,},
 ];
 
-export const filtersContentVariants: RecipeFilterProps['content'][] = [
+export const filtersContentVariants: FilterProps['content'][] = [
   filtersContentDefault,
   { ...filtersContentDefault, optionLabels },
 ];
@@ -173,16 +171,16 @@ export const filtersContentVariants: RecipeFilterProps['content'][] = [
 export const recipeCards: {[key:string]: RecipeListingProps['children']} = {
   withFavorites: list.map(recipe => (
     <RecipeCard {...
-                {
-                  id: recipe.id,
-                  recipeId: recipe.recipeId,
-                  slug: recipe.fields.slug,
-                  localImage: recipe.localImage,
-                  ratingProvider: 2,
-                  imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
-                  content: { ...recipe },
-                  children: recipeCardButtons[0],
-                }
+      {
+        id: recipe.id,
+        recipeId: recipe.recipeId,
+        slug: recipe.fields.slug,
+        localImage: recipe.localImage,
+        ratingProvider: 2,
+        imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
+        content: { ...recipe },
+        children: recipeCardButtons[0],
+      }
     } />
   )),
   withoutFavorites: list.map(recipe => (
@@ -205,7 +203,6 @@ export const recipeListingPropsVariants: {
   [key: string]: RecipeListingProps;
 } = {
   trivialNoResults: {
-    icons,
     list: [],
     children:[],
     viewType: RecipeListViewType.Trivial,
@@ -216,7 +213,6 @@ export const recipeListingPropsVariants: {
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
   },
   trivial: {
-    icons,
     list,
     children: recipeCards.withoutFavorites,
     viewType: RecipeListViewType.Trivial,
@@ -224,7 +220,6 @@ export const recipeListingPropsVariants: {
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
   },
   trivialWithFavorites: {
-    icons,
     list,
     recipePerLoad: 4,
     viewType: RecipeListViewType.Trivial,
@@ -240,7 +235,6 @@ export const recipeListingPropsVariants: {
     content: { ...contents.base, title: 'Recipe Listing Base without Results' },
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
     titleLevel: 1,
-    icons,
   },
   baseNoResults: {
     list: [],
@@ -249,7 +243,6 @@ export const recipeListingPropsVariants: {
     content: contents.base,
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
     titleLevel: 1,
-    icons,
   },
   baseWithAsDefault: {
     list,
@@ -257,14 +250,12 @@ export const recipeListingPropsVariants: {
     viewType: RecipeListViewType.Base,
     content: contents.base,
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
-    icons,
   },
   baseWithLoadMoreConfig: {
     list,
     children: recipeCards.withFavorites,
     viewType: RecipeListViewType.Base,
     content: contents.base,
-    icons,
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
     loadMoreConfig: {
       type: LoadMoreType.async,
@@ -278,10 +269,8 @@ export const recipeListingPropsVariants: {
     titleLevel: 1,
     tags,
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
-    icons,
   },
   carousel: {
-    icons: { close: icons.close },
     list,
     children: recipeCards.withoutFavorites,
     viewType: 1,
@@ -302,7 +291,6 @@ export const recipeListingPropsVariants: {
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
   },
   carouselWithFavorites: {
-    icons,
     children: recipeCards.withFavorites,
     isExternalItemLink: true,
     list,
@@ -324,7 +312,6 @@ export const recipeListingPropsVariants: {
     imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
   },
   carouselWithDefaults: {
-    icons,
     list,
     children: recipeCards.withFavorites,
     viewType: 1,
@@ -353,8 +340,11 @@ const recipeListingTrivialPropsDefault = {
   imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
 };
 export const recipeListingTrivialPropsVariants: RecipeListingTrivialProps[] = [
+  // @ts-ignore
   recipeListingTrivialPropsDefault,
+  // @ts-ignore
   { ...recipeListingTrivialPropsDefault, list: [], children:[] },
+  // @ts-ignore
   { ...recipeListingTrivialPropsDefault},
 ];
 export const recipeContents = contents;

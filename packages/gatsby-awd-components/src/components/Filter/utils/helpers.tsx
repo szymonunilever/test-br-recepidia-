@@ -1,7 +1,7 @@
 import _sortBy from 'lodash/sortBy';
 import findIndex from 'lodash/findIndex';
 import filter from 'lodash/filter';
-import { RecipeSortingOptions } from '../partials';
+import { SortingOptions } from '..';
 
 const sortByPreparationTime = (list: Internal.Recipe[]) =>
   _sortBy(list, ['recipeDetails.preperationTime']);
@@ -26,10 +26,10 @@ export function applyingFavorites(
 ) {
   return withFavorites && favorites && list.length > 0
     ? list.map(item => {
-        const inFavorite =
-          findIndex(favorites, fav => fav === item.recipeId) > -1;
-        return Object.assign(item, { inFavorite: inFavorite });
-      })
+      const inFavorite =
+        findIndex(favorites, fav => fav === item.recipeId) > -1;
+      return Object.assign(item, { inFavorite: inFavorite });
+    })
     : list;
 }
 
@@ -69,17 +69,17 @@ export function applyContentDefaults(
     ...content,
   };
 }
-export function sortBy(sort: RecipeSortingOptions, list: Internal.Recipe[]) {
+export function sortBy(sort: SortingOptions, list: Internal.Recipe[]) {
   switch (sort) {
-    case RecipeSortingOptions.preparationTime:
+    case SortingOptions.preparationTime:
       return sortByPreparationTime(list);
-    case RecipeSortingOptions.cookingTime:
+    case SortingOptions.cookingTime:
       return sortByCookingTime(list);
-    case RecipeSortingOptions.averageRating:
+    case SortingOptions.averageRating:
       return sortByAverageRating(list);
-    case RecipeSortingOptions.title:
+    case SortingOptions.title:
       return sortByTitle(list);
-    case RecipeSortingOptions.newest:
+    case SortingOptions.newest:
       return sortByNewest(list);
     default:
       return sortByNewest(list);
@@ -91,7 +91,7 @@ export function applyFilters(
   list: Internal.Recipe[]
 ): Internal.Recipe[] {
   if (filters.length > 0) {
-    const filteredList = filter(list, (item: Internal.Recipe) => {
+    return filter(list, (item: Internal.Recipe) => {
       const { tagGroups } = item;
 
       const includedTags = filter(tagGroups, (item: Internal.TagGroup) => {
@@ -110,8 +110,6 @@ export function applyFilters(
 
       return includedTags.length > 0;
     });
-
-    return filteredList;
   } else {
     return list;
   }
