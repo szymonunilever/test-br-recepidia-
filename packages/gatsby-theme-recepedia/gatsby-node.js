@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
+const createProductPages = require('./scripts/build/createProductPages');
 const createArticlePages = require('./scripts/build/createArticlePages');
 const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
 const createContentHubPages = require('./scripts/build/createContentHubPages');
@@ -23,6 +24,7 @@ const urlPartialsByTypeMap = {
   Recipe: 'title',
   Tag: 'title',
   Category: 'title',
+  ProductDetails: 'title',
 };
 
 const addTrailingSlash = path => {
@@ -110,6 +112,15 @@ exports.onCreateNode = async ({
         node,
         createNodeField,
       });
+      break;
+    case constants.NODE_TYPES.PRODUCT:
+      {
+        createSlugFor({
+          path: getPagePath(constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS),
+          node,
+          createNodeField,
+        });
+      }
       break;
     case constants.NODE_TYPES.CATEGORY:
       {
@@ -239,6 +250,10 @@ exports.createPages = async ({ graphql, actions }) => {
     pages,
     constants.TEMPLATE_PAGE_TYPES.RECIPE
   );
+  const productDetailsData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS
+  );
   const articleDetailsData = findPageFromNodes(
     pages,
     constants.TEMPLATE_PAGE_TYPES.ARTICLE
@@ -257,6 +272,11 @@ exports.createPages = async ({ graphql, actions }) => {
       graphql,
       createPage,
       page: recipeDetailsData,
+    }),
+    createProductPages({
+      graphql,
+      createPage,
+      page: productDetailsData,
     }),
     createCategoryPages({
       graphql,

@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-source-products",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cross-env": "5.0.5"
+  }
+}

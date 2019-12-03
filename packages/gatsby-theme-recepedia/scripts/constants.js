@@ -2,6 +2,7 @@ exports.NODE_TYPES = {
   RECIPE: 'Recipe',
   ARTICLE: 'Article',
   CATEGORY: 'Category',
+  PRODUCT: 'Product',
   TAG: 'Tag',
   PAGE: 'Page',
   DICTIONARY: 'Dictionary',
@@ -13,4 +14,5 @@ exports.TEMPLATE_PAGE_TYPES = {
   ARTICLE: 'ArticleDetail',
   CATEGORY: 'RecipeCategory',
   TAG: 'ContentHub',
+  PRODUCT_DETAILS: 'ProductDetails',
 };

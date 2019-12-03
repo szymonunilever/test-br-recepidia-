@@ -8,8 +8,10 @@ const {
   createDictionaryNodes,
   createDisclaimerNodes,
 } = createNodes;
-const pagesMock = require('./data/pages.json');
-const componentsMock = require('./data/components.json');
+const pagesMockBr = require('./data/pages.json');
+const componentsMockBr = require('./data/components.json');
+const pagesMockMx = require('./data/pages-mx.json');
+const componentsMockMx = require('./data/components-mx.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(
@@ -43,6 +45,8 @@ exports.sourceNodes = async (
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
+  const pagesMock = configOptions.locale === 'es-mx' ? pagesMockMx : pagesMockBr;
+  const componentsMock = configOptions.locale === 'es-mx' ? componentsMockMx : componentsMockBr;
   const pagesData = [...pagesMock.pages];
   //TODO: remove next string when data for components will fixed on middleware
   const componentsData = componentsMock;
