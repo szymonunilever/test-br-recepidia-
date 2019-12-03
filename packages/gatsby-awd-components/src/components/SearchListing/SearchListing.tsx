@@ -123,10 +123,8 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         titleLevel={2}
         content={content.recipesContent}
         ratingProvider={RatingAndReviewsProvider.inline}
-        filterTitle={searchResultsText}
         loadMoreConfig={loadMoreConfig}
         preFilteringValue={filteringValue}
-        ratingProvider={RatingAndReviewsProvider.kritique}
         {...recipeConfig}
         hideFilter
       >
