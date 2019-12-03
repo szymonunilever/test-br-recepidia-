@@ -12,6 +12,7 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
   actionCallback,
   isLoading = false,
   callbacks,
+  nextDisabled = false,
 }) => {
   const { title, subheading, ctas } = resultSize > 0 ? onResult : noResult;
 
@@ -28,6 +29,7 @@ const ResultSection: FunctionComponent<ResultSectionProps> = ({
       <Button
         key={`button-${cta.type}`}
         onClick={onClick()}
+        isDisabled={cta.type === 'next' && nextDisabled}
         className={`wizard__button wizard__button--primary`}
         content={cta.content}
       />
