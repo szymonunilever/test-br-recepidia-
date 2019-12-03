@@ -8,37 +8,44 @@ import { CardProps } from './models';
 import theme from './Card.module.scss';
 
 export const Card: FunctionComponent<CardProps> = ({
-   content,
-   idPropertyName,
-   children,
-   className = '',
-   imageSizes,
-   ratingWidget,
-   brand,
- }) => {
-  const { title, fields:{slug}, localImage } = content;
+  content,
+  idPropertyName,
+  children,
+  className = '',
+  imageSizes,
+  ratingWidget,
+  brand,
+}) => {
+  const {
+    title,
+    fields: { slug },
+    localImage,
+  } = content;
   const itemTitle = title && (
     <Text
-      tag={TagName[ `div` ]}
+      tag={TagName[`div`]}
       // @ts-ignore
       text={title}
-      className={cx(theme.card__title, 'recipe-card__title')}
+      className={cx(theme.card__title, 'card__title')}
     />
   );
-  const modifiedChildren = children && React.Children.map(children, child => {
-    return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
-      child,
-      {
-        onClick : (val: boolean) => {
-          child
-          && child.props.onClick
-          && child.props.onClick.apply(
-            child.props.onClick,
-            [val, content[idPropertyName]],
-          );
-        },
-      });
-  });
+  const modifiedChildren =
+    children &&
+    React.Children.map(children, child => {
+      return (
+        React.isValidElement<ButtonProps>(child) &&
+        React.cloneElement<ButtonProps>(child, {
+          onClick: (val: boolean) => {
+            child &&
+              child.props.onClick &&
+              child.props.onClick.apply(child.props.onClick, [
+                val,
+                content[idPropertyName],
+              ]);
+          },
+        })
+      );
+    });
   const wrapClasses = cx(theme.card, 'card', className);
   const Image = localImage && (
     <AdaptiveImage
@@ -49,10 +56,8 @@ export const Card: FunctionComponent<CardProps> = ({
     />
   );
   return (
-     <div className={wrapClasses} data-componentname = 'card'>
-      <div className="card__buttons">
-        {modifiedChildren}
-      </div>
+    <div className={wrapClasses} data-componentname="card">
+      <div className="card__buttons">{modifiedChildren}</div>
       {Image}
       <div className={cx(theme.card__info, 'card__info')}>
         {itemTitle}

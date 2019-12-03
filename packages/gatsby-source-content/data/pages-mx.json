@@ -2980,10 +2980,119 @@
     },
     {
       "type": "BrandPromisePage",
-      "title": "Brand Promise page",
-      "relativePath": "/brand-promise",
+      "title": "We're on the side of food",
+      "relativePath": "/hellmanns/brand-promise",
       "components": {
         "items": [
+          {
+            "name": "Header",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "StandForListing",
+            "content": {
+              "title": "We stand for…"
+            }
+          },
+          {
+            "name": "PromiseArticle",
+            "content": {
+              "title": "The plastic problem",
+              "subtitle": "At Hellmann’s we are standing up for fresh tasty food and where it comes from.",
+              "description": "As the leading mayonnaise brand in the US, we have the responsibility to provide the people who love our products with condiments that not only taste good, but are a force for good. Put simply, we believe in Real Taste and Less Waste, that’s why we’re committed to tackling the packaging waste of our products. Discover the overall plastics problem, what we are doing about it and what you can do to help below.",
+              "blocks": [
+                {
+                  "image": {
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "alt": "Planejamento Semanal"
+                  },
+                  "richText": {
+                    "text": "<h3>Recyling problems that industries face today:</h3><p>Recycling all depends on the technologies available to do so. Plastics that are able to currently be recycled are transparent PET (Hellmann’s Bottles & Jars material), PP and PE. However, flexible laminates (Doypacks and sachets) are not.</p>"
+                  }
+                },
+                {
+                  "image": {
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "alt": "Planejamento Semanal"
+                  },
+                  "richText": {
+                    "text": "<p>Every time PET plastic is recycled the material goes through a “downcycling” process, losing value. Eventually the plastic is unable to be reused again.</p>"
+                  }
+                },
+                {
+                  "image": {
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "alt": "Planejamento Semanal"
+                  },
+                  "richText": {
+                    "text": "<p>Recycling colored PET would result in dark opaque bottles with no commercial appeal, leading the recycling industry to often not collect them.</p>"
+                  }
+                }
+              ],
+              "cta": {
+                "linkTo": "/",
+                "label": "What are we going to do?"
+              }
+            }
+          },
+          {
+            "name": "UpToListing",
+            "content": {
+              "title": "See what we're up too"
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/recepediabrasil/Recepedia"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/recepedia_br"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Planejamento Semanal",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Planejamento Semanal"
+              }
+            }
+          }
         ]
       },
       "seo": {
@@ -3002,8 +3111,7 @@
       "title": "Brand Products page",
       "relativePath": "/brand-products",
       "components": {
-        "items": [
-        ]
+        "items": []
       },
       "seo": {
         "title": "Brand Products page",
@@ -3019,10 +3127,9 @@
     {
       "type": "ProductDetails",
       "title": "Brand Product Details page",
-        "relativePath": "/brand-product-details",
+      "relativePath": "/brand-product-details",
       "components": {
-        "items": [
-        ]
+        "items": []
       },
       "seo": {
         "title": "Brand Product Details page",

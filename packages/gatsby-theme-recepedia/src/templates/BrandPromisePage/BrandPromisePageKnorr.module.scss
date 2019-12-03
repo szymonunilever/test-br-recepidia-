@@ -1,0 +1,12 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+@import './../../scss/brands/knorr/index.scss';
+
+.brand-promise-page {
+  color: green !important;
+}
+.text {
+  color: green !important;
+  font-family: $vivaStdBold;
+  font-weight: 700;
+}

@@ -43,6 +43,20 @@ $primary-bg-color: $white-gray;
 $rubik: 'Rubik', sans-serif;
 $arial: Arial, Helvetica, sans-serif;
 
+//Knorr
+$filsonSoftBold: 'Filson Soft W03 Bold', sans-serif;
+
+//Hellmanns
+$brandonGrotesqueBlack: 'brandon-grotesque', sans-serif; //font-weight: 900;
+$brandonGrotesqueBold: 'brandon-grotesque', sans-serif; //font-weight: 700;
+$trebuchetMsBold: 'Trebuchet W01 Bold', sans-serif; //font-weight: 700;
+$trebuchetMsNormal: 'Trebuchet W01 Regular', sans-serif; //font-weight: 400;
+
+//Maizena
+$vivaStdBold: 'viva-std', sans-serif; //font-weight: 700;
+$proximaNovaBold: 'proxima-nova', sans-serif; //font-weight: 700;
+$proximaNovaNormal: 'proxima-nova', sans-serif; //font-weight: 400;
+
 /* ----------------------------------------------------------------------------- *\
    LAYOUT
 \* ----------------------------------------------------------------------------- */
@@ -62,6 +76,65 @@ $page-listing-image-height--mobile: 180px;
 $page-listing-image-height--desktop: 315px;
 $page-listing-card-height--mobile: 100px;
 $page-listing-card-height--desktop: 195px;
+
+/* ----------------------------------------------------------------------------- *\
+   BRANDS VARS
+\* ----------------------------------------------------------------------------- */
+
+////// BRANDS TYPOGRAPHY //////
+
+$knorr-h1-fz: 86px;
+$knorr-h2-fz: 45px;
+$knorr-h3-fz: 40px;
+$knorr-h4-fz: 28px;
+$knorr-h5-fz: 26px;
+$knorr-h6-fz: 25px;
+$knorr-h7-fz: 20px;
+$knorr-ff-primary: 'Filson Soft', sans-serif;
+$knorr-ff-secondary: 'Rubik', sans-serif;
+$knorr-title-fw: bold;
+$knorr-text-fz: 14px;
+$knorr-text-fz-lg: 16px;
+$knorr-text-ff: Areal, sans-serif;
+
+$hellmanns-h1-fz: 5rem;
+$hellmanns-h2-fz: 3rem;
+$hellmanns-h3-fz: 2.4rem;
+$hellmanns-h4-fz: 2.2rem;
+$hellmanns-h5-fz: 2rem;
+$hellmanns-h1-fz-lg: 10.1rem;
+$hellmanns-h2-fz-lg: 4.5rem;
+$hellmanns-h3-fz-lg: 3.6rem;
+$hellmanns-h4-fz-lg: 2.5rem;
+$hellmanns-h5-fz-lg: 2rem;
+$hellmanns-ff: 'Brandon Grotesque', sans-serif;
+$hellmanns-title-fw: bold;
+$hellmanns-text-fz: 14px;
+$hellmanns-text-fz-lg: 16px;
+$hellmanns-text-ff: 'Trebuchet MS', sans-serif;
+
+$maizena-h1-fz: 565px;
+$maizena-h2-fz: 45px;
+$maizena-h3-fz: 25px;
+$maizena-h4-fz: 20px;
+$maizena-ff-primary: 'Viva Std', sans-serif;
+$maizena-ff-secondary: 'Proxima Nova', sans-serif;
+$maizena-title-fw: bold;
+$maizena-text-fz: 16px;
+
+////// BRANDS COLORS//////
+
+$knorr-color-primary: #007a33;
+$knorr-color-primary-hover: #facc00;
+$knorr-color-secondary: #fff;
+$knorr-text-color: #777777;
+
+$hellmans-color-primary: #004976;
+$hellmans-color-secondary: #fdf6e8;
+
+$maizena-color-primary: #fed925;
+$maizena-color-secondary: #000;
+$maizena-background: #f6efeb;
 
 %link--inline {
   color: inherit;
