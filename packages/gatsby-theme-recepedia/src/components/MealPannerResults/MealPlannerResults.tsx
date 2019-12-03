@@ -39,6 +39,7 @@ import {
 } from '../../utils/searchUtils';
 import { MealPannerResultsProps } from './models';
 import differenceBy from 'lodash/differenceBy';
+import cloneDeep from 'lodash/cloneDeep';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -51,11 +52,19 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   isLoading,
   actionCallback,
   stepId,
+  resultContentTitle,
 }) => {
   const CUSTOM_SEARCH_RESULT_INITIAL_COUNT = 8;
   // Get Components Contents
   const componentContent = findPageComponentContent(components, 'Wizard');
-  const wizardResultSection = componentContent.wizardResultSection;
+  const [wizardResultSection, setWizardResultSection] = useState(
+    cloneDeep(componentContent.wizardResultSection)
+  );
+  useEffect(() => {
+    const newContentVal = { ...wizardResultSection };
+    newContentVal.content.onResult.title = resultContentTitle;
+    setWizardResultSection(newContentVal);
+  }, [resultContentTitle]);
   const removeFromMPConfirmationContent: AppContent.ConfirmationContent = findPageComponentContent(
     components,
     'Confirmation',

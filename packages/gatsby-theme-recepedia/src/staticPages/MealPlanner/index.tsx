@@ -50,7 +50,9 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [renameDialogShow, setRenameDialogShow] = useState(false);
   const [holdWizardStates, setHoldWizardStates] = useState(false);
-  const [mpResultContent, setMpResultContent] = useState(wizardResultSection);
+  const [mpResultContentTitle, setMpResultContentTitle] = useState(
+    wizardResultSection.content.onResult.title
+  );
   const [lastSearchProps, setLastSearchProps] = useState<{
     i: number;
     fromChanged: number;
@@ -115,9 +117,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       if (renameDialogShow) {
         const name = val || wizardResultSection.content.onResult.title;
         saveUserProfileByKey(name, ProfileKey.mealPlannerName);
-        let newMPContent = { ...wizardResultSection };
-        newMPContent.content.onResult.title = name;
-        setMpResultContent(newMPContent);
+        setMpResultContentTitle(name);
       }
       setRenameDialogShow(false);
     },
@@ -206,12 +206,8 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
           {/*
            // @ts-ignore */}
           <MealPlannerResults
-            {...{
-              components: {
-                ...components,
-                wizardResultSection: mpResultContent,
-              },
-            }}
+            {...{ components }}
+            resultContentTitle={mpResultContentTitle}
             stepId="result"
             containerClass="wizard--results wizard--quiz"
             resultsDefault={recipes}

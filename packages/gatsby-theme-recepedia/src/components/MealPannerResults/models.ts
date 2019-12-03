@@ -6,6 +6,7 @@ export interface MealPannerResultsProps extends WizardStepComponent {
   components: any;
   maxResults: number;
   resultsDefault: Internal.Recipe[];
+  resultContentTitle: string;
   refreshResults: (
     results: Internal.Recipe[],
     needFetchNewData?: boolean
