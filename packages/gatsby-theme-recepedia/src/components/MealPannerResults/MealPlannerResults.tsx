@@ -131,7 +131,6 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     value => {
       setCustomSearchInProcess(true);
       getRecipeResponse(value, {}).then(res => {
-        setCustomSearchResultContent(customSearchContent);
         let recipes: Internal.Recipe[] = [];
         if (res.body.hits.total.value === 0) {
           setRecipesToSelect([]);
@@ -143,9 +142,14 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           recipes.push(resItem._source as Internal.Recipe);
         });
         recipes = differenceBy(recipes, resultsDefault, 'recipeId');
-        customSearchContent.onResult.subheading = customSearchContent.onResult.subheading
+        const newSearchContent = {
+          ...customSearchContent,
+          onResult: { ...customSearchContent.onResult },
+        };
+        newSearchContent.onResult.subheading = newSearchContent.onResult.subheading
           .replace('{numRes}', `${recipes.length}`)
           .replace('{searchInputValue}', value);
+        setCustomSearchResultContent(newSearchContent);
         setRecipesToSelect(recipes);
         setCustomSearchInProcess(false);
       });
