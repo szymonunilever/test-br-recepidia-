@@ -74,6 +74,7 @@ exports[`<GlobalFooter /> matches the snapshot 1`] = `
     data-componentview="global-footer"
   >
     <Menu
+      className="footer-menu-0"
       key="0"
       list={
         Object {
@@ -100,7 +101,7 @@ exports[`<GlobalFooter /> matches the snapshot 1`] = `
       }
     >
       <div
-        className="footerMenu footer-menu"
+        className="footerMenu footer-menu-0 footer-menu"
       >
         <label
           className="footerMenu__label footer-menu__label"
@@ -178,6 +179,7 @@ exports[`<GlobalFooter /> matches the snapshot 1`] = `
       </div>
     </Menu>
     <Menu
+      className="footer-menu-1"
       key="1"
       list={
         Object {
@@ -220,7 +222,7 @@ exports[`<GlobalFooter /> matches the snapshot 1`] = `
       }
     >
       <div
-        className="footerMenu footer-menu"
+        className="footerMenu footer-menu-1 footer-menu"
       >
         <label
           className="footerMenu__label footer-menu__label"

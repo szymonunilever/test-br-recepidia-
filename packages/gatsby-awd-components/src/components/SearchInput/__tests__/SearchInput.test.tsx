@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import searchData from '../../../mocks/search.json';
 import { KeyCode } from '../../constants';
 
-const e = { target: { value: '1234567890!!!' } };
+const e = { target: { value: 'a' } };
 const generateEvent = (e: any) => ({
   preventDefault: () => {},
   key: e,

@@ -36,8 +36,8 @@ const useSearchResults = (searchQuery: string) => {
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const getRecipeSearchData = useCallback(
-    async (searchQeury, params, filter) =>
-      getRecipeResponse(searchQeury, params, filter)
+    async (searchQuery, params, filter) =>
+      getRecipeResponse(searchQuery, params, filter)
         .then(res => {
           setRecipeResults({
             list: params.from
@@ -54,8 +54,8 @@ const useSearchResults = (searchQuery: string) => {
   );
 
   const getArticleSearchData = useCallback(
-    async (searchQeury, params, filter) =>
-      getArticleResponse(searchQeury, params, filter).then(res => {
+    async (searchQuery, params, filter) =>
+      getArticleResponse(searchQuery, params, filter).then(res => {
         setArticleResults({
           list: params.from
             ? [
@@ -94,10 +94,10 @@ const useSearchResults = (searchQuery: string) => {
     []
   );
 
-  const getSearchData = async (searchQeury: string, params: SearchParams) => {
+  const getSearchData = async (searchQuery: string, params: SearchParams) => {
     Promise.all([
-      getArticleSearchData(searchQeury, params, ''),
-      getRecipeSearchData(searchQeury, params, ''),
+      getArticleSearchData(searchQuery, params, ''),
+      getRecipeSearchData(searchQuery, params, ''),
     ]).then(() => {
       setResultsFetched(true);
     });

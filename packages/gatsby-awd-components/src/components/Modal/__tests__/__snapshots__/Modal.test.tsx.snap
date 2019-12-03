@@ -50,14 +50,6 @@ exports[`<Modal /> matches the snapshot 1`] = `
                   Content
                 </div>
               </div>
-              <button
-                class="buttonIcon button--icon modal__btnClose modal__btn-close"
-                data-componentname="button"
-                data-componentview="button"
-                type="button"
-              >
-                
-              </button>
             </div>
           </div>
         </div>
@@ -143,21 +135,6 @@ exports[`<Modal /> matches the snapshot 1`] = `
                 Content
               </div>
             </div>
-            <Component
-              aria-label="Close"
-              className="modal__btnClose modal__btn-close"
-              viewType={1}
-            >
-              <button
-                className="buttonIcon button--icon modal__btnClose modal__btn-close"
-                data-componentname="button"
-                data-componentview="button"
-                disabled={false}
-                hidden={false}
-                onClick={[Function]}
-                type="button"
-              />
-            </Component>
           </div>
         </div>
       </ModalPortal>

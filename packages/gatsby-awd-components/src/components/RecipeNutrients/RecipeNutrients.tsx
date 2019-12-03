@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import React, { useState } from 'react';
 import Button, { ButtonViewType } from '../Button';
 import { Modal } from '../Modal';
-import { TagName } from '../Text/index';
+import { TagName } from '../Text';
 import { RecipeNutrientsProps, RecipeNutrientsViewType } from './models';
 import { RecipeNutrientsBody } from './partials';
 import theme from './RecipeNutrients.module.scss';

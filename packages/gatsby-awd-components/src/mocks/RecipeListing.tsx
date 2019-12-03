@@ -99,6 +99,7 @@ export const list: Internal.Recipe[] = dataSource.data.allRecipe.edges.map(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (item: { node: Internal.Recipe | any }) => item.node
 );
+
 const optionLabels: FilterProps['content']['optionLabels'] = {
   preparationTime: 'Preparation time Test',
   cookingTime: 'Cooking time',

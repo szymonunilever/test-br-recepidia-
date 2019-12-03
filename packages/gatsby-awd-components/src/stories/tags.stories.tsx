@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Tags } from '../index';
 import tagsData from '../mocks/tags.json';
 import { action } from '@storybook/addon-actions';
-import { TagViewType, TagVariant } from '../components/Tags/models';
+import { TagViewType, TagVariant } from '../components/Tags';
 import { ReactComponent as RemoveIcon } from 'src/svgs/inline/x-mark.svg';
 const content: AppContent.TagsContent = {
   title: 'Custom title text',

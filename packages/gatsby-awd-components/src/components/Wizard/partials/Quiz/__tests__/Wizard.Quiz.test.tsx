@@ -11,8 +11,9 @@ describe('<Quiz />', () => {
   let wrapperSingle: ReactWrapper;
   const mockCallback = jest.fn(() => {});
   const imageSizesOptions = {
-    QUIZ_SMALL: '(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px',
-    QUIZ_BIG: '(max-width: 1366px) 50vw, 800px',
+    QUIZ_4_IN_LINE: '(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px',
+    QUIZ_3_IN_LINE: '(max-width: 1366px) 50vw, 800px',
+    QUIZ_2_IN_LINE: '(max-width: 1366px) 50vw, 800px',
   };
   const quizProps: QuizProps = {
     questions,

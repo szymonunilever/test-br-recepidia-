@@ -6,13 +6,13 @@ const useFavoritesSearch = () => {
   const [totalCount, setTotalCount] = useState<number>();
 
   const getRecipeDataByIds = useCallback(
-    async (searchQeury, controlArray, params) => {
-      if (!searchQeury) {
+    async (searchQuery, controlArray, params) => {
+      if (!searchQuery) {
         setRecipeList([]);
         setTotalCount(0);
         return;
       }
-      getRecipesByIdsResponse(searchQeury, controlArray, params).then(res => {
+      getRecipesByIdsResponse(searchQuery, controlArray, params).then(res => {
         setRecipeList(
           recipeList && recipeList.length
             ? [

@@ -6,105 +6,45 @@ import toJson from 'enzyme-to-json';
 
 describe('<RecipeListing />', () => {
   let wrapper: ReactWrapper;
+  beforeEach(() => {
+    wrapper = mount(<RecipeListing {...recipeListingPropsVariants.advanced} />);
+  });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    wrapper.unmount();
   });
+
   it('matches the snapshot', () => {
-    Object.values(recipeListingPropsVariants).forEach(props => {
-      wrapper = mount(<RecipeListing {...props} />);
-      expect(toJson(wrapper)).toMatchSnapshot();
-      jest.clearAllMocks();
-    });
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('recipe list advanced behavior test', () => {
-    wrapper = mount(<RecipeListing {...recipeListingPropsVariants.advanced} />);
-
-    // Load More
-    expect(toJson(wrapper)).toMatchSnapshot();
+  it('recipe list advanced Load More test', () => {
+    expect(wrapper.find('.recipeCard').length).toBe(4);
     wrapper.find('.button.recipeList__loadMore').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.find('.button.recipeList__loadMore').simulate('click');
-    wrapper.update();
+    expect(wrapper.find('.recipeCard').length).toBe(8);
+  });
 
-    // Sorting
+  it('recipe list advanced Sorting test', () => {
+    expect(wrapper.find('div.recipeCard__title').first().text()).toBe('Salada Francesa do @caio');
     wrapper
       .find('.react-dropdown-select.filter__sort')
       .first()
       .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
     wrapper
       .find('div[role="list"]')
       .children()
-      .at(2)
+      .at(4)
       .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-
-    // Filters
-    wrapper.find('button.filter__button').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper
-      .find('.modal--filter .filter-settings .tags__list .button.tags__toggle')
-      .at(1)
-      .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper
-      .find('.modal--filter .filter-settings .tags__list .button.tags__toggle')
-      .at(2)
-      .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.find('.button.filterSettings__apply').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper
-      .find(
-        '.tags .tags__list .tags__item .tags__removable .button.tags__removableButton'
-      )
-      .at(1)
-      .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.find('button.filter__button').simulate('click');
-    wrapper.update();
-    wrapper.find('.button.filterSettings__reset').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-
-    // Favorite
-    jest.clearAllMocks();
-    wrapper = mount(<RecipeListing {...recipeListingPropsVariants.advanced} />);
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper
-      .find('button.recipeCard__favorite')
-      .at(1)
-      .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.find('div.recipeCard__title').first().text()).toBe('Bolinho de Tapioca, carne e queijo da @crispimichele');
   });
 
-  it('recipe carousel behavior test', () => {
-    wrapper = mount(
-      <RecipeListing {...recipeListingPropsVariants.carouselWithFavorites} />
-    );
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.find('button.slide-arrow.right').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.find('button.slide-arrow.left').simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
+  it('recipe list advanced Filtering test', () => {
+    wrapper.find('button.filter__button').simulate('click');
     wrapper
-      .find('button.recipeCard__favorite')
-      .at(1)
+      .find('.modal--filter .filter-settings .tags__list .button.tags__toggle')
+      .first()
       .simulate('click');
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.find('.button.filterSettings__apply').simulate('click');
+    expect(wrapper.find('div.recipeCard__title').length).toBe(0);
   });
 });

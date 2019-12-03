@@ -1364,7 +1364,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                               "onChange": [Function],
                               "onFocus": [Function],
                               "type": undefined,
-                              "value": "",
+                              "value": Array [],
                             }
                           }
                           options={
@@ -1387,7 +1387,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                         >
                           <t
                             addPlaceholder=""
-                            additionalProps={null}
                             autoFocus={false}
                             className="select field__select select"
                             clearOnBlur={true}
@@ -1406,7 +1405,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                             dropdownHandle={true}
                             dropdownHeight="300px"
                             dropdownPosition="bottom"
-                            handleKeyDownFn={[Function]}
                             itemRenderer={[Function]}
                             keepSelectedInList={true}
                             labelField="label"
@@ -1444,7 +1442,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                             searchable={false}
                             separator={true}
                             sortBy={null}
-                            value=""
+                            value={Array []}
                             valueField="value"
                             values={Array []}
                           >
@@ -1458,17 +1456,15 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                   direction="ltr"
                                   disabled={false}
                                   onClick={[Function]}
-                                  onFocus={[Function]}
                                   onKeyDown={[Function]}
                                   tabIndex="0"
                                 >
                                   <div
-                                    className="react-dropdown-select select field__select select css-12zlm52-ReactDropdownSelect e1gzf2xs0"
+                                    className="react-dropdown-select select field__select select css-3rj0br-ReactDropdownSelect e1gzf2xs0"
                                     color="#0074D9"
                                     direction="ltr"
                                     disabled={false}
                                     onClick={[Function]}
-                                    onFocus={[Function]}
                                     onKeyDown={[Function]}
                                     tabIndex="0"
                                   >
@@ -1498,7 +1494,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                       props={
                                         Object {
                                           "addPlaceholder": "",
-                                          "additionalProps": null,
                                           "autoFocus": false,
                                           "className": "select field__select select",
                                           "clearOnBlur": true,
@@ -1517,7 +1512,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "dropdownHandle": true,
                                           "dropdownHeight": "300px",
                                           "dropdownPosition": "bottom",
-                                          "handleKeyDownFn": [Function],
                                           "itemRenderer": [Function],
                                           "keepOpen": undefined,
                                           "keepSelectedInList": true,
@@ -1555,7 +1549,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "separator": true,
                                           "sortBy": null,
                                           "type": undefined,
-                                          "value": "",
+                                          "value": Array [],
                                           "valueField": "value",
                                           "values": Array [],
                                         }
@@ -1611,7 +1605,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                             props={
                                               Object {
                                                 "addPlaceholder": "",
-                                                "additionalProps": null,
                                                 "autoFocus": false,
                                                 "className": "select field__select select",
                                                 "clearOnBlur": true,
@@ -1630,7 +1623,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                                 "dropdownHandle": true,
                                                 "dropdownHeight": "300px",
                                                 "dropdownPosition": "bottom",
-                                                "handleKeyDownFn": [Function],
                                                 "itemRenderer": [Function],
                                                 "keepOpen": undefined,
                                                 "keepSelectedInList": true,
@@ -1668,7 +1660,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                                 "separator": true,
                                                 "sortBy": null,
                                                 "type": undefined,
-                                                "value": "",
+                                                "value": Array [],
                                                 "valueField": "value",
                                                 "values": Array [],
                                               }
@@ -1750,7 +1742,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                       props={
                                         Object {
                                           "addPlaceholder": "",
-                                          "additionalProps": null,
                                           "autoFocus": false,
                                           "className": "select field__select select",
                                           "clearOnBlur": true,
@@ -1769,7 +1760,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "dropdownHandle": true,
                                           "dropdownHeight": "300px",
                                           "dropdownPosition": "bottom",
-                                          "handleKeyDownFn": [Function],
                                           "itemRenderer": [Function],
                                           "keepOpen": undefined,
                                           "keepSelectedInList": true,
@@ -1807,7 +1797,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "separator": true,
                                           "sortBy": null,
                                           "type": undefined,
-                                          "value": "",
+                                          "value": Array [],
                                           "valueField": "value",
                                           "values": Array [],
                                         }
@@ -1864,7 +1854,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                       props={
                                         Object {
                                           "addPlaceholder": "",
-                                          "additionalProps": null,
                                           "autoFocus": false,
                                           "className": "select field__select select",
                                           "clearOnBlur": true,
@@ -1883,7 +1872,6 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "dropdownHandle": true,
                                           "dropdownHeight": "300px",
                                           "dropdownPosition": "bottom",
-                                          "handleKeyDownFn": [Function],
                                           "itemRenderer": [Function],
                                           "keepOpen": undefined,
                                           "keepSelectedInList": true,
@@ -1921,7 +1909,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                           "separator": true,
                                           "sortBy": null,
                                           "type": undefined,
-                                          "value": "",
+                                          "value": Array [],
                                           "valueField": "value",
                                           "values": Array [],
                                         }
@@ -1953,7 +1941,7 @@ exports[`<GeneratedFormInstance /> matches the snapshot 1`] = `
                                         tabIndex="-1"
                                       >
                                         <div
-                                          className="react-dropdown-select-dropdown-handle css-6wsm8k-DropdownHandleComponent e1vudypg0"
+                                          className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
                                           color="#0074D9"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
