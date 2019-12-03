@@ -34,3 +34,5 @@ export const MealPlannerRenameDialog: FunctionComponent<MealPlannerRenameDialogP
     </Modal>
   );
 };
+
+export default MealPlannerRenameDialog;

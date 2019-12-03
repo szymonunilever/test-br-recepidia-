@@ -7,20 +7,17 @@ import {
   Wizard,
   Menu,
 } from 'gatsby-awd-components/src';
-
 import DigitalData from 'integrations/DigitalData';
-
 import React, { useCallback, useState } from 'react';
 import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 import DataCapturingForm from '../../components/DataCapturingForm';
-
 import SEO from '../../components/Seo';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
 import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import { findPageComponentContent } from '../../utils';
-import { MealPlannerRenameDialog } from '../../components/MealPlannerRenameDialog/MealPlannerRenameDialog';
+import { MealPlannerRenameDialog } from '../../components/MealPlannerRenameDialog';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
@@ -31,7 +28,7 @@ import getPersonalizationSearchData, {
 } from '../../utils/getPersonalizationSearchData';
 import generateQuery from '../../utils/queryGenerator';
 import theme from './mealPlanner.module.scss';
-import MealPlannerResults from 'src/components/MealPannerResults';
+import { MealPlannerResults } from 'src/components/MealPannerResults';
 
 const MAX_PER_MP = 7;
 const RESULT_SIZE = MAX_PER_MP * 2;
