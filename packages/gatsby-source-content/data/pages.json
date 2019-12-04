@@ -2732,12 +2732,12 @@
             "name": "Confirmation",
             "content": {
               "view": "RemoveFromMPConfirmation",
-              "text": "We have selected the new recipe for You already. Do You want to make a choice by yourself?",
+              "text": "Já separei uma nova receita para você! Prefere escolher você mesmo?",
               "yesButtonText": {
-                "label": "Yes"
+                "label": "Sim"
               },
               "noButtonText": {
-                "label": "No"
+                "label": "Não"
               }
             }
           },
@@ -2758,13 +2758,13 @@
                   {
                     "type": "next",
                     "content": {
-                      "label": "Add it to my meal plan"
+                      "label": "Adicionar ao meu cardápio"
                     }
                   },
                   {
                     "type": "back",
                     "content": {
-                      "label": "Search again"
+                      "label": "Buscar novamente"
                     }
                   }
                 ]
@@ -2782,7 +2782,7 @@
                   {
                     "type": "next",
                     "content": {
-                      "label": "Search again"
+                      "label": "Buscar novamente"
                     }
                   }
                 ]
