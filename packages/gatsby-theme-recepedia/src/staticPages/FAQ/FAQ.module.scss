@@ -8,6 +8,10 @@
   }
   &__title {
     margin-bottom: 28px;
+    @include respondTo(desktop) {
+      font-size: 4.5rem;
+      margin-bottom: 45px;
+    }
   }
   &__list {
     margin: 0;
@@ -22,10 +26,10 @@
         border-top: 1px solid $black-blue;
       }
       &:first-child {
-        border-radius: 5px 5px 0 0;
+        border-radius: 4px 4px 0 0;
       }
       &:last-child {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 4px 4px;
       }
     }
   }
@@ -39,11 +43,20 @@
         min-height: 40px;
         font: bold 1.2rem/1.33 $arial;
         padding: 5px 5px 5px 15px;
+        cursor: pointer;
+        transition: all 0.2s;
         @include respondTo(desktop) {
           min-height: 60px;
           padding: 8px 10px 8px 27px;
           font-size: 1.4rem;
           line-height: 1.29;
+        }
+        &:hover {
+          background-color: $black-blue;
+          color: $white;
+          svg {
+            fill: $white;
+          }
         }
         svg {
           transition: all 0.3s;

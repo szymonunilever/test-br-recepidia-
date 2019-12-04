@@ -949,15 +949,7 @@
                     "apply": { "label": "Aplicar filtros" }
                   }
                 },
-                "nullResultContent": {
-                  "subtitle": "Minha chance de encontrar aumenta quando você:",
-                  "textList": [
-                    "Usa palavras curtas na pesquisa",
-                    "Não busca por frases",
-                    "Não usa muitos filtros de uma vez",
-                    "Usa apenas um filtro"
-                  ]
-                }
+                "filtersButtonLabel": "Filtros"
               },
               "nullResultContent": {
                 "subtitle": "Minha chance de encontrar aumenta quando você:",
