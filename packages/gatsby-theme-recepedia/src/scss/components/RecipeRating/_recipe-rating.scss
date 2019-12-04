@@ -1,6 +1,13 @@
 .recipe-rating {
   margin-bottom: 20px;
   min-height: 17px;
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: 77px;
+    svg {
+      width: 77px;
+      height: 13px;
+    }
+  }
 
   .rr-widget-container {
     display: flex;
