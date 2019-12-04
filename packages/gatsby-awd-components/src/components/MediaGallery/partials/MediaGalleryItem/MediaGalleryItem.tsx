@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import AdaptiveImage from '../../../AdaptiveImage';
 import { MediaGalleryItemProps } from './models';
-import { localImage } from '../../../../mocks/recipe';
+import { localImage } from '../../../../mocks/global';
 
 const MediaGalleryItem = ({ title, fields, assets }: MediaGalleryItemProps) => {
   // const asset = assets.find(
