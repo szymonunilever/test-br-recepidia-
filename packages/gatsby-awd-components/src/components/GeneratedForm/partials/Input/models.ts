@@ -14,6 +14,7 @@ interface InputContent {
   label?: string;
   placeholder?: string;
   hint?: string;
+  maxlength?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
 }

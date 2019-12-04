@@ -2693,6 +2693,7 @@
                 {
                   "name": "mealPlannerTitle",
                   "type": "text",
+                  "maxlength": 30,
                   "label": "Weekly menu name",
                   "placeholder": "EX. Doe"
                 }

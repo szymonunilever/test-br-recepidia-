@@ -39,6 +39,7 @@ const Input = ({ rules, content, type, name, validate, error }: InputProps) => (
                     (meta.touched || meta.submitFailed) &&
                     meta.invalid,
                 })}
+                maxLength={content.maxlength}
                 placeholder={content.placeholder}
               />
               {error(meta)}

@@ -14,6 +14,7 @@ declare namespace AppContent.GeneratedForm {
     rows?: number;
     placeholder?: string;
     hint?: string;
+    maxlength?: number;
     defaultValue?: string | number | boolean;
     value?: string | number | boolean;
     options?: {
