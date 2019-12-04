@@ -21,7 +21,7 @@ import { SearchListingProps } from './models';
 import { RatingAndReviewsProvider } from '../../models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import theme from './SearchListing.module.scss';
-import { icons } from '../../mocks/RecipeListing';
+import { icons } from '../../mocks/global';
 import Filter from '../Filter/Filter';
 
 const SearchListing: FunctionComponent<SearchListingProps> = ({
