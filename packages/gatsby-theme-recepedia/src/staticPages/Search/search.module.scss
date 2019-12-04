@@ -16,8 +16,11 @@
         display: flex;
         justify-content: space-between;
       }
-      .tags {
-        margin-top: 20px;
+      .tags__list {
+        padding-top: 15px;
+        @include respondTo(desktop) {
+          padding: 0 0 30px;
+        }
       }
     }
     .filter {
@@ -54,6 +57,9 @@
         justify-content: flex-start;
         margin: 40px 0 30px;
         height: auto;
+        @include respondTo(desktop) {
+          margin-top: 0;
+        }
         button {
           width: auto;
           padding-right: 0;
@@ -61,10 +67,6 @@
           padding-bottom: 10px;
           margin-right: 10px;
           font-size: 1.6rem;
-          @include respondTo(medium) {
-            margin-right: 35px;
-            font-size: 1.8rem;
-          }
           &[disabled] {
             pointer-events: none;
             color: #636363;
@@ -139,8 +141,8 @@
   }
 }
 .tag-list {
-  padding: 20px $layout-indent-sm;
+  padding: 36px $layout-indent-sm 48px;
   @include respondTo(desktop) {
-    padding: 30px $layout-indent;
+    padding: 65px $layout-indent 80px;
   }
 }

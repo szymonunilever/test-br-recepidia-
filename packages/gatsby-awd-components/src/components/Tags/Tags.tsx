@@ -135,18 +135,20 @@ const Tags = ({
           />
         )}
 
-        <ul className={cx(theme.tags__list, 'tags__list')}>
-          {tags.displayList.map((item: Internal.Tag) => (
-            <Tag
-              RemoveIcon={RemoveIcon}
-              key={item.id}
-              handleClick={deleteItem}
-              tag={item}
-              variant={variant}
-            />
-          ))}
-          {loadMoreBtn}
-        </ul>
+        {!!tags.displayList.length && (
+          <ul className={cx(theme.tags__list, 'tags__list')}>
+            {tags.displayList.map((item: Internal.Tag) => (
+              <Tag
+                RemoveIcon={RemoveIcon}
+                key={item.id}
+                handleClick={deleteItem}
+                tag={item}
+                variant={variant}
+              />
+            ))}
+            {loadMoreBtn}
+          </ul>
+        )}
       </div>
     );
 
