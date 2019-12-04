@@ -271,7 +271,7 @@ exports[`<SearchInput /> matches the snapshot 1`] = `
           onKeyDown={[Function]}
           placeholder="Search..."
           type="text"
-          value="1234567890!!!"
+          value="a"
         />
         <Component
           aria-label="reset"
@@ -297,14 +297,14 @@ exports[`<SearchInput /> matches the snapshot 1`] = `
         <Component
           aria-label="submit"
           className="form__button-submit"
-          isDisabled={false}
+          isDisabled={true}
           onClick={[Function]}
         >
           <button
-            className="button button form__button-submit"
+            className="button button form__button-submit button__disabled"
             data-componentname="button"
             data-componentview="button"
-            disabled={false}
+            disabled={true}
             hidden={false}
             onClick={[Function]}
             type="button"
@@ -587,7 +587,7 @@ exports[`<SearchInput /> should handle Enter keyDown 1`] = `
           onKeyDown={[Function]}
           placeholder="Search..."
           type="text"
-          value="1234567890!!!"
+          value="a"
         />
         <Component
           aria-label="reset"
@@ -613,14 +613,14 @@ exports[`<SearchInput /> should handle Enter keyDown 1`] = `
         <Component
           aria-label="submit"
           className="form__button-submit"
-          isDisabled={false}
+          isDisabled={true}
           onClick={[Function]}
         >
           <button
-            className="button button form__button-submit"
+            className="button button form__button-submit button__disabled"
             data-componentname="button"
             data-componentview="button"
-            disabled={false}
+            disabled={true}
             hidden={false}
             onClick={[Function]}
             type="button"

@@ -34,8 +34,9 @@ exports[`<Quiz /> matches the snapshot 1`] = `
     }
     imageSizesOptions={
       Object {
-        "QUIZ_BIG": "(max-width: 1366px) 50vw, 800px",
-        "QUIZ_SMALL": "(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px",
+        "QUIZ_2_IN_LINE": "(max-width: 1366px) 50vw, 800px",
+        "QUIZ_3_IN_LINE": "(max-width: 1366px) 50vw, 800px",
+        "QUIZ_4_IN_LINE": "(max-width: 768px) 50vw, (max-width: 1366px) 30vw, 400px",
       }
     }
     onClose={[MockFunction]}

@@ -2,15 +2,26 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { ButtonViewType, RecipeListViewType, SearchListing } from '../index';
+import { ButtonViewType, FilterIcons, RatingAndReviewsProvider, RecipeListViewType, SearchListing } from '../index';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchSvg } from 'src/svgs/inline/search-icon.svg';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import {list as recipes} from '../mocks/RecipeListing';
 import articles from '../mocks/articleList.json';
-
+import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
+import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
+import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as RemoveTagIcon } from 'src/svgs/inline/x-mark.svg';
 const searchInputContent: AppContent.SearchInput.Content = {
   title: 'Looking for something?',
+};
+
+const icons: FilterIcons = {
+  close: CloseSvg,
+  closed: ClosedIcon,
+  filter: FilterIcon,
+  open: OpenIcon,
+  removeTag: RemoveTagIcon,
 };
 
 const tabsContent: AppContent.Tabs.Content = {
@@ -72,12 +83,12 @@ const searchInputConfig = {
 
 const articleConfig = {
   getArticleSearchData: async () => {},
+  onArticleViewChange: async () => {},
 };
 
 export const recipeConfig = {
-  viewType: RecipeListViewType.Base,
-  icons: { favorite: FavoriteIcon, close: CloseSvg },
-  initialCount: 2,
+  icons,
+  getRecipeSearchData: async () => {},
   recipeCardButtonPropsDefault: {
     className:"recipe-card__favorite",
     Icon: FavoriteIcon,
@@ -85,10 +96,15 @@ export const recipeConfig = {
     viewType: ButtonViewType.icon,
     attributes: { 'aria-label' : 'favorite toggle', name: 'favorite' }
   },
-  recipePerLoad: 2,
   favorites: [],
   onFavoriteChange: action('favorites were changed'),
+  onViewChange: async () => {},
   imageSizes: '(min-width: 768px) 25vw, 50vw',
+  viewType: RecipeListViewType.Advanced,
+  showFilters: false,
+  initialCount: 2,
+  recipePerLoad: 2,
+  ratingProvider: RatingAndReviewsProvider.inline,
 };
 
 const getSearchData = async () => {};

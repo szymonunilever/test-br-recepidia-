@@ -4,8 +4,8 @@ import toJson from 'enzyme-to-json';
 import {
   tags as allFilters,
   filtersContentVariants,
-} from '../../../../mocks/RecipeListing';
-import Filter from '../Filters';
+} from '../../../mocks/RecipeListing';
+import Filter from '../Filter';
 const onChangeSorting = jest.fn();
 const onChangeFilter = jest.fn();
 const props = {
@@ -18,7 +18,7 @@ const props = {
   dataFetched: true,
 };
 
-xdescribe('<Filter />', () => {
+describe('<Filter />', () => {
   let wrapper: ReactWrapper;
 
   afterEach(() => {

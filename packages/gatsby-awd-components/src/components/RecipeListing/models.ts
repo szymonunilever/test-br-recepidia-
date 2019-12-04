@@ -17,6 +17,7 @@ export enum RecipeListViewType {
 
 export interface RecipeListingProps extends UnileverLibraryComponent<Partial<AppContent.RecipeListing.Content>> {
   titleLevel?: titleLevel;
+  filterTitle?: string;
   ratingProvider?: RatingAndReviewsProvider;
   imageSizes: string;
   dataFetched?: boolean;

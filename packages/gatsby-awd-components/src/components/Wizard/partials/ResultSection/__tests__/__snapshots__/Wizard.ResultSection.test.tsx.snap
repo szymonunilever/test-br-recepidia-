@@ -82,6 +82,7 @@ Gostaria de tentar novamente?",
             "label": "Salvar seu cardápio",
           }
         }
+        isDisabled={false}
         key="button-next"
         onClick={[MockFunction]}
       >
@@ -186,6 +187,7 @@ Gostaria de tentar novamente?
           "label": "Tentar novamente",
         }
       }
+      isDisabled={false}
       key="button-back"
     >
       <button

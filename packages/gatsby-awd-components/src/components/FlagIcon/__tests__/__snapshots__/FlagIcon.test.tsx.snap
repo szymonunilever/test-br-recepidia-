@@ -14,14 +14,10 @@ exports[`<FlagIcon /> matches the snapshot 1`] = `
       },
       "Component": [Function],
       "Fragment": Symbol(react.fragment),
-      "Profiler": Symbol(react.profiler),
       "PureComponent": [Function],
       "StrictMode": Symbol(react.strict_mode),
       "Suspense": Symbol(react.suspense),
       "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": Object {
-        "IsSomeRendererActing": Object {
-          "current": false,
-        },
         "ReactComponentTreeHook": Object {},
         "ReactCurrentBatchConfig": Object {
           "suspense": null,
@@ -32,16 +28,13 @@ exports[`<FlagIcon /> matches the snapshot 1`] = `
             "useCallback": [Function],
             "useContext": [Function],
             "useDebugValue": [Function],
-            "useDeferredValue": [Function],
             "useEffect": [Function],
             "useImperativeHandle": [Function],
             "useLayoutEffect": [Function],
             "useMemo": [Function],
             "useReducer": [Function],
             "useRef": [Function],
-            "useResponder": [Function],
             "useState": [Function],
-            "useTransition": [Function],
           },
         },
         "ReactCurrentOwner": Object {
@@ -62,6 +55,8 @@ exports[`<FlagIcon /> matches the snapshot 1`] = `
       "isValidElement": [Function],
       "lazy": [Function],
       "memo": [Function],
+      "unstable_ConcurrentMode": Symbol(react.concurrent_mode),
+      "unstable_Profiler": Symbol(react.profiler),
       "useCallback": [Function],
       "useContext": [Function],
       "useDebugValue": [Function],
@@ -72,7 +67,7 @@ exports[`<FlagIcon /> matches the snapshot 1`] = `
       "useReducer": [Function],
       "useRef": [Function],
       "useState": [Function],
-      "version": "16.11.0",
+      "version": "16.8.6",
     }
   }
 >

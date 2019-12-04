@@ -113,7 +113,6 @@ const SearchInput = ({
   const submitHandler = useCallback(() => {
     setData([]);
     setInputIsDirty(false);
-    navigate(`${window.location.pathname.split('?')[0]}?searchQuery=${inputValue}`);
 
     if (
       trim(inputValue).length >= minLength &&
@@ -121,6 +120,7 @@ const SearchInput = ({
       trim(inputValue).length <= maxLength
     ) {
       clearTimeOut();
+      navigate(`/procurar?searchQuery=${inputValue}`);
       onSubmit(inputValue, {
         from: 0,
         size: searchResultsCount,
