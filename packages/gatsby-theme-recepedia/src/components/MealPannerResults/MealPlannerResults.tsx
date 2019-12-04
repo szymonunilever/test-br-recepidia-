@@ -35,6 +35,7 @@ import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigge
 import { removeRecipeCardButtonDefaults } from '../../themeDefaultComponentProps';
 import { findPageComponentContent } from '../../utils';
 import { getSearchSuggestionResponse } from '../../utils/searchUtils';
+import useMedia from '../../utils/useMedia';
 import { MealPannerResultsProps } from './models';
 import differenceBy from 'lodash/differenceBy';
 import cloneDeep from 'lodash/cloneDeep';
@@ -53,7 +54,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   stepId,
   resultContentTitle,
 }) => {
-  const CUSTOM_SEARCH_RESULT_INITIAL_COUNT = 8;
+  const initialRecipesCount = useMedia();
   // Get Components Contents
   const componentContent = findPageComponentContent(components, 'Wizard');
   const [wizardResultSection, setWizardResultSection] = useState(
@@ -103,10 +104,12 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   const [customSearchResultContent, setCustomSearchResultContent] = useState(
     customSearchContent
   );
+  const [customSearchInitialCount, setCustomSearchInitialCount] = useState(
+    initialRecipesCount
+  );
   const [searchInputResults, setSearchInputResults] = useState<
     SearchInputProps['searchResults']
   >([]);
-
   // Define Callbacks
   const openCustomSearch = useCallback(() => {
     setShowSearchModal(true);
@@ -234,6 +237,10 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       setShowCustomSelector(true);
     }
   }, [recipesToSelect]);
+
+  useEffect(() => {
+    setCustomSearchInitialCount(initialRecipesCount);
+  }, [initialRecipesCount]);
   useEffect(() => {
     const recipeListingChildren = resultsDefault
       ? resultsDefault.map(recipe => (
@@ -347,7 +354,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       <RecipeListing
         imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
         list={recipesToSelect}
-        initialCount={CUSTOM_SEARCH_RESULT_INITIAL_COUNT}
+        initialCount={customSearchInitialCount}
         content={customSearchRecipeList}
       >
         {recipesToSelect.map(recipe => (
@@ -387,7 +394,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         content={customSearchResultContent}
         containerClass={containerClass}
         stepId="customNoResult"
-        nextDisabled={!recipeSelected}
+        nextDisabled={recipesToSelect.length > 0 ? !recipeSelected : false}
         isLoading={false}
         resultSize={recipesToSelect.length}
         actionCallback={
