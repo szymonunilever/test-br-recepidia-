@@ -2762,8 +2762,8 @@
                 ]
               },
               "noResult": {
-                "title": "No results",
-                "subheading": "Try again",
+                "title": "Result",
+                "subheading": "Encontrei {numRes} resultados para: {searchInputValue}",
                 "ctas": [
                   {
                     "type": "back",
@@ -2779,6 +2779,17 @@
                   }
                 ]
               }
+            }
+          },
+          {
+            "name": "NullResult",
+            "content": {
+              "view": "SearchCustomRecipeResult",
+              "textList": [
+                "Use short keywords in your search",
+                "Try not to use too long phrases",
+                "Try to use autosuggestion"
+              ]
             }
           },
           {

@@ -1,4 +1,5 @@
 import {
+  NullResult,
   Button,
   ButtonViewType,
   Modal,
@@ -83,6 +84,11 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     components,
     'SearchCustomRecipeResult'
   );
+  const customSearchNullResult = findPageComponentContent(
+    components,
+    'NullResult',
+    'SearchCustomRecipeResult'
+  );
 
   // Define States
   const [recipeCards, setRecipeCards] = useState<
@@ -139,9 +145,17 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       getRecipeResponse(value, {}).then(res => {
         let recipes: Internal.Recipe[] = [];
         if (res.body.hits.total.value === 0) {
+          const newSearchContent = {
+            ...customSearchContent,
+            noResult: { ...customSearchContent.noResult },
+          };
+          newSearchContent.noResult.subheading = newSearchContent.noResult.subheading
+            .replace('{numRes}', 0)
+            .replace('{searchInputValue}', value);
           setRecipesToSelect([]);
           setShowCustomSelector(true);
           setCustomSearchInProcess(false);
+          setCustomSearchResultContent(newSearchContent);
           return;
         }
         res.body.hits.hits.forEach(resItem => {
@@ -330,36 +344,39 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       />
     </Modal>
   );
-  const customSearchResultChildrenView = recipesToSelect.length > 0 && (
-    <RecipeListing
-      imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
-      list={recipesToSelect}
-      initialCount={CUSTOM_SEARCH_RESULT_INITIAL_COUNT}
-      content={customSearchRecipeList}
-    >
-      {recipesToSelect.map(recipe => (
-        <RecipeCard
-          className="custom-search_recipe-card"
-          key={recipe.id}
-          {...recipe}
-          slug={recipe.fields.slug}
-          ratingProvider={RatingAndReviewsProvider.inline}
-          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-          content={{ title: recipe.title }}
-        >
-          <Button
-            className="custom-search_check"
-            isSelected={recipe.recipeId === recipeSelected}
-            onClick={(val, recipeId) => {
-              setRecipeSelected(recipeId);
-            }}
-            viewType={ButtonViewType.icon}
-            Icon={CheckMarkIcon}
-          />
-        </RecipeCard>
-      ))}
-    </RecipeListing>
-  );
+  const customSearchResultChildrenView =
+    recipesToSelect.length > 0 ? (
+      <RecipeListing
+        imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
+        list={recipesToSelect}
+        initialCount={CUSTOM_SEARCH_RESULT_INITIAL_COUNT}
+        content={customSearchRecipeList}
+      >
+        {recipesToSelect.map(recipe => (
+          <RecipeCard
+            className="custom-search_recipe-card"
+            key={recipe.id}
+            {...recipe}
+            slug={recipe.fields.slug}
+            ratingProvider={RatingAndReviewsProvider.inline}
+            imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+            content={{ title: recipe.title }}
+          >
+            <Button
+              className="custom-search_check"
+              isSelected={recipe.recipeId === recipeSelected}
+              onClick={(val, recipeId) => {
+                setRecipeSelected(recipeId);
+              }}
+              viewType={ButtonViewType.icon}
+              Icon={CheckMarkIcon}
+            />
+          </RecipeCard>
+        ))}
+      </RecipeListing>
+    ) : (
+      <NullResult content={customSearchNullResult} />
+    );
   const spinnerView = (
     <div className={theme.spinner}>
       <Spinner />
