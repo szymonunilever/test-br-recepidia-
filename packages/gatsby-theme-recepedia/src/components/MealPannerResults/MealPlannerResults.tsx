@@ -33,13 +33,11 @@ import { ReactComponent as ButtonCloseIcon } from '../../svgs/inline/x-mark.svg'
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 import { removeRecipeCardButtonDefaults } from '../../themeDefaultComponentProps';
 import { findPageComponentContent } from '../../utils';
-import {
-  getRecipeResponse,
-  getSearchSuggestionResponse,
-} from '../../utils/searchUtils';
+import { getSearchSuggestionResponse } from '../../utils/searchUtils';
 import { MealPannerResultsProps } from './models';
 import differenceBy from 'lodash/differenceBy';
 import cloneDeep from 'lodash/cloneDeep';
+import { getCustomMPSearch } from './hepers';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -136,7 +134,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   const openCustomRecipeSelector = useCallback(
     value => {
       setCustomSearchInProcess(true);
-      getRecipeResponse(value, {}).then(res => {
+      getCustomMPSearch(value, {}).then(res => {
         let recipes: Internal.Recipe[] = [];
         if (res.body.hits.total.value === 0) {
           setRecipesToSelect([]);
