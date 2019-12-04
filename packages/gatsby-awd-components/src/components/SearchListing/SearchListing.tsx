@@ -6,7 +6,7 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { Button } from '../Button';
-import {RecipeCard} from '../RecipeCard';
+import { RecipeCard } from '../RecipeCard';
 import SearchInput from '../SearchInput';
 import { Tabs, Tab } from '../Tabs';
 import RecipeListing, { LoadMoreType } from '../RecipeListing';
@@ -37,7 +37,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   },
 }) => {
   const classNames = cx(theme.searchListing, 'search-listing', className);
-  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([]);
+  const [filteringValue, setFilteringValue] = useState<Internal.Tag[]>([]);
   const [defaultSearchValue, setDefaultSearchValue] = useState(searchQuery);
 
   useEffect(() => {
@@ -113,34 +113,43 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
 
   const loadMoreConfig = {
     type: LoadMoreType.async,
-      onLoadMore: onLoadMoreRecipes,
-      allCount: recipeResults.count,
+    onLoadMore: onLoadMoreRecipes,
+    allCount: recipeResults.count,
   };
 
   const recipes = !!recipeResults.list.length && (
-      <RecipeListing
-        list={recipeResults.list}
-        titleLevel={2}
-        content={content.recipesContent}
-        ratingProvider={RatingAndReviewsProvider.inline}
-        loadMoreConfig={loadMoreConfig}
-        preFilteringValue={filteringValue}
-        {...recipeConfig}
-        hideFilter
-      >
-        {recipeResults.list ? recipeResults.list.map(recipe=>(
-          <RecipeCard
-            key={recipe.id}
-            {...recipe}
-            slug={recipe.fields.slug}
-            ratingProvider={RatingAndReviewsProvider.inline}
-            imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
-            content={{title: recipe.title}}>
-            <Button {...recipeConfig.recipeCardButtonPropsDefault} isSelected={recipeConfig.favorites.indexOf(recipe.recipeId)!== -1} onClick={recipeConfig.onFavoriteChange}/>
-          </RecipeCard>
-        )): []}
-      </RecipeListing>
-    );
+    <RecipeListing
+      list={recipeResults.list}
+      titleLevel={2}
+      content={content.recipesContent}
+      ratingProvider={RatingAndReviewsProvider.inline}
+      loadMoreConfig={loadMoreConfig}
+      preFilteringValue={filteringValue}
+      {...recipeConfig}
+      hideFilter
+    >
+      {recipeResults.list
+        ? recipeResults.list.map(recipe => (
+            <RecipeCard
+              key={recipe.id}
+              {...recipe}
+              slug={recipe.fields.slug}
+              ratingProvider={RatingAndReviewsProvider.inline}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              content={{ title: recipe.title }}
+            >
+              <Button
+                {...recipeConfig.recipeCardButtonPropsDefault}
+                isSelected={
+                  recipeConfig.favorites.indexOf(recipe.recipeId) !== -1
+                }
+                onClick={recipeConfig.onFavoriteChange}
+              />
+            </RecipeCard>
+          ))
+        : []}
+    </RecipeListing>
+  );
   const articles = !!content.tabsContent.tabs.find(
     tab => get(tab, 'view') === 'articles'
   ) &&
@@ -215,29 +224,24 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
 
   const onFilterChange = (filter: Internal.Tag[]) => {
     if (recipeConfig.onViewChange) {
-      recipeConfig.onViewChange(
-        filter,
-        null,
-      ).then(() => {
+      recipeConfig.onViewChange(filter, null).then(() => {
         setFilteringValue(filter);
       });
     }
 
     if (articleConfig.onArticleViewChange) {
-      articleConfig.onArticleViewChange(
-        filter,
-        null,
-      );
+      articleConfig.onArticleViewChange(filter, null);
     }
   };
 
-  const nullResult = recipeResults.count + articleResults.count ? null : (
-    <NullResult
-      content={content.nullResultContent}
-      className="search-listing__null-results"
-      titleLevel={3}
-    />
-  );
+  const nullResult =
+    recipeResults.count + articleResults.count ? null : (
+      <NullResult
+        content={content.nullResultContent}
+        className="search-listing__null-results"
+        titleLevel={3}
+      />
+    );
 
   return (
     <div
@@ -264,7 +268,11 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         searchQuery={defaultSearchValue}
         results={recipeResults.count + articleResults.count}
       />
-      {recipeResults.count + articleResults.count ? <Tabs className="search-listing__tabs" content={tabs.content}>{tabs.list.map(tab => tab)}</Tabs> : null}
+      {recipeResults.count + articleResults.count ? (
+        <Tabs className="search-listing__tabs" content={tabs.content}>
+          {tabs.list.map(tab => tab)}
+        </Tabs>
+      ) : null}
       {nullResult}
     </div>
   );

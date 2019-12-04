@@ -14,14 +14,29 @@
       font-size: $null-result-subtitle-fz-lg;
     }
   }
+  &__list {
+    list-style-type: none;
+    padding: 0;
+  }
   &__item {
     font-size: $null-result-item-fz;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;
     @include respondTo(desktop) {
       font-size: $null-result-item-fz-lg;
     }
     &:nth-last-child(1) {
       margin-bottom: 0;
+    }
+    &:before {
+      content: '';
+      display: block;
+      flex-shrink: 0;
+      width: 28px;
+      height: 20px;
+      margin-right: 18px;
+      background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIxOS42IiB2aWV3Qm94PSIwIDAgMjggMTkuNiI+PHBhdGggZD0iTTE1NS40NSwxOTYuNmExLjA0NywxLjA0NywwLDAsMS0uNzQzLS4zMDdsLTguNC04LjRhMS4wNSwxLjA1LDAsMCwxLDEuNDg1LTEuNDg1bDcuNjU3LDcuNjU4LDE2Ljc1OC0xNi43NThhMS4wNSwxLjA1LDAsMCwxLDEuNDg1LDEuNDg1bC0xNy41LDE3LjVBMS4wNDcsMS4wNDcsMCwwLDEsMTU1LjQ1LDE5Ni42WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0NiAtMTc3KSIgZmlsbD0iIzM2Mzg0MCIvPjwvc3ZnPg==)
+        center/contain no-repeat;
     }
   }
 }

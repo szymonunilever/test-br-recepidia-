@@ -1,19 +1,28 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import { Button, ButtonViewType, Modal, Option, Select, Tags, TagVariant } from '../';
+import {
+  Button,
+  ButtonViewType,
+  Modal,
+  Option,
+  Select,
+  Tags,
+  TagVariant,
+} from '../';
 import { FilterProps, SortingOptions, FilterSettings, FilterIcons } from './';
 import { iconNormalize, enumToArray } from '../../utils';
 import theme from './Filter.module.scss';
 import cx from 'classnames';
-import { ReactComponent as RemoveTagIcon, ReactComponent as CloseSvg } from '../../svgs/inline/x-mark.svg';
-import { ReactComponent as ClosedIcon } from '../../svgs/inline/arrow-up.svg';
+import {
+  ReactComponent as RemoveTagIcon,
+  ReactComponent as CloseSvg,
+} from '../../svgs/inline/x-mark.svg';
+import { ReactComponent as ClosedIcon } from '../../svgs/inline/arrow-down.svg';
 import { ReactComponent as FilterIcon } from '../../svgs/inline/filter.svg';
-import { ReactComponent as OpenIcon } from '../../svgs/inline/arrow-down.svg';
 
 export const icons: FilterIcons = {
   close: CloseSvg,
   closed: ClosedIcon,
   filter: FilterIcon,
-  open: OpenIcon,
   removeTag: RemoveTagIcon,
 };
 
@@ -26,7 +35,13 @@ const Filter: FunctionComponent<FilterProps> = ({
   results,
   searchQuery,
   sortSelectPlaceholder,
-  content: { resultLabelPlural, resultLabel, optionLabels, filtersPanel },
+  content: {
+    resultLabelPlural,
+    resultLabel,
+    optionLabels,
+    filtersPanel,
+    filtersButtonLabel,
+  },
 }) => {
   const classWrapper = cx(theme.filter, className);
   const [showFilterSettings, setShowFilterSettings] = useState<boolean>(false);
@@ -35,11 +50,11 @@ const Filter: FunctionComponent<FilterProps> = ({
     setShowFilterSettings(!showFilterSettings);
     onChangeFilter(selectedTags);
   };
-  const sortingOptions: Option[] = optionLabels ?
-    enumToArray(SortingOptions).map(item => ({
-      label: optionLabels[item],
-      value: '' + item,
-    }))
+  const sortingOptions: Option[] = optionLabels
+    ? enumToArray(SortingOptions).map(item => ({
+        label: optionLabels[item],
+        value: '' + item,
+      }))
     : [];
   const sortingChange = (val: Option[]) => {
     if (val.length && onChangeSorting) {
@@ -52,19 +67,23 @@ const Filter: FunctionComponent<FilterProps> = ({
 
   const onTagRemoved = (val: Internal.Tag) => {
     const tagsAfterRemove = selectedTags.filter(
-      (item: Internal.Tag) => item.tagId !== val.tagId,
+      (item: Internal.Tag) => item.tagId !== val.tagId
     );
     setSelectedTags(tagsAfterRemove);
     onChangeFilter(tagsAfterRemove);
   };
   const counter = (
     <span className={cx(theme.filter__count, 'filter__count')}>
-      {filterTitle || <>{results} {results > 1 ? resultLabelPlural : resultLabel} </>}
+      {filterTitle || (
+        <>
+          {results} {results > 1 ? resultLabelPlural : resultLabel}{' '}
+        </>
+      )}
     </span>
   );
 
   useEffect(() => {
-    setSelectedTags([])
+    setSelectedTags([]);
   }, [searchQuery]);
 
   return (
@@ -74,14 +93,14 @@ const Filter: FunctionComponent<FilterProps> = ({
         <div className={cx(theme.filter__sortBlock, 'filter__sort-block')}>
           {optionLabels ? (
             <div className={cx(theme.filter__sortLabel, 'filter__sort-label')}>
-            <span
-              className={cx(
-                theme.filter__sortLabelText,
-                'filter__sort-label-text',
-              )}
-            >
-              sorting
-            </span>
+              <span
+                className={cx(
+                  theme.filter__sortLabelText,
+                  'filter__sort-label-text'
+                )}
+              >
+                sorting
+              </span>
               <Select
                 options={sortingOptions}
                 className={cx(theme.filter__sort, 'filter__sort')}
@@ -90,13 +109,17 @@ const Filter: FunctionComponent<FilterProps> = ({
               />
             </div>
           ) : null}
-          <Button
-            className={cx(theme.filter__button, 'filter__button')}
-            Icon={icons.filter}
-            viewType={ButtonViewType.classic}
-            onClick={toggleFilterSettings}
-            attributes={{ 'aria-label': 'open modal with filter settings' }}
-          />
+          {!!results && (
+            <Button
+              className={cx(theme.filter__button, 'filter__button')}
+              Icon={icons.filter}
+              viewType={ButtonViewType.classic}
+              onClick={toggleFilterSettings}
+              attributes={{ 'aria-label': 'open modal with filter settings' }}
+            >
+              {filtersButtonLabel}
+            </Button>
+          )}
         </div>
       )}
       <Modal
