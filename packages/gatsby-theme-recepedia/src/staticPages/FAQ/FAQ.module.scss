@@ -52,11 +52,7 @@
           line-height: 1.29;
         }
         &:hover {
-          background-color: $black-blue;
-          color: $white;
-          svg {
-            fill: $white;
-          }
+          background-color: $apple-green;
         }
         svg {
           transition: all 0.3s;

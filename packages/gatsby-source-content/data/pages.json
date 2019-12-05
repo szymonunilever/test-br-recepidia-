@@ -2923,7 +2923,7 @@
     },
     {
       "type": "FAQ",
-      "title": "Frequently asked questions about Recepedia",
+      "title": "Perguntas frequentes",
       "relativePath": "/faq",
       "components": {
         "items": [
@@ -2931,7 +2931,7 @@
             "name": "Text",
             "content": {
               "view": "Title",
-              "text": "Frequently asked questions about Recepedia"
+              "text": "Perguntas frequentes"
             }
           },
           {
@@ -2968,8 +2968,8 @@
         ]
       },
       "seo": {
-        "title": "Frequently asked questions about Recepedia",
-        "description": "Frequently asked questions page description",
+        "title": "Perguntas frequentes",
+        "description": "Perguntas frequentes",
         "meta": [
           {
             "name": "og:image",
