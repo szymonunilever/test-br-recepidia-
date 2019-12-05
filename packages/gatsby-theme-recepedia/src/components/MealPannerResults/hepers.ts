@@ -14,7 +14,7 @@ export function getCustomMPSearch(
     body: {
       from,
       size,
-      sort,
+      //sort,
       query: {
         bool: {
           must: {

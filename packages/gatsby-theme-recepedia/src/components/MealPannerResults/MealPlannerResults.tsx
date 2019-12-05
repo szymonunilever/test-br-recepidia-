@@ -205,6 +205,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   const searchAgain = useCallback(() => {
     setShowCustomSelector(false);
     setShowSearchModal(true);
+    setRecipeSelected(undefined);
   }, []);
 
   const onBackFromCustomSearch = useCallback(() => {
