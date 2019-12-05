@@ -437,7 +437,7 @@ exports.onPostBuild = async ({ getNodes, getNodesByType }) => {
     const hrstart = process.hrtime();
     const promises = [
       updateES.updateRecipes(getNodesByType(constants.NODE_TYPES.RECIPE)),
-      //updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
+      updateES.updateArticles(getNodesByType(constants.NODE_TYPES.ARTICLE)),
     ];
     await Promise.all(promises);
     const hrend = process.hrtime(hrstart);
