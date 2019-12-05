@@ -1,56 +1,59 @@
+import cx from 'classnames';
+import { Link } from 'gatsby';
+import {
+  Button,
+  LoadMoreType,
+  NullResult,
+  PreferencesQuiz,
+  RatingAndReviewsProvider,
+  RecipeCard,
+  RecipeCardLinkWrapper,
+  RecipeListing,
+  RecipeListViewType,
+  Tab,
+  Tabs,
+  UserPreferences,
+  UserPreferencesIcons,
+  WithLocation as withLocation,
+  WithLocationProps,
+} from 'gatsby-awd-components/src';
+import get from 'lodash/get';
 import React, {
   Fragment,
   FunctionComponent,
   useCallback,
   useEffect,
+  useState,
 } from 'react';
 import Layout from 'src/components/Layout/Layout';
-import { findPageComponentContent } from 'src/utils';
-import { Link } from 'gatsby';
 import SEO from 'src/components/Seo';
+import { IMAGE_SIZES } from 'src/constants';
+import { ReactComponent as IconArrowDown } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as IconArrowUp } from 'src/svgs/inline/arrow-up.svg';
+import {
+  ReactComponent as IconSuccess,
+  ReactComponent as CheckMarkIcon,
+} from 'src/svgs/inline/checkmark-bigger.svg';
+import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
+import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
+import { ReactComponent as IconError } from 'src/svgs/inline/x-mark.svg';
+import { findPageComponentContent } from 'src/utils';
 import {
   getUserProfileByKey,
   saveUserProfileByKey,
   updateFavorites,
 } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
+import useFavorite from 'src/utils/useFavorite';
+import DigitalData from '../../../integrations/DigitalData';
+// Component Styles
+import '../../scss/pages/_userProfile.scss';
 import {
   favoriteButtonDefaults,
   RecipeListingIcons as icons,
 } from '../../themeDefaultComponentProps';
-import theme from './UserProfile.module.scss';
-import cx from 'classnames';
-import useFavorite from 'src/utils/useFavorite';
 import useFavoritesSearch from './useFavoritesSearch';
-import DigitalData from '../../../integrations/DigitalData';
-// Component Styles
-import '../../scss/pages/_userProfile.scss';
-import get from 'lodash/get';
-import { IMAGE_SIZES } from 'src/constants';
-import {
-  RecipeCard,
-  RecipeCardLinkWrapper,
-  Button,
-  PreferencesQuiz,
-  UserPreferencesIcons,
-  LoadMoreType,
-  NullResult,
-  RecipeListing,
-  RecipeListViewType,
-  Tab,
-  Tabs,
-  UserPreferences,
-  RatingAndReviewsProvider,
-  WithLocation as withLocation,
-  WithLocationProps,
-} from 'gatsby-awd-components/src';
-import { ReactComponent as IconArrowUp } from 'src/svgs/inline/arrow-up.svg';
-import { ReactComponent as IconArrowDown } from 'src/svgs/inline/arrow-down.svg';
-import { ReactComponent as IconSuccess } from 'src/svgs/inline/checkmark-bigger.svg';
-import { ReactComponent as IconError } from 'src/svgs/inline/x-mark.svg';
-import { ReactComponent as IconEdit } from 'src/svgs/inline/edit.svg';
-import { ReactComponent as IconDelete } from 'src/svgs/inline/delete.svg';
-import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
+import theme from './UserProfile.module.scss';
 
 const userPreferencesIcons: UserPreferencesIcons = {
   arrowUp: <IconArrowUp />,
@@ -118,6 +121,13 @@ const FavoritesRecipeListingPage: FunctionComponent<
   );
   const nullResultContent = findPageComponentContent(components, 'NullResult');
 
+  const [initialQuizAnswers, setInitialQuizAnswers] = useState(
+    getUserProfileByKey(ProfileKey.initialQuiz)
+  );
+  const [mpAnswers, setMpAnswers] = useState(
+    getUserProfileByKey(ProfileKey.mealPlannerAnswers)
+  );
+
   const savedFavorites: number[] = Array.isArray(
     getUserProfileByKey(ProfileKey.favorites)
   )
@@ -158,6 +168,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
     // @ts-ignore
     delete quiz[key];
     saveUserProfileByKey(quiz, quizKey);
+    quizKey === ProfileKey.initialQuiz
+      ? setInitialQuizAnswers(quiz)
+      : setMpAnswers(quiz);
   }, []);
   const saveQuestion = useCallback(
     (quizKey: ProfileKey, key: string, value: string | object | null) => {
@@ -165,6 +178,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
       // @ts-ignore
       quiz[key] = value;
       saveUserProfileByKey(quiz, quizKey);
+      quizKey === ProfileKey.initialQuiz
+        ? setInitialQuizAnswers(quiz)
+        : setMpAnswers(quiz);
     },
     []
   );
@@ -199,6 +215,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   const mealPlannerName =
     getUserProfileByKey(ProfileKey.mealPlannerName) ||
     mealPlanResultsContent.title;
+
   return (
     <Layout className="header--bg">
       <SEO {...seo} />
@@ -286,14 +303,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
             <PreferencesQuiz
               questions={preferencesQuizContent.questions}
               // @ts-ignore
-              answers={getUserProfileByKey(ProfileKey.initialQuiz)}
+              answers={initialQuizAnswers}
               heading={preferencesQuizContent.quizTitle}
               quizKey={ProfileKey.initialQuiz}
             />
             <PreferencesQuiz
               questions={mealPlannerQuizContent.questions}
               // @ts-ignore
-              answers={getUserProfileByKey(ProfileKey.mealPlannerAnswers)}
+              answers={mpAnswers}
               heading={mealPlannerQuizContent.quizTitle}
               quizKey={ProfileKey.mealPlannerAnswers}
             />
