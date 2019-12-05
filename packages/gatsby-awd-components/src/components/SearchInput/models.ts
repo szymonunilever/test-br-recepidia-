@@ -14,6 +14,7 @@ export interface SearchInputProps
   getSearchResults?: getSearchData;
   onClickSearchResultsItem?: getSearchData | Function;
   autoFocus?: boolean;
+  redirectOnSubmit?: boolean;
   searchResults?: string[];
   minLength?: number;
   maxLength?: number;
