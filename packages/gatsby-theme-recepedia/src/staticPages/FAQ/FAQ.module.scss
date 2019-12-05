@@ -2,9 +2,9 @@
 @import '../../scss/mixins';
 
 .faq {
-  padding: 0 $layout-indent-sm 167px;
+  padding: 20px $layout-indent-sm 167px;
   @include respondTo(desktop) {
-    padding: 0 $layout-indent 145px;
+    padding: 40px $layout-indent 145px;
   }
   &__title {
     margin-bottom: 28px;
