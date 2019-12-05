@@ -89,7 +89,6 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
     return setIsQuizOpened(false);
   }, []);
 
-
   const [formUrl, formType] = [
     process.env['quizDataCapturing_url'] as string,
     process.env['quizDataCapturing_formType'] as string,
@@ -131,6 +130,7 @@ const IntroQuiz: FunctionComponent<IntroQuizProps> = ({
             stepId="dataCapturing"
             pathToData={ProfileKey.initialQuiz}
             containerClass="wizard--quiz wizard--quiz-initial"
+            campaignId={process.env['dataCapturing_dcuConfig_quiz_campaignId']}
           />
         )}
       </Wizard>

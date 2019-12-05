@@ -24,6 +24,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
   actionCallback,
   titleRenderer,
   stepResultsCallback,
+  campaignId,
 }) => {
   const { title, subtitle, ...formContent } = content;
   let formContentModified = formContent;
@@ -72,7 +73,7 @@ const DataCapturingForm: FunctionComponent<DataCapturingFormProps> = ({
       formUrl: url,
     };
     const dcuConfig = {
-      campaignId: process.env['dataCapturing_dcuConfig_campaignId'],
+      campaignId,
       brandId: process.env['dataCapturing_dcuConfig_brandId'],
       emailBrandServiceId:
         process.env['dataCapturing_dcuConfig_emailBrandServiceId'],

@@ -13,6 +13,7 @@ export interface DataCapturingFormProps
   url: string;
   formType: string;
   pathToData: ProfileKey;
+  campaignId: string;
 }
 
 export interface DataPrepopulateProps {
