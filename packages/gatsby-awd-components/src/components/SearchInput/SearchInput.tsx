@@ -1,6 +1,5 @@
 import React, { useState, KeyboardEvent, useEffect, useCallback } from 'react';
 import SearchResults from './partials/SearchResults';
-import { navigate } from 'gatsby';
 import cx from 'classnames';
 import { SearchInputProps, FilterData } from './models';
 import trim from 'lodash/trim';
@@ -26,7 +25,6 @@ const SearchInput = ({
   autoFocus = false,
   minLength = 3,
   maxLength = 60,
-  redirectOnSubmit = false,
 }: SearchInputProps) => {
   const classNames = cx(theme.searchInput, 'search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -121,7 +119,6 @@ const SearchInput = ({
       trim(inputValue).length <= maxLength
     ) {
       clearTimeOut();
-      redirectOnSubmit && navigate(`/procurar?searchQuery=${inputValue}`);
       onSubmit(inputValue, {
         from: 0,
         size: searchResultsCount,

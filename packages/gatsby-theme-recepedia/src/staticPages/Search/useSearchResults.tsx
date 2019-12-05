@@ -81,8 +81,8 @@ const useSearchResults = (searchQuery: string) => {
               ...recipeSearchResponse.body.hits.hits.map(
                 item => item._source.title
               ),
-              ...articleSearchResponse.hits.hits.map(
-                (item: { _source: { title: string } }) => item._source.title
+              ...articleSearchResponse.body.hits.hits.map(
+                item => item._source.title
               ),
             ],
           });
