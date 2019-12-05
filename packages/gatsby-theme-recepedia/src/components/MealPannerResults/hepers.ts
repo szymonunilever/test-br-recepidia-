@@ -4,10 +4,16 @@ export function getCustomMPSearch(
   searchQuery: string,
   {
     from = 0,
-    size = 3000,
+    size = 10,
     sort = [{ averageRating: { order: 'desc' } }],
-    fields = ['title'],
-  }
+    fields = [
+      'title^5',
+      'description^2',
+      'tagGroups.tags.name^4',
+      'ingredients.description^3',
+    ],
+  },
+  exclude: number[]
 ) {
   const searchParams = {
     index: process.env['elasticSearch_recipeIndex'] as string,
@@ -26,6 +32,14 @@ export function getCustomMPSearch(
               fields,
             },
           },
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          must_not: [
+            {
+              terms: {
+                recipeId: exclude,
+              },
+            },
+          ],
         },
       },
     },
