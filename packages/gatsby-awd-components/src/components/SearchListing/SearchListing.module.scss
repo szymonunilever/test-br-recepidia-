@@ -4,6 +4,15 @@
 .search-listing {
   :global {
     .search {
+      &-tabs {
+        #all__tab {
+          > div {
+            &:nth-child(2) {
+              margin-top: 40px;
+            }
+          }
+        }
+      }
       &-filter {
         display: flex;
         flex-wrap: wrap;

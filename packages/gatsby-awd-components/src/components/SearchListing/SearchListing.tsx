@@ -23,6 +23,7 @@ import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import theme from './SearchListing.module.scss';
 import { icons } from '../../mocks/global';
 import Filter from '../Filter/Filter';
+import { RecipeCardLinkWrapper } from '../RecipeCardLinkWrapper';
 
 const SearchListing: FunctionComponent<SearchListingProps> = ({
   content,
@@ -130,8 +131,12 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     >
       {recipeResults.list
         ? recipeResults.list.map(recipe => (
+          <RecipeCardLinkWrapper
+            title={recipe.title}
+            key={recipe.id}
+            slug={recipe.fields.slug}
+          >
             <RecipeCard
-              key={recipe.id}
               {...recipe}
               slug={recipe.fields.slug}
               ratingProvider={RatingAndReviewsProvider.inline}
@@ -146,6 +151,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
                 onClick={recipeConfig.onFavoriteChange}
               />
             </RecipeCard>
+          </RecipeCardLinkWrapper>
           ))
         : []}
     </RecipeListing>
@@ -264,7 +270,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
           />
 
           {recipeResults.count + articleResults.count ? (
-            <Tabs className="search-listing__tabs" content={tabs.content}>
+            <Tabs className="search-tabs" content={tabs.content}>
               {tabs.list.map(tab => tab)}
             </Tabs>
           ) : (
