@@ -2,41 +2,27 @@
 @import '../../scss/mixins';
 
 .article {
-  &-social {
-    position: absolute;
-    right: 18px;
-    bottom: 16px;
-    @include respondTo(desktop) {
-      right: 36px;
-      bottom: 38px;
-    }
-    :global(.social-sharing__dialog-open-button) {
-      width: 40px;
-      height: 40px;
-      &:hover {
-        svg,
-        path {
-          stroke: #363840;
-          fill: #363840;
-        }
-      }
-      svg {
-        width: 17px;
-        height: 20px;
-      }
-      :global(.button__label) {
-        display: none;
-      }
-    }
-  }
-
   &-image {
     background-color: #fff;
+    .article-social {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      @include respondTo(desktop) {
+        right: 36px;
+        bottom: 38px;
+      }
+    }
     :global(&__wrap) {
       position: relative;
       margin-bottom: 27px;
       @include respondTo(desktop) {
         margin-bottom: 44px;
+      }
+      :global {
+        .hero {
+          background-color: transparent;
+        }
       }
     }
     :global(.adaptive-image__image) {
@@ -49,7 +35,7 @@
 
   &-title {
     padding-top: 30px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     background-color: $white;
     @include respondTo(desktop) {
       padding-top: 60px;
@@ -74,12 +60,41 @@
         line-height: 1.22;
       }
     }
+    .article-social {
+      display: flex;
+      justify-content: center;
+      button {
+        width: auto;
+        background-color: transparent;
+        border: none;
+        svg {
+          width: 19px;
+          height: 16px;
+          margin-right: 6px;
+          @include respondTo(desktop) {
+            width: 24px;
+            height: 20px;
+          }
+        }
+        span {
+          font: 500 1.6rem/1.19 $rubik;
+          @include respondTo(desktop) {
+            font-size: 1.8rem;
+            line-height: 1.22;
+          }
+        }
+        &:hover {
+          background-color: transparent;
+          border: none;
+        }
+      }
+    }
   }
 
   &-video {
-    margin: 45px 0 36px;
+    margin: 10px 0 36px;
     @include respondTo(desktop) {
-      margin: 146px 0 36px;
+      margin: 40px 0 36px;
     }
     :global(.video-player) {
       margin-bottom: 19px;
