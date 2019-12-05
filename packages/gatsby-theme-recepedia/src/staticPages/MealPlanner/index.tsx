@@ -201,6 +201,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
               formType={formType}
               pathToData={ProfileKey.mealPlannerAnswers}
               containerClass="wizard--form"
+              campaignId={process.env['dataCapturing_dcuConfig_mp_campaignId']}
             />
           )}
           {/*
