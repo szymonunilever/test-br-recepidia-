@@ -26,6 +26,7 @@ const SearchInput = ({
   autoFocus = false,
   minLength = 3,
   maxLength = 60,
+  redirectOnSubmit = false,
 }: SearchInputProps) => {
   const classNames = cx(theme.searchInput, 'search-input', className);
   const [inputValue, setInputValue] = useState('');
@@ -120,7 +121,7 @@ const SearchInput = ({
       trim(inputValue).length <= maxLength
     ) {
       clearTimeOut();
-      navigate(`/procurar?searchQuery=${inputValue}`);
+      redirectOnSubmit && navigate(`/procurar?searchQuery=${inputValue}`);
       onSubmit(inputValue, {
         from: 0,
         size: searchResultsCount,

@@ -256,6 +256,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         getSearchResults={searchInputConfig.getSearchSuggestionData}
         onSubmit={onSubmit}
         onClickSearchResultsItem={onClickSearchResultsItem}
+        redirectOnSubmit={true}
       />
       <Filter
         className={cx(theme.recipeList__filter, 'wrapper search-filter')}
