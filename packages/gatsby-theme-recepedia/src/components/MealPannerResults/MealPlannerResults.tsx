@@ -149,7 +149,11 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       setLastCustomSearchQuery(value);
       setCustomSearchInProcess(true);
       const exclude = resultsDefault.map(recipe => recipe.recipeId);
-      getCustomMPSearch(value, {}, exclude).then(res => {
+      getCustomMPSearch(
+        value,
+        { size: customSearchInitialCount },
+        exclude
+      ).then(res => {
         let recipes: Internal.Recipe[] = [];
         if (res.body.hits.total.value === 0) {
           const newSearchContent = {
@@ -181,7 +185,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         setCustomSearchInProcess(false);
       });
     },
-    [resultsDefault]
+    [resultsDefault, customSearchInitialCount]
   );
 
   const onLoadMoreRecipes = async (
@@ -192,7 +196,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     const exclude = resultsDefault.map(recipe => recipe.recipeId);
     getCustomMPSearch(
       lastCustomSearchQuery,
-      { from: recipesToSelect.length },
+      { from: recipesToSelect.length, size },
       exclude
     ).then(res => {
       if (res.body.hits.total.value > 0) {
@@ -273,6 +277,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   useEffect(() => {
     setCustomSearchInitialCount(initialRecipesCount);
   }, [initialRecipesCount]);
+
   useEffect(() => {
     const recipeListingChildren = resultsDefault
       ? resultsDefault.map(recipe => (

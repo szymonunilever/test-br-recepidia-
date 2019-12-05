@@ -4,7 +4,7 @@ export function getCustomMPSearch(
   searchQuery: string,
   {
     from = 0,
-    size = 10,
+    size = 8,
     sort = [{ averageRating: { order: 'desc' } }],
     fields = [
       'title^5',
