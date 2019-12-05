@@ -17,6 +17,7 @@ import {
   Text,
   RecipeCard,
   RecipeAddPlaceholder,
+  LoadMoreType,
 } from 'gatsby-awd-components/src';
 import React, {
   FunctionComponent,
@@ -35,11 +36,10 @@ import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigge
 import { removeRecipeCardButtonDefaults } from '../../themeDefaultComponentProps';
 import { findPageComponentContent } from '../../utils';
 import { getSearchSuggestionResponse } from '../../utils/searchUtils';
-import useMedia from '../../utils/useMedia';
 import { MealPannerResultsProps } from './models';
-import differenceBy from 'lodash/differenceBy';
 import cloneDeep from 'lodash/cloneDeep';
 import { getCustomMPSearch } from './hepers';
+import useMedia from '../../utils/useMedia';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -110,6 +110,10 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   const [searchInputResults, setSearchInputResults] = useState<
     SearchInputProps['searchResults']
   >([]);
+
+  const [lastCustomSearchQuery, setLastCustomSearchQuery] = useState();
+  const [customResultsCount, setCustomResultsCount] = useState(0);
+
   // Define Callbacks
   const openCustomSearch = useCallback(() => {
     setShowSearchModal(true);
@@ -142,8 +146,10 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   );
   const openCustomRecipeSelector = useCallback(
     value => {
+      setLastCustomSearchQuery(value);
       setCustomSearchInProcess(true);
-      getCustomMPSearch(value, {}).then(res => {
+      const exclude = resultsDefault.map(recipe => recipe.recipeId);
+      getCustomMPSearch(value, {}, exclude).then(res => {
         let recipes: Internal.Recipe[] = [];
         if (res.body.hits.total.value === 0) {
           const newSearchContent = {
@@ -162,14 +168,14 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         res.body.hits.hits.forEach(resItem => {
           recipes.push(resItem._source as Internal.Recipe);
         });
-        recipes = differenceBy(recipes, resultsDefault, 'recipeId');
         const newSearchContent = {
           ...customSearchContent,
           onResult: { ...customSearchContent.onResult },
         };
         newSearchContent.onResult.subheading = newSearchContent.onResult.subheading
-          .replace('{numRes}', `${recipes.length}`)
+          .replace('{numRes}', `${res.body.hits.total.value}`)
           .replace('{searchInputValue}', value);
+        setCustomResultsCount(res.body.hits.total.value);
         setCustomSearchResultContent(newSearchContent);
         setRecipesToSelect(recipes);
         setCustomSearchInProcess(false);
@@ -177,7 +183,31 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     },
     [resultsDefault]
   );
+
+  const onLoadMoreRecipes = async (
+    tags: Internal.Tag[],
+    sorting: string,
+    size: number
+  ) => {
+    const exclude = resultsDefault.map(recipe => recipe.recipeId);
+    getCustomMPSearch(
+      lastCustomSearchQuery,
+      { from: recipesToSelect.length },
+      exclude
+    ).then(res => {
+      if (res.body.hits.total.value > 0) {
+        const recipes: Internal.Recipe[] = [];
+        res.body.hits.hits.forEach(resItem => {
+          recipes.push(resItem._source as Internal.Recipe);
+        });
+        setRecipesToSelect([...recipesToSelect, ...recipes]);
+      }
+    });
+  };
+
   const onCustomRecipeSelected = useCallback(() => {
+    setLastCustomSearchQuery(undefined);
+    setCustomResultsCount(0);
     if (recipesToSelect && recipesToSelect.length > 0) {
       const recipeList = [...resultsDefault];
       setRecipeCards([]);
@@ -203,6 +233,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     }
   }, [recipesToSelect, recipeSelected, resultsDefault]);
   const searchAgain = useCallback(() => {
+    setLastCustomSearchQuery(undefined);
     setShowCustomSelector(false);
     setShowSearchModal(true);
     setRecipeSelected(undefined);
@@ -357,6 +388,11 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         list={recipesToSelect}
         initialCount={customSearchInitialCount}
         content={customSearchRecipeList}
+        loadMoreConfig={{
+          type: LoadMoreType.async,
+          onLoadMore: onLoadMoreRecipes,
+          allCount: customResultsCount,
+        }}
       >
         {recipesToSelect.map(recipe => (
           <RecipeCard
