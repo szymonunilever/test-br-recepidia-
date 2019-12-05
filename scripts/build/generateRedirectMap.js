@@ -294,7 +294,7 @@ module.exports = async ({
   }
 
   Object.keys(customRedirects).forEach(fromUrl => {
-    const existingRedirect = redirects.find(row => row.fromUrl === fromUrl);
+    const existingRedirect = redirects.find(row => row.from === fromUrl);
 
     existingRedirect &&
       redirects.splice(redirects.indexOf(existingRedirect), 1);
