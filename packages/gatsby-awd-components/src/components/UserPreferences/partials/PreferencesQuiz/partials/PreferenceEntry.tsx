@@ -23,13 +23,12 @@ const PreferenceEntry: FunctionComponent<PreferenceEntryProps> = ({
   icons,
 }) => {
   const [val, setVal] = useState();
-
   let editingThis = editingKey === preferenceEntry.key;
 
   useEffect(() => {
     // if another entry is chosen -> reset input data
     setVal(selectedOptions && selectedOptions.value);
-  }, [editingKey]);
+  }, [editingKey, selectedOptions]);
 
   const cancelEditing = useCallback(() => {
     setVal(selectedOptions && selectedOptions.value);
