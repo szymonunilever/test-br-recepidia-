@@ -11,6 +11,7 @@ import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import { WindowLocation } from '@reach/router';
 import DigitalData from '../../../integrations/DigitalData';
+import '../../scss/pages/_default.scss';
 import theme from './FAQ.module.scss';
 import cx from 'classnames';
 import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg';
