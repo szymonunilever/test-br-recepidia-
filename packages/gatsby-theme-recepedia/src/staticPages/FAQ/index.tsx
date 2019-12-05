@@ -39,7 +39,7 @@ const FAQPage = ({
     <Layout>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <section className={cx(theme.faq, '_pt--40')}>
+      <section className={cx(theme.faq)}>
         <Text
           className={theme.faq__title}
           tag={TagName.h1}

@@ -234,15 +234,6 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     }
   };
 
-  const nullResult =
-    recipeResults.count + articleResults.count ? null : (
-      <NullResult
-        content={content.nullResultContent}
-        className="search-listing__null-results"
-        titleLevel={3}
-      />
-    );
-
   return (
     <div
       className={classNames}
@@ -258,23 +249,33 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         onClickSearchResultsItem={onClickSearchResultsItem}
         redirectOnSubmit={true}
       />
-      <Filter
-        className={cx(theme.recipeList__filter, 'wrapper search-filter')}
-        // @ts-ignore
-        allFilters={recipeConfig.tags}
-        icons={icons}
-        onChangeFilter={onFilterChange}
-        content={content.recipesContent}
-        filterTitle={searchResultsText}
-        searchQuery={defaultSearchValue}
-        results={recipeResults.count + articleResults.count}
-      />
-      {recipeResults.count + articleResults.count ? (
-        <Tabs className="search-listing__tabs" content={tabs.content}>
-          {tabs.list.map(tab => tab)}
-        </Tabs>
-      ) : null}
-      {nullResult}
+      {resultsFetched && (
+        <>
+          <Filter
+            className={cx(theme.recipeList__filter, 'wrapper search-filter')}
+            // @ts-ignore
+            allFilters={recipeConfig.tags}
+            icons={icons}
+            onChangeFilter={onFilterChange}
+            content={content.recipesContent}
+            filterTitle={searchResultsText}
+            searchQuery={defaultSearchValue}
+            results={recipeResults.count + articleResults.count}
+          />
+
+          {recipeResults.count + articleResults.count ? (
+            <Tabs className="search-listing__tabs" content={tabs.content}>
+              {tabs.list.map(tab => tab)}
+            </Tabs>
+          ) : (
+            <NullResult
+              content={content.nullResultContent}
+              className="search-listing__null-results"
+              titleLevel={3}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };
