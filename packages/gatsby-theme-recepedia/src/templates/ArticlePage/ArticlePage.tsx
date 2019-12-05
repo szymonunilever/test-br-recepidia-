@@ -23,6 +23,8 @@ import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { IMAGE_SIZES } from 'src/constants';
+import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
+import { ReactComponent as OpenModelButtonIconBold } from '../../svgs/inline/share-bold.svg';
 
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
@@ -63,6 +65,13 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
     });
     seoImage && (seoImage.content = mainImageHero.image.url);
   }
+  const socialSharingContent = findPageComponentContent(
+    components,
+    'SocialSharing'
+  );
+  const socialSharingBottomContent = Object.assign({}, socialSharingContent);
+  /* TODO: add to content word "Share" */
+  socialSharingBottomContent.openModalButton = { label: 'Share' };
 
   return (
     <Layout className={theme.articleWrap}>
@@ -74,12 +83,10 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       />
       <DigitalData title={article.title} type={type} />
       <section className={theme.articleTitle}>
-        <div className="container">
-          <Text tag={TagName.h1} text={article.title} />
-        </div>
+        <Text tag={TagName.h1} text={article.title} className="wrapper" />
       </section>
       {mainImageHero && (
-        <section className={cx(theme.articleImage, 'bg--half')}>
+        <section className={cx(theme.articleImage, 'bg--half', 'wrapper')}>
           <div className="article-image__wrap">
             <Hero
               viewType="Image"
@@ -87,60 +94,67 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
               imageSizes={IMAGE_SIZES.HERO}
             />
             <SocialSharing
-              content={findPageComponentContent(components, 'SocialSharing')}
+              content={socialSharingContent}
               className={theme.articleSocial}
               icons={socialIcons}
               viewType={SocialSharingViewType.Modal}
               CloseButtonIcon={CloseButton}
               WidgetScript={AddThis}
+              OpenModelButtonIcon={OpenModelButtonIcon}
             />
           </div>
         </section>
       )}
 
-      <section className={cx(theme.articleText, 'container')}>
+      <section className={cx(theme.articleText, 'wrapper')}>
         <RichText content={article.articleText} type="md" />
+        <SocialSharing
+          content={socialSharingBottomContent}
+          className={theme.articleSocial}
+          icons={socialIcons}
+          viewType={SocialSharingViewType.Modal}
+          CloseButtonIcon={CloseButton}
+          WidgetScript={AddThis}
+          OpenModelButtonIcon={OpenModelButtonIconBold}
+        />
       </section>
       {/* TODO: add component for image carousel if it will be approved. */}
       {video && (
-        <section className={theme.articleVideo}>
-          <div className="container">
-            <VideoPlayer content={video} PlayIcon={PlayIcon} />
-            {video.description ? (
-              <Text tag={TagName.p} text={video.description} />
-            ) : null}
-          </div>
+        <section className={cx(theme.articleVideo, 'wrapper')}>
+          <VideoPlayer content={video} PlayIcon={PlayIcon} />
+          {video.description ? (
+            <Text tag={TagName.p} text={video.description} />
+          ) : null}
         </section>
       )}
       {next && next.fields && next.fields.slug && nextMainImageHero && (
         <section className={theme.articleNext}>
-          <div className="container">
-            <Text
-              tag={TagName.h2}
-              text={
-                findPageComponentContent(components, 'Text', 'NextTitle').text
-              }
+          <Text
+            tag={TagName.h2}
+            text={
+              findPageComponentContent(components, 'Text', 'NextTitle').text
+            }
+            className="wrapper"
+          />
+          <Link to={next.fields.slug} className="wrapper">
+            <Hero
+              content={{
+                image: nextMainImageHero,
+                shortSubheader: next.title,
+                longSubheader: next.shortDescription,
+              }}
+              viewType="Image"
+              titleLevel={2}
+              imageSizes={IMAGE_SIZES.HERO}
             />
-            <Link to={next.fields.slug}>
-              <Hero
-                content={{
-                  image: nextMainImageHero,
-                  shortSubheader: next.title,
-                  longSubheader: next.shortDescription,
-                }}
-                viewType="Image"
-                titleLevel={2}
-                imageSizes={IMAGE_SIZES.HERO}
-              />
-            </Link>
-          </div>
+          </Link>
         </section>
       )}
       <section>
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
-          className="hero--planner color--inverted"
+          className="hero--planner color--inverted wrapper"
           imageSizes={IMAGE_SIZES.HERO}
         />
       </section>

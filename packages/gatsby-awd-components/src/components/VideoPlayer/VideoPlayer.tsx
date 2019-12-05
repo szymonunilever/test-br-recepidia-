@@ -4,6 +4,7 @@ import { Tab } from '../Tabs';
 import AdaptiveImage from '../AdaptiveImage';
 import { Text, TagName } from '../Text';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import cx from 'classnames';
 
 const VideoPlayer = ({
   width = 640,
@@ -11,6 +12,7 @@ const VideoPlayer = ({
   allowFullScreen = false,
   content,
   PlayIcon,
+  className,
 }: VideoPlayerProps) => {
   const { title, preview, videoId } = content;
   const [showPreview, setShowPreview] = useState(!!preview);
@@ -23,7 +25,7 @@ const VideoPlayer = ({
   return (
     <div
       {...getComponentDataAttrs('video-player', content)}
-      className="video-player"
+      className={cx('video-player', className)}
     >
       {title && (
         <div className="video-player__header">

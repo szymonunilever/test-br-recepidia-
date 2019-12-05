@@ -2940,26 +2940,26 @@
               "questions": [
                 {
                   "question": {
-                    "label": "Question 1"
+                    "label": "How can I plan my weekly menu?"
                   },
                   "answer": {
-                    "text": "<div>Text 1 with <a rel='noopener noreferrer' href='/'>link</a></div>"
+                    "text": "<div>You could create your <a rel='noopener noreferrer' href='/planejamento-da-semana'>personalized meal plan</a></div>"
                   }
                 },
                 {
                   "question": {
-                    "label": "Question 2"
+                    "label": "Where can I see my favorite recipes?"
                   },
                   "answer": {
-                    "text": "<div>Text 2 with <a rel='noopener noreferrer' href='/'>link</a></div>"
+                    "text": "<div>Follow these steps to see your favorite recipes:<ul><li>Click the favorites icon on the recipe you like</li><li>Go under Profile and check Favorites tab</li></ul></div>"
                   }
                 },
                 {
                   "question": {
-                    "label": "Long question Long question Long question Long question Long question Long question Long question Long question Long question Long question Long question"
+                    "label": "Is it possible to change the Meal Panner and Quiz answers after passing them?"
                   },
                   "answer": {
-                    "text": "<p>Text 3 with <a rel='noopener noreferrer' href='/'>link</a></p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio. Eget sit amet tellus cras adipiscing enim. Nibh tortor id aliquet lectus proin nibh nisl. Tellus mauris a diam maecenas sed. Sit amet cursus sit amet. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Accumsan in nisl nisi scelerisque. Non tellus orci ac auctor augue. Cras tincidunt lobortis feugiat vivamus at augue eget. Nulla pellentesque dignissim enim sit amet venenatis urna.</p>"
+                    "text": "<p>You could check your answers and updated them under Profile on the Preferences tab</p>"
                   }
                 }
               ]
