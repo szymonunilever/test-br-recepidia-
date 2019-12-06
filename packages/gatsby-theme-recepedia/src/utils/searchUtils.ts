@@ -219,9 +219,9 @@ export const getSearchSuggestionResponse = async (
         filter
       )
     ),
-    // useElasticSearch<Internal.Article>(
-    //   articleSearchParams(searchQuery, { from, size, _source: ['title'] })
-    // ),
+    useElasticSearch<Internal.Article>(
+      articleSearchParams(searchQuery, { from, size, _source: ['title'] }, filter)
+    ),
   ]);
 };
 
