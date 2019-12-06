@@ -3,17 +3,36 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
-import { Text, TagName } from 'gatsby-awd-components/src';
+import {
+  Text,
+  TagName,
+  PageListing,
+  PageListingViewTypes,
+} from 'gatsby-awd-components/src';
 import DigitalData from 'integrations/DigitalData';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, getImageAlt } from 'src/utils';
 import '../../scss/pages/_notFound.scss';
 import theme from './NotFound.module.scss';
 import cx from 'classnames';
+import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
+import { IMAGE_SIZES } from '../../constants';
 
 const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+  const { allCategory } = data;
+  const pageListingData = allCategory.nodes.map(category => ({
+    ...category,
+    path: category.fields.slug,
+    image: {
+      alt: getImageAlt(category.title, category.fields.slug),
+    },
+  }));
+  const pageListingContent = {
+    title: undefined,
+  };
+
   return (
     <Layout
       className="not-found"
@@ -21,7 +40,7 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
       title={data.site.siteMetadata.title}
     >
       <SEO {...seo} canonical={location.href} />
-      <DigitalData title={seo.title} type={type} />
+      <DigitalData title={seo.title} type={'404'} />
       <div className={theme.notFound}>
         <Text
           className={theme.notFound__title}
@@ -33,6 +52,19 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
           tag={TagName.p}
           text={findPageComponentContent(components, 'Text', 'Subtitle').text}
         />
+        <section
+          className={cx(theme.recipeBottomCarousel, '_pt--40 _pb--40 wrapper')}
+        >
+          <PageListing
+            content={pageListingContent}
+            viewType={PageListingViewTypes.carousel}
+            list={pageListingData}
+            carouselConfig={{
+              arrowIcon: <ArrowIcon />,
+            }}
+            imageSizes={IMAGE_SIZES.PAGE_LISTINGS.CAROUSEL}
+          />
+        </section>
         <Link
           to={'/receita'}
           className={cx('button', theme.notFound__recipesLink)}
@@ -51,6 +83,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allCategory(
+      limit: 15
+      filter: { showOnHomepage: { ne: 0 } }
+      sort: { order: ASC, fields: showOnHomepage }
+    ) {
+      nodes {
+        ...CategoryFields
       }
     }
   }

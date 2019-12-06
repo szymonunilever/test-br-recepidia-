@@ -1314,14 +1314,14 @@
             "name": "Text",
             "content": {
               "view": "Title",
-              "text": "404 \n Oops! Página não encontrada!"
+              "text": "Oops! Página não encontrada!"
             }
           },
           {
             "name": "Text",
             "content": {
               "view": "Subtitle",
-              "text": "Busquei por toda cozinha mas não encontrei o que você procurava"
+              "text": "Busquei por toda cozinha mas não encontrei o que você procurava. Separei outras sugestões de receitas abaixo:"
             }
           },
           {

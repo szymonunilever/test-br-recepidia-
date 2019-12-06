@@ -11,7 +11,6 @@ const directUrlsMap = {
   '/cozinha/taiwanesa': '/categoria/asiatica/',
   '/cozinha/norte-americana': '/categoria/americana/',
   '/tipos-de-prato/lanche': '/categoria/lanches/',
-  '/momentos/dois': '/categoria/mesa-para-dois/',
   '/fale-conosco': '/fale-comigo/',
 };
 
