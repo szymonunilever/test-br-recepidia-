@@ -46,8 +46,10 @@ const Filter: FunctionComponent<FilterProps> = ({
   const classWrapper = cx(theme.filter, className);
   const [showFilterSettings, setShowFilterSettings] = useState<boolean>(false);
   const [selectedTags, setSelectedTags] = useState<Internal.Tag[]>([]);
+  const [selectedFilterTags, setSelectedFilterTags] = useState<Internal.Tag[]>([]);
   const applySelectedTagsToFilter = () => {
     setShowFilterSettings(!showFilterSettings);
+    setSelectedFilterTags(selectedTags);
     onChangeFilter(selectedTags);
   };
   const sortingOptions: Option[] = optionLabels
@@ -63,6 +65,7 @@ const Filter: FunctionComponent<FilterProps> = ({
   };
   const toggleFilterSettings = () => {
     setShowFilterSettings(!showFilterSettings);
+    setSelectedTags(selectedFilterTags);
   };
 
   const onTagRemoved = (val: Internal.Tag) => {
@@ -139,7 +142,7 @@ const Filter: FunctionComponent<FilterProps> = ({
         />
       </Modal>
       <Tags
-        list={selectedTags}
+        list={selectedFilterTags}
         content={{ title: undefined, loadMoreButton: undefined }}
         variant={TagVariant.removable}
         RemoveIcon={icons.removeTag}
