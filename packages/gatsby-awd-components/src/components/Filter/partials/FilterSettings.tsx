@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { Accordion, Button, Tags, TagToggleHandler, TagViewType, TagVariant } from '../../';
 import theme from './FilterSettings.module.scss';
@@ -14,6 +14,7 @@ const FilterSettings = ({
   content: { filtersPanel },
 }: FilterSettingsProps) => {
   const classWrapper = cx(theme.filterSettings, 'filter-settings', className);
+
   const onToggleFilter = (val: TagToggleHandler) => {
     const filters = [...selectedTags];
     if (val.state) {
@@ -21,7 +22,7 @@ const FilterSettings = ({
     } else if (filters.length > 0) {
       filters.splice(filters.findIndex((t: Internal.Tag) => t.id === val.tag.id), 1);
     }
-    onFilterChange(filters);
+    onFilterChange(filters)
   };
   const onReset = () => {
     onFilterChange([]);

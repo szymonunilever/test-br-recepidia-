@@ -47,10 +47,8 @@ const Filter: FunctionComponent<FilterProps> = ({
   const classWrapper = cx(theme.filter, className);
   const [showFilterSettings, setShowFilterSettings] = useState<boolean>(false);
   const [selectedTags, setSelectedTags] = useState<Internal.Tag[]>([]);
-  const [selectedFilterTags, setSelectedFilterTags] = useState<Internal.Tag[]>([]);
   const applySelectedTagsToFilter = () => {
     setShowFilterSettings(!showFilterSettings);
-    setSelectedFilterTags(selectedTags);
     onChangeFilter(selectedTags);
   };
   const sortingOptions: Option[] = optionLabels
@@ -66,7 +64,6 @@ const Filter: FunctionComponent<FilterProps> = ({
   };
   const toggleFilterSettings = () => {
     setShowFilterSettings(!showFilterSettings);
-    setSelectedTags(selectedFilterTags);
   };
 
   const onTagRemoved = (val: Internal.Tag) => {
@@ -97,7 +94,7 @@ const Filter: FunctionComponent<FilterProps> = ({
   return (
     <div className={classWrapper}>
       {counter}
-      {!results && !setSelectedTags.length ? null : (
+      {!results && !selectedTags.length ? null : (
         <div className={cx(theme.filter__sortBlock, 'filter__sort-block')}>
           {optionLabels ? (
             <div className={cx(theme.filter__sortLabel, 'filter__sort-label')}>
@@ -117,17 +114,15 @@ const Filter: FunctionComponent<FilterProps> = ({
               />
             </div>
           ) : null}
-          {!!results && (
-            <Button
-              className={cx(theme.filter__button, 'filter__button')}
-              Icon={icons.filter}
-              viewType={ButtonViewType.classic}
-              onClick={toggleFilterSettings}
-              attributes={{ 'aria-label': 'open modal with filter settings' }}
-            >
-              {filtersButtonLabel}
-            </Button>
-          )}
+          <Button
+            className={cx(theme.filter__button, 'filter__button')}
+            Icon={icons.filter}
+            viewType={ButtonViewType.classic}
+            onClick={toggleFilterSettings}
+            attributes={{ 'aria-label': 'open modal with filter settings' }}
+          >
+            {filtersButtonLabel}
+          </Button>
         </div>
       )}
       <Modal
@@ -147,7 +142,7 @@ const Filter: FunctionComponent<FilterProps> = ({
         />
       </Modal>
       <Tags
-        list={selectedFilterTags}
+        list={selectedTags}
         content={{ title: undefined, loadMoreButton: undefined }}
         variant={TagVariant.removable}
         RemoveIcon={icons.removeTag}
