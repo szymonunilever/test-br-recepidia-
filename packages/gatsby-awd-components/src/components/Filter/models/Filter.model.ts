@@ -27,6 +27,7 @@ export interface FilterProps
   onChangeSorting?: (sort: SortingOptions) => void;
   onChangeFilter: (filter: Internal.Tag[]) => void;
   results: number;
+  currentFilters?: Internal.Tag[];
   filterTitle?: string;
   sortSelectPlaceholder?: string;
   searchQuery?: string;

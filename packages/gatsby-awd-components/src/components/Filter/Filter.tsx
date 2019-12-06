@@ -33,6 +33,7 @@ const Filter: FunctionComponent<FilterProps> = ({
   onChangeSorting,
   onChangeFilter,
   results,
+  currentFilters = [],
   searchQuery,
   sortSelectPlaceholder,
   content: {
@@ -88,6 +89,10 @@ const Filter: FunctionComponent<FilterProps> = ({
   useEffect(() => {
     setSelectedTags([]);
   }, [searchQuery]);
+
+  useEffect(() => {
+    currentFilters !== selectedTags && setSelectedTags([]);
+  }, [currentFilters]);
 
   return (
     <div className={classWrapper}>

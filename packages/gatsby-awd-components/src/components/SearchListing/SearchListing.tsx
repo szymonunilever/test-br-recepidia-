@@ -48,7 +48,11 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   const onSubmit = useCallback(
     async (searchQuery: string) => {
       const trimmedSearchQuery = trim(searchQuery);
-      setDefaultSearchValue(searchQuery);
+      if(searchQuery !== defaultSearchValue) {
+        setDefaultSearchValue(searchQuery);
+      } else {
+        setFilteringValue([]);
+      }
 
       if (recipeConfig.getRecipeSearchData) {
         recipeConfig.getRecipeSearchData(trimmedSearchQuery, {
@@ -253,7 +257,6 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         getSearchResults={searchInputConfig.getSearchSuggestionData}
         onSubmit={onSubmit}
         onClickSearchResultsItem={onClickSearchResultsItem}
-        redirectOnSubmit={true}
       />
       {resultsFetched && (
         <>
@@ -265,6 +268,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             onChangeFilter={onFilterChange}
             content={content.recipesContent}
             filterTitle={searchResultsText}
+            currentFilters={filteringValue}
             searchQuery={defaultSearchValue}
             results={recipeResults.count + articleResults.count}
           />
