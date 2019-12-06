@@ -6,7 +6,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Layout from 'src/components/Layout/Layout';
 import {
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   Hero,
   PageListing,
   RecipeListing,
@@ -179,7 +179,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         >
           {latestAndGratestResult &&
             latestAndGratestResult.map(recipe => (
-              <RecipeCardLinkWrapper
+              <CardLinkWrapper
                 key={recipe.id}
                 slug={recipe.fields.slug}
                 title={recipe.title}
@@ -198,7 +198,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
                     onClick={updateFavoriteState}
                   />
                 </RecipeCard>
-              </RecipeCardLinkWrapper>
+              </CardLinkWrapper>
             ))}
         </RecipeListing>
       </section>
@@ -232,7 +232,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
         >
           {topRecipesResult &&
             topRecipesResult.map(recipe => (
-              <RecipeCardLinkWrapper
+              <CardLinkWrapper
                 title={recipe.title}
                 key={recipe.id}
                 slug={recipe.fields.slug}
@@ -251,7 +251,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
                     onClick={updateFavoriteState}
                   />
                 </RecipeCard>
-              </RecipeCardLinkWrapper>
+              </CardLinkWrapper>
             ))}
         </RecipeListing>
       </section>

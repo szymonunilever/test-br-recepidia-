@@ -1,5 +1,5 @@
 declare namespace AppContent {
-  interface Card extends BaseContent {
+  interface ContactCard extends BaseContent {
     title: string;
     texts: string[];
     type: 'phone' | 'address' | 'text';

@@ -1,7 +1,9 @@
 import { ReactElement } from 'react';
+import { CardProps, ProductCardWrapperProps, RecipeCardWrapperProps } from '../Card';
 import { RecipeCardProps } from '../RecipeCard';
 
-export interface RecipeCardLinkWrapperProps {
+export interface CardLinkWrapperProps {
+  key: string;
   isExternal?: boolean;
   title: string;
   slug: string;
@@ -11,5 +13,5 @@ export interface RecipeCardLinkWrapperProps {
   to?: string;
   'aria-label'?: string;
   className?: string;
-  children: ReactElement<RecipeCardProps>;
+  children: ReactElement<RecipeCardProps|CardProps|RecipeCardWrapperProps|ProductCardWrapperProps>;
 }

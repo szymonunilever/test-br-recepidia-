@@ -7,7 +7,7 @@ import SEO from 'src/components/Seo';
 
 import {
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   Hero,
   LoadMoreType,
   RecipeListing,
@@ -198,7 +198,7 @@ const AllRecipesPage = ({
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
-                <RecipeCardLinkWrapper
+                <CardLinkWrapper
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -217,7 +217,7 @@ const AllRecipesPage = ({
                       onClick={updateFavoriteState}
                     />
                   </RecipeCard>
-                </RecipeCardLinkWrapper>
+                </CardLinkWrapper>
               ))
             : []}
         </RecipeListing>
@@ -257,7 +257,7 @@ const AllRecipesPage = ({
         >
           {promotionalRecipes.nodes
             ? promotionalRecipes.nodes.map(recipe => (
-                <RecipeCardLinkWrapper
+                <CardLinkWrapper
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -276,7 +276,7 @@ const AllRecipesPage = ({
                       onClick={updateFavoriteState}
                     />
                   </RecipeCard>
-                </RecipeCardLinkWrapper>
+                </CardLinkWrapper>
               ))
             : []}
         </RecipeListing>

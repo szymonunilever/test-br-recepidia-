@@ -5,7 +5,7 @@ import SEO from 'src/components/Seo';
 import Kritique from 'integrations/Kritique';
 import {
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   Hero,
   Rating,
   RecipeAttributes,
@@ -399,7 +399,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
         >
           {relatedRecipes
             ? relatedRecipes.map(recipe => (
-                <RecipeCardLinkWrapper
+                <CardLinkWrapper
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -417,7 +417,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                       onClick={updateFavoriteState}
                     />
                   </RecipeCard>
-                </RecipeCardLinkWrapper>
+                </CardLinkWrapper>
               ))
             : []}
         </RecipeListing>

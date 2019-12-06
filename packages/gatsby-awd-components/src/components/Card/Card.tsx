@@ -1,84 +1,63 @@
 import cx from 'classnames';
-import React from 'react';
-import Button from '../Button';
+import React, { FunctionComponent } from 'react';
+import { getImageAlt } from '../../utils';
+import AdaptiveImage from '../AdaptiveImage';
+import { ButtonProps } from '../Button';
 import { TagName, Text } from '../Text';
-import theme from './Card.module.scss';
 import { CardProps } from './models';
-import { navigate } from 'gatsby';
-import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import theme from './Card.module.scss';
 
-export const Card = ({
-  className,
-  content,
-  content: { title, texts, type, cta },
-  Icon,
-  titleLevel = 2,
-}: CardProps) => {
-  const classWrapper = cx(theme.card, className);
-
-  const Title = (
+export const Card: FunctionComponent<CardProps> = ({
+   content,
+   idPropertyName,
+   children,
+   className = '',
+   imageSizes,
+   ratingWidget,
+   brand,
+ }) => {
+  const { title, fields:{slug}, localImage } = content;
+  const itemTitle = title && (
     <Text
+      tag={TagName[ `div` ]}
       // @ts-ignore
-      tag={TagName[`h${titleLevel}`]}
       text={title}
-      className={cx(theme.card__title, 'card__title')}
+      className={cx(theme.card__title, 'recipe-card__title')}
     />
   );
-
-  const withType = (
-    type: string,
-    view: JSX.Element[] | false,
-    content: string[] = texts
-  ) => {
-    if (view) {
-      switch (type) {
-        case 'phone':
-          return <a href={`tel:${content[0]}`}>{view}</a>;
-        case 'address':
-          return <address>{view}</address>;
-        case 'email':
-          return <a href={`mailto:${content[0]}`}>{view}</a>;
-        default:
-          return view;
-      }
-    }
-  };
-
-  const view =
-    texts &&
-    texts.length > 0 &&
-    texts.map((text, key) => (
-      <Text
-        key={key}
-        tag={TagName.p}
-        text={text}
-        className={cx(theme.card__text, 'card__text')}
-      />
-    ));
-
-  const ctaClickHandler = () => {
-    if (cta && cta.linkTo) navigate(cta.linkTo);
-  };
-
+  const modifiedChildren = children && React.Children.map(children, child => {
+    return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
+      child,
+      {
+        onClick : (val: boolean) => {
+          child
+          && child.props.onClick
+          && child.props.onClick.apply(
+            child.props.onClick,
+            [val, content[idPropertyName]],
+          );
+        },
+      });
+  });
+  const wrapClasses = cx(theme.card, 'card', className);
+  const Image = localImage && (
+    <AdaptiveImage
+      className={cx(theme.card__image, 'card__image')}
+      localImage={localImage}
+      alt={title ? getImageAlt(title, slug) : 'image'}
+      sizes={imageSizes}
+    />
+  );
   return (
-    <div {...getComponentDataAttrs('card', content)} className={classWrapper}>
-      <div className={cx(theme.card__top, 'card__top')}>
-        {Icon && (
-          <div className={cx(theme.card__icon, 'card__icon')}>
-            <Icon />
-          </div>
-        )}
-        {Title}
+     <div className={wrapClasses} data-componentname = 'card'>
+      <div className="card__buttons">
+        {modifiedChildren}
       </div>
-      <div className={cx(theme.card__content, 'card__content')}>
-        {withType(type, view)}
-        {cta && (
-          <Button
-            className={cx(theme.card__button, 'card__button')}
-            content={cta}
-            onClick={ctaClickHandler}
-          />
-        )}
+      {Image}
+      <div className={cx(theme.card__info, 'card__info')}>
+        {itemTitle}
+        {brand}
+        {ratingWidget}
       </div>
     </div>
   );

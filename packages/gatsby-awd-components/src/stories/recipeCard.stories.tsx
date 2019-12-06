@@ -3,7 +3,7 @@ import React from 'react';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
 import { Button, ButtonViewType } from '../components/Button';
 import { IMAGE_SIZES } from '../components/constants';
-import { RecipeCard } from '../components/RecipeListing/partials';
+import { RecipeCard } from '../components/RecipeCard';
 import { recipe } from '../mocks/RecipeListing';
 
 const onFavoriteToggle = (val:boolean, recipeId: number) => {
@@ -17,7 +17,7 @@ const props = {id: recipe.id,
   imageSizes: IMAGE_SIZES.RECIPE_LISTINGS.STANDARD,
   content: recipe,
 };
-storiesOf('Recipe related/Recipe Card', module)
+storiesOf('Recipe related/Recipe ContactCard', module)
   .add('default', () => <RecipeCard {...props}/>, { info : { inline : false } })
   .add('with favorite', () => <RecipeCard {...props}>
     <Button

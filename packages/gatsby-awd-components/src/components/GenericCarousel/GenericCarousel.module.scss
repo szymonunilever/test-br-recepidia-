@@ -1,0 +1,77 @@
+@import '../../scss/config';
+
+.carousel {
+  position: relative;
+  &__images {
+    overflow: hidden;
+    margin: 0 (-$col-indent-mobile);
+    @include respondTo(desktop) {
+      margin: 0 (-$col-indent-desktop);
+    }
+  }
+  &__item {
+    padding: 0 $col-indent-mobile;
+    @include respondTo(desktop) {
+      padding: 0 $col-indent-desktop;
+    }
+  }
+  &__images-tracker {
+    display: flex;
+    transition: all 0.25s ease-out;
+    will-change: transform;
+  }
+}
+
+:global {
+  .recipe-list--carousel {
+    .carousel {
+      .recipe-card__info {
+        min-height: 125px; //to avoid bottom content jumping depending on card title height (4 lines max)
+        @include respondTo(medium) {
+          min-height: 105px;
+        }
+      }
+      .slide-arrow {
+        &.right {
+          top: calc(#{$recipe-card-height--mobile} / 2);
+          @include respondTo(medium) {
+            top: calc(#{$recipe-card-height--desktop} / 2);
+          }
+        }
+
+        &.left {
+          top: calc(#{$recipe-card-height--mobile} / 2);
+          @include respondTo(medium) {
+            top: calc(#{$recipe-card-height--desktop} / 2);
+          }
+        }
+      }
+    }
+  }
+  .page-listing--carousel {
+    .carousel__item {
+      .gatsby-image-wrapper {
+        height: $page-listing-card-height--mobile;
+        @include respondTo(medium) {
+          height: $page-listing-card-height--desktop;
+        }
+      }
+    }
+    .carousel {
+      .slide-arrow {
+        &.right {
+          top: calc(#{$page-listing-card-height--mobile} / 2);
+          @include respondTo(medium) {
+            top: calc(#{$page-listing-card-height--desktop} / 2);
+          }
+        }
+        &.left {
+          top: calc(#{$page-listing-card-height--mobile} / 2);
+          @include respondTo(medium) {
+            top: calc(#{$page-listing-card-height--desktop} / 2);
+          }
+        }
+      }
+    }
+  }
+}

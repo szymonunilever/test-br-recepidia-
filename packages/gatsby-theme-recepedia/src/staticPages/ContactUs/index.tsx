@@ -3,7 +3,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
-import { Card, TagName, Text } from 'gatsby-awd-components/src';
+import { ContactCard, TagName, Text } from 'gatsby-awd-components/src';
 import theme from './ContactUs.module.scss';
 import { ReactComponent as MapMarker } from 'src/svgs/inline/map-marker.svg';
 import { WindowLocation } from '@reach/router';
@@ -32,8 +32,8 @@ const ContactUsPage = ({ pageContext, location }: ContactUsPageProps) => {
         />
         <div className={theme.cardholder}>
           <div className={theme.cardholderItem}>
-            <Card
-              className="card"
+            <ContactCard
+              className="contact-card"
               titleLevel={2}
               content={findPageComponentContent(components, 'Card', 'Address')}
               Icon={MapMarker}

@@ -1,28 +1,61 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Card, CardProps } from '../index';
-import { ReactComponent as Phone } from 'src/svgs/inline/map-marker.svg';
-import cardsData from 'src/mocks/cards.json';
-
-const cards: any = cardsData;
+import { storiesOf } from '@storybook/react';
+import Button, { ButtonViewType } from '../components/Button';
+import {Card, ProductCardWrapper, RecipeCardWrapper } from '../components/Card';
+import recipes from '../mocks/recipes';
+import products from '../mocks/products.json';
+import {IMAGE_SIZES} from '../components/constants';
+import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+//@ts-ignore
+const recipe = recipes.data.allRecipe.edges[0].node;
+const product = products[1];
+const favoriteButton = <Button
+  {...{
+    className: 'recipe-card__favorite action-button',
+    Icon: FavoriteIcon,
+    isToggle: true,
+    viewType: ButtonViewType.icon,
+    attributes: { 'aria-label': 'favorite toggle' },
+  }}
+  onClick={(e, recipeId) => {
+    console.log(recipeId)
+  }}
+/>;
 
 storiesOf('Generic/Card', module)
-  .add('with Title and Text', () => <Card {...cards[2]} className="card" />, {
-    inline: false,
-  })
-  .add(
-    'with Title, Text and RecipeDietaryAttributeIcon ',
-    () => <Card {...cards[0]} Icon={Phone} className="card" />,
-    { inline: false }
-  )
-  .add(
-    'several cards',
-    () => (
-      <>
-        {cards.map((card: CardProps, i: number) => (
-          <Card key={i} {...card} Icon={Phone} className="card" />
-        ))}
-      </>
-    ),
-    { inline: false }
-  );
+  .add('Default card',
+  ()=> <Card
+    content={recipe}
+    idPropertyName="recipeId"
+    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+  /> ,{inline:false})
+  .add('Default card with button',
+    ()=> <Card
+      content={recipe}
+      idPropertyName="recipeId"
+      imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+    >
+      {favoriteButton}
+    </Card> ,{inline:false})
+  .add('Recipe Wrapper card with button',
+  ()=>
+    <RecipeCardWrapper ratingProvider={2}>
+    <Card
+    content={recipe}
+    idPropertyName="recipeId"
+    imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+  >
+    {favoriteButton}
+      </Card>
+    </RecipeCardWrapper> ,{inline:false})
+  .add('Product Wrapper card with button',
+    ()=>
+      <ProductCardWrapper ratingProvider={2}>
+        <Card
+          content={product}
+          idPropertyName="productId"
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+        >
+          {favoriteButton}
+        </Card>
+      </ProductCardWrapper> ,{inline:false});

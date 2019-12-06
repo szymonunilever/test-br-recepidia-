@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { RecipeCardProps } from '../RecipeCard';
 import theme from '../RecipeCard/RecipeCard.module.scss';
-import { RecipeCardLinkWrapperProps } from './models';
+import { CardLinkWrapperProps } from './models';
 
-export const RecipeCardLinkWrapper:FunctionComponent<RecipeCardLinkWrapperProps> = ({isExternal, className, title, children, slug, ...props}) => {
+export const CardLinkWrapper:FunctionComponent<CardLinkWrapperProps> = ({isExternal, className, title, children, slug, ...props}) => {
   const wrapClasses = cx(theme.recipeCard, 'recipe-card', className);
   const LinkComponent: any = isExternal ? 'a' : Link;
   const linkProps = {'aria-label' : title, ...props};
@@ -22,4 +22,4 @@ export const RecipeCardLinkWrapper:FunctionComponent<RecipeCardLinkWrapperProps>
   </LinkComponent>
 };
 
-export default RecipeCardLinkWrapper;
+export default CardLinkWrapper;

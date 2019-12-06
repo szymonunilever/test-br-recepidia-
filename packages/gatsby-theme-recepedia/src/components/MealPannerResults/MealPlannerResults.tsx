@@ -5,8 +5,8 @@ import {
   Modal,
   RatingAndReviewsProvider,
   RecipeAddPlaceholderProps,
-  RecipeCardLinkWrapper,
-  RecipeCardLinkWrapperProps,
+  CardLinkWrapper,
+  CardLinkWrapperProps,
   RecipeListing,
   RecipeListViewType,
   ResultSection as WizardResultSection,
@@ -91,7 +91,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
 
   // Define States
   const [recipeCards, setRecipeCards] = useState<
-    | ReactElement<RecipeCardLinkWrapperProps>[]
+    | ReactElement<CardLinkWrapperProps>[]
     | ReactElement<RecipeAddPlaceholderProps>[]
   >([]);
   const [showRemoveConfirmation, setShowRemoveConfirmation] = useState(false);
@@ -281,7 +281,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   useEffect(() => {
     const recipeListingChildren = resultsDefault
       ? resultsDefault.map(recipe => (
-          <RecipeCardLinkWrapper
+          <CardLinkWrapper
             title={recipe.title}
             key={recipe.id}
             slug={recipe.fields.slug}
@@ -302,7 +302,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
                 }}
               />
             </RecipeCard>
-          </RecipeCardLinkWrapper>
+          </CardLinkWrapper>
         ))
       : [];
     if (recipeListingChildren && recipeListingChildren.length > 0) {
