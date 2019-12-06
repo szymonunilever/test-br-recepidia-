@@ -5,15 +5,16 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding-bottom: 1px; //fix for safari
+    margin: 0 #{-$col-indent-mobile};
+    @include respondTo(medium) {
+      margin: 0 #{-$col-indent-medium};
+    }
+    @include respondTo(desktop) {
+      margin: 0 #{-$col-indent-desktop};
+    }
     &__list {
       align-content: flex-start;
-      margin: 0 #{-$col-indent-mobile};
-      @include respondTo(medium) {
-        margin: 0 #{-$col-indent-medium};
-      }
-      @include respondTo(desktop) {
-        margin: 0 #{-$col-indent-desktop};
-      }
+      margin: 0;
     }
     &__item {
       margin: 0 $col-indent-mobile #{$col-indent-mobile * 2};

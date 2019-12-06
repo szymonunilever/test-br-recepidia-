@@ -6,6 +6,7 @@ import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as PlayIcon } from 'src/svgs/inline/arrow-right.svg';
+import '../../scss/pages/_article.scss';
 import theme from 'src/templates/ArticlePage/ArticlePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
