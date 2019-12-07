@@ -112,7 +112,7 @@ const SearchInput = ({
   const submitHandler = useCallback(() => {
     setData([]);
     setInputIsDirty(false);
-
+    onClickSearchResultsItem && onClickSearchResultsItem(inputValue, { size: searchResultsCount });
     if (
       trim(inputValue).length >= minLength &&
       onSubmit &&
@@ -122,9 +122,8 @@ const SearchInput = ({
       onSubmit(inputValue, {
         from: 0,
         size: searchResultsCount,
-      }).then(() => {
-        setIsLoading(false);
       });
+      setIsLoading(false);
     }
   }, [isLoading, inputValue, onSubmit, searchResultsCount]);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { Accordion, Button, Tags, TagToggleHandler, TagViewType, TagVariant } from '../../';
 import theme from './FilterSettings.module.scss';
@@ -10,22 +10,31 @@ const FilterSettings = ({
   onFilterChange,
   className,
   icons,
-  onApply,
   content: { filtersPanel },
 }: FilterSettingsProps) => {
   const classWrapper = cx(theme.filterSettings, 'filter-settings', className);
+  const [filteredTags, setFilteredTags] = useState<Internal.Tag[]>([]);
+
+  useEffect(() => {
+    setFilteredTags(selectedTags)
+  }, [selectedTags]);
 
   const onToggleFilter = (val: TagToggleHandler) => {
-    const filters = [...selectedTags];
+    const filters = [...filteredTags];
     if (val.state) {
       filters.push(val.tag);
     } else if (filters.length > 0) {
       filters.splice(filters.findIndex((t: Internal.Tag) => t.id === val.tag.id), 1);
     }
-    onFilterChange(filters)
+    setFilteredTags(filters)
   };
   const onReset = () => {
+    setFilteredTags([]);
     onFilterChange([]);
+  };
+
+  const onApplyHandler = () => {
+    onFilterChange(filteredTags);
   };
 
   const displayGroups =
@@ -67,7 +76,7 @@ const FilterSettings = ({
                 list={item.children}
                 content={{ title: undefined, loadMoreButton: undefined }}
                 enableExternalManage
-                selectedTags={selectedTags}
+                selectedTags={filteredTags}
                 viewType={TagViewType.filter}
                 initialCount={0}
                 handleTagToggle={onToggleFilter}
@@ -94,7 +103,7 @@ const FilterSettings = ({
         />
         <Button
           className={cx(theme.filterSettings__apply, 'filter-settings__apply')}
-          onClick={onApply}
+          onClick={onApplyHandler}
           content={filtersPanel && filtersPanel.ctas.apply}
         />
       </div>

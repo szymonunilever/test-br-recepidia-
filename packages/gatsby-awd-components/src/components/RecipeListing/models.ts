@@ -25,7 +25,6 @@ export interface RecipeListingProps extends UnileverLibraryComponent<Partial<App
   initialCount?: number;
   recipePerLoad?: number;
   viewType?: RecipeListViewType;
-  preFilteringValue?: Internal.Tag[];
   tags?: FilterOptions;
   carouselConfig?: CarouselConfig;
   loadMoreConfig?: LoadMoreConfig;

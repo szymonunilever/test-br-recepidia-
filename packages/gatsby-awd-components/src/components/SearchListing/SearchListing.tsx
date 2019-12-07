@@ -129,7 +129,6 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       content={content.recipesContent}
       ratingProvider={RatingAndReviewsProvider.inline}
       loadMoreConfig={loadMoreConfig}
-      preFilteringValue={filteringValue}
       {...recipeConfig}
       hideFilter
     >
@@ -232,7 +231,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     { list: [], content: { tabs: [] } }
   );
 
-  const onFilterChange = (filter: Internal.Tag[]) => {
+  const onChangeFilter = (filter: Internal.Tag[]) => {
     if (recipeConfig.onViewChange) {
       recipeConfig.onViewChange(filter, null).then(() => {
         setFilteringValue(filter);
@@ -265,7 +264,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             // @ts-ignore
             allFilters={recipeConfig.tags}
             icons={icons}
-            onChangeFilter={onFilterChange}
+            onChangeFilter={onChangeFilter}
             content={content.recipesContent}
             filterTitle={searchResultsText}
             currentFilters={filteringValue}

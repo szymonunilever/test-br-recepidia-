@@ -34,7 +34,6 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   initialCount = 4,
   onViewChange,
   titleLevel,
-  preFilteringValue = [],
   loadMoreConfig = { type : LoadMoreType.sync },
   tags = { tagGroups : [] },
   carouselConfig = {
@@ -121,7 +120,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   const [ sortingValue, setSortingValue ] = useState<SortingOptions>(
     SortingOptions.newest,
   );
-  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([...preFilteringValue]);
+  const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([]);
   const [ actualChildren, setActualChildren ] = useState<ReactElement<RecipeCardProps>[] | ReactElement<RecipeCardLinkWrapperProps>[]>(
     getActualChildren(getSlicedList(), cards),
   );
@@ -135,10 +134,6 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   useEffect(() => {
     setActualChildren(getActualChildren(getSlicedList(list), cards));
   }, [ list, displayNumber, children ]);
-
-  useEffect(() => {
-    setFilteringValue(preFilteringValue)
-  }, [preFilteringValue]);
 
   const didMountRef = useRef(false);
   useEffect(() => {
@@ -274,6 +269,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
           onChangeFilter={onFilterChange}
           // @ts-ignore
           onChangeSorting={onChangeSorting}
+          currentFilters={filteringValue}
           results={
             (loadMoreConfig && loadMoreConfig.allCount) || actualChildren.length
           }
