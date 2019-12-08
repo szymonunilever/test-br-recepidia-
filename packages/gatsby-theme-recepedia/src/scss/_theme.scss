@@ -227,3 +227,15 @@ progress::-ms-fill {
     padding-right: $layout-indent;
   }
 }
+
+.grecaptcha-badge {
+  bottom: 88px !important;
+  transform: scale(0.5);
+  right: -160px !important;
+  transform-origin: bottom;
+  @include respondTo(desktop) {
+    bottom: 160px !important;
+    right: -186px !important;
+    transform: scale(1);
+  }
+}
