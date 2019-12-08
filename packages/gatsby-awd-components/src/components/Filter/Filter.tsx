@@ -47,9 +47,10 @@ const Filter: FunctionComponent<FilterProps> = ({
   const classWrapper = cx(theme.filter, className);
   const [showFilterSettings, setShowFilterSettings] = useState<boolean>(false);
   const [selectedTags, setSelectedTags] = useState<Internal.Tag[]>([]);
-  const applySelectedTagsToFilter = () => {
+  const applySelectedTagsToFilter = (tags: Internal.Tag[]) => {
+    setSelectedTags(tags);
     setShowFilterSettings(!showFilterSettings);
-    onChangeFilter(selectedTags);
+    onChangeFilter(tags);
   };
   const sortingOptions: Option[] = optionLabels
     ? enumToArray(SortingOptions).map(item => ({
@@ -88,7 +89,7 @@ const Filter: FunctionComponent<FilterProps> = ({
   }, [searchQuery]);
 
   useEffect(() => {
-    currentFilters !== selectedTags && setSelectedTags([]);
+    searchQuery && (currentFilters !== selectedTags) && setSelectedTags([]);
   }, [currentFilters]);
 
   return (
@@ -134,11 +135,10 @@ const Filter: FunctionComponent<FilterProps> = ({
       >
         <FilterSettings
           allFilters={allFilters}
-          onFilterChange={setSelectedTags}
+          onFilterChange={applySelectedTagsToFilter}
           icons={icons}
           selectedTags={selectedTags}
           content={{ filtersPanel }}
-          onApply={applySelectedTagsToFilter}
         />
       </Modal>
       <Tags

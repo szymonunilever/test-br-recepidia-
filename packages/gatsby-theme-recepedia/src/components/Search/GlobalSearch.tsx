@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { graphql, navigate, useStaticQuery } from 'gatsby';
 import {
   Button,
@@ -55,6 +55,10 @@ const GlobalSearch = ({
       })
       .catch(() => {});
   };
+  const onSubmit = useCallback(value => {
+      navigate(`${relativePath}?searchQuery=${value}`);
+      setModalState(false);
+  }, []);
 
   return (
     <>
@@ -74,19 +78,13 @@ const GlobalSearch = ({
       >
         <SearchInput
           getSearchResults={getSearchSuggestionData}
-          onClickSearchResultsItem={(value: string) => {
-            navigate(`${relativePath}?searchQuery=${value}`); // get URL from Pages when search Page is there
-            setModalState(false);
-          }}
+          onClickSearchResultsItem={onSubmit}
           content={searchContent}
           searchResults={searchInputResults}
           labelIcon={<SearchIcon />}
           buttonResetIcon={<ButtonCloseIcon />}
           buttonSubmitIcon={<SearchIcon />}
-          onSubmit={async value => {
-            navigate(`${relativePath}?searchQuery=${value}`); // get URL from Pages when search Page is there
-            setModalState(false);
-          }}
+          onSubmit={onSubmit}
           autoFocus
         />
       </Modal>

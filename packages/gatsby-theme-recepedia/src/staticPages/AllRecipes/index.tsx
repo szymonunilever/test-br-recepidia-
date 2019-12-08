@@ -18,10 +18,7 @@ import {
   Button,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, useElasticSearch } from 'src/utils';
-import {
-  favoriteButtonDefaults,
-  RecipeListingIcons as icons,
-} from '../../themeDefaultComponentProps';
+import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
 import theme from './AllRecipes.module.scss';
 import cx from 'classnames';
 import DigitalData from '../../../integrations/DigitalData';
@@ -160,7 +157,6 @@ const AllRecipesPage = ({
         className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
       >
         <RecipeListing
-          icons={icons}
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
           content={{
@@ -228,7 +224,6 @@ const AllRecipesPage = ({
         )}
       >
         <RecipeListing
-          icons={icons}
           content={findPageComponentContent(
             components,
             'RecipeListing',

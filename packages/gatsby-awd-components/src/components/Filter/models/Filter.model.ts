@@ -39,7 +39,6 @@ export interface FilterSettingsProps
   onFilterChange: (filter: Internal.Tag[]) => void;
   selectedTags: Internal.Tag[];
   icons: FilterIcons;
-  onApply: () => void;
 }
 
 export interface FilterIcons {
