@@ -32,12 +32,15 @@ const useSearchResults = (searchQuery: string) => {
     list: [],
     count: 0,
   });
-  const [resultsFetched, setResultsFetched] = useState(false);
+  const [recipeResultsFetched, setRecipeResultsFetched] = useState(false);
+  const [articleResultsFetched, setArticleResultsFetched] = useState(false);
   const initialTagsCount = useMedia(undefined, [9, 5]);
 
   const getRecipeSearchData = useCallback(
-    async (searchQuery, params, filter) =>
-      getRecipeResponse(searchQuery, params, filter)
+    async (searchQuery, params, filter) => {
+      setRecipeResultsFetched(false);
+
+      return getRecipeResponse(searchQuery, params, filter)
         .then(res => {
           setRecipeResults({
             list: params.from
@@ -49,13 +52,19 @@ const useSearchResults = (searchQuery: string) => {
             count: res.body.hits.total.value,
           });
         })
-        .catch(() => {}),
+        .catch(() => {})
+        .finally(() => {
+          setRecipeResultsFetched(true);
+      })
+    },
     [recipeResults]
   );
 
   const getArticleSearchData = useCallback(
-    async (searchQuery, params, filter) =>
-      getArticleResponse(searchQuery, params, filter).then(res => {
+    async (searchQuery, params, filter) => {
+      setArticleResultsFetched(false);
+
+      return getArticleResponse(searchQuery, params, filter).then(res => {
         setArticleResults({
           list: params.from
             ? [
@@ -65,7 +74,10 @@ const useSearchResults = (searchQuery: string) => {
             : res.body.hits.hits.map(resItem => resItem._source),
           count: res.body.hits.total.value,
         });
-      }),
+      }).finally(() => {
+        setArticleResultsFetched(true)
+      })
+    },
     [articleResults]
   );
 
@@ -87,19 +99,19 @@ const useSearchResults = (searchQuery: string) => {
             ],
           });
         })
-        .then(() => {
-          setResultsFetched(true);
-        })
         .catch(() => {}),
     []
   );
 
   const getSearchData = async (searchQuery: string, params: SearchParams) => {
+    setRecipeResultsFetched(false);
+    setArticleResultsFetched(false);
     Promise.all([
       getArticleSearchData(searchQuery, params, ''),
       getRecipeSearchData(searchQuery, params, ''),
     ]).then(() => {
-      setResultsFetched(true);
+      setRecipeResultsFetched(true);
+      setArticleResultsFetched(true);
     });
   };
 
@@ -123,7 +135,8 @@ const useSearchResults = (searchQuery: string) => {
     recipeResults,
     articleResults,
     searchInputResults,
-    resultsFetched,
+    recipeResultsFetched,
+    articleResultsFetched,
     initialRecipesCount,
     initialArticlesCount,
     initialTagsCount,

@@ -34,7 +34,8 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     recipeResults,
     searchInputResults,
     articleResults,
-    resultsFetched = true,
+    recipeResultsFetched = true,
+    articleResultsFetched = true,
   },
 }) => {
   const classNames = cx(theme.searchListing, 'search-listing', className);
@@ -104,17 +105,15 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     []
   );
 
-  const searchResultsText = resultsFetched
-    ? content.searchListingContent.title
-        .replace(
-          '{numRes}',
-          (recipeResults.count + articleResults.count).toString()
-        )
-        .replace(
-          '{searchInputValue}',
-          `${defaultSearchValue ? `\n"${trim(defaultSearchValue)}"` : '" "'}`
-        )
-    : undefined;
+  const searchResultsText = content.searchListingContent.title
+    .replace(
+      '{numRes}',
+      (recipeResults.count + articleResults.count).toString()
+    )
+    .replace(
+      '{searchInputValue}',
+      `${defaultSearchValue ? `\n"${trim(defaultSearchValue)}"` : '" "'}`
+    );
 
   const loadMoreConfig = {
     type: LoadMoreType.async,
@@ -257,34 +256,30 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         onSubmit={onSubmit}
         onClickSearchResultsItem={onClickSearchResultsItem}
       />
-      {resultsFetched && (
-        <>
-          <Filter
-            className={cx(theme.recipeList__filter, 'wrapper search-filter')}
-            // @ts-ignore
-            allFilters={recipeConfig.tags}
-            icons={icons}
-            onChangeFilter={onChangeFilter}
-            content={content.recipesContent}
-            filterTitle={searchResultsText}
-            currentFilters={filteringValue}
-            searchQuery={defaultSearchValue}
-            results={recipeResults.count + articleResults.count}
-          />
-
-          {recipeResults.count + articleResults.count ? (
+      <Filter
+        className={cx(theme.recipeList__filter, 'wrapper search-filter')}
+        // @ts-ignore
+        allFilters={recipeConfig.tags}
+        icons={icons}
+        onChangeFilter={onChangeFilter}
+        content={content.recipesContent}
+        filterTitle={searchResultsText}
+        currentFilters={filteringValue}
+        searchQuery={defaultSearchValue}
+        results={recipeResults.count + articleResults.count}
+      />
+      {recipeResults.count + articleResults.count ? (
             <Tabs className="search-tabs" content={tabs.content}>
               {tabs.list.map(tab => tab)}
             </Tabs>
           ) : (
-            <NullResult
-              content={content.nullResultContent}
-              className="search-listing__null-results"
-              titleLevel={3}
-            />
-          )}
-        </>
-      )}
+          recipeResultsFetched && articleResultsFetched && <NullResult
+            content={content.nullResultContent}
+            className="search-listing__null-results"
+            titleLevel={3}
+          />
+        )
+      }
     </div>
   );
 };
