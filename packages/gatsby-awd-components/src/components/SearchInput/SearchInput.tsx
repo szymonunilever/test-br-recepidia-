@@ -130,7 +130,10 @@ const SearchInput = ({
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      submitHandler();
+      if(trim(inputValue).length >= minLength &&
+      trim(inputValue).length <= maxLength) {
+        submitHandler();
+      }
     } else if (e.key === 'ArrowDown' && data.length) {
       let newActiveItemIndex =
         activeItemIndex < data.length - 1 ? activeItemIndex + 1 : 0;
