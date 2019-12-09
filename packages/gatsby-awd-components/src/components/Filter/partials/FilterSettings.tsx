@@ -30,7 +30,6 @@ const FilterSettings = ({
   };
   const onReset = () => {
     setFilteredTags([]);
-    onFilterChange([]);
   };
 
   const onApplyHandler = () => {
