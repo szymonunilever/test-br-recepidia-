@@ -11,7 +11,8 @@
       }
     }
     .search-filter {
-      display: block;
+      display: flex;
+      align-items: flex-start;
       @include respondTo(desktop) {
         display: flex;
         justify-content: space-between;
@@ -29,6 +30,9 @@
         max-width: unset;
         font: 500 2.4rem/1.17 $rubik;
         margin-bottom: 15px;
+        @include respondTo(medium) {
+          max-width: calc(100% - 200px);
+        }
         @include respondTo(desktop) {
           font-size: 2.5rem;
           margin-right: 30px;
@@ -38,6 +42,11 @@
         display: flex;
         justify-content: flex-end;
         flex-shrink: 0;
+        width: 100%;
+
+        @include respondTo(medium) {
+          width: auto;
+        }
       }
       &__button.button {
         width: 158px;
