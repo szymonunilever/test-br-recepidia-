@@ -12,6 +12,7 @@ export * from './GeneratedForm';
 export * from './GlobalFooter';
 export * from './GlobalNavigation';
 export * from './Hero';
+export * from './Loader';
 export * from './Logo';
 export * from './MediaGallery';
 export * from './Modal';

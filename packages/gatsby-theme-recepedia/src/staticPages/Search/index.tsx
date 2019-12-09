@@ -13,6 +13,7 @@ import {
   RatingAndReviewsProvider,
   WithLocation as withLocation,
   WithLocationProps,
+  Loader,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
@@ -35,6 +36,7 @@ import map from 'lodash/map';
 
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -52,7 +54,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     recipeResults,
     articleResults,
     searchInputResults,
-    resultsFetched,
+    recipeResultsFetched,
+    articleResultsFetched,
     initialRecipesCount,
     initialArticlesCount,
     initialTagsCount,
@@ -122,13 +125,17 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <section className={cx('_pt--40 _pb--40', theme.searchListingWrap)}>
+        <Loader isLoading={!articleResultsFetched && !recipeResultsFetched}>
+          <Spinner />
+        </Loader>
         <SearchListing
           searchQuery={searchQuery}
           searchResults={{
             recipeResults,
             searchInputResults,
             articleResults,
-            resultsFetched,
+            articleResultsFetched,
+            recipeResultsFetched
           }}
           searchResultTitleLevel={3}
           config={{

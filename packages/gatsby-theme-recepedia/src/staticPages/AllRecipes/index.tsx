@@ -16,6 +16,7 @@ import {
   Text,
   RatingAndReviewsProvider,
   Button,
+  Loader,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, useElasticSearch } from 'src/utils';
 import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
@@ -37,6 +38,7 @@ import {
 } from 'src/components/withInitialDataAndAsyncLoadMore/models';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
 
 const AllRecipesPage = ({
   data,
@@ -108,6 +110,7 @@ const AllRecipesPage = ({
         sort,
       },
     };
+    setDataFetched(false);
 
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
@@ -156,6 +159,9 @@ const AllRecipesPage = ({
       <section
         className={cx(theme.allRecipesSortListing, '_pt--40 _pb--40 wrapper')}
       >
+        <Loader isLoading={!dataFetched}>
+          <Spinner />
+        </Loader>
         <RecipeListing
           dataFetched={dataFetched}
           viewType={RecipeListViewType.Advanced}
