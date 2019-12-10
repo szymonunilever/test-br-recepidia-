@@ -151,7 +151,8 @@ const articleSearchParams = (
       query_string: {
         // eslint-disable-next-line @typescript-eslint/camelcase
         analyze_wildcard: true,
-        query: `${searchQuery}*`,
+        query: '',
+        // query: `${searchQuery}*`, // TODO Uncomment line to show articles (EAT-1451)
         fields: ['title^5', 'articleText.text^2'],
       },
     },
@@ -166,6 +167,7 @@ const articleSearchParams = (
       fields: ['tagGroups.tags.id'],
     },
   });
+
   return {
     index: process.env['elasticSearch_articleIndex'] as string,
     body: {

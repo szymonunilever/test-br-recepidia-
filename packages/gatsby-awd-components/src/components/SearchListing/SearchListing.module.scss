@@ -20,7 +20,8 @@
 
         .tags {
           width: 100%;
-          margin-top: 10px;
+          padding-top: 40px; // TODO Fix styles on Tabs hiding EAT-1451
+          padding-bottom: 40px; // TODO Fix styles on Tabs hiding EAT-1451
         }
       }
       &-input {

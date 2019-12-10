@@ -269,9 +269,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         results={recipeResults.count + articleResults.count}
       />
       {recipeResults.count + articleResults.count ? (
-            <Tabs className="search-tabs" content={tabs.content}>
-              {tabs.list.map(tab => tab)}
-            </Tabs>
+        // <Tabs className="search-tabs" content={tabs.content}> // TODO Hide Tabs from search Results page EAT-1451
+        //   {tabs.list.map(tab => tab)}
+        // </Tabs>
+        <div className="wrapper">{recipes}</div>
           ) : (
           recipeResultsFetched && articleResultsFetched && <NullResult
             content={content.nullResultContent}
