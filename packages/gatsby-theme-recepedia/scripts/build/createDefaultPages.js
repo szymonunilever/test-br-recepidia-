@@ -99,7 +99,7 @@ module.exports = async ({ graphql, createPage }) => {
         'NewsletterSignUp',
         'PreferenceCenter',
         'TermsAndConditions',
-        'FAQ',
+        //'FAQ',
       ].includes(type)
     )
     .forEach(pageNode => {
