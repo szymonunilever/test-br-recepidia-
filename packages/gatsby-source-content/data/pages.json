@@ -2685,7 +2685,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "MealPlanerRename",
-              "title": "Rename Meal Planer",
+              "title": "Dê um nome esse cardápio!",
               "submitButton": {
                 "label": "Enviar"
               },
@@ -2694,8 +2694,8 @@
                   "name": "mealPlannerTitle",
                   "type": "text",
                   "maxlength": 30,
-                  "label": "Weekly menu name",
-                  "placeholder": "EX. Doe"
+                  "label": "Nome do cardápio",
+                  "placeholder": "Cardápio Vegano"
                 }
               ]
             }
@@ -2737,7 +2737,7 @@
           {
             "name": "SearchCustomRecipeModal",
             "content": {
-              "title": "Type a recipe you love!",
+              "title": "Busque por uma nova receita!",
               "placeholderText": "No mínimo 3 caracteres"
             }
           },
@@ -2745,7 +2745,7 @@
             "name": "SearchCustomRecipeResult",
             "content": {
               "onResult": {
-                "title": "Result",
+                "title": "Resultado",
                 "subheading": "Encontrei {numRes} resultados para: {searchInputValue}",
                 "ctas": [
                   {
@@ -2763,15 +2763,9 @@
                 ]
               },
               "noResult": {
-                "title": "Result",
-                "subheading": "Encontrei {numRes} resultados para: {searchInputValue}",
+                "title": "=/  Busquei por toda cozinha mas não encontrei o que você procurava",
+                "subheading": "Minhas chances de encontrar aumentam quando você",
                 "ctas": [
-                  {
-                    "type": "back",
-                    "content": {
-                      "label": "Use relevant to meal planer"
-                    }
-                  },
                   {
                     "type": "next",
                     "content": {
@@ -2787,9 +2781,8 @@
             "content": {
               "view": "SearchCustomRecipeResult",
               "textList": [
-                "Use short keywords in your search",
-                "Try not to use too long phrases",
-                "Try to use autosuggestion"
+                "Procura pelo ingrediente principal",
+                "Não busca por frases"
               ]
             }
           },
