@@ -100,8 +100,6 @@ const customRedirects = {
   '/receita/186695-iscas-de-figado-refogadas-com-pimentao': '/receita/',
   '/receita/186900-torta-de-frango-facil-e-cremosa-de-liquidificador-com-ervilha-e-milho':
     '/receita/torta/54507-torta-de-frango-facil-e-cremosa-de-liquidificador-com-ervilha-e-milho/',
-  '/receita/197696-bolo-de-banana-de-liquidificador-pratico-e-caseiro':
-    '/receita/sobremesa/67407-bolo-de-banana-de-liquidificador-pratico-e-caseiro/',
   '/receita/186823-receita-simples-de-molho-branco-com-maizena-e-noz-moscada':
     '/receita/molho/54170-receita-simples-de-molho-branco-com-maizena-e-noz-moscada/',
   '/receita/186900-torta-de-frango-de-liquidificador':
@@ -110,69 +108,41 @@ const customRedirects = {
     '/receita/carne/54349-feijoada-completa-tradicional-deliciosa/',
   '/receita/195555-pudim-de-leite-condensado':
     '/receita/pudins/101178-pudim-de-leite/',
-  '/receita/187204-panqueca-de-carne-moida-pratica-com-molho-de-tomate':
-    '/receita/panquecas-e-waffles/54186-panqueca-de-carne-moida-pratica-com-molho-de-tomate/',
   '/receita/185212-rocambole-facil-de-carne-moida-recheado-com-presunto-e-queijo':
     '/receita/recheio/36779-rocambole-facil-de-carne-moida-recheado-com-presunto-e-queijo/',
   '/receita/185740-pure-de-batata-simples-e-cremoso':
     '/receita/verduras-e-legumes/36144-pure-de-batata-simples-e-cremoso/',
-  '/receita/196445-macarrao-presunto-e-queijo':
-    '/receita/macarrao/54530-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate/',
   '/receita/189638-como-montar-hamburguer':
     '/receita/hamburguer/111033-hamburguer-com-maionese-verde/',
-  '/receita/187202-salpicao-de-frango-pratico-com-cenoura-batata-milho-e-salsao':
-    '/receita/aves/54158-salpicao-de-frango-pratico-com-cenoura-batata-milho-e-salsao/',
   '/receita/197696-bolo-de-banana-de-liquidificador':
     '/receita/197696-bolo-de-banana-de-liquidificador-pratico-e-caseiro',
   '/receita/192219-bolo-de-fuba-de-liquidificador':
     '/receita/bolo/36669-bolo-cremoso-de-fuba/',
-  '/receita/186912-cuscuz-de-sardinha-simples-e-versatil':
-    '/receita/peixe/54382-cuscuz-de-sardinha-simples-e-versatil/',
   '/receita/185212-rocambole-de-carne-moida-recheado-com-presunto-e-queijo':
     '/receita/recheio/36779-rocambole-facil-de-carne-moida-recheado-com-presunto-e-queijo/',
-  '/receita/188243-virado-de-feijao-de-corda':
-    '/receita/carne/54411-virado-de-feijao-completo/',
   '/receita/195413-mousse-de-chocolate':
     '/receita/dish/175453-tortinha-mousse-de-cacau-e-baunilha/',
   '/receita/189378-cachorro-quente-de-forno':
     '/receita/sanduiche/118194-hot-dog-cremoso/',
   '/receita/195379-bolo-cuca': '/receita/bolo/35733-cuca-de-banana/',
-  '/receita/189524-canjica-cremosa-com-amendoim':
-    '/receita/sobremesa/84873-canjica-com-amendoim/',
-  '/receita/186897-chocolate-quente':
-    '/receita/bebidas/54812-chocolate-quente-cremoso-de-cremogema/',
   '/receita/189450-mingau-de-aveia':
     '/receita/dish/175668-mingau-de-quinoa-flocos-organica-com-granola-mae-terra/',
-  '/receita/187033-salada-de-batata-pratica-e-deliciosa-com-ovo-e-maionese':
-    '/receita/salada/54426-salada-de-batata-pratica-e-deliciosa-com-ovo-e-maionese/',
   '/receita/188221-cafe-cremoso-especial':
     '/receita/bebidas/36685-shake-de-cappuccino/',
-  '/receita/187307-recheio-de-abacaxi-para-bolo-de-aniversario':
-    '/receita/bolo/35811-bolo-diferente-de-abacaxi-e-coco/',
   '/receita/191625-macarrao-com-caldo-knorr':
     '/receita/massa/36050-macarrao-com-molho-de-talos-de-agriao/',
   '/receita/195987-biscoito-de-queijo-assado':
     '/receita/pao/35871-biscoito-de-queijo/',
-  '/receita/187694-macarrao-cremoso-na-pressao':
-    '/receita/macarrao/36051-macarrao-de-panela-de-pressao/',
   '/receita/193590-frango-ao-molho-de-tomate':
     '/receita/aves/35432-file-de-frango-com-molho-de-tomate-e-cebola/',
-  '/receita/186904-frango-empanado-crocante-ao-forno':
-    '/receita/aves/54561-frango-empanado-crocante-ao-forno/',
   '/receita/196576-bolo-de-cenoura':
     '/receita/196633-bolo-de-cenoura-com-cobertura-de-chocolate',
   '/receita/195311-costela-gaucha-ao-forno':
     '/receita/carne/35901-costela-suculenta-assada-no-forno-e-recheada-com-mandioca/',
   '/receita/189779-torta-gelada-de-maracuja':
     '/receita/dish/175434-torta-cremosa-de-maracuja-com-chocolate/',
-  '/receita/187669-torta-fria-de-frango-sem-maionese':
-    '/receita/torta/54379-torta-fria-de-pure-com-recheio-de-frango/',
-  '/receita/186943-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate':
-    '/receita/macarrao/54530-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate/',
   '/receita/188395-bolo-de-maca-especial':
     '/receita/bolo/36081-bolo-integral-de-maca/',
-  '/receita/187496-suco-de-acerola':
-    '/receita/frutas/36658-shake-da-imunidade-com-morango-acerola-e-abacaxi/',
   '/receita/193572-croquete-de-carne': '/receita/carne/35600-quibe-no-palito/',
   '/receita/194773-rosca-de-leite-condensado':
     '/receita/sobremesa/152666-rosca-natalina/',
@@ -182,8 +152,73 @@ const customRedirects = {
     '/receita/verduras-e-legumes/36144-pure-de-batata-simples-e-cremoso/',
   '/receita/186823-receita-simples-de-molho-branco':
     '/receita/186823-receita-simples-de-molho-branco-com-maizena-e-noz-moscada',
+  '/receita/187204-panqueca-de-carne-moida-pratica-com-molho-de-tomate':
+    '/receita/panquecas-e-waffles/177590-panqueca-de-carne/',
+  '/receita/197696-bolo-de-banana-de-liquidificador-pratico-e-caseiro':
+    '/receita/sobremesa/67407-bolo-de-banana-de-liquidificador-pratico-e-caseiro/',
+  '/receita/195312-divino-strogonoff-de-macarrao-e-carne-moida':
+    '/receita/macarrao/36051-macarrao-de-panela-de-pressao/',
+  '/receita/196445-macarrao-presunto-e-queijo':
+    '/receita/macarrao/54530-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate/',
+  '/receita/187202-salpicao-de-frango-pratico-com-cenoura-batata-milho-e-salsao':
+    '/receita/aves/54158-salpicao-de-frango-pratico-com-cenoura-batata-milho-e-salsao/',
+  '/receita/192969-biscoito-de-polvilho': '/procurar?searchQuery=biscoito',
+  '/receita/187375-pudim-de-leite-condensado-no-microondas':
+    '/receita/sobremesa/101178-pudim-de-leite/',
+  '/receita/189319-files-de-peixe-fritos-crocantes':
+    '/receita/peixe/106404-linguado-em-crosta-de-erva-e-molho-agridoce/',
+  '/receita/186485-massa-de-salgadinho-para-festa':
+    '/procurar?searchQuery=bolinho',
+  '/receita/186912-cuscuz-de-sardinha-simples-e-versatil':
+    '/receita/peixe/54382-cuscuz-de-sardinha-simples-e-versatil/',
+  '/receita/187981-sufle-de-chuchu': '/procurar?searchQuery=sufl%C3%AA',
+  '/receita/188243-virado-de-feijao-de-corda':
+    '/receita/carne/54411-virado-de-feijao-completo/',
+  '/receita/191122-cuscuz-com-queijo': '/receita/peixe/53800-cuscuz-de-atum/',
+  '/receita/189524-canjica-cremosa-com-amendoim':
+    '/receita/sobremesa/84873-canjica-com-amendoim/',
+  '/receita/186897-chocolate-quente':
+    '/receita/bebidas/54812-chocolate-quente-cremoso-de-cremogema/',
+  '/receita/191167-ovo-frito-no-microondas': '/procurar?searchQuery=ovo',
+  '/receita/187033-salada-de-batata-pratica-e-deliciosa-com-ovo-e-maionese':
+    '/receita/salada/54426-salada-de-batata-pratica-e-deliciosa-com-ovo-e-maionese/',
+  '/receita/188222-torta-salgada-com-pao-de-forma': '/categoria/tortas/',
+  '/receita/187307-recheio-de-abacaxi-para-bolo-de-aniversario':
+    '/receita/bolo/35811-bolo-diferente-de-abacaxi-e-coco/',
+  '/receita/187694-macarrao-cremoso-na-pressao':
+    '/receita/macarrao/36051-macarrao-de-panela-de-pressao/',
+  '/receita/194693-geladinho-de-coco':
+    '/receita/sorvete/93465-bolo-gelado-de-coco-com-sorvete-de-creme-kibon/',
+  '/receita/186904-frango-empanado-crocante-ao-forno':
+    '/receita/aves/54561-frango-empanado-crocante-ao-forno/',
+  '/receita/187669-torta-fria-de-frango-sem-maionese':
+    '/receita/torta/54379-torta-fria-de-pure-com-recheio-de-frango/',
+  '/receita/186943-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate':
+    '/receita/macarrao/54530-macarrao-cremoso-incrementado-com-presunto-queijo-e-tomate/',
+  '/receita/187496-suco-de-acerola':
+    '/receita/frutas/36658-shake-da-imunidade-com-morango-acerola-e-abacaxi/',
+  '/receita/190714-miojo-especial-de-microondas': '/categoria/massas/',
+  '/receita/191298-pao-de-queijo-sem-queijo-sem-gluten-e-sem-lactose':
+    '/receita/pao/179559-pao-sem-gluten/',
+  '/receita/189656-mousse-rapido-de-tang-danoninho':
+    '/receita/bebidas/36585-vitamina-de-morango-e-limao-siciliano/',
   '/receita/195508-figado-de-frango-com-molho':
     '/receita/carne/54465-iscas-de-figado-refogadas-com-pimentao/',
+  '/receita/189508-chiclete-de-camarao':
+    '/receita/massa/54395-lasanha-de-camarao/',
+  '/receita/196343-x-bacon':
+    '/receita/hamburguer/99444-hamburguer-caseiro-de-picanha-e-bacon-com-cebolas-caramelizadas/',
+  '/receita/187734-bisteca-de-porco-milanesa': '/procurar?searchQuery=bisteca',
+  '/receita/190669-coxa-empanada-pratica-economica-e-deliciosa-da-vo-ana':
+    '/receita/aves/173812-frango-empanado-beeem-cremoso/',
+  '/receita/190771-bolinhos-de-arroz-assados':
+    '/receita/arroz/156041-bolinhos-cremosos-de-arroz-e-legumes/',
+  '/receita/187775-mousse-de-maracuja-com-2-ingredientes':
+    '/receita/dish/175434-torta-cremosa-de-maracuja-com-chocolate/',
+  '/receita/190274-carne-de-sol-na-nata':
+    '/receita/carne/173870-carne-de-sol-com-macaxeira/',
+  '/receita/186634-feijoada-completa':
+    '/receita/carne/54349-feijoada-completa-tradicional-deliciosa/',
 };
 
 module.exports = async ({
