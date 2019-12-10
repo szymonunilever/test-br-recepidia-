@@ -54,10 +54,6 @@
                   {
                     "name": "Fale comigo",
                     "path": "/fale-comigo"
-                  },
-                  {
-                    "name": "FAQ",
-                    "path": "/faq"
                   }
                 ]
               },
