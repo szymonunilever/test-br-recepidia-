@@ -132,7 +132,7 @@
     (-ms-high-contrast: none),
     (-ms-high-contrast: active) {
     &:hover {
-      background-color: $recepedia-orange;
+      background-color: $apple-green;
       color: $black-blue;
       border: 1px solid $black-blue;
       svg {
@@ -154,28 +154,10 @@
     height: 18px;
   }
   &.button__selected {
-    background-color: $recepedia-orange;
+    background-color: $apple-green;
     color: $black-blue;
     svg {
       fill: $black-blue;
-    }
-  }
-}
-.recipe-hero__favorite,
-.recipe-card__favorite {
-  &:hover {
-    svg {
-      fill: $white;
-      path {
-        fill: $white;
-      }
-    }
-  }
-  &.button__selected {
-    background-color: $recepedia-orange;
-    color: $black-blue;
-    svg {
-      fill: $white;
     }
   }
 }
