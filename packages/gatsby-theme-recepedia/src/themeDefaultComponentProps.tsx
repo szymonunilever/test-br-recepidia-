@@ -11,7 +11,7 @@ import {
 } from './svgs/inline/x-mark.svg';
 
 export const favoriteButtonDefaults = {
-  className: 'recipe-card__favorite action-button',
+  className: 'recipe-card__favorite',
   Icon: FavoriteIcon,
   isToggle: true,
   viewType: ButtonViewType.icon,
