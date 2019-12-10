@@ -1,0 +1,42 @@
+@import '../../../scss/config';
+
+.slide-arrow {
+  background: $carousel-button-background;
+  border: none;
+  color: $carousel-button-color;
+  border-radius: $carousel-button-radius;
+  font-size: $carousel-button-fz;
+  padding: 0;
+  width: $carousel-button-width;
+  height: $carousel-button-height;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      background-color: $carousel-button-background-hover;
+      color: $carousel-button-color;
+      fill: $carousel-button-color-hover;
+    }
+  }
+  @include respondTo(desktop) {
+    width: $carousel-button-width-lg;
+    height: $carousel-button-height-lg;
+  }
+
+  position: absolute;
+  top: $carousel-button-vertical-position;
+  z-index: 1;
+}
+
+/////----------- CUSTOM -----------/////
+
+:global {
+  .slide-arrow.left {
+    left: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .slide-arrow.right {
+    right: 0;
+    transform: translate(50%, -50%) rotate(-90deg);
+  }
+}

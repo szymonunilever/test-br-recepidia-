@@ -8,7 +8,7 @@ import {
   SortingOptions,
   RecipeSortingOptionsFieldsMappings,
 } from '../';
-import { RecipeCardLinkWrapperProps } from '../RecipeCardLinkWrapper';
+import { CardLinkWrapperProps } from '../CardLinkWrapper';
 import { LoadMoreType, RecipeListingProps, RecipeListViewType } from './models';
 import {
   RecipeAddPlaceholderProps,
@@ -55,7 +55,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   ...props
 }) => {
 
- let cards: ReactElement<RecipeCardProps>[] | ReactElement<RecipeCardLinkWrapperProps>[] = [];
+ let cards: ReactElement<RecipeCardProps>[] | ReactElement<CardLinkWrapperProps>[] = [];
  let holders: ReactElement<RecipeAddPlaceholderProps>[] =[];
   if(Array.isArray(children)){
     children.forEach(child=>{
@@ -81,7 +81,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   }, [children]);
 
   let loadButtonRef = React.createRef();
-  const getActualChildren = (list:Internal.Recipe[], children:RecipeListingTrivialProps['children']): ReactElement<RecipeCardProps>[]|ReactElement<RecipeCardLinkWrapperProps>[] =>{
+  const getActualChildren = (list:Internal.Recipe[], children:RecipeListingTrivialProps['children']): ReactElement<RecipeCardProps>[]|ReactElement<CardLinkWrapperProps>[] =>{
     const recipeIds = list.map(recipe => recipe.recipeId);
     if(typeof children!=='undefined') {
 

@@ -2,7 +2,7 @@ import React, { ReactElement, useCallback } from 'react';
 import { RatingAndReviewsProvider } from '../../models';
 import reloadKritiqueWidget from '../../utils/useKritiqueReload';
 import Carousel from '../Carousel/Carousel';
-import { RecipeCardLinkWrapperProps } from '../RecipeCardLinkWrapper';
+import { CardLinkWrapperProps } from '../CardLinkWrapper';
 import { RecipeListingCarouselProps } from './models';
 import {RecipeCardProps} from '../RecipeCard';
 
@@ -23,7 +23,7 @@ const RecipeListingCarousel = ({
         } else {
           return child.props.children.props.recipeId === item.recipeId;
         }
-      }) : children as ReactElement<RecipeCardLinkWrapperProps> | ReactElement<RecipeCardProps>;
+      }) : children as ReactElement<CardLinkWrapperProps> | ReactElement<RecipeCardProps>;
     },
     [
       titleLevel,

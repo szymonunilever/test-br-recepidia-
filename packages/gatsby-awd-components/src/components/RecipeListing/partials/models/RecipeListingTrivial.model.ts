@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import {RatingAndReviewsProvider, titleLevel, UnileverLibraryComponent } from '../../../../models';
-import { RecipeCardLinkWrapperProps } from '../../../RecipeCardLinkWrapper';
+import { CardLinkWrapperProps } from '../../../CardLinkWrapper';
 import { RecipeAddPlaceholderProps } from './RecipeAddPlaceholder.model';
 import { RecipeCardProps } from '../../../RecipeCard';
 
@@ -10,6 +10,6 @@ export interface RecipeListingTrivialProps
   ratingProvider?: RatingAndReviewsProvider;
   imageSizes: string;
   dataFetched?: boolean;
-  children?: ReactElement<RecipeCardProps>| ReactElement<RecipeCardProps>[] | ReactElement<RecipeCardLinkWrapperProps>| ReactElement<RecipeCardLinkWrapperProps>[];
+  children?: ReactElement<RecipeCardProps>| ReactElement<RecipeCardProps>[] | ReactElement<CardLinkWrapperProps>| ReactElement<CardLinkWrapperProps>[];
   holders?: ReactElement<RecipeAddPlaceholderProps>[];
 }

@@ -7,7 +7,7 @@ import {
   PreferencesQuiz,
   RatingAndReviewsProvider,
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   RecipeListing,
   RecipeListViewType,
   Tab,
@@ -253,7 +253,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
               >
                 {recipeList
                   ? recipeList.map(recipe => (
-                      <RecipeCardLinkWrapper
+                      <CardLinkWrapper
                         title={recipe.title}
                         key={recipe.id}
                         slug={recipe.fields.slug}
@@ -274,7 +274,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                             onClick={updateFavoriteState}
                           />
                         </RecipeCard>
-                      </RecipeCardLinkWrapper>
+                      </CardLinkWrapper>
                     ))
                   : []}
               </RecipeListing>
@@ -334,7 +334,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             >
               {mealPlannerResults
                 ? mealPlannerResults.map(recipe => (
-                    <RecipeCardLinkWrapper
+                    <CardLinkWrapper
                       title={recipe.title}
                       key={recipe.id}
                       isExternal={true}
@@ -354,7 +354,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                           onClick={updateFavoriteState}
                         />
                       </RecipeCard>
-                    </RecipeCardLinkWrapper>
+                    </CardLinkWrapper>
                   ))
                 : []}
             </RecipeListing>

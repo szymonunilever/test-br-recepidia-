@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import {
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   AdaptiveImage,
   Hero,
   LoadMoreType,
@@ -148,7 +148,7 @@ const RecipeCategoryPage = ({
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
-                <RecipeCardLinkWrapper
+                <CardLinkWrapper
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -166,7 +166,7 @@ const RecipeCategoryPage = ({
                       onClick={updateFavoriteState}
                     />
                   </RecipeCard>
-                </RecipeCardLinkWrapper>
+                </CardLinkWrapper>
               ))
             : []}
         </RecipeListing>

@@ -5,7 +5,7 @@ import SEO from 'src/components/Seo';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import {
   RecipeCard,
-  RecipeCardLinkWrapper,
+  CardLinkWrapper,
   Button,
   Hero,
   LoadMoreType,
@@ -112,7 +112,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
-                <RecipeCardLinkWrapper
+                <CardLinkWrapper
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -131,7 +131,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
                       onClick={updateFavoriteState}
                     />
                   </RecipeCard>
-                </RecipeCardLinkWrapper>
+                </CardLinkWrapper>
               ))
             : []}
         </RecipeListing>
