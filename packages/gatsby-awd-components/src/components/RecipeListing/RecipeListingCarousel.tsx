@@ -36,7 +36,7 @@ const RecipeListingCarousel = ({
   const handleVisibleElementsChanged = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (visibleElements: number) => {
-      if (ratingProvider === RatingAndReviewsProvider.inline) {
+      if (ratingProvider === RatingAndReviewsProvider.kritique) {
         reloadKritiqueWidget();
       }
     },
