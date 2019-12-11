@@ -7,7 +7,7 @@ export interface CardProps {
   key: string;
   content: CardContentProps;
   idPropertyName: string;
-  ratingWidget?: ReactElement<RatingProps>
+  ratingWidget?: ReactElement<RatingProps>;
   imageSizes: string;
   className?: string;
   brand?: ReactChild;

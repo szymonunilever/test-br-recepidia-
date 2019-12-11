@@ -2,10 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button, { ButtonViewType } from '../components/Button';
 import {Card, ProductCardWrapper, RecipeCardWrapper } from '../components/Card';
-import recipes from '../mocks/recipes';
+import recipes from '../mocks/recipes.json';
 import products from '../mocks/products.json';
 import {IMAGE_SIZES} from '../components/constants';
 import { ReactComponent as FavoriteIcon } from 'src/svgs/inline/favorite.svg';
+import { RatingAndReviewsProvider } from '../models';
 //@ts-ignore
 const recipe = recipes.data.allRecipe.edges[0].node;
 const product = products[1];
@@ -24,13 +25,13 @@ const favoriteButton = <Button
 
 storiesOf('Generic/Card', module)
   .add('Default card',
-  ()=> <Card
+  ()=> <Card key={recipe.fields.slug}
     content={recipe}
     idPropertyName="recipeId"
     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
   /> ,{inline:false})
   .add('Default card with button',
-    ()=> <Card
+    ()=> <Card key={recipe.fields.slug}
       content={recipe}
       idPropertyName="recipeId"
       imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
@@ -39,8 +40,8 @@ storiesOf('Generic/Card', module)
     </Card> ,{inline:false})
   .add('Recipe Wrapper card with button',
   ()=>
-    <RecipeCardWrapper ratingProvider={2}>
-    <Card
+    <RecipeCardWrapper key={recipe.fields.slug} ratingProvider={RatingAndReviewsProvider.inline}>
+    <Card key={recipe.fields.slug}
     content={recipe}
     idPropertyName="recipeId"
     imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
@@ -50,8 +51,8 @@ storiesOf('Generic/Card', module)
     </RecipeCardWrapper> ,{inline:false})
   .add('Product Wrapper card with button',
     ()=>
-      <ProductCardWrapper ratingProvider={2}>
-        <Card
+      <ProductCardWrapper key={product.fields.slug} ratingProvider={RatingAndReviewsProvider.inline}>
+        <Card key={product.fields.slug}
           content={product}
           idPropertyName="productId"
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
