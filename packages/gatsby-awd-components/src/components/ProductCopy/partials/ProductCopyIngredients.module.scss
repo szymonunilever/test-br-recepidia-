@@ -1,0 +1,49 @@
+@import '../../../scss/config';
+
+.product-copy-ingredients {
+  position: relative;
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: $recipe-copy-ingredients-list-indent;
+    @include respondTo(desktop) {
+      margin: $recipe-copy-ingredients-list-indent-lg;
+    }
+  }
+  &__title {
+    font-size: $recipe-copy-ingredients-title-fz;
+    color: #fff;
+  }
+  &__item {
+    font-size: $recipe-copy-ingredients-item-fz;
+    &:not(:last-child) {
+      margin: $recipe-copy-ingredients-item-indent;
+    }
+  }
+}
+
+.product-ingredients {
+  list-style: none;
+  padding: 0;
+  margin: $recipe-copy-ingredients-list-indent;
+  @include respondTo(desktop) {
+    margin: $recipe-copy-ingredients-list-indent-lg;
+  }
+  .product-ingredients__group {
+    position: relative;
+    margin: $recipe-copy-ingredients-group-indent;
+    &-title {
+      font-size: $recipe-copy-ingredients-group-title-fz;
+      color: $recipe-copy-ingredients-group-title-color;
+      margin: $recipe-copy-ingredients-group-title-indent;
+    }
+    &-subtitle {
+      font-size: $recipe-copy-ingredients-group-subtitle-fz;
+    }
+    &-item {
+      font-size: $recipe-copy-ingredients-group-item-fz;
+      color: $recipe-copy-ingredients-group-item-color;
+      margin: $recipe-copy-ingredients-group-item-indent;
+    }
+  }
+}
