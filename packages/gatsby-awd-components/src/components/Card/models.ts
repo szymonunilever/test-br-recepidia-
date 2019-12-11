@@ -12,6 +12,7 @@ export interface CardProps {
   className?: string;
   brand?: ReactChild;
   children?: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
+  showDescription?: boolean;
 }
 
 export interface CardContentProps {

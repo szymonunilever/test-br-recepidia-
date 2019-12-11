@@ -8,26 +8,29 @@ import { CardProps } from './models';
 import theme from './Card.module.scss';
 
 export const Card: FunctionComponent<CardProps> = ({
-  content,
-  idPropertyName,
-  children,
-  className = '',
-  imageSizes,
-  ratingWidget,
-  brand,
-}) => {
-  const {
-    title,
-    fields: { slug },
-    localImage,
-  } = content;
+   content,
+   idPropertyName,
+   children,
+   className = '',
+   imageSizes,
+   ratingWidget,
+   brand,
+   showDescription = false,
+ }) => {
+  const { title, description, fields:{slug}, localImage } = content;
   const itemTitle = title && (
     <Text
-      tag={TagName[`div`]}
-      // @ts-ignore
+      tag={TagName[ `div` ]}
       text={title}
       className={cx(theme.card__title, 'card__title')}
     />
+    );
+    const descriptionText = (description && showDescription) && (
+      <Text
+        tag={TagName[ `div` ]}
+        text={description}
+        className={cx(theme.card__description, 'card__description')}
+      />
   );
   const modifiedChildren =
     children &&
@@ -63,6 +66,7 @@ export const Card: FunctionComponent<CardProps> = ({
         {itemTitle}
         {brand}
         {ratingWidget}
+        {descriptionText}
       </div>
     </div>
   );

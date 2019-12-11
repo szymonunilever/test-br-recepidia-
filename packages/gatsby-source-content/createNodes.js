@@ -90,7 +90,7 @@ exports.createPagesNodes = (
   page,
   { createNodeId, createContentDigest, createNode }
 ) => {
-  const nodeId = createNodeId(`page-${page.type}`);
+  const nodeId = createNodeId(`page-${page.type}-${page.relativePath}`);
   page.components.items = page.components.items.map(processComponent);
   const nodeContent = JSON.stringify(page);
   const nodeData = Object.assign({}, page, {

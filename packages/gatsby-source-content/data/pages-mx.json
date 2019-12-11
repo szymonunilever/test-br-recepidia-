@@ -3108,10 +3108,318 @@
     },
     {
       "type": "BrandProductsPage",
-      "title": "Brand Products page",
-      "relativePath": "/brand-products",
+      "title": "Hellmanns",
+      "brand": "hellmanns",
+      "relativePath": "/hellmanns/products",
       "components": {
-        "items": []
+        "items": [
+          {
+            "name": "Header",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "GenericCarousel",
+            "content": {
+              "view": "ProductCarousel",
+              "title": "New in our range"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Featured products",
+              "staticList": ["7501005152006","7506306311893"]
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "LookByCategory",
+              "text": "Look by category…"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "FollowUs",
+              "text": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/HellmannsMexico"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/hellmannsmexico/"
+                },
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/HellmannsMx"
+                },
+                "youtube": {
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/user/HellmannsMexico"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize \na weekly menu so you don’t even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Try our Meal Planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Brand Products page",
+        "description": "Brand Products page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "BrandProductsPage",
+      "title": "Maizena",
+      "brand": "maizena",
+      "relativePath": "/maizena/products",
+      "components": {
+        "items": [
+          {
+            "name": "Header",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "GenericCarousel",
+            "content": {
+              "view": "ProductCarousel",
+              "title": "New in our range"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Featured products",
+              "staticList": ["7501005106801","7506306313231"]
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "LookByCategory",
+              "text": "Look by category…"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "FollowUs",
+              "text": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/MaizenaMexico"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize \na weekly menu so you don’t even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Try our Meal Planner"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Brand Products page",
+        "description": "Brand Products page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "BrandProductsPage",
+      "title": "Knorr",
+      "brand": "knorr",
+      "relativePath": "/knorr/products",
+      "components": {
+        "items": [
+          {
+            "name": "Header",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "GenericCarousel",
+            "content": {
+              "view": "ProductCarousel",
+              "title": "New in our range"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Featured products",
+              "staticList": ["7506306300330","7501005100854"]
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "LookByCategory",
+              "text": "Look by category…"
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "FollowUs",
+              "text": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/KnorrMexico"
+                },
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/KnorrMexico/"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/knorrmx/"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Try our Meal Planner",
+              "longSubheader": "We will collect your preferences and customize \na weekly menu so you don’t even have to think.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Sign me up!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Try our Meal Planner"
+              }
+            }
+          }
+        ]
       },
       "seo": {
         "title": "Brand Products page",
@@ -3127,9 +3435,10 @@
     {
       "type": "ProductDetails",
       "title": "Brand Product Details page",
-      "relativePath": "/brand-product-details",
+        "relativePath": "/brand-product-details",
       "components": {
-        "items": []
+        "items": [
+        ]
       },
       "seo": {
         "title": "Brand Product Details page",

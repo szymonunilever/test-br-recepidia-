@@ -237,6 +237,10 @@ exports.createPages = async ({ graphql, actions }) => {
         component: getPageTemplate(page.type),
         context: {
           title: get(page, 'title'),
+          brand: get(page, 'brand'),
+          regexpBrand: get(page, 'brand')
+            ? '/' + get(page, 'brand') + '/i'
+            : '',
           slug,
           page,
           ...getStaticLists(page.components.items),
