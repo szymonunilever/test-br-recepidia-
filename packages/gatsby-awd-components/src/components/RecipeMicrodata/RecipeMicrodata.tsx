@@ -103,13 +103,13 @@ const RecipeMicrodata: FunctionComponent<RecipeMicrodataProps> = ({
       {}
     ).name,
     recipeCategory: getCategoryByTags(recipe.tagGroups),
-    aggreagateRating: recipe.averageRating,
+    aggregateRating: recipe.averageRating,
   };
 
   return showAsText ? (
     <div>{JSON.stringify(recipeData)}</div>
   ) : (
-    <script type="application/ld+json">{JSON.stringify(recipeData)}</script>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeData) }} />
   );
 };
 
