@@ -92,10 +92,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const onViewChange = useCallback(
     (tags: Internal.Tag[], params) => {
+      const maxSize = Math.max(initialRecipesCount, recipeResults.list.length);
+      const size = params ? params.size : maxSize;
+
       return getRecipeSearchData(
         searchQuery,
         {
-          size: params ? params.size : Math.max(initialRecipesCount, recipeResults.list.length),
+          size: size - size % 4,
         },
         getFilterQuery(tags)
       );
@@ -149,6 +152,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             },
             recipeConfig: {
               icons,
+              getRecipeSearchData,
               viewType: RecipeListViewType.Advanced,
               onViewChange,
               tags: {

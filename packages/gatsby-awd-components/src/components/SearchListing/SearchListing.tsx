@@ -47,13 +47,13 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   }, [searchQuery]);
 
   const onSubmit = useCallback(
-    async (searchQuery: string) => {
+    (searchQuery: string) => {
       const trimmedSearchQuery = trim(searchQuery);
       if(searchQuery !== defaultSearchValue) {
         setDefaultSearchValue(searchQuery);
-      } else {
-        setFilteringValue([]);
       }
+
+      setFilteringValue([]);
 
       if (recipeConfig.getRecipeSearchData) {
         recipeConfig.getRecipeSearchData(trimmedSearchQuery, {
