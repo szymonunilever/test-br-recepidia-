@@ -73,10 +73,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     sorting: string,
     size: number
   ) => {
-    if (recipeConfig.getRecipeSearchData) {
-      return recipeConfig.getRecipeSearchData(defaultSearchValue, {
+    if (recipeConfig.onViewChange) {
+      return recipeConfig.onViewChange(filteringValue, {
         from: recipeResults.list.length,
-        size,
+        size: recipeResults.list.length + size,
       });
     }
 
