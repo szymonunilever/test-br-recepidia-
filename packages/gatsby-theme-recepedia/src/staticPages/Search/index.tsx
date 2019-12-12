@@ -91,11 +91,11 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   }, []);
 
   const onViewChange = useCallback(
-    (tags: Internal.Tag[]) => {
+    (tags: Internal.Tag[], params) => {
       return getRecipeSearchData(
         searchQuery,
         {
-          size: Math.max(initialRecipesCount, recipeResults.list.length),
+          size: params ? params.size : Math.max(initialRecipesCount, recipeResults.list.length),
         },
         getFilterQuery(tags)
       );
@@ -149,7 +149,6 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             },
             recipeConfig: {
               icons,
-              getRecipeSearchData,
               viewType: RecipeListViewType.Advanced,
               onViewChange,
               tags: {
