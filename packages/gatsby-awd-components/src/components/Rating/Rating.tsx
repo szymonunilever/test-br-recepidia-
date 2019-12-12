@@ -1,5 +1,4 @@
 import React, { SyntheticEvent, useState, useEffect } from 'react';
-import { reloadKritiqueWidget } from '../../utils';
 import { RatingProps } from './models';
 import {
   RatingAndReviewsEntityType,
@@ -18,6 +17,7 @@ const Rating = ({
   averageRating = 0,
   linkTo = '',
 }: RatingProps) => {
+  // @ts-ignore
   const classNames = cx(
     'recipe-rating',
     className,
@@ -41,30 +41,26 @@ const Rating = ({
   useEffect(() => {
     setLocationOrigin(window.location.origin);
   }, []);
-  useEffect(() => {
-    reloadKritiqueWidget();
-  });
-
   return (
-    <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
-      {provider === RatingAndReviewsProvider.kritique ? (
-        <div
-          className="rr-widget-container rr-container"
-          data-summary-template={RatingSummaryTemplate.inline01}
-          data-entity-type={RatingAndReviewsEntityType.recipe}
-          data-unique-id={recipeId}
-          data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
-          data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
-          onClick={(e: SyntheticEvent) => {
-            e.stopPropagation();
-          }}
-        >
-          <div className="recipe-rating--inline">{rating}</div>
-        </div>
-      ) : provider === RatingAndReviewsProvider.inline ? (
-        rating
-      ) : null}
-    </div>
+    <>
+      <div className={classNames} {...getComponentDataAttrs('recipe-rating')}>
+        {provider === RatingAndReviewsProvider.kritique ? (
+          <div
+            className="rr-widget-container rr-container"
+            data-summary-template={RatingSummaryTemplate.inline01}
+            data-entity-type={RatingAndReviewsEntityType.recipe}
+            data-unique-id={recipeId}
+            data-entity-url={isBrowser() && `${locationOrigin}${linkTo}`}
+            data-category-pageurl={isBrowser() && `${locationOrigin}/recipes`}
+            onClick={(e: SyntheticEvent) => {
+              e.stopPropagation();
+            }}
+          />
+        ) : provider === RatingAndReviewsProvider.inline ? (
+          rating
+        ) : null}
+      </div>
+    </>
   );
 };
 

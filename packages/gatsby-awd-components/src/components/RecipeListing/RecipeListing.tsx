@@ -24,8 +24,7 @@ import {
   sortBy,
 } from '../Filter/utils';
 import get from 'lodash/get';
-import { RatingAndReviewsProvider } from '../../models';
-import { reloadKritiqueWidget, getComponentDataAttrs } from '../../utils';
+import { getComponentDataAttrs } from '../../utils';
 
 export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   className,
@@ -137,12 +136,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
 
   const didMountRef = useRef(false);
   useEffect(() => {
-    if (
-      didMountRef.current &&
-      ratingProvider === RatingAndReviewsProvider.inline
-    ) {
-      reloadKritiqueWidget();
-    } else {
+    if(!didMountRef.current) {
       didMountRef.current = true;
     }
   }, [ list, children ]);
