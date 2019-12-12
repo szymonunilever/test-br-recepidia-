@@ -47,13 +47,13 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
   }, [searchQuery]);
 
   const onSubmit = useCallback(
-    async (searchQuery: string) => {
+    (searchQuery: string) => {
       const trimmedSearchQuery = trim(searchQuery);
       if(searchQuery !== defaultSearchValue) {
         setDefaultSearchValue(searchQuery);
-      } else {
-        setFilteringValue([]);
       }
+
+      setFilteringValue([]);
 
       if (recipeConfig.getRecipeSearchData) {
         recipeConfig.getRecipeSearchData(trimmedSearchQuery, {
@@ -73,10 +73,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     sorting: string,
     size: number
   ) => {
-    if (recipeConfig.getRecipeSearchData) {
-      return recipeConfig.getRecipeSearchData(defaultSearchValue, {
+    if (recipeConfig.onViewChange) {
+      return recipeConfig.onViewChange(filteringValue, {
         from: recipeResults.list.length,
-        size,
+        size: recipeResults.list.length + size,
       });
     }
 
@@ -269,9 +269,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         results={recipeResults.count + articleResults.count}
       />
       {recipeResults.count + articleResults.count ? (
-            <Tabs className="search-tabs" content={tabs.content}>
-              {tabs.list.map(tab => tab)}
-            </Tabs>
+        // <Tabs className="search-tabs" content={tabs.content}> // TODO Hide Tabs from search Results page EAT-1451
+        //   {tabs.list.map(tab => tab)}
+        // </Tabs>
+        <div className="wrapper">{recipes}</div>
           ) : (
           recipeResultsFetched && articleResultsFetched && <NullResult
             content={content.nullResultContent}

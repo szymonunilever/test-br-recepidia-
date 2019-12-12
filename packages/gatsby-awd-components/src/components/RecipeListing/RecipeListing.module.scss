@@ -10,6 +10,10 @@
     @include respondTo(desktop) {
       font-size: $listing-title-fz-lg;
     }
+
+    &-placeholder {
+      height: 6rem; // TODO Fix styles on Tabs hiding EAT-1451
+    }
   }
   &__filter {
     :global(.tags) {

@@ -236,7 +236,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
           <div className="user-profile-favorites">
             {hasFavorites === undefined ? null : hasFavorites ? (
               <RecipeListing
-                icons={icons}
                 content={recipeContent}
                 list={recipeList || []}
                 ratingProvider={RatingAndReviewsProvider.inline}
@@ -257,7 +256,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
                         title={recipe.title}
                         key={recipe.id}
                         slug={recipe.fields.slug}
-                        isExternal={true}
                       >
                         <RecipeCard
                           {...recipe}
@@ -323,7 +321,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
         >
           <Fragment>
             <RecipeListing
-              icons={icons}
               content={{ title: mealPlannerName }}
               viewType={RecipeListViewType.Carousel}
               list={mealPlannerResults || []}
@@ -337,7 +334,6 @@ const FavoritesRecipeListingPage: FunctionComponent<
                     <CardLinkWrapper
                       title={recipe.title}
                       key={recipe.id}
-                      isExternal={true}
                       slug={recipe.fields.slug}
                     >
                       <RecipeCard

@@ -91,11 +91,14 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   }, []);
 
   const onViewChange = useCallback(
-    (tags: Internal.Tag[]) => {
+    (tags: Internal.Tag[], params) => {
+      const maxSize = Math.max(initialRecipesCount, recipeResults.list.length);
+      const size = params ? params.size : maxSize;
+
       return getRecipeSearchData(
         searchQuery,
         {
-          size: Math.max(initialRecipesCount, recipeResults.list.length),
+          size: size - size % 4,
         },
         getFilterQuery(tags)
       );

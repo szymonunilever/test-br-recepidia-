@@ -72,7 +72,8 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   );
 
   const onLoadMore = useCallback(() => {
-    return onLoadMoreRecipes([], 'creationTime', 4, {
+    // @ts-ignore
+    return onLoadMoreRecipes([], { creationTime: { order: 'DESC' } }, 4, {
       query: name,
       fields: ['tagGroups.tags.name'],
     });
