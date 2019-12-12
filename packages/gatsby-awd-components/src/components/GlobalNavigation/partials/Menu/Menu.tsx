@@ -152,13 +152,17 @@ const Menu: FunctionComponent<MenuProps> = ({
     }
     e.preventDefault();
     switch (e.keyCode) {
+      case KeyCode.Enter:
+      case KeyCode.Space:
+        keyBoardOpenSubmenu(e.currentTarget, i);
+        break;
       case KeyCode.Escape:
         closeMenu && closeMenu(0, true);
         break;
       case KeyCode.ArrowDown:
-        if (isSubmenuList && e.currentTarget.className.includes('menu__link')) {
+        if (isSubmenuList && Array.from(e.currentTarget.classList).includes('menu__link')) {
           keyBoardOpenSubmenu(e.currentTarget, i);
-        } else if (e.currentTarget.className.includes('submenu__link')) {
+        } else if (Array.from(e.currentTarget.classList).includes('submenu__link')) {
           const {
             currentMenuSize,
             currentTabIndex,
@@ -187,7 +191,7 @@ const Menu: FunctionComponent<MenuProps> = ({
         }
         break;
       case KeyCode.ArrowRight:
-        if (e.currentTarget.className.includes('menu__link')) {
+        if (Array.from(e.currentTarget.classList).includes('menu__link')) {
           const { currentMenuSize, currentTabIndex } = getMenuStepInfo(
             e.currentTarget
           );
@@ -196,13 +200,13 @@ const Menu: FunctionComponent<MenuProps> = ({
             : setFocus(menuLinks[0]);
         } else if (
           isSubmenuList &&
-          e.currentTarget.className.includes('submenu__link')
+          Array.from(e.currentTarget.classList).includes('submenu__link')
         ) {
           keyBoardOpenSubmenu(e.currentTarget, i);
         }
         break;
       case KeyCode.ArrowLeft:
-        if (e.currentTarget.className.includes('menu__link')) {
+        if (Array.from(e.currentTarget.classList).includes('menu__link')) {
           const { currentMenuSize, currentTabIndex } = getMenuStepInfo(
             e.currentTarget
           );
@@ -212,7 +216,7 @@ const Menu: FunctionComponent<MenuProps> = ({
               : setFocus(menuLinks[currentMenuSize - 1]);
           }
         }
-        if (e.currentTarget.className.includes('submenu__link')) {
+        if (Array.from(e.currentTarget.classList).includes('submenu__link')) {
           const counterToRoot = countToRoot(e.currentTarget);
           if (counterToRoot === 3) {
             keyBoardCloseSubmenu(e.currentTarget, true);
@@ -224,7 +228,7 @@ const Menu: FunctionComponent<MenuProps> = ({
       case KeyCode.ArrowUp:
         if (
           e.keyCode === KeyCode.ArrowUp &&
-          e.currentTarget.className.includes('submenu__link')
+          Array.from(e.currentTarget.classList).includes('submenu__link')
         ) {
           const counterToRoot = countToRoot(e.currentTarget);
           const {
