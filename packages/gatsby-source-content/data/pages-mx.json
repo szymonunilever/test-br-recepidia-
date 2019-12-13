@@ -2982,11 +2982,13 @@
       "type": "BrandPromisePage",
       "title": "We're on the side of food",
       "relativePath": "/hellmanns/brand-promise",
+      "brand": "hellmanns",
       "components": {
         "items": [
           {
-            "name": "Header",
+            "name": "BrandHero",
             "content": {
+              "title": "We're on the side of food",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -2994,11 +2996,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/hellmanns/brand-promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/hellmanns/brand-products"
                 }
               ]
             }

@@ -1,9 +1,10 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
+import BrandHero from '../../components/BrandHero';
 import SEO from 'src/components/Seo';
 import cx from 'classnames';
 import { graphql } from 'gatsby';
-import { navigate, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
@@ -29,6 +30,7 @@ import {
 } from 'gatsby-awd-components/src';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
+import { IMAGE_SIZES } from 'src/constants';
 
 const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   data: {
@@ -38,9 +40,10 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   location,
 }) => {
   const {
-    page: { components, seo, type, title, relativePath },
+    page: { components, seo, type, relativePath },
   } = pageContext;
 
+  const brand = relativePath.split('/')[1];
   const allArticles = nodes.map(article => {
     const newArticle = {
       title: article.title,
@@ -55,7 +58,6 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   const twoArticles = [...allArticles];
   twoArticles.length = 2;
 
-  const brand = relativePath.split('/')[1];
   const brandsContent = {
     knorr: {
       theme: themeKnorr,
@@ -85,8 +87,6 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
 
   const BrandLogo = currentBrandContent.logo;
 
-  const headerContent = findPageComponentContent(components, 'Header');
-
   const promiseArticleContent = findPageComponentContent(
     components,
     'PromiseArticle'
@@ -110,27 +110,12 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
     <Layout className={classWrapper}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
-      <section className="brand-hero">
-        <AdaptiveImage
-          localImage={headerContent.image.localImage}
-          alt={headerContent.image.alt}
-          className="brand-hero__image"
+      <section>
+        <BrandHero
+          content={findPageComponentContent(components, 'BrandHero')}
+          titleLevel={1}
+          brandLogo={BrandLogo}
         />
-        <div className="wrapper brand-hero__content">
-          <BrandLogo className="brand-hero__logo" />
-          <h1 className="brand-hero__title">{title}</h1>
-          <div className="brand-hero__links">
-            {headerContent.links.map((link, index) => (
-              <Link
-                className={`brand-hero__link${index === 0 ? ' active' : ''}`} // first link is current Promise page
-                to={link.path}
-                key={`brand-hero__link-${index}`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="wrapper _pt--40 bg-secondary">
@@ -146,7 +131,8 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             >
               <Card
                 content={article}
-                // imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                key={article.fields.slug}
+                imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                 idPropertyName="recipeId"
               />
             </CardLinkWrapper>
@@ -174,7 +160,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             className="promise-article__description"
           />
         )}
-        {promiseArticleContent.blocks.map(block => (
+        {promiseArticleContent.blocks.map((block: any) => (
           <div className="promise-article__block">
             {block.image && (
               <AdaptiveImage
@@ -205,8 +191,9 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             >
               <Card
                 content={article}
-                // imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                 idPropertyName="recipeId"
+                key={article.fields.slug}
               />
             </CardLinkWrapper>
           ))}
