@@ -24,7 +24,9 @@ const BrandProductDetailsPage: React.FunctionComponent<
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       <section>
-        <div>some content for {product.productName} (brand product details page}</div>
+        <div>
+          some content for {product.productName} (brand product details page)
+        </div>
       </section>
     </Layout>
   );

@@ -98,7 +98,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       return getRecipeSearchData(
         searchQuery,
         {
-          size: size - size % 4,
+          size: size - (size % 4),
         },
         getFilterQuery(tags)
       );
@@ -138,7 +138,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             searchInputResults,
             articleResults,
             articleResultsFetched,
-            recipeResultsFetched
+            recipeResultsFetched,
           }}
           searchResultTitleLevel={3}
           config={{
@@ -177,7 +177,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             },
             articleConfig: {
               getArticleSearchData,
-              onArticleViewChange
+              onArticleViewChange,
             },
           }}
           content={{

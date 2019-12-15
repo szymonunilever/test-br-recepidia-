@@ -158,15 +158,16 @@ const articleSearchParams = (
     },
   ];
 
-  filter && mustQuery.push({
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    query_string: {
+  filter &&
+    mustQuery.push({
       // eslint-disable-next-line @typescript-eslint/camelcase
-      analyze_wildcard: true,
-      query: filter,
-      fields: ['tagGroups.tags.id'],
-    },
-  });
+      query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: filter,
+        fields: ['tagGroups.tags.id'],
+      },
+    });
 
   return {
     index: process.env['elasticSearch_articleIndex'] as string,
@@ -206,7 +207,9 @@ export const getArticleResponse = async (
   params: SearchParams,
   filter: string
 ) =>
-  useElasticSearch<Internal.Article>(articleSearchParams(searchQuery, params, filter));
+  useElasticSearch<Internal.Article>(
+    articleSearchParams(searchQuery, params, filter)
+  );
 
 export const getSearchSuggestionResponse = async (
   searchQuery: string,
@@ -222,7 +225,11 @@ export const getSearchSuggestionResponse = async (
       )
     ),
     useElasticSearch<Internal.Article>(
-      articleSearchParams(searchQuery, { from, size, _source: ['title'] }, filter)
+      articleSearchParams(
+        searchQuery,
+        { from, size, _source: ['title'] },
+        filter
+      )
     ),
   ]);
 };

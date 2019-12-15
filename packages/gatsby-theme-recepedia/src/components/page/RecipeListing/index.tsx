@@ -4,9 +4,7 @@ import {
   RecipeListing as RecipeListingComponent,
   FilterIcons,
 } from 'gatsby-awd-components/src';
-import {
-  ReactComponent as OpenIcon,
-} from 'src/svgs/inline/arrow-down.svg';
+import { ReactComponent as OpenIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as ClosedIcon } from 'src/svgs/inline/arrow-up.svg';
 import { ReactComponent as FilterIcon } from 'src/svgs/inline/filter.svg';
 import {

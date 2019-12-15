@@ -56,8 +56,8 @@ const GlobalSearch = ({
       .catch(() => {});
   };
   const onSubmit = useCallback(value => {
-      navigate(`${relativePath}?searchQuery=${value}`);
-      setModalState(false);
+    navigate(`${relativePath}?searchQuery=${value}`);
+    setModalState(false);
   }, []);
 
   return (

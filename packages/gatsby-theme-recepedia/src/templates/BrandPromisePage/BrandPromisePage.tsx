@@ -160,8 +160,8 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             className="promise-article__description"
           />
         )}
-        {promiseArticleContent.blocks.map((block: any) => (
-          <div className="promise-article__block">
+        {promiseArticleContent.blocks.map((block: any, index: any) => (
+          <div className="promise-article__block" key={index}>
             {block.image && (
               <AdaptiveImage
                 localImage={block.image.localImage}
