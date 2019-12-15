@@ -20,7 +20,7 @@ import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, isBrowser } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
 import LookByCategory from '../../components/LookByCategory';
@@ -148,9 +148,11 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     setCounter(counter + 1);
   };
   const createCarousels = (category: string) => {
-    const query = ['(min-width: 768px)', '(max-width: 767px)'].findIndex(
-      q => matchMedia(q).matches
-    );
+    const query = isBrowser()
+      ? ['(min-width: 768px)', '(max-width: 767px)'].findIndex(
+          q => matchMedia(q).matches
+        )
+      : 0;
     if (query === 0) {
       const initialView = categoryCards[category].slice(0, 4);
       return (
