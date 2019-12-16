@@ -526,7 +526,7 @@
               "openModalButton": {
                 "label": ""
               },
-              "modalTitle": "Compartilhe essa receita"
+              "modalTitle": "Compartilhe essa PRODUCT"
             }
           },
           {
@@ -3440,6 +3440,58 @@
         "relativePath": "/brand-product-details",
       "components": {
         "items": [
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
+                }
+              ],
+              "openModalButton": {
+                "label": ""
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Ingredients",
+              "title": "Ingredientes"
+            }
+          },
+          {
+            "name": "BuyNowButton",
+            "content": {
+              "view": "Buy now",
+              "label": "Buy now"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Allergy",
+              "title": "Allergy"
+            }
+          },
+          {
+            "name": "ProductNutrients",
+            "content": {
+              "title": "Nutrients",
+              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
+              "tableTitlePer100": "Per 100 g"
+            }
+          }
         ]
       },
       "seo": {

@@ -1,0 +1,8 @@
+@import '../../../scss/config';
+
+.product-copy-description {
+  font-size: $recipe-copy-descr-fz;
+  line-height: $recipe-copy-descr-lh;
+  margin: $recipe-copy-descr-indent;
+  color: $recipe-copy-descr-color;
+}

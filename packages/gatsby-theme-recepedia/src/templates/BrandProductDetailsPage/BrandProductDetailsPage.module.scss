@@ -1,0 +1,125 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.product-page {
+  &-button {
+    background: #007a33;
+  }
+
+  .productAttributes {
+    background: #007a33;
+    color: #fff;
+    margin-top: 30px;
+
+    @include respondTo(desktop) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .productAttributesColumn {
+    flex: 0 1 50%;
+
+    &:last-child {
+      @include respondTo(desktop) {
+        margin-left: 130px;
+      }
+    }
+  }
+  .productPageHero {
+    @include respondTo(desktop) {
+      margin-bottom: 60px;
+    }
+  }
+  .productTopBlock {
+    position: relative;
+    display: flex;
+
+    .productTopBlockItem {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      &:first-child {
+        display: none;
+        @include respondTo(desktop) {
+          display: block;
+          //transform: translateY(50px);
+        }
+      }
+      @include respondTo(desktop) {
+        &:last-child {
+          //padding-top: 50px;
+          padding-left: 100px;
+        }
+      }
+    }
+    %productHeroMobile {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      @include respondTo(desktop) {
+        display: none;
+      }
+    }
+    .productHeroMobile {
+      @extend %productHeroMobile;
+    }
+    .productHeroActions {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 18px;
+      right: 18px;
+      & > div:not(:last-child) {
+        margin-bottom: 10px;
+        @include respondTo(desktop) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .productHeroDesktop {
+      @extend %productHeroMobile;
+      @include respondTo(desktop) {
+        display: block;
+        min-width: 552px;
+        border-radius: 5px;
+      }
+    }
+    .productBlockTitle {
+      order: -1;
+    }
+    .productBlockDescription {
+      display: flex;
+      flex-direction: column;
+      @include respondTo(desktop) {
+        flex-direction: column-reverse;
+      }
+      p {
+        margin-top: 20px;
+        @include respondTo(desktop) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  :global {
+    .product-attributes {
+      & > div {
+        flex: 1;
+        justify-content: center;
+        @include respondTo(desktop) {
+          justify-content: flex-start;
+          flex: 0 1 auto;
+          &:not(:last-child) {
+            margin-right: 40px;
+          }
+        }
+      }
+    }
+    .tags {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+}

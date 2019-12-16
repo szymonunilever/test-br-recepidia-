@@ -1,0 +1,12 @@
+@import '../../../scss/config';
+
+.product-copy-allergens {
+  &__title {
+    font-size: $recipe-copy-ingredients-title-fz;
+    color: #fff;
+  }
+
+  &__data {
+    margin: 20px 0;
+  }
+}
