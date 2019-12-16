@@ -2685,7 +2685,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "MealPlanerRename",
-              "title": "Dê um nome esse cardápio!",
+              "title": "Dê um nome para esse cardápio!",
               "submitButton": {
                 "label": "Enviar"
               },
