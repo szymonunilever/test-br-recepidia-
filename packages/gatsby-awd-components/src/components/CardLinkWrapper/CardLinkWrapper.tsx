@@ -5,7 +5,15 @@ import { RecipeCardProps } from '../RecipeCard';
 import theme from '../RecipeCard/RecipeCard.module.scss';
 import { CardLinkWrapperProps } from './models';
 
-export const CardLinkWrapper:FunctionComponent<CardLinkWrapperProps> = ({isExternal, className, title, children, slug, ...props}) => {
+export const CardLinkWrapper:FunctionComponent<CardLinkWrapperProps> = ({
+  isExternal,
+  className,
+  title,
+  children,
+  slug,
+  cardKey,
+  ...props
+}) => {
   const wrapClasses = cx(theme.recipeCard, 'recipe-card', className);
   const LinkComponent: any = isExternal ? 'a' : Link;
   const linkProps = {'aria-label' : title, ...props};

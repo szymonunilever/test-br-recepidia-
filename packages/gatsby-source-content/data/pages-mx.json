@@ -703,6 +703,63 @@
       }
     },
     {
+      "type": "CategoryLanding",
+      "relativePath": "/categoria",
+      "components": {
+        "items": [
+          {"name": "PageListing",
+            "content": {
+              "view": "RelatedCategories",
+              "title": "All {categoryTitle}",
+              "cta": {
+                "label": "Load more"
+              }
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Procurar por categorias",
+              "loadMoreButton": { "label": "+ Ver mais categorias" }
+            }
+          },
+          {
+            "name": "Carousel",
+            "content": {
+              "view": "RecipePromotions",
+              "title": "Seasonal /Promotional Recipes"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Planejamento Semanal",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Planejamento Semanal"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Seu assistente de cozinha",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
       "type": "AllRecipes",
       "title": "Receitas",
       "relativePath": "/receita",
@@ -3162,7 +3219,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7501005152006", "7506306311893"]
+              "staticList": [7501005152006, 7506306311893]
             }
           },
           {
@@ -3276,7 +3333,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7501005106801", "7506306313231"]
+              "staticList": [7501005106801, 7506306313231]
             }
           },
           {
@@ -3378,7 +3435,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7506306300330", "7501005100854"]
+              "staticList": [7506306300330, 7501005100854]
             }
           },
           {

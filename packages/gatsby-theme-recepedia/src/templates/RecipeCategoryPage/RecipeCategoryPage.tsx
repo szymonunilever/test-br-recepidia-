@@ -133,7 +133,6 @@ const RecipeCategoryPage = ({
               recipeResultsCount
             ),
           }}
-          icons={recipeListingIcons}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Base}
@@ -149,6 +148,7 @@ const RecipeCategoryPage = ({
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
                 <CardLinkWrapper
+                  cardKey={recipe.id}
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}

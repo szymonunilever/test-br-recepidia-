@@ -13,9 +13,7 @@ export const constructMenu = (
         category.children && category.children.filter(cat => cat.inNavigation);
       const recipesMenuItems: AppContent.GlobalNavigation.MenuItem = {
         name: category.title,
-        path: !(category.children && category.children.length > 0)
-          ? category.fields.slug
-          : undefined,
+        path: category.fields.slug,
         children:
           categoriesInNav &&
           categoriesInNav.sort((a, b) =>

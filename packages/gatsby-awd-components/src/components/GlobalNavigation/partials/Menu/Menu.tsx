@@ -145,8 +145,8 @@ const Menu: FunctionComponent<MenuProps> = ({
   ) => {
     if (
       e.keyCode === KeyCode.Tab ||
-      ((e.keyCode === KeyCode.Enter || e.keyCode === KeyCode.Space) &&
-        !isSubmenuList)
+      ((e.keyCode === KeyCode.Enter) &&
+        e.currentTarget.hasAttribute('href'))
     ) {
       return true;
     }
@@ -274,6 +274,11 @@ const Menu: FunctionComponent<MenuProps> = ({
             }}
           >
             {menuItem.name}
+            {menuItem.children && menuItem.children.length>0 && (
+              <span className={`${className}__dropdown-icon`}>
+                {dropDownIcon}
+              </span>
+            )}
           </Link>
         ) : (
           <a

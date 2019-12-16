@@ -12,6 +12,7 @@ const pagesMockBr = require('./data/pages.json');
 const componentsMockBr = require('./data/components.json');
 const pagesMockMx = require('./data/pages-mx.json');
 const componentsMockMx = require('./data/components-mx.json');
+const categoriesMockMx = require('./data/categories-mx.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(
@@ -41,7 +42,7 @@ exports.sourceNodes = async (
     //fetchContent(configOptions, 'pages'),
     //fetchContent(configOptions, 'components'),
     fetchContent(configOptions, 'articles'),
-    fetchContent(configOptions, 'aem/categories'),
+    configOptions.locale === 'es-mx'? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
@@ -101,4 +102,47 @@ exports.sourceNodes = async (
         createNode,
       })
   );
+};
+
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+  const typeDefs = `
+    type Category implements Node {
+      id: Int!
+      parentId: Int
+      name: String!
+      description: String
+      title: String
+      titlePlural: String
+      seasonalPromo: [CategoryTag]
+      image: CategoryImage
+      recipeDetails: CategoryRecipeDetails
+      inNavigation: Boolean
+      inFooter: Boolean
+      showOnHomePage: Int
+      categoryOrder: Int
+      tags: [CategoryTag]
+      primaryTag: CategoryTag
+    }
+    
+    type CategoryTag {
+      id: Int!
+      name: String!
+    }
+    type CategoryImage {
+      base64: String
+      aspectRatio: Float
+      width: Float
+      height: Float
+      src: String
+      srcWebp: String
+      srcSet: String
+      srcSetWebp: String
+      sizes: String
+    }
+    type CategoryRecipeDetails {
+      serves: String
+      cookTime: String
+    }    
+  `;
+  createTypes(typeDefs);
 };

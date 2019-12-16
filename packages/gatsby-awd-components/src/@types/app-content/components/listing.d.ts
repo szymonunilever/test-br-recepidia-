@@ -3,6 +3,6 @@ declare namespace AppContent{
     title?: string;
     resultLabel?: string;
     resultLabelPlural?: string;
-    staticList?: number[]|string[];
+    staticList?: number[];
   }
 }
