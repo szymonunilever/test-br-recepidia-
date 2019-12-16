@@ -92,9 +92,12 @@ exports.createPagesNodes = (
 ) => {
   const nodeId = createNodeId(`page-${page.type}-${page.relativePath}`);
   page.components.items = page.components.items.map(processComponent);
-  const nodeContent = JSON.stringify(page);
+  const brand = page.brand || null;
+
+  const nodeContent = JSON.stringify(Object.assign(page, {brand}));
   const nodeData = Object.assign({}, page, {
     id: nodeId,
+    brand,
     parent: null,
     children: [],
     internal: {
