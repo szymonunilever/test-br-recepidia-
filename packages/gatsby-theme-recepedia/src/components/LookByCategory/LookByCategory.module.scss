@@ -1,14 +1,13 @@
-.look-by-category{
-    margin: 2rem 0;
-  &__links{
-
+.look-by-category {
+  // margin: 2rem 0;
+  &__links {
   }
-  &__link{
-    &:before{
+  &__link {
+    &:before {
       content: ' | ';
     }
-    &:first-child{
-      &:before{
+    &:first-child {
+      &:before {
         content: '';
       }
     }

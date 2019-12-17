@@ -53,5 +53,5 @@ export * from './Reviews';
 export * from './CardLinkWrapper';
 export * from './RecipeCard';
 export * from './Card';
-export * from './GenericCarousel';
+export { default, GenericCarousel } from './GenericCarousel';
 export * from './Listing';

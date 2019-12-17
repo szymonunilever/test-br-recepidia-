@@ -23,9 +23,10 @@
 }
 
 :global {
-  .recipe-list--carousel {
+  .recipe-list--carousel,
+  .product-carousel {
     .carousel {
-      .recipe-card__info {
+      .card__info {
         min-height: 125px; //to avoid bottom content jumping depending on card title height (4 lines max)
         @include respondTo(medium) {
           min-height: 105px;
