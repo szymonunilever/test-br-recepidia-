@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FlagIcon /> matches the snapshot 1`] = `
+<FlagIcon
+  code="km"
+  react={
+    Object {
+      "Children": Object {
+        "count": [Function],
+        "forEach": [Function],
+        "map": [Function],
+        "only": [Function],
+        "toArray": [Function],
+      },
+      "Component": [Function],
+      "Fragment": Symbol(react.fragment),
+      "PureComponent": [Function],
+      "StrictMode": Symbol(react.strict_mode),
+      "Suspense": Symbol(react.suspense),
+      "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": Object {
+        "ReactComponentTreeHook": Object {},
+        "ReactCurrentBatchConfig": Object {
+          "suspense": null,
+        },
+        "ReactCurrentDispatcher": Object {
+          "current": Object {
+            "readContext": [Function],
+            "useCallback": [Function],
+            "useContext": [Function],
+            "useDebugValue": [Function],
+            "useEffect": [Function],
+            "useImperativeHandle": [Function],
+            "useLayoutEffect": [Function],
+            "useMemo": [Function],
+            "useReducer": [Function],
+            "useRef": [Function],
+            "useState": [Function],
+          },
+        },
+        "ReactCurrentOwner": Object {
+          "current": null,
+        },
+        "ReactDebugCurrentFrame": Object {
+          "getCurrentStack": null,
+          "getStackAddendum": [Function],
+        },
+        "assign": [Function],
+      },
+      "cloneElement": [Function],
+      "createContext": [Function],
+      "createElement": [Function],
+      "createFactory": [Function],
+      "createRef": [Function],
+      "forwardRef": [Function],
+      "isValidElement": [Function],
+      "lazy": [Function],
+      "memo": [Function],
+      "unstable_ConcurrentMode": Symbol(react.concurrent_mode),
+      "unstable_Profiler": Symbol(react.profiler),
+      "useCallback": [Function],
+      "useContext": [Function],
+      "useDebugValue": [Function],
+      "useEffect": [Function],
+      "useImperativeHandle": [Function],
+      "useLayoutEffect": [Function],
+      "useMemo": [Function],
+      "useReducer": [Function],
+      "useRef": [Function],
+      "useState": [Function],
+      "version": "16.8.6",
+    }
+  }
+>
+  <span
+    className="flag-icon flag-icon-km"
+  />
+</FlagIcon>
+`;

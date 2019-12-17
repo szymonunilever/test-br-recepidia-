@@ -1,0 +1,159 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.search-page {
+  :global {
+    .search-input {
+      margin-bottom: 36px;
+      padding: 0 $layout-indent-sm;
+      @include respondTo(desktop) {
+        padding: 0 $layout-indent;
+      }
+    }
+    .search-filter {
+      display: flex;
+      align-items: flex-start;
+      @include respondTo(desktop) {
+        display: flex;
+        justify-content: space-between;
+      }
+      .tags__list {
+        padding-top: 15px;
+        @include respondTo(desktop) {
+          // padding: 0 0 30px; // TODO Fix styles on Tabs hiding EAT-1451
+          padding: 0;
+        }
+      }
+    }
+    .filter {
+      &__count {
+        display: block;
+        max-width: unset;
+        font: 500 2.4rem/1.17 $rubik;
+        //margin-bottom: 15px; // TODO Fix styles on Tabs hiding EAT-1451
+        @include respondTo(medium) {
+          max-width: calc(100% - 200px);
+          margin-top: 10px; // TODO Fix styles on Tabs hiding EAT-1451
+        }
+        @include respondTo(desktop) {
+          font-size: 2.5rem;
+          margin-right: 30px;
+        }
+      }
+      &__sort-block {
+        display: flex;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        width: 100%;
+
+        @include respondTo(medium) {
+          width: auto;
+        }
+      }
+      &__button.button {
+        width: 158px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        font: normal 1.4rem $arial;
+        color: $white;
+        @include respondTo(desktop) {
+          width: 168px;
+        }
+      }
+    }
+    .tabs {
+      &__buttons {
+        background-color: transparent;
+        justify-content: flex-start;
+        margin: 40px 0 30px;
+        height: auto;
+        @include respondTo(desktop) {
+          margin-top: 0;
+        }
+        button {
+          width: auto;
+          padding-right: 0;
+          padding-left: 0;
+          padding-bottom: 10px;
+          margin-right: 10px;
+          font-size: 1.6rem;
+          &[disabled] {
+            pointer-events: none;
+            color: #636363;
+            cursor: default;
+          }
+          &:nth-last-child(1) {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &__items {
+        .search-listing__results-header {
+          padding-left: 0;
+          padding-right: 0;
+          font-size: 2.4rem;
+          line-height: 1.17;
+          @include respondTo(desktop) {
+            font-size: 2.5rem;
+            line-height: 1.12;
+          }
+        }
+        h2 {
+          font: 500 2.5rem/1.2 $rubik;
+        }
+      }
+    }
+
+    .search-listing__null-results {
+      margin: 10px 0 40px;
+    }
+    .search-listing__results-header {
+      font-size: 2.4rem;
+      line-height: 1.17;
+      @include respondTo(desktop) {
+        font-size: 2.5rem;
+        line-height: 1.12;
+      }
+    }
+  }
+  [data-componentname='tabs'] {
+    padding-left: $layout-indent-sm;
+    padding-right: $layout-indent-sm;
+    @include respondTo(desktop) {
+      padding-left: $layout-indent;
+      padding-right: $layout-indent;
+    }
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      background-color: $white-gray;
+      border-radius: 24px;
+      @include respondTo(desktop) {
+        top: 280px;
+        bottom: -40px;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.searchBottomCarousel {
+  padding-left: $layout-indent-sm;
+  padding-right: $layout-indent-sm;
+  @include respondTo(desktop) {
+    padding: 30px $layout-indent;
+  }
+}
+.tag-list {
+  padding: 36px $layout-indent-sm 48px;
+  @include respondTo(desktop) {
+    padding: 65px $layout-indent 80px;
+  }
+}

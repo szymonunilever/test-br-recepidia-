@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SocialChannel /> matches the snapshot 1`] = `
+<SocialChannel
+  attributes={
+    Object {
+      "title": "Facebook",
+    }
+  }
+  icon={
+    <div>
+      Facebook
+    </div>
+  }
+  label="Facebook"
+  url="/"
+>
+  <li
+    className="socialChannels__item social-channels__item"
+  >
+    <a
+      className="socialChannels__link social-channels__link"
+      href="/"
+      rel="noopener noreferrer nofollow"
+      target="_blank"
+      title="Facebook"
+    >
+      <div
+        className="socialChannels__icon social-channels__icon"
+      >
+        <div>
+          Facebook
+        </div>
+      </div>
+      <div
+        className="socialChannels__text social-channels__text"
+      >
+        Facebook
+      </div>
+    </a>
+  </li>
+</SocialChannel>
+`;

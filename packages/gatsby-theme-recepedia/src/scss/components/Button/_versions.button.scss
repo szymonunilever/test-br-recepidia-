@@ -1,0 +1,163 @@
+@import '../../../../../gatsby-awd-components/src/scss/config'; // way of including library config may be reviewed later
+
+.button {
+  @extend %button;
+
+  &--rounded {
+    border-radius: 20px;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  // Button color modification
+  &--secondary {
+    background-color: $button-secondary-background;
+    color: $button-secondary-color;
+    font-weight: normal;
+  }
+
+  &--yellow {
+    background-color: $luminous-yellow;
+    color: $black-blue;
+    fill: currentColor;
+
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        background-color: $button-background-hover;
+        color: $white;
+      }
+    }
+  }
+
+  // Button size modification
+
+  &--fullwidth {
+    width: 100%;
+    max-width: $button-large-max-width;
+  }
+
+  &--medium {
+    width: 100%;
+    max-width: $button-medium-max-width;
+    @include respondTo(desktop) {
+      max-width: $button-medium-max-width-lg;
+    }
+  }
+
+  &--small {
+    width: 100%;
+    max-width: $button-small-max-width;
+    @include respondTo(desktop) {
+      max-width: $button-small-max-width-lg;
+    }
+  }
+
+  // Button With icon
+
+  &--control {
+    padding: 0;
+    width: 46px;
+    height: 46px;
+    @include respondTo(desktop) {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &--tooltip {
+    padding: 0;
+    width: 46px;
+    height: 46px;
+  }
+
+  &--aside {
+    padding: 0;
+    width: 46px;
+    height: 46px;
+    @include respondTo(desktop) {
+      width: 74px;
+      height: 74px;
+    }
+  }
+
+  &--filter {
+    //advanced recipe listing
+    background-color: $black-blue;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    border-radius: 0;
+    padding: 0;
+    svg {
+      fill: $white;
+    }
+  }
+
+  &__underlined {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      line-height: 1px;
+      background: $black-blue;
+      transition: width 0.2s ease-out;
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.action-button {
+  @extend %button;
+  @extend .button--circle;
+  padding: 0;
+  background: $white;
+  color: $fish-blue-darker;
+  border: 1px solid $fish-blue-darker;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      background-color: $apple-green;
+      color: $black-blue;
+      border: 1px solid $black-blue;
+      svg {
+        fill: $black-blue;
+        path {
+          fill: $black-blue;
+        }
+      }
+    }
+  }
+
+  width: 48px;
+  height: 48px;
+  svg {
+    stroke: currentColor;
+    fill: $white;
+    transition: stroke 0.2s ease-out;
+    width: 20px;
+    height: 18px;
+  }
+  &.button__selected {
+    background-color: $apple-green;
+    color: $black-blue;
+    svg {
+      fill: $black-blue;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.wizard--results.wizard--quiz {
+  .recipe-list {
+    display: block;
+    flex: 1 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1px; //fix for safari
+    margin: 0 #{-$col-indent-mobile};
+    @include respondTo(medium) {
+      margin: 0 #{-$col-indent-medium};
+    }
+    @include respondTo(desktop) {
+      margin: 0 #{-$col-indent-desktop};
+    }
+    &__list {
+      align-content: flex-start;
+      margin: 0;
+    }
+    &__item {
+      margin: 0 $col-indent-mobile #{$col-indent-mobile * 2};
+      @include respondTo(medium) {
+        margin: 0 $col-indent-medium #{$col-indent-medium * 2};
+      }
+      @include respondTo(desktop) {
+        margin: 0 $col-indent-desktop #{$col-indent-desktop * 2};
+      }
+    }
+    &__load-more {
+      @extend .button--medium;
+      margin-bottom: 40px;
+    }
+  }
+  .recipe-card__image .adaptive-image__image,
+  .quiz__label-image .gatsby-image-wrapper {
+    & > div {
+      padding-bottom: $recipe-card-height--mobile !important;
+      @include respondTo(medium) {
+        padding-bottom: $recipe-card-height--desktop !important;
+      }
+    }
+    img {
+      @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        max-width: none;
+        max-height: 100%;
+      }
+      @supports (-ms-ime-align: auto) {
+        max-width: none;
+        max-height: 100%;
+      }
+    }
+  }
+  form {
+    .wizard__title * {
+      @extend .subheading;
+      color: $black-blue;
+    }
+  }
+}
+.wizard-meal-planer--custom-search {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .wizard {
+    &__button {
+      @extend .button--medium;
+      &:first-child {
+        margin-left: 10px;
+        @include respondTo(medium) {
+          margin-left: 16px;
+        }
+      }
+      & + button {
+        @extend .button--secondary;
+        &:hover {
+          color: $white;
+          background-color: $black-blue;
+        }
+      }
+    }
+  }
+  .subheading {
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+      margin: 30px 0 0;
+    }
+  }
+  .recipe-card__buttons {
+    position: relative;
+    .custom-search_check {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      background-color: transparent;
+      border: 0;
+      height: $recipe-card-height--mobile;
+      border-radius: $radius;
+      @include respondTo(medium) {
+        height: $recipe-card-height--desktop;
+      }
+      svg {
+        display: none;
+      }
+      &.button__selected {
+        background-color: $item-overlay-color;
+        svg {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,558 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CountrySelector /> matches the snapshot 1`] = `
+<CountrySelector
+  list={
+    Array [
+      Object {
+        "label": "en",
+        "path": "en",
+        "value": "en",
+      },
+    ]
+  }
+>
+  <div
+    className="country-dropdown"
+    data-componentname="country-selector"
+    data-componentview="country-selector"
+  >
+    <Select
+      changeHandler={[Function]}
+      className="country-dropdown-select"
+      formatOptionLabel={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "en",
+            "path": "en",
+            "value": "en",
+          },
+        ]
+      }
+      placeholder="Select"
+    >
+      <t
+        addPlaceholder=""
+        autoFocus={false}
+        className="country-dropdown-select select"
+        clearOnBlur={true}
+        clearOnSelect={true}
+        clearable={false}
+        closeOnScroll={false}
+        closeOnSelect={true}
+        color="#0074D9"
+        create={false}
+        createNewLabel="add {search}"
+        debounceDelay={0}
+        direction="ltr"
+        disabled={false}
+        disabledLabel="disabled"
+        dropdownGap={5}
+        dropdownHandle={true}
+        dropdownHeight="300px"
+        dropdownPosition="bottom"
+        itemRenderer={[Function]}
+        keepSelectedInList={true}
+        labelField="label"
+        multi={false}
+        name={null}
+        noDataLabel="No data"
+        onChange={[Function]}
+        onClearAll={[Function]}
+        onCreateNew={[Function]}
+        onDropdownClose={[Function]}
+        onDropdownOpen={[Function]}
+        onSelectAll={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "en",
+              "path": "en",
+              "value": "en",
+            },
+          ]
+        }
+        placeholder="Select"
+        portal={null}
+        searchBy="label"
+        searchFn={[Function]}
+        searchable={false}
+        separator={true}
+        sortBy={null}
+        valueField="value"
+        values={Array []}
+      >
+        <t
+          onClickOutside={[Function]}
+        >
+          <div>
+            <ReactDropdownSelect
+              className="react-dropdown-select country-dropdown-select select"
+              color="#0074D9"
+              direction="ltr"
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              tabIndex="0"
+            >
+              <div
+                className="react-dropdown-select country-dropdown-select select css-3rj0br-ReactDropdownSelect e1gzf2xs0"
+                color="#0074D9"
+                direction="ltr"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex="0"
+              >
+                <de
+                  methods={
+                    Object {
+                      "activeCursorItem": [Function],
+                      "addItem": [Function],
+                      "areAllSelected": [Function],
+                      "clearAll": [Function],
+                      "createNew": [Function],
+                      "dropDown": [Function],
+                      "getInputSize": [Function],
+                      "getSelectBounds": [Function],
+                      "getSelectRef": [Function],
+                      "handleKeyDown": [Function],
+                      "isSelected": [Function],
+                      "removeItem": [Function],
+                      "safeString": [Function],
+                      "searchResults": [Function],
+                      "selectAll": [Function],
+                      "setSearch": [Function],
+                      "sortBy": [Function],
+                      "toggleSelectAll": [Function],
+                    }
+                  }
+                  props={
+                    Object {
+                      "addPlaceholder": "",
+                      "autoFocus": false,
+                      "className": "country-dropdown-select select",
+                      "clearOnBlur": true,
+                      "clearOnSelect": true,
+                      "clearable": false,
+                      "closeOnScroll": false,
+                      "closeOnSelect": true,
+                      "color": "#0074D9",
+                      "create": false,
+                      "createNewLabel": "add {search}",
+                      "debounceDelay": 0,
+                      "direction": "ltr",
+                      "disabled": false,
+                      "disabledLabel": "disabled",
+                      "dropdownGap": 5,
+                      "dropdownHandle": true,
+                      "dropdownHeight": "300px",
+                      "dropdownPosition": "bottom",
+                      "itemRenderer": [Function],
+                      "keepOpen": undefined,
+                      "keepSelectedInList": true,
+                      "labelField": "label",
+                      "multi": false,
+                      "name": null,
+                      "noDataLabel": "No data",
+                      "onChange": [Function],
+                      "onClearAll": [Function],
+                      "onCreateNew": [Function],
+                      "onDropdownClose": [Function],
+                      "onDropdownOpen": [Function],
+                      "onSelectAll": [Function],
+                      "options": Array [
+                        Object {
+                          "label": "en",
+                          "path": "en",
+                          "value": "en",
+                        },
+                      ],
+                      "placeholder": "Select",
+                      "portal": null,
+                      "searchBy": "label",
+                      "searchFn": [Function],
+                      "searchable": false,
+                      "separator": true,
+                      "sortBy": null,
+                      "valueField": "value",
+                      "values": Array [],
+                    }
+                  }
+                  state={
+                    Object {
+                      "cursor": null,
+                      "dropdown": false,
+                      "search": "",
+                      "selectBounds": Object {
+                        "bottom": 0,
+                        "height": 0,
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "width": 0,
+                      },
+                      "values": Array [],
+                    }
+                  }
+                >
+                  <ContentComponent
+                    className="react-dropdown-select-content react-dropdown-select-type-single"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+                      onClick={[Function]}
+                    >
+                      <t
+                        methods={
+                          Object {
+                            "activeCursorItem": [Function],
+                            "addItem": [Function],
+                            "areAllSelected": [Function],
+                            "clearAll": [Function],
+                            "createNew": [Function],
+                            "dropDown": [Function],
+                            "getInputSize": [Function],
+                            "getSelectBounds": [Function],
+                            "getSelectRef": [Function],
+                            "handleKeyDown": [Function],
+                            "isSelected": [Function],
+                            "removeItem": [Function],
+                            "safeString": [Function],
+                            "searchResults": [Function],
+                            "selectAll": [Function],
+                            "setSearch": [Function],
+                            "sortBy": [Function],
+                            "toggleSelectAll": [Function],
+                          }
+                        }
+                        props={
+                          Object {
+                            "addPlaceholder": "",
+                            "autoFocus": false,
+                            "className": "country-dropdown-select select",
+                            "clearOnBlur": true,
+                            "clearOnSelect": true,
+                            "clearable": false,
+                            "closeOnScroll": false,
+                            "closeOnSelect": true,
+                            "color": "#0074D9",
+                            "create": false,
+                            "createNewLabel": "add {search}",
+                            "debounceDelay": 0,
+                            "direction": "ltr",
+                            "disabled": false,
+                            "disabledLabel": "disabled",
+                            "dropdownGap": 5,
+                            "dropdownHandle": true,
+                            "dropdownHeight": "300px",
+                            "dropdownPosition": "bottom",
+                            "itemRenderer": [Function],
+                            "keepOpen": undefined,
+                            "keepSelectedInList": true,
+                            "labelField": "label",
+                            "multi": false,
+                            "name": null,
+                            "noDataLabel": "No data",
+                            "onChange": [Function],
+                            "onClearAll": [Function],
+                            "onCreateNew": [Function],
+                            "onDropdownClose": [Function],
+                            "onDropdownOpen": [Function],
+                            "onSelectAll": [Function],
+                            "options": Array [
+                              Object {
+                                "label": "en",
+                                "path": "en",
+                                "value": "en",
+                              },
+                            ],
+                            "placeholder": "Select",
+                            "portal": null,
+                            "searchBy": "label",
+                            "searchFn": [Function],
+                            "searchable": false,
+                            "separator": true,
+                            "sortBy": null,
+                            "valueField": "value",
+                            "values": Array [],
+                          }
+                        }
+                        state={
+                          Object {
+                            "cursor": null,
+                            "dropdown": false,
+                            "search": "",
+                            "selectBounds": Object {
+                              "bottom": 0,
+                              "height": 0,
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "width": 0,
+                            },
+                            "values": Array [],
+                          }
+                        }
+                      >
+                        <InputComponent
+                          className="react-dropdown-select-input"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onKeyPress={[Function]}
+                          placeholder="Select"
+                          readOnly={true}
+                          size={6}
+                          tabIndex="-1"
+                          value=""
+                        >
+                          <input
+                            className="react-dropdown-select-input css-90kix7-InputComponent e11wid6y0"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            onKeyPress={[Function]}
+                            placeholder="Select"
+                            readOnly={true}
+                            size={6}
+                            tabIndex="-1"
+                            value=""
+                          />
+                        </InputComponent>
+                      </t>
+                    </div>
+                  </ContentComponent>
+                </de>
+                <Ae
+                  methods={
+                    Object {
+                      "activeCursorItem": [Function],
+                      "addItem": [Function],
+                      "areAllSelected": [Function],
+                      "clearAll": [Function],
+                      "createNew": [Function],
+                      "dropDown": [Function],
+                      "getInputSize": [Function],
+                      "getSelectBounds": [Function],
+                      "getSelectRef": [Function],
+                      "handleKeyDown": [Function],
+                      "isSelected": [Function],
+                      "removeItem": [Function],
+                      "safeString": [Function],
+                      "searchResults": [Function],
+                      "selectAll": [Function],
+                      "setSearch": [Function],
+                      "sortBy": [Function],
+                      "toggleSelectAll": [Function],
+                    }
+                  }
+                  props={
+                    Object {
+                      "addPlaceholder": "",
+                      "autoFocus": false,
+                      "className": "country-dropdown-select select",
+                      "clearOnBlur": true,
+                      "clearOnSelect": true,
+                      "clearable": false,
+                      "closeOnScroll": false,
+                      "closeOnSelect": true,
+                      "color": "#0074D9",
+                      "create": false,
+                      "createNewLabel": "add {search}",
+                      "debounceDelay": 0,
+                      "direction": "ltr",
+                      "disabled": false,
+                      "disabledLabel": "disabled",
+                      "dropdownGap": 5,
+                      "dropdownHandle": true,
+                      "dropdownHeight": "300px",
+                      "dropdownPosition": "bottom",
+                      "itemRenderer": [Function],
+                      "keepOpen": undefined,
+                      "keepSelectedInList": true,
+                      "labelField": "label",
+                      "multi": false,
+                      "name": null,
+                      "noDataLabel": "No data",
+                      "onChange": [Function],
+                      "onClearAll": [Function],
+                      "onCreateNew": [Function],
+                      "onDropdownClose": [Function],
+                      "onDropdownOpen": [Function],
+                      "onSelectAll": [Function],
+                      "options": Array [
+                        Object {
+                          "label": "en",
+                          "path": "en",
+                          "value": "en",
+                        },
+                      ],
+                      "placeholder": "Select",
+                      "portal": null,
+                      "searchBy": "label",
+                      "searchFn": [Function],
+                      "searchable": false,
+                      "separator": true,
+                      "sortBy": null,
+                      "valueField": "value",
+                      "values": Array [],
+                    }
+                  }
+                  state={
+                    Object {
+                      "cursor": null,
+                      "dropdown": false,
+                      "search": "",
+                      "selectBounds": Object {
+                        "bottom": 0,
+                        "height": 0,
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "width": 0,
+                      },
+                      "values": Array [],
+                    }
+                  }
+                >
+                  <SeparatorComponent
+                    className="react-dropdown-select-separator"
+                  >
+                    <div
+                      className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
+                    />
+                  </SeparatorComponent>
+                </Ae>
+                <Ee
+                  methods={
+                    Object {
+                      "activeCursorItem": [Function],
+                      "addItem": [Function],
+                      "areAllSelected": [Function],
+                      "clearAll": [Function],
+                      "createNew": [Function],
+                      "dropDown": [Function],
+                      "getInputSize": [Function],
+                      "getSelectBounds": [Function],
+                      "getSelectRef": [Function],
+                      "handleKeyDown": [Function],
+                      "isSelected": [Function],
+                      "removeItem": [Function],
+                      "safeString": [Function],
+                      "searchResults": [Function],
+                      "selectAll": [Function],
+                      "setSearch": [Function],
+                      "sortBy": [Function],
+                      "toggleSelectAll": [Function],
+                    }
+                  }
+                  onClick={[Function]}
+                  props={
+                    Object {
+                      "addPlaceholder": "",
+                      "autoFocus": false,
+                      "className": "country-dropdown-select select",
+                      "clearOnBlur": true,
+                      "clearOnSelect": true,
+                      "clearable": false,
+                      "closeOnScroll": false,
+                      "closeOnSelect": true,
+                      "color": "#0074D9",
+                      "create": false,
+                      "createNewLabel": "add {search}",
+                      "debounceDelay": 0,
+                      "direction": "ltr",
+                      "disabled": false,
+                      "disabledLabel": "disabled",
+                      "dropdownGap": 5,
+                      "dropdownHandle": true,
+                      "dropdownHeight": "300px",
+                      "dropdownPosition": "bottom",
+                      "itemRenderer": [Function],
+                      "keepOpen": undefined,
+                      "keepSelectedInList": true,
+                      "labelField": "label",
+                      "multi": false,
+                      "name": null,
+                      "noDataLabel": "No data",
+                      "onChange": [Function],
+                      "onClearAll": [Function],
+                      "onCreateNew": [Function],
+                      "onDropdownClose": [Function],
+                      "onDropdownOpen": [Function],
+                      "onSelectAll": [Function],
+                      "options": Array [
+                        Object {
+                          "label": "en",
+                          "path": "en",
+                          "value": "en",
+                        },
+                      ],
+                      "placeholder": "Select",
+                      "portal": null,
+                      "searchBy": "label",
+                      "searchFn": [Function],
+                      "searchable": false,
+                      "separator": true,
+                      "sortBy": null,
+                      "valueField": "value",
+                      "values": Array [],
+                    }
+                  }
+                  state={
+                    Object {
+                      "cursor": null,
+                      "dropdown": false,
+                      "search": "",
+                      "selectBounds": Object {
+                        "bottom": 0,
+                        "height": 0,
+                        "left": 0,
+                        "right": 0,
+                        "top": 0,
+                        "width": 0,
+                      },
+                      "values": Array [],
+                    }
+                  }
+                >
+                  <DropdownHandleComponent
+                    className="react-dropdown-select-dropdown-handle"
+                    color="#0074D9"
+                    dropdownOpen={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyPress={[Function]}
+                    tabIndex="-1"
+                  >
+                    <div
+                      className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+                      color="#0074D9"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyPress={[Function]}
+                      tabIndex="-1"
+                    >
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 40 40"
+                      >
+                        <path
+                          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+                        />
+                      </svg>
+                    </div>
+                  </DropdownHandleComponent>
+                </Ee>
+              </div>
+            </ReactDropdownSelect>
+          </div>
+        </t>
+      </t>
+    </Select>
+  </div>
+</CountrySelector>
+`;

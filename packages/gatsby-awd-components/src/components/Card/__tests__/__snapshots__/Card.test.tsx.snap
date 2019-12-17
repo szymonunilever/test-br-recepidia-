@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> matches the snapshot 1`] = `
+<Component
+  Icon="svg"
+  content={
+    Object {
+      "cta": Object {
+        "label": "Contact Form",
+        "linkTo": "/contact",
+      },
+      "texts": Array [
+        "+380633334455",
+      ],
+      "title": "Phone",
+      "type": "phone",
+    }
+  }
+  titleLevel={2}
+>
+  <div
+    className="card"
+    data-componentname="card"
+    data-componentview="card"
+  >
+    <div
+      className="card__top card__top"
+    >
+      <div
+        className="card__icon card__icon"
+      >
+        <svg />
+      </div>
+      <Text
+        className="card__title card__title"
+        tag={1}
+        text="Phone"
+      >
+        <h2
+          className="card__title card__title"
+        >
+          Phone
+        </h2>
+      </Text>
+    </div>
+    <div
+      className="card__content card__content"
+    >
+      <a
+        href="tel:+380633334455"
+      >
+        <Text
+          className="card__text card__text"
+          key="0"
+          tag={7}
+          text="+380633334455"
+        >
+          <p
+            className="card__text card__text"
+          >
+            +380633334455
+          </p>
+        </Text>
+      </a>
+      <Component
+        className="card__button card__button"
+        content={
+          Object {
+            "label": "Contact Form",
+            "linkTo": "/contact",
+          }
+        }
+        onClick={[Function]}
+      >
+        <button
+          className="button button card__button card__button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="button__label"
+          >
+            Contact Form
+          </span>
+        </button>
+      </Component>
+    </div>
+  </div>
+</Component>
+`;

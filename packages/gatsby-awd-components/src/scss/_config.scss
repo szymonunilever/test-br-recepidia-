@@ -1,0 +1,537 @@
+/* ----------------------------------------------------------------------------- *\
+   BREAKPOINTS
+\* ----------------------------------------------------------------------------- */
+// $bp-small: 480px;
+$bp-medium: 768px !default;
+// $bp-large: 992px;
+// $bp-extra-large: 1200px;
+$bp-desktop: 1366px !default;
+
+// usage example
+// a {
+//    @include respondTo(desktop) {
+//      &:hover { background: blue; } // only add the hover effect on desktop browsers
+//    }
+// }
+/* -------------MIXINS---------------------------------------------------------- */
+@mixin respondTo($media) {
+  @if $media == small {
+    @media (max-width: $bp-small) {
+      @content;
+    }
+  } @else if $media == medium {
+    @media (min-width: $bp-medium) {
+      @content;
+    }
+  } @else if $media == large {
+    @media (min-width: $bp-large) {
+      @content;
+    }
+  } @else if $media == extra-large {
+    @media (min-width: $bp-extra-large) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------- *\
+   COLORS
+\* ----------------------------------------------------------------------------- */
+$recepedia-orange: #ff7875 !default;
+$fish-blue-darker: #4c6b7f !default;
+$apple-green: #b6dc85 !default;
+$luminous-yellow: #facc00 !default;
+$black-blue: #363840 !default;
+$white-gray: #f4f7f9 !default;
+$white-gray-darker: #e4eaef !default;
+$white: #ffffff !default;
+$blue-overlay-40: rgba(88, 124, 148, 0.4) !default;
+$pink-overlay-80: rgba(255, 120, 117, 0.8) !default;
+$apple-green-overlay-80: rgba(182, 220, 133, 0.8) !default;
+
+$gray: #c3c3c3 !default;
+
+$primary-color: $recepedia-orange !default;
+$page-overlay-color: $blue-overlay-40 !default;
+$item-overlay-color: $apple-green-overlay-80 !default;
+$alert-color: #fc5959 !default;
+$valid-color: $apple-green !default;
+$primary-bg-color: $white-gray !default;
+
+/* ----------------------------------------------------------------------------- *\
+   FONTS
+\* ----------------------------------------------------------------------------- */
+$rubik: 'Rubik', sans-serif !default;
+$arial: Arial, Helvetica, sans-serif !default;
+$font-size-html: 62.5% !default;
+$font-size-base: 1.4rem !default;
+$font-family-base: $arial !default;
+$font-weight-base: 400 !default;
+$font-family-headings: $rubik !default;
+$font-weight-headings: 500 !default;
+$font-color-base: $black-blue !default;
+
+html {
+  font-size: $font-size-html;
+}
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $font-color-base;
+}
+
+/* ----------------------------------------------------------------------------- *\
+   COMMON COLUMNS AND INDENTS
+\* ----------------------------------------------------------------------------- */
+$col-indent-mobile: 5px !default;
+$col-indent-medium: 8px !default;
+$col-indent-desktop: 8px !default;
+
+$one-col-width: 100% !default;
+$two-col-width: 100% / 2 !default;
+$three-col-width: 100% / 3 !default;
+$four-col-width: 100% / 4 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   COMMON THEME STYLES
+\* ----------------------------------------------------------------------------- */
+
+$theme-transition: 0.2s ease-out !default;
+
+/* ----------------------------------------------------------------------------- *\
+   LAYOUT
+\* ----------------------------------------------------------------------------- */
+$layout-indent-sm: 25px !default;
+$layout-indent: calc(49.9% - 544px) !default;
+
+/* ----------------------------------------------------------------------------- *\
+  ADAPTIVE IMAGES
+\* ----------------------------------------------------------------------------- */
+$radius: 5px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   BUTTONS
+\* ----------------------------------------------------------------------------- */
+$button-border: none !default;
+$button-font-size: 1.4rem !default;
+$button-font-size-lg: 1.6rem !default;
+$button-icon-font-size: 1.3rem !default;
+$button-height: 40px !default;
+$button-height-desktop: 46px !default;
+$button-padding: 0 15px !default;
+$button-radius: $radius !default;
+$button-transition: all $theme-transition !default;
+
+//Button width
+$button-small-max-width: 110px !default;
+$button-small-max-width-lg: 160px !default;
+$button-medium-max-width: 160px !default;
+$button-medium-max-width-lg: 260px !default;
+$button-large-max-width: 350px !default;
+
+// Button colors
+//primary
+$button-color: $black-blue !default;
+$button-background: $apple-green !default;
+$button-color-hover: $white !default;
+$button-background-hover: $black-blue !default;
+
+//secondary
+$button-secondary-color: $black-blue !default;
+$button-secondary-background: $white-gray !default;
+
+//gray
+$button-grey-color: $black-blue !default;
+$button-grey-background: $white-gray !default;
+
+//cta
+$button-cta-color: $black-blue !default;
+$button-cta-background: $luminous-yellow !default;
+
+// Disabled button styles
+$button-disabled-background: #dfdfdf !default;
+$button-disabled-color: #636363 !default;
+
+%button {
+  border: $button-border;
+  border-radius: $button-radius;
+  display: inline-flex;
+  align-items: center;
+  font-size: $button-font-size;
+  justify-content: center;
+  font-weight: bold;
+  height: $button-height;
+  line-height: normal;
+  padding: $button-padding;
+  text-transform: none;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
+  background-color: $button-background;
+  color: $button-color;
+  fill: currentColor;
+  transition: $button-transition;
+  cursor: pointer;
+  @include respondTo(desktop) {
+    font-size: $button-font-size-lg;
+    height: $button-height-desktop;
+  }
+
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      background-color: $button-background-hover;
+      color: $button-color-hover;
+      fill: $button-color-hover;
+    }
+  }
+}
+/* ----------------------------------------------------------------------------- *\
+   BACK TO TOP
+\* ----------------------------------------------------------------------------- */
+$back-to-top-bottom: 25px !default;
+$back-to-top-right: 25px !default;
+$back-to-top-bottom-lg: 50px !default;
+$back-to-top-right-lg: 140px !default;
+$back-to-top-size: 46px !default;
+$back-to-top-size-lg: 56px !default;
+$back-to-top-z-index: 10 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   WIZARD
+\* ----------------------------------------------------------------------------- */
+$quiz-image-background-color: $white-gray !default;
+$quiz-item-overlay-color: $item-overlay-color !default;
+$quiz-item-overlay-transition: opacity 0.3s !default;
+$quiz-image-ratio-mobile: 62% !important;
+$quiz-image-ratio-desktop: 59% !important;
+
+$wizard-intro-width-desktop: 352px !default;
+$wizard-intro-image-width: calc(50% + 103px) !default;
+$wizard-intro-image-right: 0 !default;
+$wizard-intro-image-top: 77px !default;
+$wizard-intro-image-bottom: 77px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   PLACEHOLDERS
+\* ----------------------------------------------------------------------------- */
+%sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ----------------------------------------------------------------------------- *\
+   CAROUSEL
+\* ----------------------------------------------------------------------------- */
+$carousel-button-height: 46px !default;
+$carousel-button-fz: $button-font-size !default;
+$carousel-button-width: 46px !default;
+$carousel-button-height-lg: 56px !default;
+$carousel-button-width-lg: 56px !default;
+$carousel-button-background: $button-background !default;
+$carousel-button-background-hover: $button-background-hover !default;
+$carousel-button-color: $button-color !default;
+$carousel-button-color-hover: $button-color-hover !default;
+$carousel-button-radius: $button-radius !default;
+$carousel-button-vertical-position: 50% !default;
+
+/* ----------------------------------------------------------------------------- *\
+   TABS
+\* ----------------------------------------------------------------------------- */
+$tabs-height: 62px !default;
+$tabs-background: $white-gray !default;
+$tab-indent: 0 20px !default;
+$tab-color: $font-color-base !default;
+$tab-alignment: center !default;
+$tab-fz: 1.8rem !default;
+$tab-fw: 500 !default;
+$tab-width: 100% !default;
+$tab-line-color: $fish-blue-darker !default;
+$tab-line-height: 2px !default;
+$tab-border: none !default;
+/* ----------------------------------------------------------------------------- *\
+   TAGS
+\* ----------------------------------------------------------------------------- */
+$tag-background: $white-gray !default;
+$tag-background-hover: $apple-green !default;
+$tag-background-selected: $fish-blue-darker !default;
+$tag-color: $font-color-base !default;
+$tag-color-hover: $font-color-base !default;
+$tag-color-selected: $white !default;
+$tag-fz: 1.4rem !default;
+$tag-height: 40px !default;
+$tag-border: 1px solid $tag-color !default;
+$tag-removable-bg: transparent !default;
+$tag-removable-height: 32px !default;
+$tag-padding: 0 15px !default;
+$tag-removable-padding: 0 45px 0 15px !default;
+$tag-border-radius: 20px !default;
+$tags-indent: 5px !default;
+$tags-list-padding: 0 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   NAVIGATION
+\* ----------------------------------------------------------------------------- */
+$header-height: 80px !default;
+$header-color: $font-color-base !default;
+$header-icon-color: $primary-color !default;
+$header-logo-width: 110px !default;
+$header-logo-height: 30px !default;
+$header-logo-width-lg: 168px !default;
+$header-logo-height-lg: 43.4px !default;
+$header-search-icon-width: 48px !default;
+$header-search-icon-height: 48px !default;
+$header-navigation-background: $white-gray !default;
+$submenu-bg-color: $white-gray-darker !default;
+$submenu-text-color-mobile: $font-color-base !default;
+$submenu-text-color-desktop: $fish-blue-darker !default;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE COPY
+\* ----------------------------------------------------------------------------- */
+$recipe-copy-title-fz: 3rem !default;
+$recipe-copy-title-fz-lg: 4.5rem !default;
+$recipe-copy-title-ff: $rubik !default;
+$recipe-copy-title-color: $fish-blue-darker !default;
+
+$recipe-copy-descr-fz: 1.4rem !default;
+$recipe-copy-descr-indent: 0 0 20px 0 !default;
+$recipe-copy-descr-lh: 1.8rem !default;
+$recipe-copy-descr-color: $fish-blue-darker !default;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE CARD
+\* ----------------------------------------------------------------------------- */
+$card-title-fz: 1.6rem !default;
+$card-title-fw: 500 !default;
+$card-title-ff: $font-family-headings !default;
+$card-title-color: $font-color-base !default;
+$card-title-indent: 15px 0 0 0 !default;
+$card-title-indent-lg: 20px 0 0 0 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE ATTRIBUTES
+\* ----------------------------------------------------------------------------- */
+$recipe-attributes-indent: 20px 0 !default;
+$recipe-attributes-indent-lg: 15px 0 40px 0 !default;
+$recipe-attribute-card-indent: 0 40px 0 0 !default;
+$recipe-attribute-icon-height: 40px !default;
+$recipe-attribute-icon-width: 40px !default;
+$recipe-attribute-label-color: $fish-blue-darker !default;
+$recipe-attribute-label-fz: 1.4rem !default;
+$recipe-attribute-label-indent: 10px 0 0 0 !default;
+/* ----------------------------------------------------------------------------- *\
+   RECIPE COOKING METHOD
+\* ----------------------------------------------------------------------------- */
+$recipe-cooking-method-title-fz: 2.5rem !default;
+$recipe-cooking-method-title-color: $font-color-base !default;
+$recipe-cooking-method-list-indent: 20px 0 !default;
+$recipe-cooking-method-list-indent-lg: 40px 0 !default;
+$recipe-cooking-method-item-fz: 1.4rem !default;
+$recipe-cooking-methods-title-fz: 1.8rem !default;
+$recipe-cooking-methods-title-color: $fish-blue-darker !default;
+$recipe-cooking-methods-subtitle-fz: 1.6rem !default;
+$recipe-cooking-methods-item-fz: 1.4rem !default;
+$recipe-cooking-methods-item-color: $font-color-base !default;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE COPY
+\* ----------------------------------------------------------------------------- */
+$recipe-copy-ingredients-title-fz: 2.5rem !default;
+$recipe-copy-ingredients-title-color: $font-color-base !default;
+$recipe-copy-ingredients-item-fz: 1.4rem !default;
+$recipe-copy-ingredients-item-indent: 0 0 30px 0 !default;
+$recipe-copy-ingredients-group-indent: 35px 0 !default;
+$recipe-copy-ingredients-group-title-fz: 1.8rem !default;
+$recipe-copy-ingredients-group-title-color: $fish-blue-darker !default;
+$recipe-copy-ingredients-group-title-indent: 0 0 24px 0 !default;
+$recipe-copy-ingredients-group-subtitle-fz: 1.6rem !default;
+$recipe-copy-ingredients-group-item-fz: 1.4rem !default;
+$recipe-copy-ingredients-group-item-color: $font-color-base !default;
+$recipe-copy-ingredients-group-item-indent: 0 0 24px 0 !default;
+$recipe-copy-ingredients-list-indent: 20px 0 !default;
+$recipe-copy-ingredients-list-indent-lg: 40px 0 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE DIETARY ATTRIBUTES
+\* ----------------------------------------------------------------------------- */
+$recipe-dietary-attributes-icon-width: 80px !default;
+$recipe-dietary-attributes-icon-height: 79px !default;
+$recipe-dietary-attributes-text-fz: 1.4rem !default;
+$recipe-dietary-attributes-text-color: $fish-blue-darker !default;
+$recipe-dietary-attributes-item-padding: 0 5px 0 5px;
+$recipe-dietary-attributes-item-padding-lg: 0 15px 0 15px;
+$recipe-dietary-attributes-item-indent: 17px;
+$recipe-dietary-attributes-item-width: calc(99.9% / 3);
+$recipe-dietary-attributes-item-width-md: calc(99.9% / 5);
+$recipe-dietary-attributes-item-width-lg: calc(99.9% / 7);
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE AND PAGE LISTING
+\* ----------------------------------------------------------------------------- */
+$listing-title-fz: 2.1rem !default;
+$listing-title-fz-lg: 2.5rem !default;
+$listing-title-ff: $font-family-headings !default;
+
+$page-listing-image-height--mobile: 180px !default;
+$page-listing-image-height--desktop: 315px !default;
+
+$page-listing-card-height--mobile: 100px !default;
+$page-listing-card-height--desktop: 195px !default;
+
+$page-listing--item-title-fz: $card-title-fz !default;
+$page-listing--item-title-ff: $card-title-ff !default;
+$page-listing--item-title-color: $card-title-color !default;
+
+$recipe-card-height--mobile: 225px !default;
+$recipe-card-height--desktop: 320px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   PROGRESS BAR
+\* ----------------------------------------------------------------------------- */
+$progress-bar-bg: $gray !default;
+$progress-bar-height: 2px !default;
+$progress-bar-fill-color: $fish-blue-darker !default;
+$progress-bar-width: 102px !default;
+$progress-bar-width-lg: 170px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   MODAL
+\* ----------------------------------------------------------------------------- */
+$modal-overlay-bg: $blue-overlay-40 !default;
+$modal-content-bg: $white !default;
+$modal-content-padding: 20px !default;
+$modal-content-position-top: 50px !default;
+$modal-content-position-right: 50px !default;
+$modal-content-position-bottom: 50px !default;
+$modal-content-position-left: 50px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   SOCIAL SHARE
+\* ----------------------------------------------------------------------------- */
+$social-sharing-btn-width: 22px !default;
+$social-sharing-btn-height: 22px !default;
+$social-sharing-btn-width-lg: 38x !default;
+$social-sharing-btn-height-lg: 38px !default;
+$social-sharing-fill-color: $primary-color !default;
+$social-sharing-fill-color-hover: $black-blue !default;
+
+/* ----------------------------------------------------------------------------- *\
+   USER PREFERENCES
+\* ----------------------------------------------------------------------------- */
+$preferences-error-color: $alert-color !default;
+$preferences-success-color: $apple-green !default;
+$preferences-control-btn-width: 46px !default;
+$preferences-control-btn-height: 46px !default;
+$preferences-control-svg-width: 21px !default;
+$preferences-control-svg-height: 21px !default;
+$preferences-control-svg-fill-color: $black-blue !default;
+$preferences-control-svg-fill-color-hover: $white-gray !default;
+$preferences-input-color: $black-blue !default;
+$preferences-input-size: 18px !default;
+$preferences-input-inner: 14px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   FOOTER
+\* ----------------------------------------------------------------------------- */
+$footer-bg: $primary-bg-color !default;
+$footer-links-color: $font-color-base !default;
+$footer-links-fz: 1.4rem !default;
+
+/* ----------------------------------------------------------------------------- *\
+   GENERATED FORM
+\* ----------------------------------------------------------------------------- */
+$form-alert-msg-height: 28px !default;
+$form-alert-msg-fz: 1.2rem !default;
+$form-validation-icon-fz: 1.2rem !default;
+$form-validation-icon-size: $form-validation-icon-fz * 1.5 !default;
+$form-validation-icon-right: -$form-validation-icon-size * 1.1 !default;
+$form-valid-symbol: '\2713' !default;
+$form-invalid-symbol: '!' !default;
+$input-height: 40px !default;
+$input-line-height: 1.5 !default;
+$input-padding: 2px 10px !default;
+$input-border-color: $black-blue !default;
+$input-border: 1px solid $input-border-color !default;
+$input-border-radius: $radius !default;
+$input-color: $black-blue !default;
+$input-placeholder-color: $gray !default;
+// Custom select
+$select-icon-size: 20px !default;
+$select-option-selected-bg: $black-blue !default;
+$select-option-selected-color: $white !default;
+$select-option-hovered-bg: $apple-green !default;
+$select-option-hovered-color: $black-blue !default;
+
+$checkbox-outer-size: 18px !default;
+$checkbox-inner-size: 14px !default;
+$radiobtn-outer-size: 28px !default;
+$radiobtn-inner-size: 20px !default;
+
+/* ----------------------------------------------------------------------------- *\
+   SEARCH INPUT
+\* ----------------------------------------------------------------------------- */
+$search-input-height: 50px !default;
+$search-input-list-fz: $font-size-base !default;
+$search-input-list-bg: $white !default;
+$search-input-reset-btn-width: 50px !default;
+$search-input-submit-btn-width: 30px !default;
+$search-input-border-bottom: $input-border !default;
+
+/* ----------------------------------------------------------------------------- *\
+   SITE-MAP
+\* ----------------------------------------------------------------------------- */
+$sitemap-category-heading-fz: 1.8rem !default;
+$sitemap-subheading-fz: 1.2rem !default;
+$sitemap-link-color: $black-blue !default;
+$sitemap-link-hover-color: $apple-green !default;
+$sitemap-link-transition: color 0.2s ease-out !default;
+$sitemap-columns-number: 1 !default;
+$sitemap-columns-number-lg: 4 !default;
+
+/* ----------------------------------------------------------------------------- *\
+   HERO
+\* ----------------------------------------------------------------------------- */
+$hero-bg: $fish-blue-darker !default;
+$hero-content-color: $white !default;
+$hero-title-fz: 2.4rem !default;
+$hero-title-fz-lg: 4.5rem !default;
+$hero-text-fz: 1.4rem !default;
+$hero-text-fz-lg: 1.6rem !default;
+
+/* ----------------------------------------------------------------------------- *\
+   CARD
+\* ----------------------------------------------------------------------------- */
+$card-bg: $white-gray !default;
+$card-border-radius: 20px !default;
+$card-button-width: $button-large-max-width !default;
+
+/* ----------------------------------------------------------------------------- *\
+   SOCIAL CHANNELS
+\* ----------------------------------------------------------------------------- */
+$social-channels-indent: 36px !default;
+$social-channels-indent-lg: 75px !default;
+$social-channels-icon-size: 22px !default;
+$social-channels-icon-size-lg: 35px !default;
+$social-channels-icon-fill: $black-blue !default;
+
+/* ----------------------------------------------------------------------------- *\
+   NULL RESULT
+\* ----------------------------------------------------------------------------- */
+$null-result-title-fz: 2.8rem !default;
+$null-result-title-fz-lg: 2.5rem !default;
+$null-result-subtitle-fz: 1.6rem !default;
+$null-result-subtitle-fz-lg: 1.6rem !default;
+$null-result-item-fz: 1.4rem !default;
+$null-result-item-fz-lg: 1.4rem !default;

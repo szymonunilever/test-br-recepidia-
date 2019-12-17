@@ -1,0 +1,87 @@
+/* ----------------------------------------------------------------------------- *\
+   BREAKPOINTS
+\* ----------------------------------------------------------------------------- */
+// $bp-small: 480px;
+$bp-medium: 768px;
+// $bp-large: 992px;
+// $bp-extra-large: 1200px;
+$bp-desktop: 1366px;
+
+// usage example
+// a {
+//    @include respondTo(desktop) {
+//      &:hover { background: blue; } // only add the hover effect on desktop browsers
+//    }
+// }
+
+/* ----------------------------------------------------------------------------- *\
+   COLORS
+\* ----------------------------------------------------------------------------- */
+$recepedia-orange: #ff7875;
+$fish-blue-darker: #4c6b7f;
+$apple-green: #b6dc85;
+$luminous-yellow: #facc00;
+$black-blue: #363840;
+$white-gray: #f4f7f9;
+$white-gray-darker: #e4eaef;
+$white: #ffffff;
+$blue-overlay-40: rgba(88, 124, 148, 0.4);
+$pink-overlay-80: rgba(255, 120, 117, 0.8);
+$apple-green-overlay-80: rgba(182, 220, 133, 0.8);
+
+$gray: #c3c3c3;
+
+$primary-color: $recepedia-orange;
+$page-overlay-color: $blue-overlay-40;
+$item-overlay-color: $apple-green-overlay-80;
+$alert-color: #fc5959;
+$primary-bg-color: $white-gray;
+
+/* ----------------------------------------------------------------------------- *\
+   FONTS
+\* ----------------------------------------------------------------------------- */
+$rubik: 'Rubik', sans-serif;
+$arial: Arial, Helvetica, sans-serif;
+
+/* ----------------------------------------------------------------------------- *\
+   LAYOUT
+\* ----------------------------------------------------------------------------- */
+$layout-indent-sm: 25px;
+$layout-indent: calc(49.9% - 544px);
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE CARD HEIGHT SIZES
+\* ----------------------------------------------------------------------------- */
+$recipe-card-height--mobile: 225px;
+$recipe-card-height--desktop: 320px;
+
+/* ----------------------------------------------------------------------------- *\
+   RECIPE LISTING HEIGHT SIZES
+\* ----------------------------------------------------------------------------- */
+$page-listing-image-height--mobile: 180px;
+$page-listing-image-height--desktop: 315px;
+$page-listing-card-height--mobile: 100px;
+$page-listing-card-height--desktop: 195px;
+
+%link--inline {
+  color: inherit;
+  text-decoration: underline;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+%link--external {
+  //a[target="_blank"]
+  &:after {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEzIiBmaWxsPSIjMzYzODQwIj48cGF0aCBkPSJNMTkgMTlINVY1aDdWM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGMxLjEgMCAyLS45IDItMnYtN2gtMnY3ek0xNCAzdjJoMy41OWwtOS44MyA5LjgzIDEuNDEgMS40MUwxOSA2LjQxVjEwaDJWM2gtN3oiLz48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48L3N2Zz4=); //$black-blue
+    background-repeat: no-repeat;
+    content: '';
+    height: 1em;
+    width: 1em;
+    margin: 0 0.1875rem 0 0.25rem;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Accordion /> matches the snapshot 1`] = `
+<Component
+  Icon="svg"
+  IconOpened="svg"
+  className="className"
+  isOpen={false}
+  title={
+    Object {
+      "label": "Label",
+      "name": "Name",
+    }
+  }
+>
+  <div
+    className="accordion className"
+    data-componentname="accordion"
+    data-componentview="accordion"
+  >
+    <div
+      aria-expanded={false}
+      aria-label="Label"
+      className="accordion__title"
+      id="Name"
+      onClick={[Function]}
+      onKeyUp={[Function]}
+      role="tree"
+      tabIndex={0}
+    >
+      Label
+      <svg />
+    </div>
+    <div
+      className="accordion__body"
+    >
+      <div>
+        Test
+      </div>
+    </div>
+  </div>
+</Component>
+`;

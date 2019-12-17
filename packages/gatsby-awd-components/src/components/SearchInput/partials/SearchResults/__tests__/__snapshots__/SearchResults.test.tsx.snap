@@ -1,0 +1,1319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchResults /> matches the snapshot 1`] = `
+<SearchResults
+  activeIndex={1}
+  list={
+    Array [
+      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "qui est esse",
+      "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+      "eum et est occaecati",
+      "nesciunt quas odio",
+      "dolorem eum magni eos aperiam quia",
+      "magnam facilis autem",
+      "dolorem dolore est ipsam",
+      "nesciunt iure omnis dolorem tempora et accusantium",
+      "optio molestias id quia eum",
+      "et ea vero quia laudantium autem",
+      "in quibusdam tempore odit est dolorem",
+      "dolorum ut in voluptas mollitia et saepe quo animi",
+      "voluptatem eligendi optio",
+      "eveniet quod temporibus",
+      "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
+      "fugit voluptas sed molestias voluptatem provident",
+      "voluptate et itaque vero tempora molestiae",
+      "adipisci placeat illum aut reiciendis qui",
+      "doloribus ad provident suscipit at",
+      "asperiores ea ipsam voluptatibus modi minima quia sint",
+      "dolor sint quo a velit explicabo quia nam",
+      "maxime id vitae nihil numquam",
+      "autem hic labore sunt dolores incidunt",
+      "rem alias distinctio quo quis",
+      "est et quae odit qui non",
+      "quasi id et eos tenetur aut quo autem",
+      "delectus ullam et corporis nulla voluptas sequi",
+      "iusto eius quod necessitatibus culpa ea",
+      "a quo magni similique perferendis",
+      "ullam ut quidem id aut vel consequuntur",
+      "doloremque illum aliquid sunt",
+      "qui explicabo molestiae dolorem",
+      "magnam ut rerum iure",
+      "id nihil consequatur molestias animi provident",
+      "fuga nam accusamus voluptas reiciendis itaque",
+      "provident vel ut sit ratione est",
+      "explicabo et eos deleniti nostrum ab id repellendus",
+      "eos dolorem iste accusantium est eaque quam",
+      "enim quo cumque",
+      "non est facere",
+      "commodi ullam sint et excepturi error explicabo praesentium voluptas",
+      "eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis",
+      "optio dolor molestias sit",
+      "ut numquam possimus omnis eius suscipit laudantium iure",
+      "aut quo modi neque nostrum ducimus",
+      "quibusdam cumque rem aut deserunt",
+      "ut voluptatem illum ea doloribus itaque eos",
+      "laborum non sunt aut ut assumenda perspiciatis voluptas",
+      "repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem",
+      "soluta aliquam aperiam consequatur illo quis voluptas",
+      "qui enim et consequuntur quia animi quis voluptate quibusdam",
+      "ut quo aut ducimus alias",
+      "sit asperiores ipsam eveniet odio non quia",
+      "sit vel voluptatem et non libero",
+      "qui et at rerum necessitatibus",
+      "sed ab est est",
+      "voluptatum itaque dolores nisi et quasi",
+      "qui commodi dolor at maiores et quis id accusantium",
+      "consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere",
+      "voluptatem doloribus consectetur est ut ducimus",
+      "beatae enim quia vel",
+      "voluptas blanditiis repellendus animi ducimus error sapiente et suscipit",
+      "et fugit quas eum in in aperiam quod",
+      "consequatur id enim sunt et et",
+      "repudiandae ea animi iusto",
+      "aliquid eos sed fuga est maxime repellendus",
+      "odio quis facere architecto reiciendis optio",
+      "fugiat quod pariatur odit minima",
+      "voluptatem laborum magni",
+      "et iusto veniam et illum aut fuga",
+      "sint hic doloribus consequatur eos non id",
+      "consequuntur deleniti eos quia temporibus ab aliquid at",
+      "enim unde ratione doloribus quas enim ut sit sapiente",
+      "dignissimos eum dolor ut enim et delectus in",
+      "doloremque officiis ad et non perferendis",
+      "necessitatibus quasi exercitationem odio",
+      "quam voluptatibus rerum veritatis",
+      "pariatur consequatur quia magnam autem omnis non amet",
+      "labore in ex et explicabo corporis aut quas",
+      "tempora rem veritatis voluptas quo dolores vero",
+      "laudantium voluptate suscipit sunt enim enim",
+      "odit et voluptates doloribus alias odio et",
+      "optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut",
+      "dolore veritatis porro provident adipisci blanditiis et sunt",
+      "placeat quia et porro iste",
+      "nostrum quis quasi placeat",
+      "sapiente omnis fugit eos",
+      "sint soluta et vel magnam aut ut sed qui",
+      "ad iusto omnis odit dolor voluptatibus",
+      "aut amet sed",
+      "ratione ex tenetur perferendis",
+      "beatae soluta recusandae",
+      "qui qui voluptates illo iste minima",
+      "id minus libero illum nam ad officiis",
+      "quaerat velit veniam amet cupiditate aut numquam ut sequi",
+      "quas fugiat ut perspiciatis vero provident",
+      "laboriosam dolor voluptates",
+      "temporibus sit alias delectus eligendi possimus magni",
+      "at nam consequatur ea labore ea harum",
+    ]
+  }
+  navigateToItem={true}
+  onClickHandler={[MockFunction]}
+  onHoverHandler={[MockFunction]}
+>
+  <ul
+    className="search-input__list"
+  >
+    <li
+      className="search-input__item"
+      key="0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link active"
+      >
+        qui est esse
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ea molestias quasi exercitationem repellat qui ipsa sit aut
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="3"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        eum et est occaecati
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="4"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        nesciunt quas odio
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="5"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dolorem eum magni eos aperiam quia
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="6"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        magnam facilis autem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="7"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dolorem dolore est ipsam
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="8"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        nesciunt iure omnis dolorem tempora et accusantium
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="9"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        optio molestias id quia eum
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="10"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        et ea vero quia laudantium autem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="11"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        in quibusdam tempore odit est dolorem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="12"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dolorum ut in voluptas mollitia et saepe quo animi
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="13"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptatem eligendi optio
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="14"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        eveniet quod temporibus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="15"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="16"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        fugit voluptas sed molestias voluptatem provident
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="17"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptate et itaque vero tempora molestiae
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="18"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        adipisci placeat illum aut reiciendis qui
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="19"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        doloribus ad provident suscipit at
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="20"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        asperiores ea ipsam voluptatibus modi minima quia sint
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="21"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dolor sint quo a velit explicabo quia nam
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="22"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        maxime id vitae nihil numquam
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="23"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        autem hic labore sunt dolores incidunt
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="24"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        rem alias distinctio quo quis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="25"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        est et quae odit qui non
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="26"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        quasi id et eos tenetur aut quo autem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="27"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        delectus ullam et corporis nulla voluptas sequi
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="28"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        iusto eius quod necessitatibus culpa ea
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="29"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        a quo magni similique perferendis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="30"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ullam ut quidem id aut vel consequuntur
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="31"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        doloremque illum aliquid sunt
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="32"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        qui explicabo molestiae dolorem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="33"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        magnam ut rerum iure
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="34"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        id nihil consequatur molestias animi provident
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="35"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        fuga nam accusamus voluptas reiciendis itaque
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="36"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        provident vel ut sit ratione est
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="37"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        explicabo et eos deleniti nostrum ab id repellendus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="38"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        eos dolorem iste accusantium est eaque quam
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="39"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        enim quo cumque
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="40"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        non est facere
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="41"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        commodi ullam sint et excepturi error explicabo praesentium voluptas
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="42"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="43"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        optio dolor molestias sit
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="44"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ut numquam possimus omnis eius suscipit laudantium iure
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="45"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        aut quo modi neque nostrum ducimus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="46"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        quibusdam cumque rem aut deserunt
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="47"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ut voluptatem illum ea doloribus itaque eos
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="48"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        laborum non sunt aut ut assumenda perspiciatis voluptas
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="49"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="50"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        soluta aliquam aperiam consequatur illo quis voluptas
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="51"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        qui enim et consequuntur quia animi quis voluptate quibusdam
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="52"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ut quo aut ducimus alias
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="53"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sit asperiores ipsam eveniet odio non quia
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="54"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sit vel voluptatem et non libero
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="55"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        qui et at rerum necessitatibus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="56"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sed ab est est
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="57"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptatum itaque dolores nisi et quasi
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="58"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        qui commodi dolor at maiores et quis id accusantium
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="59"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="60"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptatem doloribus consectetur est ut ducimus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="61"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        beatae enim quia vel
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="62"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptas blanditiis repellendus animi ducimus error sapiente et suscipit
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="63"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        et fugit quas eum in in aperiam quod
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="64"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        consequatur id enim sunt et et
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="65"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        repudiandae ea animi iusto
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="66"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        aliquid eos sed fuga est maxime repellendus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="67"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        odio quis facere architecto reiciendis optio
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="68"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        fugiat quod pariatur odit minima
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="69"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        voluptatem laborum magni
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="70"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        et iusto veniam et illum aut fuga
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="71"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sint hic doloribus consequatur eos non id
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="72"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        consequuntur deleniti eos quia temporibus ab aliquid at
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="73"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        enim unde ratione doloribus quas enim ut sit sapiente
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="74"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dignissimos eum dolor ut enim et delectus in
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="75"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        doloremque officiis ad et non perferendis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="76"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        necessitatibus quasi exercitationem odio
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="77"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        quam voluptatibus rerum veritatis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="78"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        pariatur consequatur quia magnam autem omnis non amet
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="79"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        labore in ex et explicabo corporis aut quas
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="80"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        tempora rem veritatis voluptas quo dolores vero
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="81"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        laudantium voluptate suscipit sunt enim enim
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="82"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        odit et voluptates doloribus alias odio et
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="83"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="84"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        dolore veritatis porro provident adipisci blanditiis et sunt
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="85"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        placeat quia et porro iste
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="86"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        nostrum quis quasi placeat
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="87"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sapiente omnis fugit eos
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="88"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        sint soluta et vel magnam aut ut sed qui
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="89"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ad iusto omnis odit dolor voluptatibus
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="90"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        aut amet sed
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="91"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        ratione ex tenetur perferendis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="92"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        beatae soluta recusandae
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="93"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        qui qui voluptates illo iste minima
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="94"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        id minus libero illum nam ad officiis
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="95"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        quaerat velit veniam amet cupiditate aut numquam ut sequi
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="96"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        quas fugiat ut perspiciatis vero provident
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="97"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        laboriosam dolor voluptates
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="98"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        temporibus sit alias delectus eligendi possimus magni
+      </a>
+    </li>
+    <li
+      className="search-input__item"
+      key="99"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <a
+        className="search-input__link"
+      >
+        at nam consequatur ea labore ea harum
+      </a>
+    </li>
+  </ul>
+</SearchResults>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Reviews /> matches the snapshot 1`] = `
+<Reviews
+  className="test-class"
+  provider={0}
+  recipeId={123}
+>
+  <div
+    className="recipe-reviews test-class"
+    data-componentname="recipe-reviews"
+    data-componentview="recipe-reviews"
+  >
+    <div
+      className="rr-widget-container rr-container"
+      data-category-pageurl="http://localhost/recipes"
+      data-entity-type="recipe"
+      data-entity-url="http://localhost"
+      data-readpanel-template="readpanel01"
+      data-unique-id={123}
+    />
+  </div>
+</Reviews>
+`;

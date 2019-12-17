@@ -1,0 +1,51 @@
+.recipe-card {
+  .recipe-card__favorite {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    svg {
+      stroke: #fff;
+      fill-opacity: 0;
+      -webkit-transition: stroke 0.2s ease-out;
+      transition: stroke 0.2s ease-out;
+      height: 26px;
+      width: auto;
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        svg {
+          fill: #facc00;
+          stroke: #facc00;
+          fill-opacity: 1;
+        }
+      }
+    }
+    &.button__selected {
+      svg {
+        fill: #facc00;
+        stroke: #facc00;
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  .rr-widget-container {
+    margin: 0;
+    padding-top: 10px;
+
+    .agRatingSelect,
+    .agRatingDeSelect {
+      height: 100%;
+      img {
+        height: 10px;
+        width: 59px;
+        @include respondTo(medium) {
+          height: 13px;
+          width: 76px;
+        }
+      }
+    }
+  }
+}

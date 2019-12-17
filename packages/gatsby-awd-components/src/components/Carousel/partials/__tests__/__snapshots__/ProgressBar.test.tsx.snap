@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProgressBar /> matches the snapshot 1`] = `
+<ProgressBar>
+  <div
+    className="progressBar progress-bar"
+  >
+    <progress
+      aria-label="progress"
+      className="progressBar__content progress-bar__content"
+      max="100"
+      role="progressbar"
+      style={
+        Object {
+          "width": "0%",
+        }
+      }
+      value="0"
+    >
+      0
+      % complete
+    </progress>
+  </div>
+</ProgressBar>
+`;

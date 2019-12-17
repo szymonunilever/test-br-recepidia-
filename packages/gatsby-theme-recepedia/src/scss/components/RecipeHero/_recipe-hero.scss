@@ -1,0 +1,18 @@
+.recipe-hero {
+  &__image {
+    max-height: 540px;
+    .adaptive-image__image.gatsby-image-wrapper > div {
+      padding-bottom: 69% !important;
+    }
+    @include respondTo(medium) {
+      .adaptive-image__image.gatsby-image-wrapper > div {
+        padding-bottom: 40% !important;
+      }
+    }
+    @include respondTo(desktop) {
+      .adaptive-image__image.gatsby-image-wrapper > div {
+        padding-bottom: 98% !important;
+      }
+    }
+  }
+}

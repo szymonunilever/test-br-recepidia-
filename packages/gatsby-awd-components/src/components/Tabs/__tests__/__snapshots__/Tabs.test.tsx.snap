@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> matches the snapshot 1`] = `
+<Component
+  content={
+    Object {
+      "tabs": Array [
+        Object {
+          "title": "Recipe",
+          "view": "RecipeTabMethods",
+        },
+        Object {
+          "title": "Cooking",
+          "view": "RecipeTabCooking",
+        },
+        Object {
+          "title": "Ingredients",
+          "view": "RecipeTabIngredients",
+        },
+        Object {
+          "title": "",
+          "view": "Empty",
+        },
+      ],
+    }
+  }
+  tabsHeaderContent={
+    Object {
+      "contents": Array [
+        Object {
+          "defaultSubheading": "defaultSubheading",
+          "heading": "Heading",
+          "subheading": "subheading",
+          "view": "RecipeTabMethods",
+        },
+        Object {
+          "defaultSubheading": "defaultSubheading",
+          "heading": "Heading",
+          "subheading": "",
+          "view": "RecipeTabCooking",
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="tabs"
+    data-componentname="tabs"
+    data-componentview="tabs"
+  >
+    <div
+      className="tabsHeader tabs-header"
+    >
+      <div
+        className="tabsHeader__heading tabs-header__heading"
+      >
+        <Text
+          tag={1}
+          text="Heading"
+        >
+          <h2>
+            Heading
+          </h2>
+        </Text>
+      </div>
+      <div
+        className="tabsHeader__headingSubheading tabs-header__heading-subheading"
+      >
+        <Text
+          tag={2}
+          text="subheading"
+        >
+          <h3>
+            subheading
+          </h3>
+        </Text>
+      </div>
+    </div>
+    <div
+      className="tabs__buttons tabs__buttons"
+      role="tablist"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-controls": "RecipeTabMethods__tab",
+            "id": "RecipeTabMethods",
+          }
+        }
+        className="tabs__button tabs__button"
+        isDisabled={false}
+        isSelected={true}
+        isToggle={true}
+        key="RecipeTabMethods"
+        onClick={[Function]}
+        role="tab"
+        viewType={1}
+      >
+        <button
+          aria-controls="RecipeTabMethods__tab"
+          aria-selected={true}
+          className="buttonIcon button--icon tabs__button tabs__button button__selected"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          id="RecipeTabMethods"
+          onClick={[Function]}
+          role="tab"
+          type="button"
+        >
+          Recipe
+        </button>
+      </Component>
+      <Component
+        attributes={
+          Object {
+            "aria-controls": "RecipeTabCooking__tab",
+            "id": "RecipeTabCooking",
+          }
+        }
+        className="tabs__button tabs__button"
+        isDisabled={false}
+        isSelected={false}
+        isToggle={true}
+        key="RecipeTabCooking"
+        onClick={[Function]}
+        role="tab"
+        viewType={1}
+      >
+        <button
+          aria-controls="RecipeTabCooking__tab"
+          aria-selected={false}
+          className="buttonIcon button--icon tabs__button tabs__button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          id="RecipeTabCooking"
+          onClick={[Function]}
+          role="tab"
+          type="button"
+        >
+          Cooking
+        </button>
+      </Component>
+      <Component
+        attributes={
+          Object {
+            "aria-controls": "RecipeTabIngredients__tab",
+            "id": "RecipeTabIngredients",
+          }
+        }
+        className="tabs__button tabs__button"
+        isDisabled={false}
+        isSelected={false}
+        isToggle={true}
+        key="RecipeTabIngredients"
+        onClick={[Function]}
+        role="tab"
+        viewType={1}
+      >
+        <button
+          aria-controls="RecipeTabIngredients__tab"
+          aria-selected={false}
+          className="buttonIcon button--icon tabs__button tabs__button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          id="RecipeTabIngredients"
+          onClick={[Function]}
+          role="tab"
+          type="button"
+        >
+          Ingredients
+        </button>
+      </Component>
+      <Component
+        attributes={
+          Object {
+            "aria-controls": "Empty__tab",
+            "id": "Empty",
+          }
+        }
+        className="tabs__button tabs__button"
+        isDisabled={false}
+        isSelected={false}
+        isToggle={true}
+        key="Empty"
+        onClick={[Function]}
+        role="tab"
+        viewType={1}
+      >
+        <button
+          aria-controls="Empty__tab"
+          aria-selected={false}
+          className="buttonIcon button--icon tabs__button tabs__button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          id="Empty"
+          onClick={[Function]}
+          role="tab"
+          type="button"
+        />
+      </Component>
+    </div>
+    <div
+      className="tabs__items tabs__items"
+    >
+      <Component
+        active={true}
+        attributes={
+          Object {
+            "aria-labelledby": "RecipeTabMethods",
+            "id": "RecipeTabMethods__tab",
+            "role": "tabpanel",
+          }
+        }
+        key="RecipeTabMethods"
+        view="RecipeTabMethods"
+      >
+        <div
+          aria-labelledby="RecipeTabMethods"
+          className="tabBody"
+          hidden={false}
+          id="RecipeTabMethods__tab"
+          role="tabpanel"
+        >
+          <div>
+            RecipeTabMethods
+          </div>
+        </div>
+      </Component>
+      <Component
+        active={false}
+        attributes={
+          Object {
+            "aria-labelledby": "RecipeTabCooking",
+            "id": "RecipeTabCooking__tab",
+            "role": "tabpanel",
+          }
+        }
+        key="RecipeTabCooking"
+        view="RecipeTabCooking"
+      >
+        <div
+          aria-labelledby="RecipeTabCooking"
+          className="tabBody"
+          hidden={true}
+          id="RecipeTabCooking__tab"
+          role="tabpanel"
+        >
+          <div>
+            RecipeTabCooking
+          </div>
+        </div>
+      </Component>
+      <Component
+        active={false}
+        attributes={
+          Object {
+            "aria-labelledby": "RecipeTabIngredients",
+            "id": "RecipeTabIngredients__tab",
+            "role": "tabpanel",
+          }
+        }
+        key="RecipeTabIngredients"
+        view="RecipeTabIngredients"
+      >
+        <div
+          aria-labelledby="RecipeTabIngredients"
+          className="tabBody"
+          hidden={true}
+          id="RecipeTabIngredients__tab"
+          role="tabpanel"
+        >
+          <div>
+            RecipeTabIngredients
+          </div>
+        </div>
+      </Component>
+      <Component
+        active={false}
+        attributes={
+          Object {
+            "aria-labelledby": "Empty",
+            "id": "Empty__tab",
+            "role": "tabpanel",
+          }
+        }
+        key="Empty"
+        view="Empty"
+      >
+        <div
+          aria-labelledby="Empty"
+          className="tabBody"
+          hidden={true}
+          id="Empty__tab"
+          role="tabpanel"
+        >
+          <div>
+            Empty
+          </div>
+        </div>
+      </Component>
+    </div>
+  </div>
+</Component>
+`;

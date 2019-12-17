@@ -1,0 +1,59 @@
+@import '../../scss/config';
+
+/////----------- CUSTOM -----------/////
+.search-listing {
+  :global {
+    .search {
+      &-tabs {
+        #all__tab {
+          > div {
+            &:nth-child(2) {
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+      &-filter {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .tags {
+          width: 100%;
+          padding-top: 40px; // TODO Fix styles on Tabs hiding EAT-1451
+          padding-bottom: 40px; // TODO Fix styles on Tabs hiding EAT-1451
+        }
+      }
+      &-input {
+        position: relative;
+        z-index: 2;
+        &__list {
+          position: absolute;
+          top: 100%;
+          left: $layout-indent-sm;
+          width: calc(100% - 2 * #{$layout-indent-sm});
+          @include respondTo(desktop) {
+            width: 384px;
+            left: 50%;
+            margin-left: -192px;
+          }
+        }
+
+        &__title {
+          font-size: 3.4rem;
+          line-height: 1.06;
+          text-align: center;
+          color: $fish-blue-darker;
+          @include respondTo(desktop) {
+            font-size: 5.5rem;
+            line-height: 1;
+          }
+        }
+
+        &__message {
+          display: none;
+        }
+      }
+    }
+  }
+}

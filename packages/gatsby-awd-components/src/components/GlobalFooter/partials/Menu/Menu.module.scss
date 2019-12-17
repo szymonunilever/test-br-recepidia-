@@ -1,0 +1,18 @@
+@import '../../../../scss/config';
+
+.footer-menu {
+  box-sizing: border-box;
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  &__link {
+    display: inline-block;
+    font-size: $footer-links-fz;
+    font-family: $arial;
+    color: $footer-links-color;
+    text-decoration: none;
+    position: relative;
+  }
+}

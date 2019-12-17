@@ -1,0 +1,12 @@
+.recipe-attribute-card {
+  &__item {
+    &--difficulties .recipe-attribute-card__value {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__label {
+    display: none;
+  }
+}

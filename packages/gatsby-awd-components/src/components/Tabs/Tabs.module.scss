@@ -1,0 +1,48 @@
+@import '../../scss/config';
+
+.tabs {
+  position: relative;
+  &__buttons {
+    display: flex;
+    background: $tabs-background;
+    height: $tabs-height;
+    justify-content: space-around;
+  }
+  &__button {
+    position: relative;
+    padding: $tab-indent;
+    width: $tab-width;
+    background: none;
+    border: $tab-border;
+    cursor: pointer;
+    font-size: $tab-fz;
+    font-family: $rubik;
+    font-weight: $tab-fw;
+    color: $tab-color;
+    text-align: $tab-alignment;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $tab-line-height;
+      background: $tab-line-color;
+      transition: width $theme-transition;
+    }
+    &[aria-selected='false'] {
+      &:before {
+        width: 0;
+      }
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../scss/config';
+
+.progress-bar {
+  background-color: $progress-bar-bg;
+  height: $progress-bar-height;
+  width: $progress-bar-width;
+  margin-bottom: 25px;
+  @include respondTo(desktop) {
+    width: $progress-bar-width-lg;
+  }
+  &__content {
+    height: $progress-bar-height;
+    background: $progress-bar-fill-color;
+    transition: width $theme-transition;
+    vertical-align: top;
+  }
+  progress::-webkit-progress-value {
+    background: $progress-bar-bg;
+  }
+
+  progress::-moz-progress-bar {
+    background: $progress-bar-fill-color;
+  }
+
+  progress::-webkit-progress-value {
+    background: $progress-bar-fill-color;
+  }
+
+  progress::-webkit-progress-bar {
+    background: $progress-bar-fill-color;
+  }
+}

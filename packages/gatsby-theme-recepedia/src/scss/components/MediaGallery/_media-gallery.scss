@@ -1,0 +1,61 @@
+.media-gallery {
+  position: relative;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: -5px;
+  }
+
+  &__button {
+    &-wrap {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  &__item {
+    margin: 5px;
+    width: calc(50% - 10px);
+    @include respondTo(medium) {
+      width: calc(25% - 16px);
+      margin: 8px;
+    }
+    @include respondTo(desktop) {
+      width: calc(25% - 16px);
+      margin: 8px;
+    }
+
+    &-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center;
+      text-decoration: none;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    &-title {
+      font-size: 1.6rem;
+      font-family: $rubik;
+      font-weight: 500;
+      color: $black-blue;
+      padding: 0;
+      margin: 15px 0 0 0;
+      outline: none;
+    }
+    &-image {
+      background-color: #ccc;
+    }
+
+
+
+    .gatsby-image-wrapper > div {
+      padding-bottom: 225px !important;
+      @include respondTo(medium) {
+        padding-bottom: 320px !important;
+      }
+    }
+  }
+}

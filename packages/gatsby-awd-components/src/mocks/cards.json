@@ -1,0 +1,34 @@
+[
+	{
+		"titleLevel": 2,
+		"content": {
+			"title": "Phone",
+			"texts": ["+380633334455"],
+			"type": "phone",
+			"cta": { "label": "Contact Form", "linkTo": "/contact" }
+		}
+	},
+	{
+		"titleLevel": 2,
+		"content": {
+			"title": "Address",
+			"texts": [
+				"Unilever UK Limited.",
+				"Registered in England & Wales No. 334527"
+			],
+			"type": "address",
+			"cta": { "label": "Contact Form", "linkTo": "/contact" }
+		}
+	},
+	{
+		"titleLevel": 2,
+		"content": {
+			"title": "Text",
+			"texts":  [
+				"Unilever UK Limited."
+			],
+			"type": "text",
+			"cta": { "label": "Contact Form", "linkTo": "/contact" }
+		}
+	}
+]

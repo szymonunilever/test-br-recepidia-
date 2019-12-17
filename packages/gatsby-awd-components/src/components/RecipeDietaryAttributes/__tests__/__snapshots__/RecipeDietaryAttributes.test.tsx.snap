@@ -1,0 +1,672 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecipeDietaryAttributes /> matches the snapshot 1`] = `
+<Memo(RecipeDietaryAttributes)
+  activeAttributes={
+    Array [
+      Object {
+        "disclaimer": null,
+        "id": 3,
+        "name": "gluten_free",
+        "title": "Glúten Free",
+      },
+    ]
+  }
+  attributes={
+    Array [
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/dairy-free",
+        },
+        "id": "e4b4b6f6-5ede-5ca7-b47d-fcf40b100ae2",
+        "name": "dairy_free",
+        "tagId": 1,
+        "title": "Sem leite",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/egg-free",
+        },
+        "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+        "name": "egg_free",
+        "tagId": 2,
+        "title": "Sem ovos",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/gluten-free",
+        },
+        "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+        "name": "gluten_free",
+        "tagId": 3,
+        "title": "Glúten Free",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/lactose-free",
+        },
+        "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+        "name": "lactose_free",
+        "tagId": 4,
+        "title": "Zero Lactose",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/nut-free",
+        },
+        "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+        "name": "nut_free",
+        "tagId": 5,
+        "title": "Livre de nozes",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/paleo-diet",
+        },
+        "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+        "name": "paleo_diet",
+        "tagId": 6,
+        "title": "Paleo diet",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/pregnancy-safe",
+        },
+        "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+        "name": "pregnancy_safe",
+        "tagId": 7,
+        "title": "Seguro de gravidez",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/raw-food",
+        },
+        "id": "42d334d0-31f6-59ec-8e42-02030670ad99",
+        "name": "raw_food",
+        "tagId": 8,
+        "title": "Comida crua",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/wheat-free",
+        },
+        "id": "8639cfb9-aed4-5a76-a8fd-0e87f13bb6a3",
+        "name": "wheat_free",
+        "tagId": 9,
+        "title": "Sem trigo",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/vegan",
+        },
+        "id": "d7553790-f635-5035-89a8-6f8bf0f1e328",
+        "name": "vegan",
+        "tagId": 10,
+        "title": "Vegano",
+      },
+      Object {
+        "disclaimer": null,
+        "fields": Object {
+          "slug": "/hub-de-conteudo/vegetarian",
+        },
+        "id": "c60c0e91-6ff4-5b9d-9c8e-2b1b0e8b1180",
+        "name": "vegetarian",
+        "tagId": 11,
+        "title": "Vegetariana",
+      },
+    ]
+  }
+  className="custom-class"
+  icons={
+    Array [
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 1,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 2,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 3,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 4,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 5,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 6,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 7,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 8,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 9,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+      Object {
+        "active": <div>
+          Icon
+        </div>,
+        "id": 10,
+        "inActive": <div>
+          Icon
+        </div>,
+      },
+    ]
+  }
+  infoIcon={
+    <div>
+      Info
+    </div>
+  }
+  showInactiveAttributes={true}
+>
+  <div
+    className="recipeDietaryAttributes recipe-dietary-attributes custom-class"
+    data-componentname="recipe-dietary-attributes"
+    data-componentview="recipe-dietary-attributes"
+  >
+    <ul
+      className="recipeDietaryAttributes__list recipe-dietary-attributes__list"
+    >
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="3"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/gluten-free",
+            },
+            "id": "6661e4bb-4176-5612-8341-04e2a9379d09",
+            "name": "gluten_free",
+            "tagId": 3,
+            "title": "Glúten Free",
+          }
+        }
+      >
+        <li
+          aria-describedby="3"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Glúten Free
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="1"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/dairy-free",
+            },
+            "id": "e4b4b6f6-5ede-5ca7-b47d-fcf40b100ae2",
+            "name": "dairy_free",
+            "tagId": 1,
+            "title": "Sem leite",
+          }
+        }
+      >
+        <li
+          aria-describedby="1"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Sem leite
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="2"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/egg-free",
+            },
+            "id": "d717752e-4a33-54a7-9273-05763e8773ce",
+            "name": "egg_free",
+            "tagId": 2,
+            "title": "Sem ovos",
+          }
+        }
+      >
+        <li
+          aria-describedby="2"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Sem ovos
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="4"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/lactose-free",
+            },
+            "id": "8e2456ac-d41a-542f-885d-c19ebe96d38a",
+            "name": "lactose_free",
+            "tagId": 4,
+            "title": "Zero Lactose",
+          }
+        }
+      >
+        <li
+          aria-describedby="4"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Zero Lactose
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="5"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/nut-free",
+            },
+            "id": "1f1a127f-8c54-56a2-903d-0e9d6096ad2d",
+            "name": "nut_free",
+            "tagId": 5,
+            "title": "Livre de nozes",
+          }
+        }
+      >
+        <li
+          aria-describedby="5"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Livre de nozes
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="6"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/paleo-diet",
+            },
+            "id": "79692d6c-840c-5a55-8907-8a5b1a605a67",
+            "name": "paleo_diet",
+            "tagId": 6,
+            "title": "Paleo diet",
+          }
+        }
+      >
+        <li
+          aria-describedby="6"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Paleo diet
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="7"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/pregnancy-safe",
+            },
+            "id": "c7aa9d60-ef6d-5870-885a-bbdf6977072d",
+            "name": "pregnancy_safe",
+            "tagId": 7,
+            "title": "Seguro de gravidez",
+          }
+        }
+      >
+        <li
+          aria-describedby="7"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Seguro de gravidez
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="8"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/raw-food",
+            },
+            "id": "42d334d0-31f6-59ec-8e42-02030670ad99",
+            "name": "raw_food",
+            "tagId": 8,
+            "title": "Comida crua",
+          }
+        }
+      >
+        <li
+          aria-describedby="8"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Comida crua
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="9"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/wheat-free",
+            },
+            "id": "8639cfb9-aed4-5a76-a8fd-0e87f13bb6a3",
+            "name": "wheat_free",
+            "tagId": 9,
+            "title": "Sem trigo",
+          }
+        }
+      >
+        <li
+          aria-describedby="9"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Sem trigo
+          </div>
+        </li>
+      </Attribute>
+      <Attribute
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        infoIcon={
+          <div>
+            Info
+          </div>
+        }
+        key="10"
+        tag={
+          Object {
+            "disclaimer": null,
+            "fields": Object {
+              "slug": "/hub-de-conteudo/vegan",
+            },
+            "id": "d7553790-f635-5035-89a8-6f8bf0f1e328",
+            "name": "vegan",
+            "tagId": 10,
+            "title": "Vegano",
+          }
+        }
+      >
+        <li
+          aria-describedby="10"
+          className="recipeDietaryAttributes__item recipe-dietary-attributes__item"
+        >
+          <div
+            className="recipeDietaryAttributes__icon recipe-dietary-attributes__icon"
+          >
+            <div>
+              Icon
+            </div>
+          </div>
+          <div
+            className="recipeDietaryAttributes__text recipe-dietary-attributes__text"
+          >
+            Vegano
+          </div>
+        </li>
+      </Attribute>
+    </ul>
+  </div>
+</Memo(RecipeDietaryAttributes)>
+`;

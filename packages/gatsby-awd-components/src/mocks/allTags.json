@@ -1,0 +1,72 @@
+{
+  "tagGroups": [
+    {
+      "name": "eventos anuais",
+      "label": "Eventos anuais",
+      "children": [
+        {
+          "id": 1347,
+          "name": "New Year's Day",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/new-years-day"
+          }
+        },
+        {
+          "id": 1348,
+          "name": "Dia de São Nicolau",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/eventos-anuais"
+          }
+        },
+        {
+          "id": 1349,
+          "name": "Dia de Ação de Graças",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/dia-dos-namorados"
+          }
+        },
+        {
+          "id": 1350,
+          "name": "dia dos namorados",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/dia-dos-namorados"
+          }
+        },
+        {
+          "id": 1355,
+          "name": "Dia de Canadá",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/eventos-anuais"
+          }
+        }
+      ]
+    },
+    {
+      "name": "orçamento",
+      "label": "Orçamento",
+      "children": [
+        {
+          "id": 1369,
+          "name": "preço médio",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/preço-médio"
+          }
+        },
+        {
+          "id": 1370,
+          "name": "econômica",
+          "title": "New Year's Day",
+          "fields": {
+            "slug": "/recipe-category/economica"
+          }
+        }
+      ]
+    }
+  ]
+}

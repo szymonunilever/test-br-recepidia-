@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GlobalFooter /> matches the snapshot 1`] = `
+<GlobalFooter
+  content={
+    Object {
+      "copyrightText": "Unilever",
+      "lists": Array [
+        Object {
+          "items": Array [
+            Object {
+              "name": "Cozinhando em família",
+              "path": "/recipe-categories/cozinhando-em-família",
+            },
+            Object {
+              "name": "Morando sozinho",
+              "path": "/recipe-categories/morando-sozinho",
+            },
+            Object {
+              "name": "Jantar a dois",
+              "path": "/recipe-categories/jantar-a-dois",
+            },
+            Object {
+              "name": "Fácil e Rápido",
+              "path": "/recipe-categories/fácil-e-rápido",
+            },
+          ],
+          "title": "Title",
+        },
+        Object {
+          "items": Array [
+            Object {
+              "name": "Meal Planner",
+              "path": "/meal-planner",
+            },
+            Object {
+              "name": "About us",
+              "path": "/about-us",
+            },
+            Object {
+              "name": "Contact us",
+              "path": "/contact-us",
+            },
+            Object {
+              "name": "Acessibility",
+              "path": "/acessibility",
+            },
+            Object {
+              "name": "Cookie Policy",
+              "path": "https://www.unilevercookiepolicy.com/pt_PT/policy.aspx",
+            },
+            Object {
+              "name": "Privacy Policy",
+              "path": "https://www.unileverprivacypolicy.com/portuguese/policy.aspx",
+            },
+            Object {
+              "name": "Legal Notice",
+              "path": "https://www.unilever.com.br/legal.html",
+            },
+            Object {
+              "name": "Sitemap",
+              "path": "/sitemap",
+            },
+          ],
+          "title": "Title",
+        },
+      ],
+    }
+  }
+>
+  <footer
+    className="globalFooter global-footer"
+    data-componentname="global-footer"
+    data-componentview="global-footer"
+  >
+    <Menu
+      className="footer-menu-0"
+      key="0"
+      list={
+        Object {
+          "items": Array [
+            Object {
+              "name": "Cozinhando em família",
+              "path": "/recipe-categories/cozinhando-em-família",
+            },
+            Object {
+              "name": "Morando sozinho",
+              "path": "/recipe-categories/morando-sozinho",
+            },
+            Object {
+              "name": "Jantar a dois",
+              "path": "/recipe-categories/jantar-a-dois",
+            },
+            Object {
+              "name": "Fácil e Rápido",
+              "path": "/recipe-categories/fácil-e-rápido",
+            },
+          ],
+          "title": "Title",
+        }
+      }
+    >
+      <div
+        className="footerMenu footer-menu-0 footer-menu"
+      >
+        <label
+          className="footerMenu__label footer-menu__label"
+        >
+          Title
+        </label>
+        <ul
+          className="footerMenu__list footer-menu__list"
+        >
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="0"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/recipe-categories/cozinhando-em-família"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/recipe-categories/cozinhando-em-família"
+              >
+                Cozinhando em família
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="1"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/recipe-categories/morando-sozinho"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/recipe-categories/morando-sozinho"
+              >
+                Morando sozinho
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="2"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/recipe-categories/jantar-a-dois"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/recipe-categories/jantar-a-dois"
+              >
+                Jantar a dois
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="3"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/recipe-categories/fácil-e-rápido"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/recipe-categories/fácil-e-rápido"
+              >
+                Fácil e Rápido
+              </a>
+            </mockConstructor>
+          </li>
+        </ul>
+      </div>
+    </Menu>
+    <Menu
+      className="footer-menu-1"
+      key="1"
+      list={
+        Object {
+          "items": Array [
+            Object {
+              "name": "Meal Planner",
+              "path": "/meal-planner",
+            },
+            Object {
+              "name": "About us",
+              "path": "/about-us",
+            },
+            Object {
+              "name": "Contact us",
+              "path": "/contact-us",
+            },
+            Object {
+              "name": "Acessibility",
+              "path": "/acessibility",
+            },
+            Object {
+              "name": "Cookie Policy",
+              "path": "https://www.unilevercookiepolicy.com/pt_PT/policy.aspx",
+            },
+            Object {
+              "name": "Privacy Policy",
+              "path": "https://www.unileverprivacypolicy.com/portuguese/policy.aspx",
+            },
+            Object {
+              "name": "Legal Notice",
+              "path": "https://www.unilever.com.br/legal.html",
+            },
+            Object {
+              "name": "Sitemap",
+              "path": "/sitemap",
+            },
+          ],
+          "title": "Title",
+        }
+      }
+    >
+      <div
+        className="footerMenu footer-menu-1 footer-menu"
+      >
+        <label
+          className="footerMenu__label footer-menu__label"
+        >
+          Title
+        </label>
+        <ul
+          className="footerMenu__list footer-menu__list"
+        >
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="0"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/meal-planner"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/meal-planner"
+              >
+                Meal Planner
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="1"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/about-us"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/about-us"
+              >
+                About us
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="2"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/contact-us"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/contact-us"
+              >
+                Contact us
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="3"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/acessibility"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/acessibility"
+              >
+                Acessibility
+              </a>
+            </mockConstructor>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="4"
+          >
+            <a
+              className="footerMenu__link footer-menu__link"
+              href="https://www.unilevercookiepolicy.com/pt_PT/policy.aspx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Cookie Policy
+            </a>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="5"
+          >
+            <a
+              className="footerMenu__link footer-menu__link"
+              href="https://www.unileverprivacypolicy.com/portuguese/policy.aspx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="6"
+          >
+            <a
+              className="footerMenu__link footer-menu__link"
+              href="https://www.unilever.com.br/legal.html"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Legal Notice
+            </a>
+          </li>
+          <li
+            className="footerMenu__item footer-menu__item"
+            key="7"
+          >
+            <mockConstructor
+              className="footerMenu__link footer-menu__link"
+              to="/sitemap"
+            >
+              <a
+                className="footerMenu__link footer-menu__link"
+                href="/sitemap"
+              >
+                Sitemap
+              </a>
+            </mockConstructor>
+          </li>
+        </ul>
+      </div>
+    </Menu>
+    <a
+      aria-label="www.unilever.com"
+      className="global-footer__logo"
+      href="//www.unilever.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    />
+    <span
+      className="global-footer__copyright"
+    >
+       
+      © 
+      Unilever
+       
+      2019
+    </span>
+  </footer>
+</GlobalFooter>
+`;

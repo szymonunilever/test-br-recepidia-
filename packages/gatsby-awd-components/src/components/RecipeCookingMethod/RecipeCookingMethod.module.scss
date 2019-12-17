@@ -1,0 +1,117 @@
+@import '../../scss/config';
+
+.recipe-cooking-method {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: $recipe-cooking-method-list-indent;
+    @include respondTo(desktop) {
+      margin: $recipe-cooking-method-list-indent-lg;
+    }
+  }
+  &__title {
+    font-size: $recipe-cooking-method-title-fz;
+    color: $recipe-cooking-method-title-color;
+  }
+  &__item {
+    font-size: $recipe-cooking-method-item-fz;
+  }
+}
+
+.cooking-methods {
+  list-style: none;
+  padding: 0;
+  &__group {
+    &-title {
+      font-size: $recipe-cooking-methods-title-fz;
+      color: $recipe-cooking-methods-title-color;
+    }
+    &-subtitle {
+      font-size: $recipe-cooking-methods-subtitle-fz;
+    }
+    &-item {
+      font-size: $recipe-cooking-methods-item-fz;
+      color: $recipe-cooking-methods-item-color;
+    }
+  }
+}
+
+/////----------- CUSTOM -----------/////
+
+.recipe-cooking-method {
+  &__list {
+    counter-reset: li;
+  }
+  &__item {
+    @include respondTo(desktop) {
+      display: flex;
+      align-items: center;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include respondTo(desktop) {
+        margin-bottom: 40px;
+      }
+    }
+    &:before {
+      display: block;
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: $fish-blue-darker;
+      counter-increment: li;
+      content: counter(li);
+      margin-bottom: 10px;
+      @include respondTo(desktop) {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 50px;
+        font-size: 3.7rem;
+      }
+    }
+  }
+}
+
+.cooking-methods {
+  margin: $recipe-cooking-method-list-indent;
+  @include respondTo(desktop) {
+    margin: $recipe-cooking-method-list-indent-lg;
+  }
+  .cooking-methods__group {
+    position: relative;
+    margin: 35px 0;
+    counter-reset: dl;
+    &-title {
+      font-weight: bold;
+      margin-bottom: 15px;
+      line-height: 1;
+      text-transform: capitalize;
+      @include respondTo(desktop) {
+        display: block;
+        margin-bottom: 25px;
+      }
+    }
+    &-item {
+      line-height: 1.29;
+      margin: 0 0 28px;
+      @include respondTo(desktop) {
+        margin-left: 73px;
+        min-height: 74px;
+      }
+      &:before {
+        display: block;
+        font: 500 2.4rem/1.2 $rubik;
+        color: $fish-blue-darker;
+        counter-increment: dl;
+        content: counter(dl);
+        margin-bottom: 15px;
+        @include respondTo(desktop) {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          line-height: 1;
+          font-size: 3.7rem;
+        }
+      }
+    }
+  }
+}

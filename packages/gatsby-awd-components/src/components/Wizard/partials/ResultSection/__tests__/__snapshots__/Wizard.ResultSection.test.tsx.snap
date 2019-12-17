@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultSection /> matches the snapshot 1`] = `
+<div
+  className="wizard__content"
+>
+  <ResultSection
+    actionCallback={[MockFunction]}
+    callbacks={
+      Object {
+        "test": [MockFunction],
+      }
+    }
+    containerClass="wizard--result"
+    content={
+      Object {
+        "noResult": Object {
+          "ctas": Array [
+            Object {
+              "content": Object {
+                "label": "Tentar novamente",
+              },
+              "type": "back",
+            },
+          ],
+          "subheading": "Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.
+Gostaria de tentar novamente?",
+          "title": "=/ Busquei por toda cozinha mas não encontrei o que você procurava!",
+        },
+        "onResult": Object {
+          "ctas": Array [
+            Object {
+              "content": Object {
+                "label": "Salvar seu cardápio",
+              },
+              "type": "next",
+            },
+          ],
+          "subheading": "Aqui está o cardápio que preparei para sua semana",
+          "title": "Cardápio semanal",
+        },
+      }
+    }
+    resultSize={10}
+    stepId="result"
+  >
+    <div
+      className="wizard__title wizard__title"
+    >
+      <Text
+        className=""
+        tag={1}
+        text="Cardápio semanal"
+      >
+        <h2
+          className=""
+        >
+          Cardápio semanal
+        </h2>
+      </Text>
+      <Text
+        className="subheading"
+        tag={7}
+        text="Aqui está o cardápio que preparei para sua semana"
+      >
+        <p
+          className="subheading"
+        >
+          Aqui está o cardápio que preparei para sua semana
+        </p>
+      </Text>
+    </div>
+    test
+    <div
+      className="wizard__buttons"
+      key="wizardButtons"
+    >
+      <Component
+        className="wizard__button wizard__button--primary"
+        content={
+          Object {
+            "label": "Salvar seu cardápio",
+          }
+        }
+        isDisabled={false}
+        key="button-next"
+        onClick={[MockFunction]}
+      >
+        <button
+          className="button button wizard__button wizard__button--primary"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="button__label"
+          >
+            Salvar seu cardápio
+          </span>
+        </button>
+      </Component>
+    </div>
+  </ResultSection>
+</div>
+`;
+
+exports[`<ResultSection /> matches the snapshot with 0 results 1`] = `
+<ResultSection
+  actionCallback={[MockFunction]}
+  callbacks={
+    Object {
+      "test": [MockFunction],
+    }
+  }
+  containerClass="wizard--result"
+  content={
+    Object {
+      "noResult": Object {
+        "ctas": Array [
+          Object {
+            "content": Object {
+              "label": "Tentar novamente",
+            },
+            "type": "back",
+          },
+        ],
+        "subheading": "Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.
+Gostaria de tentar novamente?",
+        "title": "=/ Busquei por toda cozinha mas não encontrei o que você procurava!",
+      },
+      "onResult": Object {
+        "ctas": Array [
+          Object {
+            "content": Object {
+              "label": "Salvar seu cardápio",
+            },
+            "type": "next",
+          },
+        ],
+        "subheading": "Aqui está o cardápio que preparei para sua semana",
+        "title": "Cardápio semanal",
+      },
+    }
+  }
+  resultSize={0}
+  stepId="result"
+>
+  <div
+    className="wizard__title wizard__title"
+  >
+    <Text
+      className=""
+      tag={1}
+      text="=/ Busquei por toda cozinha mas não encontrei o que você procurava!"
+    >
+      <h2
+        className=""
+      >
+        =/ Busquei por toda cozinha mas não encontrei o que você procurava!
+      </h2>
+    </Text>
+    <Text
+      className="subheading"
+      tag={7}
+      text="Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.
+Gostaria de tentar novamente?"
+    >
+      <p
+        className="subheading"
+      >
+        Minha chance de encontrar aumenta quando você não usa muitos filtros de uma vez.
+Gostaria de tentar novamente?
+      </p>
+    </Text>
+  </div>
+  <div
+    className="wizard__buttons"
+    key="wizardButtons"
+  >
+    <Component
+      className="wizard__button wizard__button--primary"
+      content={
+        Object {
+          "label": "Tentar novamente",
+        }
+      }
+      isDisabled={false}
+      key="button-back"
+    >
+      <button
+        className="button button wizard__button wizard__button--primary"
+        data-componentname="button"
+        data-componentview="button"
+        disabled={false}
+        hidden={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="button__label"
+        >
+          Tentar novamente
+        </span>
+      </button>
+    </Component>
+  </div>
+</ResultSection>
+`;

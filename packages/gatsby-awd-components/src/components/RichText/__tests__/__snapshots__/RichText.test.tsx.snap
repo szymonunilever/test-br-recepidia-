@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichText matches the snapshot 1`] = `
+<Component
+  className="rich-text"
+  content={
+    Object {
+      "text": "
+    <h1>Header 1</h1>
+    <h2>Header 2</h2>
+    <p>
+    Paragraph
+    <a href=\\"http://test.html\\">Test link</a>
+    </p>
+  ",
+    }
+  }
+>
+  <div
+    className="rich-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <h1>Header 1</h1>
+    <h2>Header 2</h2>
+    <p>
+    Paragraph
+    <a href=\\"http://test.html\\">Test link</a>
+    </p>
+  ",
+      }
+    }
+    data-componentname="richText"
+    data-componentview="richText"
+  />
+</Component>
+`;

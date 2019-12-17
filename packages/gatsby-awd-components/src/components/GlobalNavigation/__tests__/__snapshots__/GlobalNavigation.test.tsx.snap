@@ -1,0 +1,5737 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GlobalNavigation /> Menu Tests has open menu level 1 on ArrowDown 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu active"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={true}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu is-opened"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={true}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={true}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={true}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Menu Tests has open menu level 1 on ArrowLeft 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Menu Tests has open menu level 1 on ArrowRight 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Submenu Tests has handle ArrowDown on submenu 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Submenu Tests has handle ArrowLeft on submenu 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Submenu Tests has handle ArrowRight on submenu 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> Submenu Tests has open menu level 1 on ArrowUp 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation open"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={true}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation active"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;
+
+exports[`<GlobalNavigation /> matches the snapshot 1`] = `
+<GlobalNavigation
+  buttonCloseIcon={
+    <div>
+      Close
+    </div>
+  }
+  content={
+    Object {
+      "list": Array [
+        Object {
+          "name": "Item1",
+          "path": "/item1",
+        },
+        Object {
+          "name": "Item2",
+          "path": "/item2",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child31",
+              "path": "/child31",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+            Object {
+              "name": "Child32",
+              "path": "/child32",
+            },
+          ],
+          "name": "Item3",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "Child41",
+              "path": "/child41",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child431",
+                  "path": "/child431",
+                },
+                Object {
+                  "name": "Child432",
+                  "path": "/child432,",
+                },
+                Object {
+                  "name": "Child433",
+                  "path": "/child433",
+                },
+              ],
+              "name": "Child42",
+            },
+            Object {
+              "name": "Child43",
+              "path": "/child42",
+            },
+          ],
+          "name": "Item4",
+        },
+      ],
+    }
+  }
+  dropDownIcon={
+    <div>
+      Arrow
+    </div>
+  }
+  logo={
+    Object {
+      "icon": <div>
+        Icon
+      </div>,
+      "path": "/",
+    }
+  }
+>
+  <header
+    className="globalNavigation global-navigation"
+    data-componentname="global-navigation"
+    data-componentview="global-navigation"
+  >
+    <div
+      className="globalNavigation__inner global-navigation__inner"
+    >
+      <Component
+        attributes={
+          Object {
+            "aria-label": "Menu",
+          }
+        }
+        className="burgerButton burger-button"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <button
+          aria-label="Menu"
+          className="button button burgerButton burger-button"
+          data-componentname="button"
+          data-componentview="button"
+          disabled={false}
+          hidden={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          <span
+            className="burgerButton__icon burger-button__icon"
+            tabIndex={0}
+          />
+        </button>
+      </Component>
+      <Logo
+        icon={
+          <div>
+            Icon
+          </div>
+        }
+        path="/"
+      >
+        <div
+          className="main-logo"
+          data-componentname="main-logo"
+          data-componentview="main-logo"
+        >
+          <mockConstructor
+            className="main-logo__link"
+            to="/"
+          >
+            <a
+              className="main-logo__link"
+              href="/"
+            >
+              <span
+                className="main-logo__text"
+              >
+                Home page
+              </span>
+              <div>
+                Icon
+              </div>
+            </a>
+          </mockConstructor>
+        </div>
+      </Logo>
+      <Navigation
+        buttonCloseIcon={
+          <div>
+            Close
+          </div>
+        }
+        dropDownIcon={
+          <div>
+            Arrow
+          </div>
+        }
+        handleToggleNavigationClick={[Function]}
+        isActive={false}
+        list={
+          Array [
+            Object {
+              "name": "Item1",
+              "path": "/item1",
+            },
+            Object {
+              "name": "Item2",
+              "path": "/item2",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child31",
+                  "path": "/child31",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+                Object {
+                  "name": "Child32",
+                  "path": "/child32",
+                },
+              ],
+              "name": "Item3",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "Child41",
+                  "path": "/child41",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child431",
+                      "path": "/child431",
+                    },
+                    Object {
+                      "name": "Child432",
+                      "path": "/child432,",
+                    },
+                    Object {
+                      "name": "Child433",
+                      "path": "/child433",
+                    },
+                  ],
+                  "name": "Child42",
+                },
+                Object {
+                  "name": "Child43",
+                  "path": "/child42",
+                },
+              ],
+              "name": "Item4",
+            },
+          ]
+        }
+      >
+        <nav
+          className="navigation navigation"
+          data-componentname="navigation"
+          data-componentview="navigation"
+        >
+          <Menu
+            className="menu menu"
+            closeMenu={[Function]}
+            dropDownIcon={
+              <div>
+                Arrow
+              </div>
+            }
+            list={
+              Array [
+                Object {
+                  "name": "Item1",
+                  "path": "/item1",
+                },
+                Object {
+                  "name": "Item2",
+                  "path": "/item2",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child31",
+                      "path": "/child31",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                    Object {
+                      "name": "Child32",
+                      "path": "/child32",
+                    },
+                  ],
+                  "name": "Item3",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "Child41",
+                      "path": "/child41",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "name": "Child431",
+                          "path": "/child431",
+                        },
+                        Object {
+                          "name": "Child432",
+                          "path": "/child432,",
+                        },
+                        Object {
+                          "name": "Child433",
+                          "path": "/child433",
+                        },
+                      ],
+                      "name": "Child42",
+                    },
+                    Object {
+                      "name": "Child43",
+                      "path": "/child42",
+                    },
+                  ],
+                  "name": "Item4",
+                },
+              ]
+            }
+          >
+            <ul
+              className="menu menu"
+              role="menubar"
+            >
+              <li
+                className="menu menu__item"
+                key="0"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                  to="/item1"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item1"
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                  >
+                    Item1
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                className="menu menu__item"
+                key="1"
+              >
+                <mockConstructor
+                  className="menu menu__link"
+                  onKeyDown={[Function]}
+                  tabIndex={1}
+                  to="/item2"
+                >
+                  <a
+                    className="menu menu__link"
+                    href="/item2"
+                    onKeyDown={[Function]}
+                    tabIndex={1}
+                  >
+                    Item2
+                  </a>
+                </mockConstructor>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="2"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={2}
+                >
+                  Item3
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child31",
+                        "path": "/child31",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                      Object {
+                        "name": "Child32",
+                        "path": "/child32",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child31"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child31"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child31
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="1"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={1}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child32"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child32"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child32
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+              <li
+                aria-haspopup={true}
+                className="menu menu__item has-submenu"
+                key="3"
+              >
+                <a
+                  className="menu menu__link"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={3}
+                >
+                  Item4
+                  <span
+                    className="menu menu__dropdown-icon"
+                  >
+                    <div>
+                      Arrow
+                    </div>
+                  </span>
+                </a>
+                <Menu
+                  className="submenu"
+                  closeMenu={[Function]}
+                  dropDownIcon={
+                    <div>
+                      Arrow
+                    </div>
+                  }
+                  isAccordion={true}
+                  isOpened={false}
+                  list={
+                    Array [
+                      Object {
+                        "name": "Child41",
+                        "path": "/child41",
+                      },
+                      Object {
+                        "children": Array [
+                          Object {
+                            "name": "Child431",
+                            "path": "/child431",
+                          },
+                          Object {
+                            "name": "Child432",
+                            "path": "/child432,",
+                          },
+                          Object {
+                            "name": "Child433",
+                            "path": "/child433",
+                          },
+                        ],
+                        "name": "Child42",
+                      },
+                      Object {
+                        "name": "Child43",
+                        "path": "/child42",
+                      },
+                    ]
+                  }
+                >
+                  <ul
+                    className="submenu"
+                    role="menubar"
+                  >
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="0"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={0}
+                        to="/child41"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child41"
+                          onKeyDown={[Function]}
+                          tabIndex={0}
+                        >
+                          Child41
+                        </a>
+                      </mockConstructor>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      className="submenu__item has-submenu"
+                      key="1"
+                    >
+                      <a
+                        className="submenu__link"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        tabIndex={1}
+                      >
+                        Child42
+                        <span
+                          className="submenu__dropdown-icon"
+                        >
+                          <div>
+                            Arrow
+                          </div>
+                        </span>
+                      </a>
+                      <Menu
+                        className="submenu"
+                        closeMenu={[Function]}
+                        dropDownIcon={
+                          <div>
+                            Arrow
+                          </div>
+                        }
+                        isAccordion={true}
+                        isOpened={false}
+                        list={
+                          Array [
+                            Object {
+                              "name": "Child431",
+                              "path": "/child431",
+                            },
+                            Object {
+                              "name": "Child432",
+                              "path": "/child432,",
+                            },
+                            Object {
+                              "name": "Child433",
+                              "path": "/child433",
+                            },
+                          ]
+                        }
+                      >
+                        <ul
+                          className="submenu"
+                          role="menubar"
+                        >
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="0"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={0}
+                              to="/child431"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child431"
+                                onKeyDown={[Function]}
+                                tabIndex={0}
+                              >
+                                Child431
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="1"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={1}
+                              to="/child432,"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child432,"
+                                onKeyDown={[Function]}
+                                tabIndex={1}
+                              >
+                                Child432
+                              </a>
+                            </mockConstructor>
+                          </li>
+                          <li
+                            aria-expanded={false}
+                            className="submenu__item"
+                            key="2"
+                          >
+                            <mockConstructor
+                              className="submenu__link"
+                              onKeyDown={[Function]}
+                              tabIndex={2}
+                              to="/child433"
+                            >
+                              <a
+                                className="submenu__link"
+                                href="/child433"
+                                onKeyDown={[Function]}
+                                tabIndex={2}
+                              >
+                                Child433
+                              </a>
+                            </mockConstructor>
+                          </li>
+                        </ul>
+                      </Menu>
+                    </li>
+                    <li
+                      aria-expanded={false}
+                      className="submenu__item"
+                      key="2"
+                    >
+                      <mockConstructor
+                        className="submenu__link"
+                        onKeyDown={[Function]}
+                        tabIndex={2}
+                        to="/child42"
+                      >
+                        <a
+                          className="submenu__link"
+                          href="/child42"
+                          onKeyDown={[Function]}
+                          tabIndex={2}
+                        >
+                          Child43
+                        </a>
+                      </mockConstructor>
+                    </li>
+                  </ul>
+                </Menu>
+              </li>
+            </ul>
+          </Menu>
+          <Component
+            Icon={
+              <div>
+                Close
+              </div>
+            }
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <button
+              className="button button"
+              data-componentname="button"
+              data-componentview="button"
+              disabled={false}
+              hidden={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              type="button"
+            >
+              <div>
+                Close
+              </div>
+            </button>
+          </Component>
+        </nav>
+      </Navigation>
+    </div>
+  </header>
+</GlobalNavigation>
+`;

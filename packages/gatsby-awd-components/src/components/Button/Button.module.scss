@@ -1,0 +1,61 @@
+@import '../../scss/config';
+
+.button {
+  @extend %button;
+
+  &--icon {
+    cursor: pointer;
+    background: transparent;
+    border: 0 none;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: $button-disabled-background;
+    color: $button-disabled-color;
+    cursor: default;
+
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        background-color: $button-disabled-background !important;
+        color: $button-disabled-color !important;
+      }
+    }
+  }
+  // Button color modification
+}
+:global {
+  .button {
+    &--secondary {
+      background-color: $button-secondary-background;
+      color: $button-secondary-color;
+      font-weight: normal;
+    }
+    &--large {
+      width: 100%;
+      max-width: $button-large-max-width;
+    }
+
+    &--medium {
+      width: 100%;
+      max-width: $button-medium-max-width;
+      @include respondTo(desktop) {
+        max-width: $button-medium-max-width-lg;
+      }
+    }
+
+    &--small {
+      width: 100%;
+      max-width: $button-small-max-width;
+      @include respondTo(desktop) {
+        max-width: $button-small-max-width-lg;
+      }
+    }
+  }
+}

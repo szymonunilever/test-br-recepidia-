@@ -1,0 +1,2472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewsletterSubscriptions /> matches the snapshot 1`] = `
+<NewsletterSubscriptions
+  content={
+    Object {
+      "fields": Array [
+        Object {
+          "label": "This is form description field.",
+          "name": "description",
+          "type": "description",
+        },
+        Object {
+          "label": "Test Fieldset",
+          "name": "testFieldset",
+          "type": "fieldset",
+        },
+        Object {
+          "label": "Test Fieldset3",
+          "name": "testFieldset3",
+          "type": "group",
+        },
+        Object {
+          "fieldset": "testFieldset",
+          "hint": "Enter some text",
+          "label": "Test text input One",
+          "name": "testInput One",
+          "placeholder": "Test text input One",
+          "type": "text",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is too long.",
+              "type": "maxLength",
+              "value": 4,
+            },
+            Object {
+              "errorMessage": "This field is too short.",
+              "type": "minLength",
+              "value": 2,
+            },
+          ],
+          "value": "I",
+        },
+        Object {
+          "hint": "Enter some text",
+          "label": "Test text input Two",
+          "name": "testInput Two",
+          "placeholder": "Test text input Two",
+          "type": "text",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+            Object {
+              "errorMessage": "This field is too long.",
+              "type": "maxLength",
+              "value": 4,
+            },
+            Object {
+              "errorMessage": "This field is too short.",
+              "type": "minLength",
+              "value": 2,
+            },
+          ],
+          "value": "Test value",
+        },
+        Object {
+          "hint": "Enter some text",
+          "label": "Test text input Three",
+          "name": "testInput Three",
+          "placeholder": "Test text input Three",
+          "type": "text",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "Should start with uppercase",
+              "type": "pattern",
+              "value": ",/^[A-Z]/",
+            },
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+            Object {
+              "errorMessage": "This field is too long.",
+              "type": "maxLength",
+              "value": 4,
+            },
+            Object {
+              "errorMessage": "This field is too short.",
+              "type": "minLength",
+              "value": 2,
+            },
+          ],
+          "value": "Test value 1",
+        },
+        Object {
+          "hint": "Enter some text",
+          "label": "Test textarea",
+          "name": "testTextarea",
+          "placeholder": "Test textarea",
+          "rows": 6,
+          "type": "textarea",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+        },
+        Object {
+          "fieldset": "testFieldset",
+          "hint": "Choose one",
+          "label": "Test Radiobutton One",
+          "name": "radio buttons group one",
+          "type": "radio",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+          "value": "Radio Button value One",
+        },
+        Object {
+          "fieldset": "testFieldset",
+          "hint": "Choose one",
+          "label": "Test Radiobutton Two",
+          "name": "radio buttons group one",
+          "type": "radio",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+          "value": "Radio Button value Two ",
+        },
+        Object {
+          "fieldset": "testFieldset3",
+          "hint": "Choose one",
+          "label": "Test Checkbox One",
+          "name": "Checkbox One",
+          "type": "checkbox",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+          "value": "Checkbox value One",
+        },
+        Object {
+          "fieldset": "testFieldset3",
+          "hint": "Choose one",
+          "label": "Test Checkbox Two",
+          "name": "Checkbox Two",
+          "type": "checkbox",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+          "value": "Checkbox value Two",
+        },
+        Object {
+          "hint": "Choose one",
+          "label": "Test Select",
+          "name": "testSelect",
+          "options": Array [
+            Object {
+              "label": "test 1",
+              "value": "0",
+            },
+            Object {
+              "label": "test 2",
+              "value": "1",
+            },
+            Object {
+              "label": "test 3",
+              "value": "2",
+            },
+          ],
+          "placeholder": "select value",
+          "type": "select",
+          "validationRules": Array [
+            Object {
+              "errorMessage": "This field is required.",
+              "type": "required",
+            },
+          ],
+        },
+        Object {
+          "name": "hidden",
+          "type": "hidden",
+        },
+        Object {
+          "name": "recaptcha",
+          "type": "captcha",
+        },
+      ],
+      "resetButton": Object {
+        "label": "Clear form",
+      },
+      "submitButton": Object {
+        "label": "Submit",
+      },
+      "subtitle": "Story of form generator",
+      "title": "Test generated form",
+      "view": "TestGeneratedForm",
+    }
+  }
+  onSubmit={[Function]}
+>
+  <div
+    className="preferences__newsletter"
+  >
+    <GeneratedForm
+      content={
+        Object {
+          "fields": Array [
+            Object {
+              "label": "This is form description field.",
+              "name": "description",
+              "type": "description",
+            },
+            Object {
+              "label": "Test Fieldset",
+              "name": "testFieldset",
+              "type": "fieldset",
+            },
+            Object {
+              "label": "Test Fieldset3",
+              "name": "testFieldset3",
+              "type": "group",
+            },
+            Object {
+              "fieldset": "testFieldset",
+              "hint": "Enter some text",
+              "label": "Test text input One",
+              "name": "testInput One",
+              "placeholder": "Test text input One",
+              "type": "text",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is too long.",
+                  "type": "maxLength",
+                  "value": 4,
+                },
+                Object {
+                  "errorMessage": "This field is too short.",
+                  "type": "minLength",
+                  "value": 2,
+                },
+              ],
+              "value": "I",
+            },
+            Object {
+              "hint": "Enter some text",
+              "label": "Test text input Two",
+              "name": "testInput Two",
+              "placeholder": "Test text input Two",
+              "type": "text",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+                Object {
+                  "errorMessage": "This field is too long.",
+                  "type": "maxLength",
+                  "value": 4,
+                },
+                Object {
+                  "errorMessage": "This field is too short.",
+                  "type": "minLength",
+                  "value": 2,
+                },
+              ],
+              "value": "Test value",
+            },
+            Object {
+              "hint": "Enter some text",
+              "label": "Test text input Three",
+              "name": "testInput Three",
+              "placeholder": "Test text input Three",
+              "type": "text",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "Should start with uppercase",
+                  "type": "pattern",
+                  "value": ",/^[A-Z]/",
+                },
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+                Object {
+                  "errorMessage": "This field is too long.",
+                  "type": "maxLength",
+                  "value": 4,
+                },
+                Object {
+                  "errorMessage": "This field is too short.",
+                  "type": "minLength",
+                  "value": 2,
+                },
+              ],
+              "value": "Test value 1",
+            },
+            Object {
+              "hint": "Enter some text",
+              "label": "Test textarea",
+              "name": "testTextarea",
+              "placeholder": "Test textarea",
+              "rows": 6,
+              "type": "textarea",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+            },
+            Object {
+              "fieldset": "testFieldset",
+              "hint": "Choose one",
+              "label": "Test Radiobutton One",
+              "name": "radio buttons group one",
+              "type": "radio",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+              "value": "Radio Button value One",
+            },
+            Object {
+              "fieldset": "testFieldset",
+              "hint": "Choose one",
+              "label": "Test Radiobutton Two",
+              "name": "radio buttons group one",
+              "type": "radio",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+              "value": "Radio Button value Two ",
+            },
+            Object {
+              "fieldset": "testFieldset3",
+              "hint": "Choose one",
+              "label": "Test Checkbox One",
+              "name": "Checkbox One",
+              "type": "checkbox",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+              "value": "Checkbox value One",
+            },
+            Object {
+              "fieldset": "testFieldset3",
+              "hint": "Choose one",
+              "label": "Test Checkbox Two",
+              "name": "Checkbox Two",
+              "type": "checkbox",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+              "value": "Checkbox value Two",
+            },
+            Object {
+              "hint": "Choose one",
+              "label": "Test Select",
+              "name": "testSelect",
+              "options": Array [
+                Object {
+                  "label": "test 1",
+                  "value": "0",
+                },
+                Object {
+                  "label": "test 2",
+                  "value": "1",
+                },
+                Object {
+                  "label": "test 3",
+                  "value": "2",
+                },
+              ],
+              "placeholder": "select value",
+              "type": "select",
+              "validationRules": Array [
+                Object {
+                  "errorMessage": "This field is required.",
+                  "type": "required",
+                },
+              ],
+            },
+            Object {
+              "name": "hidden",
+              "type": "hidden",
+            },
+            Object {
+              "name": "recaptcha",
+              "type": "captcha",
+            },
+          ],
+          "resetButton": Object {
+            "label": "Clear form",
+          },
+          "submitButton": Object {
+            "label": "Submit",
+          },
+          "subtitle": "Story of form generator",
+          "title": "Test generated form",
+          "view": "TestGeneratedForm",
+        }
+      }
+      onSubmit={[Function]}
+    >
+      <GeneratedFormInstance
+        content={
+          Object {
+            "fields": Array [
+              Object {
+                "label": "This is form description field.",
+                "name": "description",
+                "type": "description",
+              },
+              Object {
+                "label": "Test Fieldset",
+                "name": "testFieldset",
+                "type": "fieldset",
+              },
+              Object {
+                "label": "Test Fieldset3",
+                "name": "testFieldset3",
+                "type": "group",
+              },
+              Object {
+                "fieldset": "testFieldset",
+                "hint": "Enter some text",
+                "label": "Test text input One",
+                "name": "testInput One",
+                "placeholder": "Test text input One",
+                "type": "text",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is too long.",
+                    "type": "maxLength",
+                    "value": 4,
+                  },
+                  Object {
+                    "errorMessage": "This field is too short.",
+                    "type": "minLength",
+                    "value": 2,
+                  },
+                ],
+                "value": "I",
+              },
+              Object {
+                "hint": "Enter some text",
+                "label": "Test text input Two",
+                "name": "testInput Two",
+                "placeholder": "Test text input Two",
+                "type": "text",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                  Object {
+                    "errorMessage": "This field is too long.",
+                    "type": "maxLength",
+                    "value": 4,
+                  },
+                  Object {
+                    "errorMessage": "This field is too short.",
+                    "type": "minLength",
+                    "value": 2,
+                  },
+                ],
+                "value": "Test value",
+              },
+              Object {
+                "hint": "Enter some text",
+                "label": "Test text input Three",
+                "name": "testInput Three",
+                "placeholder": "Test text input Three",
+                "type": "text",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "Should start with uppercase",
+                    "type": "pattern",
+                    "value": ",/^[A-Z]/",
+                  },
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                  Object {
+                    "errorMessage": "This field is too long.",
+                    "type": "maxLength",
+                    "value": 4,
+                  },
+                  Object {
+                    "errorMessage": "This field is too short.",
+                    "type": "minLength",
+                    "value": 2,
+                  },
+                ],
+                "value": "Test value 1",
+              },
+              Object {
+                "hint": "Enter some text",
+                "label": "Test textarea",
+                "name": "testTextarea",
+                "placeholder": "Test textarea",
+                "rows": 6,
+                "type": "textarea",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+              },
+              Object {
+                "fieldset": "testFieldset",
+                "hint": "Choose one",
+                "label": "Test Radiobutton One",
+                "name": "radio buttons group one",
+                "type": "radio",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+                "value": "Radio Button value One",
+              },
+              Object {
+                "fieldset": "testFieldset",
+                "hint": "Choose one",
+                "label": "Test Radiobutton Two",
+                "name": "radio buttons group one",
+                "type": "radio",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+                "value": "Radio Button value Two ",
+              },
+              Object {
+                "fieldset": "testFieldset3",
+                "hint": "Choose one",
+                "label": "Test Checkbox One",
+                "name": "Checkbox One",
+                "type": "checkbox",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+                "value": "Checkbox value One",
+              },
+              Object {
+                "fieldset": "testFieldset3",
+                "hint": "Choose one",
+                "label": "Test Checkbox Two",
+                "name": "Checkbox Two",
+                "type": "checkbox",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+                "value": "Checkbox value Two",
+              },
+              Object {
+                "hint": "Choose one",
+                "label": "Test Select",
+                "name": "testSelect",
+                "options": Array [
+                  Object {
+                    "label": "test 1",
+                    "value": "0",
+                  },
+                  Object {
+                    "label": "test 2",
+                    "value": "1",
+                  },
+                  Object {
+                    "label": "test 3",
+                    "value": "2",
+                  },
+                ],
+                "placeholder": "select value",
+                "type": "select",
+                "validationRules": Array [
+                  Object {
+                    "errorMessage": "This field is required.",
+                    "type": "required",
+                  },
+                ],
+              },
+              Object {
+                "name": "hidden",
+                "type": "hidden",
+              },
+              Object {
+                "name": "recaptcha",
+                "type": "captcha",
+              },
+            ],
+            "resetButton": Object {
+              "label": "Clear form",
+            },
+            "submitButton": Object {
+              "label": "Submit",
+            },
+            "subtitle": "Story of form generator",
+            "title": "Test generated form",
+            "view": "TestGeneratedForm",
+          }
+        }
+        hasCaptcha={false}
+        onSubmit={[Function]}
+      >
+        <Form
+          className="generatedForm generated-form"
+          onSubmit={[Function]}
+          render={[Function]}
+          subscription={
+            Object {
+              "submitting": true,
+            }
+          }
+        >
+          <ReactFinalForm
+            className="generatedForm generated-form"
+            onSubmit={[Function]}
+            render={[Function]}
+            subscription={
+              Object {
+                "submitting": true,
+              }
+            }
+          >
+            <form
+              className="generatedForm generated-form"
+              noValidate={false}
+              onSubmit={[Function]}
+            >
+              <div
+                className="generated-form__container"
+              >
+                <Text
+                  className="generated-form__title"
+                  tag={6}
+                  text="Test generated form"
+                >
+                  <div
+                    className="generated-form__title"
+                  >
+                    Test generated form
+                  </div>
+                </Text>
+                <Text
+                  className="generated-form__subtitle"
+                  tag={6}
+                  text="Story of form generator"
+                >
+                  <div
+                    className="generated-form__subtitle"
+                  >
+                    Story of form generator
+                  </div>
+                </Text>
+                <div
+                  className="generated-form__fields"
+                >
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "label": "This is form description field.",
+                        "name": "description",
+                        "type": "description",
+                      }
+                    }
+                    key="0"
+                    shouldValidate={false}
+                  >
+                    <Field
+                      name="description"
+                    >
+                      <Field
+                        name="description"
+                      >
+                        <p
+                          className="generated-form__item-description"
+                        >
+                          This is form description field.
+                        </p>
+                      </Field>
+                    </Field>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "label": "Test Fieldset",
+                        "name": "testFieldset",
+                        "type": "fieldset",
+                      }
+                    }
+                    innerContent={
+                      Array [
+                        <GeneratedField
+                          className="generated-form__item"
+                          content={
+                            Object {
+                              "fieldset": "testFieldset",
+                              "hint": "Enter some text",
+                              "label": "Test text input One",
+                              "name": "testInput One",
+                              "placeholder": "Test text input One",
+                              "type": "text",
+                              "validationRules": Array [
+                                Object {
+                                  "errorMessage": "This field is too long.",
+                                  "type": "maxLength",
+                                  "value": 4,
+                                },
+                                Object {
+                                  "errorMessage": "This field is too short.",
+                                  "type": "minLength",
+                                  "value": 2,
+                                },
+                              ],
+                              "value": "I",
+                            }
+                          }
+                          shouldValidate={false}
+                        />,
+                        <GeneratedField
+                          className="generated-form__item"
+                          content={
+                            Object {
+                              "name": "radio buttons group one",
+                              "type": "group",
+                            }
+                          }
+                          innerContent={
+                            Array [
+                              <GeneratedField
+                                className="generated-form__item"
+                                content={
+                                  Object {
+                                    "fieldset": "testFieldset",
+                                    "hint": "Choose one",
+                                    "label": "Test Radiobutton One",
+                                    "name": "radio buttons group one",
+                                    "type": "radio",
+                                    "validationRules": Array [
+                                      Object {
+                                        "errorMessage": "This field is required.",
+                                        "type": "required",
+                                      },
+                                    ],
+                                    "value": "Radio Button value One",
+                                  }
+                                }
+                                shouldValidate={false}
+                              />,
+                              <GeneratedField
+                                className="generated-form__item"
+                                content={
+                                  Object {
+                                    "fieldset": "testFieldset",
+                                    "hint": "Choose one",
+                                    "label": "Test Radiobutton Two",
+                                    "name": "radio buttons group one",
+                                    "type": "radio",
+                                    "validationRules": Array [
+                                      Object {
+                                        "errorMessage": "This field is required.",
+                                        "type": "required",
+                                      },
+                                    ],
+                                    "value": "Radio Button value Two ",
+                                  }
+                                }
+                                shouldValidate={false}
+                              />,
+                            ]
+                          }
+                          shouldValidate={false}
+                        />,
+                      ]
+                    }
+                    key="1"
+                    shouldValidate={false}
+                  >
+                    <fieldset
+                      className="generated-form__item"
+                    >
+                      <legend
+                        className="generated-form__item-legend"
+                      >
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Test Fieldset",
+                            }
+                          }
+                        />
+                      </legend>
+                      <GeneratedField
+                        className="generated-form__item"
+                        content={
+                          Object {
+                            "fieldset": "testFieldset",
+                            "hint": "Enter some text",
+                            "label": "Test text input One",
+                            "name": "testInput One",
+                            "placeholder": "Test text input One",
+                            "type": "text",
+                            "validationRules": Array [
+                              Object {
+                                "errorMessage": "This field is too long.",
+                                "type": "maxLength",
+                                "value": 4,
+                              },
+                              Object {
+                                "errorMessage": "This field is too short.",
+                                "type": "minLength",
+                                "value": 2,
+                              },
+                            ],
+                            "value": "I",
+                          }
+                        }
+                        key="0"
+                        shouldValidate={false}
+                      >
+                        <Input
+                          content={
+                            Object {
+                              "fieldset": "testFieldset",
+                              "hint": "Enter some text",
+                              "label": "Test text input One",
+                              "placeholder": "Test text input One",
+                              "value": "I",
+                            }
+                          }
+                          error={[Function]}
+                          name="testInput One"
+                          rules={
+                            Array [
+                              Object {
+                                "errorMessage": "This field is too long.",
+                                "type": "maxLength",
+                                "value": 4,
+                              },
+                              Object {
+                                "errorMessage": "This field is too short.",
+                                "type": "minLength",
+                                "value": 2,
+                              },
+                            ]
+                          }
+                          type="text"
+                          validate={[Function]}
+                        >
+                          <Field
+                            initialValue="I"
+                            name="testInput One"
+                            validate={[Function]}
+                          >
+                            <Field
+                              initialValue="I"
+                              name="testInput One"
+                              validate={[Function]}
+                            >
+                              <div
+                                className="field"
+                              >
+                                <label
+                                  className="field__label"
+                                >
+                                  <span
+                                    className="field__label-text"
+                                  >
+                                    Test text input One
+                                  </span>
+                                  <div
+                                    className="field__wrap"
+                                  >
+                                    <input
+                                      className="field__input"
+                                      name="testInput One"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      placeholder="Test text input One"
+                                      type="text"
+                                      value="I"
+                                    />
+                                  </div>
+                                </label>
+                                <p
+                                  className="field__hint"
+                                >
+                                  Enter some text
+                                </p>
+                              </div>
+                            </Field>
+                          </Field>
+                        </Input>
+                      </GeneratedField>
+                      <GeneratedField
+                        className="generated-form__item"
+                        content={
+                          Object {
+                            "name": "radio buttons group one",
+                            "type": "group",
+                          }
+                        }
+                        innerContent={
+                          Array [
+                            <GeneratedField
+                              className="generated-form__item"
+                              content={
+                                Object {
+                                  "fieldset": "testFieldset",
+                                  "hint": "Choose one",
+                                  "label": "Test Radiobutton One",
+                                  "name": "radio buttons group one",
+                                  "type": "radio",
+                                  "validationRules": Array [
+                                    Object {
+                                      "errorMessage": "This field is required.",
+                                      "type": "required",
+                                    },
+                                  ],
+                                  "value": "Radio Button value One",
+                                }
+                              }
+                              shouldValidate={false}
+                            />,
+                            <GeneratedField
+                              className="generated-form__item"
+                              content={
+                                Object {
+                                  "fieldset": "testFieldset",
+                                  "hint": "Choose one",
+                                  "label": "Test Radiobutton Two",
+                                  "name": "radio buttons group one",
+                                  "type": "radio",
+                                  "validationRules": Array [
+                                    Object {
+                                      "errorMessage": "This field is required.",
+                                      "type": "required",
+                                    },
+                                  ],
+                                  "value": "Radio Button value Two ",
+                                }
+                              }
+                              shouldValidate={false}
+                            />,
+                          ]
+                        }
+                        key="1"
+                        shouldValidate={false}
+                      >
+                        <div
+                          className="field__group"
+                        >
+                          <GeneratedField
+                            className="generated-form__item"
+                            content={
+                              Object {
+                                "fieldset": "testFieldset",
+                                "hint": "Choose one",
+                                "label": "Test Radiobutton One",
+                                "name": "radio buttons group one",
+                                "type": "radio",
+                                "validationRules": Array [
+                                  Object {
+                                    "errorMessage": "This field is required.",
+                                    "type": "required",
+                                  },
+                                ],
+                                "value": "Radio Button value One",
+                              }
+                            }
+                            key="0"
+                            shouldValidate={false}
+                          >
+                            <Field
+                              name="radio buttons group one"
+                              type="radio"
+                              validate={[Function]}
+                              value="Radio Button value One"
+                            >
+                              <Field
+                                name="radio buttons group one"
+                                type="radio"
+                                validate={[Function]}
+                                value="Radio Button value One"
+                              >
+                                <div
+                                  className="checkable radiobtn"
+                                >
+                                  <CheckElem
+                                    input={
+                                      Object {
+                                        "checked": false,
+                                        "name": "radio buttons group one",
+                                        "onBlur": [Function],
+                                        "onChange": [Function],
+                                        "onFocus": [Function],
+                                        "type": "radio",
+                                        "value": "Radio Button value One",
+                                      }
+                                    }
+                                    label="Test Radiobutton One"
+                                    type={0}
+                                    value="Radio Button value One"
+                                  >
+                                    <label
+                                      className="checkable__label radiobtn"
+                                    >
+                                      <input
+                                        checked={false}
+                                        className="checkable__input"
+                                        name="radio buttons group one"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        type="radio"
+                                        value="Radio Button value One"
+                                      />
+                                      <span
+                                        className="checkable__checkelem"
+                                      >
+                                        <span
+                                          className="checkable__checkmark"
+                                        />
+                                      </span>
+                                      <span
+                                        dangerouslySetInnerHTML={
+                                          Object {
+                                            "__html": "Test Radiobutton One",
+                                          }
+                                        }
+                                      />
+                                    </label>
+                                  </CheckElem>
+                                </div>
+                              </Field>
+                            </Field>
+                          </GeneratedField>
+                          <GeneratedField
+                            className="generated-form__item"
+                            content={
+                              Object {
+                                "fieldset": "testFieldset",
+                                "hint": "Choose one",
+                                "label": "Test Radiobutton Two",
+                                "name": "radio buttons group one",
+                                "type": "radio",
+                                "validationRules": Array [
+                                  Object {
+                                    "errorMessage": "This field is required.",
+                                    "type": "required",
+                                  },
+                                ],
+                                "value": "Radio Button value Two ",
+                              }
+                            }
+                            key="1"
+                            shouldValidate={false}
+                          >
+                            <Field
+                              name="radio buttons group one"
+                              type="radio"
+                              validate={[Function]}
+                              value="Radio Button value Two "
+                            >
+                              <Field
+                                name="radio buttons group one"
+                                type="radio"
+                                validate={[Function]}
+                                value="Radio Button value Two "
+                              >
+                                <div
+                                  className="checkable radiobtn"
+                                >
+                                  <CheckElem
+                                    input={
+                                      Object {
+                                        "checked": false,
+                                        "name": "radio buttons group one",
+                                        "onBlur": [Function],
+                                        "onChange": [Function],
+                                        "onFocus": [Function],
+                                        "type": "radio",
+                                        "value": "Radio Button value Two ",
+                                      }
+                                    }
+                                    label="Test Radiobutton Two"
+                                    type={0}
+                                    value="Radio Button value Two "
+                                  >
+                                    <label
+                                      className="checkable__label radiobtn"
+                                    >
+                                      <input
+                                        checked={false}
+                                        className="checkable__input"
+                                        name="radio buttons group one"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        type="radio"
+                                        value="Radio Button value Two "
+                                      />
+                                      <span
+                                        className="checkable__checkelem"
+                                      >
+                                        <span
+                                          className="checkable__checkmark"
+                                        />
+                                      </span>
+                                      <span
+                                        dangerouslySetInnerHTML={
+                                          Object {
+                                            "__html": "Test Radiobutton Two",
+                                          }
+                                        }
+                                      />
+                                    </label>
+                                  </CheckElem>
+                                </div>
+                              </Field>
+                            </Field>
+                          </GeneratedField>
+                        </div>
+                      </GeneratedField>
+                    </fieldset>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "label": "Test Fieldset3",
+                        "name": "testFieldset3",
+                        "type": "group",
+                      }
+                    }
+                    innerContent={
+                      Array [
+                        <GeneratedField
+                          className="generated-form__item"
+                          content={
+                            Object {
+                              "fieldset": "testFieldset3",
+                              "hint": "Choose one",
+                              "label": "Test Checkbox One",
+                              "name": "Checkbox One",
+                              "type": "checkbox",
+                              "validationRules": Array [
+                                Object {
+                                  "errorMessage": "This field is required.",
+                                  "type": "required",
+                                },
+                              ],
+                              "value": "Checkbox value One",
+                            }
+                          }
+                          shouldValidate={false}
+                        />,
+                        <GeneratedField
+                          className="generated-form__item"
+                          content={
+                            Object {
+                              "fieldset": "testFieldset3",
+                              "hint": "Choose one",
+                              "label": "Test Checkbox Two",
+                              "name": "Checkbox Two",
+                              "type": "checkbox",
+                              "validationRules": Array [
+                                Object {
+                                  "errorMessage": "This field is required.",
+                                  "type": "required",
+                                },
+                              ],
+                              "value": "Checkbox value Two",
+                            }
+                          }
+                          shouldValidate={false}
+                        />,
+                      ]
+                    }
+                    key="2"
+                    shouldValidate={false}
+                  >
+                    <div
+                      className="field__group"
+                    >
+                      <GeneratedField
+                        className="generated-form__item"
+                        content={
+                          Object {
+                            "fieldset": "testFieldset3",
+                            "hint": "Choose one",
+                            "label": "Test Checkbox One",
+                            "name": "Checkbox One",
+                            "type": "checkbox",
+                            "validationRules": Array [
+                              Object {
+                                "errorMessage": "This field is required.",
+                                "type": "required",
+                              },
+                            ],
+                            "value": "Checkbox value One",
+                          }
+                        }
+                        key="0"
+                        shouldValidate={false}
+                      >
+                        <Field
+                          name="Checkbox One"
+                          type="checkbox"
+                          validate={[Function]}
+                          value="Checkbox value One"
+                        >
+                          <Field
+                            name="Checkbox One"
+                            type="checkbox"
+                            validate={[Function]}
+                            value="Checkbox value One"
+                          >
+                            <div
+                              className="checkable checkbox"
+                            >
+                              <CheckElem
+                                input={
+                                  Object {
+                                    "checked": false,
+                                    "name": "Checkbox One",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onFocus": [Function],
+                                    "type": "checkbox",
+                                    "value": "Checkbox value One",
+                                  }
+                                }
+                                label="Test Checkbox One"
+                                type={1}
+                                value="Checkbox value One"
+                              >
+                                <label
+                                  className="checkable__label checkbox"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkable__input"
+                                    name="Checkbox One"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="checkbox"
+                                    value="Checkbox value One"
+                                  />
+                                  <span
+                                    className="checkable__checkelem"
+                                  >
+                                    <span
+                                      className="checkable__checkmark"
+                                    />
+                                  </span>
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Test Checkbox One",
+                                      }
+                                    }
+                                  />
+                                </label>
+                              </CheckElem>
+                            </div>
+                          </Field>
+                        </Field>
+                      </GeneratedField>
+                      <GeneratedField
+                        className="generated-form__item"
+                        content={
+                          Object {
+                            "fieldset": "testFieldset3",
+                            "hint": "Choose one",
+                            "label": "Test Checkbox Two",
+                            "name": "Checkbox Two",
+                            "type": "checkbox",
+                            "validationRules": Array [
+                              Object {
+                                "errorMessage": "This field is required.",
+                                "type": "required",
+                              },
+                            ],
+                            "value": "Checkbox value Two",
+                          }
+                        }
+                        key="1"
+                        shouldValidate={false}
+                      >
+                        <Field
+                          name="Checkbox Two"
+                          type="checkbox"
+                          validate={[Function]}
+                          value="Checkbox value Two"
+                        >
+                          <Field
+                            name="Checkbox Two"
+                            type="checkbox"
+                            validate={[Function]}
+                            value="Checkbox value Two"
+                          >
+                            <div
+                              className="checkable checkbox"
+                            >
+                              <CheckElem
+                                input={
+                                  Object {
+                                    "checked": false,
+                                    "name": "Checkbox Two",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onFocus": [Function],
+                                    "type": "checkbox",
+                                    "value": "Checkbox value Two",
+                                  }
+                                }
+                                label="Test Checkbox Two"
+                                type={1}
+                                value="Checkbox value Two"
+                              >
+                                <label
+                                  className="checkable__label checkbox"
+                                >
+                                  <input
+                                    checked={false}
+                                    className="checkable__input"
+                                    name="Checkbox Two"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="checkbox"
+                                    value="Checkbox value Two"
+                                  />
+                                  <span
+                                    className="checkable__checkelem"
+                                  >
+                                    <span
+                                      className="checkable__checkmark"
+                                    />
+                                  </span>
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Test Checkbox Two",
+                                      }
+                                    }
+                                  />
+                                </label>
+                              </CheckElem>
+                            </div>
+                          </Field>
+                        </Field>
+                      </GeneratedField>
+                    </div>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "hint": "Enter some text",
+                        "label": "Test text input Two",
+                        "name": "testInput Two",
+                        "placeholder": "Test text input Two",
+                        "type": "text",
+                        "validationRules": Array [
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                          Object {
+                            "errorMessage": "This field is too long.",
+                            "type": "maxLength",
+                            "value": 4,
+                          },
+                          Object {
+                            "errorMessage": "This field is too short.",
+                            "type": "minLength",
+                            "value": 2,
+                          },
+                        ],
+                        "value": "Test value",
+                      }
+                    }
+                    key="3"
+                    shouldValidate={false}
+                  >
+                    <Input
+                      content={
+                        Object {
+                          "hint": "Enter some text",
+                          "label": "Test text input Two",
+                          "placeholder": "Test text input Two",
+                          "value": "Test value",
+                        }
+                      }
+                      error={[Function]}
+                      name="testInput Two"
+                      rules={
+                        Array [
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                          Object {
+                            "errorMessage": "This field is too long.",
+                            "type": "maxLength",
+                            "value": 4,
+                          },
+                          Object {
+                            "errorMessage": "This field is too short.",
+                            "type": "minLength",
+                            "value": 2,
+                          },
+                        ]
+                      }
+                      type="text"
+                      validate={[Function]}
+                    >
+                      <Field
+                        initialValue="Test value"
+                        name="testInput Two"
+                        validate={[Function]}
+                      >
+                        <Field
+                          initialValue="Test value"
+                          name="testInput Two"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <label
+                              className="field__label"
+                            >
+                              <span
+                                className="field__label-text"
+                              >
+                                Test text input Two
+                              </span>
+                              <div
+                                className="field__wrap"
+                              >
+                                <input
+                                  className="field__input"
+                                  name="testInput Two"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  placeholder="Test text input Two"
+                                  type="text"
+                                  value="Test value"
+                                />
+                              </div>
+                            </label>
+                            <p
+                              className="field__hint"
+                            >
+                              Enter some text
+                            </p>
+                          </div>
+                        </Field>
+                      </Field>
+                    </Input>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "hint": "Enter some text",
+                        "label": "Test text input Three",
+                        "name": "testInput Three",
+                        "placeholder": "Test text input Three",
+                        "type": "text",
+                        "validationRules": Array [
+                          Object {
+                            "errorMessage": "Should start with uppercase",
+                            "type": "pattern",
+                            "value": ",/^[A-Z]/",
+                          },
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                          Object {
+                            "errorMessage": "This field is too long.",
+                            "type": "maxLength",
+                            "value": 4,
+                          },
+                          Object {
+                            "errorMessage": "This field is too short.",
+                            "type": "minLength",
+                            "value": 2,
+                          },
+                        ],
+                        "value": "Test value 1",
+                      }
+                    }
+                    key="4"
+                    shouldValidate={false}
+                  >
+                    <Input
+                      content={
+                        Object {
+                          "hint": "Enter some text",
+                          "label": "Test text input Three",
+                          "placeholder": "Test text input Three",
+                          "value": "Test value 1",
+                        }
+                      }
+                      error={[Function]}
+                      name="testInput Three"
+                      rules={
+                        Array [
+                          Object {
+                            "errorMessage": "Should start with uppercase",
+                            "type": "pattern",
+                            "value": ",/^[A-Z]/",
+                          },
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                          Object {
+                            "errorMessage": "This field is too long.",
+                            "type": "maxLength",
+                            "value": 4,
+                          },
+                          Object {
+                            "errorMessage": "This field is too short.",
+                            "type": "minLength",
+                            "value": 2,
+                          },
+                        ]
+                      }
+                      type="text"
+                      validate={[Function]}
+                    >
+                      <Field
+                        initialValue="Test value 1"
+                        name="testInput Three"
+                        validate={[Function]}
+                      >
+                        <Field
+                          initialValue="Test value 1"
+                          name="testInput Three"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <label
+                              className="field__label"
+                            >
+                              <span
+                                className="field__label-text"
+                              >
+                                Test text input Three
+                              </span>
+                              <div
+                                className="field__wrap"
+                              >
+                                <input
+                                  className="field__input"
+                                  name="testInput Three"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  placeholder="Test text input Three"
+                                  type="text"
+                                  value="Test value 1"
+                                />
+                              </div>
+                            </label>
+                            <p
+                              className="field__hint"
+                            >
+                              Enter some text
+                            </p>
+                          </div>
+                        </Field>
+                      </Field>
+                    </Input>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "hint": "Enter some text",
+                        "label": "Test textarea",
+                        "name": "testTextarea",
+                        "placeholder": "Test textarea",
+                        "rows": 6,
+                        "type": "textarea",
+                        "validationRules": Array [
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                        ],
+                      }
+                    }
+                    key="5"
+                    shouldValidate={false}
+                  >
+                    <Component
+                      content={
+                        Object {
+                          "hint": "Enter some text",
+                          "label": "Test textarea",
+                          "placeholder": "Test textarea",
+                        }
+                      }
+                      error={[Function]}
+                      name="testTextarea"
+                      rows={6}
+                      rules={
+                        Array [
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                        ]
+                      }
+                      validate={[Function]}
+                    >
+                      <Field
+                        name="testTextarea"
+                        validate={[Function]}
+                      >
+                        <Field
+                          name="testTextarea"
+                          validate={[Function]}
+                        >
+                          <div
+                            className="field"
+                          >
+                            <label
+                              className="field__label"
+                            >
+                              <span
+                                className="field__label-text"
+                              >
+                                Test textarea
+                              </span>
+                              <div
+                                className="field__wrap"
+                              >
+                                <textarea
+                                  className="field__textarea"
+                                  name="testTextarea"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  placeholder="Test textarea"
+                                  rows={6}
+                                />
+                              </div>
+                            </label>
+                            <p
+                              className="field__hint"
+                            >
+                              Enter some text
+                            </p>
+                          </div>
+                        </Field>
+                      </Field>
+                    </Component>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "hint": "Choose one",
+                        "label": "Test Select",
+                        "name": "testSelect",
+                        "options": Array [
+                          Object {
+                            "label": "test 1",
+                            "value": "0",
+                          },
+                          Object {
+                            "label": "test 2",
+                            "value": "1",
+                          },
+                          Object {
+                            "label": "test 3",
+                            "value": "2",
+                          },
+                        ],
+                        "placeholder": "select value",
+                        "type": "select",
+                        "validationRules": Array [
+                          Object {
+                            "errorMessage": "This field is required.",
+                            "type": "required",
+                          },
+                        ],
+                      }
+                    }
+                    key="6"
+                    shouldValidate={false}
+                  >
+                    <Field
+                      name="testSelect"
+                      validate={[Function]}
+                    >
+                      <Field
+                        name="testSelect"
+                        validate={[Function]}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <label
+                            className="field__label"
+                          >
+                            <span
+                              className="field__label-text"
+                            >
+                              Test Select
+                            </span>
+                            <div
+                              className="field__wrap"
+                            >
+                              <Select
+                                className="select field__select"
+                                input={
+                                  Object {
+                                    "name": "testSelect",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onFocus": [Function],
+                                    "type": undefined,
+                                    "value": "",
+                                  }
+                                }
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "test 1",
+                                      "value": "0",
+                                    },
+                                    Object {
+                                      "label": "test 2",
+                                      "value": "1",
+                                    },
+                                    Object {
+                                      "label": "test 3",
+                                      "value": "2",
+                                    },
+                                  ]
+                                }
+                                placeholder="select value"
+                              >
+                                <t
+                                  addPlaceholder=""
+                                  autoFocus={false}
+                                  className="select field__select select"
+                                  clearOnBlur={true}
+                                  clearOnSelect={true}
+                                  clearable={false}
+                                  closeOnScroll={false}
+                                  closeOnSelect={true}
+                                  color="#0074D9"
+                                  create={false}
+                                  createNewLabel="add {search}"
+                                  debounceDelay={0}
+                                  direction="ltr"
+                                  disabled={false}
+                                  disabledLabel="disabled"
+                                  dropdownGap={5}
+                                  dropdownHandle={true}
+                                  dropdownHeight="300px"
+                                  dropdownPosition="bottom"
+                                  itemRenderer={[Function]}
+                                  keepSelectedInList={true}
+                                  labelField="label"
+                                  multi={false}
+                                  name="testSelect"
+                                  noDataLabel="No data"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onClearAll={[Function]}
+                                  onCreateNew={[Function]}
+                                  onDropdownClose={[Function]}
+                                  onDropdownOpen={[Function]}
+                                  onFocus={[Function]}
+                                  onSelectAll={[Function]}
+                                  options={
+                                    Array [
+                                      Object {
+                                        "label": "test 1",
+                                        "value": "0",
+                                      },
+                                      Object {
+                                        "label": "test 2",
+                                        "value": "1",
+                                      },
+                                      Object {
+                                        "label": "test 3",
+                                        "value": "2",
+                                      },
+                                    ]
+                                  }
+                                  placeholder="select value"
+                                  portal={null}
+                                  searchBy="label"
+                                  searchFn={[Function]}
+                                  searchable={false}
+                                  separator={true}
+                                  sortBy={null}
+                                  value=""
+                                  valueField="value"
+                                  values={Array []}
+                                >
+                                  <t
+                                    onClickOutside={[Function]}
+                                  >
+                                    <div>
+                                      <ReactDropdownSelect
+                                        className="react-dropdown-select select field__select select"
+                                        color="#0074D9"
+                                        direction="ltr"
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                        tabIndex="0"
+                                      >
+                                        <div
+                                          className="react-dropdown-select select field__select select css-3rj0br-ReactDropdownSelect e1gzf2xs0"
+                                          color="#0074D9"
+                                          direction="ltr"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
+                                          tabIndex="0"
+                                        >
+                                          <de
+                                            methods={
+                                              Object {
+                                                "activeCursorItem": [Function],
+                                                "addItem": [Function],
+                                                "areAllSelected": [Function],
+                                                "clearAll": [Function],
+                                                "createNew": [Function],
+                                                "dropDown": [Function],
+                                                "getInputSize": [Function],
+                                                "getSelectBounds": [Function],
+                                                "getSelectRef": [Function],
+                                                "handleKeyDown": [Function],
+                                                "isSelected": [Function],
+                                                "removeItem": [Function],
+                                                "safeString": [Function],
+                                                "searchResults": [Function],
+                                                "selectAll": [Function],
+                                                "setSearch": [Function],
+                                                "sortBy": [Function],
+                                                "toggleSelectAll": [Function],
+                                              }
+                                            }
+                                            props={
+                                              Object {
+                                                "addPlaceholder": "",
+                                                "autoFocus": false,
+                                                "className": "select field__select select",
+                                                "clearOnBlur": true,
+                                                "clearOnSelect": true,
+                                                "clearable": false,
+                                                "closeOnScroll": false,
+                                                "closeOnSelect": true,
+                                                "color": "#0074D9",
+                                                "create": false,
+                                                "createNewLabel": "add {search}",
+                                                "debounceDelay": 0,
+                                                "direction": "ltr",
+                                                "disabled": false,
+                                                "disabledLabel": "disabled",
+                                                "dropdownGap": 5,
+                                                "dropdownHandle": true,
+                                                "dropdownHeight": "300px",
+                                                "dropdownPosition": "bottom",
+                                                "itemRenderer": [Function],
+                                                "keepOpen": undefined,
+                                                "keepSelectedInList": true,
+                                                "labelField": "label",
+                                                "multi": false,
+                                                "name": "testSelect",
+                                                "noDataLabel": "No data",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onClearAll": [Function],
+                                                "onCreateNew": [Function],
+                                                "onDropdownClose": [Function],
+                                                "onDropdownOpen": [Function],
+                                                "onFocus": [Function],
+                                                "onSelectAll": [Function],
+                                                "options": Array [
+                                                  Object {
+                                                    "label": "test 1",
+                                                    "value": "0",
+                                                  },
+                                                  Object {
+                                                    "label": "test 2",
+                                                    "value": "1",
+                                                  },
+                                                  Object {
+                                                    "label": "test 3",
+                                                    "value": "2",
+                                                  },
+                                                ],
+                                                "placeholder": "select value",
+                                                "portal": null,
+                                                "searchBy": "label",
+                                                "searchFn": [Function],
+                                                "searchable": false,
+                                                "separator": true,
+                                                "sortBy": null,
+                                                "type": undefined,
+                                                "value": "",
+                                                "valueField": "value",
+                                                "values": Array [],
+                                              }
+                                            }
+                                            state={
+                                              Object {
+                                                "cursor": null,
+                                                "dropdown": false,
+                                                "search": "",
+                                                "selectBounds": Object {
+                                                  "bottom": 0,
+                                                  "height": 0,
+                                                  "left": 0,
+                                                  "right": 0,
+                                                  "top": 0,
+                                                  "width": 0,
+                                                },
+                                                "values": Array [],
+                                              }
+                                            }
+                                          >
+                                            <ContentComponent
+                                              className="react-dropdown-select-content react-dropdown-select-type-single"
+                                              onClick={[Function]}
+                                            >
+                                              <div
+                                                className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+                                                onClick={[Function]}
+                                              >
+                                                <t
+                                                  methods={
+                                                    Object {
+                                                      "activeCursorItem": [Function],
+                                                      "addItem": [Function],
+                                                      "areAllSelected": [Function],
+                                                      "clearAll": [Function],
+                                                      "createNew": [Function],
+                                                      "dropDown": [Function],
+                                                      "getInputSize": [Function],
+                                                      "getSelectBounds": [Function],
+                                                      "getSelectRef": [Function],
+                                                      "handleKeyDown": [Function],
+                                                      "isSelected": [Function],
+                                                      "removeItem": [Function],
+                                                      "safeString": [Function],
+                                                      "searchResults": [Function],
+                                                      "selectAll": [Function],
+                                                      "setSearch": [Function],
+                                                      "sortBy": [Function],
+                                                      "toggleSelectAll": [Function],
+                                                    }
+                                                  }
+                                                  props={
+                                                    Object {
+                                                      "addPlaceholder": "",
+                                                      "autoFocus": false,
+                                                      "className": "select field__select select",
+                                                      "clearOnBlur": true,
+                                                      "clearOnSelect": true,
+                                                      "clearable": false,
+                                                      "closeOnScroll": false,
+                                                      "closeOnSelect": true,
+                                                      "color": "#0074D9",
+                                                      "create": false,
+                                                      "createNewLabel": "add {search}",
+                                                      "debounceDelay": 0,
+                                                      "direction": "ltr",
+                                                      "disabled": false,
+                                                      "disabledLabel": "disabled",
+                                                      "dropdownGap": 5,
+                                                      "dropdownHandle": true,
+                                                      "dropdownHeight": "300px",
+                                                      "dropdownPosition": "bottom",
+                                                      "itemRenderer": [Function],
+                                                      "keepOpen": undefined,
+                                                      "keepSelectedInList": true,
+                                                      "labelField": "label",
+                                                      "multi": false,
+                                                      "name": "testSelect",
+                                                      "noDataLabel": "No data",
+                                                      "onBlur": [Function],
+                                                      "onChange": [Function],
+                                                      "onClearAll": [Function],
+                                                      "onCreateNew": [Function],
+                                                      "onDropdownClose": [Function],
+                                                      "onDropdownOpen": [Function],
+                                                      "onFocus": [Function],
+                                                      "onSelectAll": [Function],
+                                                      "options": Array [
+                                                        Object {
+                                                          "label": "test 1",
+                                                          "value": "0",
+                                                        },
+                                                        Object {
+                                                          "label": "test 2",
+                                                          "value": "1",
+                                                        },
+                                                        Object {
+                                                          "label": "test 3",
+                                                          "value": "2",
+                                                        },
+                                                      ],
+                                                      "placeholder": "select value",
+                                                      "portal": null,
+                                                      "searchBy": "label",
+                                                      "searchFn": [Function],
+                                                      "searchable": false,
+                                                      "separator": true,
+                                                      "sortBy": null,
+                                                      "type": undefined,
+                                                      "value": "",
+                                                      "valueField": "value",
+                                                      "values": Array [],
+                                                    }
+                                                  }
+                                                  state={
+                                                    Object {
+                                                      "cursor": null,
+                                                      "dropdown": false,
+                                                      "search": "",
+                                                      "selectBounds": Object {
+                                                        "bottom": 0,
+                                                        "height": 0,
+                                                        "left": 0,
+                                                        "right": 0,
+                                                        "top": 0,
+                                                        "width": 0,
+                                                      },
+                                                      "values": Array [],
+                                                    }
+                                                  }
+                                                >
+                                                  <InputComponent
+                                                    className="react-dropdown-select-input"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onClick={[Function]}
+                                                    onKeyPress={[Function]}
+                                                    placeholder="select value"
+                                                    readOnly={true}
+                                                    size={12}
+                                                    tabIndex="-1"
+                                                    value=""
+                                                  >
+                                                    <input
+                                                      className="react-dropdown-select-input css-1b6aba5-InputComponent e11wid6y0"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      onClick={[Function]}
+                                                      onKeyPress={[Function]}
+                                                      placeholder="select value"
+                                                      readOnly={true}
+                                                      size={12}
+                                                      tabIndex="-1"
+                                                      value=""
+                                                    />
+                                                  </InputComponent>
+                                                </t>
+                                              </div>
+                                            </ContentComponent>
+                                          </de>
+                                          <input
+                                            name="testSelect"
+                                            type="hidden"
+                                            value={Array []}
+                                          />
+                                          <Ae
+                                            methods={
+                                              Object {
+                                                "activeCursorItem": [Function],
+                                                "addItem": [Function],
+                                                "areAllSelected": [Function],
+                                                "clearAll": [Function],
+                                                "createNew": [Function],
+                                                "dropDown": [Function],
+                                                "getInputSize": [Function],
+                                                "getSelectBounds": [Function],
+                                                "getSelectRef": [Function],
+                                                "handleKeyDown": [Function],
+                                                "isSelected": [Function],
+                                                "removeItem": [Function],
+                                                "safeString": [Function],
+                                                "searchResults": [Function],
+                                                "selectAll": [Function],
+                                                "setSearch": [Function],
+                                                "sortBy": [Function],
+                                                "toggleSelectAll": [Function],
+                                              }
+                                            }
+                                            props={
+                                              Object {
+                                                "addPlaceholder": "",
+                                                "autoFocus": false,
+                                                "className": "select field__select select",
+                                                "clearOnBlur": true,
+                                                "clearOnSelect": true,
+                                                "clearable": false,
+                                                "closeOnScroll": false,
+                                                "closeOnSelect": true,
+                                                "color": "#0074D9",
+                                                "create": false,
+                                                "createNewLabel": "add {search}",
+                                                "debounceDelay": 0,
+                                                "direction": "ltr",
+                                                "disabled": false,
+                                                "disabledLabel": "disabled",
+                                                "dropdownGap": 5,
+                                                "dropdownHandle": true,
+                                                "dropdownHeight": "300px",
+                                                "dropdownPosition": "bottom",
+                                                "itemRenderer": [Function],
+                                                "keepOpen": undefined,
+                                                "keepSelectedInList": true,
+                                                "labelField": "label",
+                                                "multi": false,
+                                                "name": "testSelect",
+                                                "noDataLabel": "No data",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onClearAll": [Function],
+                                                "onCreateNew": [Function],
+                                                "onDropdownClose": [Function],
+                                                "onDropdownOpen": [Function],
+                                                "onFocus": [Function],
+                                                "onSelectAll": [Function],
+                                                "options": Array [
+                                                  Object {
+                                                    "label": "test 1",
+                                                    "value": "0",
+                                                  },
+                                                  Object {
+                                                    "label": "test 2",
+                                                    "value": "1",
+                                                  },
+                                                  Object {
+                                                    "label": "test 3",
+                                                    "value": "2",
+                                                  },
+                                                ],
+                                                "placeholder": "select value",
+                                                "portal": null,
+                                                "searchBy": "label",
+                                                "searchFn": [Function],
+                                                "searchable": false,
+                                                "separator": true,
+                                                "sortBy": null,
+                                                "type": undefined,
+                                                "value": "",
+                                                "valueField": "value",
+                                                "values": Array [],
+                                              }
+                                            }
+                                            state={
+                                              Object {
+                                                "cursor": null,
+                                                "dropdown": false,
+                                                "search": "",
+                                                "selectBounds": Object {
+                                                  "bottom": 0,
+                                                  "height": 0,
+                                                  "left": 0,
+                                                  "right": 0,
+                                                  "top": 0,
+                                                  "width": 0,
+                                                },
+                                                "values": Array [],
+                                              }
+                                            }
+                                          >
+                                            <SeparatorComponent
+                                              className="react-dropdown-select-separator"
+                                            >
+                                              <div
+                                                className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
+                                              />
+                                            </SeparatorComponent>
+                                          </Ae>
+                                          <Ee
+                                            methods={
+                                              Object {
+                                                "activeCursorItem": [Function],
+                                                "addItem": [Function],
+                                                "areAllSelected": [Function],
+                                                "clearAll": [Function],
+                                                "createNew": [Function],
+                                                "dropDown": [Function],
+                                                "getInputSize": [Function],
+                                                "getSelectBounds": [Function],
+                                                "getSelectRef": [Function],
+                                                "handleKeyDown": [Function],
+                                                "isSelected": [Function],
+                                                "removeItem": [Function],
+                                                "safeString": [Function],
+                                                "searchResults": [Function],
+                                                "selectAll": [Function],
+                                                "setSearch": [Function],
+                                                "sortBy": [Function],
+                                                "toggleSelectAll": [Function],
+                                              }
+                                            }
+                                            onClick={[Function]}
+                                            props={
+                                              Object {
+                                                "addPlaceholder": "",
+                                                "autoFocus": false,
+                                                "className": "select field__select select",
+                                                "clearOnBlur": true,
+                                                "clearOnSelect": true,
+                                                "clearable": false,
+                                                "closeOnScroll": false,
+                                                "closeOnSelect": true,
+                                                "color": "#0074D9",
+                                                "create": false,
+                                                "createNewLabel": "add {search}",
+                                                "debounceDelay": 0,
+                                                "direction": "ltr",
+                                                "disabled": false,
+                                                "disabledLabel": "disabled",
+                                                "dropdownGap": 5,
+                                                "dropdownHandle": true,
+                                                "dropdownHeight": "300px",
+                                                "dropdownPosition": "bottom",
+                                                "itemRenderer": [Function],
+                                                "keepOpen": undefined,
+                                                "keepSelectedInList": true,
+                                                "labelField": "label",
+                                                "multi": false,
+                                                "name": "testSelect",
+                                                "noDataLabel": "No data",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onClearAll": [Function],
+                                                "onCreateNew": [Function],
+                                                "onDropdownClose": [Function],
+                                                "onDropdownOpen": [Function],
+                                                "onFocus": [Function],
+                                                "onSelectAll": [Function],
+                                                "options": Array [
+                                                  Object {
+                                                    "label": "test 1",
+                                                    "value": "0",
+                                                  },
+                                                  Object {
+                                                    "label": "test 2",
+                                                    "value": "1",
+                                                  },
+                                                  Object {
+                                                    "label": "test 3",
+                                                    "value": "2",
+                                                  },
+                                                ],
+                                                "placeholder": "select value",
+                                                "portal": null,
+                                                "searchBy": "label",
+                                                "searchFn": [Function],
+                                                "searchable": false,
+                                                "separator": true,
+                                                "sortBy": null,
+                                                "type": undefined,
+                                                "value": "",
+                                                "valueField": "value",
+                                                "values": Array [],
+                                              }
+                                            }
+                                            state={
+                                              Object {
+                                                "cursor": null,
+                                                "dropdown": false,
+                                                "search": "",
+                                                "selectBounds": Object {
+                                                  "bottom": 0,
+                                                  "height": 0,
+                                                  "left": 0,
+                                                  "right": 0,
+                                                  "top": 0,
+                                                  "width": 0,
+                                                },
+                                                "values": Array [],
+                                              }
+                                            }
+                                          >
+                                            <DropdownHandleComponent
+                                              className="react-dropdown-select-dropdown-handle"
+                                              color="#0074D9"
+                                              dropdownOpen={false}
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              onKeyPress={[Function]}
+                                              tabIndex="-1"
+                                            >
+                                              <div
+                                                className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+                                                color="#0074D9"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                onKeyPress={[Function]}
+                                                tabIndex="-1"
+                                              >
+                                                <svg
+                                                  fill="currentColor"
+                                                  viewBox="0 0 40 40"
+                                                >
+                                                  <path
+                                                    d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+                                                  />
+                                                </svg>
+                                              </div>
+                                            </DropdownHandleComponent>
+                                          </Ee>
+                                        </div>
+                                      </ReactDropdownSelect>
+                                    </div>
+                                  </t>
+                                </t>
+                              </Select>
+                            </div>
+                          </label>
+                        </div>
+                      </Field>
+                    </Field>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "name": "hidden",
+                        "type": "hidden",
+                      }
+                    }
+                    key="7"
+                    shouldValidate={false}
+                  >
+                    <Field
+                      name="hidden"
+                    >
+                      <Field
+                        name="hidden"
+                      >
+                        <input
+                          className="field__input"
+                          name="hidden"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="hidden"
+                        />
+                      </Field>
+                    </Field>
+                  </GeneratedField>
+                  <GeneratedField
+                    className="generated-form__item"
+                    content={
+                      Object {
+                        "name": "recaptcha",
+                        "type": "captcha",
+                      }
+                    }
+                    key="8"
+                    shouldValidate={false}
+                  />
+                </div>
+                <div
+                  className="buttons"
+                >
+                  <Component
+                    className="generated-form__button--primary"
+                    isDisabled={false}
+                    type="submit"
+                  >
+                    <button
+                      className="button button generated-form__button--primary"
+                      data-componentname="button"
+                      data-componentview="button"
+                      disabled={false}
+                      hidden={false}
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </Component>
+                  <Component
+                    className="button--secondary generated-form__button--secondary"
+                    isDisabled={false}
+                    onClick={[Function]}
+                    type="reset"
+                  >
+                    <button
+                      className="button button button--secondary generated-form__button--secondary"
+                      data-componentname="button"
+                      data-componentview="button"
+                      disabled={false}
+                      hidden={false}
+                      onClick={[Function]}
+                      type="reset"
+                    >
+                      Clear form
+                    </button>
+                  </Component>
+                </div>
+              </div>
+            </form>
+          </ReactFinalForm>
+        </Form>
+      </GeneratedFormInstance>
+    </GeneratedForm>
+  </div>
+</NewsletterSubscriptions>
+`;

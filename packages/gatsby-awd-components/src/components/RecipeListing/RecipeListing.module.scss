@@ -1,0 +1,32 @@
+@import '../../scss/config';
+
+.recipe-list {
+  position: relative;
+  &__header {
+    font-weight: 500;
+    font-size: $listing-title-fz;
+    font-family: $listing-title-ff;
+    line-height: 3rem;
+    @include respondTo(desktop) {
+      font-size: $listing-title-fz-lg;
+    }
+
+    &-placeholder {
+      height: 6rem; // TODO Fix styles on Tabs hiding EAT-1451
+    }
+  }
+  &__filter {
+    :global(.tags) {
+      width: 100%;
+    }
+  }
+  .recipe-list__load-more {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    margin: 40px auto 0;
+  }
+}
+:global(.recipe-list--blue-header) {
+  color: $fish-blue-darker;
+}

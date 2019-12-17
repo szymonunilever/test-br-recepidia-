@@ -1,0 +1,541 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sitemap /> matches the snapshot 1`] = `
+<Sitemap
+  content={
+    Array [
+      Object {
+        "categoryItems": Array [
+          Object {
+            "path": "/recipes/recipe1",
+            "title": "recipe1",
+          },
+          Object {
+            "path": "/recipes/recipe2",
+            "title": "recipe2",
+          },
+          Object {
+            "path": "/recipes/recipe3",
+            "title": "recipe3",
+          },
+          Object {
+            "path": "/recipes/recipe4",
+            "title": "recipe4",
+          },
+          Object {
+            "path": "/recipes/recipe5",
+            "title": "recipe5",
+          },
+          Object {
+            "path": "/recipes/recipe6",
+            "title": "recipe6",
+          },
+          Object {
+            "path": "/recipes/recipe7",
+            "title": "recipe7",
+          },
+        ],
+        "path": "/recipes",
+        "title": "Recipes",
+      },
+      Object {
+        "categoryItems": Array [
+          Object {
+            "path": "/recipes/product1",
+            "title": "product1",
+          },
+          Object {
+            "path": "/recipes/product2",
+            "title": "product2",
+          },
+          Object {
+            "path": "/recipes/product3",
+            "title": "product3",
+          },
+          Object {
+            "path": "/recipes/product4",
+            "title": "product4",
+          },
+          Object {
+            "path": "/recipes/product5",
+            "title": "product5",
+          },
+          Object {
+            "path": "/recipes/product6",
+            "title": "product6",
+          },
+          Object {
+            "path": "/recipes/product7",
+            "title": "product7",
+          },
+        ],
+        "path": "/products",
+        "title": "Products",
+      },
+      Object {
+        "path": "/contacts",
+        "title": "Contact us",
+      },
+      Object {
+        "path": "/faq",
+        "title": "FAQ",
+      },
+    ]
+  }
+>
+  <div
+    className="sitemap sitemap"
+  >
+    <ul
+      className="sitemap__categories"
+    >
+      <SitemapCategory
+        item={
+          Object {
+            "categoryItems": Array [
+              Object {
+                "path": "/recipes/recipe1",
+                "title": "recipe1",
+              },
+              Object {
+                "path": "/recipes/recipe2",
+                "title": "recipe2",
+              },
+              Object {
+                "path": "/recipes/recipe3",
+                "title": "recipe3",
+              },
+              Object {
+                "path": "/recipes/recipe4",
+                "title": "recipe4",
+              },
+              Object {
+                "path": "/recipes/recipe5",
+                "title": "recipe5",
+              },
+              Object {
+                "path": "/recipes/recipe6",
+                "title": "recipe6",
+              },
+              Object {
+                "path": "/recipes/recipe7",
+                "title": "recipe7",
+              },
+            ],
+            "path": "/recipes",
+            "title": "Recipes",
+          }
+        }
+        key="0"
+      >
+        <mockConstructor
+          className="sitemap__category-title"
+          to="/recipes"
+        >
+          <a
+            className="sitemap__category-title"
+            href="/recipes"
+          >
+            Recipes
+          </a>
+        </mockConstructor>
+        <ul
+          className="sitemap__category-items"
+        >
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe1",
+                "title": "recipe1",
+              }
+            }
+            key="0"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe1"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe1"
+              >
+                recipe1
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe2",
+                "title": "recipe2",
+              }
+            }
+            key="1"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe2"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe2"
+              >
+                recipe2
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe3",
+                "title": "recipe3",
+              }
+            }
+            key="2"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe3"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe3"
+              >
+                recipe3
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe4",
+                "title": "recipe4",
+              }
+            }
+            key="3"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe4"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe4"
+              >
+                recipe4
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe5",
+                "title": "recipe5",
+              }
+            }
+            key="4"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe5"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe5"
+              >
+                recipe5
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe6",
+                "title": "recipe6",
+              }
+            }
+            key="5"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe6"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe6"
+              >
+                recipe6
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/recipe7",
+                "title": "recipe7",
+              }
+            }
+            key="6"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/recipe7"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/recipe7"
+              >
+                recipe7
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+        </ul>
+      </SitemapCategory>
+      <SitemapCategory
+        item={
+          Object {
+            "categoryItems": Array [
+              Object {
+                "path": "/recipes/product1",
+                "title": "product1",
+              },
+              Object {
+                "path": "/recipes/product2",
+                "title": "product2",
+              },
+              Object {
+                "path": "/recipes/product3",
+                "title": "product3",
+              },
+              Object {
+                "path": "/recipes/product4",
+                "title": "product4",
+              },
+              Object {
+                "path": "/recipes/product5",
+                "title": "product5",
+              },
+              Object {
+                "path": "/recipes/product6",
+                "title": "product6",
+              },
+              Object {
+                "path": "/recipes/product7",
+                "title": "product7",
+              },
+            ],
+            "path": "/products",
+            "title": "Products",
+          }
+        }
+        key="1"
+      >
+        <mockConstructor
+          className="sitemap__category-title"
+          to="/products"
+        >
+          <a
+            className="sitemap__category-title"
+            href="/products"
+          >
+            Products
+          </a>
+        </mockConstructor>
+        <ul
+          className="sitemap__category-items"
+        >
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product1",
+                "title": "product1",
+              }
+            }
+            key="0"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product1"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product1"
+              >
+                product1
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product2",
+                "title": "product2",
+              }
+            }
+            key="1"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product2"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product2"
+              >
+                product2
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product3",
+                "title": "product3",
+              }
+            }
+            key="2"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product3"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product3"
+              >
+                product3
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product4",
+                "title": "product4",
+              }
+            }
+            key="3"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product4"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product4"
+              >
+                product4
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product5",
+                "title": "product5",
+              }
+            }
+            key="4"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product5"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product5"
+              >
+                product5
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product6",
+                "title": "product6",
+              }
+            }
+            key="5"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product6"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product6"
+              >
+                product6
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+          <SitemapCategory
+            item={
+              Object {
+                "path": "/recipes/product7",
+                "title": "product7",
+              }
+            }
+            key="6"
+          >
+            <mockConstructor
+              className="sitemap__category-title"
+              to="/recipes/product7"
+            >
+              <a
+                className="sitemap__category-title"
+                href="/recipes/product7"
+              >
+                product7
+              </a>
+            </mockConstructor>
+          </SitemapCategory>
+        </ul>
+      </SitemapCategory>
+      <SitemapCategory
+        item={
+          Object {
+            "path": "/contacts",
+            "title": "Contact us",
+          }
+        }
+        key="2"
+      >
+        <mockConstructor
+          className="sitemap__category-title"
+          to="/contacts"
+        >
+          <a
+            className="sitemap__category-title"
+            href="/contacts"
+          >
+            Contact us
+          </a>
+        </mockConstructor>
+      </SitemapCategory>
+      <SitemapCategory
+        item={
+          Object {
+            "path": "/faq",
+            "title": "FAQ",
+          }
+        }
+        key="3"
+      >
+        <mockConstructor
+          className="sitemap__category-title"
+          to="/faq"
+        >
+          <a
+            className="sitemap__category-title"
+            href="/faq"
+          >
+            FAQ
+          </a>
+        </mockConstructor>
+      </SitemapCategory>
+    </ul>
+  </div>
+</Sitemap>
+`;

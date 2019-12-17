@@ -1,0 +1,40 @@
+@import '../../scss/config';
+
+.tags {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -$tags-indent;
+    padding: $tags-list-padding;
+  }
+  &__load-more {
+    margin: $tags-indent;
+  }
+}
+
+:global(.button.tags__button) {
+  background: $tag-background;
+  height: $tag-height;
+  color: $tag-color;
+  font-size: $tag-fz;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: $tag-padding;
+  font-weight: normal;
+  transition: $theme-transition;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: $tag-border-radius;
+  border: none;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      background: $tag-background-hover;
+      color: $tag-color-hover;
+    }
+  }
+}
