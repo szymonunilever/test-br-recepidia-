@@ -98,7 +98,7 @@ module.exports = {
     author: 'Unilever',
     description: 'Recipedia application',
     siteUrl: 'https://br.recepedia.com/',
-    lang: 'pt-br',
+    lang: 'pt-BR',
   },
   plugins,
 };
