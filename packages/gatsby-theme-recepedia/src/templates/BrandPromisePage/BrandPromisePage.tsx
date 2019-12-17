@@ -21,7 +21,6 @@ import {
   RichText,
   AdaptiveImage,
   BrandSocialChannels,
-  // ListingContent,
   Listing,
   TagName,
   Button,
@@ -30,6 +29,8 @@ import {
 } from 'gatsby-awd-components/src';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
+import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
+import { ReactComponent as YoutubeIcon } from 'src/svgs/inline/youtube.svg';
 import { IMAGE_SIZES } from 'src/constants';
 
 const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
@@ -40,10 +41,9 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   location,
 }) => {
   const {
-    page: { components, seo, type, relativePath },
+    page: { components, seo, type, brand },
   } = pageContext;
 
-  const brand = relativePath.split('/')[1];
   const allArticles = nodes.map(article => {
     const newArticle = {
       title: article.title,
@@ -106,6 +106,12 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
       </Button>
     ));
 
+  const discoverMoreContent = findPageComponentContent(
+    components,
+    'CTA',
+    'discoverMore'
+  );
+
   return (
     <Layout className={classWrapper}>
       <SEO {...seo} canonical={location.href} />
@@ -118,10 +124,11 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
         />
       </section>
 
-      <section className="wrapper _pt--40 bg-secondary">
+      <section className="wrapper _pt--40 bg-secondary stand-for">
         <Listing
           content={findPageComponentContent(components, 'StandForListing')}
           className="stand-for-listing"
+          titleLevel={2}
         >
           {allArticles.map(article => (
             <CardLinkWrapper
@@ -140,7 +147,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
         </Listing>
       </section>
 
-      <section className="wrapper promise-article _pb--40  bg-secondary">
+      <section className="wrapper promise-article _pt--40 _pb--40 bg-secondary">
         <Text
           tag={TagName.h2}
           text={promiseArticleContent.title}
@@ -178,10 +185,11 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
         {promiseArticleCta}
       </section>
 
-      <section className="wrapper _pt--40 _pb--40 bg-primary">
+      <section className="wrapper _pt--40 _pb--40 bg-primary bg-primary--wave up-to">
         <Listing
           content={findPageComponentContent(components, 'UpToListing')}
-          className="up-to-listing"
+          className="up-to-listing cards--light"
+          titleLevel={2}
         >
           {twoArticles.map(article => (
             <CardLinkWrapper
@@ -198,6 +206,11 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             </CardLinkWrapper>
           ))}
         </Listing>
+        <Button
+          className="discover-more"
+          content={discoverMoreContent}
+          onClick={() => {}}
+        />
       </section>
       <section className="wrapper bg-primary brand-social _pt--40 _pb--40">
         <div className="bow-white"></div>
@@ -213,8 +226,10 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
           className="brand-social__list"
           content={findPageComponentContent(components, 'BrandSocialChannels')}
           listIcons={{
+            twitter: <TwitterIcon />,
             facebook: <FacebookIcon />,
             instagram: <InstagramIcon />,
+            youtube: <YoutubeIcon />,
           }}
         />
       </section>

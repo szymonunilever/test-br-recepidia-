@@ -2981,7 +2981,7 @@
     {
       "type": "BrandPromisePage",
       "title": "We're on the side of food",
-      "relativePath": "/hellmanns/brand-promise",
+      "relativePath": "/hellmanns/promise",
       "brand": "hellmanns",
       "components": {
         "items": [
@@ -2996,11 +2996,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/hellmanns/brand-promise"
+                  "path": "/hellmanns/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/hellmanns/brand-products"
+                  "path": "/hellmanns/products"
                 }
               ]
             }
@@ -3024,7 +3024,7 @@
                     "alt": "Planejamento Semanal"
                   },
                   "richText": {
-                    "text": "<h3>Recyling problems that industries face today:</h3><p>Recycling all depends on the technologies available to do so. Plastics that are able to currently be recycled are transparent PET (Hellmann’s Bottles & Jars material), PP and PE. However, flexible laminates (Doypacks and sachets) are not.</p>"
+                    "text": "<p><strong>Recyling problems that industries face today:</strong></p><p>Recycling all depends on the technologies available to do so. Plastics that are able to currently be recycled are transparent PET (Hellmann’s Bottles & Jars material), PP and PE. However, flexible laminates (Doypacks and sachets) are not.</p>"
                   }
                 },
                 {
@@ -3053,6 +3053,13 @@
             }
           },
           {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
             "name": "UpToListing",
             "content": {
               "title": "See what we're up too"
@@ -3070,11 +3077,19 @@
               "socialItems": {
                 "facebook": {
                   "label": "Facebook",
-                  "url": "https://www.facebook.com/recepediabrasil/Recepedia"
+                  "url": "https://www.facebook.com/HellmannsMexico"
                 },
                 "instagram": {
                   "label": "Instagram",
-                  "url": "https://www.instagram.com/recepedia_br"
+                  "url": "https://www.instagram.com/hellmannsmexico/"
+                },
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/HellmannsMx"
+                },
+                "youtube": {
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/user/HellmannsMexico"
                 }
               }
             }
@@ -3116,8 +3131,9 @@
       "components": {
         "items": [
           {
-            "name": "Header",
+            "name": "BrandHero",
             "content": {
+              "title": "What we make",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -3125,11 +3141,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/hellmanns/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/hellmanns/products"
                 }
               ]
             }
@@ -3146,7 +3162,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7501005152006","7506306311893"]
+              "staticList": ["7501005152006", "7506306311893"]
             }
           },
           {
@@ -3230,7 +3246,7 @@
       "components": {
         "items": [
           {
-            "name": "Header",
+            "name": "BrandHero",
             "content": {
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
@@ -3260,7 +3276,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7501005106801","7506306313231"]
+              "staticList": ["7501005106801", "7506306313231"]
             }
           },
           {
@@ -3332,7 +3348,7 @@
       "components": {
         "items": [
           {
-            "name": "Header",
+            "name": "BrandHero",
             "content": {
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
@@ -3362,7 +3378,7 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Featured products",
-              "staticList": ["7506306300330","7501005100854"]
+              "staticList": ["7506306300330", "7501005100854"]
             }
           },
           {
@@ -3437,7 +3453,7 @@
     {
       "type": "ProductDetails",
       "title": "Brand Product Details page",
-        "relativePath": "/brand-product-details",
+      "relativePath": "/brand-product-details",
       "components": {
         "items": [
           {

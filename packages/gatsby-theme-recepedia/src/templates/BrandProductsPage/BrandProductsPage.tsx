@@ -16,16 +16,24 @@ import {
 } from 'gatsby-awd-components/src';
 import React, { useEffect, useState } from 'react';
 import SEO from 'src/components/Seo';
+import BrandHero from '../../components/BrandHero';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
 import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
-
+import { ReactComponent as YoutubeIcon } from 'src/svgs/inline/youtube.svg';
+import themeKnorr from './BrandProductsPageKnorr.module.scss';
+import themeHellmanns from './BrandProductsPageHellmanns.module.scss';
+import themeMaizena from './BrandProductsPageMaizena.module.scss';
+import { ReactComponent as KnorrLogoIcon } from 'src/svgs/inline/logo-knorr.svg';
+import { ReactComponent as HellmannsLogoIcon } from 'src/svgs/inline/logo-hellmanns.svg';
+import { ReactComponent as MaizenaLogoIcon } from 'src/svgs/inline/logo-maizena.svg';
 import { findPageComponentContent, isBrowser } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
 import LookByCategory from '../../components/LookByCategory';
 import { IMAGE_SIZES } from '../../constants';
-import theme from './BrandProductsPage.module.scss';
+import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import '../../scss/pages/_brand.scss';
 
 const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   pageContext,
@@ -36,11 +44,35 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   const {
     page: { components, seo, type, brand },
   } = pageContext;
+
+  const brandsContent = {
+    knorr: {
+      theme: themeKnorr,
+      logo: KnorrLogoIcon,
+    },
+    hellmanns: {
+      theme: themeHellmanns,
+      logo: HellmannsLogoIcon,
+    },
+    maizena: {
+      theme: themeMaizena,
+      logo: MaizenaLogoIcon,
+    },
+  };
+
+  //@ts-ignore
+  const currentBrandContent = brand && brandsContent[brand];
+
+  let theme = currentBrandContent && currentBrandContent.theme;
   const classWrapper = cx(
-    theme.BrandProductsPage,
-    'recipe-page header--bg',
+    theme.brandProductsPage,
+    'brand-page',
+    'brand-product-page',
     brand
   );
+
+  const BrandLogo = currentBrandContent.logo;
+
   const headerContent = findPageComponentContent(components, 'Header');
 
   const productCarouselContent = findPageComponentContent(
@@ -71,6 +103,19 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     components,
     'BrandSocialChannels'
   );
+  const carouselConfig = {
+    breakpoints: [
+      {
+        width: 768,
+        switchElementsBelowBreakpoint: 1,
+        switchElementsAfterBreakpoint: 1,
+        visibleElementsBelowBreakpoint: 2,
+        visibleElementsAboveBreakpoint: 4,
+      },
+    ],
+    arrowIcon: <ArrowIcon />,
+  };
+
   //@ts-ignore
   const createProductCards = list =>
     //@ts-ignore
@@ -156,13 +201,15 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     if (query === 0) {
       const initialView = categoryCards[category].slice(0, 4);
       return (
-        <div>
+        <div className="product-category-listing cards--light">
           {showFullList[category] ? (
-            <Listing content={{ title: category }}>
+            <Listing content={{ title: category }} titleLevel={3}>
               {categoryCards[category]}
             </Listing>
           ) : (
-            <Listing content={{ title: category }}>{initialView}</Listing>
+            <Listing content={{ title: category }} titleLevel={3}>
+              {initialView}
+            </Listing>
           )}
           {!showFullList[category] && categoryCards[category].length > 4 && (
             <Button
@@ -177,7 +224,12 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
       );
     } else {
       return (
-        <GenericCarousel content={{ title: category }}>
+        <GenericCarousel
+          content={{ title: category }}
+          config={carouselConfig}
+          className="product-category-carousel cards--light"
+          titleLevel={3}
+        >
           {categoryCards[category]}
         </GenericCarousel>
       );
@@ -199,54 +251,70 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       {headerContent && (
-        <section className="wrapper">
-          <div>Component Header</div>
+        <section className="">
+          <BrandHero
+            content={findPageComponentContent(components, 'BrandHero')}
+            titleLevel={1}
+            brandLogo={BrandLogo}
+          />
         </section>
       )}
       {productCarouselContent && (
-        <section className="wrapper">
-          <GenericCarousel content={productCarouselContent}>
+        <section className="wrapper product-carousel _pt--40 _pb--40 bg-secondary">
+          <GenericCarousel
+            content={productCarouselContent}
+            titleLevel={2}
+            config={carouselConfig}
+          >
             {newestCards}
           </GenericCarousel>
         </section>
       )}
       {featuredProductsContent && (
-        <section className="wrapper">
-          <Listing content={featuredProductsContent}>
+        <section className="wrapper featured-products _pt--40 _pb--40 bg-primary bg-primary--wave">
+          <Listing content={featuredProductsContent} titleLevel={3}>
             {featuredProducts}
           </Listing>
         </section>
       )}
       {categories && lookByCategoryContent && (
-        <section className="wrapper">
+        <section className="wrapper categories bg-primary">
           <LookByCategory
             renderIteration={counter}
             categories={categories}
             title={lookByCategoryContent.text}
             createChildren={createCarousels}
+            titleLevel={3}
           />
         </section>
       )}
-      <section className="wrapper">
+      <section className="wrapper brand-social bg-primary _pt--40 _pb--40">
+        <div className="bow-white"></div>
         {followUs && brandSocial && (
-          <Text tag={TagName.h2} text={followUs.text} />
+          <Text
+            tag={TagName.h2}
+            text={followUs.text}
+            className="brand-social__title _pt--40"
+          />
         )}
         {brandSocial && (
           <BrandSocialChannels
             content={brandSocial}
+            className="brand-social__list"
             listIcons={{
               twitter: <TwitterIcon />,
               facebook: <FacebookIcon />,
               instagram: <InstagramIcon />,
+              youtube: <YoutubeIcon />,
             }}
           />
         )}
       </section>
-      <section className="_pt--40">
+      <section className="_pb--40">
         <Hero
           content={findPageComponentContent(components, 'Hero')}
           viewType="Image"
-          className="hero--planner color--inverted"
+          className="hero--planner color--inverted bg-primary"
           imageSizes={IMAGE_SIZES.HERO}
         />
       </section>

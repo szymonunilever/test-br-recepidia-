@@ -8,7 +8,11 @@ import React, {
 import { TagName, Text } from '../Text';
 import Arrow from './partials/Arrow';
 import ProgressBar from './partials/ProgressBar';
-import { GenericCarouselProps, GenericBreakpointProps, GenericCarouselConfig } from './models';
+import {
+  GenericCarouselProps,
+  GenericBreakpointProps,
+  GenericCarouselConfig,
+} from './models';
 import theme from './GenericCarousel.module.scss';
 import { useSwipeable } from 'react-swipeable';
 import cx from 'classnames';
@@ -42,7 +46,10 @@ export const defaultCarouselConfig = {
   arrowIcon: null,
 };
 
-const getNearestBreakpoint = (config: GenericCarouselConfig, target: number) => {
+const getNearestBreakpoint = (
+  config: GenericCarouselConfig,
+  target: number
+) => {
   return (config.breakpoints || defaultCarouselConfig.breakpoints).reduce(
     (prev, curr) =>
       Math.abs(curr.width - target) < Math.abs(prev.width - target)
@@ -55,20 +62,20 @@ const GenericCarousel: FunctionComponent<GenericCarouselProps> = ({
   children,
   config = defaultCarouselConfig,
   onVisibleElementsChanged,
-  content:{title},
+  content: { title },
   titleLevel = 1,
+  className,
 }) => {
-
   const listHeader = title ? (
     <Text
       className={cx(theme.recipeList__header, 'recipe-list__header')}
       // @ts-ignore
-      tag={TagName[ `h${titleLevel}` ]}
+      tag={TagName[`h${titleLevel}`]}
       text={title}
     />
   ) : null;
 
-  const list = children && React.Children.map(children, child=> child) || [];
+  const list = (children && React.Children.map(children, child => child)) || [];
   const listSize = list.length;
   const listEven = listSize % 2 === 0;
   const [slideStep, setSlideStep] = useState();
@@ -229,7 +236,7 @@ const GenericCarousel: FunctionComponent<GenericCarouselProps> = ({
   });
 
   return (
-    <>
+    <div className={className}>
       {listHeader}
       <ProgressBar percentage={percentage} />
       <div className={cx(theme.carousel, 'carousel')}>
@@ -280,7 +287,7 @@ const GenericCarousel: FunctionComponent<GenericCarouselProps> = ({
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Text } from 'gatsby-awd-components/src';
+import { TagName, Text } from 'gatsby-awd-components/src';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { LookByCategoryProps } from './models';
 import theme from './LookByCategory.module.scss';
@@ -15,7 +15,8 @@ export const LookByCategory: FunctionComponent<LookByCategoryProps> = ({
   const classWrapper = cx(theme.lookByCategory, 'look-by-category', className);
   const header = title && (
     <Text
-      tag={titleLevel}
+      // @ts-ignore */
+      tag={TagName[`h${titleLevel}`]}
       text={title}
       className={cx(theme.lookByCategory__title, 'look-by-category__title')}
     />
