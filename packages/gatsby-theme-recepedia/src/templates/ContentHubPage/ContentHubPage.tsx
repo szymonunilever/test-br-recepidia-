@@ -18,10 +18,7 @@ import {
 } from 'gatsby-awd-components/src';
 
 import cx from 'classnames';
-import {
-  favoriteButtonDefaults,
-  RecipeListingIcons as recipeListingIcons,
-} from '../../themeDefaultComponentProps';
+import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
 import theme from './ContentHubPage.module.scss';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import DigitalData from '../../../integrations/DigitalData';
@@ -97,7 +94,6 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
               .replace('{numRes}', recipeResultsCount)
               .replace('{categoryName}', `\n${tag.title}`),
           }}
-          icons={recipeListingIcons}
           list={recipeResultsList}
           ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Base}

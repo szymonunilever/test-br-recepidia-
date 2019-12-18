@@ -3,7 +3,7 @@ import { CardProps, ProductCardWrapperProps, RecipeCardWrapperProps } from '../C
 import { RecipeCardProps } from '../RecipeCard';
 
 export interface CardLinkWrapperProps {
-  key: string;
+  cardKey: string;
   isExternal?: boolean;
   title: string;
   slug: string;

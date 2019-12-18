@@ -125,7 +125,13 @@ exports.onCreateNode = async ({
     case constants.NODE_TYPES.CATEGORY:
       {
         createSlugFor({
-          path: getPagePath(constants.TEMPLATE_PAGE_TYPES.CATEGORY),
+          path: getPagePath(
+            constants.TEMPLATE_PAGE_TYPES[
+              'CATEGORY' + node.children && node.children.length > 0
+                ? '_LANDING'
+                : ''
+            ]
+          ),
           node,
           createNodeField,
         });
@@ -266,6 +272,10 @@ exports.createPages = async ({ graphql, actions }) => {
     pages,
     constants.TEMPLATE_PAGE_TYPES.CATEGORY
   );
+  const categoryLandingData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.CATEGORY_LANDING
+  );
   const contentHubData = findPageFromNodes(
     pages,
     constants.TEMPLATE_PAGE_TYPES.TAG
@@ -286,6 +296,7 @@ exports.createPages = async ({ graphql, actions }) => {
       graphql,
       createPage,
       page: recipeCategoryData,
+      landingPage: categoryLandingData,
     }),
     createArticlePages({
       graphql,

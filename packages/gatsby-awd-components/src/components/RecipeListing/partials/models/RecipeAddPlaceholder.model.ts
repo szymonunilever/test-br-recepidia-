@@ -1,7 +1,7 @@
 import { Icon }  from '../../../../models';
 
 export interface RecipeAddPlaceholderProps {
-  key: string;
+  cardKey: string;
   onClick (): void;
   Icon: Icon;
   className?: string;

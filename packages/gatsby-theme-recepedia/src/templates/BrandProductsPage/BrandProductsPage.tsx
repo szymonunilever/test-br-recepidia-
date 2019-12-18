@@ -122,17 +122,18 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     list.map(product => (
       <CardLinkWrapper
         key={product.fields.slug}
+        cardKey={product.fields.slug}
         title={product.productName}
         slug={product.fields.slug}
       >
         <ProductCardWrapper
-          key={product.fields.slug}
+          cardKey={product.fields.slug}
           ratingProvider={RatingAndReviewsProvider.none}
         >
           <Card
             showDescription
             idPropertyName="productId"
-            key={product.fields.slug}
+            cardKey={product.fields.slug}
             content={{ ...product, title: product.productName }}
             imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
           />
@@ -175,7 +176,9 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     productsSorted.filter(
       //@ts-ignore
       product =>
-        featuredProductsContent.staticList.indexOf(product.productId) !== -1
+        featuredProductsContent.staticList.indexOf(
+          parseInt(product.productId)
+        ) !== -1
     )
   );
   const newestCards = createProductCards(productsSorted.slice(0, 6));

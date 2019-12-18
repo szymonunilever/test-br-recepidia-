@@ -97,7 +97,7 @@ exports.createPagesNodes = (
   const nodeContent = JSON.stringify(Object.assign(page, {brand}));
   const nodeData = Object.assign({}, page, {
     id: nodeId,
-    brand,
+    brand: brand,
     parent: null,
     children: [],
     internal: {
@@ -161,8 +161,14 @@ const createCategoryNodes = (
 ) => {
   const nodeId = createNodeId(`category-${category.name}`);
   const imageFields = ['url', 'alt'];
+  const primaryTag = category.primaryTag || {};
+  const titlePlural = category.titlePlural || category.title;
+  const seasonalPromo = category.seasonalPromo || [];
   const categoryNode = {
     ...category,
+    primaryTag: primaryTag,
+    titlePlural: titlePlural,
+    seasonalPromo: seasonalPromo,
     localImage: {
       childImageSharp: {
         fluid: omit(category.image, imageFields),
