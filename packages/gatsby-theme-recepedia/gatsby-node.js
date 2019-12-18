@@ -115,8 +115,11 @@ exports.onCreateNode = async ({
       break;
     case constants.NODE_TYPES.PRODUCT:
       {
+        const brand = node.brand.toLowerCase();
         createSlugFor({
-          path: getPagePath(constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS),
+          path: `${addTrailingSlash(formatUrlPartial(brand))}${addTrailingSlash(
+            formatUrlPartial('product')
+          )}`,
           node,
           createNodeField,
         });

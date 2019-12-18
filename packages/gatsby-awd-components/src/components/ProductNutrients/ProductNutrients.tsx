@@ -21,7 +21,7 @@ const ProductNutrients = ({
     <Text
       // @ts-ignore
       tag={TagName[titleLevel ? `h${titleLevel}` : `div`]}
-      className="product-nutrients__title"
+      className={cx(theme.productNutrients__title, 'product-nutrients__title')}
       text={content.title}
     />
   ) : null;

@@ -15,17 +15,17 @@ export const ProductCopy = ({
   content,
   content: { title, subtitle },
   product,
-  titleLevel = 1,
+  titleLevel = 2,
   viewType,
 }: ProductCopyProps) => {
-  const classWrapper = cx(theme.productCopy, className);
+  const classWrapper = cx(theme.productCopy);
   let view: JSX.Element | undefined | null;
   switch (viewType) {
     case ProductCopyViewType.Title:
-      view = <ProductCopyTitle title={product.productName} titleLevel={titleLevel}/>;
+      view = <ProductCopyTitle className={className} title={product.productName} titleLevel={titleLevel}/>;
       break;
     case ProductCopyViewType.Description:
-      view = <ProductCopyDescription description={product.longPageDescription}/>;
+      view = <ProductCopyDescription className={className} description={product.longPageDescription}/>;
       break;
     case ProductCopyViewType.Ingredients:
       view = (

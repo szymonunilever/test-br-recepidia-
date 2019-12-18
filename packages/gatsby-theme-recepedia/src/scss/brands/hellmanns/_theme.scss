@@ -216,6 +216,8 @@ $h-button-height-lg: 46px;
         height: 10px;
         background-image: url('~src/svgs/inline/triangle-blue.svg');
         background-repeat: repeat-x;
+        background-size: 44px 10px;
+        background-position: top;
         transform: scaleY(-1);
       }
     }
