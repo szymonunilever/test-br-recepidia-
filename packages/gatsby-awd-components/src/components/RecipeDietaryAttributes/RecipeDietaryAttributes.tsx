@@ -1,19 +1,22 @@
-import React, { memo } from 'react';
+import React, { FunctionComponent, memo, ReactFragment } from 'react';
 import cx from 'classnames';
+import { iconNormalize } from '../../utils';
 import Attribute from './partials/Attribute';
 import compact from 'lodash/compact';
 import { RecipeDietaryAttributesProps } from './models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import theme from './RecipeDietaryAttributes.module.scss';
+import {Link} from 'gatsby';
 
-const RecipeDietaryAttributes = ({
+const RecipeDietaryAttributes: FunctionComponent<RecipeDietaryAttributesProps> = ({
   attributes,
   activeAttributes,
   icons,
   infoIcon,
   className,
   showInactiveAttributes = false,
-}: RecipeDietaryAttributesProps) => {
+  categoryLinksMap,
+}) => {
   const classNames = cx(
     theme.recipeDietaryAttributes,
     'recipe-dietary-attributes',
@@ -28,27 +31,48 @@ const RecipeDietaryAttributes = ({
   const inactiveTags = attributes.filter(
     attr => !activeIds.includes(attr.tagId)
   );
-
   const mapIcons = (attributes: Internal.Tag[], inActive: boolean = false) =>
-    icons.map(icon => {
-      const iconId = Array.isArray(icon.id) ? icon.id : [icon.id];
+    Object.entries(icons).map(([key,icon]) => {
       const attr =
-        attributes && attributes.find(attr => iconId.includes(attr.tagId));
+        attributes && attributes.find(attr => attr.tagId === parseInt(key));
       const check = inActive ? icon.inActive : true;
       if (attr && check) {
         return (
-          <Attribute
-            infoIcon={infoIcon}
-            key={attr.tagId}
-            tag={attr}
-            icon={inActive ? icon.inActive : icon.active}
-          />
+          <li key={attr.tagId}
+            aria-describedby={`${attr.tagId}`}
+            className={cx(
+              theme.recipeDietaryAttributes__item,
+              'recipe-dietary-attributes__item'
+            )}
+          >
+            {categoryLinksMap && categoryLinksMap[`${attr.tagId}`]
+              ? (
+                  <Link to={categoryLinksMap[attr.tagId]}>
+                      <Attribute
+                      infoIcon={infoIcon}
+                      key={attr.tagId}
+                      tag={attr}
+                      icon={inActive
+                        ? iconNormalize(icon.inActive)
+                        : iconNormalize(icon.active)}
+                      />
+                  </Link>
+              )
+              : (
+                  <Attribute
+                    infoIcon={infoIcon}
+                    key={attr.tagId}
+                    tag={attr}
+                    icon={inActive ? iconNormalize(icon.inActive) : iconNormalize(icon.active)}
+                  />
+                )
+            }
+          </li>
         );
       }
     });
   const attrWillShowActive = mapIcons(activeTags);
   const attrWillShowInActive = mapIcons(inactiveTags, true);
-
   return (
     <>
       {attrWillShowActive.length || showInactiveAttributes ? (

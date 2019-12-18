@@ -1,5 +1,7 @@
+import { Icon } from '../../../../models';
+
 export interface AttributeProps {
-  icon?: JSX.Element;
+  icon?: Icon;
   tag: Internal.Tag;
-  infoIcon: JSX.Element;
+  infoIcon: Icon;
 }

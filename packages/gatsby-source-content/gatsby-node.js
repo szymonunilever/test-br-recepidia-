@@ -108,6 +108,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   const typeDefs = `
     type Category implements Node {
       id: Int!
+      children: [Category]
       parentId: Int
       name: String!
       description: String

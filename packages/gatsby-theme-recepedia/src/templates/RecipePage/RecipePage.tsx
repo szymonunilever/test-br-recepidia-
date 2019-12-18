@@ -36,6 +36,7 @@ import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-diffi
 import { ReactComponent as RecipePeople } from 'src/svgs/inline/recipe-people.svg';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import {
+  dietaryEqual,
   favoriteButtonDefaults,
   RecipeListingIcons as recipeListingIcons,
 } from '../../themeDefaultComponentProps';
@@ -64,68 +65,28 @@ import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
+import { dietaryAttributesIcons } from '../../themeDefaultComponentProps';
 
 const infoIcon = <InfoIcon />;
-const dietaryAttributesIcons = [
-  {
-    id: [11, 12909],
-    active: <icons.VegeterianActive />,
-    inActive: <icons.VegeterianInactive />,
-  },
-  {
-    id: [10, 13153],
-    active: <icons.VeganActive />,
-    inActive: <icons.VeganInactive />,
-  },
-  {
-    id: [3, 12941],
-    active: <icons.GlutenFreeActive />,
-    inActive: <icons.GlutenFreeInactive />,
-  },
-  {
-    id: [4, 12886],
-    active: <icons.LactoseFreeActive />,
-    inActive: <icons.LactoseFreeInactive />,
-  },
-  {
-    id: [2, 12942],
-    active: <icons.EggFreeActive />,
-    inActive: <icons.EggFreeInactive />,
-  },
-
-  // TODO replace below icons with proper onesafter
-  {
-    id: [1, 12914],
-    active: <icons.DairyFreeActive />,
-    inActive: <icons.DairyFreeInactive />,
-  },
-  {
-    id: 12595,
-    active: <icons.SeafoodFreeActive />,
-  },
-  {
-    id: 12628,
-    active: <icons.SoyFreeActive />,
-  },
-  {
-    id: 12913,
-    active: <icons.SugarFreeActive />,
-  },
-];
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
   twitter: TwitterIcon,
   pinterest: PinterestIcon,
 };
-
 const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
   Boolean(recipe.description) && !isEmpty(tagIds);
-
 const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   pageContext,
   location,
-  data: { recipeTags },
+  data: {
+    recipeTags,
+    dietaryCategories: { nodes: dietaryCats },
+  },
 }) => {
+  const dietaryLinks: { [key: string]: string } = {};
+  dietaryCats.map(category => {
+    dietaryLinks[category.primaryTag.id] = category.fields.slug;
+  });
   const {
     page: { components, seo, type },
     recipe,
@@ -139,9 +100,16 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
    * for use custom dietary attributes and use it for attributes property in RecipeDietaryAttributes component.
    * And add showInactiveAttributes flag for this component.*/
   const recipeRMSTags = flatMap(recipe.tagGroups, tagGroup => tagGroup.tags);
-  const existingImagesIds = flatMap(dietaryAttributesIcons, icon => icon.id);
-  const showDietaryTags = intersection(existingImagesIds, pageContext.tagIds);
-
+  const existingImagesIds = [
+    ...Object.keys(dietaryAttributesIcons).map(i => parseInt(i)),
+    ...Object.values(dietaryEqual).map(i => i),
+  ];
+  let showDietaryTags = intersection(existingImagesIds, pageContext.tagIds);
+  const mappedRecipeTags = tags.map(tag =>
+    dietaryEqual[`${tag.tagId}`]
+      ? { ...tag, tagId: parseInt(dietaryEqual[`${tag.tagId}`]) }
+      : tag
+  );
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
@@ -324,10 +292,11 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             tag={TagName.h2}
           />
           <RecipeDietaryAttributes
+            categoryLinksMap={dietaryLinks}
             activeAttributes={recipeRMSTags}
             infoIcon={infoIcon}
             showInactiveAttributes
-            attributes={tags}
+            attributes={mappedRecipeTags}
             icons={dietaryAttributesIcons}
           />
           <RecipeNutrients
@@ -375,7 +344,6 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             'RecipeListing',
             'RelatedRecipes'
           )}
-          icons={recipeListingIcons}
           list={relatedRecipes}
           ratingProvider={RatingAndReviewsProvider.inline}
           viewType={RecipeListViewType.Carousel}
@@ -398,6 +366,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           {relatedRecipes
             ? relatedRecipes.map(recipe => (
                 <CardLinkWrapper
+                  cardKey={recipe.id}
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
@@ -434,6 +403,16 @@ export const query = graphql`
         disclaimer
       }
     }
+    dietaryCategories: allCategory(filter: { primaryTag: { id: { gt: 0 } } }) {
+      nodes {
+        fields {
+          slug
+        }
+        primaryTag {
+          id
+        }
+      }
+    }
   }
 `;
 
@@ -441,6 +420,14 @@ interface RecipePageProps {
   data: {
     recipeTags: {
       nodes: Internal.Tag[];
+    };
+    dietaryCategories: {
+      nodes: {
+        fields: {
+          slug: string;
+        };
+        primaryTag: RMSData.Tag;
+      }[];
     };
   };
   pageContext: {

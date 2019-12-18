@@ -1,5 +1,6 @@
-import { ButtonViewType, FilterIcons } from 'gatsby-awd-components/src';
+import { ButtonViewType, FilterIcons, Icon } from 'gatsby-awd-components/src';
 import React from 'react';
+import * as icons from './svgs/attributes';
 import { ReactComponent as OpenIcon } from './svgs/inline/arrow-down.svg';
 import { ReactComponent as ClosedIcon } from './svgs/inline/arrow-up.svg';
 import { ReactComponent as FavoriteIcon } from './svgs/inline/favorite.svg';
@@ -30,4 +31,54 @@ export const RecipeListingIcons: FilterIcons = {
   filter: FilterIcon,
   open: OpenIcon,
   removeTag: RemoveTagIcon,
+};
+
+export const dietaryEqual: { [key: string]: string } = {
+  '12914': '1',
+  '12942': '2',
+  '12941': '3',
+  '12886': '4',
+  '13153': '10',
+  '12909': '11',
+};
+
+export const dietaryAttributesIcons: {
+  [key: string]: { active: Icon; inActive: Icon };
+} = {
+  '1': {
+    active: <icons.DairyFreeActive />,
+    inActive: <icons.DairyFreeInactive />,
+  },
+  '2': {
+    active: <icons.EggFreeActive />,
+    inActive: <icons.EggFreeInactive />,
+  },
+  '3': {
+    active: <icons.GlutenFreeActive />,
+    inActive: <icons.GlutenFreeInactive />,
+  },
+  '4': {
+    active: <icons.LactoseFreeActive />,
+    inActive: <icons.LactoseFreeInactive />,
+  },
+  '10': {
+    active: <icons.VeganActive />,
+    inActive: <icons.VeganInactive />,
+  },
+  '11': {
+    active: <icons.VegeterianActive />,
+    inActive: <icons.VegeterianInactive />,
+  },
+  '12595': {
+    active: <icons.SeafoodFreeActive />,
+    inActive: <icons.SeafoodFreeActive />,
+  },
+  '12628': {
+    active: <icons.SoyFreeActive />,
+    inActive: <icons.SoyFreeActive />,
+  },
+  '12913': {
+    active: <icons.SugarFreeActive />,
+    inActive: <icons.SugarFreeActive />,
+  },
 };

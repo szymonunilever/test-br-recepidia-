@@ -21,10 +21,7 @@ import {
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, getImageAlt } from 'src/utils';
 import cx from 'classnames';
-import {
-  favoriteButtonDefaults,
-  RecipeListingIcons as recipeListingIcons,
-} from '../../themeDefaultComponentProps';
+import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
 import DigitalData from '../../../integrations/DigitalData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
@@ -39,7 +36,7 @@ import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
-
+import { dietaryAttributesIcons } from '../../themeDefaultComponentProps';
 const RecipeCategoryPage = ({
   data,
   pageContext,
@@ -58,7 +55,12 @@ const RecipeCategoryPage = ({
     tags: { nodes: categoryTags },
     allArticle,
     allCategory,
+    primaryTag,
   } = data;
+
+  const activeAttribute =
+    primaryTag && dietaryAttributesIcons[`${primaryTag.tagId}`];
+  const attributeIcon = activeAttribute && activeAttribute.active;
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
     path: category.fields.slug,
@@ -93,6 +95,9 @@ const RecipeCategoryPage = ({
       />
       <DigitalData title={title} type={type} />
       <section className="_pt--40">
+        {category.primaryTag && attributeIcon && (
+          <span className={theme.nutritionIcon}>{attributeIcon}</span>
+        )}
         <Text
           className={cx(theme.heroTitle, 'wrapper')}
           tag={TagName['h1']}
@@ -229,7 +234,7 @@ const RecipeCategoryPage = ({
 export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
-  query($tags: [Int], $slug: String) {
+  query($tags: [Int], $slug: String, $primaryTagId: Int) {
     allRecipe(
       limit: 8
       sort: { order: DESC, fields: creationTime }
@@ -256,6 +261,16 @@ export const query = graphql`
     ) {
       nodes {
         ...CategoryFields
+      }
+    }
+    primaryTag: tag(tagId: { eq: $primaryTagId }) {
+      id
+      name
+      tagId
+      title
+      disclaimer
+      fields {
+        slug
       }
     }
   }
@@ -288,6 +303,7 @@ interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
     allCategory: {
       nodes: Internal.Category[];
     };
+    primaryTag: Internal.Tag;
   };
   pageContext: {
     page: AppContent.Page;

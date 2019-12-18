@@ -8,7 +8,7 @@ declare namespace AppContent.Category {
     seasonalPromo?: RMSData.Tag[];
     description: string;
     tags?: RMSData.Tag[];
-    primaryTag?: number;
+    primaryTag?: RMSData.Tag;
     categories?: Content[];
     recipeDetails?: RecipeDetails;
     inNavigation?: boolean;
