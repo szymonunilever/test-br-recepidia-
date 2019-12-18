@@ -28,6 +28,7 @@ function SEO({
             title
             description
             author
+            lang
           }
         }
       }
@@ -47,7 +48,7 @@ function SEO({
         onChangeClientState && onChangeClientState(newState);
       }}
       htmlAttributes={{
-        lang,
+        lang: site.siteMetadata.lang || lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
