@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     style="shape-rendering: auto" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+     style="shape-rendering: auto" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" aria-hidden = "true">
     <g transform="rotate(0 50 50)">
         <rect x="44" y="24" rx="6" ry="6" width="12" height="12" fill="#7b7b7b">
             <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8888888888888888s"
