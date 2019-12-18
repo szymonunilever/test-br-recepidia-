@@ -21,6 +21,8 @@ const Modal: FunctionComponent<ModalProps> = ({
     ReactModal.setAppElement('body');
   }, []);
 
+  ReactModal.setAppElement('#___gatsby'); // for adding to app wrapper aria-hidden=true when modal is open
+
   return (
     <ReactModal
       {...props}
@@ -50,12 +52,13 @@ const Modal: FunctionComponent<ModalProps> = ({
       <div id="modal__description">{props.children}</div>
       {closeBtn && (
         <Button
-        onClick={close}
-        aria-label="Close"
-        className={cx(theme.modal__btnClose, 'modal__btn-close')}
-        viewType={ButtonViewType.icon}>
-        {closeBtn}
-      </Button>
+          onClick={close}
+          aria-label="Close"
+          className={cx(theme.modal__btnClose, 'modal__btn-close')}
+          viewType={ButtonViewType.icon}
+        >
+          {closeBtn}
+        </Button>
       )}
     </ReactModal>
   );
