@@ -17,7 +17,10 @@ const Modal: FunctionComponent<ModalProps> = ({
   ...props
 }) => {
   const wrapClasses = cx(className, 'modal');
-  ReactModal.setAppElement('#___gatsby'); // for adding to app wrapper aria-hidden=true when modal is open
+  useEffect(() => {
+    document.getElementById('___gatsby') &&
+      ReactModal.setAppElement('#___gatsby'); // for adding to app wrapper aria-hidden=true when modal is open
+  });
 
   return (
     <ReactModal
