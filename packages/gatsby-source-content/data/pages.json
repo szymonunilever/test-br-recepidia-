@@ -54,14 +54,14 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizTitle",
-              "text": "Oi! Me conte um pouco sobre você para ter uma experiência personalizada!"
+              "text": "Oi! Bem-vindo ao Recepedia!"
             }
           },
           {
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Bem-vindo ao Recepedia, serei seu aliado na cozinha! Quanto mais eu te conheço, mais posso deixar o site com a sua cara (e melhores ficam minhas sugestões de receitas)! Vamos lá?"
+              "text": "Serei o seu aliado na cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
             }
           },
           {
