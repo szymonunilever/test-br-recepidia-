@@ -88,6 +88,7 @@ module.exports = async ({ graphql, createPage, page, landingPage }) => {
           slug: node.fields.slug,
           page,
           tags,
+          primaryTagId: node.primaryTag ? node.primaryTag.id : null,
           recipeDetails,
           category: node,
         },

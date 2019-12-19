@@ -815,6 +815,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 340,
+        "primaryTag": {
+          "id": 11,
+          "name": "vegetarian"
+        },
         "tags": [
           {
             "id": 11,
@@ -846,6 +850,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 350,
+        "primaryTag": {
+          "id": 2,
+          "name": "egg_free"
+        },
         "tags": [
           {
             "id": 2,
@@ -877,6 +885,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 370,
+        "primaryTag": {
+          "id": 3,
+          "name": "gluten_free"
+        },
         "tags": [
           {
             "id": 3,
@@ -908,6 +920,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 410,
+        "primaryTag": {
+          "id": 12628,
+          "name": "no soy"
+        },
         "tags": [
           {
             "id": 12628,
@@ -939,6 +955,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 390,
+        "primaryTag": {
+          "id": 12913,
+          "name": "zero açucar"
+        },
         "tags": [
           {
             "id": 12913,
@@ -974,6 +994,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 330,
+        "primaryTag":  {
+          "id": 10,
+          "name": "vegan"
+        },
         "tags": [
           {
             "id": 10,
@@ -1005,6 +1029,7 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 420,
+        "primaryTag": {},
         "tags": []
       },
       {
@@ -1031,6 +1056,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 400,
+        "primaryTag":  {
+          "id": 12595,
+          "name": "no seafood"
+        },
         "tags": [
           {
             "id": 12595,
@@ -1062,6 +1091,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 360,
+        "primaryTag": {
+          "id": 1,
+          "name": "dairy_free"
+        },
         "tags": [
           {
             "id": 1,
@@ -1093,6 +1126,10 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 380,
+        "primaryTag": {
+          "id": 4,
+          "name": "lactose_free"
+        },
         "tags": [
           {
             "id": 4,

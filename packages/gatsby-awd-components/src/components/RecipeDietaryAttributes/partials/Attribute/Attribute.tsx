@@ -29,13 +29,7 @@ const Attribute = ({
     </Tooltip>
   ) : null;
   return (
-    <li
-      aria-describedby={`${tagId}`}
-      className={cx(
-        theme.recipeDietaryAttributes__item,
-        'recipe-dietary-attributes__item'
-      )}
-    >
+   <>
       <div
         className={cx(
           theme.recipeDietaryAttributes__icon,
@@ -53,7 +47,7 @@ const Attribute = ({
         {infoTooltip && infoTooltip}
         {title}
       </div>
-    </li>
+   </>
   );
 };
 

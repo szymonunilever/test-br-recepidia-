@@ -126,11 +126,9 @@ exports.onCreateNode = async ({
       {
         createSlugFor({
           path: getPagePath(
-            constants.TEMPLATE_PAGE_TYPES[
-              'CATEGORY' + node.children && node.children.length > 0
-                ? '_LANDING'
-                : ''
-            ]
+            node.children && node.children.length > 0
+              ? constants.TEMPLATE_PAGE_TYPES.CATEGORY_LANDING
+              : constants.TEMPLATE_PAGE_TYPES.CATEGORY
           ),
           node,
           createNodeField,
