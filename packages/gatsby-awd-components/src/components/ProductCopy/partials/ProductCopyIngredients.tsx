@@ -45,7 +45,7 @@ export const ProductCopyIngredients = ({
     >
       {titleString}
       {subtitleString}
-      <div className={cx(theme.productIngredients, 'product-ingredients')}>
+      <div className={cx(theme.productCopyIngredients__data, 'product-copy-ingredients__data')}>
         {ingredients.join(', ')}
       </div>
     </div>

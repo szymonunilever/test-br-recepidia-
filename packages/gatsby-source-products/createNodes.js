@@ -7,6 +7,7 @@ exports.createPagesNodes = (
   const nodeContent = JSON.stringify(page);
   const nodeData = Object.assign({}, page, {
     id: nodeId,
+    brand: page.brand,
     productId: page.id,
     parent: null,
     children: [],

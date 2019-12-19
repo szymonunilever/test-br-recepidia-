@@ -3,6 +3,7 @@ const ProductFields = `
     id
     productId
     brand
+    category
     productName
     longPageDescription
     ingredients

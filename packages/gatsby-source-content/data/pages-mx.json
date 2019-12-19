@@ -3509,10 +3509,31 @@
     },
     {
       "type": "ProductDetails",
-      "title": "Brand Product Details page",
-      "relativePath": "/brand-product-details",
+      "title": "Hellmanns",
+      "brand": "hellmanns",
+      "relativePath": "hellmanns/product",
       "components": {
         "items": [
+          {
+            "name": "BrandHero",
+            "content": {
+              "title": "We're on the side of food",
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/hellmanns/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/hellmanns/brand-products"
+                }
+              ]
+            }
+          },
           {
             "name": "SocialSharing",
             "content": {
@@ -3541,6 +3562,352 @@
             "content": {
               "view": "Ingredients",
               "title": "Ingredientes"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Related products",
+              "staticList": ["7506306311749","7506306313958", "7506306311893", "7506306311558"]
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/HellmannsMexico"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/hellmannsmexico/"
+                },
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/HellmannsMx"
+                },
+                "youtube": {
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/user/HellmannsMexico"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Planejamento Semanal",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Planejamento Semanal"
+              }
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
+            "name": "BuyNowButton",
+            "content": {
+              "view": "Buy now",
+              "label": "Buy now"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Allergy",
+              "title": "Allergy"
+            }
+          },
+          {
+            "name": "ProductNutrients",
+            "content": {
+              "title": "Nutrients",
+              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
+              "tableTitlePer100": "Per 100 g"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Brand Product Details page",
+        "description": "Brand Product Details page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductDetails",
+      "title": "Knorr",
+      "brand": "knorr",
+      "relativePath": "/knorr/product",
+      "components": {
+        "items": [
+          {
+            "name": "BrandHero",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
+                }
+              ],
+              "openModalButton": {
+                "label": ""
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Ingredients",
+              "title": "Ingredientes"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Related products",
+              "staticList": ["7501005112208","7501005110723", "7501005185936", "7501005190794"]
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/KnorrMexico"
+                },
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/KnorrMexico/"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/knorrmx/"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Planejamento Semanal",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Planejamento Semanal"
+              }
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
+            }
+          },
+          {
+            "name": "BuyNowButton",
+            "content": {
+              "view": "Buy now",
+              "label": "Buy now"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Allergy",
+              "title": "Allergy"
+            }
+          },
+          {
+            "name": "ProductNutrients",
+            "content": {
+              "title": "Nutrients",
+              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
+              "tableTitlePer100": "Per 100 g"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Brand Product Details page",
+        "description": "Brand Product Details page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductDetails",
+      "title": "Maizena",
+      "brand": "maizena",
+      "relativePath": "/maizena/product",
+      "components": {
+        "items": [
+          {
+            "name": "BrandHero",
+            "content": {
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Planejamento Semanal"
+              },
+              "links": [
+                {
+                  "name": "Our Promise",
+                  "path": "/brand-promise"
+                },
+                {
+                  "name": "Our Product",
+                  "path": "/brand-products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "SocialSharing",
+            "content": {
+              "buttons": [
+                {
+                  "label": "Facebook",
+                  "name": "facebook"
+                },
+                {
+                  "label": "Twitter",
+                  "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
+                }
+              ],
+              "openModalButton": {
+                "label": ""
+              },
+              "modalTitle": "Compartilhe essa receita"
+            }
+          },
+          {
+            "name": "ProductCopy",
+            "content": {
+              "view": "Ingredients",
+              "title": "Ingredientes"
+            }
+          },
+          {
+            "name": "Listing",
+            "content": {
+              "view": "FeaturedProducts",
+              "title": "Related products",
+              "staticList": ["7501005106801","7501005107013", "7501005106979", "7501005107150"]
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Follow us!"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/MaizenaMexico"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Planejamento Semanal",
+              "longSubheader": "Agora você não precisa mais se preocupar com o que vai comer durante a semana! Me conte um pouco mais sobre você e criarei um cardápio personalizado.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planejamento-da-semana",
+                "label": "Experimente o planejamento semanal"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Planejamento Semanal"
+              }
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "discoverMore",
+              "label": "discover more"
             }
           },
           {

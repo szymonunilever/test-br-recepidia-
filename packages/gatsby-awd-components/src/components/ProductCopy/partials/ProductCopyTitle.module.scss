@@ -1,11 +1,12 @@
 @import '../../../scss/config';
 
-.product-copy-title {
-  position: relative;
-  font-size: $recipe-copy-title-fz;
-  font-family: $recipe-copy-title-ff;
-  color: $recipe-copy-title-color;
-  @include respondTo(desktop) {
-    font-size: $recipe-copy-title-fz-lg;
+.product-copy {
+  &-title {
+    position: relative;
+    font-size: $product-copy-title-fz;
+    text-transform: uppercase;
+    @include respondTo(desktop) {
+      font-size: $product-copy-title-fz-lg;
+    }
   }
 }
