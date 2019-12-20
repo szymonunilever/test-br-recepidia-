@@ -148,7 +148,7 @@
 
     .recipe-list {
       &__header {
-        @extend .heading--underlined
+        @extend .heading--underlined;
       }
     }
   }
