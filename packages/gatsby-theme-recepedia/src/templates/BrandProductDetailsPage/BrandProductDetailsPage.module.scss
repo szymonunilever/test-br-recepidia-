@@ -113,6 +113,8 @@
         text-transform: uppercase;
         @include respondTo(desktop) {
           height: 60px;
+          padding: 0;
+          width: 276px;
         }
 
         svg {
@@ -127,6 +129,23 @@
         @include respondTo(desktop) {
           bottom: 23px;
           right: 50px;
+        }
+
+        :global {
+          .social-sharing-in-modal {
+            .social-sharing {
+              &__dialog-open-button {
+                background: transparent;
+                border: none;
+                border-radius: 2px;
+
+                svg {
+                  width: 48px;
+                  height: 48px;
+                }
+              }
+            }
+          }
         }
       }
     }

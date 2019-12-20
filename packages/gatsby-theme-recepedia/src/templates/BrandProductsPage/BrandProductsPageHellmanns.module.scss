@@ -93,5 +93,11 @@
         }
       }
     }
+
+    .recipe-list {
+      &__header {
+        @extend .heading--underlined
+      }
+    }
   }
 }

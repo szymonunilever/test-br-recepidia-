@@ -3312,11 +3312,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/maizena/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/maizena/products"
                 }
               ]
             }
@@ -3414,11 +3414,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/knorr/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/knorr/products"
                 }
               ]
             }
@@ -3525,11 +3525,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/hellmanns/brand-promise"
+                  "path": "/hellmanns/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/hellmanns/brand-products"
+                  "path": "/hellmanns/products"
                 }
               ]
             }
@@ -3554,7 +3554,7 @@
               "openModalButton": {
                 "label": ""
               },
-              "modalTitle": "Compartilhe essa receita"
+              "modalTitle": "Compartilhe essa PRODUCT"
             }
           },
           {
@@ -3676,11 +3676,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/knorr/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/knorr/products"
                 }
               ]
             }
@@ -3705,7 +3705,7 @@
               "openModalButton": {
                 "label": ""
               },
-              "modalTitle": "Compartilhe essa receita"
+              "modalTitle": "Compartilhe essa PRODUCT"
             }
           },
           {
@@ -3823,11 +3823,11 @@
               "links": [
                 {
                   "name": "Our Promise",
-                  "path": "/brand-promise"
+                  "path": "/maizena/promise"
                 },
                 {
                   "name": "Our Product",
-                  "path": "/brand-products"
+                  "path": "/maizena/products"
                 }
               ]
             }
@@ -3852,7 +3852,7 @@
               "openModalButton": {
                 "label": ""
               },
-              "modalTitle": "Compartilhe essa receita"
+              "modalTitle": "Compartilhe essa PRODUCT"
             }
           },
           {
