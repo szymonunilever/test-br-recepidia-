@@ -9,32 +9,6 @@ $h-button-height-lg: 46px;
     background-color: $hellmans-color-secondary;
   }
 
-  h2 {
-    font: 900 $hellmanns-h2-fz $brandonGrotesqueBlack;
-    line-height: 1.5;
-    color: $hellmans-color-primary;
-    text-transform: uppercase;
-    text-align: center;
-    @include respondTo(desktop) {
-      font-size: $hellmanns-h2-fz-lg;
-      line-height: 1;
-    }
-    &:after {
-      content: '';
-      display: block;
-      width: 240px;
-      height: 7px;
-      background-image: url('~src/svgs/inline/backslash.svg');
-      background-repeat: repeat-x;
-      background-size: 4px;
-      margin: 6px auto 0;
-      @include respondTo(desktop) {
-        width: 374px;
-        margin-top: 10px;
-      }
-    }
-  }
-
   .bow-white {
     position: relative;
     height: 77px;
@@ -309,6 +283,32 @@ $h-button-height-lg: 46px;
       color: $hellmans-color-secondary;
       background-color: $hellmans-color-primary;
       border: 1px solid $hellmans-color-secondary;
+    }
+  }
+}
+
+.heading--underlined {
+  font: 900 $hellmanns-h2-fz $brandonGrotesqueBlack;
+  line-height: 1.5;
+  color: $hellmans-color-primary;
+  text-transform: uppercase;
+  text-align: center;
+  @include respondTo(desktop) {
+    font-size: $hellmanns-h2-fz-lg;
+    line-height: 1;
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: 240px;
+    height: 7px;
+    background-image: url('~src/svgs/inline/backslash.svg');
+    background-repeat: repeat-x;
+    background-size: 4px;
+    margin: 6px auto 0;
+    @include respondTo(desktop) {
+      width: 374px;
+      margin-top: 10px;
     }
   }
 }

@@ -27,6 +27,7 @@
       color: $hellmans-color-primary;
       position: relative;
       &__title {
+        @extend .heading--underlined;
         @include respondTo(desktop) {
           margin-top: 20px;
         }
@@ -142,6 +143,12 @@
         @include respondTo(desktop) {
           height: 250px;
         }
+      }
+    }
+
+    .recipe-list {
+      &__header {
+        @extend .heading--underlined
       }
     }
   }

@@ -42,10 +42,11 @@ import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizen
 import { ReactComponent as InstagramIcon } from '../../svgs/inline/instagram.svg';
 import { ReactComponent as CloseIcon } from 'gatsby-awd-components/src/svgs/inline/x-mark.svg';
 import { ReactComponent as CartIcon } from 'gatsby-awd-components/src/svgs/inline/cart.svg';
-import { ReactComponent as FacebookIcon } from 'gatsby-awd-components/src/svgs/inline/facebook.svg';
-import { ReactComponent as TwitterIcon } from 'gatsby-awd-components/src/svgs/inline/twitter.svg';
-import { ReactComponent as PinterestIcon } from 'gatsby-awd-components/src/svgs/inline/pinterest.svg';
-import { ReactComponent as OpenModelButtonIcon } from 'gatsby-awd-components/src/svgs/inline/social-sharing.svg';
+import { ReactComponent as FacebookIcon } from '../../svgs/inline/facebook.svg';
+import { ReactComponent as TwitterIcon } from '../../svgs/inline/twitter.svg';
+import { ReactComponent as YoutubeIcon } from '../../svgs/inline/youtube.svg';
+import { ReactComponent as PinterestIcon } from '../../svgs/inline/pinterest.svg';
+import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing-circle.svg';
 import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 
 const BrandProductDetailsPage: React.FunctionComponent<
@@ -292,6 +293,8 @@ const BrandProductDetailsPage: React.FunctionComponent<
         listIcons={{
           facebook: <FacebookIcon />,
           instagram: <InstagramIcon />,
+          twitter: <TwitterIcon />,
+          youtube: <YoutubeIcon />,
         }}
       />
     </section>
@@ -301,6 +304,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
     <>
       {featuredProductsContent && (
         <GenericCarousel
+          className={cx(brandTheme.product__attributesRelated)}
           content={featuredProductsContent}
           titleLevel={3}
           config={carouselConfig}
@@ -336,6 +340,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
   const productNutrients = (
     <ProductNutrients
       titleLevel={3}
+      className={cx(brandTheme.product__nutrients)}
       content={findPageComponentContent(components, 'ProductNutrients')}
       nutritionFacts={mock.nutritionFacts}
     />
@@ -400,7 +405,12 @@ const BrandProductDetailsPage: React.FunctionComponent<
         '_pb--40 _pt--40 bg-primary bg-primary--wave up-to wrapper'
       )}
     >
-      <div className={cx(theme.product__attributes)}>
+      <div
+        className={cx(
+          theme.product__attributes,
+          brandTheme.product__attributes
+        )}
+      >
         <div className={cx(theme.product__attributesColumn)}>
           <ProductCopy
             viewType={ProductCopyViewType.Ingredients}
