@@ -707,7 +707,8 @@
       "relativePath": "/categoria",
       "components": {
         "items": [
-          {"name": "PageListing",
+          {
+            "name": "PageListing",
             "content": {
               "view": "RelatedCategories",
               "title": "All {categoryTitle}",
@@ -3104,7 +3105,7 @@
                 }
               ],
               "cta": {
-                "linkTo": "/",
+                "linkTo": "https://www.youtube.com/user/HellmannsMexico",
                 "label": "What are we going to do?"
               }
             }
@@ -3569,7 +3570,12 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Related products",
-              "staticList": ["7506306311749","7506306313958", "7506306311893", "7506306311558"]
+              "staticList": [
+                "7506306311749",
+                "7506306313958",
+                "7506306311893",
+                "7506306311558"
+              ]
             }
           },
           {
@@ -3720,7 +3726,12 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Related products",
-              "staticList": ["7501005112208","7501005110723", "7501005185936", "7501005190794"]
+              "staticList": [
+                "7501005112208",
+                "7501005110723",
+                "7501005185936",
+                "7501005190794"
+              ]
             }
           },
           {
@@ -3867,7 +3878,12 @@
             "content": {
               "view": "FeaturedProducts",
               "title": "Related products",
-              "staticList": ["7501005106801","7501005107013", "7501005106979", "7501005107150"]
+              "staticList": [
+                "7501005106801",
+                "7501005107013",
+                "7501005106979",
+                "7501005107150"
+              ]
             }
           },
           {

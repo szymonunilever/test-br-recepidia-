@@ -90,12 +90,21 @@
     }
     .up-to {
       &-listing {
-        .listing__item {
-          width: calc(100% - 10px);
-          @include respondTo(desktop) {
-            width: calc(50% - 16px);
+        .listing {
+          &__item {
+            width: calc(100% - 10px);
+            @include respondTo(desktop) {
+              width: calc(50% - 16px);
+            }
+            & + li {
+              margin-top: 35px;
+              @include respondTo(desktop) {
+                margin-top: 8px;
+              }
+            }
           }
         }
+
         .card {
           &__info {
             padding: 15px 20px 25px;
@@ -105,8 +114,12 @@
               text-align: left;
             }
           }
-          &__title {
+          .card__title {
             font: 400 2.2rem/1.14 'Times New Roman', Times, serif;
+            @include respondTo(desktop) {
+              font-size: 2rem;
+              line-height: 1.25;
+            }
           }
         }
       }
@@ -115,7 +128,19 @@
         @extend .button--fullwidth;
         margin: 30px auto 0;
         @include respondTo(desktop) {
-          margin: 50px auto 40px;
+          margin: 50px auto 0;
+          height: 52px;
+        }
+      }
+      .recipe-list-header,
+      h2 {
+        @include respondTo(desktop) {
+          margin-bottom: 50px;
+        }
+      }
+      .gatsby-image-wrapper {
+        @include respondTo(desktop) {
+          height: 250px;
         }
       }
     }

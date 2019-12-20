@@ -174,9 +174,9 @@ $h-button-height-lg: 46px;
       background-color: $white;
       height: 100%;
       &__info {
-        padding: 10px;
+        margin: 10px;
         @include respondTo(desktop) {
-          padding: 15px 15px 10px;
+          margin: 15px 15px 10px;
         }
       }
       &__title {
@@ -211,10 +211,10 @@ $h-button-height-lg: 46px;
         display: block;
         position: absolute;
         left: 0;
-        top: -10px;
+        top: -6px;
         width: 100%;
         height: 10px;
-        background-image: url('~src/svgs/inline/triangle-blue.svg');
+        background-image: url('~src/svgs/inline/triangle-blue2.svg');
         background-repeat: repeat-x;
         background-size: 44px 10px;
         background-position: top;
@@ -274,10 +274,14 @@ $h-button-height-lg: 46px;
     font-size: 2rem;
     height: $h-button-height-lg;
   }
-  &:hover {
-    color: $hellmans-color-primary;
-    background-color: $hellmans-color-secondary;
-    border: 1px solid $hellmans-color-primary;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      color: $hellmans-color-primary;
+      background-color: $hellmans-color-secondary;
+      border: 1px solid $hellmans-color-primary;
+    }
   }
 }
 .h-button-light {
@@ -298,9 +302,13 @@ $h-button-height-lg: 46px;
     font-size: 2rem;
     height: $h-button-height-lg;
   }
-  &:hover {
-    color: $hellmans-color-secondary;
-    background-color: $hellmans-color-primary;
-    border: 1px solid $hellmans-color-secondary;
+  @media (hover: hover),
+    (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+    &:hover {
+      color: $hellmans-color-secondary;
+      background-color: $hellmans-color-primary;
+      border: 1px solid $hellmans-color-secondary;
+    }
   }
 }

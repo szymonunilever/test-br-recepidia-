@@ -17,7 +17,19 @@
         line-height: 1.04;
       }
     }
+    .product-carousel {
+      .card {
+        &__info {
+          max-height: 125px;
+          overflow: hidden;
+        }
+      }
+    }
     .featured-products {
+      padding-top: 25px;
+      @include respondTo(medium) {
+        padding-top: 50px;
+      }
       .listing {
         &__item {
           width: calc(50% - 10px);
@@ -34,11 +46,17 @@
       }
     }
     .look-by-category {
-      padding: 20px 0;
+      @include respondTo(desktop) {
+        padding: 20px 0;
+      }
       &__title {
         margin-top: 0;
       }
       &__links {
+        margin-bottom: 30px;
+        @include respondTo(desktop) {
+          margin-bottom: 0;
+        }
       }
       &__link {
         position: relative;
@@ -90,6 +108,17 @@
       .carousel {
         .slide-arrow {
           top: 81px;
+        }
+        height: 300px;
+        .adaptive-image {
+          flex-shrink: 0;
+        }
+        .card {
+          max-height: 300px;
+          overflow: hidden;
+          &__info {
+            overflow: hidden;
+          }
         }
       }
     }
