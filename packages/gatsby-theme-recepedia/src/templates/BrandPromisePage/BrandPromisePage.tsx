@@ -91,15 +91,29 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
     components,
     'PromiseArticle'
   );
+  const getArticleLinkType = (url: string, label: string) =>
+    ~url.indexOf('http') ? (
+      <a
+        className="promise-article__cta"
+        href={url}
+        rel="noopener noreferrer nofollow"
+        target="_blank"
+      >
+        {label}
+      </a>
+    ) : (
+      <Link className="promise-article__cta" to={url}>
+        {label}
+      </Link>
+    );
+
   const promiseArticleCta =
     promiseArticleContent.cta &&
     (promiseArticleContent.cta.linkTo ? (
-      <Link
-        className="promise-article__cta"
-        to={promiseArticleContent.cta.linkTo}
-      >
-        {promiseArticleContent.cta.label}
-      </Link>
+      getArticleLinkType(
+        promiseArticleContent.cta.linkTo,
+        promiseArticleContent.cta.label
+      )
     ) : (
       <Button className="promise-article__cta" onClick={() => {}}>
         {promiseArticleContent.cta.label}

@@ -274,7 +274,7 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
         </section>
       )}
       {featuredProductsContent && (
-        <section className="wrapper featured-products _pt--40 _pb--40 bg-primary bg-primary--wave">
+        <section className="wrapper featured-products _pb--40 bg-primary bg-primary--wave">
           <Listing content={featuredProductsContent} titleLevel={3}>
             {featuredProducts}
           </Listing>
