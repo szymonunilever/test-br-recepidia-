@@ -521,6 +521,10 @@
                 {
                   "label": "Pinterest",
                   "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {
@@ -3046,7 +3050,7 @@
           {
             "name": "BrandHero",
             "content": {
-              "title": "We're on the side of food",
+              "title": "We're on the side of food (Hellmanns)",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -3550,6 +3554,10 @@
                 {
                   "label": "Pinterest",
                   "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {
@@ -3569,13 +3577,7 @@
             "name": "Listing",
             "content": {
               "view": "FeaturedProducts",
-              "title": "Related products",
-              "staticList": [
-                "7506306311749",
-                "7506306313958",
-                "7506306311893",
-                "7506306311558"
-              ]
+              "title": "Related products"
             }
           },
           {
@@ -3615,7 +3617,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
-                "label": "Experimente o planejamento semanal"
+                "label": "Sign Me Up"
               },
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
@@ -3648,8 +3650,7 @@
             "name": "ProductNutrients",
             "content": {
               "title": "Nutrients",
-              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
-              "tableTitlePer100": "Per 100 g"
+              "tableTitlePerPortion": "Per portion"
             }
           }
         ]
@@ -3675,6 +3676,7 @@
           {
             "name": "BrandHero",
             "content": {
+              "title": "A little big difference.",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -3706,6 +3708,10 @@
                 {
                   "label": "Pinterest",
                   "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {
@@ -3767,7 +3773,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
-                "label": "Experimente o planejamento semanal"
+                "label": "Sign Me Up"
               },
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
@@ -3800,8 +3806,7 @@
             "name": "ProductNutrients",
             "content": {
               "title": "Nutrients",
-              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
-              "tableTitlePer100": "Per 100 g"
+              "tableTitlePerPortion": "Per portion"
             }
           }
         ]
@@ -3827,6 +3832,7 @@
           {
             "name": "BrandHero",
             "content": {
+              "title": "PARA ALIMENTAR CON CARIÑO A TU FAMILIA",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -3858,6 +3864,10 @@
                 {
                   "label": "Pinterest",
                   "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {
@@ -3911,7 +3921,7 @@
               "primaryCta": {
                 "type": "Button",
                 "linkTo": "/planejamento-da-semana",
-                "label": "Experimente o planejamento semanal"
+                "label": "Sign Me Up"
               },
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
@@ -3944,8 +3954,7 @@
             "name": "ProductNutrients",
             "content": {
               "title": "Nutrients",
-              "tableTitleNutrient": "*% of Reference intake of an average adult (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
-              "tableTitlePer100": "Per 100 g"
+              "tableTitlePerPortion": "Per portion"
             }
           }
         ]

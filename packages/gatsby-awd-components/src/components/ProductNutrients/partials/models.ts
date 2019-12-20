@@ -1,4 +1,4 @@
 export interface ProductNutrientsTableProps {
-  nutritionFacts?: RMSData.RecipeNutrient[];
+  nutritionFacts: any;
   content: AppContent.ProductNutrientsContent;
 }

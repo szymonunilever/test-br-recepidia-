@@ -69,6 +69,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       longPageDescription: String
       ingredients: String
       allergy: String
+      nutritionFacts: String
       productTags: [String],
       images: [ProductImage]
       fields: Slug
