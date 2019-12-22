@@ -99,6 +99,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         searchQuery,
         {
           size: size - size % 4,
+          from: params ? params.from : 0
         },
         getFilterQuery(tags)
       );
@@ -107,12 +108,14 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   );
 
   const onArticleViewChange = useCallback(
-    (tags: Internal.Tag[]) => {
+    (tags: Internal.Tag[], params) => {
+      const maxSize = Math.max(initialArticlesCount, articleResults.list.length);
+      const size = params ? params.size : maxSize;
       return getArticleSearchData(
         searchQuery,
         {
-          size: Math.max(initialArticlesCount, articleResults.list.length),
-        },
+          size: size - size % 4,
+          from: params ? params.from : 0        },
         getFilterQuery(tags)
       );
     },

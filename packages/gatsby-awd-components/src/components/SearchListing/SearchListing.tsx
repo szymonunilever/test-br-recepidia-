@@ -61,9 +61,9 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         });
       }
 
-      if (articleConfig.getArticleSearchData) {
-        articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
-      }
+      // if (articleConfig.getArticleSearchData) { //TODO Avoid request to articles on search EAT-1451
+      //   articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
+      // }
     },
     [recipeConfig.initialCount]
   );
@@ -76,7 +76,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     if (recipeConfig.onViewChange) {
       return recipeConfig.onViewChange(filteringValue, {
         from: recipeResults.list.length,
-        size: recipeResults.list.length + size,
+        size: size,
       });
     }
 
@@ -237,9 +237,9 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       });
     }
 
-    if (articleConfig.onArticleViewChange) {
-      articleConfig.onArticleViewChange(filter, null);
-    }
+    // if (articleConfig.onArticleViewChange) { //TODO Avoid request to articles on filtering EAT-1451
+    //   articleConfig.onArticleViewChange(filter, null);
+    // }
   };
 
   return (

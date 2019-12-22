@@ -613,7 +613,7 @@
               },
               "titleTotal": "Total",
               "titlePer100": "Porção de 100 g",
-              "titlePerServing": "Rendimento",
+              "titlePerServing": "Por porção",
               "modalTitle": "Informações nutricionais"
             }
           },
@@ -1327,7 +1327,7 @@
           {
             "name": "Button",
             "content": {
-              "label": "Quero voltar para as receitas"
+              "label": "Ver todas as receitas"
             }
           }
         ]
@@ -2685,7 +2685,7 @@
             "name": "GeneratedForm",
             "content": {
               "view": "MealPlanerRename",
-              "title": "Dê um nome esse cardápio!",
+              "title": "Dê um nome para esse cardápio!",
               "submitButton": {
                 "label": "Enviar"
               },
