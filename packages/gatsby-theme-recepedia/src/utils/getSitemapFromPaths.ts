@@ -34,9 +34,6 @@ export const getSitemapFromPaths = (
   const pagesData: SiteMapCategoryRaw[][] = values(
     groupBy(
       pages.map(page => {
-        if (!page.context.page) {
-          console.log(page);
-        }
         return {
           path: page.path,
           title: page.context.title,
