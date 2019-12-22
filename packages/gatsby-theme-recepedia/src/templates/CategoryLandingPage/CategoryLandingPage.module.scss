@@ -1,3 +1,46 @@
-.category-landing-page{
+@import '../../scss/mixins';
 
+.category-landing-page {
+  .related-categories {
+    padding-bottom: 40px;
+    position: relative;
+    :before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      top: 180px;
+      width: 100%;
+      z-index: -1;
+      background: $white-gray;
+      border-radius: 20px;
+      @include respondTo(desktop) {
+        border-radius: 0;
+      }
+    }
+    :global {
+      .load-more {
+        display: flex;
+        margin: 40px auto 0;
+      }
+    }
+  }
+  .tags-list {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @include respondTo(desktop) {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+  }
+  .seasonal-promotions {
+    :global {
+      .slide-arrow {
+        top: $recipe-card-height--mobile/2;
+        @include respondTo(desktop) {
+          top: $recipe-card-height--desktop/2;
+        }
+      }
+    }
+  }
 }

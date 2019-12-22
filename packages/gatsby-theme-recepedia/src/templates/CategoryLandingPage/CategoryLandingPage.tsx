@@ -88,7 +88,7 @@ const CategoryLandingPage = ({
       />
       <DigitalData title={title} type={type} />
       {relatedCategoriesContent && relatedCategories.length > 0 && (
-        <section className="wrapper">
+        <section className={cx(theme.relatedCategories, 'wrapper', '_pt--40')}>
           <Listing content={relatedCategoriesContent} titleLevel={1}>
             {createCardsFromList(relatedCategoriesDisplaing)}
           </Listing>
@@ -96,12 +96,13 @@ const CategoryLandingPage = ({
             <Button
               content={relatedCategoriesContent.cta}
               onClick={onLoadMoreCategories}
+              className="load-more button--medium"
             />
           )}
         </section>
       )}
       {tagsContent && categoryTags.length > 0 && (
-        <section className="wrapper">
+        <section className={cx(theme.tagsList, 'wrapper')}>
           <Tags
             initialCount={initialTagsCount}
             list={categoryTags}
@@ -110,10 +111,10 @@ const CategoryLandingPage = ({
         </section>
       )}
       {recipesPromo && recipesPromo.length > 0 && seasonalPromotionsContent && (
-        <section className="wrapper">
+        <section className={cx(theme.seasonalPromotions, 'wrapper', '_pb--40')}>
           <GenericCarousel
             content={seasonalPromotionsContent}
-            titleLevel={1}
+            titleLevel={2}
             config={{
               breakpoints: [
                 {

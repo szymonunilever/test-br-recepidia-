@@ -35,8 +35,15 @@ $h-button-height-lg: 46px;
 
   .brand-social {
     &__title {
-      &:after {
-        content: none;
+      font: 900 $hellmanns-h2-fz $brandonGrotesqueBlack;
+      line-height: 1.5;
+      color: $hellmans-color-primary;
+      text-transform: uppercase;
+      text-align: center;
+      @include respondTo(desktop) {
+        font-size: $hellmanns-h2-fz-lg;
+        line-height: 1;
+        margin-bottom: 57px;
       }
     }
     &__list {
@@ -52,7 +59,8 @@ $h-button-height-lg: 46px;
     .hero {
       &__header {
         h2 {
-          font: 900 $hellmanns-h3-fz $brandonGrotesqueBlack;
+          font-weight: 900;
+          font-family: $brandonGrotesqueBlack;
           line-height: 1.42;
           @include respondTo(desktop) {
             font-size: $hellmanns-h2-fz-lg;
