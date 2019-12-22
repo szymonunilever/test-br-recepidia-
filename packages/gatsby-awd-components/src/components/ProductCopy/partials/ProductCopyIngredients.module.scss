@@ -1,0 +1,16 @@
+@import '../../../scss/config';
+
+.product-copy-ingredients {
+  margin-bottom: 40px;
+
+  &__title {
+    font-size: $product-copy-ingredients-fz;
+    text-transform: uppercase;
+    color: $white;
+    margin-bottom: 10px;
+  }
+
+  &__data {
+    font-size: 16px;
+  }
+}

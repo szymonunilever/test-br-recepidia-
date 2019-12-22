@@ -1,0 +1,75 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+@import './../../scss/brands/hellmanns/_fonts.scss';
+
+:global {
+  @import './../../scss/brands/hellmanns/_theme.scss';
+  @import './../../scss/components/Button/_index.scss';
+}
+
+.brand-product-page {
+  .product {
+    &__heading {
+      &-button {
+        background: $hellmans-color-primary;
+      }
+    }
+
+    &__attributes {
+      h3 {
+        font-family: "brandon-grotesque", sans-serif;
+      }
+      &-related {
+        h3 {
+          font-family: "brandon-grotesque", sans-serif;
+        }
+
+        :global {
+          .progress-bar {
+            @include respondTo(desktop) {
+              display: none;
+            }
+          }
+        }
+        &-button {
+          color: $hellmans-color-primary;
+          font-family: "brandon-grotesque", sans-serif;
+        }
+      }
+    }
+
+    &__nutrients {
+      font-family: 'Trebuchet W01 Regular', sans-serif;
+    }
+  }
+
+  :global {
+    .product {
+      &-copy {
+        &__title {
+          font-family: $trebuchetMsBold;
+          color: $hellmans-color-primary;
+
+        }
+
+        &__description {
+          font-family: $trebuchetMsNormal;
+          color: $hellmans-color-primary;
+        }
+
+        &-ingredients,
+        &-allergens {
+          &__data {
+            font-family: $trebuchetMsNormal;;
+          }
+        }
+      }
+
+      &__heading {
+        &-button {
+          background: $hellmans-color-primary;
+        }
+      }
+    }
+  }
+}

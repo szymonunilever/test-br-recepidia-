@@ -1,0 +1,69 @@
+{
+  "brand": "Knorr",
+  "fields": {
+    "slug": ""
+  },
+  "id": "1",
+  "longPageDescription": "Lorem ipsum dolor sit amet",
+  "productId": "1",
+  "productName": "Product Name",
+  "productTags": ["unilever:knorr/product/type/chicken"],
+  "ingredients": [
+    "Pasta (durum WHEAT semolina, WHEAT semolina) (65%)",
+    "salt",
+    "potato starch, yeast extract",
+    "flavourings (contain CELERY)",
+    "chicken (3%)",
+    "chicken fat (2.5%)",
+    "toasted onion powder",
+    "potassium chloride",
+    "sugar",
+    "palm oil",
+    "spices (CELERY seeds, turmeric, pepper)",
+    "parsley",
+    "antioxidants (extracts of rosemary, alpha-tocopherol, ascorbyl palmitate)"
+  ],
+  "allergy": ["allergen 1", "Allergen 2"],
+  "nutritionFacts": [
+    {
+      "position": 0,
+      "unit": "<20",
+      "displayUnit": "mg",
+      "dv": "dv",
+      "rawValue": 20,
+      "name": "Nutrition Fact 1",
+      "ri": "ri",
+      "description": "description"
+    },
+    {
+      "position": 0,
+      "unit": "<20",
+      "displayUnit": "mg",
+      "dv": "dv",
+      "rawValue": 2,
+      "name": "Nutrition Fact 2",
+      "ri": "ri",
+      "description": "description"
+    },
+    {
+      "position": 0,
+      "unit": "<20",
+      "displayUnit": "mg",
+      "dv": "dv",
+      "rawValue": 120,
+      "name": "Nutrition Fact 3",
+      "ri": "ri",
+      "description": "description"
+    },
+    {
+      "position": 0,
+      "unit": "<20",
+      "displayUnit": "mg",
+      "dv": "dv",
+      "rawValue": 200,
+      "name": "Nutrition Fact 4",
+      "ri": "ri",
+      "description": "description"
+    }
+  ]
+}

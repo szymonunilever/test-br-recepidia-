@@ -282,6 +282,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     const recipeListingChildren = resultsDefault
       ? resultsDefault.map(recipe => (
           <CardLinkWrapper
+            cardKey={recipe.id}
             title={recipe.title}
             key={recipe.id}
             slug={recipe.fields.slug}
@@ -309,6 +310,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       while (recipeListingChildren.length < maxResults) {
         recipeListingChildren.push(
           <RecipeAddPlaceholder
+            cardKey={'recipeAddPlaceholder_' + recipeListingChildren.length}
             key={'recipeAddPlaceholder_' + recipeListingChildren.length}
             onClick={openCustomSearch}
             Icon={PlaceholderAddButton}

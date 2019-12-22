@@ -1,0 +1,12 @@
+@import '../../scss/config';
+
+.product-nutrients {
+  margin-bottom: 40px;
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: $product-copy-allergy-fz;
+    text-transform: uppercase;
+    color: $white;
+  }
+}

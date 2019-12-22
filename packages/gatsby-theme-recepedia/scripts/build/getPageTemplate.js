@@ -8,6 +8,15 @@ const templatesMap = {
   ContentHub: path.resolve(`./src/templates/ContentHubPage/ContentHubPage.tsx`),
   RecipeDetail: path.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
   ArticleDetail: path.resolve(`./src/templates/ArticlePage/ArticlePage.tsx`),
+  BrandPromisePage: path.resolve(
+    `./src/templates/BrandPromisePage/BrandPromisePage.tsx`
+  ),
+  BrandProductsPage: path.resolve(
+    `./src/templates/BrandProductsPage/BrandProductsPage.tsx`
+  ),
+  ProductDetails: path.resolve(
+    `./src/templates/BrandProductDetailsPage/BrandProductDetailsPage.tsx`
+  ),
   default: path.resolve(`./src/templates/ContentPage/ContentPage.tsx`),
 };
 

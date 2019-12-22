@@ -1,0 +1,46 @@
+@import 'src/scss/vars';
+@import 'src/scss/mixins';
+
+:global {
+  @import './../../scss/brands/maizena/index.scss';
+}
+.brand-product-page {
+  .product {
+    &__heading {
+      &-button {
+        background: $maizena-color-primary;
+      }
+    }
+
+    &__attributes {
+      &-related {
+        &-button {
+          color: $maizena-color-primary;
+        }
+      }
+    }
+  }
+
+  :global {
+    .product {
+      &-copy {
+        &__title {
+           font-family: $vivaStdBold;
+          color: $maizena-color-primary;
+
+        }
+
+        &__description {
+           //font-family: $vivaStdBold;
+          color: $maizena-color-primary;
+        }
+      }
+
+      &__heading {
+        &-button {
+          background: $maizena-color-primary;
+        }
+      }
+    }
+  }
+}

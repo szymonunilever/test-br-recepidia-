@@ -3,6 +3,7 @@ declare namespace AppContent {
     // title: string;
     type: string;
     title?: string;
+    brand?: string;
     components: {
       items: AppContent.BaseComponent[];
     };

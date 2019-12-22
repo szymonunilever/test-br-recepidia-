@@ -1,0 +1,121 @@
+@import '../theme';
+@import '../globalComponents';
+.brand-page {
+  .global-navigation {
+    position: absolute;
+    width: 100%;
+    .searchBar {
+      z-index: 1;
+    }
+    &:not(.open) {
+      .burger-button__icon {
+        &:before,
+        &:after {
+          background-color: $white;
+        }
+      }
+      .main-logo__icon {
+        fill: $white;
+        & * {
+          fill: $white;
+        }
+      }
+      .searchBar {
+        svg {
+          stroke: $white;
+        }
+      }
+    }
+    @include respondTo(desktop) {
+      .menu__link {
+        color: $white;
+        .dropdown-icon {
+          fill: $white;
+        }
+      }
+      .global-navigation__profile {
+        color: $white;
+        svg {
+          fill: $white;
+        }
+      }
+      .main-logo__icon {
+        fill: $white;
+        & * {
+          fill: $white;
+        }
+      }
+      .searchBar {
+        svg {
+          stroke: $white;
+        }
+      }
+    }
+  }
+  .brand-hero {
+    position: relative;
+    height: 416px;
+    padding-top: 85px;
+    @include respondTo(desktop) {
+      height: 542px;
+      padding-top: 100px;
+    }
+    & * {
+      color: white;
+    }
+    &__image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      border-radius: 0;
+      .gatsby-image-wrapper {
+        height: 100%;
+      }
+    }
+    &__content {
+    }
+    &__logo {
+    }
+    &__links {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 14px;
+    }
+    &__link {
+      text-transform: uppercase;
+      height: 52px;
+      text-align: center;
+      font: 900 1.6rem/1.25 $brandonGrotesqueBlack;
+      transition: opacity 0.2s;
+      word-spacing: 100vw;
+      width: 210px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-decoration: none;
+      @include respondTo(desktop) {
+        font-size: 2.1rem;
+        justify-content: center;
+        word-spacing: normal;
+        width: auto;
+        padding: 0 50px;
+      }
+      &.active {
+        pointer-events: none;
+      }
+      &:not(.active) {
+        opacity: 0.7;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

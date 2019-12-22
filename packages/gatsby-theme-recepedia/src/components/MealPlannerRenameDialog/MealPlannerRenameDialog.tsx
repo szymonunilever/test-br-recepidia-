@@ -3,12 +3,9 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { MealPlannerRenameDialogProps } from './models';
 import { ReactComponent as CloseBtn } from '../../svgs/inline/x-mark.svg';
 
-export const MealPlannerRenameDialog: FunctionComponent<MealPlannerRenameDialogProps> = ({
-  callback,
-  isOpen = false,
-  className,
-  ...props
-}) => {
+export const MealPlannerRenameDialog: FunctionComponent<
+  MealPlannerRenameDialogProps
+> = ({ callback, isOpen = false, className, ...props }) => {
   const [open, setOpen] = useState(isOpen);
   useEffect(() => {
     setOpen(isOpen);

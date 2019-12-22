@@ -1,3 +1,34 @@
-.product-card{
+@import '../../scss/config';
 
+.product-card{
+  position: relative;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+
+  &__title {
+    font-size: $card-title-fz;
+    font-family: $card-title-ff;
+    font-weight: $card-title-fw;
+    color: $card-title-color;
+    outline: none;
+    margin: $card-title-indent;
+    @include respondTo(medium) {
+      margin: $card-title-indent-lg;
+    }
+  }
+
+  &__image {
+    position: relative;
+    min-width: 100%;
+    background-color: $white-gray;
+  }
+  &__buttons {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+  }
 }

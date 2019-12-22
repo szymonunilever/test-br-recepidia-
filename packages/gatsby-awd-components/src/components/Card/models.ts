@@ -4,7 +4,7 @@ import { ButtonProps } from '../Button';
 import { RatingProps } from '../Rating';
 
 export interface CardProps {
-  key: string;
+  cardKey: string;
   content: CardContentProps;
   idPropertyName: string;
   ratingWidget?: ReactElement<RatingProps>;
@@ -12,6 +12,7 @@ export interface CardProps {
   className?: string;
   brand?: ReactChild;
   children?: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
+  showDescription?: boolean;
 }
 
 export interface CardContentProps {
@@ -27,7 +28,7 @@ export interface CardContentProps {
 }
 
 interface CardWrapper {
-  key: string;
+  cardKey: string;
   children: ReactElement<CardProps>;
   ratingProvider: RatingAndReviewsProvider;
 }

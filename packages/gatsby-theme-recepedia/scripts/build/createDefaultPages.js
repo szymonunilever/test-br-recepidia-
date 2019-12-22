@@ -61,6 +61,7 @@ module.exports = async ({ graphql, createPage }) => {
           }
           type
           relativePath
+          brand
           title
           seo {
             title
@@ -82,26 +83,32 @@ module.exports = async ({ graphql, createPage }) => {
     },
   }));
 
+  let pagesTypes = [
+    'Home',
+    'AllRecipes',
+    'Search',
+    'ContactUs',
+    'ContactForm',
+    'ContactUsThankYou',
+    'UserProfile',
+    'NotFound',
+    'AboutUs',
+    'MealPlanner',
+    'Sitemap',
+    'NewsletterSignUp',
+    'PreferenceCenter',
+    'TermsAndConditions',
+    //'FAQ',
+  ];
+
+  pagesTypes.push(
+    'BrandPromisePage',
+    'BrandProductsPage'
+    // 'BrandProductDetailsPage'
+  );
+
   pages
-    .filter(({ type }) =>
-      [
-        'Home',
-        'AllRecipes',
-        'Search',
-        'ContactUs',
-        'ContactForm',
-        'ContactUsThankYou',
-        'UserProfile',
-        'NotFound',
-        'AboutUs',
-        'MealPlanner',
-        'Sitemap',
-        'NewsletterSignUp',
-        'PreferenceCenter',
-        'TermsAndConditions',
-        //'FAQ',
-      ].includes(type)
-    )
+    .filter(({ type }) => pagesTypes.includes(type))
     .forEach(pageNode => {
       createPage(pageNode);
     });

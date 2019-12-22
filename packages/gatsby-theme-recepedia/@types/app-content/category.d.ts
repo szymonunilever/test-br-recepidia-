@@ -4,8 +4,11 @@ declare namespace AppContent.Category {
     id?: string | number;
     image: AppContent.ImageContent;
     title: string;
+    titlePlural: string;
+    seasonalPromo?: RMSData.Tag[];
     description: string;
     tags?: RMSData.Tag[];
+    primaryTag?: RMSData.Tag;
     categories?: Content[];
     recipeDetails?: RecipeDetails;
     inNavigation?: boolean;

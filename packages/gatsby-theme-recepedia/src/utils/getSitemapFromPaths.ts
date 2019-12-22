@@ -34,14 +34,11 @@ export const getSitemapFromPaths = (
   const pagesData: SiteMapCategoryRaw[][] = values(
     groupBy(
       pages.map(page => {
-        const {
-          path,
-          context: {
-            title,
-            page: { type },
-          },
-        } = page;
-        return { path, title, type };
+        return {
+          path: page.path,
+          title: page.context.title,
+          type: page.context.page.type,
+        };
       }),
       'type'
     )

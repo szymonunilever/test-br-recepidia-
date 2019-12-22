@@ -9,10 +9,10 @@ import theme from './Listing.module.scss';
 import { ListingProps } from './models';
 
 export const Listing: FunctionComponent<ListingProps> = ({className, content, children, titleLevel = 1}) => {
-  const {title, resultLabel, resultLabelPlural, staticList} = content;
+  const {title} = content;
   const list = children && React.Children.map(children, (child,i) => {
     if(React.isValidElement<CardProps|CardLinkWrapperProps|RecipeAddPlaceholderProps>(child)){
-        return <li key={child.props.key}
+        return <li key={child.props.cardKey}
                    className={cx(theme.listing__item, 'listing__item')}>
           {child}
         </li>

@@ -55,7 +55,7 @@ const useSearchResults = (searchQuery: string) => {
         .catch(() => {})
         .finally(() => {
           setRecipeResultsFetched(true);
-      })
+        });
     },
     [recipeResults]
   );
@@ -64,19 +64,21 @@ const useSearchResults = (searchQuery: string) => {
     async (searchQuery, params, filter) => {
       setArticleResultsFetched(false);
 
-      return getArticleResponse(searchQuery, params, filter).then(res => {
-        setArticleResults({
-          list: params.from
-            ? [
-                ...articleResults.list,
-                ...res.body.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.body.hits.hits.map(resItem => resItem._source),
-          count: res.body.hits.total.value,
+      return getArticleResponse(searchQuery, params, filter)
+        .then(res => {
+          setArticleResults({
+            list: params.from
+              ? [
+                  ...articleResults.list,
+                  ...res.body.hits.hits.map(resItem => resItem._source),
+                ]
+              : res.body.hits.hits.map(resItem => resItem._source),
+            count: res.body.hits.total.value,
+          });
+        })
+        .finally(() => {
+          setArticleResultsFetched(true);
         });
-      }).finally(() => {
-        setArticleResultsFetched(true)
-      })
     },
     [articleResults]
   );

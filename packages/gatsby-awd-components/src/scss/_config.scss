@@ -535,3 +535,17 @@ $null-result-subtitle-fz: 1.6rem !default;
 $null-result-subtitle-fz-lg: 1.6rem !default;
 $null-result-item-fz: 1.4rem !default;
 $null-result-item-fz-lg: 1.4rem !default;
+
+/* ----------------------------------------------------------------------------- *\
+   PRODUCT COPY
+\* ----------------------------------------------------------------------------- */
+$product-copy-title-fz: 3rem !default;
+$product-copy-title-fz-lg: 3.6rem !default;
+$product-copy-title-ff: $rubik !default;
+
+$product-copy-descr-fz: 1.6rem !default;
+$product-copy-descr-indent: 0 0 20px 0 !default;
+$product-copy-descr-lh: 2rem !default;
+
+$product-copy-ingredients-fz: 2.4rem !default;
+$product-copy-allergy-fz: $product-copy-ingredients-fz;

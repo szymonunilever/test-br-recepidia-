@@ -253,8 +253,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
                 {recipeList
                   ? recipeList.map(recipe => (
                       <CardLinkWrapper
-                        title={recipe.title}
                         key={recipe.id}
+                        title={recipe.title}
+                        cardKey={recipe.id}
                         slug={recipe.fields.slug}
                       >
                         <RecipeCard
@@ -332,8 +333,9 @@ const FavoritesRecipeListingPage: FunctionComponent<
               {mealPlannerResults
                 ? mealPlannerResults.map(recipe => (
                     <CardLinkWrapper
-                      title={recipe.title}
                       key={recipe.id}
+                      title={recipe.title}
+                      cardKey={recipe.id}
                       slug={recipe.fields.slug}
                     >
                       <RecipeCard

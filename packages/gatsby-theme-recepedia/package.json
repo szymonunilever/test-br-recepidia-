@@ -35,6 +35,7 @@
     "gatsby-plugin-zopfli": "^1.2.3",
     "gatsby-source-filesystem": "2.1.6",
     "gatsby-source-content": "1.0.0",
+    "gatsby-source-products": "1.0.0",
     "gatsby-source-rms": "1.0.0",
     "gatsby-transformer-remark": "2.6.9",
     "gatsby-transformer-sharp": "2.2.4",

@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getPageTemplate = require('./scripts/build/getPageTemplate');
 const createDefaultPages = require('./scripts/build/createDefaultPages');
 const createRecipePages = require('./scripts/build/createRecipePages');
+const createProductPages = require('./scripts/build/createProductPages');
 const createArticlePages = require('./scripts/build/createArticlePages');
 const createRemoteImageNode = require('./scripts/build/createRemoteImageNode');
 const createContentHubPages = require('./scripts/build/createContentHubPages');
@@ -23,6 +24,7 @@ const urlPartialsByTypeMap = {
   Recipe: 'title',
   Tag: 'title',
   Category: 'title',
+  ProductDetails: 'title',
 };
 
 const addTrailingSlash = path => {
@@ -111,10 +113,26 @@ exports.onCreateNode = async ({
         createNodeField,
       });
       break;
+    case constants.NODE_TYPES.PRODUCT:
+      {
+        const brand = node.brand.toLowerCase();
+        createSlugFor({
+          path: `${addTrailingSlash(formatUrlPartial(brand))}${addTrailingSlash(
+            formatUrlPartial('product')
+          )}`,
+          node,
+          createNodeField,
+        });
+      }
+      break;
     case constants.NODE_TYPES.CATEGORY:
       {
         createSlugFor({
-          path: getPagePath(constants.TEMPLATE_PAGE_TYPES.CATEGORY),
+          path: getPagePath(
+            node.children && node.children.length > 0
+              ? constants.TEMPLATE_PAGE_TYPES.CATEGORY_LANDING
+              : constants.TEMPLATE_PAGE_TYPES.CATEGORY
+          ),
           node,
           createNodeField,
         });
@@ -226,6 +244,10 @@ exports.createPages = async ({ graphql, actions }) => {
         component: getPageTemplate(page.type),
         context: {
           title: get(page, 'title'),
+          brand: get(page, 'brand'),
+          regexpBrand: get(page, 'brand')
+            ? '/' + get(page, 'brand') + '/i'
+            : '',
           slug,
           page,
           ...getStaticLists(page.components.items),
@@ -239,6 +261,10 @@ exports.createPages = async ({ graphql, actions }) => {
     pages,
     constants.TEMPLATE_PAGE_TYPES.RECIPE
   );
+  const productDetailsData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS
+  );
   const articleDetailsData = findPageFromNodes(
     pages,
     constants.TEMPLATE_PAGE_TYPES.ARTICLE
@@ -246,6 +272,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const recipeCategoryData = findPageFromNodes(
     pages,
     constants.TEMPLATE_PAGE_TYPES.CATEGORY
+  );
+  const categoryLandingData = findPageFromNodes(
+    pages,
+    constants.TEMPLATE_PAGE_TYPES.CATEGORY_LANDING
   );
   const contentHubData = findPageFromNodes(
     pages,
@@ -258,10 +288,16 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage,
       page: recipeDetailsData,
     }),
+    createProductPages({
+      graphql,
+      createPage,
+      page: productDetailsData,
+    }),
     createCategoryPages({
       graphql,
       createPage,
       page: recipeCategoryData,
+      landingPage: categoryLandingData,
     }),
     createArticlePages({
       graphql,

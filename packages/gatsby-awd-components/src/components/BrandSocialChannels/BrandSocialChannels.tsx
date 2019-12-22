@@ -22,7 +22,8 @@ const BrandSocialChannels = ({
     >
       {map(listIcons, (icon, index) => {
         const socialItem = socialItems[index];
-        return (
+
+        return socialItem && (
           <SocialChannel
             key={index}
             url={get(socialItem, 'url')}

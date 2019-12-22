@@ -39,6 +39,15 @@ const plugins = [
     options: {
       endpoint: appConfig.getByKey('middleware_contentEndpoint'),
       key: appConfig.getByKey('middleware_key'),
+      locale: appConfig.getByKey('locale'),
+    },
+  },
+  {
+    resolve: `gatsby-source-products`,
+    options: {
+      endpoint: appConfig.getByKey('middleware_productsEndpoint'),
+      key: appConfig.getByKey('middleware_productsKey'),
+      locale: appConfig.getByKey('locale'),
     },
   },
   {

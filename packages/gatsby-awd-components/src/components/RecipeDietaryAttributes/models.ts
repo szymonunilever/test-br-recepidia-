@@ -1,14 +1,16 @@
+import { Icon } from '../../models';
+
 export interface RecipeDietaryAttributesProps {
   className?: string;
   attributes: Internal.Tag[];
-  icons: RecipeDietaryAttributeIcon[];
+  icons: {
+    [key: number]: {
+      active: Icon;
+      inActive?: Icon;
+    };
+  };
   infoIcon: JSX.Element;
   activeAttributes: RMSData.Tag[];
   showInactiveAttributes?: boolean;
-}
-
-export interface RecipeDietaryAttributeIcon {
-  id: string | number | string[] | number[];
-  active?: JSX.Element;
-  inActive?: JSX.Element;
+  categoryLinksMap?: { [key: string]: string };
 }

@@ -25,3 +25,4 @@ export const IMAGE_SIZES = {
     TILES: '(max-width: 1366px) 50vw, 350px',
   },
 };
+
