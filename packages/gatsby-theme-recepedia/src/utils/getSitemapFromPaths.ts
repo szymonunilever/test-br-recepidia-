@@ -14,6 +14,9 @@ const EXCLUDED_PATHS = [
   '/mapa-do-site/',
   '/inscrever/',
   '/formulario-de-contato/',
+  '/culinarias/',
+  '/dietas/',
+  '/datas-comemorativas/',
 
   //these pages placed here because some recipes or tags urls could begin from 404 because id could be 404***
   '/dev-404-page/',
@@ -34,14 +37,11 @@ export const getSitemapFromPaths = (
   const pagesData: SiteMapCategoryRaw[][] = values(
     groupBy(
       pages.map(page => {
-        const {
-          path,
-          context: {
-            title,
-            page: { type },
-          },
-        } = page;
-        return { path, title, type };
+        return {
+          path: page.path,
+          title: page.context.title,
+          type: page.context.page.type,
+        };
       }),
       'type'
     )
