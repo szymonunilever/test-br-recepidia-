@@ -236,7 +236,6 @@
           }
         }
       }
-
       &.has-submenu {
         display: flex;
         align-items: center;
@@ -340,6 +339,14 @@
                 fill: $black-blue;
               }
             }
+          }
+        }
+      }
+      &:nth-child(n+10) {
+        &.has-submenu {
+          .submenu {
+            top: auto !important;
+            bottom: 0;
           }
         }
       }

@@ -109,7 +109,7 @@ const useSearchResults = (searchQuery: string) => {
     setRecipeResultsFetched(false);
     setArticleResultsFetched(false);
     Promise.all([
-      getArticleSearchData(searchQuery, params, ''),
+      // getArticleSearchData(searchQuery, params, ''), // TODO avoid request to articles EAT-1451
       getRecipeSearchData(searchQuery, params, ''),
     ]).then(() => {
       setRecipeResultsFetched(true);
@@ -123,11 +123,13 @@ const useSearchResults = (searchQuery: string) => {
     [searchQuery]
   );
 
-  const initialArticlesCount = useResponsiveScreenInitialSearch(
-    (size: number) => getSearchData(searchQuery, { size }),
-    get(articleResults, 'list.length', 0),
-    [searchQuery]
-  );
+  // const initialArticlesCount = useResponsiveScreenInitialSearch( // TODO avoid request to articles EAT-1451
+  //   (size: number) => getSearchData(searchQuery, { size }),
+  //   get(articleResults, 'list.length', 0),
+  //   [searchQuery]
+  // );
+
+  const initialArticlesCount = 8;
 
   return {
     getSearchData,

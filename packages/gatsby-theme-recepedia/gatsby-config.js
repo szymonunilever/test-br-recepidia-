@@ -89,25 +89,29 @@ const plugins = [
   `gatsby-plugin-sitemap`,
 ];
 
-process.env.CONTEXT !== 'production' &&
-  plugins.push({
-    resolve: `gatsby-plugin-robots-txt`,
-    options: {
-      policy: [
-        {
-          userAgent: `*`,
-          disallow: `/`,
-        },
-      ],
+plugins.push({
+  resolve: `gatsby-plugin-robots-txt`,
+  options: {
+    host: 'https://br.recepedia.com/',
+    sitemap: 'https://br.recepedia.com/sitemap.xml',
+    resolveEnv: () => process.env.CONTEXT,
+    env: {
+      development: {
+        policy: [{ userAgent: '*', disallow: ['/'] }],
+      },
+      production: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
-  });
+  },
+});
 module.exports = {
   siteMetadata: {
     title: 'Recepedia',
     author: 'Unilever',
     description: 'Recipedia application',
     siteUrl: 'https://br.recepedia.com/',
-    lang: 'pt-br',
+    lang: 'pt-BR',
   },
   plugins,
 };

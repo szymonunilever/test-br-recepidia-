@@ -18,8 +18,9 @@ const Modal: FunctionComponent<ModalProps> = ({
 }) => {
   const wrapClasses = cx(className, 'modal');
   useEffect(() => {
-    ReactModal.setAppElement('body');
-  }, []);
+    document.getElementById('___gatsby') &&
+      ReactModal.setAppElement('#___gatsby'); // for adding to app wrapper aria-hidden=true when modal is open
+  });
 
   return (
     <ReactModal
@@ -50,12 +51,13 @@ const Modal: FunctionComponent<ModalProps> = ({
       <div id="modal__description">{props.children}</div>
       {closeBtn && (
         <Button
-        onClick={close}
-        aria-label="Close"
-        className={cx(theme.modal__btnClose, 'modal__btn-close')}
-        viewType={ButtonViewType.icon}>
-        {closeBtn}
-      </Button>
+          onClick={close}
+          aria-label="Close"
+          className={cx(theme.modal__btnClose, 'modal__btn-close')}
+          viewType={ButtonViewType.icon}
+        >
+          {closeBtn}
+        </Button>
       )}
     </ReactModal>
   );

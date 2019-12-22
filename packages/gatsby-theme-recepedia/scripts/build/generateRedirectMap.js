@@ -9,10 +9,7 @@ const customRedirects = {
   '/search/estrogonofe': '/procurar?searchQuery=estrogonofe',
   '/tipos-de-receita/massas': '/categoria/massas/',
   '/search/pudim': '/procurar?searchQuery=pudim',
-  '/search/bolinho de chuva': '/procurar/?searchQuery=bolinho%20de%20chuva',
-  '/search/bolo de chocolate': '/procurar?searchQuery=bolo%20de%20chocolate',
   '/panqueca-de-carne/receitas/187204': '/receita/',
-  '/search/lasanha': '/procurar?searchQuery=lasanha',
   '/receita/197611-tapioca-de-peito-de-peru-e-ricota-com-becel': '/receita/',
   '/search/panqueca': '/procurar?searchQuery=panqueca',
   '/receita/187204-panqueca-de-carne':
@@ -33,7 +30,8 @@ const customRedirects = {
   '/search/bolo': '/procurar?searchQuery=bolo',
   '/search/pizzaEncontre no Site de Recepedia Deliciosas Receitas de Pizzas.':
     '/procurar?searchQuery=pizzaEncontre%20no%20Site%20de%20Recepedia%20Deliciosas%20Receitas%20de',
-  '/search/mousse de maracuja': '/procurar/?searchQuery=mousse%20de%20maracuja',
+  '/search/mousse%20de%20maracuja':
+    '/procurar/?searchQuery=mousse%20de%20maracuja',
   '/search/churrasco': '/procurar?searchQuery=churrasco',
   '/search/torta': '/procurar?searchQuery=torta',
   '/search/pizza': '/procurar?searchQuery=pizza',
@@ -62,7 +60,6 @@ const customRedirects = {
   '/receita/185104-arroz-cremoso-e-rapido-com-atum-e-maionese-hellmanns':
     '/receita/',
   '/receita/197653-hamburguer-caseiro-com-molho-especial-de-alho': '/receita/',
-  '/bolo-de-cenoura-com-laranja/receitas/185090': '/receita/',
   '/arroz-cremoso-com-vegetais/receitas/185204': '/receita/',
   '/receita/197667-bolo-de-fuba-com-maizena': '/receita/',
   '/receita/197804-bolo-de-fuba-fofinho-e-facil': '/receita/',
@@ -217,8 +214,86 @@ const customRedirects = {
     '/receita/dish/175434-torta-cremosa-de-maracuja-com-chocolate/',
   '/receita/190274-carne-de-sol-na-nata':
     '/receita/carne/173870-carne-de-sol-com-macaxeira/',
+  '/receita/balas-e-doces/177605-brownie-de-chocolate/':
+    '/receita/bolo/177605-brownie-de-chocolate/',
+  '/receita/sobremesa-gelada/36433-bolo-de-caneca-com-sorvete-e-calda-de-chocolate/':
+    '/receita/sorvete/36433-bolo-de-caneca-com-sorvete-e-calda-de-chocolate/',
+  '/receita/salgados/36151-kibe-assado-no-micro-ondas/':
+    '/receita/carne/36151-kibe-assado-no-micro-ondas/',
+  '/receita/antepasto/173760-bruschettas-de-tomates-cremosas/':
+    '/receita/pao/173760-bruschettas-de-tomates-cremosas/',
+  '/search/bolinho%20de%20chuva': '/receita/sobremesa/181045-bolinho-de-chuva/',
+  '/faq': '/sobre-recepedia/',
+  '/receita/bife/36155-file-mignon-com-molho-agridoce-cremoso/':
+    '/receita/carne/36155-file-mignon-com-molho-agridoce-cremoso/',
+  '/receita/massa/35978-espaguete-com-camarao-acafrao-e-cebolinha/':
+    '/receita/molho/35978-espaguete-com-camarao-acafrao-e-cebolinha/',
+  '/pais/receita/biscoitinhos-crocantes-sem-gluten-e-sem-leite':
+    '/receita/biscoito/152630-biscoito-de-gengibre-e-canela/',
+  '/pais/receita/macarrao-com-molho-hellmanns':
+    '/receita/macarrao/157113-macarrao-cremoso/',
+  '/receita/massa/173758-penne-ao-molho-parisiense/':
+    '/receita/macarrao/173758-penne-ao-molho-parisiense/',
+  '/receita/calda/36745-manjar-de-coco-com-calda-de-ameixa/':
+    '/receita/sobremesa/36745-manjar-de-coco-com-calda-de-ameixa/',
+  '/receita/massa/36794-panqueca-de-carne-moida-com-creme-de-cebola/':
+    '/receita/panquecas-e-waffles/36794-panqueca-de-carne-moida-com-creme-de-cebola/',
+  '/receita/salada/177590-panqueca-de-carne/':
+    '/receita/panquecas-e-waffles/177590-panqueca-de-carne/',
+  '/receita/salada/36467-salada-de-macarrao-com-molho-de-ricota/':
+    '/receita/macarrao/36467-salada-de-macarrao-com-molho-de-ricota/',
+  '/receita/sanduiche/36385-salpicao-de-lombo/':
+    '/receita/carne/36385-salpicao-de-lombo/',
+  '/pais/clubes/arisco': '/procurar/?searchQuery=arisco',
+  '/print/receita/188395-bolo-de-maca-especial':
+    '/receita/bolo/36081-bolo-integral-de-maca/',
   '/receita/186634-feijoada-completa':
-    '/receita/carne/54349-feijoada-completa-tradicional-deliciosa/',
+    '/receita/graos/54649-receita-de-feijoada/',
+  '/search/lasanha': '/procurar/?searchQuery=lasanha',
+  '/search/Porco%20recheado':
+    '/receita/carne/35837-lombo-com-gorgonzola-e-pera/',
+  '/pizza-de-sardinha/receitas/187644': '/procurar/?searchQuery=pizza',
+  '/rosca-de-leite-condensado/receitas/196571':
+    '/receita/sobremesa/152666-rosca-natalina/',
+  '/pais/receita/arroz-cremoso2': '/procurar/?searchQuery=arroz%20cremoso',
+  '/print/receita/188156-torta-de-morango-com-creme-de-chocolate-branco':
+    '/receita/torta/36136-torta-de-chocolate-branco-com-morango/',
+  '/receita/frutas/36778-lombo-recheado-com-farofa-doce/':
+    '/receita/molho/36778-lombo-recheado-com-farofa-doce/',
+  '/bolo-de-cenoura-com-laranja/receitas/185090':
+    '/receita/sobremesa/35824-bolo-de-cenoura-com-laranja/',
+  '/bolo-de-chocolate-recheado-com-damascos-e-nozes/receitas/197600':
+    '/receita/sobremesa/36618-bolo-de-chocolate-recheado-com-damascos-e-nozes/',
+  '/camarao-abafado/receitas/194618': '/procurar/?searchQuery=camar%C3%A3o',
+  '/pais/receita/feijoada-completa2':
+    '/receita/graos/54649-receita-de-feijoada/',
+  '/pais/receita/lasanha-de-camarao1':
+    '/receita/massa/54395-lasanha-de-camarao/',
+  '/pais/receita/lombo-assado-com-batatas-e-alecrim':
+    '/receita/carne/149044-lombo-assado-com-batatas-e-alecrim/',
+  '/receita/186912-cuscuz-de-sardinha':
+    '/receita/peixe/54382-cuscuz-de-sardinha-simples-e-versatil/',
+  '/receita/197472-bolo-de-chocolate':
+    '/receita/bolo/178649-bolo-de-chocolate/',
+  '/receita/bebidas/125192-mousse-de-chocolate-70-harmonizado-com-cha-verde-com-frutas-vermelhas/':
+    '/receita/sobremesa-gelada/125192-mousse-de-chocolate-70-harmonizado-com-cha-verde-com-frutas-vermelhas/',
+  '/receita/massa/35932-fettuccine-verde-ao-molho-de-shitake/':
+    '/receita/molho/35932-fettuccine-verde-ao-molho-de-shitake/',
+  '/receita/massa/36739-legumes-assados-e-penne-ao-molho-pesto/':
+    '/receita/molho/36739-legumes-assados-e-penne-ao-molho-pesto/',
+  '/receita/salada/36791-salada-de-quinoa-com-brocolis/':
+    '/receita/verduras-e-legumes/36791-salada-de-quinoa-com-brocolis/',
+  '/search/bolo%20de%20chocolate': '/receita/bolo/178649-bolo-de-chocolate/',
+  '/biscoitinhos-crocantes-sem-gluten-e-sem-leite/receitas/191335':
+    '/receita/biscoito/152630-biscoito-de-gengibre-e-canela/',
+  '/hamburguer-de-picanha-e-bacon-com-cebolas-caramelizadas/receitas/197446':
+    '/receita/hamburguer/99444-hamburguer-caseiro-de-picanha-e-bacon-com-cebolas-caramelizadas/',
+  '/mousse-de-chocolate/receitas/195413':
+    '/receita/dish/175453-tortinha-mousse-de-cacau-e-baunilha/',
+  '/pais/home': '/',
+  '/pais/mapa-receitas': '/receita',
+  '/pais/receita/batata-gratinada4':
+    '/receita/verduras-e-legumes/35868-batata-gratinada-com-alecrim-e-alho/',
 };
 
 module.exports = async ({
