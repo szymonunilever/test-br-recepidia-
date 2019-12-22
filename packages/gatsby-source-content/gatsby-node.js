@@ -13,6 +13,7 @@ const componentsMockBr = require('./data/components.json');
 const pagesMockMx = require('./data/pages-mx.json');
 const componentsMockMx = require('./data/components-mx.json');
 const categoriesMockMx = require('./data/categories-mx.json');
+const categoriesMockBr = require('./data/categories.json');
 
 const fetchContent = (configOptions, contentType) => {
   return axios.get(
@@ -42,7 +43,8 @@ exports.sourceNodes = async (
     //fetchContent(configOptions, 'pages'),
     //fetchContent(configOptions, 'components'),
     fetchContent(configOptions, 'articles'),
-    configOptions.locale === 'es-mx'? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
+    //configOptions.locale === 'es-mx'? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
+    new Promise(resolve => resolve({data: configOptions.locale === 'es-mx' ? categoriesMockMx : categoriesMockBr})),
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
