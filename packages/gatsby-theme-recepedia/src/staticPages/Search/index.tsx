@@ -98,8 +98,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       return getRecipeSearchData(
         searchQuery,
         {
-          size: size - size % 4,
-          from: params ? params.from : 0
+          size: size - (size % 4),
+          from: params ? params.from : 0,
         },
         getFilterQuery(tags)
       );
@@ -109,13 +109,17 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const onArticleViewChange = useCallback(
     (tags: Internal.Tag[], params) => {
-      const maxSize = Math.max(initialArticlesCount, articleResults.list.length);
+      const maxSize = Math.max(
+        initialArticlesCount,
+        articleResults.list.length
+      );
       const size = params ? params.size : maxSize;
       return getArticleSearchData(
         searchQuery,
         {
-          size: size - size % 4,
-          from: params ? params.from : 0        },
+          size: size - (size % 4),
+          from: params ? params.from : 0,
+        },
         getFilterQuery(tags)
       );
     },
