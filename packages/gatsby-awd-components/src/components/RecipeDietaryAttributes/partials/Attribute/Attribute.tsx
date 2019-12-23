@@ -9,6 +9,10 @@ const Attribute = ({
   icon,
   infoIcon,
 }: AttributeProps) => {
+  const handleIClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
   const infoTooltip = disclaimer ? (
     <Tooltip
       id={`${tagId}`}
@@ -29,7 +33,7 @@ const Attribute = ({
     </Tooltip>
   ) : null;
   return (
-   <>
+    <>
       <div
         className={cx(
           theme.recipeDietaryAttributes__icon,
@@ -44,10 +48,10 @@ const Attribute = ({
           'recipe-dietary-attributes__text'
         )}
       >
-        {infoTooltip && infoTooltip}
+        <div onClick={handleIClick}>{infoTooltip && infoTooltip}</div>
         {title}
       </div>
-   </>
+    </>
   );
 };
 
