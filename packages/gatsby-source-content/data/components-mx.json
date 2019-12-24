@@ -12,14 +12,32 @@
                 "navId": "categories",
                 "children": [
                   {
-                    "name": "Todas as receitas",
+                    "name": "Ver todas las recetas",
                     "path": "/receita"
                   }
                 ]
               },
               {
-                "name": "Planeje sua semana",
+                "name": "Planificar de Menús",
                 "path": "/planejamento-da-semana"
+              },
+              {
+                "name": "Nuestras Marcas",
+                "navId": "brands",
+                "children": [
+                  {
+                    "name": "Hellmann's",
+                    "path": "/hellmanns/promise"
+                  },
+                  {
+                    "name": "Knorr",
+                    "path": "/knorr/promise"
+                  },
+                  {
+                    "name": "Maizena",
+                    "path": "/maizena/promise"
+                  }
+                ]
               }
             ]
           }
@@ -27,14 +45,14 @@
         {
           "name": "Profile",
           "content": {
-            "title": "Seu perfil"
+            "title": "Mi Perfil"
           }
         },
         {
           "name": "SearchInput",
           "content": {
-            "title": "O que você esta buscando?",
-            "placeholderText": "O que você está buscando?"
+            "title": "¿Buscando algo?",
+            "placeholderText": "¿Buscando algo?"
           }
         },
         {
@@ -45,19 +63,19 @@
               {
                 "items": [
                   {
-                    "name": "Planeje sua semana",
+                    "name": "Planificar de Menús",
                     "path": "/planejamento-da-semana"
                   },
                   {
-                    "name": "Sobre Recepedia",
+                    "name": "Acerca de nosotros",
                     "path": "/sobre-recepedia"
                   },
                   {
-                    "name": "Fale comigo",
+                    "name": "Contáctanos",
                     "path": "/fale-comigo"
                   },
                   {
-                    "name": "FAQ",
+                    "name": "Preguntas Frecuentes",
                     "path": "/faq"
                   }
                 ]
@@ -65,27 +83,27 @@
               {
                 "items": [
                   {
-                    "name": "Acessibilidade",
-                    "path": "https://www.unilever.com.br/accessibility.html"
+                    "name": "Accesibilidad",
+                    "path": "https://www.unilever.com.mx/accessibility.html"
                   },
                   {
                     "name": "Aviso de Cookies",
-                    "path": "https://www.unilevernotices.com/brazil/portuguese/cookie-notice/notice.html"
+                    "path": "https://www.unilevernotices.com/mexico/spanish/cookie-notice/notice.html"
                   },
                   {
-                    "name": "Aviso de Privacidade",
-                    "path": "https://www.unilevernotices.com/brazil/portuguese/privacy-notice/notice.html"
+                    "name": "Aviso de Privacidad",
+                    "path": "https://www.unilevernotices.com/mexico/spanish/privacy-notice/notice.html"
                   },
                   {
-                    "name": "Termos",
-                    "path": "https://www.unilever.com.br/legal.html"
+                    "name": "Aviso Legal",
+                    "path": "https://www.unilever.com.mx/legal.html"
                   },
                   {
-                    "name": "Termos de Uso",
+                    "name": "Condiciones de uso",
                     "path": "/termos-e-condicoes"
                   },
                   {
-                    "name": "Mapa do site",
+                    "name": "Mapa del sitio",
                     "path": "/mapa-do-site"
                   }
                 ]
@@ -99,11 +117,11 @@
             "socialItems": {
               "facebook": {
                 "label": "Facebook",
-                "url": "https://www.facebook.com/recepediabrasil/Recepedia"
+                "url": "https://www.facebook.com/RecepediaMexico-592647864277781/"
               },
               "instagram": {
                 "label": "Instagram",
-                "url": "https://www.instagram.com/recepedia_br"
+                "url": "https://www.instagram.com/recepediamx/?hl=es"
               }
             }
           }
@@ -112,10 +130,10 @@
           "name": "Form",
           "content": {
             "view": "SignUpForm",
-            "title": "Precisa de inspiração na cozinha?",
+            "title": "Prácticas y saludables recetas toda la semana.",
             "fields": [],
             "submitButton": {
-              "label": "Inscreva-se!"
+              "label": "¡Quiero empezar! "
             }
           }
         }
