@@ -30,6 +30,20 @@
   position: relative;
   background: $white-gray;
 }
+.page-title__wrap {
+  display: flex;
+  padding: 20px 25px 25px;
+  align-items: center;
+  @include respondTo(desktop) {
+    padding: 40px $layout-indent;
+  }
+}
+.nutrition-icon {
+  flex-shrink: 0;
+}
+.page-title {
+  margin: 0 0 0 10px;
+}
 .heroTitle {
   margin-bottom: 0;
   line-height: 0.8;
@@ -39,16 +53,12 @@
   }
 }
 .heroDescription {
-  display: none;
   @include respondTo(medium) {
-    display: block;
     margin-bottom: 20px;
   }
 }
 .heroDescriptionBold {
-  display: none;
   @include respondTo(medium) {
-    display: block;
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 1.6rem;
@@ -91,6 +101,5 @@
     padding: 30px $layout-indent;
   }
 }
-.nutritionIcon{
-
+.nutritionIcon {
 }

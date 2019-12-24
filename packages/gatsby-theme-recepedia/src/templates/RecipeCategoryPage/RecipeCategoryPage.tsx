@@ -94,15 +94,11 @@ const RecipeCategoryPage = ({
         canonical={location.href}
       />
       <DigitalData title={title} type={type} />
-      <section className="_pt--40">
+      <section className={cx(theme.pageTitle__wrap, '_pt--40')}>
         {category.primaryTag && attributeIcon && (
           <span className={theme.nutritionIcon}>{attributeIcon}</span>
         )}
-        <Text
-          className={cx(theme.heroTitle, 'wrapper')}
-          tag={TagName['h1']}
-          text={title}
-        />
+        <Text className={theme.pageTitle} tag={TagName['h1']} text={title} />
       </section>
       <section>
         <div className="container">

@@ -150,3 +150,11 @@
     padding: 30px $layout-indent;
   }
 }
+
+:global {
+  .recipe-dietary-attributes__item {
+    a {
+      text-decoration: none;
+    }
+  }
+}
