@@ -261,9 +261,8 @@ exports.createPages = async ({ graphql, actions }) => {
     pages,
     constants.TEMPLATE_PAGE_TYPES.RECIPE
   );
-  const productDetailsData = findPageFromNodes(
-    pages,
-    constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS
+  const productDetailsTemplates = pages.filter(
+    pageNode => pageNode.type === constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS
   );
   const articleDetailsData = findPageFromNodes(
     pages,
@@ -291,7 +290,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createProductPages({
       graphql,
       createPage,
-      page: productDetailsData,
+      pageTemplates: productDetailsTemplates,
     }),
     createCategoryPages({
       graphql,
