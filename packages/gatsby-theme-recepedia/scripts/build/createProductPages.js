@@ -18,7 +18,7 @@ const component = path.resolve(
   `./src/templates/BrandProductDetailsPage/BrandProductDetailsPage.tsx`
 );
 
-module.exports = async ({ graphql, createPage, page }) => {
+module.exports = async ({ graphql, createPage, pageTemplates }) => {
   const result = await graphql(`
     {
       allProduct {
@@ -36,7 +36,9 @@ module.exports = async ({ graphql, createPage, page }) => {
       component,
       context: {
         title: node.productName,
-        page,
+        page: pageTemplates.find(
+          t => t.brand.toLowerCase() === node.brand.toLowerCase()
+        ),
         product: node,
       },
     });
