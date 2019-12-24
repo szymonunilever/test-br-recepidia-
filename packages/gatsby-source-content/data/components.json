@@ -9,6 +9,7 @@
             "list": [
               {
                 "name": "Receitas",
+                "navId": "categories",
                 "children": [
                   {
                     "name": "Todas as receitas",
