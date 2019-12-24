@@ -5,7 +5,7 @@ export const constructMenu = (
   navigationContent: AppContent.GlobalNavigation.Content
 ): AppContent.GlobalNavigation.MenuItem[] => {
   const menuItems = cloneDeep(navigationContent);
-  const recipeNav = menuItems.list.find(({ name }) => name === 'Receitas'); //TODO: It strange that we use localized name as Navigation item ID
+  const recipeNav = menuItems.list.find(({ navId }) => navId === 'categories');
   if (recipeNav) {
     const prevRecipeNavChildren = recipeNav.children;
     recipeNav.children = categories.map((category: Internal.Category) => {

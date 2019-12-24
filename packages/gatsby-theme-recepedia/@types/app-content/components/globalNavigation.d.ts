@@ -6,5 +6,6 @@ declare namespace AppContent.GlobalNavigation {
     name: string;
     path?: string;
     children?: MenuItem[];
+    navId?: string;
   }
 }
