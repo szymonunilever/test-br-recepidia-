@@ -24,7 +24,7 @@ const urlPartialsByTypeMap = {
   Recipe: 'title',
   Tag: 'title',
   Category: 'title',
-  ProductDetails: 'title',
+  Product: 'productName',
 };
 
 const addTrailingSlash = path => {
@@ -40,7 +40,25 @@ const findPageFromNodes = (pagesNodes, pageType) =>
 
 const formatUrlPartial = (partial = '') =>
   partial
-    .replace(/[&,+()$~%.'":*?<>{}]/g, '')
+    .replace(/[^a-zA-Z0-9\s]+/g, char => {
+      const spanishMap = {
+        á: 'a',
+        í: 'i',
+        é: 'e',
+        ó: 'o',
+        ú: 'u',
+        ñ: 'n',
+        Á: 'A',
+        É: 'E',
+        Ó: 'O',
+        Ú: 'U',
+        Ñ: 'N',
+        Í: 'I',
+        ü: 'u',
+      };
+
+      return spanishMap[char] || '';
+    })
     .replace(/[_-]/, ' ')
     .toLowerCase()
     .split(' ')
@@ -116,10 +134,16 @@ exports.onCreateNode = async ({
     case constants.NODE_TYPES.PRODUCT:
       {
         const brand = node.brand.toLowerCase();
+        const productPageTemplate = getNodesByType(
+          constants.NODE_TYPES.PAGE
+        ).find(
+          item =>
+            item.type === constants.TEMPLATE_PAGE_TYPES.PRODUCT_DETAILS &&
+            item.brand === brand
+        );
+
         createSlugFor({
-          path: `${addTrailingSlash(formatUrlPartial(brand))}${addTrailingSlash(
-            formatUrlPartial('product')
-          )}`,
+          path: addTrailingSlash(productPageTemplate.relativePath),
           node,
           createNodeField,
         });

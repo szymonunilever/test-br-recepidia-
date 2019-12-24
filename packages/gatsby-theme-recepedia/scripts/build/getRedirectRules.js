@@ -1,5 +1,5 @@
 const directUrlsMap = {
-  '/momentos/dia-dia': '/dia-a-dia/',
+  // '/momentos/dia-dia': '/dia-a-dia/',
   //'/cozinha/espanhola': '/espanhola/',
   '/tipos-de-receita/bolo': '/categoria/bolos/',
   '/tipos-de-receita/peixe': '/categoria/peixes/',
@@ -7,7 +7,7 @@ const directUrlsMap = {
   '/tipos-de-receita/massa': '/categoria/massas/',
   '/tipos-de-receita/salada': '/categoria/saladas/',
   '/tipos-de-receita/sopa': '/categoria/sopas/',
-  '/cozinha/portuguesa': '/categoria/portugues/',
+  // '/cozinha/portuguesa': '/categoria/portugues/',
   '/cozinha/taiwanesa': '/categoria/asiatica/',
   '/cozinha/norte-americana': '/categoria/americana/',
   '/tipos-de-prato/lanche': '/categoria/lanches/',
