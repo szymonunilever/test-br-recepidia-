@@ -8,6 +8,7 @@ export const query = graphql`
     }
     id
     averageRating
+    brand
     ingredients {
       title
       list {

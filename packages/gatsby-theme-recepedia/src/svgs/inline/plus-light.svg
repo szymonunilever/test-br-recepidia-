@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="29.594" height="29.594" viewBox="0 0 29.594 29.594" aria-hidden = "true"><g transform="translate(-814.75 -365.25)"><path d="M-1504,2967.478v27.094" transform="translate(2333.547 -2600.978)" fill="none" stroke="#363840" stroke-linecap="round" stroke-width="2.5"/><g transform="translate(816 380.047)"><g transform="translate(0)"><path d="M-1748,2753.465h27.094" transform="translate(1748 -2753.465)" fill="none" stroke="#363840" stroke-linecap="round" stroke-width="2.5"/></g></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="29.594" height="29.594" viewBox="0 0 29.594 29.594" aria-hidden="true">
+    <g transform="translate(-814.75 -365.25)">
+        <path d="M-1504,2967.478v27.094" transform="translate(2333.547 -2600.978)" fill="none" stroke="#363840"
+              stroke-linecap="round" stroke-width="2.5"/>
+        <g transform="translate(816 380.047)">
+            <g transform="translate(0)">
+                <path d="M-1748,2753.465h27.094" transform="translate(1748 -2753.465)" fill="none" stroke="#363840"
+                      stroke-linecap="round" stroke-width="2.5"/>
+            </g>
+        </g>
+    </g>
+</svg>
