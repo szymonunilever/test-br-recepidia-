@@ -1,3 +1,0 @@
-[build]
-  command = "yarn workspace gatsby-theme-recepedia build updateES=true redirects-map=true"
-  publish = "packages/gatsby-theme-recepedia/public/"
