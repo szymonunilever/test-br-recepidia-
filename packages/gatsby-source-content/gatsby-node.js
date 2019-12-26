@@ -8,6 +8,7 @@ const {
   createDictionaryNodes,
   createDisclaimerNodes,
 } = createNodes;
+const articlesMockMx = require('./data/articles-mx.json');
 const pagesMockBr = require('./data/pages.json');
 const componentsMockBr = require('./data/components.json');
 const pagesMockMx = require('./data/pages-mx.json');
@@ -31,7 +32,7 @@ exports.sourceNodes = async (
   configOptions
 ) => {
   const { createNode } = actions;
-
+  const isMx = () => configOptions.locale === 'es-mx';
   delete configOptions.plugins;
 
   const [
@@ -42,14 +43,14 @@ exports.sourceNodes = async (
   ] = await Promise.all([
     //fetchContent(configOptions, 'pages'),
     //fetchContent(configOptions, 'components'),
-    fetchContent(configOptions, 'articles'),
-    //configOptions.locale === 'es-mx'? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
-    new Promise(resolve => resolve({data: configOptions.locale === 'es-mx' ? categoriesMockMx : categoriesMockBr})),
+    isMx()? new Promise(resolve => resolve(articlesMockMx)) : fetchContent(configOptions, 'articles'),
+    //isMx()? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
+    new Promise(resolve => resolve({data: isMx() ? categoriesMockMx : categoriesMockBr})),
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
-  const pagesMock = configOptions.locale === 'es-mx' ? pagesMockMx : pagesMockBr;
-  const componentsMock = configOptions.locale === 'es-mx' ? componentsMockMx : componentsMockBr;
+  const pagesMock = isMx() ? pagesMockMx : pagesMockBr;
+  const componentsMock = isMx() ? componentsMockMx : componentsMockBr;
   const pagesData = [...pagesMock.pages];
   //TODO: remove next string when data for components will fixed on middleware
   const componentsData = componentsMock;
@@ -87,12 +88,28 @@ exports.sourceNodes = async (
   //   });
   // });
 
-  articlesResponse.data.articles.forEach(article => {
-    createArticleNodes(article, {
-      createNodeId,
-      createContentDigest,
-      createNode,
-    });
+  const articlesList = isMx() ?
+    articlesResponse.data.articleEntries.results :
+    articlesResponse.data.articles;
+
+  articlesList.forEach(article => {
+    const { id, path, brand, section, articleName, articleContent, tags } = article;
+    const articleNode = {
+      id, path, brand, section,
+      name: articleName,
+      title: articleName,
+      content: JSON.stringify(articleContent),
+      assets: []
+    };
+    createArticleNodes(
+      articleNode,
+      isMx() ? articlesResponse.data.assets.results : [],
+      {
+        createNodeId,
+        createContentDigest,
+        createNode,
+      }
+    );
   });
 
   categoriesResponse.data.forEach(
@@ -145,7 +162,25 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     type CategoryRecipeDetails {
       serves: String
       cookTime: String
-    }    
+    }
+    
+    type Article implements Node {
+      id: String!
+      title: String
+      name: String!
+      shortDescription: String
+      content: String
+      assets: [ArticleAsset]
+      fields: ArticleSlugField
+    }
+    type ArticleAsset {
+      filename: String!
+      id: String!
+      path: String!
+    }
+    type ArticleSlugField {
+      slug: String!
+    }
   `;
   createTypes(typeDefs);
 };

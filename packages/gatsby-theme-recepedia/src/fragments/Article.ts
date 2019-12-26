@@ -5,24 +5,7 @@ export const query = graphql`
     id
     title
     shortDescription
-    articleText {
-      text
-    }
-    assets {
-      ...GetArticleAssets
-    }
-    fields {
-      slug
-    }
-  }
-
-  fragment NextArticleFields on Article {
-    id
-    title
-    shortDescription
-    assets {
-      ...GetArticleAssets
-    }
+    content
     fields {
       slug
     }

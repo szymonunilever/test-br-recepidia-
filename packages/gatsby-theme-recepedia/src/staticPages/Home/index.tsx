@@ -181,6 +181,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             latestAndGratestResult.map(recipe => (
               <CardLinkWrapper
                 key={recipe.id}
+                cardKey={recipe.id}
                 slug={recipe.fields.slug}
                 title={recipe.title}
               >
@@ -235,6 +236,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
               <CardLinkWrapper
                 title={recipe.title}
                 key={recipe.id}
+                cardKey={recipe.id}
                 slug={recipe.fields.slug}
               >
                 <RecipeCard
