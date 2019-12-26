@@ -167,6 +167,8 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     type Article implements Node {
       id: String!
       title: String
+      brand: String
+      section: String
       name: String!
       shortDescription: String
       content: String

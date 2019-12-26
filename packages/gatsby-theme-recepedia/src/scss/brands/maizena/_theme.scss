@@ -1,4 +1,4 @@
-@import "mixins";
+@import 'mixins';
 
 .maizena {
   .bg-primary {
@@ -64,26 +64,42 @@
         &__header h2 {
           @include title-transformer;
           text-transform: uppercase;
+          font-size: 3rem;
+          line-height: 1.33;
 
           @include respondTo(desktop) {
             padding-top: 100px;
+            font-size: 4.5rem;
+            line-height: 1.11;
           }
         }
 
         &__long-subheader p {
           @include text-transformer;
-          font-size: 20px;
+          font-size: 1.6rem;
+          line-height: 1.25;
+          @include respondTo(desktop) {
+            font-size: 2rem;
+            line-height: 1.2;
+          }
         }
 
-        &__cta {
-          &-link {
+        &__cta-primary {
+          .hero__cta-link {
             background: $maizena-color-secondary;
             color: $white;
-            font-size: 22px;
             font-family: $proximaNovaNormal;
             font-weight: normal;
             white-space: nowrap;
-            width: 260px;
+            @media (hover: hover),
+              (-ms-high-contrast: none),
+              (-ms-high-contrast: active) {
+              &:hover {
+                color: $maizena-color-secondary;
+                background-color: $maizena-color-primary;
+                border: 1px solid $maizena-color-secondary;
+              }
+            }
           }
         }
       }
@@ -95,9 +111,12 @@
       &-social {
         &__title {
           text-align: center;
-          font-size: 45px;
+          font-size: 3rem;
           @include title-transformer;
           text-transform: uppercase;
+          @include respondTo(desktop) {
+            font-size: 4.5rem;
+          }
         }
 
         &__list {
@@ -116,6 +135,11 @@
         &__icon {
           svg {
             fill: $maizena-color-secondary;
+          }
+        }
+        &__link[aria-label='youtube'] {
+          .youtube_svg__youtube-triangle {
+            fill: $maizena-color-primary;
           }
         }
       }

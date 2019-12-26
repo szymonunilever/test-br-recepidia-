@@ -9,8 +9,8 @@
         <path d="M0,0H46.522V32.485H0Z" transform="translate(0 0)" fill="none"/>
         <g transform="translate(0 0)" clip-path="url(#a)">
             <path d="M45.55,5.073A5.819,5.819,0,0,0,41.437.97C37.809,0,23.261,0,23.261,0S8.713,0,5.085.97a5.819,5.819,0,0,0-4.113,4.1C0,8.692,0,16.243,0,16.243s0,7.551.972,11.17a5.82,5.82,0,0,0,4.113,4.1c3.628.97,18.176.97,18.176.97s14.548,0,18.176-.97a5.82,5.82,0,0,0,4.113-4.1c.972-3.619.972-11.17.972-11.17s0-7.551-.972-11.17"
-                  transform="translate(0 0)" fill="#ffffff"/>
+                  transform="translate(0 0)" fill="inherit"/>
         </g>
     </g>
-    <path d="M0,13.688V0L11.909,6.844Z" transform="translate(18.321 8.759)" fill="#004072"/>
+    <path class="youtube-triangle" d="M0,13.688V0L11.909,6.844Z" transform="translate(18.321 8.759)" fill="#004072"/>
 </svg>

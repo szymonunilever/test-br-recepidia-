@@ -5,6 +5,7 @@ declare namespace Internal {
     fields: {
       slug: string;
     };
+    section?: string;
   }
 
   interface Asset<T>
