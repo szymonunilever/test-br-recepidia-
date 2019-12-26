@@ -32,6 +32,7 @@ import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import { ReactComponent as YoutubeIcon } from 'src/svgs/inline/youtube.svg';
 import { IMAGE_SIZES } from 'src/constants';
+import { localImage } from 'gatsby-awd-components/src/mocks/global';
 
 const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   data: {
@@ -50,7 +51,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
       fields: {
         slug: article.fields.slug,
       },
-      localImage: article.assets[0].content.localImage,
+      localImage,
     };
     return newArticle;
   });
@@ -148,11 +149,13 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             <CardLinkWrapper
               title={article.title}
               key={article.fields.slug}
+              cardKey={article.fields.slug}
               slug={article.fields.slug}
             >
               <Card
                 content={article}
                 key={article.fields.slug}
+                cardKey={article.fields.slug}
                 imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                 idPropertyName="recipeId"
               />
@@ -209,6 +212,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
             <CardLinkWrapper
               title={article.title}
               key={article.fields.slug}
+              cardKey={article.fields.slug}
               slug={article.fields.slug}
             >
               <Card
@@ -216,6 +220,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
                 imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                 idPropertyName="recipeId"
                 key={article.fields.slug}
+                cardKey={article.fields.slug}
               />
             </CardLinkWrapper>
           ))}

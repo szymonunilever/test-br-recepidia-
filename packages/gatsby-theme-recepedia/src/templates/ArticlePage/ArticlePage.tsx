@@ -23,6 +23,7 @@ import {
 import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
+import BlockContent from '@sanity/block-content-to-react';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
 import { ReactComponent as OpenModelButtonIconBold } from '../../svgs/inline/share-bold.svg';
@@ -32,13 +33,18 @@ const socialIcons: SocialIcons = {
   twitter: TwitterIcon,
 };
 const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
-  data: { article, next },
+  data: { article },
   pageContext,
   location,
 }) => {
   const {
     page: { seo, components, type },
   } = pageContext;
+  const mainImageHero = false;
+  const next = false;
+  const video = false;
+  const nextMainImageHero = false;
+  /*
   const mainImage = article.assets.find(
     item => get(item, 'content.role') === 'main'
   );
@@ -59,13 +65,13 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
     nextMainImage,
     'content'
   ) as AppContent.ImageContent;
-
   if (mainImageHero) {
     const seoImage = seo.meta.find(item => {
       return item.name == 'og:image';
     });
     seoImage && (seoImage.content = mainImageHero.image.url);
   }
+  */
   const socialSharingContent = findPageComponentContent(
     components,
     'SocialSharing'
@@ -108,7 +114,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       )}
 
       <section className={cx(theme.articleText, 'wrapper')}>
-        <RichText content={article.articleText} type="md" />
+        <BlockContent blocks={JSON.parse(article.content)} />
         <SocialSharing
           content={socialSharingBottomContent}
           className={theme.articleSocial}
@@ -166,12 +172,9 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
 export default ArticlePage;
 
 export const query = graphql`
-  query($slug: String!, $nextSlug: String) {
+  query($slug: String!) {
     article(fields: { slug: { eq: $slug } }) {
       ...ArticleFields
-    }
-    next: article(fields: { slug: { eq: $nextSlug } }) {
-      ...NextArticleFields
     }
   }
 `;
@@ -179,14 +182,11 @@ export const query = graphql`
 interface ArticlePageProps {
   data: {
     article: Internal.Article;
-    next: Partial<Internal.Article>;
   };
   pageContext: {
     id: string;
     slug: string;
     page: AppContent.Page;
-    nextSlug: string | null;
-    previousSlug: string | null;
     edge: object;
   };
   location: WindowLocation;

@@ -113,9 +113,10 @@ exports.createPagesNodes = (
 
 exports.createArticleNodes = (
   article,
+  assets,
   { createNodeId, createContentDigest, createNode }
 ) => {
-  const nodeId = createNodeId(`article-${article.title}`);
+  const nodeId = createNodeId(`article-${article.id}`);
   const nodeContent = JSON.stringify(article);
   const nodeData = Object.assign({}, article, {
     id: nodeId,
