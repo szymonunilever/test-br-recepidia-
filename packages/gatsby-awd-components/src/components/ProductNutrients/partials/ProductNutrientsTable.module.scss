@@ -2,7 +2,6 @@
 
 .product-nutrients-table {
   width: 100%;
-  table-layout: fixed;
 
   thead {
     tr {
@@ -16,6 +15,7 @@
 
         &:last-child {
           text-align: right;
+          width: 20rem;
         }
       }
     }

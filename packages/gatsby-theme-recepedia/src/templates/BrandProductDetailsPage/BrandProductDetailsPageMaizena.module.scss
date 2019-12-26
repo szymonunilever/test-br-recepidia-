@@ -1,45 +1,78 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
+@import './../../scss/brands/maizena/mixins';
 
 :global {
   @import './../../scss/brands/maizena/index.scss';
 }
+
 .brand-product-page {
   .product {
-    &__heading {
-      &-button {
-        background: $maizena-color-primary;
-      }
-    }
-
     &__attributes {
+      &-wrapper {
+        h2, h3 {
+          @include title-transformer;
+        }
+      }
+
       &-related {
         &-button {
-          color: $maizena-color-primary;
+          color: $white;
+          background: $maizena-color-secondary;
+          text-transform: capitalize;
+          font-family: $proximaNovaNormal;
         }
       }
     }
   }
 
+
   :global {
     .product {
       &-copy {
         &__title {
-           font-family: $vivaStdBold;
-          color: $maizena-color-primary;
-
+          @include title-transformer;
         }
 
         &__description {
-           //font-family: $vivaStdBold;
-          color: $maizena-color-primary;
+          @include text-transformer;
+        }
+
+        &-ingredients,
+        &-allergens {
+          &__title {
+            @include title-transformer;
+          }
+
+          &__data {
+            @include text-transformer;
+          }
         }
       }
 
       &__heading {
         &-button {
+          @include text-transformer;
           background: $maizena-color-primary;
+          text-transform: capitalize;
+          font-size: 1.8rem;
         }
+      }
+
+      &-nutrients {
+        table {
+          @include text-transformer;
+        }
+      }
+    }
+
+    .card {
+      &__title, &__description {
+        @include title-transformer;
+      }
+
+      &__description {
+        @include text-transformer;
       }
     }
   }

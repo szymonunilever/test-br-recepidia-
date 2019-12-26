@@ -1,21 +1,25 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
 @import './../../scss/brands/knorr/_fonts.scss';
+@import './../../scss/brands/knorr/mixins';
 :global {
   @import './../../scss/brands/knorr/index.scss';
 }
+
 .brand-product-page {
   .product {
-    &__heading {
-      &-button {
-        background: $knorr-color-primary;
-      }
-    }
-
     &__attributes {
+      &-wrapper {
+        h2, h3 {
+          @include title-transformer;
+        }
+      }
+
       &-related {
         &-button {
-          color: $knorr-color-primary;
+          @include title-transformer;
+          background: $knorr-color-primary;
+          border: 1px solid $white;
         }
       }
     }
@@ -27,19 +31,48 @@
         &__title {
           font-family: $filsonSoftBold;
           color: $knorr-color-primary;
-
+          font-size: 3.6rem;
+          text-transform: capitalize;
         }
 
         &__description {
-          font-family: $filsonSoftBold;
-          color: $knorr-color-primary;
+          color: #777;
+        }
+
+        &-ingredients,
+        &-allergens {
+          &__title {
+            @include title-transformer;
+          }
+
+          &__data {
+            color: $white;
+          }
+        }
+      }
+      &-nutrients {
+        table {
+          color: $white;
         }
       }
 
       &__heading {
         &-button {
           background: $knorr-color-primary;
+          font-size: 1.6rem;
+          text-transform: capitalize;
         }
+      }
+    }
+
+    .card {
+      &__title, &__description {
+        @include title-transformer;
+      }
+
+      &__description {
+        color: $white;
+        font-family: $arial;
       }
     }
   }

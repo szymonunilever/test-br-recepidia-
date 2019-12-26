@@ -9,37 +9,29 @@
 
 .brand-product-page {
   .product {
-    &__heading {
-      &-button {
-        background: $hellmans-color-primary;
-      }
-    }
-
     &__attributes {
+      &-wrapper {
+        h2, h3, div {
+          color: $white;
+        }
+      }
+
       h3 {
-        font-family: "brandon-grotesque", sans-serif;
+        font-family: $brandonGrotesqueBold;
       }
       &-related {
         h3 {
-          font-family: "brandon-grotesque", sans-serif;
-        }
-
-        :global {
-          .progress-bar {
-            @include respondTo(desktop) {
-              display: none;
-            }
-          }
+          font-family: $brandonGrotesqueBold;
         }
         &-button {
           color: $hellmans-color-primary;
-          font-family: "brandon-grotesque", sans-serif;
+          font-family: $brandonGrotesqueBold;
         }
       }
     }
 
     &__nutrients {
-      font-family: 'Trebuchet W01 Regular', sans-serif;
+      font-family: $trebuchetMsNormal;
     }
   }
 
@@ -70,6 +62,23 @@
           background: $hellmans-color-primary;
         }
       }
+    }
+  }
+}
+
+:global {
+  .hellmanns .cards--light .card {
+    background: transparent;
+
+    &__title {
+      font-family: $brandonGrotesqueBold;
+      color: $white;
+      text-transform: uppercase;
+    }
+
+    &__description {
+      font-family: $arial;
+      color: $white;
     }
   }
 }

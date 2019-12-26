@@ -1,8 +1,124 @@
+@import "mixins";
+
 .maizena {
   .bg-primary {
     background-color: $maizena-color-primary;
   }
+
   .bg-secondary {
-    background-color: $maizena-color-secondary;
+    background-color: $maizena-background;
+  }
+
+  .brand-hero {
+    &__logo {
+      width: 130px;
+      height: 100px;
+      margin-bottom: 10px;
+
+      @include respondTo(medium) {
+        margin-bottom: 20px;
+      }
+      @include respondTo(desktop) {
+        width: 230px;
+        height: 162px;
+      }
+    }
+
+    &__title {
+      font: 900 5rem/1.2 $vivaStdBold;
+      max-width: 100%;
+      font-size: 30px;
+      text-transform: uppercase;
+      @include respondTo(medium) {
+        max-width: 370px;
+      }
+      @include respondTo(desktop) {
+        font-size: 6.5rem;
+        line-height: 1;
+        max-width: 765px;
+      }
+    }
+
+    &__link {
+      font-family: $proximaNovaBold;
+      font-weight: 700;
+      text-transform: capitalize;
+      font-size: 18px;
+
+      @include respondTo(desktop) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .hero--planner {
+    border-radius: 0;
+
+    :global {
+      .hero {
+        &__copy {
+          align-items: flex-start;
+          padding-top: 0;
+        }
+
+        &__header h2 {
+          @include title-transformer;
+          text-transform: uppercase;
+
+          @include respondTo(desktop) {
+            padding-top: 100px;
+          }
+        }
+
+        &__long-subheader p {
+          @include text-transformer;
+          font-size: 20px;
+        }
+
+        &__cta {
+          &-link {
+            background: $maizena-color-secondary;
+            color: $white;
+            font-size: 22px;
+            font-family: $proximaNovaNormal;
+            font-weight: normal;
+            white-space: nowrap;
+            width: 260px;
+          }
+        }
+      }
+    }
+  }
+
+  #content {
+    .brand {
+      &-social {
+        &__title {
+          text-align: center;
+          font-size: 45px;
+          @include title-transformer;
+          text-transform: uppercase;
+        }
+
+        &__list {
+          border-bottom: 1px solid $maizena-color-secondary;
+          justify-content: center;
+          padding-bottom: 20px;
+          @include respondTo(desktop) {
+            padding-bottom: 60px;
+          }
+        }
+      }
+    }
+
+    .social {
+      &-channels {
+        &__icon {
+          svg {
+            fill: $maizena-color-secondary;
+          }
+        }
+      }
+    }
   }
 }

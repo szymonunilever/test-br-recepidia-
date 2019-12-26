@@ -16,7 +16,7 @@ export interface ProductCopyIngredientsProps {
   title?: string;
   subtitle?: string;
   titleLevel?: titleLevel;
-  ingredients: RMSData.IngredientGroup[];
+  ingredients: string;
 }
 
 export interface ProductCopyAllergensProps {
@@ -24,5 +24,5 @@ export interface ProductCopyAllergensProps {
   title?: string;
   subtitle?: string;
   titleLevel?: titleLevel;
-  allergy: string[];
+  allergy: string;
 }

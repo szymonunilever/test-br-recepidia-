@@ -1,0 +1,11 @@
+
+@mixin title-transformer {
+  color: $maizena-color-secondary;
+  text-transform: capitalize;
+  font-family: $vivaStdBold;
+}
+
+@mixin text-transformer {
+  color: $maizena-color-secondary;
+  font-family: $proximaNovaNormal;
+}

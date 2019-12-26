@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { WindowLocation } from '@reach/router';
 
@@ -20,8 +20,9 @@ import {
   BrandSocialChannels,
   Hero,
   GenericCarousel,
+  Listing,
 } from 'gatsby-awd-components/src';
-import { findPageComponentContent } from 'src/utils';
+import { findPageComponentContent, isBrowser } from 'src/utils';
 import BrandHero from 'src/components/BrandHero';
 import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
@@ -29,13 +30,8 @@ import AddThis from '../../../integrations/AddThis';
 import DigitalData from '../../../integrations/DigitalData';
 import { localImage } from 'gatsby-awd-components/src/mocks/global';
 import { IMAGE_SIZES } from 'src/constants';
-import { graphql, navigate } from 'gatsby';
-
-import theme from './BrandProductDetailsPage.module.scss';
-import themeHellmanns from './BrandProductDetailsPageHellmanns.module.scss';
-import themeKnorr from './BrandProductDetailsPageKnorr.module.scss';
-import themeMaizena from './BrandProductDetailsPageMaizena.module.scss';
-
+import { graphql } from 'gatsby';
+import { getSortedProducts } from '../../utils';
 import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
 import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns.svg';
 import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
@@ -44,10 +40,16 @@ import { ReactComponent as CloseIcon } from 'gatsby-awd-components/src/svgs/inli
 import { ReactComponent as CartIcon } from 'gatsby-awd-components/src/svgs/inline/cart.svg';
 import { ReactComponent as FacebookIcon } from '../../svgs/inline/facebook.svg';
 import { ReactComponent as TwitterIcon } from '../../svgs/inline/twitter.svg';
-import { ReactComponent as YoutubeIcon } from '../../svgs/inline/youtube.svg';
+import { ReactComponent as YoutubeIcon } from '../../svgs/inline/youtube-simple.svg';
 import { ReactComponent as PinterestIcon } from '../../svgs/inline/pinterest.svg';
+import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing-circle.svg';
 import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
+import theme from './BrandProductDetailsPage.module.scss';
+import themeHellmanns from './BrandProductDetailsPageHellmanns.module.scss';
+import themeKnorr from './BrandProductDetailsPageKnorr.module.scss';
+import themeMaizena from './BrandProductDetailsPageMaizena.module.scss';
+import '../../scss/pages/_brand.scss';
 
 const BrandProductDetailsPage: React.FunctionComponent<
   BrandProductDetailsPageProps
@@ -55,13 +57,11 @@ const BrandProductDetailsPage: React.FunctionComponent<
   const {
     page: { components, seo, type },
     product,
+    brand,
   } = pageContext;
-
+  const [showFullList, setShowFullList] = useState();
+  const [counter, setCounter] = useState(0);
   const currentBrand = product.brand.toLowerCase();
-  const onDiscoverClick = () => {
-    navigate(`${currentBrand}/products/#${product.category}`);
-  };
-
   const carouselConfig = {
     breakpoints: [
       {
@@ -75,87 +75,12 @@ const BrandProductDetailsPage: React.FunctionComponent<
     arrowIcon: <ArrowIcon />,
   };
 
-  const mock = {
-    brand: 'Knorr',
-    fields: {
-      slug: '',
-    },
-    id: '1',
-    longPageDescription: '',
-    productId: '1',
-    productName: 'Name',
-    productTags: ['unilever:knorr/product/type/chicken'],
-    ingredients: [
-      'Pasta (durum WHEAT semolina, WHEAT semolina) (65%)',
-      'salt',
-      'potato starch, yeast extract',
-      'flavourings (contain CELERY)',
-      'chicken (3%)',
-      'chicken fat (2.5%)',
-      'toasted onion powder',
-      'potassium chloride',
-      'sugar',
-      'palm oil',
-      'spices (CELERY seeds, turmeric, pepper)',
-      'parsley',
-      'antioxidants (extracts of rosemary, alpha-tocopherol, ascorbyl palmitate)',
-    ],
-    allergy: ['allergen 1', 'Allergen 2'],
-    nutritionFacts: [
-      {
-        position: 0,
-        unit: '<20',
-        displayUnit: 'mg',
-        dv: 'dv',
-        rawValue: 20,
-        name: 'Nutrition Fact 1',
-        ri: 'ri',
-        description: 'description',
-      },
-      {
-        position: 0,
-        unit: '<20',
-        displayUnit: 'mg',
-        dv: 'dv',
-        rawValue: 2,
-        name: 'Nutrition Fact 2',
-        ri: 'ri',
-        description: 'description',
-      },
-      {
-        position: 0,
-        unit: '<20',
-        displayUnit: 'mg',
-        dv: 'dv',
-        rawValue: 120,
-        name: 'Nutrition Fact 3',
-        ri: 'ri',
-        description: 'description',
-      },
-      {
-        position: 0,
-        unit: '<20',
-        displayUnit: 'mg',
-        dv: 'dv',
-        rawValue: 200,
-        name: 'Nutrition Fact 4',
-        ri: 'ri',
-        description: 'description',
-      },
-    ],
-  };
-
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
     pinterest: PinterestIcon,
+    whatsApp: WhatsappIcon,
   };
-
-  const featuredProductsContent = findPageComponentContent(
-    components,
-    'Listing',
-    'FeaturedProducts'
-  );
 
   const brandsContent = {
     knorr: {
@@ -185,20 +110,6 @@ const BrandProductDetailsPage: React.FunctionComponent<
     currentBrand
   );
 
-  let productsSorted: any = allProduct.nodes.sort((a, b) => {
-    if (
-      new Date(a.productLaunchDate).valueOf() <
-      new Date(b.productLaunchDate).valueOf()
-    )
-      return 1;
-    if (
-      new Date(a.productLaunchDate).valueOf() >
-      new Date(b.productLaunchDate).valueOf()
-    )
-      return -1;
-    return 0;
-  });
-
   //@ts-ignore
   const createProductCards = list =>
     //@ts-ignore
@@ -207,10 +118,12 @@ const BrandProductDetailsPage: React.FunctionComponent<
         key={product.fields.slug}
         title={product.productName}
         slug={product.fields.slug}
+        cardKey={product.fields.slug}
       >
         <ProductCardWrapper
           key={product.fields.slug}
           ratingProvider={RatingAndReviewsProvider.none}
+          cardKey={product.fields.slug}
         >
           <Card
             showDescription
@@ -222,18 +135,11 @@ const BrandProductDetailsPage: React.FunctionComponent<
               description: product.shortPageDescription,
             }}
             imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+            cardKey={product.fields.slug}
           />
         </ProductCardWrapper>
       </CardLinkWrapper>
     ));
-
-  const featuredProducts = createProductCards(
-    productsSorted.filter(
-      //@ts-ignore
-      product =>
-        featuredProductsContent.staticList.indexOf(product.productId) !== -1
-    )
-  );
 
   const brandHero = (
     <section>
@@ -300,39 +206,69 @@ const BrandProductDetailsPage: React.FunctionComponent<
     </section>
   );
 
+  const openList = () => {
+    setShowFullList(true);
+  };
+  const relatedCards = createProductCards(getSortedProducts(allProduct));
+  const relatedProductsContent = findPageComponentContent(
+    components,
+    'Listing',
+    'FeaturedProducts'
+  );
+  const query = isBrowser()
+    ? ['(min-width: 768px)', '(max-width: 767px)'].findIndex(
+        q => matchMedia(q).matches
+      )
+    : 0;
+  useEffect(() => {
+    const onResize = () => {
+      setCounter(counter + 1);
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  });
   const relatedProducts = (
     <>
-      {featuredProductsContent && (
+      {query ? (
         <GenericCarousel
-          className={cx(brandTheme.product__attributesRelated)}
-          content={featuredProductsContent}
-          titleLevel={3}
+          content={relatedProductsContent}
           config={carouselConfig}
+          className="product-category-carousel cards--light"
+          titleLevel={3}
         >
-          {featuredProducts}
+          {relatedCards}
         </GenericCarousel>
-      )}
-      {featuredProducts.length >= 4 && (
-        <div
-          className={cx(
-            theme.product__attributesRelatedButtonWrapper,
-            'product__attribute-related-button-wrapper'
+      ) : (
+        <>
+          <Listing content={relatedProductsContent} titleLevel={3}>
+            {showFullList ? relatedCards : relatedCards.slice(0, 4)}
+          </Listing>
+
+          {!showFullList && relatedCards.length > 4 && (
+            <div
+              className={cx(
+                theme.product__attributesRelatedButtonWrapper,
+                'product__attribute-related-button-wrapper'
+              )}
+            >
+              <Button
+                className={cx(
+                  theme.product__attributesRelatedButton,
+                  brandTheme.product__attributesRelatedButton,
+                  'product__attributes-related-button'
+                )}
+                content={findPageComponentContent(
+                  components,
+                  'CTA',
+                  'discoverMore'
+                )}
+                onClick={openList}
+              />
+            </div>
           )}
-        >
-          <Button
-            className={cx(
-              theme.product__attributesRelatedButton,
-              brandTheme.product__attributesRelatedButton,
-              'product__attributes-related-button'
-            )}
-            content={findPageComponentContent(
-              components,
-              'CTA',
-              'discoverMore'
-            )}
-            onClick={onDiscoverClick}
-          />
-        </div>
+        </>
       )}
     </>
   );
@@ -342,7 +278,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
       titleLevel={3}
       className={cx(brandTheme.product__nutrients)}
       content={findPageComponentContent(components, 'ProductNutrients')}
-      nutritionFacts={mock.nutritionFacts}
+      nutritionFacts={product.nutritionFacts}
     />
   );
 
@@ -402,6 +338,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
     <section
       className={cx(
         theme.product__attributesWrapper,
+        brandTheme.product__attributesWrapper,
         '_pb--40 _pt--40 bg-primary bg-primary--wave up-to wrapper'
       )}
     >
@@ -411,34 +348,40 @@ const BrandProductDetailsPage: React.FunctionComponent<
           brandTheme.product__attributes
         )}
       >
-        <div className={cx(theme.product__attributesColumn)}>
-          <ProductCopy
-            viewType={ProductCopyViewType.Ingredients}
-            product={mock}
-            titleLevel={3}
-            content={findPageComponentContent(
-              components,
-              'ProductCopy',
-              'Ingredients'
-            )}
-          />
-          <ProductCopy
-            viewType={ProductCopyViewType.Allergy}
-            product={mock}
-            titleLevel={3}
-            content={findPageComponentContent(
-              components,
-              'ProductCopy',
-              'Allergy'
-            )}
-          />
-        </div>
+        {product.allergy || product.ingredients ? (
+          product.ingredients ? (
+            <div className={cx(theme.product__attributesColumn)}>
+              <ProductCopy
+                viewType={ProductCopyViewType.Ingredients}
+                product={product}
+                titleLevel={3}
+                content={findPageComponentContent(
+                  components,
+                  'ProductCopy',
+                  'Ingredients'
+                )}
+              />
+              {product.allergy ? (
+                <ProductCopy
+                  viewType={ProductCopyViewType.Allergy}
+                  product={product}
+                  titleLevel={3}
+                  content={findPageComponentContent(
+                    components,
+                    'ProductCopy',
+                    'Allergy'
+                  )}
+                />
+              ) : null}
+            </div>
+          ) : null
+        ) : null}
         <div className={cx(theme.product__attributesColumn)}>
           {productNutrients}
         </div>
       </div>
       <div className={cx(theme.product__attributesRelated)}>
-        {relatedProducts}
+        {relatedCards ? relatedProducts : null}
       </div>
     </section>
   );
@@ -469,10 +412,10 @@ const BrandProductDetailsPage: React.FunctionComponent<
 };
 
 export default BrandProductDetailsPage;
-// we need have brand prop in context
+
 export const query = graphql`
-  query($regexpBrand: String) {
-    allProduct(filter: { brand: { regex: $regexpBrand } }) {
+  query($brand: String) {
+    allProduct(filter: { brand: { eq: $brand } }) {
       nodes {
         brand
         id
@@ -507,6 +450,7 @@ interface BrandProductDetailsPageProps {
   pageContext: {
     page: AppContent.Page;
     product: Internal.Product;
+    brand: string;
   };
   data: {
     allProduct: {

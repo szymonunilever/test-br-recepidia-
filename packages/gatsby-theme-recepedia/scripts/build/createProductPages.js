@@ -8,6 +8,7 @@ const ProductFields = `
     longPageDescription
     ingredients
     allergy
+    nutritionFacts
     productTags
     fields {
       slug
@@ -40,6 +41,7 @@ module.exports = async ({ graphql, createPage, pageTemplates }) => {
           t => t.brand.toLowerCase() === node.brand.toLowerCase()
         ),
         product: node,
+        brand: node.brand,
       },
     });
   });

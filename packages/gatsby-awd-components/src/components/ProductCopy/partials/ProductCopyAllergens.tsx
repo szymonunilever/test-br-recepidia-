@@ -47,7 +47,7 @@ export const ProductCopyAllergens = ({
       {Title}
       {Subtitle}
       <div className={cx(theme.productCopyAllergens__data, 'product-copy-allergens__data')}>
-        {allergy.join(', ')}
+        {allergy}
       </div>
     </div>
   );
