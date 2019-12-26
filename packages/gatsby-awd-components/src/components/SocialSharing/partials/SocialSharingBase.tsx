@@ -24,7 +24,7 @@ export const SocialSharingBase = ({
     pinterest: process.env['addThis_serviceCodes_pinterest'] as string,
     tumblr: process.env['addThis_serviceCodes_tumblr'] as string,
     line: process.env['addThis_serviceCodes_line'] as string,
-    whatsUp: process.env['addThis_serviceCodes_whatsUp'] as string,
+    whatsapp: process.env['addThis_serviceCodes_whatsUp'] as string,
   };
   const [state, setState] = useState({ href: '', loaded: false });
   useEffect(() => {

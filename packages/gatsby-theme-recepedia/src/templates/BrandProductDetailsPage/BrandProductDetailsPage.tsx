@@ -79,7 +79,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
     facebook: FacebookIcon,
     twitter: TwitterIcon,
     pinterest: PinterestIcon,
-    whatsApp: WhatsappIcon,
+    whatsapp: WhatsappIcon,
   };
 
   const brandsContent = {
