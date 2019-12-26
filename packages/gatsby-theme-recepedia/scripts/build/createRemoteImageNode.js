@@ -1,6 +1,9 @@
 const path = require('path');
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-const config = require('../../app-config');
+const utils = require('../../scripts/utils');
+const config = require('../../app-config')({
+  locale: utils.parseArg('locale'),
+});
 const fs = require(`fs-extra`);
 
 module.exports = async (url, id, createNodeField, staticParams) => {

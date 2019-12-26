@@ -2,6 +2,7 @@
 const url = require('url');
 const get = require('lodash/get');
 const path = require('path');
+const utils = require('./scripts/utils');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -333,7 +334,9 @@ exports.onCreateWebpackConfig = ({
   loaders,
   plugins,
 }) => {
-  const appConfig = require('./app-config').getConfig();
+  const appConfig = require('./app-config')({
+    locale: utils.parseArg('locale'),
+  }).getConfig();
 
   // Create an object of all the variables in .env file
   const envKeys = Object.keys(appConfig).reduce((prev, next) => {

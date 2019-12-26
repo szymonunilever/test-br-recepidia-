@@ -8,11 +8,6 @@ const filter = require('lodash/filter');
 const reduce = require('lodash/reduce');
 const flow = require('lodash/flow');
 
-require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
-require('dotenv').config({
-  path: path.resolve(process.cwd(), '.env.development'),
-});
-
 // Prefix to identify local env variables described in .env file
 const localVarPrefix = `app_local_`;
 
@@ -103,7 +98,21 @@ function _getConfig() {
 }
 
 class ConfigManager {
-  constructor() {
+  constructor(params) {
+    const envFilePrefix = '.env';
+    const envFilePath = params.locale
+      ? `${envFilePrefix}.${params.locale}`
+      : envFilePrefix;
+
+    console.log('using .env file: ', envFilePath);
+
+    require('dotenv').config({
+      path: path.resolve(process.cwd(), envFilePath),
+    });
+    require('dotenv').config({
+      path: path.resolve(process.cwd(), '.env.development'),
+    });
+
     this._instance = _getConfig();
 
     // Update process.env with prefixless values
@@ -128,4 +137,4 @@ class ConfigManager {
   }
 }
 
-module.exports = new ConfigManager();
+module.exports = params => new ConfigManager(params);

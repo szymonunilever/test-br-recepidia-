@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 const path = require('path');
-const appConfig = require('./app-config');
+const utils = require('./scripts/utils');
+const appConfig = require('./app-config')({ locale: utils.parseArg('locale') });
 const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
