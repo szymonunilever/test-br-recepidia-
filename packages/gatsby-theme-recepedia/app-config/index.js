@@ -8,6 +8,8 @@ const filter = require('lodash/filter');
 const reduce = require('lodash/reduce');
 const flow = require('lodash/flow');
 
+const timestamp = Date.now();
+console.log('ES index timestamp', timestamp);
 // Prefix to identify local env variables described in .env file
 const localVarPrefix = `app_local_`;
 
@@ -83,7 +85,6 @@ function _getConfig() {
 
   // prevent adding timestamp for local development
   if (process.env.BRANCH) {
-    const timestamp = Date.now();
     ciVars['elasticSearch_recipeIndex'] = `${
       ciVars['elasticSearch_recipeIndex']
     }--${timestamp}`;
