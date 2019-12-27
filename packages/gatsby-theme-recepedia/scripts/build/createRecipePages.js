@@ -12,6 +12,7 @@ const RecipeFields = `
     }
     id
     averageRating
+    brand
     ingredients {
       title
       list {
