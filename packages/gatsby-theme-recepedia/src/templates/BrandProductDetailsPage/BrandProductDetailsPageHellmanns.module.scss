@@ -10,6 +10,7 @@
 .brand-product-page {
   .product {
     &__attributes {
+      margin-top: 1rem;
       &-wrapper {
         h2, h3, div {
           color: $white;
@@ -39,7 +40,7 @@
     .product {
       &-copy {
         &__title {
-          font-family: $trebuchetMsBold;
+          font-family: $brandonGrotesqueBold;
           color: $hellmans-color-primary;
 
         }

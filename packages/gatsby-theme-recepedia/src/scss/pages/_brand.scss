@@ -89,7 +89,6 @@
       padding-bottom: 14px;
     }
     &__link {
-      text-transform: uppercase;
       height: 52px;
       text-align: center;
       transition: opacity 0.2s;
@@ -100,14 +99,10 @@
       align-items: center;
       text-decoration: none;
       @include respondTo(desktop) {
-        font-size: 2.1rem;
         justify-content: center;
         word-spacing: normal;
         width: auto;
         padding: 0 50px;
-      }
-      &.active {
-        pointer-events: none;
       }
       &:not(.active) {
         opacity: 0.7;

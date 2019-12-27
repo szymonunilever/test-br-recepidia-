@@ -3050,7 +3050,7 @@
           {
             "name": "BrandHero",
             "content": {
-              "title": "We're on the side of food (Hellmanns)",
+              "title": "We're on the side of food",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
                 "alt": "Planejamento Semanal"
@@ -3516,7 +3516,7 @@
       "type": "ProductDetails",
       "title": "Hellmanns",
       "brand": "hellmanns",
-      "relativePath": "hellmanns/product",
+      "relativePath": "hellmanns/products",
       "components": {
         "items": [
           {
@@ -3629,14 +3629,14 @@
             "name": "CTA",
             "content": {
               "view": "discoverMore",
-              "label": "discover more"
+              "label": "Discover more"
             }
           },
           {
             "name": "BuyNowButton",
             "content": {
-              "view": "Buy now",
-              "label": "Buy now"
+              "view": "buyNowButton",
+              "label": "Buy it now"
             }
           },
           {
@@ -3670,7 +3670,7 @@
       "type": "ProductDetails",
       "title": "Knorr",
       "brand": "knorr",
-      "relativePath": "/knorr/product",
+      "relativePath": "/knorr/products",
       "components": {
         "items": [
           {
@@ -3761,6 +3761,10 @@
                 "instagram": {
                   "label": "Instagram",
                   "url": "https://www.instagram.com/knorrmx/"
+                },
+                "youtube": {
+                  "label": "YouTube",
+                  "url": "https://www.youtube.com"
                 }
               }
             }
@@ -3785,14 +3789,14 @@
             "name": "CTA",
             "content": {
               "view": "discoverMore",
-              "label": "discover more"
+              "label": "Discover more"
             }
           },
           {
             "name": "BuyNowButton",
             "content": {
-              "view": "Buy now",
-              "label": "Buy now"
+              "view": "buyNowButton",
+              "label": "Buy it now"
             }
           },
           {
@@ -3826,7 +3830,7 @@
       "type": "ProductDetails",
       "title": "Maizena",
       "brand": "maizena",
-      "relativePath": "/maizena/product",
+      "relativePath": "/maizena/products",
       "components": {
         "items": [
           {
@@ -3909,6 +3913,18 @@
                 "facebook": {
                   "label": "Facebook",
                   "url": "https://www.facebook.com/MaizenaMexico"
+                },
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://www.twitter.com/"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/"
+                },
+                "youtube": {
+                  "label": "YouTube",
+                  "url": "https://www.youtube.com"
                 }
               }
             }
@@ -3933,14 +3949,14 @@
             "name": "CTA",
             "content": {
               "view": "discoverMore",
-              "label": "discover more"
+              "label": "Discover more"
             }
           },
           {
             "name": "BuyNowButton",
             "content": {
-              "view": "Buy now",
-              "label": "Buy now"
+              "view": "buyNowButton",
+              "label": "Buy it now"
             }
           },
           {

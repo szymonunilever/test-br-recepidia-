@@ -66,12 +66,14 @@ import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
 import { dietaryAttributesIcons } from '../../themeDefaultComponentProps';
+import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 
 const infoIcon = <InfoIcon />;
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
   twitter: TwitterIcon,
   pinterest: PinterestIcon,
+  whatsapp: WhatsappIcon,
 };
 const isRecipeValidForReview = (recipe: Internal.Recipe, tagIds: number[]) =>
   Boolean(recipe.description) && !isEmpty(tagIds);
