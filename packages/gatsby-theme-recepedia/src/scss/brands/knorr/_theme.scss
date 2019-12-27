@@ -11,8 +11,8 @@
 
   .brand-hero {
     &__logo {
-      width: 130px;
-      height: 100px;
+      width: 75px;
+      height: 60px;
       margin-bottom: 10px;
 
       @include respondTo(medium) {
@@ -27,15 +27,26 @@
     &__title {
       font-family: $filsonSoftBold;
       max-width: 100%;
-      font-size: 30px;
-      text-transform: uppercase;
+      font-size: 5rem;
       @include respondTo(medium) {
         max-width: 370px;
       }
       @include respondTo(desktop) {
         font-size: 8.6rem;
         line-height: 1;
-        max-width: 765px;
+        max-width: 100%;
+      }
+    }
+
+    &__prefix {
+      font-family: $filsonSoftBold;
+      font-weight: normal;
+      font-size: 5rem;
+      margin-bottom: 0;
+      @include respondTo(desktop) {
+        font-size: 8.6rem;
+        line-height: 1;
+        max-width: 100%;
       }
     }
 
@@ -43,7 +54,7 @@
       font-family: $filsonSoftBold;
       font-weight: 700;
       text-transform: capitalize;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
 
       @include respondTo(desktop) {
         font-size: 2.8rem;
@@ -102,12 +113,13 @@
           text-align: center;
           font-size: 40px;
           @include title-transformer;
-          text-transform: uppercase;
           font-weight: bold;
         }
 
         &__list {
           justify-content: center;
+          position: relative;
+          z-index: 1;
           @include respondTo(desktop) {
           }
         }
@@ -119,6 +131,7 @@
         &__icon {
           svg {
             fill: $white;
+            height: 2.6rem;
           }
         }
       }

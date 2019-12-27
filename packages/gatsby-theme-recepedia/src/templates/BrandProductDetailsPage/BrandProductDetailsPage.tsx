@@ -147,6 +147,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
         content={findPageComponentContent(components, 'BrandHero')}
         titleLevel={2}
         brandLogo={BrandLogo}
+        prefix={brand === 'Knorr' ? brand + '.' : ''}
       />
     </section>
   );
@@ -197,9 +198,9 @@ const BrandProductDetailsPage: React.FunctionComponent<
         className="brand-social__list"
         content={findPageComponentContent(components, 'BrandSocialChannels')}
         listIcons={{
+          twitter: <TwitterIcon />,
           facebook: <FacebookIcon />,
           instagram: <InstagramIcon />,
-          twitter: <TwitterIcon />,
           youtube: <YoutubeIcon />,
         }}
       />
@@ -323,7 +324,11 @@ const BrandProductDetailsPage: React.FunctionComponent<
           />
           <Button
             Icon={<CartIcon />}
-            content={{ label: 'Buy It Now' }}
+            content={findPageComponentContent(
+              components,
+              'BuyNowButton',
+              'buyNowButton'
+            )}
             className={cx(
               theme.product__headingButton,
               'product__heading-button'

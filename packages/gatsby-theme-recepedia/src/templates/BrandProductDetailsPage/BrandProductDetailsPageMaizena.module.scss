@@ -19,8 +19,9 @@
         &-button {
           color: $white;
           background: $maizena-color-secondary;
-          text-transform: capitalize;
+          text-transform: initial;
           font-family: $proximaNovaNormal;
+          font-size: 1.8rem;
         }
       }
     }

@@ -15,10 +15,12 @@ const BrandHero: FunctionComponent<BrandHeroProps> = ({
   content,
   titleLevel = 1,
   brandLogo,
+  prefix,
   imageSizes,
 }) => {
   const { title, image, links } = content;
 
+  // @ts-ignore
   return (
     <>
       <div className={cx(theme.brandHero, className, 'brand-hero')}>
@@ -29,6 +31,14 @@ const BrandHero: FunctionComponent<BrandHeroProps> = ({
         />
         <div className="wrapper brand-hero__content">
           {iconNormalize(brandLogo, 'brand-hero__logo')}
+          {prefix ? (
+            <Text
+              // @ts-ignore */
+              tag={TagName[`h${titleLevel + 1}`]}
+              className="brand-hero__prefix"
+              text={prefix}
+            />
+          ) : null}
           <Text
             // @ts-ignore */
             tag={TagName[`h${titleLevel}`]}

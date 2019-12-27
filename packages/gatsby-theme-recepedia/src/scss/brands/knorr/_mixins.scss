@@ -1,5 +1,5 @@
 @mixin title-transformer {
   color: $white;
-  text-transform: capitalize;
+  text-transform: initial;
   font-family: $filsonSoftBold;
 }

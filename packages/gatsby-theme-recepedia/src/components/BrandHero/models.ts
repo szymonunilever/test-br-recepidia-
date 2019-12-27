@@ -6,6 +6,7 @@ export interface BrandHeroProps {
   brandLogo: SVGElement;
   content: BrandHeroContentProps;
   imageSizes?: string;
+  prefix: string;
 }
 
 interface BrandHeroContentProps {
