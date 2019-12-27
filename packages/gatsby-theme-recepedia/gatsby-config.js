@@ -3,6 +3,15 @@
 const path = require('path');
 const utils = require('./scripts/utils');
 const appConfig = require('./app-config')({ locale: utils.parseArg('locale') });
+
+const siteMetadata = {
+  title: appConfig.getByKey('meta_title'),
+  author: appConfig.getByKey('meta_author'),
+  description: appConfig.getByKey('meta_description'),
+  siteUrl: appConfig.getByKey('meta_host'),
+  lang: appConfig.getByKey('meta_lang'),
+};
+
 const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
@@ -93,8 +102,8 @@ const plugins = [
 plugins.push({
   resolve: `gatsby-plugin-robots-txt`,
   options: {
-    host: 'https://br.recepedia.com/',
-    sitemap: 'https://br.recepedia.com/sitemap.xml',
+    host: siteMetadata.siteUrl,
+    sitemap: `${siteMetadata.siteUrl}sitemap.xml`,
     resolveEnv: () => process.env.CONTEXT,
     env: {
       development: {
@@ -107,12 +116,6 @@ plugins.push({
   },
 });
 module.exports = {
-  siteMetadata: {
-    title: 'Recepedia',
-    author: 'Unilever',
-    description: 'Recipedia application',
-    siteUrl: 'https://br.recepedia.com/',
-    lang: 'pt-BR',
-  },
+  siteMetadata,
   plugins,
 };
