@@ -9,7 +9,9 @@ exports.createRecipeNodes = (
     childImageSharp: { fluid: recipe.assets.images.default },
   };
 
-  recipe.brand = recipe.featuredBrand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase();
+  recipe.brand = recipe.featuredBrand ?
+    recipe.featuredBrand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() :
+    '';
 
   delete recipe.assets;
 
