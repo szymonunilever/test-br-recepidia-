@@ -7,6 +7,7 @@ import searchData from '../../../../../mocks/search.json';
 describe('<SearchResults />', () => {
   let wrapper: any;
   const props: any = {
+    searchPagePath: '/search',
     activeIndex: 1,
     onClickHandler: jest.fn(),
     onHoverHandler: jest.fn(),
@@ -42,7 +43,7 @@ describe('<SearchResults />', () => {
         .find('a')
         .first()
         .props().href
-    ).toBe('/procurar?searchQuery=' + text);
+    ).toBe('/search?searchQuery=' + text);
   });
 
   it('should handle click on li', () => {

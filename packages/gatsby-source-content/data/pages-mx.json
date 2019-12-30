@@ -35,7 +35,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -435,7 +435,7 @@
     },
     {
       "type": "RecipeDetail",
-      "relativePath": "/receita",
+      "relativePath": "/receta",
       "components": {
         "items": [
           {
@@ -472,7 +472,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -616,7 +616,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -674,7 +674,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -699,7 +699,7 @@
     {
       "type": "AllRecipes",
       "title": "Recetas",
-      "relativePath": "/receita",
+      "relativePath": "/recetas",
       "components": {
         "items": [
           {
@@ -748,7 +748,7 @@
             "content": {
               "view": "SeasonalPromotionalRecipes",
               "title": "Recetas de temporada",
-              "staticList": [177573, 177585, 177587, 177590, 177601, 177605]
+              "staticList": [93238, 107666]
             }
           },
           {
@@ -758,7 +758,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -818,7 +818,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -842,7 +842,7 @@
     },
     {
       "type": "ArticleDetail",
-      "relativePath": "/artigos",
+      "relativePath": "/articulos",
       "components": {
         "items": [
           {
@@ -878,7 +878,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -902,7 +902,7 @@
     },
     {
       "type": "Search",
-      "relativePath": "/procurar",
+      "relativePath": "/buscar",
       "components": {
         "items": [
           {
@@ -975,7 +975,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -1007,7 +1007,7 @@
     {
       "type": "ContactUs",
       "title": "Contáctanos",
-      "relativePath": "/fale-comigo",
+      "relativePath": "/contactanos",
       "components": {
         "items": [
           {
@@ -1047,7 +1047,7 @@
               "type": "text",
               "cta": {
                 "label": "Ponerme en contacto",
-                "linkTo": "/formulario-de-contato"
+                "linkTo": "/ponerme-en-contacto"
               }
             }
           }
@@ -1067,7 +1067,7 @@
     {
       "type": "ContactForm",
       "title": "Contáctanos",
-      "relativePath": "/formulario-de-contato",
+      "relativePath": "/ponerme-en-contacto",
       "components": {
         "items": [
           {
@@ -1090,7 +1090,7 @@
                 {
                   "name": "locale",
                   "type": "hidden",
-                  "value": "pt-BR"
+                  "value": "es-MX"
                 },
                 {
                   "name": "formType",
@@ -1100,7 +1100,7 @@
                 {
                   "name": "formUrl",
                   "type": "hidden",
-                  "value": "/contact-form"
+                  "value": "/ponerme-en-contacto"
                 },
                 {
                   "name": "inquiryType",
@@ -1346,7 +1346,7 @@
     },
     {
       "type": "ContactUsThankYou",
-      "relativePath": "/obrigado",
+      "relativePath": "/contactanos-logrado",
       "components": {
         "items": [
           {
@@ -1386,7 +1386,7 @@
     {
       "title": "User Profile",
       "type": "UserProfile",
-      "relativePath": "/perfil",
+      "relativePath": "/mis-preferencias",
       "components": {
         "items": [
           {
@@ -2176,7 +2176,7 @@
     {
       "type": "AboutUs",
       "title": "Acerca de nosotros",
-      "relativePath": "/sobre-recepedia",
+      "relativePath": "/acerca-de-nosotros",
       "components": {
         "items": [
           {
@@ -2224,7 +2224,7 @@
     {
       "type": "MealPlanner",
       "title": "Planificador de Menús",
-      "relativePath": "/planejamento-da-semana",
+      "relativePath": "/planificador-de-menus",
       "components": {
         "items": [
           {
@@ -2673,7 +2673,7 @@
                 "items": [
                   {
                     "name": "Contáctanos",
-                    "path": "/fale-comigo"
+                    "path": "/contactanos"
                   },
                   {
                     "name": "Aviso de Privacidad",
@@ -2681,7 +2681,7 @@
                   },
                   {
                     "name": "Mapa del sitio",
-                    "path": "/mapa-do-site"
+                    "path": "/mapa-del-sitio"
                   }
                 ]
               }
@@ -2784,7 +2784,7 @@
     {
       "type": "Sitemap",
       "title": "Mapa del sitio",
-      "relativePath": "/mapa-do-site",
+      "relativePath": "/mapa-del-sitio",
       "components": {
         "items": [
           {
@@ -3267,7 +3267,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -3382,7 +3382,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -3484,7 +3484,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -3594,7 +3594,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -3722,7 +3722,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar! "
               },
               "image": {
@@ -3882,7 +3882,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {
@@ -4042,7 +4042,7 @@
               "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
               "primaryCta": {
                 "type": "Button",
-                "linkTo": "/planejamento-da-semana",
+                "linkTo": "/planificador-de-menus",
                 "label": "¡Quiero empezar!"
               },
               "image": {

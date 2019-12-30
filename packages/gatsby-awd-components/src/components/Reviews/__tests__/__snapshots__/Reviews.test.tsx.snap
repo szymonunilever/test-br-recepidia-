@@ -6,6 +6,47 @@ exports[`<Reviews /> matches the snapshot 1`] = `
   provider={0}
   recipeId={123}
 >
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+    script={
+      Array [
+        Object {
+          "async": true,
+          "id": "rr-widget-123",
+          "src": "undefined?brandid=undefined&localeid=undefined&apikey=undefined&sitesource=undefined",
+        },
+      ]
+    }
+  >
+    <SideEffect(NullComponent)
+      defer={true}
+      encodeSpecialCharacters={true}
+      script={
+        Array [
+          Object {
+            "async": true,
+            "id": "rr-widget-123",
+            "src": "undefined?brandid=undefined&localeid=undefined&apikey=undefined&sitesource=undefined",
+          },
+        ]
+      }
+    >
+      <NullComponent
+        defer={true}
+        encodeSpecialCharacters={true}
+        script={
+          Array [
+            Object {
+              "async": true,
+              "id": "rr-widget-123",
+              "src": "undefined?brandid=undefined&localeid=undefined&apikey=undefined&sitesource=undefined",
+            },
+          ]
+        }
+      />
+    </SideEffect(NullComponent)>
+  </HelmetWrapper>
   <div
     className="recipe-reviews test-class"
     data-componentname="recipe-reviews"

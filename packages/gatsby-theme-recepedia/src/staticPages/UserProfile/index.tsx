@@ -53,6 +53,7 @@ import {
   RecipeListingIcons as icons,
 } from '../../themeDefaultComponentProps';
 import useFavoritesSearch from './useFavoritesSearch';
+import { getPagePath } from '../../utils/getPagePath';
 import theme from './UserProfile.module.scss';
 
 const userPreferencesIcons: UserPreferencesIcons = {
@@ -84,6 +85,8 @@ const FavoritesRecipeListingPage: FunctionComponent<
   },
   location,
 }) => {
+  const mealPlannerURL = getPagePath('MealPlanner');
+  const allRecipesURL = getPagePath('AllRecipes');
   const recipeContent = findPageComponentContent(
     components,
     'RecipeListing',
@@ -284,7 +287,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   className="recipe-list__null-results"
                   titleLevel={2}
                 />
-                <Link className="favorites__button" to={'/receita'}>
+                <Link className="favorites__button" to={allRecipesURL}>
                   {buttonContent.label}
                 </Link>
               </Fragment>
@@ -359,7 +362,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
             <div className={theme.mealPlannerBtnWrap}>
               <Link
                 className={cx(theme.mealPlannerBtn, 'button')}
-                to={'/planejamento-da-semana'}
+                to={mealPlannerURL}
               >
                 {mealPlanButtonContent.label}
               </Link>

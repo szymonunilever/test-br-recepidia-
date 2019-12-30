@@ -12,6 +12,7 @@ import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_contactForm.scss';
 import { navigate } from 'gatsby';
+import { getPagePath } from '../../utils/getPagePath';
 
 const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
   pageContext,
@@ -25,6 +26,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
     'GeneratedForm',
     'ContactForm'
   );
+  const contactFormSuccessUrl = getPagePath('ContactUsThankYou');
   const { title, formMessages } = contactFormComponent;
   const [modalState, setModalState] = useState({
     isOpen: false,
@@ -89,7 +91,7 @@ const ContactFormPage: React.FunctionComponent<ContactFormPageProps> = ({
           });
         setTimeout(() => {
           setModalState({ ...modalState, isOpen: false });
-          navigate('/obrigado');
+          navigate(contactFormSuccessUrl);
         }, 3000);
       } catch (e) {
         setModalState({

@@ -29,6 +29,7 @@ import getPersonalizationSearchData, {
 import generateQuery from '../../utils/queryGenerator';
 import theme from './mealPlanner.module.scss';
 import { MealPlannerResults } from 'src/components/MealPannerResults';
+import { getPagePath } from '../../utils/getPagePath';
 
 const MAX_PER_MP = 7;
 const RESULT_SIZE = MAX_PER_MP * 2;
@@ -58,7 +59,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     fromChanged: number;
     total: number;
   }>({ i: 0, fromChanged: FROM, total: 0 });
-
+  const userProfileUrl = getPagePath('UserProfile');
   const processSearchData = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     quizData: any,
@@ -133,7 +134,7 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     }
   }, []);
   const wizardCallback = useCallback(() => {
-    navigate('/perfil?tabOpen=MealPlanner');
+    navigate(`${userProfileUrl}?tabOpen=MealPlanner`);
   }, []);
   const pageUpdate = useCallback(() => {
     window.location.reload();

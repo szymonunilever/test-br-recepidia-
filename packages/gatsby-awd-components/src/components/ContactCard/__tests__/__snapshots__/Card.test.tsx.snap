@@ -19,51 +19,51 @@ exports[`<ContactCard /> matches the snapshot 1`] = `
   titleLevel={2}
 >
   <div
-    className="card"
-    data-componentname="card"
-    data-componentview="card"
+    className="contactCard"
+    data-componentname="contactCard"
+    data-componentview="contactCard"
   >
     <div
-      className="card__top card__top"
+      className="contactCard__top contact-card__top"
     >
       <div
-        className="card__icon card__icon"
+        className="contactCard__icon contact-card__icon"
       >
         <svg />
       </div>
       <Text
-        className="card__title card__title"
+        className="contactCard__title contact-card__title"
         tag={1}
         text="Phone"
       >
         <h2
-          className="card__title card__title"
+          className="contactCard__title contact-card__title"
         >
           Phone
         </h2>
       </Text>
     </div>
     <div
-      className="card__content card__content"
+      className="contactCard__content contact-card__content"
     >
       <a
         href="tel:+380633334455"
       >
         <Text
-          className="card__text card__text"
+          className="contactCard__text contact-card__text"
           key="0"
           tag={7}
           text="+380633334455"
         >
           <p
-            className="card__text card__text"
+            className="contactCard__text contact-card__text"
           >
             +380633334455
           </p>
         </Text>
       </a>
       <Component
-        className="card__button card__button"
+        className="contactCard__button contact-card__button"
         content={
           Object {
             "label": "Contact Form",
@@ -73,7 +73,7 @@ exports[`<ContactCard /> matches the snapshot 1`] = `
         onClick={[Function]}
       >
         <button
-          className="button button card__button card__button"
+          className="button button contactCard__button contact-card__button"
           data-componentname="button"
           data-componentview="button"
           disabled={false}
