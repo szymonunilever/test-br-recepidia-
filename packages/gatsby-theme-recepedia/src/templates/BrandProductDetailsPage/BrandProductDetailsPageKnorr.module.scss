@@ -10,7 +10,8 @@
   .product {
     &__attributes {
       &-wrapper {
-        h2, h3 {
+        h2,
+        h3 {
           @include title-transformer;
           font-size: 2.4rem;
         }
@@ -23,7 +24,14 @@
         &-button {
           @include title-transformer;
           background: $knorr-color-primary;
-          border: .1rem solid $white;
+          border: 0.1rem solid $white;
+          @media (hover: hover),
+            (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+            &:hover {
+              background-color: $knorr-color-primary-hover;
+            }
+          }
         }
       }
     }
@@ -75,12 +83,20 @@
           @include respondTo(desktop) {
             font-size: 1.6rem;
           }
+          @media (hover: hover),
+            (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+            &:hover {
+              background-color: $knorr-color-primary-hover;
+            }
+          }
         }
       }
     }
 
     .card {
-      &__title, &__description {
+      &__title,
+      &__description {
         @include title-transformer;
       }
 

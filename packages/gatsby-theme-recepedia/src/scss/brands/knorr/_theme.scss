@@ -27,9 +27,10 @@
     &__title {
       font-family: $filsonSoftBold;
       max-width: 100%;
-      font-size: 5rem;
+      font-size: 4rem;
       @include respondTo(medium) {
-        max-width: 370px;
+        font-size: 5rem;
+        max-width: 440px;
       }
       @include respondTo(desktop) {
         font-size: 8.6rem;

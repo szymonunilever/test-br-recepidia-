@@ -34,7 +34,7 @@
         background-color: $knorr-color-primary;
         transition: all 0.2s;
         display: flex;
-        margin: 24px auto 30px;
+        margin: 24px auto 10px;
         @media (hover: hover),
           (-ms-high-contrast: none),
           (-ms-high-contrast: active) {
@@ -43,7 +43,7 @@
           }
         }
         @include respondTo(desktop) {
-          margin: 45px auto 30px;
+          margin: 45px auto 0;
         }
       }
     }
