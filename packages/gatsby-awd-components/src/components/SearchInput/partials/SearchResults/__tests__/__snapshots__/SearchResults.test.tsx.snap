@@ -110,6 +110,7 @@ exports[`<SearchResults /> matches the snapshot 1`] = `
   navigateToItem={true}
   onClickHandler={[MockFunction]}
   onHoverHandler={[MockFunction]}
+  searchPagePath="/search"
 >
   <ul
     className="search-input__list"

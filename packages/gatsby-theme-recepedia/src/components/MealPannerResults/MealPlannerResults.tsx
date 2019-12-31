@@ -40,6 +40,7 @@ import { MealPannerResultsProps } from './models';
 import cloneDeep from 'lodash/cloneDeep';
 import { getCustomMPSearch } from './hepers';
 import useMedia from '../../utils/useMedia';
+import { getPagePath } from '../../utils/getPagePath';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -65,6 +66,8 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
     newContentVal.content.onResult.title = resultContentTitle;
     setWizardResultSection(newContentVal);
   }, [resultContentTitle]);
+
+  const searchPagePath = getPagePath('Search');
   const removeFromMPConfirmationContent: AppContent.ConfirmationContent = findPageComponentContent(
     components,
     'Confirmation',
@@ -385,6 +388,7 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           setShowSearchModal(false);
         }}
         autoFocus
+        searchPagePath={searchPagePath}
       />
     </Modal>
   );

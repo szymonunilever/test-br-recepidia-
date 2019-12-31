@@ -77,6 +77,7 @@ const GlobalSearch = ({
         closeBtn={<ButtonCloseIcon />}
       >
         <SearchInput
+          searchPagePath={relativePath}
           getSearchResults={getSearchSuggestionData}
           onClickSearchResultsItem={onSubmit}
           content={searchContent}

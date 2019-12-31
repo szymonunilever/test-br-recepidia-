@@ -10,6 +10,7 @@ import { Button, ButtonViewType } from '../index';
 const SearchInput = ({
   list = [],
   content,
+  searchPagePath = '',
   content: { title, placeholderText },
   className,
   labelIcon,
@@ -217,6 +218,7 @@ const SearchInput = ({
 
       {showSearchResults ? (
         <SearchResults
+          searchPagePath={searchPagePath}
           navigateToItem={!!onClickSearchResultsItem}
           onClickHandler={onClickSearchResultsItemHandler}
           activeIndex={activeItemIndex}

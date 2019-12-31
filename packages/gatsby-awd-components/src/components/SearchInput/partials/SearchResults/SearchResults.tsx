@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 const SearchResults = ({
   list,
+  searchPagePath = '',
   activeIndex,
   onClickHandler,
   navigateToItem,
@@ -27,7 +28,7 @@ const SearchResults = ({
             {navigateToItem ? (
               <a className={classNames}>{item}</a>
             ) : (
-              <Link className={classNames} to={`/procurar?searchQuery=${item}`}>
+              <Link className={classNames} to={`${searchPagePath}?searchQuery=${item}`}>
                 {item}
               </Link>
             )}

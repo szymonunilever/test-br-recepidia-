@@ -1,5 +1,5 @@
 {
-  "locale": "pt-br",
+  "locale": "es-mx",
   "components": {
     "components": {
       "items": [
@@ -13,13 +13,13 @@
                 "children": [
                   {
                     "name": "Ver todas las recetas",
-                    "path": "/receita"
+                    "path": "/recetas"
                   }
                 ]
               },
               {
-                "name": "Planificar de Menús",
-                "path": "/planejamento-da-semana"
+                "name": "Planificador de Menús",
+                "path": "/planificador-de-menus"
               },
               {
                 "name": "Nuestras Marcas",
@@ -63,16 +63,16 @@
               {
                 "items": [
                   {
-                    "name": "Planificar de Menús",
-                    "path": "/planejamento-da-semana"
+                    "name": "Planificador de Menús",
+                    "path": "/planificador-de-menus"
                   },
                   {
                     "name": "Acerca de nosotros",
-                    "path": "/sobre-recepedia"
+                    "path": "/acerca-de-nosotros"
                   },
                   {
                     "name": "Contáctanos",
-                    "path": "/fale-comigo"
+                    "path": "/contactanos"
                   },
                   {
                     "name": "Preguntas Frecuentes",
@@ -104,7 +104,7 @@
                   },
                   {
                     "name": "Mapa del sitio",
-                    "path": "/mapa-do-site"
+                    "path": "/mapa-del-sitio"
                   }
                 ]
               }

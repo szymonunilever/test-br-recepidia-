@@ -48,6 +48,7 @@ interface SearchInputConfig {
   labelIcon: SearchInputProps['labelIcon'];
   buttonResetIcon: SearchInputProps['buttonResetIcon'];
   buttonSubmitIcon: SearchInputProps['buttonSubmitIcon'];
+  searchPagePath: SearchInputProps['searchPagePath']
 }
 
 interface RecipeConfig {

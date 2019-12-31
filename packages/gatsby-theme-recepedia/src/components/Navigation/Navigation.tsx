@@ -7,6 +7,7 @@ import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg'
 import GlobalSearch from 'src/components/Search/GlobalSearch';
 import { constructMenu } from './utils';
 import { ReactComponent as ProfileIcon } from 'src/svgs/inline/profile.svg';
+import { getPagePath } from '../../utils/getPagePath';
 
 interface NavigationProps {
   navigationContent: AppContent.GlobalNavigation.Content;
@@ -34,7 +35,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
 
   const categories = data.allCategory.nodes;
   const menuItems = constructMenu(categories, navigationContent);
-
+  const userProfilePath = getPagePath('UserProfile');
   return (
     <GlobalNavigation
       logo={{
@@ -46,7 +47,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
       content={{ list: menuItems }}
       isAccordion
     >
-      <Link className="global-navigation__profile" to={'/perfil'}>
+      <Link className="global-navigation__profile" to={userProfilePath}>
         {<ProfileIcon />}
         {profileContent.title}
       </Link>

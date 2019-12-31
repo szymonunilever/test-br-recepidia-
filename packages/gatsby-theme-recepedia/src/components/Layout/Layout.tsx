@@ -15,6 +15,7 @@ import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import smartOutline from 'smart-outline';
 import find from 'lodash/find';
+import { getPagePath } from '../../utils/getPagePath';
 // // Component Styles
 // import '../../scss/pages/_layout.scss';
 
@@ -76,10 +77,10 @@ const Layout = ({
   if (!categoryLinksInFooter) {
     footerNavLists.lists.unshift(footerCategoryList);
   }
-
+  const newsletterSignUpUrl = getPagePath('NewsletterSignUp');
   // eslint-disable-next-line no-console
   const onSignUpCallback = () => {
-    navigate('/inscrever');
+    navigate(newsletterSignUpUrl);
   };
 
   // @ts-ignore

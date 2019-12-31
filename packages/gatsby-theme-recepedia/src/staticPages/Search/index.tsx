@@ -150,6 +150,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           searchResultTitleLevel={3}
           config={{
             searchInputConfig: {
+              searchPagePath: relativePath,
               getSearchSuggestionData,
               onClickSearchResultsItem: updateUrlParams,
               searchResultsCount: 8,

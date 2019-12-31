@@ -136,6 +136,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
           <CardLinkWrapper
             title={recipe.title}
             key={recipe.id}
+            cardKey={recipe.id}
             slug={recipe.fields.slug}
           >
             <RecipeCard
@@ -248,6 +249,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       {...getComponentDataAttrs('search-listing', content.searchListingContent)}
     >
       <SearchInput
+        searchPagePath={searchInputConfig.searchPagePath}
         searchResults={searchInputResults.list}
         content={content.searchInputContent}
         {...searchInputConfig}

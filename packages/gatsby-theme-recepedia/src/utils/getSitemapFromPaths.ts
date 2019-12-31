@@ -7,6 +7,7 @@ import uniqBy from 'lodash/uniqBy';
 import flatten from 'lodash/flatten';
 
 const ROOT_PATH = '/';
+// @todo review do we need this section
 const EXCLUDED_PATHS = [
   ROOT_PATH,
   '/procurar/',
