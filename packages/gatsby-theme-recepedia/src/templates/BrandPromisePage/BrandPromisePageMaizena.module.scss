@@ -1,10 +1,54 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
 @import './../../scss/brands/maizena/index.scss';
+:global {
+  @import './../../scss/brands/maizena/_theme.scss';
+  @import './../../scss/components/Button/_index.scss';
+}
 
 .brand-promise-page {
-  color: yellow !important;
-}
-.text {
-  color: yellow !important;
+  :global {
+    .promise-intro {
+      text-align: center;
+      &__text {
+        font: 400 1.6rem/1.25 $proximaNovaNormal;
+        text-align: center;
+        color: $maizena-color-secondary;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+      }
+    }
+    .promise-article {
+      &__title {
+        font: 700 3rem/1.33 $vivaStdBold;
+        text-align: center;
+        text-transform: uppercase;
+        color: $maizena-color-secondary;
+        @include respondTo(desktop) {
+          font-size: 4.5rem;
+          line-height: 1.56;
+        }
+      }
+      &__subtitle {
+        font: 400 1.6rem/1.25 $proximaNovaNormal;
+        text-align: center;
+        color: $maizena-color-secondary;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+      }
+      &__image {
+        margin-top: 20px;
+        .gatsby-image-wrapper {
+          height: 145px;
+          @include respondTo(desktop) {
+            height: 483px;
+          }
+        }
+      }
+    }
+  }
 }

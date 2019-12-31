@@ -3290,6 +3290,243 @@
       }
     },
     {
+      "type": "BrandPromisePage",
+      "title": "We're on the side of food",
+      "relativePath": "/knorr/promise",
+      "brand": "knorr",
+      "components": {
+        "items": [
+          {
+            "name": "BrandHero",
+            "content": {
+              "title": "Knorr.\n La pequeña gran diferencia",
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Knorr. La pequeña gran diferencia"
+              },
+              "links": [
+                {
+                  "name": "Nuestro propósito",
+                  "path": "/knorr/promise"
+                },
+                {
+                  "name": "Productos",
+                  "path": "/knorr/products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "PromiseArticle",
+            "content": {
+              "title": "Actualmente, el 75% del consumo humano proviene solamente de 12 plantas y 5 especies de animales.",
+              "blocks": [
+                {
+                  "richText": {
+                    "text": "<p>esta falta de diversidad pone en riesgo la seguridad alimentaria y también excluye fuentes valiosas de nutrientes en nuestra alimentación.</p>"
+                  }
+                },
+                {
+                  "richText": {
+                    "text": "<p><strong>Atrévete a hacer pequeños cambios buenos para ti y para el medio ambiente.</strong></p>"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "GoodForPlanetListing",
+            "content": {
+              "title": "El futuro del mundo está en nuestros platillos:"
+            }
+          },
+          {
+            "name": "GoodForYouListing",
+            "content": {
+              "title": "Los 50 alimentos del Futuro:"
+            }
+          },
+          {
+            "name": "CTA",
+            "content": {
+              "view": "loadMore",
+              "label": "Descubre más"
+            }
+          },
+          {
+            "name": "AboutFuture",
+            "content": {
+              "title": "La pequeña gran diferencia",
+              "subtitle": "Descubre cómo pequeñas acciones pueden generar grandes cambios para ti y para el medio ambiente.",
+              "listingTitle": {
+                "title": "Los 50 alimentos del Futuro:"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Los 50 alimentos del Futuro"
+              }
+            }
+          },
+          {
+            "name": "LocalInitiatives",
+            "content": {
+              "title": "Nuestro compromiso en México",
+              "subtitle": "En Knorr estamos comprometidos en hacer pequeños cambios para marcar una gran diferencia, conoce lo que estamos haciendo para un mejor futuro.",
+              "listingTitle": {
+                "title": "Conoce más tips:"
+              }
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Síguenos"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/KnorrMexico/"
+                },
+                "instagram": {
+                  "label": "Instagram",
+                  "url": "https://www.instagram.com/knorrmx/"
+                },
+                "twitter": {
+                  "label": "Twitter",
+                  "url": "https://twitter.com/KnorrMexico"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Prueba nuestro Planificador de Menús",
+              "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planificador-de-menus",
+                "label": "¡Quiero empezar!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Prueba nuestro Planificador de Menús"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Knorr. La pequeña gran diferencia",
+        "description": "Brand Promise page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "BrandPromisePage",
+      "title": "Para alimentar con cariño a tu familia",
+      "relativePath": "/maizena/promise",
+      "brand": "maizena",
+      "components": {
+        "items": [
+          {
+            "name": "BrandHero",
+            "content": {
+              "title": "Naturalmente, hecho con maíz",
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Naturalmente, hecho con maíz"
+              },
+              "links": [
+                {
+                  "name": "Nuestro propósito",
+                  "path": "/maizena/promise"
+                },
+                {
+                  "name": "Productos",
+                  "path": "/maizena/products"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Text",
+            "content": {
+              "view": "PromiseIntro",
+              "intro": "Presente en 9 de cada 10 casas en México ofreciendo productos deliciosos para toda la familia desde hace más de 120 años"
+            }
+          },
+          {
+            "name": "PromiseArticle",
+            "content": {
+              "title": "Una historia sobre el maíz",
+              "subtitle": "El maíz es uno de los ingredientes más representativos de la gastronomía mexicana",
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "alt": "Naturalmente, hecho con maíz"
+              }
+            }
+          },
+          {
+            "name": "BrandSocialChannelsTitle",
+            "content": {
+              "title": "Síguenos"
+            }
+          },
+          {
+            "name": "BrandSocialChannels",
+            "content": {
+              "socialItems": {
+                "facebook": {
+                  "label": "Facebook",
+                  "url": "https://www.facebook.com/MaizenaMexico/"
+                },
+                "youtube": {
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/channel/UCC4nW6i5d1UV1ucXwsfASEg"
+                }
+              }
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Prueba nuestro Planificador de Menús",
+              "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planificador-de-menus",
+                "label": "¡Quiero empezar!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Prueba nuestro Planificador de Menús"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Naturalmente, hecho con maíz",
+        "description": "Brand Promise page",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
+    },
+    {
       "type": "BrandProductsPage",
       "title": "Hellmanns",
       "brand": "hellmanns",
@@ -3472,7 +3709,11 @@
               "socialItems": {
                 "facebook": {
                   "label": "Facebook",
-                  "url": "https://www.facebook.com/MaizenaMexico"
+                  "url": "https://www.facebook.com/MaizenaMexico/"
+                },
+                "youtube": {
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/channel/UCC4nW6i5d1UV1ucXwsfASEg"
                 }
               }
             }
@@ -4018,19 +4259,11 @@
               "socialItems": {
                 "facebook": {
                   "label": "Facebook",
-                  "url": "https://www.facebook.com/MaizenaMexico"
-                },
-                "twitter": {
-                  "label": "Twitter",
-                  "url": "https://www.twitter.com/"
-                },
-                "instagram": {
-                  "label": "Instagram",
-                  "url": "https://www.instagram.com/"
+                  "url": "https://www.facebook.com/MaizenaMexico/"
                 },
                 "youtube": {
-                  "label": "YouTube",
-                  "url": "https://www.youtube.com"
+                  "label": "Youtube",
+                  "url": "https://www.youtube.com/channel/UCC4nW6i5d1UV1ucXwsfASEg"
                 }
               }
             }

@@ -1,4 +1,4 @@
-@import "mixins";
+@import 'mixins';
 
 .knorr {
   .bg-primary {
@@ -54,7 +54,7 @@
       font-family: $filsonSoftBold;
       font-weight: 700;
       text-transform: capitalize;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
 
       @include respondTo(desktop) {
         font-size: 2.8rem;
@@ -69,6 +69,7 @@
       .hero {
         &__header h2 {
           @include title-transformer;
+          font-weight: 700;
 
           @include respondTo(desktop) {
             padding-top: 100px;
@@ -78,12 +79,6 @@
 
         &__long-subheader p {
           color: $white;
-        }
-
-        &__cta {
-          &-link {
-            width: 260px;
-          }
         }
       }
     }
@@ -111,9 +106,12 @@
 
         &__title {
           text-align: center;
-          font-size: 40px;
+          font-size: 2.4rem;
           @include title-transformer;
           font-weight: bold;
+          @include respondTo(desktop) {
+            font-size: 4.5rem;
+          }
         }
 
         &__list {

@@ -1,12 +1,140 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
 @import './../../scss/brands/knorr/index.scss';
+:global {
+  @import './../../scss/brands/knorr/_theme.scss';
+  @import './../../scss/components/Button/_index.scss';
+}
 
 .brand-promise-page {
-  color: green !important;
-}
-.text {
-  color: green !important;
-  font-family: $vivaStdBold;
-  font-weight: 700;
+  h2 {
+    font: 700 2.4rem/1.17 $filsonSoftBold;
+    @include respondTo(desktop) {
+      font-size: 4.5rem;
+      line-height: 1;
+    }
+  }
+  h3 {
+    font: 700 2.2rem/0.82 $filsonSoftBold;
+    @include respondTo(desktop) {
+      font-size: 2.5rem;
+      line-height: 1.12;
+    }
+  }
+
+  :global {
+    .bg-secondary {
+      h2,
+      h3 {
+        color: $knorr-color-primary;
+      }
+      .load-more {
+        @extend .button--fullwidth;
+        color: $white;
+        background-color: $knorr-color-primary;
+        transition: all 0.2s;
+        display: flex;
+        margin: 24px auto 30px;
+        @media (hover: hover),
+          (-ms-high-contrast: none),
+          (-ms-high-contrast: active) {
+          &:hover {
+            background-color: $luminous-yellow;
+          }
+        }
+        @include respondTo(desktop) {
+          margin: 45px auto 30px;
+        }
+      }
+    }
+    .promise-article {
+      text-align: center;
+
+      &__title {
+        @include respondTo(desktop) {
+          padding: 0 20%;
+        }
+      }
+      &__blocks {
+        @include respondTo(desktop) {
+          padding: 0 20%;
+        }
+      }
+      &__block {
+        &-text p {
+          font-size: 1.2rem;
+          line-height: 1.17;
+          color: $knorr-text-color;
+          @include respondTo(desktop) {
+            font-size: 1.6rem;
+            line-height: 1.13;
+          }
+        }
+      }
+      strong {
+        display: block;
+        padding-top: 30px;
+        font: 700 2rem/1.1 $filsonSoftBold;
+        color: $knorr-color-primary;
+        @include respondTo(desktop) {
+          font-size: 2.6rem;
+          line-height: 1;
+          padding: 30px 20% 0;
+        }
+      }
+    }
+    .card {
+      .gatsby-image-wrapper {
+        height: 194px;
+        @include respondTo(desktop) {
+          height: 320px;
+        }
+      }
+      &__title {
+        font: 700 1.6rem/1.25 $filsonSoftBold;
+        color: $knorr-color-primary;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+          line-height: 1;
+        }
+      }
+    }
+    .about-future,
+    .local-initiatives {
+      @include respondTo(desktop) {
+        padding-top: 40px;
+      }
+      &__title {
+        text-align: center;
+        margin-bottom: 20px;
+        @include respondTo(desktop) {
+          padding: 0 20%;
+          margin-bottom: 30px;
+        }
+      }
+      &__subtitle {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.6rem;
+        line-height: 1.13;
+        color: $knorr-text-color;
+        @include respondTo(desktop) {
+          margin-bottom: 30px;
+          padding: 0 20%;
+        }
+      }
+      &__image {
+        margin-bottom: 35px;
+        @include respondTo(desktop) {
+          margin-bottom: 70px;
+        }
+        .gatsby-image-wrapper {
+          height: 217px;
+          @include respondTo(desktop) {
+            height: 398px;
+          }
+        }
+      }
+    }
+  }
 }
