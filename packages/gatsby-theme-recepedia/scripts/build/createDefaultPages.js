@@ -98,7 +98,7 @@ module.exports = async ({ graphql, createPage }) => {
     'NewsletterSignUp',
     'PreferenceCenter',
     'TermsAndConditions',
-    //'FAQ',
+    'FAQ',
   ];
 
   pagesTypes.push(
