@@ -90,6 +90,7 @@
           @extend .h-button-light;
           @extend .button--fullwidth;
           margin: 50px auto 40px;
+          font-size: 1.5rem;
         }
       }
     }
@@ -125,7 +126,7 @@
 
     .recipe-list {
       &__header {
-        @extend .heading--underlined
+        @extend .heading--underlined;
       }
     }
   }

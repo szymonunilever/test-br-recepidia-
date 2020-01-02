@@ -83,9 +83,11 @@
         @extend .h-button-dark;
         @extend .button--fullwidth;
         margin: 20px auto 70px;
+        font-size: 1.2rem;
         @include respondTo(desktop) {
           margin-top: 30px;
           height: 52px;
+          font-size: 1.6rem;
         }
       }
     }
@@ -128,9 +130,11 @@
         @extend .h-button-light;
         @extend .button--fullwidth;
         margin: 30px auto 0;
+        font-size: 1.2rem;
         @include respondTo(desktop) {
           margin: 50px auto 0;
           height: 52px;
+          font-size: 1.6rem;
         }
       }
       .recipe-list-header,

@@ -53,7 +53,9 @@
   }
 }
 .heroDescription {
+  display: none;
   @include respondTo(medium) {
+    display: block;
     margin-bottom: 20px;
   }
 }

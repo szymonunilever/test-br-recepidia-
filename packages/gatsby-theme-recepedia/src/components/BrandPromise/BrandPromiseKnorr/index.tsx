@@ -83,7 +83,7 @@ const BrandPromiseKnorr = ({
         ))}
       </section>
 
-      <section className="wrapper _pt--40 good-for bg-secondary">
+      <section className="wrapper _pt--40 _pb--40 good-for bg-secondary">
         <Listing
           content={findPageComponentContent(components, 'GoodForYouListing')}
           className="good-for__listing"
@@ -104,7 +104,7 @@ const BrandPromiseKnorr = ({
           />
         )}
       </section>
-      <section className="wrapper _pt--40 good-for bg-secondary">
+      <section className="wrapper _pt--40 _pb--40 good-for bg-secondary">
         <Listing
           content={findPageComponentContent(components, 'GoodForPlanetListing')}
           className="good-for__listing"
@@ -126,7 +126,7 @@ const BrandPromiseKnorr = ({
         )}
       </section>
 
-      <section className="wrapper _pb--40 about-future bg-secondary">
+      <section className="wrapper _pt--40 _pb--40 about-future bg-secondary">
         <Text
           tag={TagName.h2}
           text={aboutFutureContent.title}
