@@ -2683,63 +2683,6 @@
           }
         ]
       }
-    },
-    {
-      "type": "FAQ",
-      "title": "Perguntas frequentes",
-      "relativePath": "/faq",
-      "components": {
-        "items": [
-          {
-            "name": "Text",
-            "content": {
-              "view": "Title",
-              "text": "Perguntas frequentes"
-            }
-          },
-          {
-            "name": "FAQs",
-            "content": {
-              "questions": [
-                {
-                  "question": {
-                    "label": "How can I plan my weekly menu?"
-                  },
-                  "answer": {
-                    "text": "<div>You could create your <a rel='noopener noreferrer' href='/planejamento-da-semana'>personalized meal plan</a></div>"
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Where can I see my favorite recipes?"
-                  },
-                  "answer": {
-                    "text": "<div>Follow these steps to see your favorite recipes:<ul><li>Click the favorites icon on the recipe you like</li><li>Go under Profile and check Favorites tab</li></ul></div>"
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Is it possible to change the Meal Panner and Quiz answers after passing them?"
-                  },
-                  "answer": {
-                    "text": "<p>You could check your answers and updated them under Profile on the Preferences tab</p>"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "seo": {
-        "title": "Perguntas frequentes",
-        "description": "Perguntas frequentes",
-        "meta": [
-          {
-            "name": "og:image",
-            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
-          }
-        ]
-      }
     }
   ]
 }
