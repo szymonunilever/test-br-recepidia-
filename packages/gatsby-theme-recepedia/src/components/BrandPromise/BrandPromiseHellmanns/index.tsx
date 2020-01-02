@@ -13,6 +13,7 @@ import {
   mapArticlesListingContent,
   PromiseArticle,
 } from '../mapArticlesListingContent';
+import { IMAGE_SIZES } from 'src/constants';
 
 const BrandPromiseHellmanns = ({
   components,
@@ -110,6 +111,7 @@ const BrandPromiseHellmanns = ({
                 localImage={block.image.localImage}
                 alt={block.image.alt}
                 className="promise-article__block-image"
+                sizes={IMAGE_SIZES.PROMISE_HELLMANNS}
               />
             )}
             <RichText

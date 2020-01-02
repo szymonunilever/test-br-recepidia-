@@ -3156,7 +3156,7 @@
             "content": {
               "title": "Hellmann’s®, descubre el auténtico sabo",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/hero/1436703.jpg",
                 "alt": "Hellmann’s®, descubre el auténtico sabo"
               },
               "links": [
@@ -3186,7 +3186,7 @@
               "blocks": [
                 {
                   "image": {
-                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/promise/1-1.png",
                     "alt": "El problema del plásitco"
                   },
                   "richText": {
@@ -3195,7 +3195,7 @@
                 },
                 {
                   "image": {
-                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/promise/1-2.png",
                     "alt": "El problema del plásitco"
                   },
                   "richText": {
@@ -3204,7 +3204,7 @@
                 },
                 {
                   "image": {
-                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                    "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/promise/1-3.png",
                     "alt": "El problema del plásitco"
                   },
                   "richText": {
@@ -3301,7 +3301,7 @@
             "content": {
               "title": "Knorr.\n La pequeña gran diferencia",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Knorr. La pequeña gran diferencia"
               },
               "links": [
@@ -3362,7 +3362,7 @@
                 "title": "Los 50 alimentos del Futuro:"
               },
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/promise/future.jpg",
                 "alt": "Los 50 alimentos del Futuro"
               }
             }
@@ -3443,7 +3443,7 @@
             "content": {
               "title": "Naturalmente, hecho con maíz",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/maizena/images/hero/1134581.png",
                 "alt": "Naturalmente, hecho con maíz"
               },
               "links": [
@@ -3471,7 +3471,7 @@
               "title": "Una historia sobre el maíz",
               "subtitle": "El maíz es uno de los ingredientes más representativos de la gastronomía mexicana",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/maizena/images/promise/1.jpg",
                 "alt": "Naturalmente, hecho con maíz"
               }
             }
@@ -3538,7 +3538,7 @@
             "content": {
               "title": "What we make",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/hero/1436703.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"
               },
               "links": [
@@ -3652,7 +3652,7 @@
             "name": "BrandHero",
             "content": {
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/maizena/images/hero/1134581.png",
                 "alt": "Naturalmente, hecho con maíz"
               },
               "links": [
@@ -3758,7 +3758,7 @@
             "name": "BrandHero",
             "content": {
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"
               },
               "links": [
@@ -3869,7 +3869,7 @@
             "content": {
               "title": "Hellmann’s®, descubre el auténtico sabo",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/hellmanns/images/hero/1436703.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"
               },
               "links": [
@@ -4025,7 +4025,7 @@
             "name": "BrandHero",
             "content": {
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"
               },
               "links": [
@@ -4185,7 +4185,7 @@
             "content": {
               "title": "PARA ALIMENTAR CON CARIÑO A TU FAMILIA",
               "image": {
-                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/other-images/1.jpg",
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/maizena/images/hero/1134581.png",
                 "alt": "Prueba nuestro Planificador de Menús"
               },
               "links": [

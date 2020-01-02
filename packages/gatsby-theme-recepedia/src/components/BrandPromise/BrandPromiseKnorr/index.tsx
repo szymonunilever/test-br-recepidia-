@@ -12,6 +12,7 @@ import {
   mapArticlesListingContent,
   PromiseArticle,
 } from '../mapArticlesListingContent';
+import { IMAGE_SIZES } from 'src/constants';
 
 const BrandPromiseKnorr = ({
   components,
@@ -141,6 +142,7 @@ const BrandPromiseKnorr = ({
           localImage={aboutFutureContent.image.localImage}
           alt={aboutFutureContent.image.alt}
           className="about-future__image"
+          sizes={IMAGE_SIZES.CONTAINER_WIDTH}
         />
         <Listing
           content={aboutFutureContent.listingTitle}
