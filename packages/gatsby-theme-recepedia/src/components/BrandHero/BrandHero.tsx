@@ -9,6 +9,7 @@ import {
 import { Link } from 'gatsby';
 import theme from './BrandHero.module.scss';
 import { BrandHeroProps } from './models';
+import { IMAGE_SIZES } from 'src/constants';
 
 const BrandHero: FunctionComponent<BrandHeroProps> = ({
   className,
@@ -16,7 +17,7 @@ const BrandHero: FunctionComponent<BrandHeroProps> = ({
   titleLevel = 1,
   brandLogo,
   prefix,
-  imageSizes,
+  imageSizes = IMAGE_SIZES.FULL_WIDTH,
 }) => {
   const { title, image, links } = content;
 

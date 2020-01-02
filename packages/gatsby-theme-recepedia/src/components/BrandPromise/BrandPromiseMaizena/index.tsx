@@ -2,6 +2,7 @@ import React from 'react';
 import { findPageComponentContent } from 'src/utils';
 import { Text, AdaptiveImage, TagName } from 'gatsby-awd-components/src';
 import { ReactComponent as MaizenaSpikeletIcon } from 'src/svgs/inline/spikelet.svg';
+import { IMAGE_SIZES } from 'src/constants';
 
 const BrandPromiseMaizena = ({ components }: MaizenaPromiseProps) => {
   const promiseArticleContent = findPageComponentContent(
@@ -41,6 +42,7 @@ const BrandPromiseMaizena = ({ components }: MaizenaPromiseProps) => {
           localImage={promiseArticleContent.image.localImage}
           alt={promiseArticleContent.image.alt}
           className="promise-article__image"
+          sizes={IMAGE_SIZES.CONTAINER_WIDTH}
         />
       </section>
     </>

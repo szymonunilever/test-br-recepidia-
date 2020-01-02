@@ -60,7 +60,7 @@
         }
       }
       &__block {
-        @include respondTo(desktop) {
+        @include respondTo(medium) {
           display: flex;
           align-items: center;
         }
@@ -75,6 +75,9 @@
       }
       &__block-text {
         flex: 1;
+        @include respondTo(medium) {
+          margin-left: 50px;
+        }
         @include respondTo(desktop) {
           margin-left: 90px;
         }

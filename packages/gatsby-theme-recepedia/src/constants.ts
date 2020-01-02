@@ -53,4 +53,8 @@ export const IMAGE_SIZES = {
     TILES: '(max-width: 1366px) 50vw, 500px',
   },
   HERO: '(max-width: 1365px) 500px, 800px',
+  PROMISE_HELLMANNS:
+    '(max-width: 767px) 100vw, (max-width: 1365px) 50vw, 500px',
+  CONTAINER_WIDTH: '(max-width: 1365px) 100vw, 1092px',
+  FULL_WIDTH: '100vw',
 };
