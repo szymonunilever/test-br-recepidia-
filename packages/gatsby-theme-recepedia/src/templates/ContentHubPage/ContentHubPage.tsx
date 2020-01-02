@@ -29,8 +29,8 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import '../../scss/pages/_contentHub.scss';
 //TODO: add this part to main page json and remove this import
 import useMedia from 'src/utils/useMedia';
-import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
+import withRecipeAsyncLoadMore from 'src/components/withRecipeAsyncLoadMore';
+import { WithRecipeAsyncLoadMore } from 'src/components/withRecipeAsyncLoadMore/models';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
 
@@ -184,9 +184,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   );
 };
 
-export default withInitialDataAndAsyncLoadMore<ContentHubPageProps>(
-  ContentHubPage
-);
+export default withRecipeAsyncLoadMore<ContentHubPageProps>(ContentHubPage);
 
 export const query = graphql`
   query($slug: String, $name: String) {
@@ -242,7 +240,7 @@ export const query = graphql`
 //   }
 // }
 
-interface ContentHubPageProps extends WithInitialDataAndAsyncLoadMore {
+interface ContentHubPageProps extends WithRecipeAsyncLoadMore {
   data: {
     tag: Internal.Tag;
     allRecipe: {

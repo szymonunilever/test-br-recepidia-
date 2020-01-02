@@ -7,7 +7,7 @@ import _values from 'lodash/values';
 import _compact from 'lodash/compact';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const withInitialDataAndAsyncLoadMore = <T extends any>(
+const withRecipeAsyncLoadMore = <T extends any>(
   Component: React.ComponentType<T>
 ) => {
   const Composition = (props: T) => {
@@ -143,4 +143,4 @@ const withInitialDataAndAsyncLoadMore = <T extends any>(
   return Composition;
 };
 
-export default withInitialDataAndAsyncLoadMore;
+export default withRecipeAsyncLoadMore;

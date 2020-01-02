@@ -2,6 +2,7 @@ const Auth = require('@aws-amplify/auth').default;
 const Amplify = require('aws-amplify').default;
 const axios = require('axios');
 const times = require('lodash/times');
+const blocksToHtml = require('@sanity/block-content-to-html');
 
 global['fetch'] = require('node-fetch');
 
@@ -131,6 +132,13 @@ const updateArticles = async articles => {
   //if (await isIndexExists(indexUrl, index, token)) {
   await clearIndex(indexUrl, index, token);
   //}
+  articles.map(article => {
+    if (article.content) {
+      article.content = blocksToHtml({
+        blocks: JSON.parse(article.content),
+      });
+    }
+  });
 
   return bulkBatchPost(
     articles,

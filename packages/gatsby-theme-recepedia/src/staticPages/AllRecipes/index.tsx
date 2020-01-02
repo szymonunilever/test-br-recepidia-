@@ -31,11 +31,11 @@ import { WindowLocation } from '@reach/router';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import useFavorite from 'src/utils/useFavorite';
-import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
+import withRecipeAsyncLoadMore from 'src/components/withRecipeAsyncLoadMore';
 import {
   QueryString,
-  WithInitialDataAndAsyncLoadMore,
-} from 'src/components/withInitialDataAndAsyncLoadMore/models';
+  WithRecipeAsyncLoadMore,
+} from 'src/components/withRecipeAsyncLoadMore/models';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
@@ -296,9 +296,7 @@ const AllRecipesPage = ({
   );
 };
 
-export default withInitialDataAndAsyncLoadMore<AllRecipesPageProps>(
-  AllRecipesPage
-);
+export default withRecipeAsyncLoadMore<AllRecipesPageProps>(AllRecipesPage);
 
 export const query = graphql`
   query($RecipeListing_SeasonalPromotionalRecipes: [Int]) {
@@ -339,7 +337,7 @@ export const query = graphql`
   }
 `;
 
-interface AllRecipesPageProps extends WithInitialDataAndAsyncLoadMore {
+interface AllRecipesPageProps extends WithRecipeAsyncLoadMore {
   data: {
     promotionalRecipes: {
       nodes: Internal.Recipe[];

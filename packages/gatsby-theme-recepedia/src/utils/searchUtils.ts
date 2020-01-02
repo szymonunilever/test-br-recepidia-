@@ -151,9 +151,9 @@ const articleSearchParams = (
       query_string: {
         // eslint-disable-next-line @typescript-eslint/camelcase
         analyze_wildcard: true,
-        query: '',
-        // query: `${searchQuery}*`, // TODO Uncomment line to show articles (EAT-1451)
-        fields: ['title^5', 'articleText.text^2'],
+        // query: '',
+        query: `${searchQuery}*`,
+        fields: ['title^5', 'content^2'],
       },
     },
   ];
@@ -165,7 +165,7 @@ const articleSearchParams = (
         // eslint-disable-next-line @typescript-eslint/camelcase
         analyze_wildcard: true,
         query: filter,
-        fields: ['tagGroups.tags.id'],
+        fields: ['tags.id'],
       },
     });
 

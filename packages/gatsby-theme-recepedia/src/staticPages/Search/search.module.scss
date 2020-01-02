@@ -20,8 +20,7 @@
       .tags__list {
         padding-top: 15px;
         @include respondTo(desktop) {
-          // padding: 0 0 30px; // TODO Fix styles on Tabs hiding EAT-1451
-          padding: 0;
+          padding: 0 0 30px;
         }
       }
     }
@@ -30,10 +29,10 @@
         display: block;
         max-width: unset;
         font: 500 2.4rem/1.17 $rubik;
-        //margin-bottom: 15px; // TODO Fix styles on Tabs hiding EAT-1451
+        margin-bottom: 15px;
         @include respondTo(medium) {
           max-width: calc(100% - 200px);
-          margin-top: 10px; // TODO Fix styles on Tabs hiding EAT-1451
+          margin-top: 10px;
         }
         @include respondTo(desktop) {
           font-size: 2.5rem;

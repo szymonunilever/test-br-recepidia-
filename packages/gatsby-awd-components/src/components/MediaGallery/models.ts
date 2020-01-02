@@ -1,7 +1,7 @@
 import {
   titleLevel,
   UnileverLibraryComponent,
-} from '../../models/globalModels';
+} from '../../models';
 
 export interface MediaGalleryProps
   extends UnileverLibraryComponent<AppContent.MediaGalleryContent> {
@@ -11,4 +11,10 @@ export interface MediaGalleryProps
   titleLevel?: titleLevel;
   allCount: number;
   onLoadMore: (articlePerLoad: number) => void;
+  viewType?: MediaGalleryViewType;
+}
+
+export enum MediaGalleryViewType {
+  FourRowed,
+  TwoRowed,
 }

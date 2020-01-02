@@ -186,6 +186,8 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             articleConfig: {
               getArticleSearchData,
               onArticleViewChange,
+              initialCount: initialArticlesCount,
+              articlePerLoad: 4,
             },
           }}
           content={{

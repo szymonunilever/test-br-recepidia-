@@ -99,7 +99,8 @@ exports.sourceNodes = async (
       name: articleName,
       title: articleName,
       content: JSON.stringify(articleContent),
-      assets: []
+      assets: [],
+      tags: tags ? tags.map(el => ({...el, name: el.displayName })) : []
     };
     createArticleNodes(
       articleNode,
@@ -174,6 +175,8 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       content: String
       assets: [ArticleAsset]
       fields: ArticleSlugField
+      brand: String
+      tags: [ArticleTags]
     }
     type ArticleAsset {
       filename: String!
@@ -182,6 +185,10 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
     type ArticleSlugField {
       slug: String!
+    }
+    type ArticleTags {
+      id: String!
+      name: String!
     }
   `;
   createTypes(typeDefs);
