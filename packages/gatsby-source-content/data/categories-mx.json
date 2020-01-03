@@ -711,6 +711,358 @@
         "id": 10,
         "name": "veganas"
       }
+    ],
+    "categories": [
+      {
+        "id": 71,
+        "parentId": 7,
+        "name": "aptas-para-el-embarazo",
+        "description": "",
+        "title": "Aptas para el embarazo",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 7,
+          "name": "pregnancy_safe"
+        },
+        "tags": [
+          {
+            "id": 7,
+            "name": "pregnancy_safe"
+          }
+        ]
+      },
+      {
+        "id": 72,
+        "parentId": 7,
+        "name": "dieta-cruda",
+        "description": "Dieta cruda",
+        "title": "Dieta cruda",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 8,
+          "name": "raw_food"
+        },
+        "tags": [
+          {
+            "id": 8,
+            "name": "raw_food"
+          }
+        ]
+      },
+      {
+        "id": 73,
+        "parentId": 7,
+        "name": "dieta-paleo",
+        "description": "Dieta Paleo",
+        "title": "Dieta Paleo",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 6,
+          "name": "paleo_diet"
+        },
+        "tags": [
+          {
+            "id": 6,
+            "name": "paleo_diet"
+          }
+        ]
+      },
+      {
+        "id": 74,
+        "parentId": 7,
+        "name": "sin-gluten",
+        "description": "Sin gluten",
+        "title": "Sin gluten",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 3,
+          "name": "gluten_free"
+        },
+        "tags": [
+          {
+            "id": 3,
+            "name": "gluten_free"
+          }
+        ]
+      },
+      {
+        "id": 75,
+        "parentId": 7,
+        "name": "sin-huevo",
+        "description": "Sin huevo",
+        "title": "Sin huevo",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 2,
+          "name": "egg_free"
+        },
+        "tags": [
+          {
+            "id": 2,
+            "name": "egg_free"
+          }
+        ]
+      },
+      {
+        "id": 76,
+        "parentId": 7,
+        "name": "sin-lacteos",
+        "description": "Sin lacteos",
+        "title": "Sin lacteos",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 4,
+          "name": "lactose_free"
+        },
+        "tags": [
+          {
+            "id": 4,
+            "name": "lactose_free"
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "parentId": 7,
+        "name": "sin-nueces",
+        "description": "Sin nueces",
+        "title": "Sin nueces",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 5,
+          "name": "nut_free"
+        },
+        "tags": [
+          {
+            "id": 5,
+            "name": "nut_free"
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "parentId": 7,
+        "name": "sin-trigo",
+        "description": "Sin trigo",
+        "title": "Sin trigo",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 9,
+          "name": "wheat_free"
+        },
+        "tags": [
+          {
+            "id": 9,
+            "name": "wheat_free"
+          }
+        ]
+      },
+      {
+        "id": 79,
+        "parentId": 7,
+        "name": "veganas",
+        "description": "Veganas",
+        "title": "Veganas",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 10,
+          "name": "vegan"
+        },
+        "tags": [
+          {
+            "id": 10,
+            "name": "vegan"
+          }
+        ]
+      },
+      {
+        "id": 80,
+        "parentId": 7,
+        "name": "vegetarinas",
+        "description": "Vegetarianas",
+        "title": "Vegetarianas",
+        "image": {
+          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos.jpg",
+          "alt": "Category Image reference",
+          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACcQAAEDAwMCBwEAAAAAAAAAAAIBAwQABRESIWEGFBMjMUFCUZFx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACMRAQAABQIHAQAAAAAAAAAAAAEAAgMEEQXwEiEiMWFxgZH/2gAMAwEAAhEDEQA/AIFvkMWh9O+kW9pwB1aWgMzVOFLAivO6pTT/AFFYmSHxmG3NWCBAcJFFccbqv8rN9XWjt4yy+4JxsR0qy4OUXf1z7LylZMhgOMpJejSHMfApCY/dOay6lmVAabg/Iut9SZFLg6ztzzg9xRN9ZL7zsC4lHjEaqAPoWvH2uNvyinLVMl3SED0ZY0NgPLBkWdSIic55opxQAwhv5Am1Ry8MzjfmP//Z",
+          "aspectRatio": 1.58,
+          "width": 600,
+          "height": 400,
+          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg",
+          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp",
+          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.jpg 900w",
+          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/frangos-900.webp 900w",
+          "sizes": "(max-width: 500px) 90vw, 500px"
+        },
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 800,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 11,
+          "name": "vegetarian"
+        },
+        "tags": [
+          {
+            "id": 11,
+            "name": "vegetarian"
+          }
+        ]
+      }
     ]
   },
   {

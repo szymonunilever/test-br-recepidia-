@@ -38,13 +38,12 @@ import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import {
   dietaryEqual,
   favoriteButtonDefaults,
-  RecipeListingIcons as recipeListingIcons,
+  dietaryAttributesIcons,
 } from '../../themeDefaultComponentProps';
 import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
-import * as icons from 'src/svgs/attributes';
 import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import AddThis from '../../../integrations/AddThis';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
@@ -65,7 +64,6 @@ import intersection from 'lodash/intersection';
 import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
-import { dietaryAttributesIcons } from '../../themeDefaultComponentProps';
 import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 
 const infoIcon = <InfoIcon />;
