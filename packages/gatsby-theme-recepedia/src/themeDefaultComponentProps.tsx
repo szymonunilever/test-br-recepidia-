@@ -61,6 +61,26 @@ export const dietaryAttributesIcons: {
     active: <icons.LactoseFreeActive />,
     inActive: <icons.LactoseFreeInactive />,
   },
+  '5': {
+    active: <icons.NutFreeActive />,
+    inActive: <icons.NutFreeInactive />,
+  },
+  '6': {
+    active: <icons.PaleoDietActive />,
+    inActive: <icons.PaleoDietInactive />,
+  },
+  '7': {
+    active: <icons.PregnancySafeActive />,
+    inActive: <icons.PregnancySafeInactive />,
+  },
+  '8': {
+    active: <icons.RawFoodActive />,
+    inActive: <icons.RawFoodInactive />,
+  },
+  '9': {
+    active: <icons.WheatFreeActive />,
+    inActive: <icons.WheatFreeInactive />,
+  },
   '10': {
     active: <icons.VeganActive />,
     inActive: <icons.VeganInactive />,

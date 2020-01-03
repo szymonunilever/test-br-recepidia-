@@ -37,6 +37,16 @@ const RecipeDietaryAttributes: FunctionComponent<RecipeDietaryAttributesProps> =
         attributes && attributes.find(attr => attr.tagId === parseInt(key));
       const check = inActive ? icon.inActive : true;
       if (attr && check) {
+        const attributeComponent = (
+          <Attribute
+            infoIcon={infoIcon}
+            key={attr.tagId}
+            tag={attr}
+            icon={inActive
+              ? iconNormalize(icon.inActive)
+              : iconNormalize(icon.active)}
+          />
+        );
         return (
           <li key={attr.tagId}
             aria-describedby={`${attr.tagId}`}
@@ -48,24 +58,10 @@ const RecipeDietaryAttributes: FunctionComponent<RecipeDietaryAttributesProps> =
             {categoryLinksMap && categoryLinksMap[`${attr.tagId}`]
               ? (
                   <Link to={categoryLinksMap[attr.tagId]}>
-                      <Attribute
-                      infoIcon={infoIcon}
-                      key={attr.tagId}
-                      tag={attr}
-                      icon={inActive
-                        ? iconNormalize(icon.inActive)
-                        : iconNormalize(icon.active)}
-                      />
+                    {attributeComponent}
                   </Link>
               )
-              : (
-                  <Attribute
-                    infoIcon={infoIcon}
-                    key={attr.tagId}
-                    tag={attr}
-                    icon={inActive ? iconNormalize(icon.inActive) : iconNormalize(icon.active)}
-                  />
-                )
+              : (attributeComponent)
             }
           </li>
         );
