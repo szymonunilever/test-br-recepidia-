@@ -30,7 +30,7 @@ export const LookByCategory: FunctionComponent<LookByCategoryProps> = ({
           href={`#${catIds[i]}`}
           className={cx(theme.lookByCategory__link, 'look-by-category__link')}
         >
-          {cat}
+          {cat.toLowerCase()}
         </a>
       ))}
     </div>

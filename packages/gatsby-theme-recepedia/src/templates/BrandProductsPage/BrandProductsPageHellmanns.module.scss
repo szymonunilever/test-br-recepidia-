@@ -18,6 +18,7 @@
       }
     }
     .product-carousel {
+      background-color: $hellmans-color-secondary;
       .card {
         &__info {
           max-height: 125px;
@@ -26,6 +27,7 @@
       }
     }
     .featured-products {
+      background-color: $hellmans-color-primary;
       padding-top: 25px;
       @include respondTo(medium) {
         padding-top: 50px;

@@ -147,7 +147,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
         content={findPageComponentContent(components, 'BrandHero')}
         titleLevel={2}
         brandLogo={BrandLogo}
-        prefix={brand === 'Knorr' ? brand + '.' : ''}
+        prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
       />
     </section>
   );
