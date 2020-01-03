@@ -3299,7 +3299,7 @@
           {
             "name": "BrandHero",
             "content": {
-              "title": "Knorr.\n La pequeña gran diferencia",
+              "title": "La pequeña gran diferencia",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Knorr. La pequeña gran diferencia"
@@ -3651,6 +3651,7 @@
           {
             "name": "BrandHero",
             "content": {
+              "title": "Naturalmente, hecho con maíz",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/maizena/images/hero/1134581.png",
                 "alt": "Naturalmente, hecho con maíz"
@@ -3757,6 +3758,7 @@
           {
             "name": "BrandHero",
             "content": {
+              "title": "La pequeña gran diferencia",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"
@@ -4024,6 +4026,7 @@
           {
             "name": "BrandHero",
             "content": {
+              "title": "La pequeña gran diferencia",
               "image": {
                 "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/brands-content/knorr/images/hero/1709353.jpg",
                 "alt": "Prueba nuestro Planificador de Menús"

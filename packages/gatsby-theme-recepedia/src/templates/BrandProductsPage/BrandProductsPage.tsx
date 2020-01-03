@@ -34,6 +34,7 @@ import LookByCategory from '../../components/LookByCategory';
 import { IMAGE_SIZES } from '../../constants';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import '../../scss/pages/_brand.scss';
+import { ReactComponent as MaizenaSpikeletIcon } from 'src/svgs/inline/spikelet.svg';
 
 const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   pageContext,
@@ -67,7 +68,7 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   const classWrapper = cx(
     theme.brandProductsPage,
     'brand-page',
-    'brand-product-page',
+    'brand-products-page',
     brand
   );
 
@@ -206,11 +207,11 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
       return (
         <div className="product-category-listing cards--light">
           {showFullList[category] ? (
-            <Listing content={{ title: category }} titleLevel={3}>
+            <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
               {categoryCards[category]}
             </Listing>
           ) : (
-            <Listing content={{ title: category }} titleLevel={3}>
+            <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
               {initialView}
             </Listing>
           )}
@@ -228,7 +229,7 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     } else {
       return (
         <GenericCarousel
-          content={{ title: category }}
+          content={{ title: category.toLowerCase() }}
           config={carouselConfig}
           className="product-category-carousel cards--light"
           titleLevel={3}
@@ -259,11 +260,17 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
             content={findPageComponentContent(components, 'BrandHero')}
             titleLevel={1}
             brandLogo={BrandLogo}
+            prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
           />
         </section>
       )}
       {productCarouselContent && (
         <section className="wrapper product-carousel _pt--40 _pb--40 bg-secondary">
+          {brand && brand.toLowerCase() === 'maizena' ? (
+            <div className="spikelet-icon">
+              <MaizenaSpikeletIcon />
+            </div>
+          ) : null}
           <GenericCarousel
             content={productCarouselContent}
             titleLevel={2}

@@ -97,6 +97,7 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
           content={findPageComponentContent(components, 'BrandHero')}
           titleLevel={1}
           brandLogo={BrandLogo}
+          prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
         />
       </section>
       {/*

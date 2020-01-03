@@ -1,10 +1,171 @@
 @import 'src/scss/vars';
 @import 'src/scss/mixins';
-@import './../../scss/brands/maizena/index.scss';
-
-.brand-promise-page {
-  color: yellow !important;
+@import './../../scss/brands/maizena/fonts.scss';
+:global {
+  @import './../../scss/brands/maizena/_theme.scss';
+  @import './../../scss/components/Button/_index.scss';
 }
-.text {
-  color: yellow !important;
+.brand-products-page {
+  :global {
+    h2 {
+      font: 700 3rem/1.33 $vivaStdBold;
+      color: $maizena-color-secondary;
+      text-align: center;
+      @include respondTo(desktop) {
+        font-size: 4.5rem;
+        line-height: 1.56;
+      }
+    }
+    h3 {
+      font: 700 2.2rem/1.09 $vivaStdBold;
+      color: $maizena-color-secondary;
+      @include respondTo(desktop) {
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+    }
+    .carousel {
+      .slide-arrow {
+        @extend .m-button-dark;
+      }
+    }
+    .card {
+      &__info {
+        max-height: 125px;
+        overflow: hidden;
+        @include respondTo(desktop) {
+          max-height: 132px;
+        }
+      }
+      &__title {
+        font: 700 2rem/1 $vivaStdBold;
+        color: $maizena-color-secondary;
+        @include respondTo(desktop) {
+          font-size: 2rem;
+          line-height: 1;
+        }
+      }
+      &__description {
+        font: 400 1.2rem/1.25 $proximaNovaNormal;
+        color: $maizena-color-secondary;
+        @include respondTo(desktop) {
+          font-size: 1.4rem;
+          line-height: 1.21;
+        }
+      }
+    }
+    .spikelet-icon {
+      text-align: center;
+    }
+    .product-carousel {
+      background-color: $maizena-color-primary !important;
+      .recipe-list__header {
+        margin-top: 15px;
+      }
+    }
+    .featured-products {
+      padding-top: 25px;
+      .listing {
+        &__item {
+          width: calc(50% - 10px);
+          @include respondTo(medium) {
+            width: calc(50% - 16px);
+          }
+        }
+      }
+      .gatsby-image-wrapper {
+        height: 121px;
+        @include respondTo(medium) {
+          height: 250px;
+        }
+      }
+    }
+    .look-by-category {
+      @include respondTo(desktop) {
+        padding: 20px 0;
+      }
+      &__title {
+        margin-top: 0;
+      }
+      &__links {
+        margin-bottom: 30px;
+        @include respondTo(desktop) {
+          margin-bottom: 0;
+        }
+      }
+      &__link {
+        position: relative;
+        display: inline-block;
+        font: 400 1.6rem/1.88 $proximaNovaNormal;
+        color: $maizena-color-secondary;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-right: 5px;
+        @include respondTo(desktop) {
+          font: 400 2.2rem/1.36 $proximaNovaNormal;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+        & + a {
+          padding-left: 6px;
+          &:before {
+            content: '';
+            position: absolute;
+            border-left: 1px solid $maizena-color-secondary;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1em;
+          }
+        }
+      }
+      &__blocks {
+        .button {
+          @extend .m-button-dark;
+          @extend .button--fullwidth;
+          margin: 50px auto 40px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .product-category-listing,
+    .product-category-carousel {
+      padding-top: 20px;
+      @include respondTo(desktop) {
+        padding-top: 40px;
+      }
+      .gatsby-image-wrapper {
+        height: 162px;
+        @include respondTo(medium) {
+          height: 250px;
+        }
+      }
+      .carousel {
+        .slide-arrow {
+          top: 58px;
+        }
+        height: 300px;
+        .adaptive-image {
+          flex-shrink: 0;
+        }
+        .card {
+          max-height: 300px;
+          overflow: hidden;
+          &__info {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
+    .recipe-list {
+      &__header {
+        text-transform: capitalize;
+      }
+    }
+    .brand-social {
+      margin-top: 0 !important;
+    }
+  }
 }
