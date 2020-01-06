@@ -85,6 +85,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
   },
   location,
 }) => {
+  const brandLogoLink = getPagePath('Search');
   const mealPlannerURL = getPagePath('MealPlanner');
   const allRecipesURL = getPagePath('AllRecipes');
 
@@ -281,6 +282,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
                   allCount: totalCount,
                 }}
                 imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+                brandLogoLink={brandLogoLink}
               >
                 {recipeList
                   ? recipeList.map(recipe => (
@@ -361,6 +363,7 @@ const FavoritesRecipeListingPage: FunctionComponent<
               titleLevel={2}
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
               ratingProvider={RatingAndReviewsProvider.inline}
+              brandLogoLink={brandLogoLink}
             >
               {mealPlannerResults
                 ? mealPlannerResults.map(recipe => (

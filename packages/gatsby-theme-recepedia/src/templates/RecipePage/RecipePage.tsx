@@ -65,6 +65,7 @@ import { ReactComponent as InfoIcon } from '../../svgs/inline/info.svg';
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
 import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
+import { getPagePath } from '../../utils/getPagePath';
 
 const infoIcon = <InfoIcon />;
 const socialIcons: SocialIcons = {
@@ -92,6 +93,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     recipe,
     relatedRecipes,
   } = pageContext;
+  const brandLogoLink = getPagePath('Search');
   const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
   const tags = recipeTags.nodes;
   const isRecipeValid = isRecipeValidForReview(recipe, pageContext.tagIds);
@@ -362,6 +364,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {relatedRecipes
             ? relatedRecipes.map(recipe => (

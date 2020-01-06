@@ -60,6 +60,7 @@ const recipeSearchParams = (
           'description^2',
           'tagGroups.tags.name^4',
           'ingredients.description^3',
+          'brand^1',
         ],
       },
     },
@@ -153,7 +154,7 @@ const articleSearchParams = (
         analyze_wildcard: true,
         // query: '',
         query: `${searchQuery}*`,
-        fields: ['title^5', 'content^2'],
+        fields: ['title^5', 'content^3', 'brand^2'],
       },
     },
   ];

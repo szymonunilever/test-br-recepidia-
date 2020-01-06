@@ -5,6 +5,7 @@ import { TagName, Text } from '../Text';
 import { Button } from '../Button';
 import MediaGalleryItem from './partials/MediaGalleryItem';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import { AppContext } from '../../context/appContext';
 
 const MediaGallery = ({
   list,
@@ -14,6 +15,7 @@ const MediaGallery = ({
   titleLevel = 2,
   onLoadMore,
   allCount,
+  brandLogoLink = '',
   viewType = MediaGalleryViewType.FourRowed
 }: MediaGalleryProps) => {
   const [articles, setArticles] = useState<Internal.Article[]>(list);
@@ -38,36 +40,38 @@ const MediaGallery = ({
     ) : null;
 
   return (
-    <div
-      className={cx('media-gallery', className)}
-      {...getComponentDataAttrs('media-gallery', content)}
-    >
-      {content.title && (
-        <Text
-          className="media-gallery__title"
-          // @ts-ignore
-          tag={TagName[`h${titleLevel}`]}
-          text={content.title}
-        />
-      )}
+    <AppContext.Provider value={{ brandLogoLink }}>
+      <div
+        className={cx('media-gallery', className)}
+        {...getComponentDataAttrs('media-gallery', content)}
+      >
+        {content.title && (
+          <Text
+            className="media-gallery__title"
+            // @ts-ignore
+            tag={TagName[`h${titleLevel}`]}
+            text={content.title}
+          />
+        )}
 
-      <ul className="media-gallery__list">
-        {articles.map((item: Internal.Article) => {
-          return (
-            <MediaGalleryItem
-              key={item.id}
-              brand={item.brand}
-              title={item.title}
-              fields={item.fields}
-              assets={item.assets}
-              className={galleryViewType}
-            />
-          );
-        })}
-      </ul>
+        <ul className="media-gallery__list">
+          {articles.map((item: Internal.Article) => {
+            return (
+              <MediaGalleryItem
+                key={item.id}
+                brand={item.brand}
+                title={item.title}
+                fields={item.fields}
+                assets={item.assets}
+                className={galleryViewType}
+              />
+            );
+          })}
+        </ul>
 
-      {loadMoreBtn}
-    </div>
+        {loadMoreBtn}
+      </div>
+    </AppContext.Provider>
   );
 };
 

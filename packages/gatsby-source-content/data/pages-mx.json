@@ -3274,6 +3274,10 @@
                 {
                   "label": "Pinterest",
                   "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {

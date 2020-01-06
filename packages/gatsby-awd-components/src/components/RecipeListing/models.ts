@@ -31,7 +31,8 @@ export interface RecipeListingProps extends UnileverLibraryComponent<Partial<App
   onViewChange?: onRecipeListingViewChanged;
   isExternalItemLink?: boolean;
   hideFilter?: boolean;
-  children?: RecipeListingTrivialProps['children'] | ReactElement<RecipeAddPlaceholderProps>[]
+  children?: RecipeListingTrivialProps['children'] | ReactElement<RecipeAddPlaceholderProps>[],
+  brandLogoLink?: string;
 }
 
 export type onRecipeListingViewChanged = (

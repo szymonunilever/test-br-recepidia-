@@ -37,6 +37,7 @@ import map from 'lodash/map';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as CloseSvg } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
+import { getPagePath } from '../../utils/getPagePath';
 
 const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
   const {
@@ -47,6 +48,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     ...category,
     path: category.fields.slug,
   }));
+  const brandLogoLink = getPagePath('Search');
 
   const {
     getArticleSearchData,
@@ -193,6 +195,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
           content={{
             ...findPageComponentContent(components, 'SearchListing'),
           }}
+          brandLogoLink={brandLogoLink}
         />
       </section>
 

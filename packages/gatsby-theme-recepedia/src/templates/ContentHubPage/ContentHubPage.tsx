@@ -33,6 +33,7 @@ import withRecipeAsyncLoadMore from 'src/components/withRecipeAsyncLoadMore';
 import { WithRecipeAsyncLoadMore } from 'src/components/withRecipeAsyncLoadMore/models';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
+import { getPagePath } from '../../utils/getPagePath';
 
 const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
   data,
@@ -52,6 +53,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
   );
+  const brandLogoLink = getPagePath('Search');
 
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
@@ -106,6 +108,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
           titleLevel={1}
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
@@ -113,6 +116,7 @@ const ContentHubPage: React.FunctionComponent<ContentHubPageProps> = ({
                   title={recipe.title}
                   key={recipe.id}
                   slug={recipe.fields.slug}
+                  cardKey={recipe.id}
                 >
                   <RecipeCard
                     key={recipe.id}

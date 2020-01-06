@@ -39,6 +39,7 @@ import {
 import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
+import { getPagePath } from '../../utils/getPagePath';
 
 const AllRecipesPage = ({
   data,
@@ -57,7 +58,7 @@ const AllRecipesPage = ({
     page: { seo, components, type },
   } = pageContext;
   const { promotionalRecipes, allTagGroupings } = data;
-
+  const brandLogoLink = getPagePath('Search');
   const { updateFavoriteState, favorites } = useFavorite(
     () => getUserProfileByKey(ProfileKey.favorites) as number[],
     updateFavorites
@@ -195,6 +196,7 @@ const AllRecipesPage = ({
           }}
           onViewChange={onViewChange}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (
@@ -255,6 +257,7 @@ const AllRecipesPage = ({
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {promotionalRecipes.nodes
             ? promotionalRecipes.nodes.map(recipe => (

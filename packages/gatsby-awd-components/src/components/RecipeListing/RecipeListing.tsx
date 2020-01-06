@@ -25,6 +25,7 @@ import {
 } from '../Filter/utils';
 import get from 'lodash/get';
 import { getComponentDataAttrs } from '../../utils';
+import { AppContext } from '../../context/appContext';
 
 export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   className,
@@ -51,6 +52,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
   list,
   children,
   hideFilter = false,
+  brandLogoLink = '',
   ...props
 }) => {
 
@@ -276,13 +278,15 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
     );
 
   return (
-    <div
-      {...getComponentDataAttrs('recipeListing', props.content)}
-      className={wrapClasses}
-    >
-      {listHeader}
-      {view}
-    </div>
+    <AppContext.Provider value={{ brandLogoLink }}>
+      <div
+        {...getComponentDataAttrs('recipeListing', props.content)}
+        className={wrapClasses}
+      >
+        {listHeader}
+        {view}
+      </div>
+    </AppContext.Provider>
   );
 };
 
