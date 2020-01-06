@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import {
   Button,
   LoadMoreType,
@@ -87,6 +87,35 @@ const FavoritesRecipeListingPage: FunctionComponent<
 }) => {
   const mealPlannerURL = getPagePath('MealPlanner');
   const allRecipesURL = getPagePath('AllRecipes');
+
+  const wizardPages = useStaticQuery(graphql`
+    {
+      allPage(filter: { type: { in: ["Home", "MealPlanner"] } }) {
+        nodes {
+          type
+          components {
+            items {
+              name
+              content
+            }
+          }
+        }
+      }
+    }
+  `).allPage.nodes;
+  const introQuizQuestions = JSON.parse(
+    findPageComponentContent(
+      wizardPages.find(node => node.type === 'Home').components,
+      'Wizard'
+    )
+  ).questions;
+  const MPQuizQuestions = JSON.parse(
+    findPageComponentContent(
+      wizardPages.find(node => node.type === 'MealPlanner').components,
+      'Wizard'
+    )
+  ).wizardQuiz.questions;
+
   const recipeContent = findPageComponentContent(
     components,
     'RecipeListing',
@@ -303,14 +332,14 @@ const FavoritesRecipeListingPage: FunctionComponent<
             content={userPreferencesContent}
           >
             <PreferencesQuiz
-              questions={preferencesQuizContent.questions}
+              questions={introQuizQuestions}
               // @ts-ignore
               answers={initialQuizAnswers}
               heading={preferencesQuizContent.quizTitle}
               quizKey={ProfileKey.initialQuiz}
             />
             <PreferencesQuiz
-              questions={mealPlannerQuizContent.questions}
+              questions={MPQuizQuestions}
               // @ts-ignore
               answers={mpAnswers}
               heading={mealPlannerQuizContent.quizTitle}
