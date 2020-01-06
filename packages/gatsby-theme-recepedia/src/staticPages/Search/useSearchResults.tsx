@@ -76,6 +76,7 @@ const useSearchResults = (searchQuery: string) => {
             count: res.body.hits.total.value,
           });
         })
+        .catch(() => {})
         .finally(() => {
           setArticleResultsFetched(true);
         });
@@ -109,7 +110,7 @@ const useSearchResults = (searchQuery: string) => {
     setRecipeResultsFetched(false);
     setArticleResultsFetched(false);
     Promise.all([
-      // getArticleSearchData(searchQuery, params, ''), // TODO avoid request to articles EAT-1451
+      getArticleSearchData(searchQuery, params, ''),
       getRecipeSearchData(searchQuery, params, ''),
     ]).then(() => {
       setRecipeResultsFetched(true);
@@ -123,13 +124,11 @@ const useSearchResults = (searchQuery: string) => {
     [searchQuery]
   );
 
-  // const initialArticlesCount = useResponsiveScreenInitialSearch( // TODO avoid request to articles EAT-1451
-  //   (size: number) => getSearchData(searchQuery, { size }),
-  //   get(articleResults, 'list.length', 0),
-  //   [searchQuery]
-  // );
-
-  const initialArticlesCount = 8;
+  const initialArticlesCount = useResponsiveScreenInitialSearch(
+    (size: number) => getSearchData(searchQuery, { size }),
+    get(articleResults, 'list.length', 0),
+    [searchQuery]
+  );
 
   return {
     getSearchData,

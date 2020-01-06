@@ -39,7 +39,10 @@ export declare interface SearchListingConfig {
 interface ArticleConfig {
   getArticleSearchData?: getSearchData;
   onArticleViewChange: onRecipeListingViewChanged;
+  initialCount: number;
+  articlePerLoad: number;
 }
+
 
 interface SearchInputConfig {
   onClickSearchResultsItem?: SearchInputProps['onClickSearchResultsItem'];

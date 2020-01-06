@@ -22,6 +22,10 @@
                 "path": "/planificador-de-menus"
               },
               {
+                "name": "Más Contenido",
+                "path": "/articulos"
+              },
+              {
                 "name": "Nuestras Marcas",
                 "navId": "brands",
                 "children": [

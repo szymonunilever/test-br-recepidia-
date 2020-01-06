@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import cx from 'classnames';
-import { MediaGalleryProps } from './models';
+import { MediaGalleryProps, MediaGalleryViewType } from './models';
 import { TagName, Text } from '../Text';
 import { Button } from '../Button';
 import MediaGalleryItem from './partials/MediaGalleryItem';
@@ -14,6 +14,7 @@ const MediaGallery = ({
   titleLevel = 2,
   onLoadMore,
   allCount,
+  viewType = MediaGalleryViewType.FourRowed
 }: MediaGalleryProps) => {
   const [articles, setArticles] = useState<Internal.Article[]>(list);
 
@@ -21,9 +22,11 @@ const MediaGallery = ({
     setArticles(list);
   }, [list]);
 
-  const loadMore = useCallback(() => {
+  const loadMore = () => {
     onLoadMore(galleryItemsPerLoad);
-  }, []);
+  };
+
+  const galleryViewType = viewType === MediaGalleryViewType.TwoRowed ? 'media-gallery__item--two-rows' : '';
 
   const loadMoreBtn =
     articles.length < allCount ? (
@@ -53,9 +56,11 @@ const MediaGallery = ({
           return (
             <MediaGalleryItem
               key={item.id}
+              brand={item.brand}
               title={item.title}
               fields={item.fields}
               assets={item.assets}
+              className={galleryViewType}
             />
           );
         })}

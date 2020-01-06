@@ -10,7 +10,11 @@
   }
 
   &__button {
-    &-wrap {
+    width: 100%;
+    @include respondTo(medium) {
+      width: 35.2rem;
+    }
+      &-wrap {
       margin-top: 20px;
       text-align: center;
     }
@@ -27,6 +31,27 @@
       margin: 8px;
     }
 
+    &--two-rows {
+      @include respondTo(medium) {
+        width: calc(50% - 16px);
+        margin: 8px 8px 20px;
+      }
+
+      :global {
+        .gatsby-image-wrapper {
+          @include respondTo(medium) {
+            height: 22.1rem;
+          }
+        }
+      }
+
+      .media-gallery__item-info-title {
+        @include respondTo(medium) {
+          margin-top: 25px;
+        }
+      }
+    }
+
     &-link {
       display: flex;
       flex-direction: column;
@@ -36,21 +61,42 @@
       position: relative;
       margin-bottom: 20px;
     }
-    &-title {
-      font-size: 1.6rem;
-      font-family: $rubik;
-      font-weight: 500;
-      color: $black-blue;
-      padding: 0;
-      margin: 15px 0 0 0;
-      outline: none;
+
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      &-title {
+        font-size: 1.6rem;
+        font-family: $rubik;
+        font-weight: 500;
+        color: $black-blue;
+        padding: 0;
+        margin: 10px 0 0 0;
+        outline: none;
+        @include respondTo(medium) {
+          margin: 20px 0 0 0;
+        }
+      }
+      &-brand {
+        text-align: right;
+        padding: 15px 5px 15px 15px;
+
+        @include respondTo(medium) {
+          padding: 20px 5px 20px 20px;
+        }
+
+        svg {
+          height: 26px;
+          width: auto;
+          @include respondTo(medium) {
+            height: 35px;
+          }
+        }
+      }
     }
     &-image {
       background-color: #ccc;
     }
-
-
-
     .gatsby-image-wrapper > div {
       padding-bottom: 225px !important;
       @include respondTo(medium) {

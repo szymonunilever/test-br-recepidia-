@@ -3,7 +3,7 @@ export interface QueryString {
   fields?: string[];
 }
 
-export interface WithInitialDataAndAsyncLoadMore {
+export interface WithRecipeAsyncLoadMore {
   tagList: Internal.Tag[];
   recipeResultsList: Internal.Recipe[];
   recipeResultsCount: number;

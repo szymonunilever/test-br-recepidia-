@@ -4327,6 +4327,55 @@
           }
         ]
       }
+    },
+    {
+      "type": "ArticlesHub",
+      "relativePath": "/articulos",
+      "title": "Más Contenido",
+      "components": {
+        "items": [
+          {
+            "name": "RecipeListing",
+            "content": {
+              "cta": {
+                "label": "Ver mais artigos"
+              }
+            }
+          },
+          {
+            "name": "Tags",
+            "content": {
+              "title": "Look by tags"
+            }
+          },
+          {
+            "name": "Hero",
+            "content": {
+              "header": "Prueba nuestro Planificador de Menús",
+              "longSubheader": "Compártenos qué es lo que más te gusta y disfruta de un plan semanal de recetas que se acomoden a tus necesidades.",
+              "primaryCta": {
+                "type": "Button",
+                "linkTo": "/planificador-de-menus",
+                "label": "¡Quiero empezar!"
+              },
+              "image": {
+                "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/teaser-content/images/teaser-image.png",
+                "alt": "Prueba nuestro Planificador de Menús"
+              }
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Seu assistente de cozinha",
+        "description": "Recepedia é um site de receitas para quem ama cozinhar. Encontre as receitas que busca e compartilhe suas favoritas. E sua receita, qual é?",
+        "meta": [
+          {
+            "name": "og:image",
+            "content": "https://br.recepedia.com/sites/default/files/styles/hero_marquee_breakpoints_theme_recepedia_phone_1x/public/new_recepedia/recipes/images/4ce26f6b-73ea-4755-b287-afd33fe7735e.jpg"
+          }
+        ]
+      }
     }
   ]
 }

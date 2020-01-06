@@ -30,8 +30,8 @@ import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_recipeCategories.scss';
 //TODO: add this part to main page json and remove this import
-import withInitialDataAndAsyncLoadMore from 'src/components/withInitialDataAndAsyncLoadMore';
-import { WithInitialDataAndAsyncLoadMore } from 'src/components/withInitialDataAndAsyncLoadMore/models';
+import withRecipeAsyncLoadMore from 'src/components/withRecipeAsyncLoadMore';
+import { WithRecipeAsyncLoadMore } from 'src/components/withRecipeAsyncLoadMore/models';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
@@ -227,7 +227,7 @@ const RecipeCategoryPage = ({
   );
 };
 
-export default withInitialDataAndAsyncLoadMore(RecipeCategoryPage);
+export default withRecipeAsyncLoadMore(RecipeCategoryPage);
 
 export const query = graphql`
   query($tags: [Int], $slug: String, $primaryTagId: Int) {
@@ -285,7 +285,7 @@ export const query = graphql`
 //   }
 // }
 
-interface RecipeCategoryPageProps extends WithInitialDataAndAsyncLoadMore {
+interface RecipeCategoryPageProps extends WithRecipeAsyncLoadMore {
   data: {
     allRecipe: {
       nodes: Internal.Recipe[];

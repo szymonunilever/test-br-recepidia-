@@ -99,6 +99,7 @@ module.exports = async ({ graphql, createPage }) => {
     'PreferenceCenter',
     'TermsAndConditions',
     'FAQ',
+    'ArticlesHub',
   ];
 
   pagesTypes.push(

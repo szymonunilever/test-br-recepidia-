@@ -61,9 +61,11 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         });
       }
 
-      // if (articleConfig.getArticleSearchData) { //TODO Avoid request to articles on search EAT-1451
-      //   articleConfig.getArticleSearchData(trimmedSearchQuery, { size: 8 });
-      // }
+      if (articleConfig.getArticleSearchData) {
+        articleConfig.getArticleSearchData(trimmedSearchQuery, {
+          size: articleConfig.initialCount,
+        });
+      }
     },
     [recipeConfig.initialCount]
   );
@@ -138,7 +140,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             key={recipe.id}
             cardKey={recipe.id}
             slug={recipe.fields.slug}
-          >
+            cardKey={recipe.id}>
             <RecipeCard
               {...recipe}
               slug={recipe.fields.slug}
@@ -238,9 +240,9 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       });
     }
 
-    // if (articleConfig.onArticleViewChange) { //TODO Avoid request to articles on filtering EAT-1451
-    //   articleConfig.onArticleViewChange(filter, null);
-    // }
+    if (articleConfig.onArticleViewChange) {
+      articleConfig.onArticleViewChange(filter, null);
+    }
   };
 
   return (
@@ -271,17 +273,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         results={recipeResults.count + articleResults.count}
       />
       {recipeResults.count + articleResults.count ? (
-        // <Tabs className="search-tabs" content={tabs.content}> // TODO Hide Tabs from search Results page EAT-1451
-        //   {tabs.list.map(tab => tab)}
-        // </Tabs>
-        <div className="wrapper">{recipes}</div>
-          ) : (
-          recipeResultsFetched && articleResultsFetched && <NullResult
-            content={content.nullResultContent}
-            className="search-listing__null-results"
-            titleLevel={3}
-          />
-        )
+        <Tabs className="search-tabs" content={tabs.content}>
+          {tabs.list.map(tab => tab)}
+        </Tabs>
+        ) : null
       }
     </div>
   );
