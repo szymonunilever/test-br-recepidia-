@@ -61,6 +61,7 @@ const MediaGallery = ({
                 key={item.id}
                 brand={item.brand}
                 title={item.title}
+                localImage={item.localImage}
                 fields={item.fields}
                 assets={item.assets}
                 className={galleryViewType}

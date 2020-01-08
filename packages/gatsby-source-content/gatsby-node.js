@@ -27,6 +27,10 @@ const fetchContent = (configOptions, contentType) => {
   );
 };
 
+const fetchImages = (endpoint) => {
+  return axios.get(endpoint);
+};
+
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
   configOptions
@@ -39,12 +43,14 @@ exports.sourceNodes = async (
     // pagesResponse,
     // componentsResponse,
     articlesResponse,
+    imagesResponse,
     categoriesResponse,
   ] = await Promise.all([
     //fetchContent(configOptions, 'pages'),
     //fetchContent(configOptions, 'components'),
     isMx()? new Promise(resolve => resolve(articlesMockMx)) : fetchContent(configOptions, 'articles'),
     //isMx()? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
+    isMx() ? fetchImages(configOptions.imagesEndpoint) : new Promise(resolve => resolve({ data: [] })),
     new Promise(resolve => resolve({data: isMx() ? categoriesMockMx : categoriesMockBr})),
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
@@ -52,6 +58,12 @@ exports.sourceNodes = async (
   const pagesMock = isMx() ? pagesMockMx : pagesMockBr;
   const componentsMock = isMx() ? componentsMockMx : componentsMockBr;
   const pagesData = [...pagesMock.pages];
+  const imagesData = imagesResponse
+    .data
+    .reduce((response, item) => {
+      response[item.pk] = {childImageSharp: { fluid: item }};
+      return response;
+    }, {});
   //TODO: remove next string when data for components will fixed on middleware
   const componentsData = componentsMock;
   pagesData.forEach(page => {
@@ -94,10 +106,18 @@ exports.sourceNodes = async (
 
   articlesList.forEach(article => {
     const { id, path, brand, section, articleName, articleContent, tags } = article;
+    const getImage = (article, imagesData) => {
+      return imagesData[
+        article.articleHeroImage ?
+          article.articleHeroImage.replace('/content/dam/', '') :
+          'brands/maizena/global_use/1531233-476x635-gluten.jpg']
+    };
+
     const articleNode = {
       id, path, brand, section,
       name: articleName,
       title: articleName,
+      localImage: getImage(article, imagesData),
       content: JSON.stringify(articleContent),
       assets: [],
       tags: tags ? tags.map(el => ({...el, name: el.displayName })) : []
@@ -173,10 +193,28 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       name: String!
       shortDescription: String
       content: String
+      localImage: ArticleImage
       assets: [ArticleAsset]
       fields: ArticleSlugField
       brand: String
       tags: [ArticleTags]
+    }
+    type ArticleImage {
+      childImageSharp: ArticleImageChild
+    }
+    type ArticleImageChild {
+      fluid: ArticleImageChildFluid
+    }
+    type ArticleImageChildFluid {
+      base64: String
+      aspectRatio: Float
+      width: Float
+      height: Float
+      src: String
+      srcWebp: String
+      srcSet: String
+      srcSetWebp: String
+      sizes: String
     }
     type ArticleAsset {
       filename: String!

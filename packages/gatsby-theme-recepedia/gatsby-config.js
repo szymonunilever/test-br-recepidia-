@@ -48,6 +48,7 @@ const plugins = [
     resolve: `gatsby-source-content`,
     options: {
       endpoint: appConfig.getByKey('middleware_contentEndpoint'),
+      imagesEndpoint: appConfig.getByKey('middleware_imagesEndpoint'),
       key: appConfig.getByKey('middleware_key'),
       locale: appConfig.getByKey('locale'),
     },

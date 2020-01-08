@@ -32,7 +32,7 @@ import BrandPromiseMaizena from 'src/components/BrandPromise/BrandPromiseMaizena
 
 const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   data: {
-    allArticle: { nodes },
+    allArticle: { nodes: brandArticles },
   },
   pageContext,
   location,
@@ -40,18 +40,6 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
   const {
     page: { components, seo, type, brand },
   } = pageContext;
-
-  const brandArticles = nodes.map(article => {
-    const newArticle = {
-      title: article.title,
-      fields: {
-        slug: article.fields.slug,
-      },
-      localImage,
-      section: article.section,
-    };
-    return newArticle;
-  });
 
   const brandsContent = {
     knorr: {
@@ -145,7 +133,6 @@ export const pageQuery = graphql`
     allArticle(filter: { brand: { regex: $regexpBrand } }) {
       nodes {
         ...ArticleFields
-        section
       }
     }
   }
