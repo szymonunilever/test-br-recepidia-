@@ -275,11 +275,15 @@
           transform: none;
           margin-left: 15px;
           position: relative;
+          width: 2rem;
+          height: 2rem;
           @include respondTo(desktop) {
             will-change: transform;
             transition-property: transform;
             transition-duration: 200ms;
             display: inline-block;
+            width: initial;
+            height: initial;
             &:before,
             &:after {
               display: none;
@@ -290,7 +294,7 @@
           &:after {
             font-weight: bold;
             position: absolute;
-            line-height: 0;
+            line-height: 2rem;
             top: 0;
             right: 0;
             font-size: 2rem;
@@ -302,6 +306,7 @@
 
           &:after {
             content: '\2212';
+            visibility: hidden;
           }
 
           .dropdown-icon {

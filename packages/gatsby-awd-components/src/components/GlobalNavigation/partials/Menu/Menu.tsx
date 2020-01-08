@@ -253,6 +253,18 @@ const Menu: FunctionComponent<MenuProps> = ({
         break;
     }
   };
+
+  const dropDownControl = (itemIndex: number, isSubMenuList: boolean) => (
+    <span
+      className={`${className}__dropdown-icon`}
+      onClick={e => {
+        e.preventDefault();
+        isSubMenuList && handleClickMenu(e, itemIndex);
+      }}
+    >
+      {dropDownIcon}
+    </span>
+  );
   let counter = 0;
   return (
     <ul className={classNames} role="menubar">
@@ -274,11 +286,11 @@ const Menu: FunctionComponent<MenuProps> = ({
             }}
           >
             {menuItem.name}
-            {menuItem.children && menuItem.children.length>0 && (
-              <span className={`${className}__dropdown-icon`}>
-                {dropDownIcon}
-              </span>
-            )}
+            {
+              menuItem.children &&
+              menuItem.children.length > 0 &&
+              dropDownControl(i, isSubMenuList)
+            }
           </Link>
         ) : (
           <a
@@ -292,11 +304,7 @@ const Menu: FunctionComponent<MenuProps> = ({
             }}
           >
             {menuItem.name}
-            {menuItem.children && (
-              <span className={`${className}__dropdown-icon`}>
-                {dropDownIcon}
-              </span>
-            )}
+            {menuItem.children && dropDownControl(i, isSubMenuList)}
           </a>
         );
 
