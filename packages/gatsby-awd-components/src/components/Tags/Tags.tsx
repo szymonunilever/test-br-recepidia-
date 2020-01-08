@@ -4,14 +4,16 @@ import { Button, ButtonViewType } from '../Button';
 import { TagsProps, TagViewType, TagVariant } from './models';
 import Tag from './partials/Tag';
 import includes from 'lodash/includes';
-import uniqBy from 'lodash/uniqBy';
+import uniqWith from 'lodash/uniqWith';
 import { TagName, Text } from '../Text';
 import isEqual from 'lodash/isEqual';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
 import theme from './Tags.module.scss';
 
 const getTagList = (list: Internal.Tag[], displayUniq = true) =>
-  displayUniq ? uniqBy(list, 'name') : list;
+  displayUniq ?
+    uniqWith(list, (item1, item2) => item1.fields.slug === item2.fields.slug) :
+    list;
 
 const Tags = ({
   list,
