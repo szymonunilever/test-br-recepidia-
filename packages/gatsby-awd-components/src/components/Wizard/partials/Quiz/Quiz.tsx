@@ -139,7 +139,7 @@ const Quiz: FunctionComponent<QuizProps> = ({
 
   const mobileCols = 2;
   const desktopCols = getDesktopCols(question.options.length);
-  const layoutClass = `wizard-col-${mobileCols}-${desktopCols} ${theme.quizForm}`;
+  const layoutClass = `wizard-col-${mobileCols}-${desktopCols} ${theme.quizForm} wizard-labels--${question.type.labelPosition}`;
   const primaryButtonFinal = ctas.find(item => item.type === 'final');
   const primaryButton = ctas.find(item => item.type === 'next');
   const backButton = ctas.find(item => item.type === 'back');

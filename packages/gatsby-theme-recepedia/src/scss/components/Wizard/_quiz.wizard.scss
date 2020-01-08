@@ -1,0 +1,32 @@
+@import '../../vars';
+@import '../../mixins';
+
+.wizard {
+  &--quiz {
+    .wizard-labels--inside {
+      .quiz__list {
+        .quiz__item {
+          flex-basis: $one-col-width;
+          -ms-flex-preferred-size: calc(
+            #{$one-col-width} - #{$col-indent-mobile * 2}
+          );
+          @include respondTo(medium) {
+            flex-basis: $two-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$two-col-width} - #{$col-indent-medium * 2}
+            );
+          }
+          @include respondTo(desktop) {
+            flex-basis: $three-col-width;
+            -ms-flex-preferred-size: calc(
+              #{$three-col-width} - #{$col-indent-desktop * 2}
+            );
+          }
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
