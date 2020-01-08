@@ -160,4 +160,20 @@
       fill: $black-blue;
     }
   }
+  &--print {
+    svg {
+      stroke: none;
+    }
+    @media (hover: hover),
+      (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+      &:hover {
+        svg {
+          path:last-child {
+            fill: none;
+          }
+        }
+      }
+    }
+  }
 }
