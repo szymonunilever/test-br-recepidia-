@@ -9,4 +9,5 @@ export interface SocialSharingBaseProps {
   handleSocialButtonClick?: (shareObject: Record<string, any>) => void;
   handleSocialDialogClose?: () => void;
   addThisReady: boolean;
+  brand?: string;
 }

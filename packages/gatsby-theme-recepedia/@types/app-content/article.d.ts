@@ -3,6 +3,7 @@ declare namespace AppContent.Article {
     title: string;
     shortDescription?: string;
     articleText: RichTextContent;
+    content: string;
     assets: Asset<ImageContent | VideoPlayer.Content>[];
     tagGroups: RMSData.TagGroupings[];
     brand?: string;

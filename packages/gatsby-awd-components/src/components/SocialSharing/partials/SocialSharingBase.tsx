@@ -13,6 +13,7 @@ export const SocialSharingBase = ({
   icons,
   showTextLabels,
   addThisReady = false,
+  brand = '',
 }: SocialSharingBaseProps) => {
   const serviceCodes: { [key: string]: string } = {
     facebook: process.env['addThis_serviceCodes_facebook'] as string,
@@ -47,7 +48,11 @@ export const SocialSharingBase = ({
 
   const socialButtons = buttons.map((item, key) => {
     const { name, label, linkDescriptionToShare, linkTitleToShare } = item;
-    const classWrapperButton = cx(theme.socialSharingButton, buttonClassName);
+    const classWrapperButton = cx(
+      theme.socialSharingButton,
+      buttonClassName,
+      brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase()
+    );
     const props = {
       type: 'button' as 'button',
       className: classWrapperButton,

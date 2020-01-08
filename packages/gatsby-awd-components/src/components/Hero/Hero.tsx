@@ -9,6 +9,10 @@ import get from 'lodash/get';
 import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
+import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
+import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
+import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
+import { iconNormalize } from '../../utils';
 
 const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
   const titleLevel = props.titleLevel || 2;
@@ -16,6 +20,11 @@ const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
   const imageStyles = cx('hero__image', theme.image);
   const copyStyles = cx('hero__copy', theme.hero__copy);
   const headerStyles = cx('hero__header', theme.hero__header);
+  const brandLogoClass = cx(
+    theme.hero__containerBrand,
+    props.brandLink && theme.hero__containerBrandLinked,
+    'hero__container-brand'
+  );
   const shortSubheaderStyles = cx(
     'hero__short-subheader ',
     theme.hero__shortSubheader
@@ -33,7 +42,15 @@ const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
   const goByPrimaryCTA = () => primaryCtaLink && navigate(primaryCtaLink);
   const goBySecondaryCTA = () => secondaryCtaLink && navigate(secondaryCtaLink);
   const image = get(props, 'content.image');
-
+  const brandsLogo = {
+    knorr: KnorrLogoIcon,
+    hellmanns: HellmannsLogoIcon,
+    maizena: MaizenaLogoIcon,
+  };
+  const currentBrand = props.brand ? props.brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '';
+  const handleBrandLogoClick = () => {
+    props.brandLink && navigate(props.brandLink);
+  };
   return (
     <div
       {...getComponentDataAttrs('hero', props.content)}
@@ -49,6 +66,14 @@ const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
             sizes={imageSizes}
             alt={image.alt}
           />
+          {(props.brand && brandsLogo[currentBrand]) ? (
+            <div
+              className={brandLogoClass}
+              onClick={handleBrandLogoClick}
+            >
+              {iconNormalize(brandsLogo[currentBrand])}
+            </div>
+          ) : null}
         </div>
       )}
       <div className={copyStyles}>

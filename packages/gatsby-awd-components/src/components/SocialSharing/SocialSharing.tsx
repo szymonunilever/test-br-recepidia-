@@ -20,6 +20,7 @@ export const SocialSharing: FunctionComponent<SocialSharingProps> = ({
   titleLevel,
   WidgetScript,
   OpenModelButtonIcon,
+  brand,
 }) => {
   const props = {
     buttons,
@@ -28,6 +29,7 @@ export const SocialSharing: FunctionComponent<SocialSharingProps> = ({
     handleSocialButtonClick,
     handleSocialDialogClose,
     showTextLabels,
+    brand
   };
 
   const classWrapper = cx(className, {

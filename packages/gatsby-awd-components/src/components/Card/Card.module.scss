@@ -9,6 +9,28 @@
   justify-content: flex-start;
   align-content: center;
 
+  &__info {
+    display: flex;
+    justify-content: space-between;
+
+    &-brand {
+      text-align: right;
+      padding: 15px 5px 15px 15px;
+
+      @include respondTo(medium) {
+        padding: 20px 5px 20px 20px;
+      }
+
+      svg {
+        height: 26px;
+        width: auto;
+        @include respondTo(medium) {
+          height: 35px;
+        }
+      }
+    }
+  }
+
   &__title {
     font-size: $card-title-fz;
     font-family: $card-title-ff;

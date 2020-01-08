@@ -22,10 +22,6 @@
                 "path": "/planificador-de-menus"
               },
               {
-                "name": "Más Contenido",
-                "path": "/articulos"
-              },
-              {
                 "name": "Nuestras Marcas",
                 "navId": "brands",
                 "children": [
@@ -42,6 +38,10 @@
                     "path": "/maizena/promise"
                   }
                 ]
+              },
+              {
+                "name": "Más Contenido",
+                "path": "/articulos"
               }
             ]
           }

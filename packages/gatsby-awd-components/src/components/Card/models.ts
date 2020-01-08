@@ -11,6 +11,8 @@ export interface CardProps {
   imageSizes: string;
   className?: string;
   brand?: ReactChild;
+  brandName?: string;
+  brandLink?: string;
   children?: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
   showDescription?: boolean;
 }
