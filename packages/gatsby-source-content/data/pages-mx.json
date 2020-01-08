@@ -85,7 +85,7 @@
                       "label": {
                         "text": "Verduras",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/1.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/vegetables.jpg",
                           "alt": "Verduras"
                         }
                       }
@@ -96,7 +96,7 @@
                       "label": {
                         "text": "Pasta",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/2.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/pasta.jpg",
                           "alt": "Pasta"
                         }
                       }
@@ -107,7 +107,7 @@
                       "label": {
                         "text": "Atún",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/tuna.jpg",
                           "alt": "Atún"
                         }
                       }
@@ -118,7 +118,7 @@
                       "label": {
                         "text": "Salmón",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/4.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/salmon.jpg",
                           "alt": "Salmón"
                         }
                       }
@@ -129,7 +129,7 @@
                       "label": {
                         "text": "Ternera",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/5.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/veal.jpg",
                           "alt": "Ternera"
                         }
                       }
@@ -140,7 +140,7 @@
                       "label": {
                         "text": "Huevos",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/6.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/eggs.jpg",
                           "alt": "Huevos"
                         }
                       }
@@ -151,7 +151,7 @@
                       "label": {
                         "text": "Fruta",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/7.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/fruits.jpg",
                           "alt": "Fruta"
                         }
                       }
@@ -162,7 +162,7 @@
                       "label": {
                         "text": "Res",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/7.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/beef.jpg",
                           "alt": "Res"
                         }
                       }
@@ -173,7 +173,7 @@
                       "label": {
                         "text": "Salchichas",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/7.jpg",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-1/sausages.jpg",
                           "alt": "Salchichas"
                         }
                       }
@@ -197,7 +197,7 @@
                       "label": {
                         "text": "Asiática",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/8.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/asian.jpg",
                           "alt": "Asiática"
                         }
                       }
@@ -208,7 +208,7 @@
                       "label": {
                         "text": "China",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/9.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/chinese.jpg",
                           "alt": "China"
                         }
                       }
@@ -219,7 +219,7 @@
                       "label": {
                         "text": "Española",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/10.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/spanish.jpg",
                           "alt": "Española"
                         }
                       }
@@ -230,7 +230,7 @@
                       "label": {
                         "text": "Japonesa",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/11.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/japanese.jpg",
                           "alt": "Japonesa"
                         }
                       }
@@ -241,7 +241,7 @@
                       "label": {
                         "text": "Mexicana",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/12.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/mexican.jpg",
                           "alt": "Mexicana"
                         }
                       }
@@ -252,7 +252,7 @@
                       "label": {
                         "text": "Sudamericana",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/13.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/south-american.jpg",
                           "alt": "Sudamericana"
                         }
                       }
@@ -263,7 +263,7 @@
                       "label": {
                         "text": "Tailandesa",
                         "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/14.png",
+                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/quiz-content/quiz-images/question-2/thai.jpg",
                           "alt": "Tailandesa"
                         }
                       }
