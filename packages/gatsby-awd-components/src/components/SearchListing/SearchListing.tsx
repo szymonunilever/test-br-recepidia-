@@ -37,6 +37,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     recipeResultsFetched = true,
     articleResultsFetched = true,
   },
+  brandLogoLink,
 }) => {
   const classNames = cx(theme.searchListing, 'search-listing', className);
   const [filteringValue, setFilteringValue] = useState<Internal.Tag[]>([]);
@@ -132,6 +133,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       loadMoreConfig={loadMoreConfig}
       {...recipeConfig}
       hideFilter
+      brandLogoLink={brandLogoLink}
     >
       {recipeResults.list
         ? recipeResults.list.map(recipe => (
@@ -140,7 +142,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             key={recipe.id}
             cardKey={recipe.id}
             slug={recipe.fields.slug}
-            cardKey={recipe.id}>
+          >
             <RecipeCard
               {...recipe}
               slug={recipe.fields.slug}
@@ -170,6 +172,7 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         onLoadMore={onLoadMoreArticles}
         list={articleResults.list}
         allCount={articleResults.count}
+        brandLogoLink={brandLogoLink}
       />
     );
 

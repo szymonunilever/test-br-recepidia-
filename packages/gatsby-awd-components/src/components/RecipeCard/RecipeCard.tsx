@@ -1,5 +1,6 @@
 import cx from 'classnames';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, SyntheticEvent, useContext } from 'react';
+import { navigate } from 'gatsby';
 import { RatingAndReviewsProvider } from '../../models';
 import { getImageAlt, iconNormalize } from '../../utils';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
@@ -12,6 +13,7 @@ import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.sv
 import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
 import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
 import theme from './RecipeCard.module.scss';
+import { AppContext } from '../../context/appContext';
 
 export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
   recipeId,
@@ -19,7 +21,7 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
   content,
   children,
   slug,
-  brand,
+  brand = '',
   localImage,
   className = '',
   ratingProvider,
@@ -37,6 +39,12 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
       className={cx(theme.recipeCard__title, 'recipe-card__title')}
     />
   ) : null;
+  const searchLink = useContext(AppContext).brandLogoLink;
+  const handleBrandClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate(`${searchLink}?searchQuery=${brand}`);
+  };
   const modifiedChildren = children && React.Children.map(children, child =>{
     return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
     child,
@@ -51,7 +59,7 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
       }
     })
   });
-  const wrapClasses = cx(theme.recipeCard, 'recipe-card', className);
+  const wrapClasses = cx(theme.recipeCard, brand, 'recipe-card', className);
   const RatingWidget =
     ratingProvider !== RatingAndReviewsProvider.none ? (
       <>
@@ -88,7 +96,10 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
           {RatingWidget}
         </div>
         {(brand && brandsLogo[brand]) ? (
-          <div className={cx(theme.recipeCard__infoBrand, 'recipe-card__info-brand')}>
+          <div
+            className={cx(theme.recipeCard__infoBrand, 'recipe-card__info-brand')}
+            onClick={handleBrandClick}
+          >
             {iconNormalize(brandsLogo[brand])}
           </div>
         ) : null}

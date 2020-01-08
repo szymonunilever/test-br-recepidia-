@@ -25,6 +25,7 @@ import withArticleAsyncLoadMore from '../../components/withArticleAsyncLoadMore'
 import { WithArticleAsyncLoadMore } from '../../components/withArticleAsyncLoadMore/models';
 // Component Styles
 import '../../scss/pages/_articleHub.scss';
+import { getPagePath } from '../../utils/getPagePath';
 
 const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
   data,
@@ -39,6 +40,7 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
     page: { components, seo, type, title = '' },
   } = pageContext;
   const { allRecipe } = data;
+  const brandLogoLink = getPagePath('Search');
 
   const carouselConfig = {
     breakpoints: [
@@ -81,6 +83,7 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
           allCount={articleResultsCount}
           onLoadMore={onLoadMore}
           viewType={MediaGalleryViewType.TwoRowed}
+          brandLogoLink={brandLogoLink}
         />
       </section>
       <section className="_pb--40">
@@ -100,6 +103,7 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
           titleLevel={2}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
           ratingProvider={RatingAndReviewsProvider.inline}
+          brandLogoLink={brandLogoLink}
         >
           {allRecipe.nodes.map(recipe => (
             <CardLinkWrapper

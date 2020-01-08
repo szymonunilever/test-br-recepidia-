@@ -36,6 +36,7 @@ import { IMAGE_SIZES } from 'src/constants';
 import xor from 'lodash/xor';
 import { FROM, RESULT_SIZE } from '../../utils/getPersonalizationSearchData';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
+import { getPagePath } from '../../utils/getPagePath';
 
 const HomePage = ({ data, pageContext, location }: HomePageProps) => {
   const { latestAndGrates, topRecipes, allCategory } = data;
@@ -43,6 +44,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
     FROM,
     RESULT_SIZE
   );
+  const brandLogoLink = getPagePath('Search');
 
   const pageListingData = allCategory.nodes.map(category => ({
     ...category,
@@ -176,6 +178,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {latestAndGratestResult &&
             latestAndGratestResult.map(recipe => (
@@ -230,6 +233,7 @@ const HomePage = ({ data, pageContext, location }: HomePageProps) => {
             arrowIcon: <ArrowIcon />,
           }}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.NON_STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {topRecipesResult &&
             topRecipesResult.map(recipe => (

@@ -37,6 +37,7 @@ import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
 import { IMAGE_SIZES } from 'src/constants';
 import { dietaryAttributesIcons } from '../../themeDefaultComponentProps';
+import { getPagePath } from '../../utils/getPagePath';
 const RecipeCategoryPage = ({
   data,
   pageContext,
@@ -49,6 +50,7 @@ const RecipeCategoryPage = ({
     page: { components, seo, type },
     category,
   } = pageContext;
+  const brandLogoLink = getPagePath('Search');
 
   const { localImage, title, description } = category;
   const {
@@ -145,6 +147,7 @@ const RecipeCategoryPage = ({
           titleLevel={2}
           recipePerLoad={4}
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          brandLogoLink={brandLogoLink}
         >
           {recipeResultsList
             ? recipeResultsList.map(recipe => (

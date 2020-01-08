@@ -11,6 +11,7 @@ export declare interface SearchListingProps {
   searchQuery: string;
   searchResults: SearchResults;
   filterTitle?: string;
+  brandLogoLink?: string;
 }
 
 export declare interface SearchResults {

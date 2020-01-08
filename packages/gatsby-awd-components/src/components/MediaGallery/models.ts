@@ -12,6 +12,7 @@ export interface MediaGalleryProps
   allCount: number;
   onLoadMore: (articlePerLoad: number) => void;
   viewType?: MediaGalleryViewType;
+  brandLogoLink?: string;
 }
 
 export enum MediaGalleryViewType {

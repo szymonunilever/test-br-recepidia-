@@ -20,6 +20,7 @@ import { WindowLocation } from '@reach/router';
 // Component Styles
 import '../../scss/pages/_recipeCategories.scss';
 import { createCardsFromList, createRecipeCardsFromList } from './helpers';
+import { getPagePath } from '../../utils/getPagePath';
 
 const CategoryLandingPage = ({
   pageContext,
@@ -32,6 +33,7 @@ const CategoryLandingPage = ({
     page: { components, seo, type },
     category,
   } = pageContext;
+
   let relatedCategoriesContent = findPageComponentContent(
     components,
     'PageListing',
