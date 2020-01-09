@@ -133,14 +133,26 @@ exports.sourceNodes = async (
     );
   });
 
+  const enhanceCategoryItem = (category, imagesData) => ({
+    ...category,
+      image: category.image ? category.image :
+        imagesData[category.imageKey].childImageSharp.fluid
+  });
   categoriesResponse.data.forEach(
-    item =>
-      item &&
-      createCategoryNodes(item, {
+    item => {
+      const categoryItem = {
+        ...enhanceCategoryItem(item, imagesData),
+        categories: item.categories ?
+          item.categories.map(cat => enhanceCategoryItem(cat, imagesData)) :
+          [],
+      };
+
+      createCategoryNodes(categoryItem, {
         createNodeId,
         createContentDigest,
         createNode,
-      })
+      });
+    }
   );
 };
 

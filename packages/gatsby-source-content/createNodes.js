@@ -175,7 +175,10 @@ const createCategoryNodes = (
         fluid: omit(category.image, imageFields),
       },
     },
-    image: pick(category.image, imageFields),
+    image: {
+      alt: '',
+      url: category.image.url
+    },
   };
   const { categories } = categoryNode;
   const nodeContent = JSON.stringify(categoryNode);
