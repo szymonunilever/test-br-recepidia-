@@ -10,6 +10,7 @@ const withArticleAsyncLoadMore = <T extends any>(
     const {
       data: { allArticle },
     } = props;
+    const INIT_ARTICLE_LIST_LENGTH = 6;
     const isAsyncInitialDataLoading =
       allArticle.nodes && !allArticle.nodes.length;
     const [articleResultsList, setArticleResultsList] = useState<
@@ -62,7 +63,7 @@ const withArticleAsyncLoadMore = <T extends any>(
       }
 
       const setArticles = (list: Internal.Article[], count: number) => {
-        setArticleResultsList(list);
+        setArticleResultsList(list.slice(0, INIT_ARTICLE_LIST_LENGTH));
         setArticleResultsCount(count);
         setDataFetched(true);
       };
