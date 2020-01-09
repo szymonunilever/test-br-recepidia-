@@ -49,7 +49,7 @@ const BrandHero: FunctionComponent<BrandHeroProps> = ({
           <div className="brand-hero__links">
             {links.map((link, index: number) => (
               <Link
-                className="brand-hero__link"
+                className={`brand-hero__link brand-hero__link-${index}`}
                 activeClassName="active"
                 partiallyActive={true}
                 to={link.path}

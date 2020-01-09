@@ -276,8 +276,8 @@
                   "key": "question3",
                   "label": "¿Buscas recetas complicadas o algo más sencillo de preparar?",
                   "type": {
-                    "control": "radio",
-                    "labelPosition": "bottom"
+                    "control": "checkbox",
+                    "labelPosition": "inside"
                   },
                   "filterPropName": "serves",
                   "options": [
@@ -285,33 +285,21 @@
                       "id": 90001637,
                       "value": "1457",
                       "label": {
-                        "text": "Fácil",
-                        "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/18.jpg",
-                          "alt": "Fácil"
-                        }
+                        "text": "Fácil"
                       }
                     },
                     {
                       "id": 90001638,
                       "value": "1459",
                       "label": {
-                        "text": "Media",
-                        "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/19.jpg",
-                          "alt": "Media"
-                        }
+                        "text": "Media"
                       }
                     },
                     {
                       "id": 90001639,
                       "value": "1460",
                       "label": {
-                        "text": "Difícil",
-                        "image": {
-                          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/20.jpg",
-                          "alt": "Difícil"
-                        }
+                        "text": "Difícil"
                       }
                     }
                   ]
@@ -1755,8 +1743,8 @@
                     "key": "mealPlannerQuestion2",
                     "label": "¿Tienes algún presupuesto?",
                     "type": {
-                      "control": "checkbox",
-                      "labelPosition": "bottom"
+                      "control": "radio",
+                      "labelPosition": "inside"
                     },
                     "filterPropName": "tags",
                     "options": [
@@ -1764,33 +1752,21 @@
                         "id": 90001651,
                         "value": "1370",
                         "label": {
-                          "text": "Económica",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/8.png",
-                            "alt": "Económica"
-                          }
+                          "text": "Económica"
                         }
                       },
                       {
                         "id": 90001652,
                         "value": "1369",
                         "label": {
-                          "text": "Medio",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/9.png",
-                            "alt": "Medio"
-                          }
+                          "text": "Promedio"
                         }
                       },
                       {
                         "id": 90001653,
                         "value": "1371",
                         "label": {
-                          "text": "Premium",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/quiz-content/quiz-images/3/10.png",
-                            "alt": "Premium"
-                          }
+                          "text": "Premium"
                         }
                       }
                     ]
@@ -1802,7 +1778,7 @@
                     "label": "¿Cuánto tiempo dispones para preparar tus receta?",
                     "type": {
                       "control": "radio",
-                      "labelPosition": "bottom"
+                      "labelPosition": "inside"
                     },
                     "filterPropName": "cookTime",
                     "options": [
@@ -1810,33 +1786,21 @@
                         "id": 90001654,
                         "value": "Menos de 30 min",
                         "label": {
-                          "text": "Menos de 30 min.",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
-                            "alt": "Menos de 30 min."
-                          }
+                          "text": "Menos de 30 min."
                         }
                       },
                       {
                         "id": 90001654,
                         "value": "Entre 30 y 60 min",
                         "label": {
-                          "text": "Entre 30 y 60 min.",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-1.jpg",
-                            "alt": "Entre 30 y 60 min."
-                          }
+                          "text": "Entre 30 y 60 min."
                         }
                       },
                       {
                         "id": 90001655,
                         "value": "Más de 60 min",
                         "label": {
-                          "text": "Más de 60 min.",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/2-2.jpg",
-                            "alt": "Más de 60 min."
-                          }
+                          "text": "Más de 60 min."
                         }
                       }
                     ]
@@ -1848,7 +1812,7 @@
                     "label": "¿Qué tan complicada buscas una receta?",
                     "type": {
                       "control": "radio",
-                      "labelPosition": "bottom"
+                      "labelPosition": "inside"
                     },
                     "filterPropName": "tags",
                     "options": [
@@ -1856,33 +1820,21 @@
                         "id": 90001656,
                         "value": "1457",
                         "label": {
-                          "text": "Fácil",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
-                            "alt": "Fácil"
-                          }
+                          "text": "Fácil"
                         }
                       },
                       {
                         "id": 90001657,
                         "value": "1460",
                         "label": {
-                          "text": "Promedio",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-2.jpg",
-                            "alt": "Promedio"
-                          }
+                          "text": "Promedio"
                         }
                       },
                       {
                         "id": 90001658,
                         "value": "1458;1459",
                         "label": {
-                          "text": "Profesional",
-                          "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/3-1.jpg",
-                            "alt": "Profesional"
-                          }
+                          "text": "Profesional"
                         }
                       }
                     ]

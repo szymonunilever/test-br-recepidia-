@@ -207,7 +207,7 @@ $back-to-top-z-index: 10 !default;
 \* ----------------------------------------------------------------------------- */
 $quiz-image-background-color: $white-gray !default;
 $quiz-item-overlay-color: $item-overlay-color !default;
-$quiz-item-overlay-transition: opacity 0.3s !default;
+$quiz-item-overlay-transition: all 0.3s !default;
 $quiz-image-ratio-mobile: 62% !important;
 $quiz-image-ratio-desktop: 59% !important;
 

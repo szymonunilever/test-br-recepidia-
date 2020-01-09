@@ -1,4 +1,5 @@
 @import '../../../../scss/config';
+
 :global {
   .wizard--quiz {
     .wizard {
@@ -209,9 +210,6 @@
         padding: 0;
         margin: 0;
       }
-      &__label-checkmark {
-        opacity: 0;
-      }
       &__item-label {
         cursor: pointer;
         display: block;
@@ -271,7 +269,7 @@
         .quiz__label {
           &-checkmark {
             svg {
-              visibility: hidden;
+              display: none;
             }
           }
         }
@@ -366,20 +364,20 @@
   }
   // text is in front of the image
   .quiz {
-    &__item-input {
-      &:checked {
-        & + .quiz__label-content .quiz__label-title {
-          color: darken($apple-green, 35%);
-        }
-      }
-    }
     &__label--inside {
       .quiz__label {
         &-image {
           background-color: $white-gray;
+          &-wrap {
+            padding-top: $quiz-image-ratio-mobile;
+            @include respondTo(desktop) {
+              padding-top: $quiz-image-ratio-desktop;
+            }
+          }
         }
         &-checkmark {
           padding: 15px;
+          background-color: $white-gray;
           svg {
             margin: 0 10px 0 0;
           }
@@ -387,6 +385,24 @@
         &-title {
           margin: 0;
           font-size: 2.4rem;
+        }
+      }
+      @media (hover: hover),
+        (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+          .quiz__label-checkmark {
+            background-color: $quiz-item-overlay-color;
+          }
+        }
+      }
+    }
+    &__item-input {
+      &:checked {
+        & + .quiz__label-content.quiz__label--inside {
+          .quiz__label-checkmark {
+            background-color: $quiz-item-overlay-color;
+          }
         }
       }
     }

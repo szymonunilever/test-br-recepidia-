@@ -63,9 +63,9 @@
         font-size: 1.6rem;
       }
       &__buttons {
+        flex-direction: column;
         @include respondTo(desktop) {
           padding-bottom: 17px;
-          flex-direction: column;
         }
       }
       &__button {
