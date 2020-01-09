@@ -44,8 +44,11 @@
       position: absolute;
       display: flex;
       flex-direction: column;
-      top: 18px;
+      top: 11px;
       right: 18px;
+      @include respondTo(medium) {
+        top: 18px;
+      }
       & > div:not(:last-child) {
         margin-bottom: 10px;
         @include respondTo(desktop) {
@@ -156,5 +159,14 @@
     a {
       text-decoration: none;
     }
+  }
+}
+
+@media print {
+  .recipeIngredientsCooking {
+    display: block !important;
+  }
+  .recipeIngredientsCookingMobile {
+    display: none !important;
   }
 }

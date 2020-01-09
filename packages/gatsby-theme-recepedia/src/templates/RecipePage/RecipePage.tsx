@@ -44,6 +44,7 @@ import theme from './RecipePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import { ReactComponent as FavoriteIcon } from '../../svgs/inline/favorite.svg';
+import { ReactComponent as PrintIcon } from '../../svgs/inline/print.svg';
 import { ReactComponent as CloseIcon } from 'src/svgs/inline/x-mark.svg';
 import AddThis from '../../../integrations/AddThis';
 import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
@@ -66,6 +67,7 @@ import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
 import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 import { getPagePath } from '../../utils/getPagePath';
+import isBrowser from '../../utils/isBrowser';
 
 const infoIcon = <InfoIcon />;
 const socialIcons: SocialIcons = {
@@ -118,6 +120,9 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
   );
   const initialTagsCount = useMedia(undefined, [9, 5]);
   const tagList = getTagsFromRecipes([recipe], tags);
+  const handlePrintClick = () => {
+    isBrowser() && window.print();
+  };
   const recipeHero = (
     <>
       <RecipeHero
@@ -151,6 +156,14 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             OpenModelButtonIcon={OpenModelButtonIcon}
           />
         </>
+        <div>
+          <Button
+            Icon={PrintIcon}
+            onClick={handlePrintClick}
+            className="action-button action-button--print"
+            attributes={{ 'aria-label': 'print recipe' }}
+          />
+        </div>
       </div>
     </>
   );

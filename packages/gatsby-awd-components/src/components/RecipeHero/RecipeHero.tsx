@@ -20,6 +20,7 @@ const RecipeHero = ({ content, className, imageSizes }: RecipeHeroProps) => {
           localImage={content.localImage}
           sizes={imageSizes}
           alt={title}
+          critical
         />
       </div>
     </div>
