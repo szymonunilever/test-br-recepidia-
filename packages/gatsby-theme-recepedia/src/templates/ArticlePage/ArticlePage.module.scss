@@ -65,6 +65,7 @@
     }
     h1 {
       margin: 0;
+      font-size: 5.5rem;
     }
   }
 
@@ -144,10 +145,10 @@
       line-height: 1.88;
       color: $fish-blue-darker;
       margin-bottom: 17px;
+      text-align: center;
       @include respondTo(desktop) {
         font-size: 2.5rem;
         line-height: 1.2;
-        text-align: center;
         width: 86%;
         margin: 14px auto;
       }
@@ -198,9 +199,13 @@
           font-weight: 500;
 
           &-brand {
-            left: calc(50% - 66px);
-            top: 4rem;
+            left: calc(50% - 28px);
+            top: 8rem;
             z-index: 1;
+            @include respondTo(desktop) {
+              left: calc(50% - 66px);
+              top: 4rem;
+            }
           }
         }
 
@@ -209,6 +214,7 @@
             margin: 0;
             font-size: 1.8rem;
             line-height: 1;
+            text-align: center;
             @include respondTo(desktop) {
               font-size: 3.7rem;
               line-height: 1.19;

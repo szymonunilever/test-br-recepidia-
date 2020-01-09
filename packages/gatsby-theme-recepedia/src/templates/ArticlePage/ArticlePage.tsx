@@ -163,6 +163,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           CloseButtonIcon={CloseButton}
           WidgetScript={AddThis}
           OpenModelButtonIcon={OpenModelButtonIcon}
+          brand={article.brand}
         />
       </section>
       {video && (
