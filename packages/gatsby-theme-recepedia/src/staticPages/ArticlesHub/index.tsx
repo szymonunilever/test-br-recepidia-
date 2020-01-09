@@ -1,12 +1,14 @@
 import React, { useCallback } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
+import cx from 'classnames';
 import SEO from 'src/components/Seo';
 import { findPageComponentContent } from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import { IMAGE_SIZES } from 'src/constants';
 import {
+  Button,
   CardLinkWrapper,
   Hero,
   Loader,
@@ -16,6 +18,8 @@ import {
   RecipeListing,
   RecipeListViewType,
   TagName,
+  Tags,
+  TagVariant,
   Text,
 } from 'gatsby-awd-components/src';
 import MediaGallery from 'gatsby-awd-components/src/components/MediaGallery';
@@ -23,9 +27,18 @@ import { ReactComponent as IconArrowDown } from '../../svgs/inline/arrow-down.sv
 import { ReactComponent as Spinner } from '../../svgs/inline/spinner.svg';
 import withArticleAsyncLoadMore from '../../components/withArticleAsyncLoadMore';
 import { WithArticleAsyncLoadMore } from '../../components/withArticleAsyncLoadMore/models';
+import { getPagePath } from '../../utils/getPagePath';
+import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
+import useFavorite from '../../utils/useFavorite';
+import {
+  getUserProfileByKey,
+  updateFavorites,
+} from '../../utils/browserStorage';
+import { ProfileKey } from '../../utils/browserStorage/models';
 // Component Styles
 import '../../scss/pages/_articleHub.scss';
-import { getPagePath } from '../../utils/getPagePath';
+import theme from 'src/staticPages/ArticlesHub/ArticleHub.module.scss';
+import useMedia from '../../utils/useMedia';
 
 const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
   data,
@@ -39,8 +52,32 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
   const {
     page: { components, seo, type, title = '' },
   } = pageContext;
-  const { allRecipe } = data;
+  const { allRecipe, allArticle } = data;
   const brandLogoLink = getPagePath('Search');
+  const { updateFavoriteState, favorites } = useFavorite(
+    () => getUserProfileByKey(ProfileKey.favorites) as number[],
+    updateFavorites
+  );
+  const initialTagsCount = useMedia(undefined, [4, 2]);
+  const tagsContent = findPageComponentContent(components, 'Tags');
+  const searchPagePath = getPagePath('Search');
+  const articleTags: Internal.Tag[] = []; // TODO Change logic for getting article tags
+  allArticle.nodes.forEach(article => {
+    article.tags.forEach((tag, i) => {
+      if (articleTags.some(artTag => artTag.id === tag.id)) {
+        return;
+      }
+      articleTags.push({
+        tagId: i,
+        id: tag.id,
+        name: tag.name,
+        title: tag.name,
+        fields: {
+          slug: `${searchPagePath}?searchQuery=${tag.name}`,
+        },
+      });
+    });
+  });
 
   const carouselConfig = {
     breakpoints: [
@@ -63,22 +100,18 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
   );
 
   return (
-    <Layout>
+    <Layout className={theme.articleHubWrap}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo.title} type={type} />
       <Loader isLoading={!dataFetched}>
         <Spinner />
       </Loader>
-      <section className="wrapper _pt--40">
+      <section className={cx(theme.articleHubTitle, 'wrapper', '_pt--40')}>
         <Text tag={TagName['h1']} text={title} />
       </section>
       <section className="wrapper _pb--40">
         <MediaGallery
-          content={findPageComponentContent(
-            components,
-            'RecipeListing',
-            'RecipesByCategory'
-          )}
+          content={findPageComponentContent(components, 'ArticleListing')}
           list={articleResultsList}
           allCount={articleResultsCount}
           onLoadMore={onLoadMore}
@@ -86,6 +119,17 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
           brandLogoLink={brandLogoLink}
         />
       </section>
+      {tagsContent && articleTags.length > 0 && (
+        <section
+          className={cx(theme.articleHubTags, 'wrapper _pb--40 _pt--40')}
+        >
+          <Tags
+            initialCount={initialTagsCount}
+            list={articleTags}
+            content={tagsContent}
+          />
+        </section>
+      )}
       <section className="_pb--40">
         <Hero
           content={findPageComponentContent(components, 'Hero')}
@@ -96,7 +140,7 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
       </section>
       <section className="wrapper _pb--40 _pt--40">
         <RecipeListing
-          content={{ title: 'Related Recipes' }}
+          content={findPageComponentContent(components, 'RecipeListing')}
           viewType={RecipeListViewType.Carousel}
           list={allRecipe.nodes}
           carouselConfig={carouselConfig}
@@ -104,6 +148,7 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
           imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
           ratingProvider={RatingAndReviewsProvider.inline}
           brandLogoLink={brandLogoLink}
+          className={cx(theme.articleHubRecipeListing)}
         >
           {allRecipe.nodes.map(recipe => (
             <CardLinkWrapper
@@ -119,7 +164,13 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
                 ratingProvider={RatingAndReviewsProvider.inline}
                 imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
                 content={{ title: recipe.title }}
-              />
+              >
+                <Button
+                  {...favoriteButtonDefaults}
+                  isSelected={favorites.indexOf(recipe.recipeId) !== -1}
+                  onClick={updateFavoriteState}
+                />
+              </RecipeCard>
             </CardLinkWrapper>
           ))}
         </RecipeListing>
@@ -132,7 +183,7 @@ export default withArticleAsyncLoadMore<ArticlesHubProps>(ArticlesHub);
 
 export const query = graphql`
   query {
-    allArticle(limit: 6) {
+    allArticle {
       nodes {
         ...ArticleFields
       }

@@ -3687,7 +3687,7 @@
       "components": {
         "items": [
           {
-            "name": "RecipeListing",
+            "name": "ArticleListing",
             "content": {
               "cta": {
                 "label": "Ver mais artigos"
@@ -3697,7 +3697,14 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Look by tags"
+              "title": "Filtros similares",
+              "loadMoreButton": { "label": "+ Mostrar filtros adicionales" }
+            }
+          },
+          {
+            "name": "RecipeListing",
+            "content": {
+              "title": "Recetas similares"
             }
           },
           {
