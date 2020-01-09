@@ -12,7 +12,9 @@
     &__attributes {
       margin-top: 1rem;
       &-wrapper {
-        h2, h3, div {
+        h2,
+        h3,
+        div {
           color: $white;
         }
       }
@@ -25,8 +27,10 @@
           font-family: $brandonGrotesqueBold;
         }
         &-button {
-          color: $hellmans-color-primary;
-          font-family: $brandonGrotesqueBold;
+          @extend .h-button-light;
+          @extend .button--fullwidth;
+          margin: 50px auto 40px;
+          font-size: 1.5rem;
         }
       }
     }
@@ -42,7 +46,6 @@
         &__title {
           font-family: $brandonGrotesqueBold;
           color: $hellmans-color-primary;
-
         }
 
         &__description {
@@ -53,14 +56,19 @@
         &-ingredients,
         &-allergens {
           &__data {
-            font-family: $trebuchetMsNormal;;
+            font-family: $trebuchetMsNormal;
           }
         }
       }
 
       &__heading {
         &-button {
-          background: $hellmans-color-primary;
+          // background: $hellmans-color-primary;
+          @extend .h-button-dark;
+          @include respondTo(desktop) {
+            font-size: 1.8rem;
+            height: 60px;
+          }
         }
       }
     }

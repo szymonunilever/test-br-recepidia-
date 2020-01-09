@@ -669,7 +669,7 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Procurar por categorias",
+              "title": "Procurar por outras categorias",
               "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
@@ -720,7 +720,7 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Procurar por categorias",
+              "title": "Procurar por outras categorias",
               "loadMoreButton": { "label": "+ Ver mais categorias" }
             }
           },
@@ -869,7 +869,7 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Procurar por categorias",
+              "title": "Procurar por outras categorias",
               "loadMoreButton": {
                 "label": "+ Ver mais categorias"
               }
@@ -923,7 +923,7 @@
                 }
               ],
               "openModalButton": {
-                "label": ""
+                "label": "Compartilhe"
               },
               "modalTitle": "Compartilhe essa receita"
             }
@@ -1027,7 +1027,7 @@
           {
             "name": "Tags",
             "content": {
-              "title": "Procurar por categorias",
+              "title": "Procurar por outras categorias",
               "loadMoreButton": {
                 "label": "+ Ver mais categorias"
               }

@@ -4,29 +4,30 @@
 
 :global {
   @import './../../scss/brands/maizena/index.scss';
+  @import './../../scss/components/Button/_index.scss';
 }
 
 .brand-product-page {
   .product {
     &__attributes {
       &-wrapper {
-        h2, h3 {
+        h2,
+        h3 {
           @include title-transformer;
         }
       }
 
       &-related {
         &-button {
-          color: $white;
-          background: $maizena-color-secondary;
+          @extend .m-button-dark;
+          @extend .button--fullwidth;
+          margin: 50px auto 40px;
+          font-size: 1.6rem;
           text-transform: initial;
-          font-family: $proximaNovaNormal;
-          font-size: 1.8rem;
         }
       }
     }
   }
-
 
   :global {
     .product {
@@ -56,7 +57,22 @@
           @include text-transformer;
           background: $maizena-color-primary;
           text-transform: capitalize;
-          font-size: 1.8rem;
+          font-size: 1.4rem;
+          padding: 0 15px;
+          @include respondTo(desktop) {
+            font-size: 1.8rem;
+          }
+          @media (hover: hover),
+            (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+            &:hover {
+              color: $maizena-color-primary;
+              background-color: $maizena-color-secondary;
+              svg {
+                fill: $maizena-color-primary;
+              }
+            }
+          }
         }
       }
 
@@ -68,7 +84,8 @@
     }
 
     .card {
-      &__title, &__description {
+      &__title,
+      &__description {
         @include title-transformer;
       }
 

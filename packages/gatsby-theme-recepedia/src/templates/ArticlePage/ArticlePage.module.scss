@@ -12,6 +12,11 @@
         right: 36px;
         bottom: 38px;
       }
+      :global {
+        .button__label {
+          display: none;
+        }
+      }
     }
     :global(&__wrap) {
       position: relative;
