@@ -20,6 +20,33 @@
       &:nth-last-child(1) {
         margin-right: 0;
       }
+
+      &.knorr {
+        svg {
+          path {
+            fill: $knorr-color-primary;
+            stroke: $knorr-color-primary;
+          }
+        }
+      }
+
+      &.maizena {
+        svg {
+          path {
+            fill: $maizena-color-primary;
+            stroke: $maizena-color-primary;
+          }
+        }
+      }
+
+      &.hellmanns {
+        svg {
+          path {
+            fill: $hellmans-color-primary;
+            stroke: $hellmans-color-primary;
+          }
+        }
+      }
     }
   }
 }

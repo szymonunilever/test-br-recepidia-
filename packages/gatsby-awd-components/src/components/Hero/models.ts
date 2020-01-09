@@ -1,5 +1,5 @@
-import { UnileverLibraryComponent } from '../../models/globalModels';
-import { titleLevel } from '../../models/globalModels';
+import { UnileverLibraryComponent } from '../../models';
+import { titleLevel } from '../../models';
 
 export type HeroViewType = 'Text' | 'Image';
 
@@ -8,6 +8,8 @@ export interface HeroProps extends UnileverLibraryComponent<HeroContent> {
   titleLevel?: titleLevel;
   imageIsLink?: boolean;
   imageSizes?: string;
+  brand?: string;
+  brandLink?: string;
 }
 
 export interface HeroContent extends AppContent.HeroContent {

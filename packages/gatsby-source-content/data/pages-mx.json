@@ -836,6 +836,7 @@
           {
             "name": "SocialSharing",
             "content": {
+              "label": "Share",
               "buttons": [
                 {
                   "label": "Facebook",
@@ -844,6 +845,14 @@
                 {
                   "label": "Twitter",
                   "name": "twitter"
+                },
+                {
+                  "label": "Pinterest",
+                  "name": "pinterest"
+                },
+                {
+                  "label": "WhatsApp",
+                  "name": "whatsapp"
                 }
               ],
               "openModalButton": {
@@ -857,6 +866,20 @@
             "content": {
               "text": "Próximo artigo",
               "view": "NextTitle"
+            }
+          },
+          {
+            "name": "Video",
+            "content": {
+              "videoId": "BoCntpoqyo0",
+              "title": "Video title",
+              "description": "Video description"
+            }
+          },
+          {
+            "name": "RelatedArticles",
+            "content": {
+              "title": "Related articles"
             }
           },
           {

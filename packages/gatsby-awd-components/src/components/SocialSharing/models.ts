@@ -34,6 +34,7 @@ export interface SocialSharingProps
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSocialButtonClick?: (shareObject: Record<string, any>) => void;
   handleSocialDialogClose?: () => void;
+  brand?: string;
 }
 
 export interface WidgetScriptProps {

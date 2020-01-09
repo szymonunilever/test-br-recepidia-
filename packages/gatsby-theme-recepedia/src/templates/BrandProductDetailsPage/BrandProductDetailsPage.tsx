@@ -168,6 +168,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
           titleLevel={4}
           WidgetScript={AddThis}
           OpenModelButtonIcon={OpenModelButtonIcon}
+          brand={brand}
         />
       </div>
     </>

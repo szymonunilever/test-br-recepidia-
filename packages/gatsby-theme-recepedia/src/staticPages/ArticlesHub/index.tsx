@@ -138,7 +138,7 @@ export const query = graphql`
       }
       totalCount
     }
-    allRecipe(limit: 10) {
+    allRecipe(limit: 6) {
       nodes {
         ...RecipeFields
       }

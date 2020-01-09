@@ -1,84 +1,121 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { TagName, Text } from 'gatsby-awd-components/src';
+import {
+  Card,
+  CardLinkWrapper,
+  Listing,
+  ProductCardWrapper,
+  RatingAndReviewsProvider,
+  TagName,
+  Text,
+} from 'gatsby-awd-components/src';
 import SEO from 'src/components/Seo/Seo';
-import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
-import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
-import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
-import { ReactComponent as PlayIcon } from 'src/svgs/inline/arrow-right.svg';
-import '../../scss/pages/_article.scss';
-import theme from 'src/templates/ArticlePage/ArticlePage.module.scss';
 import cx from 'classnames';
 import { findPageComponentContent } from 'src/utils';
 import AddThis from '../../../integrations/AddThis';
 import Layout from '../../components/Layout/Layout';
 import {
   Hero,
-  RichText,
   SocialIcons,
   SocialSharing,
   SocialSharingViewType,
   VideoPlayer,
 } from 'gatsby-awd-components/src';
-import get from 'lodash/get';
 import DigitalData from '../../../integrations/DigitalData';
 import { WindowLocation } from '@reach/router';
 import BlockContent from '@sanity/block-content-to-react';
 import { IMAGE_SIZES } from 'src/constants';
-import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing.svg';
-import { ReactComponent as OpenModelButtonIconBold } from '../../svgs/inline/share-bold.svg';
+import { getPagePath } from '../../utils/getPagePath';
+import { ReactComponent as FacebookIcon } from 'src/svgs/inline/facebook.svg';
+import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
+import { ReactComponent as CloseButton } from 'src/svgs/inline/x-mark.svg';
+import { ReactComponent as PlayIcon } from 'src/svgs/inline/arrow-right.svg';
+import { ReactComponent as OpenModelButtonIcon } from 'src/svgs/inline/social-sharing-circle.svg';
+import { ReactComponent as PinterestIcon } from 'src/svgs/inline/pinterest.svg';
+import { ReactComponent as WhatsappIcon } from 'src/svgs/inline/whatsapp.svg';
+import theme from 'src/templates/ArticlePage/ArticlePage.module.scss';
+import '../../scss/pages/_article.scss';
 
 const socialIcons: SocialIcons = {
   facebook: FacebookIcon,
   twitter: TwitterIcon,
+  pinterest: PinterestIcon,
+  whatsapp: WhatsappIcon,
 };
 const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
-  data: { article },
+  data: { article, allArticle },
   pageContext,
   location,
 }) => {
   const {
     page: { seo, components, type },
   } = pageContext;
-  const mainImageHero = false;
-  const next = false;
-  const video = false;
-  const nextMainImageHero = false;
-  /*
-  const mainImage = article.assets.find(
-    item => get(item, 'content.role') === 'main'
-  );
+  const tagList = article.tags.map(tag => tag.id);
+  const brandedArticles = allArticle.nodes
+    .filter(art => art.tags.every(tag => tagList.includes(tag.id)))
+    .filter(art => art.id !== article.id)
+    .slice(0, 4);
+
   const mainImageHero = {
-    image: get(mainImage, 'content') as AppContent.ImageContent,
+    image: {
+      localImage: article.localImage,
+      size: IMAGE_SIZES.HERO,
+      alt: article.title,
+      url: '/',
+    },
   };
-  const video = get(
-    article.assets.find(item => item.type === 'Video'),
-    'content'
-  ) as AppContent.VideoPlayer.Content;
-
-  const nextMainImage =
-    next &&
-    next.assets &&
-    next.assets.find(item => get(item, 'content.role') === 'main');
-
-  const nextMainImageHero = get(
-    nextMainImage,
-    'content'
-  ) as AppContent.ImageContent;
-  if (mainImageHero) {
-    const seoImage = seo.meta.find(item => {
-      return item.name == 'og:image';
-    });
-    seoImage && (seoImage.content = mainImageHero.image.url);
-  }
-  */
+  const next = brandedArticles[0];
+  const video = findPageComponentContent(components, 'Video');
+  const nextContent = next && {
+    image: {
+      localImage: next.localImage,
+      size: IMAGE_SIZES.HERO,
+      alt: next.title,
+      url: '/',
+    },
+    shortSubheader: next.title,
+    longSubheader: next.shortDescription,
+  };
+  const LinkToBrandProducts = getPagePath('BrandProductsPage', article.brand);
   const socialSharingContent = findPageComponentContent(
     components,
     'SocialSharing'
   );
-  const socialSharingBottomContent = Object.assign({}, socialSharingContent);
-  /* TODO: add to content word "Share" */
-  socialSharingBottomContent.openModalButton = { label: 'Share' };
+  const socialSharingBottomContent = {
+    ...socialSharingContent,
+    openModalButton: { label: socialSharingContent.label },
+  };
+  const searchPath = getPagePath('Search');
+  const articleCards = brandedArticles.map(brandedArticle => (
+    <CardLinkWrapper
+      key={brandedArticle.fields.slug}
+      title={brandedArticle.title}
+      slug={brandedArticle.fields.slug}
+      cardKey={brandedArticle.fields.slug}
+    >
+      <ProductCardWrapper
+        key={brandedArticle.fields.slug}
+        ratingProvider={RatingAndReviewsProvider.none}
+        cardKey={brandedArticle.fields.slug}
+      >
+        <Card
+          showDescription
+          idPropertyName="id"
+          key={brandedArticle.fields.slug}
+          content={{
+            ...brandedArticle,
+            title: brandedArticle.title,
+            description: brandedArticle.shortDescription,
+            localImage: brandedArticle.localImage,
+          }}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          cardKey={brandedArticle.fields.slug}
+          brandName={article.brand}
+          brandLink={searchPath}
+        />
+      </ProductCardWrapper>
+    </CardLinkWrapper>
+  ));
 
   return (
     <Layout className={theme.articleWrap}>
@@ -99,6 +136,8 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
               viewType="Image"
               content={mainImageHero}
               imageSizes={IMAGE_SIZES.HERO}
+              brand={article.brand}
+              brandLink={LinkToBrandProducts}
             />
             <SocialSharing
               content={socialSharingContent}
@@ -108,6 +147,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
               CloseButtonIcon={CloseButton}
               WidgetScript={AddThis}
               OpenModelButtonIcon={OpenModelButtonIcon}
+              brand={article.brand}
             />
           </div>
         </section>
@@ -122,10 +162,9 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           viewType={SocialSharingViewType.Modal}
           CloseButtonIcon={CloseButton}
           WidgetScript={AddThis}
-          OpenModelButtonIcon={OpenModelButtonIconBold}
+          OpenModelButtonIcon={OpenModelButtonIcon}
         />
       </section>
-      {/* TODO: add component for image carousel if it will be approved. */}
       {video && (
         <section className={cx(theme.articleVideo, 'wrapper')}>
           <VideoPlayer content={video} PlayIcon={PlayIcon} />
@@ -134,7 +173,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           ) : null}
         </section>
       )}
-      {next && next.fields && next.fields.slug && nextMainImageHero && (
+      {next && next.fields && next.fields.slug && nextContent.image && (
         <section className={theme.articleNext}>
           <Text
             tag={TagName.h2}
@@ -145,14 +184,12 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           />
           <Link to={next.fields.slug} className="wrapper">
             <Hero
-              content={{
-                image: nextMainImageHero,
-                shortSubheader: next.title,
-                longSubheader: next.shortDescription,
-              }}
+              content={nextContent}
               viewType="Image"
               titleLevel={2}
               imageSizes={IMAGE_SIZES.HERO}
+              brand={next.brand}
+              className={cx(theme.articleHeroNext, 'article-hero-next')}
             />
           </Link>
         </section>
@@ -165,6 +202,14 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           imageSizes={IMAGE_SIZES.HERO}
         />
       </section>
+      <section className={cx(theme.articleRecent, 'wrapper _pb--40 _pt--40')}>
+        <Listing
+          content={findPageComponentContent(components, 'RelatedArticles')}
+          titleLevel={2}
+        >
+          {articleCards}
+        </Listing>
+      </section>
     </Layout>
   );
 };
@@ -176,12 +221,20 @@ export const query = graphql`
     article(fields: { slug: { eq: $slug } }) {
       ...ArticleFields
     }
+    allArticle {
+      nodes {
+        ...ArticleFields
+      }
+    }
   }
 `;
 
 interface ArticlePageProps {
   data: {
     article: Internal.Article;
+    allArticle: {
+      nodes: Internal.Article[];
+    };
   };
   pageContext: {
     id: string;

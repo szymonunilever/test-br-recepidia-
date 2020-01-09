@@ -1,11 +1,15 @@
 import cx from 'classnames';
-import React, { FunctionComponent } from 'react';
-import { getImageAlt } from '../../utils';
+import React, { FunctionComponent, SyntheticEvent, useContext } from 'react';
+import { getImageAlt, iconNormalize } from '../../utils';
 import AdaptiveImage from '../AdaptiveImage';
 import { ButtonProps } from '../Button';
 import { TagName, Text } from '../Text';
 import { CardProps } from './models';
 import theme from './Card.module.scss';
+import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
+import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
+import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
+import { navigate } from 'gatsby';
 
 export const Card: FunctionComponent<CardProps> = ({
    content,
@@ -15,8 +19,16 @@ export const Card: FunctionComponent<CardProps> = ({
    imageSizes,
    ratingWidget,
    brand,
+   brandName,
+   brandLink,
    showDescription = false,
  }) => {
+  const currentBrand = brandName ? brandName.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '';
+  const brandsLogo = {
+    knorr: KnorrLogoIcon,
+    hellmanns: HellmannsLogoIcon,
+    maizena: MaizenaLogoIcon,
+  };
   const { title, description, fields:{slug}, localImage } = content;
   const itemTitle = title && (
     <Text
@@ -58,15 +70,31 @@ export const Card: FunctionComponent<CardProps> = ({
       sizes={imageSizes}
     />
   );
+
+  const handleBrandClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    brandLink && navigate(`${brandLink}?searchQuery=${currentBrand}`);
+  };
   return (
     <div className={wrapClasses} data-componentname="card">
       <div className="card__buttons">{modifiedChildren}</div>
       {Image}
       <div className={cx(theme.card__info, 'card__info')}>
-        {itemTitle}
-        {brand}
-        {ratingWidget}
-        {descriptionText}
+        <div className={cx(theme.card__infoText, 'card__info-text')}>
+          {itemTitle}
+          {brand}
+          {ratingWidget}
+          {descriptionText}
+        </div>
+        {(brandName && brandsLogo[currentBrand]) ? (
+          <div
+            className={cx(theme.card__infoBrand, 'card__info-brand')}
+            onClick={handleBrandClick}
+          >
+            {iconNormalize(brandsLogo[currentBrand])}
+          </div>
+        ) : null}
       </div>
     </div>
   );

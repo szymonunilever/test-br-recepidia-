@@ -24,6 +24,28 @@
           background-color: transparent;
         }
       }
+
+      :global {
+        .social-sharing-in-modal {
+          .social-sharing {
+            &__dialog-open-button {
+              background: $white;
+              border-radius: 50%;
+              border: none;
+              width: 4rem;
+              height: 4rem;
+
+              svg {
+                width: 2rem;
+                height: 2rem;
+                stroke: none;
+                fill: $fish-blue-darker;
+                margin-left: -.2rem;
+              }
+            }
+          }
+        }
+      }
     }
     :global(.adaptive-image__image) {
       height: 225px;
@@ -71,6 +93,7 @@
           width: 19px;
           height: 16px;
           margin-right: 6px;
+          fill: $fish-blue-darker;
           @include respondTo(desktop) {
             width: 24px;
             height: 20px;
@@ -125,9 +148,8 @@
         font-size: 2.5rem;
         line-height: 1.2;
         text-align: center;
-        margin-bottom: 14px;
         width: 86%;
-        margin: 0 auto;
+        margin: 14px auto;
       }
     }
     a {
@@ -174,6 +196,12 @@
           flex-direction: column-reverse;
           font-family: $rubik;
           font-weight: 500;
+
+          &-brand {
+            left: calc(50% - 66px);
+            top: 4rem;
+            z-index: 1;
+          }
         }
 
         &__short-subheader {

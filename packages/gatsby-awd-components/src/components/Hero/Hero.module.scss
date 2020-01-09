@@ -26,6 +26,26 @@
   &__cta-link {
     @extend %button;
   }
+
+  &__container {
+    &-brand {
+      position: absolute;
+      top: 1.6rem;
+      left: 1.9rem;
+
+      &-linked {
+        cursor: pointer;
+      }
+
+      svg {
+        width: 56px;
+        height: auto;
+        @include respondTo(medium) {
+          width: 132px;
+        }
+      }
+    }
+  }
 }
 
 /////----------- CUSTOM -----------/////
