@@ -3,7 +3,6 @@ import { Link, navigate } from 'gatsby';
 import cx from 'classnames';
 import AdaptiveImage from '../../../AdaptiveImage';
 import { MediaGalleryItemProps } from './models';
-import { localImage } from '../../../../mocks/global';
 import { ReactComponent as KnorrLogoIcon } from '../../../../svgs/inline/logo-knorr.svg';
 import { ReactComponent as HellmannsLogoIcon } from '../../../../svgs/inline/logo-hellmanns-filled.svg';
 import { ReactComponent as MaizenaLogoIcon } from '../../../../svgs/inline/logo-maizena.svg';
@@ -11,10 +10,7 @@ import theme from '../../../RecipeCard/RecipeCard.module.scss';
 import { iconNormalize } from '../../../../utils';
 import { AppContext } from '../../../../context/appContext';
 
-const MediaGalleryItem = ({ title, fields, assets, className, brand }: MediaGalleryItemProps) => {
-  // const asset = assets.find(
-  //   asset => !!(asset.type === 'Image' && asset.localImage)
-  // );
+const MediaGalleryItem = ({ title, localImage, fields, assets, className, brand }: MediaGalleryItemProps) => {
   const brandsLogo = {
     knorr: KnorrLogoIcon,
     hellmanns: HellmannsLogoIcon,
@@ -35,7 +31,7 @@ const MediaGalleryItem = ({ title, fields, assets, className, brand }: MediaGall
         {/*{asset && asset.localImage && (*/}
           <AdaptiveImage
             className="media-gallery__item-image"
-            localImage={localImage} //TODO remove mock image after localImage wil be fixed in articles
+            localImage={localImage}
             alt={title}
           />
         {/*)}*/}
