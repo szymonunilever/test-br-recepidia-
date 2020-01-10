@@ -22,7 +22,7 @@ const config = {
     },
     trackingInfo: {
       GID: process.env['digitalData_trackingInfo_GID'],
-      tool: [{ ids: '', id: 'UA-8590272-4' }],
+      tool: process.env['digitalData_trackingInfo_tool'],
     },
   },
 };
