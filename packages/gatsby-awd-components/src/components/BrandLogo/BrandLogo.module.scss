@@ -1,0 +1,21 @@
+@import '../../scss/config';
+
+.brand-logo {
+  text-align: right;
+  padding: 15px 5px 15px 15px;
+
+  @include respondTo(medium) {
+    padding: 20px 5px 20px 20px;
+  }
+
+  svg {
+    height: 26px;
+    width: auto;
+    @include respondTo(medium) {
+      height: 35px;
+    }
+  }
+  &-clickable {
+    cursor: pointer;
+  }
+}

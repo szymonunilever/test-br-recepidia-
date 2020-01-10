@@ -9,20 +9,25 @@ import get from 'lodash/get';
 import { Button } from '../Button';
 import AdaptiveImage from '../AdaptiveImage';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
-import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
-import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
-import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
-import { iconNormalize } from '../../utils';
+import BrandLogo from '../BrandLogo';
 
-const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
-  const titleLevel = props.titleLevel || 2;
-  const containerStyles = cx('hero', props.className, theme.hero);
+const Hero = ({
+  imageIsLink = true,
+  imageSizes,
+  content,
+  brand,
+  titleLevel = 2,
+  className,
+  brandLink,
+  viewType ,
+}: HeroProps) => {
+  const containerStyles = cx('hero', className, theme.hero);
   const imageStyles = cx('hero__image', theme.image);
   const copyStyles = cx('hero__copy', theme.hero__copy);
   const headerStyles = cx('hero__header', theme.hero__header);
   const brandLogoClass = cx(
     theme.hero__containerBrand,
-    props.brandLink && theme.hero__containerBrandLinked,
+    brandLink && theme.hero__containerBrandLinked,
     'hero__container-brand'
   );
   const shortSubheaderStyles = cx(
@@ -34,29 +39,19 @@ const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
     theme.hero__longSubheader
   );
   const ctaLinkStyles = cx('hero__cta-link ', theme.hero__ctaLink);
-  const { primaryCta } = props.content;
-  const { secondaryCta } = props.content;
-
+  const { primaryCta, secondaryCta } = content;
   const primaryCtaLink = primaryCta && primaryCta.linkTo;
   const secondaryCtaLink = secondaryCta && secondaryCta.linkTo;
   const goByPrimaryCTA = () => primaryCtaLink && navigate(primaryCtaLink);
   const goBySecondaryCTA = () => secondaryCtaLink && navigate(secondaryCtaLink);
-  const image = get(props, 'content.image');
-  const brandsLogo = {
-    knorr: KnorrLogoIcon,
-    hellmanns: HellmannsLogoIcon,
-    maizena: MaizenaLogoIcon,
-  };
-  const currentBrand = props.brand ? props.brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '';
-  const handleBrandLogoClick = () => {
-    props.brandLink && navigate(props.brandLink);
-  };
+  const image = get(content, 'image');
+
   return (
     <div
-      {...getComponentDataAttrs('hero', props.content)}
+      {...getComponentDataAttrs('hero', content)}
       className={containerStyles}
     >
-      {props.viewType === 'Image' && image.localImage && (
+      {viewType === 'Image' && image && image.localImage && (
         <div
           className={imageStyles}
           onClick={imageIsLink ? goByPrimaryCTA : () => {}}
@@ -66,41 +61,34 @@ const Hero = ({ imageIsLink = true, imageSizes, ...props }: HeroProps) => {
             sizes={imageSizes}
             alt={image.alt}
           />
-          {(props.brand && brandsLogo[currentBrand]) ? (
-            <div
-              className={brandLogoClass}
-              onClick={handleBrandLogoClick}
-            >
-              {iconNormalize(brandsLogo[currentBrand])}
-            </div>
-          ) : null}
+          <BrandLogo brand={brand} linkTo={brandLink} className={brandLogoClass} />
         </div>
       )}
       <div className={copyStyles}>
         <div className={cx(theme.hero__container, 'hero__container')}>
-          {props.content.header && (
+          {content.header && (
             <div className={headerStyles}>
               <Text
                 //@ts-ignore
                 tag={TagName[`h${titleLevel}`]}
-                text={props.content.header}
+                text={content.header}
               />
             </div>
           )}
 
-          {props.content.shortSubheader && (
+          {content.shortSubheader && (
             <div className={shortSubheaderStyles}>
               <Text
                 // @ts-ignore
                 tag={TagName[`h${titleLevel + 1}`]}
-                text={props.content.shortSubheader}
+                text={content.shortSubheader}
               />
             </div>
           )}
 
-          {props.content.longSubheader && (
+          {content.longSubheader && (
             <div className={longSubheaderStyles}>
-              <Text tag={TagName.p} text={props.content.longSubheader} />
+              <Text tag={TagName.p} text={content.longSubheader} />
             </div>
           )}
 

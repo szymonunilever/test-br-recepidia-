@@ -25,7 +25,6 @@ import { ReactComponent as InstagramIcon } from 'src/svgs/inline/instagram.svg';
 import { ReactComponent as TwitterIcon } from 'src/svgs/inline/twitter.svg';
 import { ReactComponent as YoutubeIcon } from 'src/svgs/inline/youtube.svg';
 import { IMAGE_SIZES } from 'src/constants';
-import { localImage } from 'gatsby-awd-components/src/mocks/global';
 import BrandPromiseHellmanns from 'src/components/BrandPromise/BrandPromiseHellmanns';
 import BrandPromiseKnorr from 'src/components/BrandPromise/BrandPromiseKnorr';
 import BrandPromiseMaizena from 'src/components/BrandPromise/BrandPromiseMaizena';
@@ -41,40 +40,42 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
     page: { components, seo, type, brand },
   } = pageContext;
 
-  const brandsContent = {
-    knorr: {
-      theme: themeKnorr,
-      logo: KnorrLogoIcon,
-    },
-    hellmanns: {
-      theme: themeHellmanns,
-      logo: HellmannsLogoIcon,
-    },
-    maizena: {
-      theme: themeMaizena,
-      logo: MaizenaLogoIcon,
-    },
+  const getBrandThemeContent = (brand: string | undefined) => {
+    switch (brand) {
+      case 'knorr':
+        return {
+          theme: themeKnorr,
+          brandLogo: KnorrLogoIcon,
+          brandComponent: (
+            <BrandPromiseKnorr {...{ components, brandArticles }} />
+          ),
+        };
+      case 'hellmanns':
+        return {
+          theme: themeHellmanns,
+          brandLogo: HellmannsLogoIcon,
+          brandComponent: (
+            <BrandPromiseHellmanns {...{ components, brandArticles }} />
+          ),
+        };
+      case 'maizena':
+        return {
+          theme: themeMaizena,
+          brandLogo: MaizenaLogoIcon,
+          brandComponent: <BrandPromiseMaizena {...{ components }} />,
+        };
+      default:
+        return null;
+    }
   };
-
-  //@ts-ignore
-  const currentBrandContent = brand && brandsContent[brand];
-
-  let theme = currentBrandContent && currentBrandContent.theme;
-
+  // @ts-ignore
+  const { theme, brandLogo, brandComponent } = getBrandThemeContent(brand);
   const classWrapper = cx(
     theme.brandPromisePage,
     'brand-page',
     'brand-promise-page',
     brand
   );
-
-  const BrandLogo = currentBrandContent.logo;
-
-  const brandPromiseComponents = {
-    knorr: <BrandPromiseKnorr {...{ components, brandArticles }} />,
-    hellmanns: <BrandPromiseHellmanns {...{ components, brandArticles }} />,
-    maizena: <BrandPromiseMaizena {...{ components }} />,
-  };
 
   return (
     <Layout className={classWrapper}>
@@ -84,15 +85,15 @@ const BrandPromisePage: React.FunctionComponent<BrandPromisePageProps> = ({
         <BrandHero
           content={findPageComponentContent(components, 'BrandHero')}
           titleLevel={1}
-          brandLogo={BrandLogo}
-          prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
+          brandLogo={brandLogo}
+          prefix={brand === 'knorr' ? 'Knorr.' : ''}
         />
       </section>
       {/*
       // @ts-ignore */}
-      {brand && brandPromiseComponents[brand]}
+      {brand && brandComponent}
       <section className="wrapper bg-primary brand-social _pt--40 _pb--40">
-        <div className="bow-white"></div>
+        <div className="bow-white" />
         <Text
           tag={TagName.h2}
           text={

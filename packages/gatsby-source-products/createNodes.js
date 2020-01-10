@@ -7,7 +7,7 @@ exports.createPagesNodes = (
   const nodeContent = JSON.stringify(page);
   const nodeData = Object.assign({}, page, {
     id: nodeId,
-    brand: page.brand,
+    brand: page.brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase(),
     productId: page.id,
     parent: null,
     children: [],
