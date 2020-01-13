@@ -856,7 +856,7 @@
                 }
               ],
               "openModalButton": {
-                "label": ""
+                "label": "Compartir"
               },
               "modalTitle": "Compartir"
             }
@@ -3539,10 +3539,6 @@
                 "instagram": {
                   "label": "Instagram",
                   "url": "https://www.instagram.com/knorrmx/"
-                },
-                "youtube": {
-                  "label": "YouTube",
-                  "url": "https://www.youtube.com"
                 }
               }
             }

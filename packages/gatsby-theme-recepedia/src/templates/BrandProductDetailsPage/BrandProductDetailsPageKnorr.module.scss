@@ -25,6 +25,8 @@
           @include title-transformer;
           background: $knorr-color-primary;
           border: 0.1rem solid $white;
+          padding: 0 15px;
+          font-size: 1.5rem;
           @media (hover: hover),
             (-ms-high-contrast: none),
             (-ms-high-contrast: active) {

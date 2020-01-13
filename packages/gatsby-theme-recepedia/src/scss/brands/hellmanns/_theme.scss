@@ -263,7 +263,7 @@ $h-button-height-lg: 46px;
   border-radius: 5px;
   transition: all 0.2s;
   @include respondTo(desktop) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     height: $h-button-height-lg;
   }
   @media (hover: hover),
@@ -273,6 +273,9 @@ $h-button-height-lg: 46px;
       color: $hellmans-color-primary;
       background-color: $hellmans-color-secondary;
       border: 1px solid $hellmans-color-primary;
+      svg {
+        fill: $hellmans-color-primary;
+      }
     }
   }
 }

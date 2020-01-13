@@ -81,10 +81,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
     components,
     'SocialSharing'
   );
-  const socialSharingBottomContent = {
-    ...socialSharingContent,
-    openModalButton: { label: socialSharingContent.label },
-  };
+
   const searchPath = getPagePath('Search');
   const articleCards = brandedArticles.map(brandedArticle => (
     <CardLinkWrapper
@@ -156,7 +153,7 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
       <section className={cx(theme.articleText, 'wrapper')}>
         <BlockContent blocks={JSON.parse(article.content)} />
         <SocialSharing
-          content={socialSharingBottomContent}
+          content={socialSharingContent}
           className={theme.articleSocial}
           icons={socialIcons}
           viewType={SocialSharingViewType.Modal}

@@ -10,10 +10,9 @@
   :global {
     h3 {
       text-transform: uppercase;
-      font: 900 $hellmanns-h3-fz $brandonGrotesqueBlack;
-      line-height: 1.11;
+      font: 900 1.8rem/1.11 $brandonGrotesqueBlack;
       @include respondTo(desktop) {
-        font-size: $hellmanns-h3-fz-lg;
+        font-size: 2.4rem;
         line-height: 1.04;
       }
     }
@@ -125,10 +124,11 @@
         }
       }
     }
-
-    .recipe-list {
-      &__header {
-        @extend .heading--underlined;
+    .product-carousel {
+      .recipe-list {
+        &__header {
+          @extend .heading--underlined;
+        }
       }
     }
   }
