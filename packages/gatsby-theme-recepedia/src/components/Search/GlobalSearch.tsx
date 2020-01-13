@@ -11,6 +11,7 @@ import {
 import { ReactComponent as ButtonCloseIcon } from 'src/svgs/inline/x-mark.svg';
 import { ReactComponent as SearchIcon } from 'src/svgs/inline/search-icon.svg';
 import { getSearchSuggestionResponse } from 'src/utils/searchUtils';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 const GlobalSearch = ({
   searchContent,
@@ -46,11 +47,15 @@ const GlobalSearch = ({
   ) => {
     getSearchSuggestionResponse(searchQuery, params, '')
       .then(values => {
-        const [recipeRes, articleRes] = values;
-
+        const [recipeRes, articleRes, productRes] = values;
+        const recipeTitles = esResponseHandler(recipeRes, 'title').byField;
+        const articleTitles = esResponseHandler(articleRes, 'title').byField;
+        const productTitles = esResponseHandler(productRes, 'productName')
+          .byField;
         setSearchInputResults([
-          ...recipeRes.body.hits.hits.map(item => item._source.title),
-          ...articleRes.body.hits.hits.map(item => item._source.title),
+          ...recipeTitles,
+          ...articleTitles,
+          ...productTitles,
         ]);
       })
       .catch(() => {});

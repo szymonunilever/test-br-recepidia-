@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useElasticSearch } from '../../utils';
 import { SearchParams } from 'gatsby-awd-components/src';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withArticleAsyncLoadMore = <T extends any>(
@@ -47,10 +48,8 @@ const withArticleAsyncLoadMore = <T extends any>(
         from,
       })
         .then(res => {
-          setArticleResultsList([
-            ...articleResultsList,
-            ...res.body.hits.hits.map(item => item._source),
-          ]);
+          const { data } = esResponseHandler(res);
+          setArticleResultsList([...articleResultsList, ...data]);
         })
         .finally(() => {
           setDataFetched(true);

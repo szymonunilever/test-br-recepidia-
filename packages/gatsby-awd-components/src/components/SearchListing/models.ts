@@ -17,6 +17,7 @@ export declare interface SearchListingProps {
 export declare interface SearchResults {
   recipeResultsFetched?: boolean;
   articleResultsFetched?: boolean;
+  productResultsFetched?: boolean;
   recipeResults: {
     list: Internal.Recipe[];
     count: number;
@@ -29,12 +30,17 @@ export declare interface SearchResults {
     list: Internal.Article[];
     count: number;
   };
+  productResults: {
+    list: Internal.Product[];
+    count: number;
+  };
 }
 
 export declare interface SearchListingConfig {
   searchInputConfig: SearchInputConfig;
   recipeConfig: RecipeConfig;
   articleConfig: ArticleConfig;
+  productConfig: ProductConfig;
 }
 
 interface ArticleConfig {
@@ -44,6 +50,12 @@ interface ArticleConfig {
   articlePerLoad: number;
 }
 
+interface ProductConfig {
+  getProductSearchData?: getSearchData;
+  onProductViewChange: onRecipeListingViewChanged;
+  initialCount: number;
+  productPerLoad: number;
+}
 
 interface SearchInputConfig {
   onClickSearchResultsItem?: SearchInputProps['onClickSearchResultsItem'];
@@ -78,6 +90,7 @@ export declare interface SearchListingContent {
   tabsContent: AppContent.Tabs.Content;
   articleContent: AppContent.MediaGalleryContent;
   recipesContent: AppContent.RecipeListing.Content;
+  productContent: AppContent.ProductListingContent;
   nullResultContent: AppContent.SearchListing.NullResult;
 }
 

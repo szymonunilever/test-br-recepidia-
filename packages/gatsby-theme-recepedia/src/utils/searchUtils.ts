@@ -185,6 +185,50 @@ const articleSearchParams = (
   };
 };
 
+const productSearchParams = (
+  searchQuery: string,
+  { from, size, _source }: SearchParams,
+  filter: string
+) => {
+  const mustQuery = [
+    {
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        // query: '',
+        query: `${searchQuery}*`,
+        fields: ['productName^5', 'longPageDescription^3', 'brand^2'],
+      },
+    },
+  ];
+
+  filter &&
+    mustQuery.push({
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      query_string: {
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        analyze_wildcard: true,
+        query: filter,
+        fields: ['tags.id'],
+      },
+    });
+
+  return {
+    index: process.env['elasticSearch_productIndex'] as string,
+    body: {
+      from,
+      size,
+      _source,
+      query: {
+        bool: {
+          must: mustQuery,
+        },
+      },
+    },
+  };
+};
+
 export const getRecipesByIdsResponse = async (
   searchQuery: string,
   controlArray: number[],
@@ -212,6 +256,15 @@ export const getArticleResponse = async (
     articleSearchParams(searchQuery, params, filter)
   );
 
+export const getProductResponse = async (
+  searchQuery: string,
+  params: SearchParams,
+  filter: string
+) =>
+  useElasticSearch<Internal.Product>(
+    productSearchParams(searchQuery, params, filter)
+  );
+
 export const getSearchSuggestionResponse = async (
   searchQuery: string,
   { from, size }: SearchParams,
@@ -229,6 +282,13 @@ export const getSearchSuggestionResponse = async (
       articleSearchParams(
         searchQuery,
         { from, size, _source: ['title'] },
+        filter
+      )
+    ),
+    useElasticSearch<Internal.Product>(
+      productSearchParams(
+        searchQuery,
+        { from, size, _source: ['productName'] },
         filter
       )
     ),

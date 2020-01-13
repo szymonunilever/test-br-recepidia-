@@ -24,6 +24,7 @@ export * from './NullResult';
 export * from './PageListing';
 export * from './ProductCopy';
 export * from './ProductHero';
+export * from './ProductListing';
 export * from './ProductNutrients';
 export * from './Rating';
 export * from './RecipeAttributes';

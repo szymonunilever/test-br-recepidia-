@@ -40,6 +40,7 @@ import { IMAGE_SIZES } from 'src/constants';
 import { ReactComponent as ArrowIcon } from 'src/svgs/inline/arrow-down.svg';
 import { ReactComponent as Spinner } from 'src/svgs/inline/spinner.svg';
 import { getPagePath } from '../../utils/getPagePath';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 const AllRecipesPage = ({
   data,
@@ -115,15 +116,11 @@ const AllRecipesPage = ({
 
     return useElasticSearch<Internal.Recipe>(searchParams)
       .then(res => {
+        const { data, total } = esResponseHandler(res);
         setRecipeResultsList(
-          params.from
-            ? [
-                ...recipeResultsList,
-                ...res.body.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.body.hits.hits.map(resItem => resItem._source)
+          params.from ? [...recipeResultsList, ...data] : data
         );
-        setRecipeResultsCount(res.body.hits.total.value);
+        setRecipeResultsCount(total);
       })
       .then(() => {
         setDataFetched(true);

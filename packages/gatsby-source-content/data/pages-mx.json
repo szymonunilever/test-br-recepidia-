@@ -939,6 +939,10 @@
                   {
                     "title": "Artículos",
                     "view": "articles"
+                  },
+                  {
+                    "title": "Productos",
+                    "view": "products"
                   }
                 ]
               },
@@ -967,6 +971,10 @@
               "articleContent": {
                 "title": "Artículos",
                 "cta": { "label": "Ver más artículos" }
+              },
+              "productContent": {
+                "title": "Productos",
+                "cta": { "label": "Ver más productos" }
               }
             }
           },

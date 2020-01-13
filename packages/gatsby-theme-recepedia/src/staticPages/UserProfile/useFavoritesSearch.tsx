@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { getRecipesByIdsResponse } from 'src/utils/searchUtils';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 const useFavoritesSearch = () => {
   const [recipeList, setRecipeList] = useState<Internal.Recipe[]>();
@@ -13,15 +14,11 @@ const useFavoritesSearch = () => {
         return;
       }
       getRecipesByIdsResponse(searchQuery, controlArray, params).then(res => {
+        const { data, total } = esResponseHandler(res);
         setRecipeList(
-          recipeList && recipeList.length
-            ? [
-                ...recipeList,
-                ...res.body.hits.hits.map(resItem => resItem._source),
-              ]
-            : res.body.hits.hits.map(resItem => resItem._source)
+          recipeList && recipeList.length ? [...recipeList, ...data] : data
         );
-        setTotalCount(res.body.hits.total.value);
+        setTotalCount(total);
       });
     },
     [recipeList, totalCount]

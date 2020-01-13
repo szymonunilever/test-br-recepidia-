@@ -15,6 +15,7 @@ const [
   indexUrl,
   recipeIndex,
   articleIndex,
+  productIndex,
 ] = [
   process.env['elasticSearch_region'],
   process.env['elasticSearch_userPoolId'],
@@ -24,6 +25,7 @@ const [
   process.env['elasticSearch_indexUrl'],
   process.env['elasticSearch_recipeIndex'],
   process.env['elasticSearch_articleIndex'],
+  process.env['elasticSearch_productIndex'],
 ];
 
 Amplify.configure({
@@ -150,4 +152,19 @@ const updateArticles = async articles => {
   );
 };
 
-module.exports = { updateRecipes, updateArticles };
+const updateProducts = async products => {
+  const index = productIndex;
+  const token = await tokenPromis;
+  await clearIndex(indexUrl, index, token);
+
+  return bulkBatchPost(
+    products,
+    'id',
+    indexUrl,
+    index,
+    ['parent', 'children', 'internal'],
+    token
+  );
+};
+
+module.exports = { updateRecipes, updateArticles, updateProducts };

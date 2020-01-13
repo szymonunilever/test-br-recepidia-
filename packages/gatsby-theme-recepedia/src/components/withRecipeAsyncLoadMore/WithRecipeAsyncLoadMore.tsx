@@ -5,6 +5,7 @@ import { SearchParams } from 'gatsby-awd-components/src';
 import useMedia from 'src/utils/useMedia';
 import _values from 'lodash/values';
 import _compact from 'lodash/compact';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withRecipeAsyncLoadMore = <T extends any>(
@@ -82,10 +83,8 @@ const withRecipeAsyncLoadMore = <T extends any>(
         },
         queryString
       ).then(res => {
-        setRecipeResultsList([
-          ...recipeResultsList,
-          ...res.body.hits.hits.map(item => item._source),
-        ]);
+        const { data } = esResponseHandler(res);
+        setRecipeResultsList([...recipeResultsList, ...data]);
       });
     };
 
@@ -104,10 +103,8 @@ const withRecipeAsyncLoadMore = <T extends any>(
         getRecipeSearchData({
           size: initialRecipesCount,
         }).then(res => {
-          setRecipes(
-            res.body.hits.hits.map(item => item._source),
-            res.body.hits.total.value
-          );
+          const { data, total } = esResponseHandler(res);
+          setRecipes(data, total);
         });
       } else {
         setRecipes(

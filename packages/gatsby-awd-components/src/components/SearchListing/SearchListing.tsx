@@ -5,37 +5,41 @@ import React, {
   useCallback,
   FunctionComponent,
 } from 'react';
-import { Button } from '../Button';
-import { RecipeCard } from '../RecipeCard';
-import SearchInput from '../SearchInput';
-import { Tabs, Tab } from '../Tabs';
-import RecipeListing, { LoadMoreType } from '../RecipeListing';
+import {
+  Button,
+  RecipeCard,
+  SearchInput,
+  Tabs,
+  Tab,
+  RecipeListing,
+  NullResult,
+  MediaGallery,
+  Filter,
+  CardLinkWrapper,
+  ProductListing,
+  LoadMoreType
+} from '../index';
 import cx from 'classnames';
-
-import NullResult from '../NullResult';
 import get from 'lodash/get';
 import trim from 'lodash/trim';
-import MediaGallery from '../MediaGallery';
 import { SearchParams } from './models';
 import { SearchListingProps } from './models';
 import { RatingAndReviewsProvider } from '../../models';
 import getComponentDataAttrs from '../../utils/getComponentDataAttrs';
-import theme from './SearchListing.module.scss';
 import { icons } from '../../mocks/global';
-import Filter from '../Filter/Filter';
-import { CardLinkWrapper } from '../CardLinkWrapper';
+import theme from './SearchListing.module.scss';
+
 
 const SearchListing: FunctionComponent<SearchListingProps> = ({
   content,
-  config: { recipeConfig, searchInputConfig, articleConfig },
+  config: { recipeConfig, searchInputConfig, articleConfig, productConfig },
   searchQuery,
   className,
   searchResults: {
     recipeResults,
     searchInputResults,
     articleResults,
-    recipeResultsFetched = true,
-    articleResultsFetched = true,
+    productResults,
   },
   brandLogoLink,
 }) => {
@@ -67,6 +71,12 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
           size: articleConfig.initialCount,
         });
       }
+
+      if (productConfig.getProductSearchData) {
+        productConfig.getProductSearchData(trimmedSearchQuery, {
+          size: productConfig.initialCount,
+        });
+      }
     },
     [recipeConfig.initialCount]
   );
@@ -90,6 +100,15 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
     if (articleConfig.getArticleSearchData) {
       articleConfig.getArticleSearchData(defaultSearchValue, {
         from: articleResults.list.length,
+        size,
+      });
+    }
+  };
+
+  const onLoadMoreProducts = (size: number) => {
+    if (productConfig.getProductSearchData) {
+      productConfig.getProductSearchData(defaultSearchValue, {
+        from: productResults.list.length,
         size,
       });
     }
@@ -176,6 +195,18 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
       />
     );
 
+  const products = !!content.tabsContent.tabs.find(
+    tab => get(tab, 'view') === 'products'
+    ) && !!productResults.list.length && (
+      <ProductListing
+        content={content.productContent}
+        onLoadMore={onLoadMoreProducts}
+        list={productResults.list}
+        allCount={productResults.count}
+        brandLogoLink={brandLogoLink}
+      />
+    );
+
   const tabs = content.tabsContent.tabs.reduce(
     (
       tabs: {
@@ -194,11 +225,12 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
             <Tab view={view} key={view}>
               {recipes}
               {articles}
+              {products}
             </Tab>
           );
           tabs.content.tabs.push({
             ...tab,
-            resultsCount: recipeResults.count + articleResults.count,
+            resultsCount: recipeResults.count + articleResults.count + productResults.count,
           });
           break;
         }
@@ -229,6 +261,19 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
           });
           break;
         }
+
+        case 'products': {
+          tabs.list.push(
+            <Tab view={view} key={view}>
+              {products}
+            </Tab>
+          );
+          tabs.content.tabs.push({
+            ...tab,
+            resultsCount: productResults.count,
+          });
+          break;
+        }
       }
 
       return tabs;
@@ -245,6 +290,10 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
 
     if (articleConfig.onArticleViewChange) {
       articleConfig.onArticleViewChange(filter, null);
+    }
+
+    if (productConfig.onProductViewChange) {
+      productConfig.onProductViewChange(filter, null);
     }
   };
 
@@ -273,13 +322,13 @@ const SearchListing: FunctionComponent<SearchListingProps> = ({
         filterTitle={searchResultsText}
         currentFilters={filteringValue}
         searchQuery={defaultSearchValue}
-        results={recipeResults.count + articleResults.count}
+        results={recipeResults.count + articleResults.count + productResults.count}
       />
-      {recipeResults.count + articleResults.count ? (
+      {recipeResults.count + articleResults.count + productResults.count ? (
         <Tabs className="search-tabs" content={tabs.content}>
           {tabs.list.map(tab => tab)}
         </Tabs>
-        ) : null
+        ) : <NullResult content={content.nullResultContent} />
       }
     </div>
   );
