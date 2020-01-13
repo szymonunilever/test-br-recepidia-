@@ -1,0 +1,14 @@
+@import '../../scss/vars';
+@import '../../scss/mixins';
+
+.recipe-page {
+  :global {
+    .recipe-copy__title h1 {
+      color: $knorr-color-primary;
+      padding-top: 1rem;
+      @include respondTo(desktop) {
+        padding-top: 1.6rem;
+      }
+    }
+  }
+}

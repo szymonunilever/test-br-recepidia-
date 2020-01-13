@@ -82,29 +82,32 @@ const BrandProductDetailsPage: React.FunctionComponent<
     whatsapp: WhatsappIcon,
   };
 
-  const brandsContent = {
-    knorr: {
-      theme: themeKnorr,
-      logo: KnorrLogoIcon,
-    },
-    hellmanns: {
-      theme: themeHellmanns,
-      logo: HellmannsLogoIcon,
-    },
-    maizena: {
-      theme: themeMaizena,
-      logo: MaizenaLogoIcon,
-    },
+  const getBrandThemeContent = (brand: string | undefined) => {
+    switch (brand) {
+      case 'knorr':
+        return {
+          brandTheme: themeKnorr,
+          brandLogo: KnorrLogoIcon,
+        };
+      case 'hellmanns':
+        return {
+          brandTheme: themeHellmanns,
+          brandLogo: HellmannsLogoIcon,
+        };
+      case 'maizena':
+        return {
+          brandTheme: themeMaizena,
+          brandLogo: MaizenaLogoIcon,
+        };
+      default:
+        return false;
+    }
   };
-
   // @ts-ignore
-  const currentBrandContent = product.brand && brandsContent[currentBrand];
-  const BrandLogo = currentBrandContent.logo;
-  let brandTheme = currentBrandContent && currentBrandContent.theme;
-
+  const { brandTheme, brandLogo } = getBrandThemeContent(product.brand);
   const classWrapper = cx(
     theme.productPage,
-    brandTheme.brandProductPage,
+    brandTheme && brandTheme.brandProductPage,
     'brand-page',
     'product-page',
     currentBrand
@@ -146,8 +149,8 @@ const BrandProductDetailsPage: React.FunctionComponent<
       <BrandHero
         content={findPageComponentContent(components, 'BrandHero')}
         titleLevel={2}
-        brandLogo={BrandLogo}
-        prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
+        brandLogo={brandLogo}
+        prefix={brand === 'knorr' ? 'Knorr.' : ''}
       />
     </section>
   );
@@ -258,7 +261,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
               <Button
                 className={cx(
                   theme.product__attributesRelatedButton,
-                  brandTheme.product__attributesRelatedButton,
+                  brandTheme && brandTheme.product__attributesRelatedButton,
                   'product__attributes-related-button'
                 )}
                 content={findPageComponentContent(
@@ -278,7 +281,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
   const productNutrients = (
     <ProductNutrients
       titleLevel={3}
-      className={cx(brandTheme.product__nutrients)}
+      className={cx(brandTheme && brandTheme.product__nutrients)}
       content={findPageComponentContent(components, 'ProductNutrients')}
       nutritionFacts={product.nutritionFacts}
     />
@@ -298,7 +301,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
       <div
         className={cx(
           theme.product__headingContainer,
-          brandTheme.product__headingContainer
+          brandTheme && brandTheme.product__headingContainer
         )}
       >
         <div className={theme.product__headingHeroWrapper}>{productHero}</div>
@@ -306,7 +309,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
           <div
             className={cx(
               theme.product__headingTitleDesktop,
-              brandTheme.product__headingTitleDesktop
+              brandTheme && brandTheme.product__headingTitleDesktop
             )}
           >
             <ProductCopy
@@ -344,14 +347,14 @@ const BrandProductDetailsPage: React.FunctionComponent<
     <section
       className={cx(
         theme.product__attributesWrapper,
-        brandTheme.product__attributesWrapper,
+        brandTheme && brandTheme.product__attributesWrapper,
         '_pb--40 _pt--40 bg-primary bg-primary--wave up-to wrapper'
       )}
     >
       <div
         className={cx(
           theme.product__attributes,
-          brandTheme.product__attributes
+          brandTheme && brandTheme.product__attributes
         )}
       >
         {product.allergy || product.ingredients ? (

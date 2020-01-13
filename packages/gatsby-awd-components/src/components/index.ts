@@ -2,6 +2,7 @@ export * from './Accordion';
 export * from './AdaptiveImage';
 export * from './BackToTop';
 export * from './BrandSocialChannels';
+export * from './BrandLogo';
 export * from './Button';
 export * from './Card';
 export * from './ContactCard';

@@ -45,35 +45,36 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   const {
     page: { components, seo, type, brand },
   } = pageContext;
-
-  const brandsContent = {
-    knorr: {
-      theme: themeKnorr,
-      logo: KnorrLogoIcon,
-    },
-    hellmanns: {
-      theme: themeHellmanns,
-      logo: HellmannsLogoIcon,
-    },
-    maizena: {
-      theme: themeMaizena,
-      logo: MaizenaLogoIcon,
-    },
+  const getBrandThemeContent = (brand: string | undefined) => {
+    switch (brand) {
+      case 'knorr':
+        return {
+          theme: themeKnorr,
+          brandLogo: KnorrLogoIcon,
+        };
+      case 'hellmanns':
+        return {
+          theme: themeHellmanns,
+          brandLogo: HellmannsLogoIcon,
+        };
+      case 'maizena':
+        return {
+          theme: themeMaizena,
+          brandLogo: MaizenaLogoIcon,
+        };
+      default:
+        return null;
+    }
   };
 
-  //@ts-ignore
-  const currentBrandContent = brand && brandsContent[brand];
-
-  let theme = currentBrandContent && currentBrandContent.theme;
+  // @ts-ignore
+  const { theme, brandLogo } = getBrandThemeContent(brand);
   const classWrapper = cx(
     theme.brandProductsPage,
     'brand-page',
     'brand-products-page',
     brand
   );
-
-  const BrandLogo = currentBrandContent.logo;
-
   const headerContent = findPageComponentContent(components, 'Header');
 
   const productCarouselContent = findPageComponentContent(
@@ -259,8 +260,8 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
           <BrandHero
             content={findPageComponentContent(components, 'BrandHero')}
             titleLevel={1}
-            brandLogo={BrandLogo}
-            prefix={brand && brand.toLowerCase() === 'knorr' ? 'Knorr.' : ''}
+            brandLogo={brandLogo}
+            prefix={brand === 'knorr' ? 'Knorr.' : ''}
           />
         </section>
       )}
@@ -299,7 +300,7 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
         </section>
       )}
       <section className="wrapper brand-social bg-primary _pt--40 _pb--40">
-        <div className="bow-white"></div>
+        <div className="bow-white" />
         {followUs && brandSocial && (
           <Text
             tag={TagName.h2}

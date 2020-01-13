@@ -51,7 +51,7 @@ export const SocialSharingBase = ({
     const classWrapperButton = cx(
       theme.socialSharingButton,
       buttonClassName,
-      brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase()
+      brand
     );
     const props = {
       type: 'button' as 'button',

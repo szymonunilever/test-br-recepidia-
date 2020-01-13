@@ -1,15 +1,12 @@
 import cx from 'classnames';
-import React, { FunctionComponent, SyntheticEvent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 import { getImageAlt, iconNormalize } from '../../utils';
 import AdaptiveImage from '../AdaptiveImage';
 import { ButtonProps } from '../Button';
 import { TagName, Text } from '../Text';
 import { CardProps } from './models';
 import theme from './Card.module.scss';
-import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
-import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
-import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
-import { navigate } from 'gatsby';
+import BrandLogo from '../BrandLogo';
 
 export const Card: FunctionComponent<CardProps> = ({
    content,
@@ -23,12 +20,6 @@ export const Card: FunctionComponent<CardProps> = ({
    brandLink,
    showDescription = false,
  }) => {
-  const currentBrand = brandName ? brandName.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '';
-  const brandsLogo = {
-    knorr: KnorrLogoIcon,
-    hellmanns: HellmannsLogoIcon,
-    maizena: MaizenaLogoIcon,
-  };
   const { title, description, fields:{slug}, localImage } = content;
   const itemTitle = title && (
     <Text
@@ -71,11 +62,6 @@ export const Card: FunctionComponent<CardProps> = ({
     />
   );
 
-  const handleBrandClick = (e: SyntheticEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    brandLink && navigate(`${brandLink}?searchQuery=${currentBrand}`);
-  };
   return (
     <div className={wrapClasses} data-componentname="card">
       <div className="card__buttons">{modifiedChildren}</div>
@@ -87,14 +73,7 @@ export const Card: FunctionComponent<CardProps> = ({
           {ratingWidget}
           {descriptionText}
         </div>
-        {(brandName && brandsLogo[currentBrand]) ? (
-          <div
-            className={cx(theme.card__infoBrand, 'card__info-brand')}
-            onClick={handleBrandClick}
-          >
-            {iconNormalize(brandsLogo[currentBrand])}
-          </div>
-        ) : null}
+        <BrandLogo brand={brandName} linkTo={`${brandLink}?searchQuery=${brandName}`} />
       </div>
     </div>
   );

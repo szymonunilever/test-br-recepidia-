@@ -30,6 +30,7 @@ import {
   Button,
   RatingAndReviewsProvider,
   Text,
+  BrandLogo,
 } from 'gatsby-awd-components/src';
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
@@ -57,8 +58,6 @@ import useMedia from 'src/utils/useMedia';
 import { getUserProfileByKey, updateFavorites } from 'src/utils/browserStorage';
 import { ProfileKey } from 'src/utils/browserStorage/models';
 import useFavorite from 'src/utils/useFavorite';
-// Component Styles
-import '../../scss/pages/_recipePage.scss';
 import flatMap from 'lodash/flatMap';
 import isEmpty from 'lodash/isEmpty';
 import intersection from 'lodash/intersection';
@@ -68,6 +67,11 @@ import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-
 import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 import { getPagePath } from '../../utils/getPagePath';
 import isBrowser from '../../utils/isBrowser';
+// Component Styles
+import '../../scss/pages/_recipePage.scss';
+import themeKnorr from './RecipePageKnorr.module.scss';
+import themeHellmanns from './RecipePageHellmanns.module.scss';
+import themeMaizena from './RecipePageMaizena.module.scss';
 
 const infoIcon = <InfoIcon />;
 const socialIcons: SocialIcons = {
@@ -96,7 +100,34 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
     relatedRecipes,
   } = pageContext;
   const brandLogoLink = getPagePath('Search');
-  const classWrapper = cx(theme.recipePage, 'recipe-page header--bg');
+  const LinkToBrandProducts = getPagePath('BrandProductsPage', recipe.brand);
+  const getBrandThemeContent = (brand: string | undefined) => {
+    switch (brand) {
+      case 'knorr':
+        return {
+          theme: themeKnorr,
+        };
+      case 'hellmanns':
+        return {
+          theme: themeHellmanns,
+        };
+      case 'maizena':
+        return {
+          theme: themeMaizena,
+        };
+      default:
+        return false;
+    }
+  };
+  // @ts-ignore
+  const brandThemeContent = getBrandThemeContent(recipe.brand);
+  const brandTheme = brandThemeContent && brandThemeContent.theme;
+  const classWrapper = cx(
+    theme.recipePage,
+    brandTheme && brandTheme.recipePage,
+    'recipe-page header--bg'
+  );
+
   const tags = recipeTags.nodes;
   const isRecipeValid = isRecipeValidForReview(recipe, pageContext.tagIds);
   /*We use this way because we don't need to show inactive dietary attributes.
@@ -195,6 +226,11 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
           <div className={theme.recipeTopBlockItem}>
             <div className={theme.recipeHeroMobile}>{recipeHero}</div>
             <div className={theme.recipeBlockTitle}>
+              <BrandLogo
+                brand={recipe.brand}
+                linkTo={LinkToBrandProducts}
+                className={theme.recipeTopBlockLogo}
+              />
               <RecipeCopy
                 viewType={RecipeCopyViewType.Title}
                 recipe={recipe}

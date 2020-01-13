@@ -80,6 +80,17 @@
         }
       }
     }
+
+    &-logo {
+      text-align: left;
+      padding: 0;
+      svg {
+        height: 4.6rem;
+        @include respondTo(desktop) {
+          height: 6.3rem;
+        }
+      }
+    }
   }
 
   .recipeIngredientsCooking {

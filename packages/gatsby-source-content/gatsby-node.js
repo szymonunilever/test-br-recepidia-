@@ -114,7 +114,8 @@ exports.sourceNodes = async (
     };
 
     const articleNode = {
-      id, path, brand, section,
+      id, path, section,
+      brand: brand ? brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '',
       name: articleName,
       title: articleName,
       localImage: getImage(article, imagesData),
