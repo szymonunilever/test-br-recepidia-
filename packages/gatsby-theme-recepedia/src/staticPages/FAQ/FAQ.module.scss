@@ -15,7 +15,7 @@
   }
   &__list {
     margin: 0;
-    padding: 0 45px 0 0;
+    padding: 0;
     list-style-type: none;
     @include respondTo(desktop) {
       padding: 0 185px 0 0;
@@ -33,6 +33,7 @@
       }
     }
   }
+
   &__question {
     :global {
       .accordion__title {
@@ -40,21 +41,38 @@
         justify-content: space-between;
         align-items: center;
         background-color: $white-gray;
-        min-height: 40px;
-        font: bold 1.2rem/1.33 $arial;
+        min-height: 70px;
+        font: bold 1.2rem/1.33 $arial !important;
         padding: 5px 5px 5px 15px;
         cursor: pointer;
         transition: all 0.2s;
         @include respondTo(desktop) {
-          min-height: 60px;
+          min-height: 80px;
           padding: 8px 10px 8px 27px;
-          font-size: 1.4rem;
+          font-size: 1.4rem !important;
           line-height: 1.29;
         }
-        &:hover {
-          background-color: $apple-green;
+        @media (hover: hover),
+          (-ms-high-contrast: none),
+          (-ms-high-contrast: active) {
+          &:hover {
+            background-color: $apple-green;
+          }
         }
-        svg {
+        &-logo {
+          display: flex;
+          align-items: center;
+          svg {
+            height: 45px;
+            width: auto;
+            max-width: 76px;
+            @include respondTo(desktop) {
+              height: 53px;
+              max-width: 90px;
+            }
+          }
+        }
+        & > svg {
           transition: all 0.3s;
           will-change: transform;
           display: inline-block;
@@ -95,23 +113,57 @@
         }
       }
     }
-    &:global(.is-opened) {
-      :global {
-        .accordion__title {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
-        .accordion__body {
-          max-height: 400px;
-        }
-      }
-    }
   }
   &__answer {
     padding: 20px 15px;
     @include respondTo(desktop) {
       padding: 20px 20px 20px 27px;
+    }
+  }
+  &__sublist {
+    padding: 20px 27px;
+    @include respondTo(desktop) {
+      padding: 20px 76px;
+    }
+    li.faq__list-item {
+      padding: 0;
+      :global {
+        .accordion__title {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+    .faq__answer {
+      padding: 0 40px 20px 0;
+      @include respondTo(desktop) {
+        padding-right: 103px;
+      }
+    }
+  }
+  :global {
+    .faq__question {
+      &.is-opened {
+        & > .accordion__title {
+          & > svg {
+            transform: rotate(180deg);
+          }
+        }
+        & > .accordion__body {
+          max-height: 1500px;
+        }
+      }
+    }
+  }
+  .faq__sublist {
+    :global {
+      .faq__question {
+        &.is-opened {
+          & > .accordion__body {
+            max-height: 400px;
+          }
+        }
+      }
     }
   }
 }

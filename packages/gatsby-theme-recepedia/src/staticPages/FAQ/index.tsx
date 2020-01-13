@@ -5,6 +5,8 @@ import {
   RichText,
   TagName,
   Text,
+  iconNormalize,
+  Icon,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent } from 'src/utils';
 import Layout from 'src/components/Layout/Layout';
@@ -16,25 +18,55 @@ import theme from './FAQ.module.scss';
 import cx from 'classnames';
 import { ReactComponent as ArrowDownIcon } from 'src/svgs/inline/arrow-down.svg';
 
+import { ReactComponent as RecepediaLogoIcon } from '../../svgs/inline/logo.svg';
+import { ReactComponent as KnorrLogoIcon } from '../../svgs/inline/logo-knorr.svg';
+import { ReactComponent as HellmannsLogoIcon } from '../../svgs/inline/logo-hellmanns-filled.svg';
+import { ReactComponent as MaizenaLogoIcon } from '../../svgs/inline/logo-maizena.svg';
+
 const FAQPage = ({
   pageContext: {
     page: { seo, components, type },
   },
   location,
 }: FAQPageProps) => {
+  const brandLogo: { [key: string]: Icon } = {
+    recepedia: RecepediaLogoIcon,
+    knorr: KnorrLogoIcon,
+    hellmanns: HellmannsLogoIcon,
+    maizena: MaizenaLogoIcon,
+  };
   const faqs = findPageComponentContent(components, 'FAQs');
-  const questions = faqs.questions.map((item: FAQProps, i: number) => (
-    <li className={theme.faq__listItem} key={i}>
-      <Accordion
-        title={item.question}
-        isOpen={false}
-        className={theme.faq__question}
-        Icon={ArrowDownIcon}
-      >
-        <RichText content={item.answer} className={theme.faq__answer} />
-      </Accordion>
-    </li>
-  ));
+  const getQuestions = (faqs: FAQsProps) =>
+    faqs.questions.map((item: FAQProps, i: number) => {
+      const accordionTitle =
+        typeof item.question.logo === 'string'
+          ? {
+              ...item.question,
+              logo: iconNormalize(brandLogo[item.question.logo]),
+            }
+          : item.question;
+      return (
+        <li className={theme.faq__listItem} key={i}>
+          <Accordion
+            title={accordionTitle}
+            isOpen={false}
+            className={cx(theme.faq__question, 'faq__question')}
+            Icon={ArrowDownIcon}
+          >
+            {item.answer.hasOwnProperty('questions') ? (
+              <ul className={cx(theme.faq__list, theme.faq__sublist)}>
+                {getQuestions(item.answer as FAQsProps)}
+              </ul>
+            ) : (
+              <RichText
+                content={item.answer as AppContent.RichTextContent}
+                className={theme.faq__answer}
+              />
+            )}
+          </Accordion>
+        </li>
+      );
+    });
   return (
     <Layout>
       <SEO {...seo} canonical={location.href} />
@@ -45,7 +77,7 @@ const FAQPage = ({
           tag={TagName.h1}
           text={findPageComponentContent(components, 'Text', 'Title').text}
         />
-        <ul className={theme.faq__list}>{questions}</ul>
+        <ul className={theme.faq__list}>{getQuestions(faqs)}</ul>
       </section>
     </Layout>
   );
@@ -59,7 +91,10 @@ interface FAQPageProps {
   };
   location: WindowLocation;
 }
+interface FAQsProps {
+  questions: FAQProps[];
+}
 interface FAQProps {
   question: AccordionTitle;
-  answer: AppContent.RichTextContent;
+  answer: AppContent.RichTextContent | FAQsProps;
 }

@@ -14,4 +14,5 @@ export interface AccordionProps {
 export interface AccordionTitle {
   label?: string;
   name?: string;
+  logo?: any;
 }
