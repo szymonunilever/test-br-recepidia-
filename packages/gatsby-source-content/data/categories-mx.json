@@ -5,7 +5,7 @@
     "name": "ocasion",
     "description": "<p>Encuentras deliciosas recetas para cualquier ocasión. En Recepedia tenemos varias opciones y recomendaciones que facilitarán tu plan para ese día especial.</p>\n",
     "title": "Ocasión",
-    "imageKey": "static/pt/br/categories/1536681.jpg",
+    "imageKey": "static/es/mx/categories/1536681.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": true,
@@ -64,6 +64,238 @@
         "id": 1531,
         "name": ""
       }
+    ],
+    "categories": [
+      {
+        "id": 11,
+        "parentId": 1,
+        "name": "aniversario",
+        "description": "<p>  En Recepedia encuentra deliciosas recetas para tu aniversario. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Aniversario",
+        "imageKey": "static/es/mx/categories/883411.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1524,
+          "name": "aniversario"
+        },
+        "tags": [
+          {
+            "id": 1524,
+            "name": "aniversario"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "parentId": 1,
+        "name": "cena-con-invitados",
+        "description": "<p>  En Recepedia encuentra deliciosas recetas para tu cena con invitados. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Cena con invitados",
+        "imageKey": "static/es/mx/categories/1217464.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1525,
+          "name": "cena con invitados"
+        },
+        "tags": [
+          {
+            "id": 1525,
+            "name": "cena con invitados"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "parentId": 1,
+        "name": "cena-de-gala",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para tu cena de gala. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Cena de gala",
+        "imageKey": "static/es/mx/categories/930471.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1523,
+          "name": "cena de gala"
+        },
+        "tags": [
+          {
+            "id": 1523,
+            "name": "cena de gala"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "parentId": 1,
+        "name": "cocina-para-niños",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para tus niños. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Cocina para niños",
+        "imageKey": "static/es/mx/categories/798166.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1521,
+          "name": "cocina para niños"
+        },
+        "tags": [
+          {
+            "id": 1521,
+            "name": "cocina para niños"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "parentId": 1,
+        "name": "fiesta",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para tu fiesta. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Fiesta",
+        "imageKey": "static/es/mx/categories/799200.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1529,
+          "name": "fiesta"
+        },
+        "tags": [
+          {
+            "id": 1529,
+            "name": "fiesta"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "parentId": 1,
+        "name": "fiesta-infantil",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para tu fiestas infantiles. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Fiesta infantil",
+        "imageKey": "static/es/mx/categories/1469109.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1528,
+          "name": "fiesta infantil"
+        },
+        "tags": [
+          {
+            "id": 1528,
+            "name": "fiesta infantil"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "parentId": 1,
+        "name": "para-dos",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para dos. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Para dos",
+        "imageKey": "static/es/mx/categories/1088500.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1526,
+          "name": "para dos"
+        },
+        "tags": [
+          {
+            "id": 1526,
+            "name": "para dos"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "parentId": 1,
+        "name": "para-todos-los-días",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para todos los días. Descrube grandes beneficios con nuestro planificador de menús</p>\n",
+        "title": "Para todos los días",
+        "imageKey": "static/es/mx/categories/1862185.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1527,
+          "name": "para todos los días"
+        },
+        "tags": [
+          {
+            "id": 1527,
+            "name": "para todos los días"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "parentId": 1,
+        "name": "parrillada",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para tuparrilladaDescrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Parrillada",
+        "imageKey": "static/es/mx/categories/1851385.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1520,
+          "name": "parrillada"
+        },
+        "tags": [
+          {
+            "id": 1520,
+            "name": "parrillada"
+          }
+        ]
+      },
+      {
+        "id": 110,
+        "parentId": 1,
+        "name": "picnic",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para picnic. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Picnic",
+        "imageKey": "static/es/mx/categories/229384.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1530,
+          "name": "picnic"
+        },
+        "tags": [
+          {
+            "id": 1530,
+            "name": "picnic"
+          }
+        ]
+      }
     ]
   },
   {
@@ -71,8 +303,8 @@
     "parentId": 0,
     "name": "momento-del-dia",
     "description": "<p>Si siempre desayunas lo mismo, aquí encontrarás un gran número de opciones para llenar de inspiración tus mañanas. ¿No es suficiente? También tenemos recetas para tus comidas y cenas que seguro te encantarán por lo prácticas y deliciosas que son, no busques más y encuentra tu receta favorita ahora.</p>\n",
-    "title": "Momento del día",
-    "imageKey": "static/pt/br/categories/539064.jpg",
+    "title": "Momento del día", 
+    "imageKey": "static/es/mx/categories/539064.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": true,
@@ -107,6 +339,123 @@
         "id": 1553,
         "name": ""
       }
+    ],
+    "categories": [
+      {
+        "id": 21,
+        "parentId": 2,
+        "name": "desayuno",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para el desayuno. Descrube grandes beneficios con nuestro planificador de menús</p>\n",
+        "title": "Desayuno",
+        "imageKey": "static/es/mx/categories/1583372.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1551,
+          "name": "desayuno"
+        },
+        "tags": [
+          {
+            "id": 1551,
+            "name": "desayuno"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "parentId": 2,
+        "name": "brunch",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para el brunch. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Brunch",
+        "imageKey": "static/es/mx/categories/903977.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 619,
+          "name": "brunch"
+        },
+        "tags": [
+          {
+            "id": 619,
+            "name": "brunch"
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "parentId": 2,
+        "name": "colación",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para colasión. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Colación",
+        "imageKey": "static/es/mx/categories/1096760.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1553,
+          "name": "colación"
+        },
+        "tags": [
+          {
+            "id": 1553,
+            "name": "colación"
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "parentId": 2,
+        "name": "merienda",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para la merienda. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Merienda",
+        "imageKey": "static/es/mx/categories/1551965.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1531,
+          "name": "merienda"
+        },
+        "tags": [
+          {
+            "id": 1531,
+            "name": "merienda"
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "parentId": 2,
+        "name": "cena",
+        "description": "<p> En Recepedia encuentra deliciosas recetas para la cena. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Cena",
+        "imageKey": "static/es/mx/categories/86330.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1552,
+          "name": "cena"
+        },
+        "tags": [
+          {
+            "id": 1552,
+            "name": "cena"
+          }
+        ]
+      }
     ]
   },
   {
@@ -115,7 +464,7 @@
     "name": "ingrediente-principal",
     "description": "<p>¿Antojo de res, pollo o pescado? ¿O tal vez pasta, papas o mariscos? Descrubre increibles recetas para todos los presupuestos que podrás hacer de forma sencilla. Además, estarás probando deliciosos platillos con tus ingredientes preferidos.</p>\n",
     "title": "Ingrediente principal",
-    "imageKey": "static/pt/br/categories/937701.jpg",
+    "imageKey": "static/es/mx/categories/937701.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": true,
@@ -290,6 +639,490 @@
         "id": 2095,
         "name": ""
       }
+    ],
+    "categories": [
+      {
+        "id": 31,
+        "parentId": 3,
+        "name": "pescado",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con pescado. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Pescado",
+        "imageKey": "static/es/mx/categories/1567629.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1475,
+          "name": "pescado"
+        },
+        "tags": [
+          {
+            "id": 1475,
+            "name": "pescado"
+          },
+          {
+            "id": 1507,
+            "name": "pescado"
+          },
+          {
+            "id": 2087,
+            "name": "salmón"
+          },
+          {
+            "id": 2094,
+            "name": "atún"
+          },
+          {
+            "id": 2095,
+            "name": "pescado blanco"
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "parentId": 3,
+        "name": "chocolate",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con chocolate. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Chocolate",
+        "imageKey": "static/es/mx/categories/1856236.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1504,
+          "name": "chocolate"
+        },
+        "tags": [
+          {
+            "id": 1504,
+            "name": "chocolate"
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "parentId": 3,
+        "name": "cordero",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con frutas. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Cordero",
+        "imageKey": "static/es/mx/categories/1536681.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1510,
+          "name": "cordero"
+        },
+        "tags": [
+          {
+            "id": 1510,
+            "name": "cordero"
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "parentId": 3,
+        "name": "frutas",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con frutas. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Frutas",
+        "imageKey": "static/es/mx/categories/231933.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1108,
+          "name": "fruta"
+        },
+        "tags": [
+          {
+            "id": 1108,
+            "name": "fruta"
+          },
+          {
+            "id": 1053,
+            "name": "fruta"
+          },
+          {
+            "id": 1515,
+            "name": "frutos del mar"
+          },
+          {
+            "id": 2075,
+            "name": "frutos del bosque"
+          },
+          {
+            "id": 2092,
+            "name": "frutas tropicales"
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "parentId": 3,
+        "name": "granos-y-semilla",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con granos ysSemilla. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Granos y Semilla",
+        "imageKey": "static/es/mx/categories/937939.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1476,
+          "name": "granos"
+        },
+        "tags": [
+          {
+            "id": 1476,
+            "name": "granos"
+          },
+          {
+            "id": 1509,
+            "name": "granos"
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "parentId": 3,
+        "name": "hongos",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con hongos. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Hongos",
+        "imageKey": "static/es/mx/categories/916137.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1611,
+          "name": "hongos"
+        },
+        "tags": [
+          {
+            "id": 1611,
+            "name": "hongos"
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "parentId": 3,
+        "name": "huevos",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con huevos. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Huevos",
+        "imageKey": "static/es/mx/categories/1536681.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1474,
+          "name": "huevos"
+        },
+        "tags": [
+          {
+            "id": 1474,
+            "name": "huevos"
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "parentId": 3,
+        "name": "leche",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con leche. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Leche",
+        "imageKey": "static/es/mx/categories/1180370.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1326,
+          "name": "leche"
+        },
+        "tags": [
+          {
+            "id": 1326,
+            "name": "leche"
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "parentId": 3,
+        "name": "mariscos",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con  mariscos. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Mariscos",
+        "imageKey": "static/es/mx/categories/916155.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1321,
+          "name": "mariscos"
+        },
+        "tags": [
+          {
+            "id": 1321,
+            "name": "mariscos"
+          }
+        ]
+      },
+      {
+        "id": 310,
+        "parentId": 3,
+        "name": "pan",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con pan. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Pan",
+        "imageKey": "static/es/mx/categories/910821.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1465,
+          "name": "pan"
+        },
+        "tags": [
+          {
+            "id": 1465,
+            "name": "pan"
+          }
+        ]
+      },
+      {
+        "id": 311,
+        "parentId": 3,
+        "name": "papas",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con papas. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Papas",
+        "imageKey": "static/es/mx/categories/1629464.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1513,
+          "name": "papas"
+        },
+        "tags": [
+          {
+            "id": 1513,
+            "name": "papas"
+          }
+        ]
+      },
+      {
+        "id": 312,
+        "parentId": 3,
+        "name": "pasta",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con pasta. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Pasta",
+        "imageKey": "static/es/mx/categories/923799.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 664,
+          "name": "pasta"
+        },
+        "tags": [
+          {
+            "id": 664,
+            "name": "pasta"
+          }
+        ]
+      },
+      {
+        "id": 313,
+        "parentId": 3,
+        "name": "aves",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con aves. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
+        "title": "Aves",
+        "imageKey": "static/es/mx/categories/923487.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1484,
+          "name": "aves"
+        },
+        "tags": [
+          {
+            "id": 1503,
+            "name": "pollo"
+          },
+          {
+            "id": 1516,
+            "name": "pavo"
+          },
+          {
+            "id": 1484,
+            "name": "aves"
+          }
+        ]
+      },
+      {
+        "id": 314,
+        "parentId": 3,
+        "name": "proteína-vegetal",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con proteína vegetal. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Proteína vegetal",
+        "imageKey": "static/es/mx/categories/1688756.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1519,
+          "name": "proteína vegetal"
+        },
+        "tags": [
+          {
+            "id": 1519,
+            "name": "proteína vegetal"
+          }
+        ]
+      },
+      {
+        "id": 315,
+        "parentId": 3,
+        "name": "queso",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con queso. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Queso",
+        "imageKey": "static/es/mx/categories/923919.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1403,
+          "name": "queso"
+        },
+        "tags": [
+          {
+            "id": 1403,
+            "name": "queso"
+          }
+        ]
+      },
+      {
+        "id": 316,
+        "parentId": 3,
+        "name": "carne",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con carne. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Carne",
+        "imageKey": "static/es/mx/categories/1532405.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 1499,
+          "name": "res"
+        },
+        "tags": [
+          {
+            "id": 1499,
+            "name": "res"
+          },
+          {
+            "id": 1510,
+            "name": "cordero"
+          },
+          {
+            "id": 1512,
+            "name": "cerdo"
+          },
+          {
+            "id": 1517,
+            "name": "ternera"
+          },
+          {
+            "id": 2088,
+            "name": "salchichas"
+          }
+        ]
+      },
+      {
+        "id": 317,
+        "parentId": 3,
+        "name": "tomate",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con verduras y legumbres. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Tomate",
+        "imageKey": "static/es/mx/categories/1536681.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 2091,
+          "name": "tomate"
+        },
+        "tags": [
+          {
+            "id": 2091,
+            "name": "tomate"
+          }
+        ]
+      },
+      {
+        "id": 318,
+        "parentId": 3,
+        "name": "verduras-y-legumbres",
+        "description": "<p> En Recepedia encuentra deliciosas recetas con verduras y legumbres. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
+        "title": "Verduras y legumbres",
+        "imageKey": "static/es/mx/categories/1482258.jpg",
+        "recipeDetails": {},
+        "inNavigation": true,
+        "inFooter": false,
+        "showOnHomepage": 0,
+        "categoryOrder": 800,
+        "primaryTag": {
+          "id": 2077,
+          "name": "verduras"
+        },
+        "tags": [
+          {
+            "id": 2077,
+            "name": "verduras"
+          },
+          {
+            "id": 2091,
+            "name": "tomate"
+          },
+          {
+            "id": 1498,
+            "name": "legumbres"
+          }
+        ]
+      }
     ]
   },
   {
@@ -298,7 +1131,7 @@
     "name": "tipo-de-plato",
     "description": "<p>Si estás buscando un estilo de platillo específico, esta sección te puede ofrecer recetas para crear entradas, botansa, snacks y platos fuertes que seguro te encatarán a ti, a tu familia y amigos.</p>\n",
     "title": "Tipo de plato",
-    "imageKey": "static/pt/br/categories/1096729.jpg",
+    "imageKey": "static/es/mx/categories/1096729.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": true,
@@ -345,7 +1178,7 @@
     "name": "tipo-de-cocina",
     "description": "<p>No necesitas viajar por el mundo para conocer y probar los platillos más locales de los paises que marcan la historia de la gastronomía. Descubre deliciosas recetas italiansa, francesas, mexicanas o asiáticas y transpórtate con el delicoso sabor de nuestras recetas.</p>\n",
     "title": "Tipo de cocina",
-    "imageKey": "static/pt/br/categories/904026.jpg",
+    "imageKey": "static/es/mx/categories/904026.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
@@ -497,7 +1330,7 @@
     "name": "metodo-de-coccion",
     "description": "<p>¿Quieres presumir ese horno, parrila o simplemente sacarle el mejor provecho a tu estufa? Disfruta de una variedad de receta donde te recomendaremos los metodos de cocción más convenientes para cada platillo.</p>\n",
     "title": "Método de cocción",
-    "imageKey": "static/pt/br/categories/910821.jpg",
+    "imageKey": "static/es/mx/categories/910821.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
@@ -556,7 +1389,7 @@
     "name": "dieta",
     "description": "<p>¿Buscas mejorar tu salud, controlar alergías o simplemente tener más ideas de recetas para un estilo de vida saludable? Encuentra una gran cantidad de recetas enfocadas a gente con dietas especiales como vegetarianas, veganas, sin gluten, baja en grasas y mucho más.</p>\n",
     "title": "Dieta",
-    "imageKey": "static/pt/br/categories/1463192.jpg",
+    "imageKey": "static/es/mx/categories/1463192.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
@@ -633,13 +1466,13 @@
         "id": 71,
         "parentId": 7,
         "name": "aptas-para-el-embarazo",
-        "description": "",
+        "description": "<p>En Recepedia encuentra deliciosas recetas aptas para el embarazo. Descrube grandes beneficios con nuestro planificador de menús.</p>\n",
         "title": "Aptas para el embarazo",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1392963.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 7,
@@ -656,13 +1489,13 @@
         "id": 72,
         "parentId": 7,
         "name": "dieta-cruda",
-        "description": "Dieta cruda",
+        "description": "<p> En Recepedia encuentra deliciosas recetas de dieta cruda. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Dieta cruda",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/148042.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 8,
@@ -679,13 +1512,13 @@
         "id": 73,
         "parentId": 7,
         "name": "dieta-paleo",
-        "description": "Dieta Paleo",
+        "description": "<p> En Recepedia encuentra deliciosas recetas de dieta paleo. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Dieta Paleo",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1774651.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 6,
@@ -702,13 +1535,13 @@
         "id": 74,
         "parentId": 7,
         "name": "sin-gluten",
-        "description": "Sin gluten",
+        "description": "<p> En Recepedia encuentra deliciosas recetas din gluten. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Sin gluten",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/909145.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 3,
@@ -725,13 +1558,13 @@
         "id": 75,
         "parentId": 7,
         "name": "sin-huevo",
-        "description": "Sin huevo",
+        "description": "<p> En Recepedia encuentra deliciosas recetas din huevo. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Sin huevo",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1585791.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 2,
@@ -748,13 +1581,13 @@
         "id": 76,
         "parentId": 7,
         "name": "sin-lacteos",
-        "description": "Sin lacteos",
+        "description": "<p> En Recepedia encuentra deliciosas recetas sin lacteos. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Sin lacteos",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/960015.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 4,
@@ -771,13 +1604,13 @@
         "id": 77,
         "parentId": 7,
         "name": "sin-nueces",
-        "description": "Sin nueces",
+        "description": "<p> En Recepedia encuentra deliciosas recetas sin nueces. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Sin nueces",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/937939.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 5,
@@ -794,13 +1627,13 @@
         "id": 78,
         "parentId": 7,
         "name": "sin-trigo",
-        "description": "Sin trigo",
+        "description": "<p> En Recepedia encuentra deliciosas recetas sin trigo. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Sin trigo",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1207089.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 9,
@@ -817,13 +1650,13 @@
         "id": 79,
         "parentId": 7,
         "name": "veganas",
-        "description": "Veganas",
+        "description": "<p> En Recepedia encuentra deliciosas recetas veganas. Descrube grandes beneficios con nuestro planificador de menú. </p>\n",
         "title": "Veganas",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1661401.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 10,
@@ -837,16 +1670,16 @@
         ]
       },
       {
-        "id": 80,
+        "id": 710,
         "parentId": 7,
         "name": "vegetarinas",
-        "description": "Vegetarianas",
+        "description": "<p> En Recepedia encuentra deliciosas recetas vegetarianas. Descrube grandes beneficios con nuestro planificador de menús. </p>\n",
         "title": "Vegetarianas",
-        "imageKey": "static/pt/br/categories/937701.jpg",
+        "imageKey": "static/es/mx/categories/1774684.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
-        "showOnHomepage": 800,
+        "showOnHomepage": 0,
         "categoryOrder": 800,
         "primaryTag": {
           "id": 11,
@@ -867,7 +1700,7 @@
     "name": "fiestas-y-celebraciones",
     "description": "<p>Recepedia te ayuda hasta en los eventos más complicados. Disfruta de tus fiestas y celebraciones con deliciosos platillos y una gran variedad de opciones para que seas el mejor anfitrión en todos tus eventos.</p>\n",
     "title": "Fiestas y celebraciones",
-    "imageKey": "static/pt/br/categories/799200.jpg",
+    "imageKey": "static/es/mx/categories/799200.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
@@ -949,7 +1782,7 @@
     "name": "estacion",
     "description": "<p>Disfruta de las recetas tipicas de cada estación del año disfrutando de ingredientes de temporada. Teniendo a la mano preparaciones sencillas y económicas, disfrutarás en cualquier momento y sin ninguna complicación.</p>\n",
     "title": "Estación",
-    "imageKey": "static/pt/br/categories/794814.jpg",
+    "imageKey": "static/es/mx/categories/794814.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
