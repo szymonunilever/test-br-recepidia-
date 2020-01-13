@@ -14,6 +14,7 @@ import { findPageComponentContent, getImageAlt } from 'src/utils';
 import '../../scss/pages/_notFound.scss';
 import theme from './NotFound.module.scss';
 import cx from 'classnames';
+import { getPagePath } from '../../utils/getPagePath';
 import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 import { IMAGE_SIZES } from '../../constants';
 
@@ -32,6 +33,7 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
   const pageListingContent = {
     title: undefined,
   };
+  const allCategoryUrl = getPagePath('AllRecipes');
 
   return (
     <Layout
@@ -66,7 +68,7 @@ const NotFoundPage = ({ data, location, pageContext }: NotFoundPageProps) => {
           />
         </section>
         <Link
-          to={'/receita'}
+          to={allCategoryUrl}
           className={cx('button', theme.notFound__recipesLink)}
         >
           {findPageComponentContent(components, 'Button').label}
