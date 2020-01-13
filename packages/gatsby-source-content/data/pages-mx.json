@@ -2254,226 +2254,302 @@
               "questions": [
                 {
                   "question": {
-                    "label": "¿Es Seguro El Glutamato Monosódico?"
+                    "logo": "recepedia"
                   },
                   "answer": {
-                    "text": "Es la sal sódica del aminoácido glutamato y se utiliza como un potenciador de sabor. El glutamato es uno de los aminoácidos con mayor presencia en la naturaleza, se encuentra alimentos como  tomates, quesos,  champiñones, carnes, mariscos  e incluso en la leche materna. Tanto el GMS como el glutamato libre se metabolizan de la misma manera en nuestro cuerpo. Numerosos estudios, realizados a nivel mundial indican que el glutamato monosódico consumido en los niveles aprobados  por autoridades Internacionales así como Nacionales, es seguro para la población en general."
+                    "questions": [
+                      {
+                        "question": {
+                          "label": "¿Qué es Recepdia® ?"
+                        },
+                        "answer": {
+                          "text": "Recepedia® es una plataforma digital enfocada a ofrecer las recetas más deliciosas para cada ocasión y temporada junto con las mejores recomendaciones para tu alimentación."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Qué es el planificador de menús?"
+                        },
+                        "answer": {
+                          "text": "Es una herramienta que Recepedia® pone a la disposición de todos los usuarios para poder facilitar recetas de temporada, ocasión, etc. Y así tengan disponibles estos delicioso platillos, dando variedad a la alimentación semana a semana y facilitando los propósitos de nuestros usuarios."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Cómo funcionan las diferentes secciones de Recepedia®?"
+                        },
+                        "answer": {
+                          "text": "Sabemos que el gusto por la comida vienen a través de muchos intereses. Nuestras recetas están por categorizadas por:<ul><li>Tipo de platillo</li><li>Ocasión del día</li><li>Tipo de cocción</li><li>Ingrediente principal</li></ul>Y muchas otras opciones, te garantizamos que entra más navegues por nuestro sitio encontrarás excelentes recetas y nuestro sistema te recomendará platillos nuevos cada vez que sea posible."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Hay recetas para dietas especiales?"
+                        },
+                        "answer": {
+                          "text": "Actualmente nuestras recetas cuentan imágenes para que puedas reconocer las recetas enfocadas a una dietética especial, esto quiere decir que puedes identificar fácilmente que recetas contienen lácteos, lactosa, granos, bajas en grase, vegetarianas, veganas y más."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Qué pasa si no completo ningún formulario que Recepedia® me muestra?"
+                        },
+                        "answer": {
+                          "text": "Si no has contestado ningún cuestionario desde que llegaste a nuestro sitio no podremos saber que estilo de recetas buscas, por lo tanto no nos será posible ofrecerte opciones similares y es probable que pierdas la experiencia de probar deliciosas opciones que nos encantaría compartir contigo."
+                        }
+                      }
+                    ]
                   }
                 },
                 {
                   "question": {
-                    "label": "Una vez caducado  el producto, ¿puedo consumirlo?"
+                    "logo": "knorr"
                   },
                   "answer": {
-                    "text": "No, Unilever garantiza la calidad de sus productos durante el periodo de vida útil que está marcado en su empaque, siempre y cuando el  manejo del producto haya sido conforme lo indicado el empaque."
+                    "questions": [
+                      {
+                        "question": {
+                          "label": "¿Es Seguro El Glutamato Monosódico?"
+                        },
+                        "answer": {
+                          "text": "Es la sal sódica del aminoácido glutamato y se utiliza como un potenciador de sabor. El glutamato es uno de los aminoácidos con mayor presencia en la naturaleza, se encuentra alimentos como  tomates, quesos,  champiñones, carnes, mariscos  e incluso en la leche materna. Tanto el GMS como el glutamato libre se metabolizan de la misma manera en nuestro cuerpo. Numerosos estudios, realizados a nivel mundial indican que el glutamato monosódico consumido en los niveles aprobados  por autoridades Internacionales así como Nacionales, es seguro para la población en general."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Una vez caducado  el producto, ¿puedo consumirlo?"
+                        },
+                        "answer": {
+                          "text": "No, Unilever garantiza la calidad de sus productos durante el periodo de vida útil que está marcado en su empaque, siempre y cuando el  manejo del producto haya sido conforme lo indicado el empaque."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Porciones para preparación. "
+                        },
+                        "answer": {
+                          "text": "En los empaques se puede visualizar esta información."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Los ingredientes utilizados en los productos knorr son naturales o son químicos? "
+                        },
+                        "answer": {
+                          "text": "En la elaboración de los productos Knorr® se utilizan ingredientes naturales tales como carnes, vegetales, grasas, especias y condimentos y algunos aditivos que ayudan a realzar el sabor de tus comidas. Todos cumplen con lo establecido por la Secretaría de Salud, y organismos internacionales, asegurando la calidad los productos y la salud del consumidor."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Cuál es la diferencia entre Condimix y caldo de pollo? "
+                        },
+                        "answer": {
+                          "text": "Estos productos tienen su denominación en cumplimiento con las normativas que aplican a los productos en México y de acuerdo a esto se denominan: <ul><li>Knorr® Condimix, es un sazonador para platillos.</li><li>Knorr® Suiza caldo de pollo, es un producto para preparar un exquisito caldo de pollo, con el cual puedes cocer tus sopas, arroz, y diversos guisados de tu inspiración.</li><ul>"
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": " ¿El consumo de este producto es nocivo para la salud?"
+                        },
+                        "answer": {
+                          "text": "No es nocivo. La misión de Unilever es brindar a sus consumidores productos que le ayudan a verse y sentirse bien. Por lo que sólo ofrecemos productos cuyo consumo, como parte de una alimentación correcta y hábitos de vida saludable, cumplen con dicha misión. Además en Unilever sólo incluimos ingredientes que han sido aprobados y cumplen con todas las normas de seguridad tanto nacional como internacional."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿El producto contiene conservadores?"
+                        },
+                        "answer": {
+                          "text": "No, el producto es libre de conservadores porque está hecho con ingredientes deshidratados"
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Los productos de Knorr son libres de gluten (gluten free)? ¿Pueden ser consumidos por celíacos?"
+                        },
+                        "answer": {
+                          "text": "No, estos productos no son recomendados para el consumo de personas celiacas, ya que algunos de sus ingredientes pueden contener trazas de gluten."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Qué tipo de grasa es la que tiene Knorr?"
+                        },
+                        "answer": {
+                          "text": "Knorr cambio el tipo de grasa utilizada en  sus cubos por una grasa 100% vegetal sin que esto afecte el sabor de siempre en tus platillos."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Los Productos Knorr Causan Cáncer? "
+                        },
+                        "answer": {
+                          "text": "No. En Knorr  sólo utilizamos  ingredientes de alta calidad y cuya seguridad ha sido comprobada por autoridades de salud a nivel nacional e internacional."
+                        }
+                      }
+                    ]
                   }
                 },
                 {
                   "question": {
-                    "label": "Porciones para preparación. "
+                    "logo": "hellmanns"
                   },
                   "answer": {
-                    "text": "En los empaques se puede visualizar esta información."
+                    "questions": [
+                      {
+                        "question": {
+                          "label": "¿Las mayonesas tienen colesterol? "
+                        },
+                        "answer": {
+                          "text": "Nuestras mayonesas y aderezos están hechos con huevo. El huevo desde su origen, contiene colesterol. El consumo moderado de este tipo de productos es completamente seguro, sin embargo, si tienes un requerimiento dietario específico o tienes alguna duda, te recomendamos consultar a tu médico."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Tengo diabetes (diabético), ¿puedo consumir las mayonesas Hellmann's? "
+                        },
+                        "answer": {
+                          "text": "La dieta de una persona que vive con diabetes, debe estar cuidadosamente equilibrada nutrimentalmente y bajo la supervisión de un profesional de la salud. Aunque nuestras mayonesas y aderezos son reducidos en grasa, te recomendamos consultar a un profesional de la salud para garantizar que el consumo de cualquier producto sea seguro para ti."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Una vez abierto, ¿es necesario refrigerar el producto?"
+                        },
+                        "answer": {
+                          "text": "Sí, una vez abierto el producto, debe volver a cerrarse en su empaque original y conservarse en refrigeración."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Una vez caducado  el producto, ¿puedo consumirlo?"
+                        },
+                        "answer": {
+                          "text": "Te recomendamos consumir los productos antes de su fecha de caducidad / expiración, a fin de garantizar que el sabor y atributos del producto se mantengan y el desempeño en tus aplicaciones sea el recomendado."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Hay algún ingrediente de origen animal en las mayonesas Hellmann’s?"
+                        },
+                        "answer": {
+                          "text": "El huevo es de origen animal (huevo de gallina)."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Las mayonesa y aderezos de la línea Hellmann's son libres de gluten (gluten free)? ¿Pueden ser consumidos por celíacos?"
+                        },
+                        "answer": {
+                          "text": "Aunque nuestros productos no contienen derivados de trigo en su formulación, recomendamos siempre consumir productos certificados como libres de gluten en caso de enfermedad celíaca."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Los empaques de sus productos, son reciclables?"
+                        },
+                        "answer": {
+                          "text": "Si"
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Es Seguro El Glutamato Monosódico? "
+                        },
+                        "answer": {
+                          "text": "Numerosos estudios bioquímicos, toxicológicos y médicos realizados durante cuatro décadas, indican que el glutamato monosódico, se encuentra en forma natural en algunos alimentos como tomates, quesos, champiñones, carnes, mariscos, algas y muchos otros, incluso también se encuentra en la leche materna. Es un compuesto sintetizado por los organismos vegetales y animales y desde una perspectiva nutrimental es un aminoácido. Tiene una función primordial en el metabolismo humano. El sabor del glutamato ha sido reconocido como el quinto sabor básico además del ácido, salado, dulce y amargo. Los primeros en extraerlo de los alimentos y aprovechar sus bondades de sabor fueron los Orientales (Japón 1908 a partir de algas). Actualmente el glutamato monosódico se fabrica a nivel industrial por procesos de fermentación natural a partir de azúcares, melazas y cereales. Se han realizado muchos estudios sobre la seguridad de su consumo y existe evidencia suficiente para demostrarlo."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Si soy alérgico a la leche, ¿puedo consumir mayonesa Hellmann's? "
+                        },
+                        "answer": {
+                          "text": "Sí, ya que no contienen leche en su formulación. De cualquier forma, recuerda siempre leer el listado de ingredientes de los productos para identificar si contiene leche."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Las mayonesas son aptas para Veganos?"
+                        },
+                        "answer": {
+                          "text": "No, actualmente no tenemos productos veganos dentro de nuestro portafolio."
+                        }
+                      }
+                    ]
                   }
                 },
                 {
                   "question": {
-                    "label": "¿Los ingredientes utilizados en los productos knorr son naturales o son químicos? "
+                    "logo": "maizena"
                   },
                   "answer": {
-                    "text": "En la elaboración de los productos Knorr® se utilizan ingredientes naturales tales como carnes, vegetales, grasas, especias y condimentos y algunos aditivos que ayudan a realzar el sabor de tus comidas. Todos cumplen con lo establecido por la Secretaría de Salud, y organismos internacionales, asegurando la calidad los productos y la salud del consumidor."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Cuál es la diferencia entre Condimix y caldo de pollo? "
-                  },
-                  "answer": {
-                    "text": "Estos productos tienen su denominación en cumplimiento con las normativas que aplican a los productos en México y de acuerdo a esto se denominan: <ul><li>Knorr® Condimix, es un sazonador para platillos.</li><li>Knorr® Suiza caldo de pollo, es un producto para preparar un exquisito caldo de pollo, con el cual puedes cocer tus sopas, arroz, y diversos guisados de tu inspiración.</li><ul>"
-                  }
-                },
-                {
-                  "question": {
-                    "label": " ¿El consumo de este producto es nocivo para la salud?"
-                  },
-                  "answer": {
-                    "text": "No es nocivo. La misión de Unilever es brindar a sus consumidores productos que le ayudan a verse y sentirse bien. Por lo que sólo ofrecemos productos cuyo consumo, como parte de una alimentación correcta y hábitos de vida saludable, cumplen con dicha misión. Además en Unilever sólo incluimos ingredientes que han sido aprobados y cumplen con todas las normas de seguridad tanto nacional como internacional."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿El producto contiene conservadores?"
-                  },
-                  "answer": {
-                    "text": "No, el producto es libre de conservadores porque está hecho con ingredientes deshidratados"
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Los productos de Knorr son libres de gluten (gluten free)? ¿Pueden ser consumidos por celíacos?"
-                  },
-                  "answer": {
-                    "text": "No, estos productos no son recomendados para el consumo de personas celiacas, ya que algunos de sus ingredientes pueden contener trazas de gluten."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Qué tipo de grasa es la que tiene Knorr?"
-                  },
-                  "answer": {
-                    "text": "Knorr cambio el tipo de grasa utilizada en  sus cubos por una grasa 100% vegetal sin que esto afecte el sabor de siempre en tus platillos."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Los Productos Knorr Causan Cáncer? "
-                  },
-                  "answer": {
-                    "text": "No. En Knorr  sólo utilizamos  ingredientes de alta calidad y cuya seguridad ha sido comprobada por autoridades de salud a nivel nacional e internacional."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Las mayonesas tienen colesterol? "
-                  },
-                  "answer": {
-                    "text": "Nuestras mayonesas y aderezos están hechos con huevo. El huevo desde su origen, contiene colesterol. El consumo moderado de este tipo de productos es completamente seguro, sin embargo, si tienes un requerimiento dietario específico o tienes alguna duda, te recomendamos consultar a tu médico."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Tengo diabetes (diabético), ¿puedo consumir las mayonesas Hellmann's? "
-                  },
-                  "answer": {
-                    "text": "La dieta de una persona que vive con diabetes, debe estar cuidadosamente equilibrada nutrimentalmente y bajo la supervisión de un profesional de la salud. Aunque nuestras mayonesas y aderezos son reducidos en grasa, te recomendamos consultar a un profesional de la salud para garantizar que el consumo de cualquier producto sea seguro para ti."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Una vez abierto, ¿es necesario refrigerar el producto?"
-                  },
-                  "answer": {
-                    "text": "Sí, una vez abierto el producto, debe volver a cerrarse en su empaque original y conservarse en refrigeración."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Una vez caducado  el producto, ¿puedo consumirlo?"
-                  },
-                  "answer": {
-                    "text": "Te recomendamos consumir los productos antes de su fecha de caducidad / expiración, a fin de garantizar que el sabor y atributos del producto se mantengan y el desempeño en tus aplicaciones sea el recomendado."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Hay algún ingrediente de origen animal en las mayonesas Hellmann’s?"
-                  },
-                  "answer": {
-                    "text": "El huevo es de origen animal (huevo de gallina)."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Las mayonesa y aderezos de la línea Hellmann's son libres de gluten (gluten free)? ¿Pueden ser consumidos por celíacos?"
-                  },
-                  "answer": {
-                    "text": "Aunque nuestros productos no contienen derivados de trigo en su formulación, recomendamos siempre consumir productos certificados como libres de gluten en caso de enfermedad celíaca."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Los empaques de sus productos, son reciclables?"
-                  },
-                  "answer": {
-                    "text": "Si"
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Es Seguro El Glutamato Monosódico? "
-                  },
-                  "answer": {
-                    "text": "Numerosos estudios bioquímicos, toxicológicos y médicos realizados durante cuatro décadas, indican que el glutamato monosódico, se encuentra en forma natural en algunos alimentos como tomates, quesos, champiñones, carnes, mariscos, algas y muchos otros, incluso también se encuentra en la leche materna. Es un compuesto sintetizado por los organismos vegetales y animales y desde una perspectiva nutrimental es un aminoácido. Tiene una función primordial en el metabolismo humano. El sabor del glutamato ha sido reconocido como el quinto sabor básico además del ácido, salado, dulce y amargo. Los primeros en extraerlo de los alimentos y aprovechar sus bondades de sabor fueron los Orientales (Japón 1908 a partir de algas). Actualmente el glutamato monosódico se fabrica a nivel industrial por procesos de fermentación natural a partir de azúcares, melazas y cereales. Se han realizado muchos estudios sobre la seguridad de su consumo y existe evidencia suficiente para demostrarlo."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Si soy alérgico a la leche, ¿puedo consumir mayonesa Hellmann's? "
-                  },
-                  "answer": {
-                    "text": "Sí, ya que no contienen leche en su formulación. De cualquier forma, recuerda siempre leer el listado de ingredientes de los productos para identificar si contiene leche."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Las mayonesas son aptas para Veganos?"
-                  },
-                  "answer": {
-                    "text": "No, actualmente no tenemos productos veganos dentro de nuestro portafolio."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Maizena contiene colorantes? "
-                  },
-                  "answer": {
-                    "text": "Excepto la Maizena® regular y la de sabor coco, el resto de los sabores de Maizena® incluyen dentro de su formulación pequeñas cantidades de colorantes de origen natural y/o artificial para resaltar el color de nuestros productos y hacerlos más atractivos."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Maizena® es Kosher?"
-                  },
-                  "answer": {
-                    "text": "Si, tanto la Maizena® regular como la Maizena® sabores son productos con certificación Kosher."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Cuánto tiempo después de la fecha de caducidad puede consumirse la Maizena sabores?"
-                  },
-                  "answer": {
-                    "text": "La recomendación es consumirse dentro de la vida útil establecida, en caso de preparar y/o consumir el producto más allá de esta fecha no hay problema, no es dañino a la salud, lo único que puede esperar es que ésta haya disminuido sus características originales de color, consistencia, aroma y sabor."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Hacen daño para la salud los colorantes artificiales?"
-                  },
-                  "answer": {
-                    "text": "Existen personas que son más sensibles a ciertas sustancias contenidas en los colores artificiales. En caso de tener antecedentes de reacciones alergias a alguna sustancia en específico se recomienda leer en el listado de ingredientes para verificar que no contenga alguno de estos productos. El listado de los ingredientes se describe en la parte posterior de cualquier empaque."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Maizena contiene saborizantes?"
-                  },
-                  "answer": {
-                    "text": "Sí, únicamente el portafolio de Maizena® Sabores contiene saborizantes para brindar aromas y sabores a los productos. \n Maizena® Sabores de nuez, vainilla, cajeta, arroz con leche, galleta y guayaba contienen sabores idénticos al natural (se obtienen a partir de materias primas de origen natural). El resto de los sabores de Maizena® Sabores son de origen artificial."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "Tengo diabétes (diabético), ¿puedo consumir Maizena? "
-                  },
-                  "answer": {
-                    "text": "Atoles Maizena no están adicionados con azúcar, por lo que se puede endulzar o no al gusto, pero para personas con condiciones especiales de salud, siempre es recomendable que consulten a su médico."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Maizena contiene Leche?"
-                  },
-                  "answer": {
-                    "text": "Nuestros productos Maizena® no contienen leche ni derivados de ésta. Sin embargo, la forma recomendada para consumir nuestros atoles Maizena® sabores es preparados con leche ya que es de esta forma en la que obtendrás el mejor sabor, textura y muy importante, nutrimentos declarados en la tabla nutrimental. No recomendamos su preparación con agua u otro tipo de líquido para su preparación, ya que podrá afectar su sabor, textura y su aporte nutrimental."
-                  }
-                },
-                {
-                  "question": {
-                    "label": "¿Los empaques de sus productos, son reciclables?"
-                  },
-                  "answer": {
-                    "text": "Si"
+                    "questions": [
+                      {
+                        "question": {
+                          "label": "¿Maizena contiene colorantes? "
+                        },
+                        "answer": {
+                          "text": "Excepto la Maizena® regular y la de sabor coco, el resto de los sabores de Maizena® incluyen dentro de su formulación pequeñas cantidades de colorantes de origen natural y/o artificial para resaltar el color de nuestros productos y hacerlos más atractivos."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Maizena® es Kosher?"
+                        },
+                        "answer": {
+                          "text": "Si, tanto la Maizena® regular como la Maizena® sabores son productos con certificación Kosher."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Cuánto tiempo después de la fecha de caducidad puede consumirse la Maizena sabores?"
+                        },
+                        "answer": {
+                          "text": "La recomendación es consumirse dentro de la vida útil establecida, en caso de preparar y/o consumir el producto más allá de esta fecha no hay problema, no es dañino a la salud, lo único que puede esperar es que ésta haya disminuido sus características originales de color, consistencia, aroma y sabor."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Hacen daño para la salud los colorantes artificiales?"
+                        },
+                        "answer": {
+                          "text": "Existen personas que son más sensibles a ciertas sustancias contenidas en los colores artificiales. En caso de tener antecedentes de reacciones alergias a alguna sustancia en específico se recomienda leer en el listado de ingredientes para verificar que no contenga alguno de estos productos. El listado de los ingredientes se describe en la parte posterior de cualquier empaque."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Maizena contiene saborizantes?"
+                        },
+                        "answer": {
+                          "text": "Sí, únicamente el portafolio de Maizena® Sabores contiene saborizantes para brindar aromas y sabores a los productos. \n Maizena® Sabores de nuez, vainilla, cajeta, arroz con leche, galleta y guayaba contienen sabores idénticos al natural (se obtienen a partir de materias primas de origen natural). El resto de los sabores de Maizena® Sabores son de origen artificial."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "Tengo diabétes (diabético), ¿puedo consumir Maizena? "
+                        },
+                        "answer": {
+                          "text": "Atoles Maizena no están adicionados con azúcar, por lo que se puede endulzar o no al gusto, pero para personas con condiciones especiales de salud, siempre es recomendable que consulten a su médico."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Maizena contiene Leche?"
+                        },
+                        "answer": {
+                          "text": "Nuestros productos Maizena® no contienen leche ni derivados de ésta. Sin embargo, la forma recomendada para consumir nuestros atoles Maizena® sabores es preparados con leche ya que es de esta forma en la que obtendrás el mejor sabor, textura y muy importante, nutrimentos declarados en la tabla nutrimental. No recomendamos su preparación con agua u otro tipo de líquido para su preparación, ya que podrá afectar su sabor, textura y su aporte nutrimental."
+                        }
+                      },
+                      {
+                        "question": {
+                          "label": "¿Los empaques de sus productos, son reciclables?"
+                        },
+                        "answer": {
+                          "text": "Si"
+                        }
+                      }
+                    ]
                   }
                 }
               ]

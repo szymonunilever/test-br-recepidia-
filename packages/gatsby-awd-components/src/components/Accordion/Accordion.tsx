@@ -46,7 +46,10 @@ export const Accordion = ({
         aria-label={title && title.label}
         onKeyUp={onToggleKeyboard}
       >
-        {title && title.label ? title.label : null}
+        {title && title.logo && (
+          <div className="accordion__title-logo">{title.logo}</div>
+        )}
+        {title && title.label}
         {titleIcon}
       </div>
       <div className="accordion__body">{children}</div>
