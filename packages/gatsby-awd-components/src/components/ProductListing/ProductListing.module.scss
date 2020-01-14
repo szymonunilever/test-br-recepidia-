@@ -1,0 +1,24 @@
+@import '../../scss/config';
+
+.product-listing {
+  position: relative;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: -5px;
+  }
+
+  &__button {
+    width: 100%;
+    @include respondTo(medium) {
+      width: 35.2rem;
+    }
+    &-wrap {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+}

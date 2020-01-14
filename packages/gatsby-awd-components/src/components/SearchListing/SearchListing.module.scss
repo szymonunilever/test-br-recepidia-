@@ -7,8 +7,9 @@
       &-tabs {
         #all__tab {
           > div {
-            &:nth-child(2) {
-              margin-top: 40px;
+            margin-top: 40px;
+            &:first-child {
+              margin-top: 0;
             }
           }
         }

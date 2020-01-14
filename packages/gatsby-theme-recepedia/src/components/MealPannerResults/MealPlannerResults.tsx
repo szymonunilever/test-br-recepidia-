@@ -41,6 +41,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import { getCustomMPSearch } from './hepers';
 import useMedia from '../../utils/useMedia';
 import { getPagePath } from '../../utils/getPagePath';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
   containerClass,
@@ -157,8 +158,9 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
         { size: customSearchInitialCount },
         exclude
       ).then(res => {
+        const { data, total } = esResponseHandler(res);
         let recipes: Internal.Recipe[] = [];
-        if (res.body.hits.total.value === 0) {
+        if (total === 0) {
           const newSearchContent = {
             ...customSearchContent,
             noResult: { ...customSearchContent.noResult },
@@ -172,17 +174,17 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           setCustomSearchResultContent(newSearchContent);
           return;
         }
-        res.body.hits.hits.forEach(resItem => {
-          recipes.push(resItem._source as Internal.Recipe);
+        data.forEach(resItem => {
+          recipes.push(resItem as Internal.Recipe);
         });
         const newSearchContent = {
           ...customSearchContent,
           onResult: { ...customSearchContent.onResult },
         };
         newSearchContent.onResult.subheading = newSearchContent.onResult.subheading
-          .replace('{numRes}', `${res.body.hits.total.value}`)
+          .replace('{numRes}', `${total}`)
           .replace('{searchInputValue}', value);
-        setCustomResultsCount(res.body.hits.total.value);
+        setCustomResultsCount(total);
         setCustomSearchResultContent(newSearchContent);
         setRecipesToSelect(recipes);
         setCustomSearchInProcess(false);
@@ -202,10 +204,11 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       { from: recipesToSelect.length, size },
       exclude
     ).then(res => {
-      if (res.body.hits.total.value > 0) {
+      const { data, total } = esResponseHandler(res);
+      if (total > 0) {
         const recipes: Internal.Recipe[] = [];
-        res.body.hits.hits.forEach(resItem => {
-          recipes.push(resItem._source as Internal.Recipe);
+        data.forEach(resItem => {
+          recipes.push(resItem as Internal.Recipe);
         });
         setRecipesToSelect([...recipesToSelect, ...recipes]);
       }
@@ -260,9 +263,8 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
       getSearchSuggestionResponse(searchQuery, params)
         .then(values => {
           const [recipeRes] = values;
-          setSearchInputResults([
-            ...recipeRes.body.hits.hits.map(item => item._source.title),
-          ]);
+          const { byField } = esResponseHandler(recipeRes, 'title');
+          setSearchInputResults([...byField]);
         })
         .catch(() => {});
     },

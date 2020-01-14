@@ -30,6 +30,7 @@ import generateQuery from '../../utils/queryGenerator';
 import theme from './mealPlanner.module.scss';
 import { MealPlannerResults } from 'src/components/MealPannerResults';
 import { getPagePath } from '../../utils/getPagePath';
+import { esResponseHandler } from '../../utils/esResponseHandler';
 
 const MAX_PER_MP = 7;
 const RESULT_SIZE = MAX_PER_MP * 2;
@@ -85,24 +86,22 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
       from: fromChanged,
       size: RESULT_SIZE,
       sort: [{ creationTime: { order: 'desc' } }],
-    }).then(data => {
-      const result = data.body.hits.hits.map(hit => hit._source);
+    }).then(res => {
+      const { data, total, byField } = esResponseHandler(res, 'recipeId');
+
       setIsLoading(false);
       i++;
-      if (data.body.hits.total.value === 0 && i < maxTry) {
+      if (total === 0 && i < maxTry) {
         processSearchData(quizData, i);
       } else {
-        if (result && result.length) {
-          setRecipes(fromChanged === FROM ? result : [...recipes, ...result]);
+        if (data && data.length) {
+          setRecipes(fromChanged === FROM ? data : [...recipes, ...data]);
           setLastSearchProps({
             ...lastSearchProps,
-            fromChanged: fromChanged + result.length,
-            total: data.body.hits.total.value,
+            fromChanged: fromChanged + data.length,
+            total: total,
           });
-          saveUserProfileByKey(
-            result.map(item => item.recipeId),
-            ProfileKey.mealPlannerResults
-          );
+          saveUserProfileByKey(byField, ProfileKey.mealPlannerResults);
         }
       }
     });

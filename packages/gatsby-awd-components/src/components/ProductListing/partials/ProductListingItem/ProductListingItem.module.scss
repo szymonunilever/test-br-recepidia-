@@ -1,0 +1,79 @@
+@import '../../../../scss/config';
+
+.product-listing {
+  &__item {
+    margin: 5px;
+    width: calc(50% - 10px);
+    @include respondTo(medium) {
+      width: calc(25% - 16px);
+      margin: 8px;
+    }
+    @include respondTo(desktop) {
+      width: calc(25% - 16px);
+      margin: 8px;
+    }
+
+    &-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center;
+      text-decoration: none;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      &-title {
+        font-size: 1.6rem;
+        font-family: $rubik;
+        font-weight: 500;
+        color: $black-blue;
+        padding: 0;
+        margin: 10px 0 0 0;
+        outline: none;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        word-break: break-word;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        @include respondTo(medium) {
+          margin: 20px 0 0 0;
+        }
+      }
+      &-brand {
+        text-align: right;
+        padding: 15px 5px 15px 15px;
+
+        @include respondTo(medium) {
+          padding: 20px 5px 20px 20px;
+        }
+
+        svg {
+          height: 26px;
+          width: auto;
+          @include respondTo(medium) {
+            height: 35px;
+          }
+        }
+      }
+    }
+    &-image {
+      background-color: #ccc;
+    }
+    :global {
+      .gatsby-image-wrapper > div {
+        padding-bottom: 225px !important;
+        @include respondTo(medium) {
+          padding-bottom: 320px !important;
+        }
+      }
+    }
+  }
+}

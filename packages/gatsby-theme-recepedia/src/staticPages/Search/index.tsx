@@ -52,14 +52,18 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const {
     getArticleSearchData,
+    getProductSearchData,
     getSearchSuggestionData,
     recipeResults,
     articleResults,
+    productResults,
     searchInputResults,
     recipeResultsFetched,
     articleResultsFetched,
+    productResultsFetched,
     initialRecipesCount,
     initialArticlesCount,
+    initialProductsCount,
     initialTagsCount,
     getRecipeSearchData,
   } = useSearchResults(searchQuery);
@@ -128,6 +132,25 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     [initialArticlesCount, articleResults]
   );
 
+  const onProductViewChange = useCallback(
+    (tags: Internal.Tag[], params) => {
+      const maxSize = Math.max(
+        initialProductsCount,
+        productResults.list.length
+      );
+      const size = params ? params.size : maxSize;
+      return getProductSearchData(
+        searchQuery,
+        {
+          size: size - (size % 4),
+          from: params ? params.from : 0,
+        },
+        getFilterQuery(tags)
+      );
+    },
+    [initialProductsCount, productResults]
+  );
+
   useEffect(() => {
     setTagList(getTagsFromRecipes(recipeResults.list, allTag.nodes));
   }, [recipeResults]);
@@ -137,7 +160,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
       <SEO {...seo} />
       <DigitalData title={seo.title} type={type} />
       <section className={cx('_pt--40 _pb--40', theme.searchListingWrap)}>
-        <Loader isLoading={!articleResultsFetched && !recipeResultsFetched}>
+        <Loader
+          isLoading={
+            !articleResultsFetched &&
+            !recipeResultsFetched &&
+            !productResultsFetched
+          }
+        >
           <Spinner />
         </Loader>
         <SearchListing
@@ -146,8 +175,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             recipeResults,
             searchInputResults,
             articleResults,
+            productResults,
             articleResultsFetched,
             recipeResultsFetched,
+            productResultsFetched,
           }}
           searchResultTitleLevel={3}
           config={{
@@ -190,6 +221,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
               onArticleViewChange,
               initialCount: initialArticlesCount,
               articlePerLoad: 4,
+            },
+            productConfig: {
+              getProductSearchData,
+              onProductViewChange,
+              initialCount: initialProductsCount,
+              productPerLoad: 4,
             },
           }}
           content={{
