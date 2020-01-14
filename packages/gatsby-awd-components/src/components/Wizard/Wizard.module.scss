@@ -16,7 +16,7 @@
         width: 100%;
         padding: 80px $layout-indent-sm 0 $layout-indent-sm;
         @include respondTo(desktop) {
-          padding: 80px $layout-indent 0 $layout-indent;
+          padding: 110px $layout-indent 0 $layout-indent;
         }
       }
       &__content {
@@ -65,7 +65,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding: 25px 0 15px;
+        padding: 25px 0 0;
       }
       &__button {
         width: 100%;
@@ -76,6 +76,7 @@
           justify-content: center;
           align-items: center;
           font-size: 1.2rem;
+          padding: 0 5px;
           a {
             color: inherit;
             transition: background-color 0.2s;
@@ -132,6 +133,7 @@
       }
       .buttons {
         @extend .wizard__buttons;
+        padding-bottom: 15px;
         @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
           button {
             margin: 0;
