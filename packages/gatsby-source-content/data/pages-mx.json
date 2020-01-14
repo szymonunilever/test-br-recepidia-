@@ -490,6 +490,11 @@
                   "units": "Min.",
                   "unitsPlural": "Min."
                 },
+                "readyTime": {
+                  "title": "Tempo de preparo",
+                  "units": "Min.",
+                  "unitsPlural": "Min."
+                },
                 "serves": {
                   "title": "Feeds",
                   "units": "Persona",

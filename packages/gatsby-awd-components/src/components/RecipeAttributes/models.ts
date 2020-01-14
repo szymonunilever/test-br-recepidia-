@@ -4,6 +4,7 @@ export enum RecipeAttributesKeys {
   makes = 'makes',
   difficulties = 'difficulties',
   cookTime = 'cookTime',
+  readyTime = 'readyTime',
   preperationTime = 'preperationTime',
   totalTime = 'totalTime',
 }
@@ -13,6 +14,7 @@ export interface RecipeAttributeIcons {
   makes?: JSX.Element;
   difficulties?: JSX.Element;
   cookTime?: JSX.Element;
+  readyTime?: JSX.Element;
   preparationTime?: JSX.Element;
   waitingTime?: JSX.Element;
   marinateTime?: JSX.Element;

@@ -13,6 +13,7 @@ export const RecipeAttributes = ({
   visible = [
     RecipeAttributesKeys.preperationTime,
     RecipeAttributesKeys.cookTime,
+    RecipeAttributesKeys.readyTime,
     RecipeAttributesKeys.serves,
     RecipeAttributesKeys.difficulties,
   ],
