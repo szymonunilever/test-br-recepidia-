@@ -37,6 +37,7 @@ const RecipeFields = `
       serves
       totalTime
       cookTime
+      readyTime
     }
     recipeId
     tagGroups {

@@ -566,6 +566,11 @@
                   "units": "min",
                   "unitsPlural": "mins"
                 },
+                "readyTime": {
+                  "title": "Tempo de preparo",
+                  "units": "min",
+                  "unitsPlural": "mins"
+                },
                 "serves": {
                   "title": "Feeds",
                   "units": "pessoa",

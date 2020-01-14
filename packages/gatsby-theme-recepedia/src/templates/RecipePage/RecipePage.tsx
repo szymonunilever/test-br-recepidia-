@@ -258,11 +258,12 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                 recipe={recipe}
                 visible={[
                   RecipeAttributesKeys.serves,
-                  RecipeAttributesKeys.cookTime,
+                  RecipeAttributesKeys.readyTime,
                   RecipeAttributesKeys.difficulties,
                 ]}
                 icons={{
                   cookTime: RecipeClock,
+                  readyTime: RecipeClock,
                   serves: RecipePeople,
                   difficulties: RecipeDifficulty,
                 }}
