@@ -9,9 +9,22 @@ exports.createRecipeNodes = (
     childImageSharp: { fluid: recipe.assets.images.default },
   };
 
-  recipe.brand = recipe.featuredBrand ?
-    recipe.featuredBrand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() :
-    '';
+  const extractYoutubeIdFromUrl = urlString => {
+    const urlObj = new URL(urlString);
+    const idFromSearchParams = urlObj.searchParams.get('v');
+    return idFromSearchParams ? idFromSearchParams : urlObj.pathname.slice(1);
+  };
+
+  recipe.videos = recipe.assets.videos
+    ? Object.values(recipe.assets.videos).map(video => ({
+        id: extractYoutubeIdFromUrl(video.url),
+        url: video.url,
+      }))
+    : [];
+
+  recipe.brand = recipe.featuredBrand
+    ? recipe.featuredBrand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase()
+    : '';
 
   delete recipe.assets;
 

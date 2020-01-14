@@ -96,6 +96,10 @@ const RecipeFields = `
         }
       }
     }
+    videos {
+      url
+      id
+    }
 `;
 
 const component = path.resolve(`./src/templates/RecipePage/RecipePage.tsx`);

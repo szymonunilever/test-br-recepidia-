@@ -60,7 +60,7 @@ const VideoPlayer = ({
         active={preview ? !showPreview : true}
       >
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=${autoPlay}`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=${autoPlay}&rel=0`}
           width={width}
           height={height}
           allowFullScreen={allowFullScreen}

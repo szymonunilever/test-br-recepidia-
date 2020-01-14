@@ -171,6 +171,14 @@
       text-decoration: none;
     }
   }
+  .video-player {
+  }
+}
+.recipe-video {
+  margin-bottom: 20px;
+  @include respondTo(desktop) {
+    margin-left: 90px;
+  }
 }
 
 @media print {
