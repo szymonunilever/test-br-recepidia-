@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React, { FunctionComponent } from 'react';
-import { getImageAlt, iconNormalize } from '../../utils';
+import { getImageAlt } from '../../utils';
 import AdaptiveImage from '../AdaptiveImage';
 import { ButtonProps } from '../Button';
 import { TagName, Text } from '../Text';

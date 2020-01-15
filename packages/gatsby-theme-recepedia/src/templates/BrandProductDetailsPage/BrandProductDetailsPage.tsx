@@ -19,7 +19,6 @@ import {
   TagName,
   BrandSocialChannels,
   Hero,
-  GenericCarousel,
   Listing,
 } from 'gatsby-awd-components/src';
 import { findPageComponentContent, isBrowser } from 'src/utils';
@@ -28,7 +27,6 @@ import Layout from 'src/components/Layout/Layout';
 import SEO from 'src/components/Seo';
 import AddThis from '../../../integrations/AddThis';
 import DigitalData from '../../../integrations/DigitalData';
-import { localImage } from 'gatsby-awd-components/src/mocks/global';
 import { IMAGE_SIZES } from 'src/constants';
 import { graphql } from 'gatsby';
 import { getSortedProducts } from '../../utils';
@@ -44,7 +42,6 @@ import { ReactComponent as YoutubeIcon } from '../../svgs/inline/youtube-simple.
 import { ReactComponent as PinterestIcon } from '../../svgs/inline/pinterest.svg';
 import { ReactComponent as WhatsappIcon } from '../../svgs/inline/whatsapp.svg';
 import { ReactComponent as OpenModelButtonIcon } from '../../svgs/inline/social-sharing-circle.svg';
-import { ReactComponent as ArrowIcon } from '../../svgs/inline/arrow-down.svg';
 import theme from './BrandProductDetailsPage.module.scss';
 import themeHellmanns from './BrandProductDetailsPageHellmanns.module.scss';
 import themeKnorr from './BrandProductDetailsPageKnorr.module.scss';
@@ -58,30 +55,18 @@ const BrandProductDetailsPage: React.FunctionComponent<
     page: { components, seo, type },
     product,
     brand,
+    category,
   } = pageContext;
   const [showFullList, setShowFullList] = useState();
   const [counter, setCounter] = useState(0);
   const currentBrand = product.brand.toLowerCase();
-  const carouselConfig = {
-    breakpoints: [
-      {
-        width: 768,
-        switchElementsBelowBreakpoint: 1,
-        switchElementsAfterBreakpoint: 1,
-        visibleElementsBelowBreakpoint: 2,
-        visibleElementsAboveBreakpoint: 4,
-      },
-    ],
-    arrowIcon: <ArrowIcon />,
-  };
-
+  const localImage = product.images[0];
   const socialIcons: SocialIcons = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
     pinterest: PinterestIcon,
     whatsapp: WhatsappIcon,
   };
-
   const getBrandThemeContent = (brand: string | undefined) => {
     switch (brand) {
       case 'knorr':
@@ -112,37 +97,37 @@ const BrandProductDetailsPage: React.FunctionComponent<
     'product-page',
     currentBrand
   );
-
-  //@ts-ignore
-  const createProductCards = list =>
-    //@ts-ignore
-    list.map(product => (
-      <CardLinkWrapper
-        key={product.fields.slug}
-        title={product.productName}
-        slug={product.fields.slug}
-        cardKey={product.fields.slug}
-      >
-        <ProductCardWrapper
+  const createProductCards = (list: Internal.Product[]) =>
+    list
+      .filter(prod => prod.id !== product.id)
+      .map(product => (
+        <CardLinkWrapper
           key={product.fields.slug}
-          ratingProvider={RatingAndReviewsProvider.none}
+          title={product.productName}
+          slug={product.fields.slug}
           cardKey={product.fields.slug}
         >
-          <Card
-            showDescription
-            idPropertyName="productId"
+          <ProductCardWrapper
             key={product.fields.slug}
-            content={{
-              ...product,
-              title: product.productName,
-              description: product.shortPageDescription,
-            }}
-            imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+            ratingProvider={RatingAndReviewsProvider.none}
             cardKey={product.fields.slug}
-          />
-        </ProductCardWrapper>
-      </CardLinkWrapper>
-    ));
+          >
+            <Card
+              showDescription
+              idPropertyName="productId"
+              key={product.fields.slug}
+              content={{
+                ...product,
+                localImage: localImage,
+                title: product.productName,
+                description: product.shortPageDescription,
+              }}
+              imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+              cardKey={product.fields.slug}
+            />
+          </ProductCardWrapper>
+        </CardLinkWrapper>
+      ));
 
   const brandHero = (
     <section>
@@ -236,44 +221,31 @@ const BrandProductDetailsPage: React.FunctionComponent<
   });
   const relatedProducts = (
     <>
-      {query ? (
-        <GenericCarousel
-          content={relatedProductsContent}
-          config={carouselConfig}
-          className="product-category-carousel cards--light"
-          titleLevel={3}
-        >
-          {relatedCards}
-        </GenericCarousel>
-      ) : (
-        <>
-          <Listing content={relatedProductsContent} titleLevel={3}>
-            {showFullList ? relatedCards : relatedCards.slice(0, 4)}
-          </Listing>
+      <Listing content={relatedProductsContent} titleLevel={3}>
+        {showFullList ? relatedCards : relatedCards.slice(0, query ? 2 : 4)}
+      </Listing>
 
-          {!showFullList && relatedCards.length > 4 && (
-            <div
-              className={cx(
-                theme.product__attributesRelatedButtonWrapper,
-                'product__attribute-related-button-wrapper'
-              )}
-            >
-              <Button
-                className={cx(
-                  theme.product__attributesRelatedButton,
-                  brandTheme && brandTheme.product__attributesRelatedButton,
-                  'product__attributes-related-button'
-                )}
-                content={findPageComponentContent(
-                  components,
-                  'CTA',
-                  'discoverMore'
-                )}
-                onClick={openList}
-              />
-            </div>
+      {!showFullList && relatedCards.length > (query ? 2 : 4) && (
+        <div
+          className={cx(
+            theme.product__attributesRelatedButtonWrapper,
+            'product__attribute-related-button-wrapper'
           )}
-        </>
+        >
+          <Button
+            className={cx(
+              theme.product__attributesRelatedButton,
+              brandTheme && brandTheme.product__attributesRelatedButton,
+              'product__attributes-related-button'
+            )}
+            content={findPageComponentContent(
+              components,
+              'CTA',
+              'discoverMore'
+            )}
+            onClick={openList}
+          />
+        </div>
       )}
     </>
   );
@@ -423,8 +395,8 @@ const BrandProductDetailsPage: React.FunctionComponent<
 export default BrandProductDetailsPage;
 
 export const query = graphql`
-  query($brand: String) {
-    allProduct(filter: { brand: { eq: $brand } }) {
+  query($brand: String, $category: String) {
+    allProduct(filter: { brand: { eq: $brand }, category: { eq: $category } }) {
       nodes {
         brand
         id
@@ -460,6 +432,7 @@ interface BrandProductDetailsPageProps {
     page: AppContent.Page;
     product: Internal.Product;
     brand: string;
+    category: string;
   };
   data: {
     allProduct: {

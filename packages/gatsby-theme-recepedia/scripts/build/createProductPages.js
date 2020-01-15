@@ -10,6 +10,21 @@ const ProductFields = `
     allergy
     nutritionFacts
     productTags
+    images {
+      childImageSharp {
+        fluid {
+          aspectRatio
+          base64
+          height
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
+          width
+        }
+      }
+    }
     fields {
       slug
     }
@@ -42,6 +57,7 @@ module.exports = async ({ graphql, createPage, pageTemplates }) => {
         ),
         product: node,
         brand: node.brand,
+        category: node.category,
       },
     });
   });
