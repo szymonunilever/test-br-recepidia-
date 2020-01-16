@@ -2,11 +2,15 @@
 @import '../../scss/mixins';
 .meal-planner {
   :global {
+    .global-navigation {
+      &:not(.open) {
+        background-color: $white;
+        z-index: 1;
+        position: relative;
+      }
+    }
     .wizard {
       overflow-y: auto;
-      &:not(.wizard--intro) {
-        padding-bottom: 20px;
-      }
       &__logo {
         width: 100%;
         position: fixed;

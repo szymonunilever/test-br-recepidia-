@@ -1,21 +1,19 @@
 import { WindowLocation } from '@reach/router';
-import { navigate } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import {
   IntroductionPanel as WizardIntroductionPanel,
-  Logo,
   Quiz as WizardQuiz,
   Wizard,
   Menu,
 } from 'gatsby-awd-components/src';
 import DigitalData from 'integrations/DigitalData';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { IMAGE_SIZES, MealPlannerPersonalizationFormula } from 'src/constants';
 import { ReactComponent as CheckMarkIcon } from 'src/svgs/inline/checkmark-bigger.svg';
 import DataCapturingForm from '../../components/DataCapturingForm';
 import SEO from '../../components/Seo';
 // Component Styles
 import '../../scss/pages/_mealPlanner.scss';
-import { ReactComponent as WizardLogo } from '../../svgs/inline/wizard-logo.svg';
 import { findPageComponentContent } from '../../utils';
 import { MealPlannerRenameDialog } from '../../components/MealPlannerRenameDialog';
 import {
@@ -29,13 +27,39 @@ import getPersonalizationSearchData, {
 import generateQuery from '../../utils/queryGenerator';
 import theme from './mealPlanner.module.scss';
 import { MealPlannerResults } from 'src/components/MealPannerResults';
+import Navigation from 'src/components/Navigation/Navigation';
 import { getPagePath } from '../../utils/getPagePath';
 import { esResponseHandler } from '../../utils/esResponseHandler';
+import smartOutline from 'smart-outline';
 
 const MAX_PER_MP = 7;
 const RESULT_SIZE = MAX_PER_MP * 2;
 
 const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
+  useEffect(() => {
+    smartOutline.init();
+  }, []);
+
+  const { allCommonComponent } = useStaticQuery(graphql`
+    {
+      allCommonComponent {
+        nodes {
+          content
+          name
+        }
+      }
+    }
+  `);
+  const componentNodes = allCommonComponent.nodes;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  componentNodes.forEach((component: any) => {
+    component.content =
+      typeof component.content === 'string'
+        ? JSON.parse(component.content)
+        : component.content;
+  });
+  const navComponents = { items: componentNodes };
+
   const {
     page: { seo, components, type },
   } = pageContext;
@@ -173,9 +197,29 @@ const MealPlannerPage = ({ pageContext, location }: MealPlannerProps) => {
     <div className={theme.mealPlanner}>
       <SEO {...seo} canonical={location.href} />
       <DigitalData title={seo && seo.title} type={type} />
-      <div className="wizard__logo">
-        <Logo icon={<WizardLogo />} path="/" />
-      </div>
+      <a className="skip-to-content" href="#content">
+        Skip To Content
+      </a>
+      <Navigation
+        navigationContent={
+          findPageComponentContent(
+            navComponents,
+            'GlobalNavigation'
+          ) as AppContent.GlobalNavigation.Content
+        }
+        searchContent={
+          findPageComponentContent(
+            navComponents,
+            'SearchInput'
+          ) as AppContent.SearchInput.Content
+        }
+        profileContent={
+          findPageComponentContent(
+            navComponents,
+            'Profile'
+          ) as AppContent.ProfileHeader.Content
+        }
+      />
       <section>
         <Wizard actionCallback={wizardCallback}>
           <WizardIntroductionPanel
