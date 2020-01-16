@@ -22,7 +22,7 @@ const config = {
     },
     trackingInfo: {
       GID: process.env['digitalData_trackingInfo_GID'],
-      tool: process.env['digitalData_trackingInfo_tool'],
+      tool: JSON.parse(process.env['digitalData_trackingInfo_tool']),
     },
   },
 };
