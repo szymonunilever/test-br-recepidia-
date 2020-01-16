@@ -75,31 +75,27 @@
         }
       }
 
-      &-title {
-        &-mobile {
-          @include respondTo(desktop) {
-            display: none;
-          }
-        }
-
-        &-desktop {
-          display: none;
-          @include respondTo(desktop) {
-            display: block;
-          }
-        }
-      }
-
       &-hero {
         &-wrapper {
           position: relative;
           margin: 0 auto 2rem auto;
           max-width: 32.6rem;
           width: 100%;
-          @include respondTo(desktop) {
-            min-width: 42rem;
-            margin: 0 7rem 0 3.5rem;
-            align-self: flex-start;
+
+          &-desktop {
+            display: none;
+            @include respondTo(desktop) {
+              display: block;
+              min-width: 42rem;
+              margin: 0 7rem 0 3.5rem;
+              align-self: flex-start;
+            }
+          }
+
+          &-mobile {
+            @include respondTo(desktop) {
+              display: none;
+            }
           }
 
           :global {
