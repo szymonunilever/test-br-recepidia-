@@ -118,7 +118,7 @@ const BrandProductDetailsPage: React.FunctionComponent<
               key={product.fields.slug}
               content={{
                 ...product,
-                localImage: localImage,
+                localImage: product.images[0],
                 title: product.productName,
                 description: product.shortPageDescription,
               }}
@@ -261,36 +261,35 @@ const BrandProductDetailsPage: React.FunctionComponent<
 
   const productHeader = (
     <section className={cx(theme.product__heading, 'bg-secondary wrapper')}>
-      <div className={theme.product__headingTitleMobile}>
-        <ProductCopy
-          viewType={ProductCopyViewType.Title}
-          product={product}
-          content={{}}
-          titleLevel={1}
-          className="product-copy__title"
-        />
-      </div>
       <div
         className={cx(
           theme.product__headingContainer,
           brandTheme && brandTheme.product__headingContainer
         )}
       >
-        <div className={theme.product__headingHeroWrapper}>{productHero}</div>
+        <div
+          className={cx(
+            theme.product__headingHeroWrapper,
+            theme.product__headingHeroWrapperDesktop
+          )}
+        >
+          {productHero}
+        </div>
         <div className={theme.product__headingInfoWrapper}>
+          <ProductCopy
+            viewType={ProductCopyViewType.Title}
+            product={product}
+            content={{}}
+            titleLevel={1}
+            className="product-copy__title"
+          />
           <div
             className={cx(
-              theme.product__headingTitleDesktop,
-              brandTheme && brandTheme.product__headingTitleDesktop
+              theme.product__headingHeroWrapper,
+              theme.product__headingHeroWrapperMobile
             )}
           >
-            <ProductCopy
-              viewType={ProductCopyViewType.Title}
-              product={product}
-              content={{}}
-              titleLevel={1}
-              className="product-copy__title"
-            />
+            {productHero}
           </div>
           <ProductCopy
             viewType={ProductCopyViewType.Description}
