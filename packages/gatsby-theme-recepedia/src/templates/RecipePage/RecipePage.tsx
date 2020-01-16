@@ -31,6 +31,7 @@ import {
   RatingAndReviewsProvider,
   Text,
   BrandLogo,
+  VideoPlayer,
 } from 'gatsby-awd-components/src';
 import { ReactComponent as RecipeClock } from 'src/svgs/inline/recipe-clock.svg';
 import { ReactComponent as RecipeDifficulty } from 'src/svgs/inline/recipe-difficulty.svg';
@@ -207,6 +208,16 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
       (seoImage.content = recipe.localImage.childImageSharp.fluid.src);
   }
 
+  const videoIds = recipe.videos && recipe.videos.map(video => video.id);
+
+  const recipeVideos =
+    videoIds &&
+    videoIds.map(videoId => (
+      <div className={theme.recipeVideo} key={videoId}>
+        <VideoPlayer content={{ videoId }} />
+      </div>
+    ));
+
   return (
     <Layout className={classWrapper}>
       <SEO
@@ -294,14 +305,16 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             )}
             className={theme.recipeCopyIngredients}
           />
-          <RecipeCookingMethod
-            methodList={recipe.methods}
-            className={theme.recipeCookingMethod}
-            content={findPageComponentContent(
-              components,
-              'RecipeCookingMethod'
-            )}
-          />
+          <div className={theme.recipeCookingMethod}>
+            <RecipeCookingMethod
+              methodList={recipe.methods}
+              content={findPageComponentContent(
+                components,
+                'RecipeCookingMethod'
+              )}
+            />
+            {recipeVideos}
+          </div>
         </div>
         <div className={theme.recipeIngredientsCookingMobile}>
           <Tabs
@@ -328,6 +341,7 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
                 className={theme.recipeCookingMethod}
                 content={{}}
               />
+              {recipeVideos}
             </Tab>
           </Tabs>
         </div>

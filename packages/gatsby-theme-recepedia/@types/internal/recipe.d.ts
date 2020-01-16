@@ -8,5 +8,6 @@ declare namespace Internal {
       slug: string;
     };
     recipeId: number;
+    videos?: Internal.Video[];
   }
 }

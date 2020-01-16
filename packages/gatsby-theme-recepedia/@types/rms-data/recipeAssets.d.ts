@@ -1,10 +1,14 @@
 declare namespace RMSData {
   export interface RecipeAssets {
     images: RecipeAssetsImages;
+    videos?: RecipeAssetsVideos;
   }
 
   export interface RecipeAssetsImages {
     default: RecipeAssetsImagesDefault;
+  }
+  export interface RecipeAssetsVideos {
+    default?: RecipeAssetsVideosDefault;
   }
 
   export interface RecipeAssetsImagesDefault {
@@ -17,5 +21,8 @@ declare namespace RMSData {
     srcSet: string;
     srcSetWebp: string;
     sizes: string;
+  }
+  export interface RecipeAssetsVideosDefault {
+    url: string;
   }
 }

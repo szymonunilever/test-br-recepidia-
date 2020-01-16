@@ -17,7 +17,7 @@ const constants = {
     ARTICLE: 'ArticleDetail',
     CATEGORY: 'RecipeCategory',
     TAG: 'ContentHub',
-  }
+  },
 };
 
 const RECIPE_PAGE_SIZE = 250;
@@ -88,6 +88,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
     type RecipeAssets {
       images: RecipeAssetsImages
+      videos: [RecipeAssetsVideo]
     }
     type RecipeAssetsImages {
       default: RecipeAssetsImagesDefault
@@ -102,6 +103,10 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       srcSet: String
       srcSetWebp: String
       sizes: String
+    }
+    type RecipeAssetsVideo {
+      url: String
+      id: String
     }
   `;
   createTypes(typeDefs);
