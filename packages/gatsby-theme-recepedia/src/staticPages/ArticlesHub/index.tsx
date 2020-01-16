@@ -120,13 +120,12 @@ const ArticlesHub: React.FunctionComponent<ArticlesHubProps> = ({
         />
       </section>
       {tagsContent && articleTags.length > 0 && (
-        <section
-          className={cx(theme.articleHubTags, 'wrapper _pb--40 _pt--40')}
-        >
+        <section className={cx(theme.articleHubTags, 'wrapper')}>
           <Tags
             initialCount={initialTagsCount}
             list={articleTags}
             content={tagsContent}
+            className="_pb--40 _pt--40"
           />
         </section>
       )}

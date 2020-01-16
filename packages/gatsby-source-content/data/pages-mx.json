@@ -884,7 +884,7 @@
           {
             "name": "RelatedArticles",
             "content": {
-              "title": "Related articles"
+              "title": "Articulos relacionadas"
             }
           },
           {
@@ -3439,9 +3439,8 @@
           {
             "name": "ProductNutrients",
             "content": {
-              "title": "Información nutrimental",
-              "tableTitleNutrient": "*% en referencia al consumo promedio de un adulto (8400 kJ / 2000 kcal), 1 portion = 230 g. ( Pack contains 4 portions )",
-              "tableTitlePer100": "Por 100g"
+              "title": "Nutrients",
+              "tableTitlePerPortion": "Por porción"
             }
           }
         ]
@@ -3597,7 +3596,7 @@
             "name": "ProductNutrients",
             "content": {
               "title": "Nutrients",
-              "tableTitlePerPortion": "Per portion"
+              "tableTitlePerPortion": "Por porción"
             }
           }
         ]
@@ -3749,7 +3748,7 @@
             "name": "ProductNutrients",
             "content": {
               "title": "Nutrients",
-              "tableTitlePerPortion": "Per portion"
+              "tableTitlePerPortion": "Por porción"
             }
           }
         ]
@@ -3768,14 +3767,14 @@
     {
       "type": "ArticlesHub",
       "relativePath": "/articulos",
-      "title": "Más Contenido",
+      "title": "Todos los artículos",
       "components": {
         "items": [
           {
             "name": "ArticleListing",
             "content": {
               "cta": {
-                "label": "Ver mais artigos"
+                "label": "Más artículos interesantes"
               }
             }
           },
@@ -3789,7 +3788,7 @@
           {
             "name": "RecipeListing",
             "content": {
-              "title": "Recetas similares"
+              "title": "Recetas relacionadas"
             }
           },
           {

@@ -137,10 +137,11 @@ const useSearchResults = (searchQuery: string) => {
   const getSearchData = async (searchQuery: string, params: SearchParams) => {
     setRecipeResultsFetched(false);
     setArticleResultsFetched(false);
+    setProductResultsFetched(false);
     Promise.all([
-      getArticleSearchData(searchQuery, params, ''),
+      getArticleSearchData(searchQuery, { size: 4 }, ''),
       getRecipeSearchData(searchQuery, params, ''),
-      getProductSearchData(searchQuery, params, ''),
+      getProductSearchData(searchQuery, { size: 4 }, ''),
     ]).then(() => {
       setRecipeResultsFetched(true);
       setArticleResultsFetched(true);
@@ -148,21 +149,9 @@ const useSearchResults = (searchQuery: string) => {
     });
   };
 
-  const initialRecipesCount = useResponsiveScreenInitialSearch(
+  const initialItemsCount = useResponsiveScreenInitialSearch(
     (size: number) => getSearchData(searchQuery, { size }),
     get(recipeResults, 'list.length', 0),
-    [searchQuery]
-  );
-
-  const initialArticlesCount = useResponsiveScreenInitialSearch(
-    (size: number) => getSearchData(searchQuery, { size }),
-    get(articleResults, 'list.length', 0),
-    [searchQuery]
-  );
-
-  const initialProductsCount = useResponsiveScreenInitialSearch(
-    (size: number) => getSearchData(searchQuery, { size }),
-    get(productResults, 'list.length', 0),
     [searchQuery]
   );
 
@@ -179,9 +168,7 @@ const useSearchResults = (searchQuery: string) => {
     recipeResultsFetched,
     articleResultsFetched,
     productResultsFetched,
-    initialRecipesCount,
-    initialArticlesCount,
-    initialProductsCount,
+    initialItemsCount,
     initialTagsCount,
   };
 };

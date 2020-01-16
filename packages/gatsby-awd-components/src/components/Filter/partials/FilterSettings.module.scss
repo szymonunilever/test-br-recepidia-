@@ -152,9 +152,9 @@
   .filter-settings__reset,
   .filter-settings__apply {
     width: 100%;
-    max-width: 160px;
+    max-width: $button-medium-max-width;
     @include respondTo(desktop) {
-      max-width: 260px;
+      max-width: $button-medium-max-width-lg;
     }
   }
   .filter-settings__category-header.is-opened {

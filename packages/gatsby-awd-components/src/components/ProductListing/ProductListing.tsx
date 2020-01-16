@@ -30,7 +30,7 @@ const ProductListing = ({
   const loadMoreBtn =
     products.length < allCount ? (
       <div className={cx(theme.productListing__buttonWrap, 'product-listing__button-wrap')}>
-        <Button onClick={loadMore} className="product-listing__button">
+        <Button onClick={loadMore} className={cx(theme.productListing__button, 'product-listing__button')}>
           {content.cta ? content.cta.label : null}
         </Button>
       </div>
