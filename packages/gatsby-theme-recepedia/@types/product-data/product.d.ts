@@ -9,10 +9,11 @@ declare namespace ProductData {
     category: string;
     productName: string;
     longPageDescription: string;
+    shortPageDescription: string;
     ingredients: string;
     allergy: string;
     nutritionFacts: string;
     productTags: string[];
-    images: string[];
+    images: Internal.LocalImage[];
   }
 }

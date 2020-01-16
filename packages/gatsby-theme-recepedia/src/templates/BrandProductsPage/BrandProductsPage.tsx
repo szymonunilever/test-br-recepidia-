@@ -27,7 +27,11 @@ import themeMaizena from './BrandProductsPageMaizena.module.scss';
 import { ReactComponent as KnorrLogoIcon } from 'src/svgs/inline/logo-knorr.svg';
 import { ReactComponent as HellmannsLogoIcon } from 'src/svgs/inline/logo-hellmanns.svg';
 import { ReactComponent as MaizenaLogoIcon } from 'src/svgs/inline/logo-maizena.svg';
-import { findPageComponentContent, isBrowser } from 'src/utils';
+import {
+  findPageComponentContent,
+  getSortedProducts,
+  isBrowser,
+} from 'src/utils';
 import DigitalData from '../../../integrations/DigitalData';
 import Layout from '../../components/Layout/Layout';
 import LookByCategory from '../../components/LookByCategory';
@@ -153,20 +157,7 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     return initial;
   };
   const [showFullList, setShowFullList] = useState(categoriesInitial());
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let productsSorted: any = allProduct.nodes.sort((a, b) => {
-    if (
-      new Date(a.productLaunchDate).valueOf() <
-      new Date(b.productLaunchDate).valueOf()
-    )
-      return 1;
-    if (
-      new Date(a.productLaunchDate).valueOf() >
-      new Date(b.productLaunchDate).valueOf()
-    )
-      return -1;
-    return 0;
-  });
+  let productsSorted: Internal.Product[] = getSortedProducts(allProduct);
   //@ts-ignore
   productsSorted = productsSorted.map(product => {
     return {
@@ -176,7 +167,6 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
   });
   const featuredProducts = createProductCards(
     productsSorted.filter(
-      //@ts-ignore
       product =>
         featuredProductsContent.staticList.indexOf(
           parseInt(product.productId)
@@ -197,26 +187,26 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
     setShowFullList(showFullList);
     setCounter(counter + 1);
   };
-  const createCarousels = (category: string) => {
+  const createCategories = (category: string) => {
     const query = isBrowser()
       ? ['(min-width: 768px)', '(max-width: 767px)'].findIndex(
           q => matchMedia(q).matches
         )
       : 0;
-    if (query === 0) {
-      const initialView = categoryCards[category].slice(0, 4);
-      return (
-        <div className="product-category-listing cards--light">
-          {showFullList[category] ? (
-            <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
-              {categoryCards[category]}
-            </Listing>
-          ) : (
-            <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
-              {initialView}
-            </Listing>
-          )}
-          {!showFullList[category] && categoryCards[category].length > 4 && (
+    const initialView = categoryCards[category].slice(0, query ? 2 : 4);
+    return (
+      <div className="product-category-listing cards--light">
+        {showFullList[category] ? (
+          <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
+            {categoryCards[category]}
+          </Listing>
+        ) : (
+          <Listing content={{ title: category.toLowerCase() }} titleLevel={3}>
+            {initialView}
+          </Listing>
+        )}
+        {!showFullList[category] &&
+          categoryCards[category].length > (query ? 2 : 4) && (
             <Button
               className="discover-more"
               content={discoverMoreContent}
@@ -225,20 +215,8 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
               }}
             />
           )}
-        </div>
-      );
-    } else {
-      return (
-        <GenericCarousel
-          content={{ title: category.toLowerCase() }}
-          config={carouselConfig}
-          className="product-category-carousel cards--light"
-          titleLevel={3}
-        >
-          {categoryCards[category]}
-        </GenericCarousel>
-      );
-    }
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -289,12 +267,12 @@ const BrandProductsPage: React.FunctionComponent<BrandProductsPageProps> = ({
         </section>
       )}
       {categories && lookByCategoryContent && (
-        <section className="wrapper categories bg-primary">
+        <section className="wrapper categories bg-primary _pb--40">
           <LookByCategory
             renderIteration={counter}
             categories={categories}
             title={lookByCategoryContent.text}
-            createChildren={createCarousels}
+            createChildren={createCategories}
             titleLevel={3}
           />
         </section>
