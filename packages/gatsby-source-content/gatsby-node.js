@@ -48,22 +48,24 @@ exports.sourceNodes = async (
   ] = await Promise.all([
     //fetchContent(configOptions, 'pages'),
     //fetchContent(configOptions, 'components'),
-    isMx()? new Promise(resolve => resolve(articlesMockMx)) : fetchContent(configOptions, 'articles'),
+    isMx()
+      ? new Promise(resolve => resolve(articlesMockMx))
+      : fetchContent(configOptions, 'articles'),
     //isMx()? new Promise(resolve => resolve({data:categoriesMockMx})) : fetchContent(configOptions, 'aem/categories'),
-    isMx() ? fetchImages(configOptions.imagesEndpoint) : new Promise(resolve => resolve({ data: [] })),
-    new Promise(resolve => resolve({data: isMx() ? categoriesMockMx : categoriesMockBr})),
+    fetchImages(configOptions.imagesEndpoint),
+    new Promise(resolve =>
+      resolve({ data: isMx() ? categoriesMockMx : categoriesMockBr })
+    ),
   ]);
   // please add to pagesData local page json mocks for development purposes if page on BE does not exist or incorrect
   // e.g. const pagesData = [...pagesResponse.data.pages, newPageMock];
   const pagesMock = isMx() ? pagesMockMx : pagesMockBr;
   const componentsMock = isMx() ? componentsMockMx : componentsMockBr;
   const pagesData = [...pagesMock.pages];
-  const imagesData = imagesResponse
-    .data
-    .reduce((response, item) => {
-      response[item.pk] = {childImageSharp: { fluid: item }};
-      return response;
-    }, {});
+  const imagesData = imagesResponse.data.reduce((response, item) => {
+    response[item.pk] = { childImageSharp: { fluid: item } };
+    return response;
+  }, {});
   //TODO: remove next string when data for components will fixed on middleware
   const componentsData = componentsMock;
   pagesData.forEach(page => {

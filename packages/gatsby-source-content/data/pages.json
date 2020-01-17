@@ -54,14 +54,14 @@
             "name": "Text",
             "content": {
               "view": "IntroQuizTitle",
-              "text": "Oi! Bem-vindo ao Recepedia!"
+              "text": "Personalize sua experiência!"
             }
           },
           {
             "name": "Text",
             "content": {
               "view": "IntroQuizDescription",
-              "text": "Serei o seu aliado na cozinha! Me conte um pouco sobre você para que possa tornar essa experiência ainda mais personalizada!"
+              "text": "Antes de navegar no site, me conte sobre você para que eu possa sugerir receitas que têm a sua cara!"
             }
           },
           {

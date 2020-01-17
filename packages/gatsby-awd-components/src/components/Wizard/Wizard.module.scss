@@ -124,11 +124,14 @@
       &__item-legend {
         display: block;
         width: 100%;
-        font: 400 1.6rem $arial;
+        font: 400 1.2rem $arial;
         margin-bottom: 28px;
-        letter-spacing: 0.1px;
+        letter-spacing: -0.1px;
         @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
           letter-spacing: 0px;
+        }
+        @include respondTo(desktop) {
+          font-size: 1.4rem;
         }
       }
       .buttons {
@@ -138,6 +141,12 @@
           button {
             margin: 0;
           }
+        }
+      }
+      .checkable__label {
+        font-size: 1.2rem;
+        @include respondTo(desktop) {
+          font-size: 1.4rem;
         }
       }
       .field__wrap,
