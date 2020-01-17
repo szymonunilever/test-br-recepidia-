@@ -994,7 +994,7 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 330,
-        "primaryTag":  {
+        "primaryTag": {
           "id": 10,
           "name": "vegan"
         },
@@ -1056,7 +1056,7 @@
         "inFooter": false,
         "showOnHomepage": 0,
         "categoryOrder": 400,
-        "primaryTag":  {
+        "primaryTag": {
           "id": 12595,
           "name": "no seafood"
         },
@@ -1280,8 +1280,8 @@
     "parentId": 0,
     "name": "occasions",
     "description": "<p>Datas Comemorativas</p>\n",
-    "title": "Ocasión",
-    "titlePlural": "Ocasións",
+    "title": "Ocasião",
+    "titlePlural": "Ocasiões",
     "seasonalPromo": [
       {
         "id": 1527,
@@ -1371,19 +1371,7 @@
         "name": "páscoa",
         "description": "<p>Os ovos de chocolate tornam a Páscoa uma das épocas mais deliciosas do ano! Mas um bom almoço com receitas que dão água na boca deixam a celebração em família ainda mais especial e saborosa.</p>\n",
         "title": "Páscoa",
-        "image": {
-          "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa.jpg",
-          "alt": "Category Image reference",
-          "base64": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAcEBf/EACkQAAEDAwMCBQUAAAAAAAAAAAECAwQABSEGERIHMRMiQVFxIzJhgaH/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAQP/xAAdEQABAwUBAAAAAAAAAAAAAAABAAIRAwQTIZFB/9oADAMBAAIRAxEAPwDDo0KuGuvAZSiU0VofmvB8qZHHKsH8fr5rs6lsCYVybdcmNiLJfKIqipPFYGyg0lW522SkjHziqRHtECFb34USK0zFcaWFtoGwVgnNRzUh8Xpxa3nfM47Mllaj6/SV29u3YUJlqAQw7n3iRlLGGpKpVvlX9VvjN22OGo7LYZAcbB+3GOSt9vTPtSnSSXIn9PbQ/Necee4KRzWdyQlakj+AClbChAguKguJ2Gji/9k=",
-          "aspectRatio": 1.78,
-          "width": 600,
-          "height": 337.07865168539325,
-          "src": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-600.jpg",
-          "srcWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-600.webp",
-          "srcSet": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-200.jpg 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-300.jpg 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-500.jpg 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-600.jpg 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-800.jpg 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-900.jpg 900w",
-          "srcSetWebp": "https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-200.webp 200w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-300.webp 300w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-500.webp 500w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-600.webp 600w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-800.webp 800w, https://d37k6lxrz24y4c.cloudfront.net/v2/aem/api/assets/aem-headless-cms/recepedia/br/pt/site-wide-content/recipe-categories/category-images/pascoa-900.webp 900w",
-          "sizes": "(max-width: 500px) 90vw, 500px"
-        },
+        "imageKey": "static/pt/br/categories/pascoa-1.jpg",
         "recipeDetails": {},
         "inNavigation": true,
         "inFooter": false,
