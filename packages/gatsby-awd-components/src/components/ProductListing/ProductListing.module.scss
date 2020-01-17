@@ -12,13 +12,16 @@
   }
 
   &__button {
-    width: 100%;
-    @include respondTo(medium) {
-      width: 35.2rem;
-    }
+    width: $button-large-max-width;
     &-wrap {
       margin-top: 20px;
       text-align: center;
+    }
+  }
+
+  :global {
+    .adaptive-image__image {
+      height: 25rem;
     }
   }
 }

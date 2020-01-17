@@ -22,7 +22,7 @@
   }
   .recipe-list__load-more {
     width: 100%;
-    max-width: 260px;
+    max-width: $button-large-max-width;
     display: flex;
     margin: 40px auto 0;
   }

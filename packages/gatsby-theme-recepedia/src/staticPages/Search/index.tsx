@@ -61,13 +61,10 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
     recipeResultsFetched,
     articleResultsFetched,
     productResultsFetched,
-    initialRecipesCount,
-    initialArticlesCount,
-    initialProductsCount,
+    initialItemsCount,
     initialTagsCount,
     getRecipeSearchData,
   } = useSearchResults(searchQuery);
-
   const updateUrlParams = (searchStr: string) => {
     return navigate(`${relativePath}?searchQuery=${searchStr}`);
   };
@@ -98,7 +95,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
 
   const onViewChange = useCallback(
     (tags: Internal.Tag[], params) => {
-      const maxSize = Math.max(initialRecipesCount, recipeResults.list.length);
+      const maxSize = Math.max(initialItemsCount, recipeResults.list.length);
       const size = params ? params.size : maxSize;
 
       return getRecipeSearchData(
@@ -110,15 +107,12 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         getFilterQuery(tags)
       );
     },
-    [initialRecipesCount, recipeResults]
+    [initialItemsCount, recipeResults]
   );
 
   const onArticleViewChange = useCallback(
     (tags: Internal.Tag[], params) => {
-      const maxSize = Math.max(
-        initialArticlesCount,
-        articleResults.list.length
-      );
+      const maxSize = Math.max(initialItemsCount, articleResults.list.length);
       const size = params ? params.size : maxSize;
       return getArticleSearchData(
         searchQuery,
@@ -129,13 +123,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         getFilterQuery(tags)
       );
     },
-    [initialArticlesCount, articleResults]
+    [initialItemsCount, articleResults]
   );
 
   const onProductViewChange = useCallback(
     (tags: Internal.Tag[], params) => {
       const maxSize = Math.max(
-        initialProductsCount,
+        initialItemsCount / 2,
         productResults.list.length
       );
       const size = params ? params.size : maxSize;
@@ -148,7 +142,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
         getFilterQuery(tags)
       );
     },
-    [initialProductsCount, productResults]
+    [initialItemsCount, productResults]
   );
 
   useEffect(() => {
@@ -208,7 +202,7 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
                 ],
               },
               showFilters: false,
-              initialCount: initialRecipesCount,
+              initialCount: initialItemsCount,
               recipePerLoad: 4,
               favorites: favorites,
               recipeCardButtonPropsDefault: favoriteButtonDefaults,
@@ -219,13 +213,13 @@ const SearchPage = ({ data, pageContext, searchQuery }: SearchPageProps) => {
             articleConfig: {
               getArticleSearchData,
               onArticleViewChange,
-              initialCount: initialArticlesCount,
+              initialCount: initialItemsCount,
               articlePerLoad: 4,
             },
             productConfig: {
               getProductSearchData,
               onProductViewChange,
-              initialCount: initialProductsCount,
+              initialCount: initialItemsCount / 2,
               productPerLoad: 4,
             },
           }}

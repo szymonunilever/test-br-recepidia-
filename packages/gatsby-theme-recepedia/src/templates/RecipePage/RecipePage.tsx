@@ -361,7 +361,6 @@ const RecipePage: React.FunctionComponent<RecipePageProps> = ({
             categoryLinksMap={dietaryLinks}
             activeAttributes={recipeRMSTags}
             infoIcon={infoIcon}
-            showInactiveAttributes
             attributes={mappedRecipeTags}
             icons={dietaryAttributesIcons}
           />
