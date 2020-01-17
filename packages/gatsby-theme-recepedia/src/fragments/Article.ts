@@ -27,6 +27,7 @@ export const query = graphql`
     }
     shortDescription
     content
+    creationTime
     fields {
       slug
     }

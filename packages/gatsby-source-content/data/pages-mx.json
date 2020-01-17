@@ -596,6 +596,12 @@
             }
           },
           {
+            "name": "RelatedArticles",
+            "content": {
+              "title": "Articulos relacionadas"
+            }
+          },
+          {
             "name": "Tags",
             "content": {
               "title": "Filtros similares",

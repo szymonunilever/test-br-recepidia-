@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { graphql } from 'gatsby';
 import SEO from 'src/components/Seo';
 import {
   RecipeCard,
+  Listing,
   CardLinkWrapper,
   AdaptiveImage,
   Hero,
@@ -18,8 +19,10 @@ import {
   RichText,
   PageListingViewTypes,
   Button,
+  RecipeCardWrapper,
+  Card,
 } from 'gatsby-awd-components/src';
-import { findPageComponentContent, getImageAlt } from 'src/utils';
+import { findPageComponentContent, getImageAlt, isBrowser } from 'src/utils';
 import cx from 'classnames';
 import { favoriteButtonDefaults } from '../../themeDefaultComponentProps';
 import theme from '../RecipeCategoryPage/RecipeCategoryPage.module.scss';
@@ -87,6 +90,44 @@ const RecipeCategoryPage = ({
     });
     seoImage && (seoImage.content = localImage.childImageSharp.fluid.src);
   }
+  const tagList = categoryTags.map(tag => tag.id);
+  let relatedArticles = allArticle.nodes
+    .filter(art => art.tags.every(tag => tagList.includes(tag.id)))
+    .slice(0, 4);
+  if (!relatedArticles.length) {
+    relatedArticles = allArticle.nodes.slice(0, 4);
+  }
+  const searchPath = getPagePath('Search');
+  const articleCards = relatedArticles.map(relatedArticle => (
+    <CardLinkWrapper
+      key={relatedArticle.fields.slug}
+      title={relatedArticle.title}
+      slug={relatedArticle.fields.slug}
+      cardKey={relatedArticle.fields.slug}
+    >
+      <RecipeCardWrapper
+        key={relatedArticle.fields.slug}
+        ratingProvider={RatingAndReviewsProvider.none}
+        cardKey={relatedArticle.fields.slug}
+      >
+        <Card
+          showDescription
+          idPropertyName="id"
+          key={relatedArticle.fields.slug}
+          content={{
+            ...relatedArticle,
+            title: relatedArticle.title,
+            description: relatedArticle.shortDescription,
+            localImage: relatedArticle.localImage,
+          }}
+          imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.STANDARD}
+          cardKey={relatedArticle.fields.slug}
+          brandName={relatedArticle.brand}
+          brandLink={searchPath}
+        />
+      </RecipeCardWrapper>
+    </CardLinkWrapper>
+  ));
   return (
     <Layout className={classWrapper}>
       <SEO
@@ -175,21 +216,16 @@ const RecipeCategoryPage = ({
             : []}
         </RecipeListing>
       </section>
-      {/* {!!allArticle && allArticle.nodes.length > 0 && (
-        <section className="_pb--40 _pt--40">
-          <MediaGallery
-            // content={findPageComponentContent(
-            //   components,
-            //   'MediaGallery',
-            //   'RelatedArticles'
-            // )}
-            content={relatedArticlesComponent.content}
-            list={allArticle.nodes}
-            allCount={allArticle.nodes.length}
-            onLoadMore={() => {}}
-          />
+      {articleCards.length ? (
+        <section className={cx(theme.articleRecent, 'wrapper _pb--40 _pt--40')}>
+          <Listing
+            content={findPageComponentContent(components, 'RelatedArticles')}
+            titleLevel={2}
+          >
+            {articleCards}
+          </Listing>
         </section>
-      )} */}
+      ) : null}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
           <Tags
@@ -272,21 +308,13 @@ export const query = graphql`
         slug
       }
     }
+    allArticle(sort: { fields: creationTime, order: DESC }) {
+      nodes {
+        ...ArticleFields
+      }
+    }
   }
 `;
-
-// @todo use when articles are there
-// allArticle(
-//   filter: {
-//     tagGroups: { elemMatch: { tags: { elemMatch: { id: { eq: $id } } } } }
-//   }
-//   limit: 4
-//   sort: { order: DESC, fields: id }
-// ) {
-//   nodes {
-//     ...ArticleFields
-//   }
-// }
 
 interface RecipeCategoryPageProps extends WithRecipeAsyncLoadMore {
   data: {

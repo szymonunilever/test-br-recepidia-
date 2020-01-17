@@ -105,7 +105,7 @@ exports.sourceNodes = async (
     articlesResponse.data.articles;
 
   articlesList.forEach(article => {
-    const { id, path, brand, section, articleName, articleContent, tags } = article;
+    const { id, path, brand, section, articleName, articleContent, tags, creationTime } = article;
     const getImage = (article, imagesData) => {
       return imagesData[
         article.articleHeroImage ?
@@ -114,7 +114,7 @@ exports.sourceNodes = async (
     };
 
     const articleNode = {
-      id, path, section,
+      id, path, section, creationTime,
       brand: brand ? brand.replace(/[^a-zA-Z0-9\s-]+/g, '').toLowerCase() : '',
       name: articleName,
       title: articleName,
@@ -205,6 +205,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       section: String
       name: String!
       shortDescription: String
+      creationTime: String
       content: String
       localImage: ArticleImage
       assets: [ArticleAsset]
