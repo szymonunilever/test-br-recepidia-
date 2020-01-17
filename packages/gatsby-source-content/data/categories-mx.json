@@ -10,7 +10,7 @@
     "inNavigation": true,
     "inFooter": true,
     "showOnHomepage": 10,
-    "categoryOrder": 100,
+    "categoryOrder": 700,
     "tags": [
       {
         "id": 700,
@@ -309,7 +309,7 @@
     "inNavigation": true,
     "inFooter": true,
     "showOnHomepage": 20,
-    "categoryOrder": 200,
+    "categoryOrder": 600,
     "tags": [
       {
         "id": 617,
@@ -469,7 +469,7 @@
     "inNavigation": true,
     "inFooter": true,
     "showOnHomepage": 30,
-    "categoryOrder": 300,
+    "categoryOrder": 400,
     "tags": [
       {
         "id": 1047,
@@ -1136,7 +1136,7 @@
     "inNavigation": true,
     "inFooter": true,
     "showOnHomepage": 40,
-    "categoryOrder": 400,
+    "categoryOrder": 1000,
     "tags": [
       {
         "id": 1379,
@@ -1346,7 +1346,7 @@
     "inNavigation": true,
     "inFooter": false,
     "showOnHomepage": 50,
-    "categoryOrder": 500,
+    "categoryOrder": 900,
     "tags": [
       {
         "id": 1287,
@@ -1811,15 +1811,15 @@
   {
     "id": 6,
     "parentId": 0,
-    "name": "metodo-de-coccion",
+    "name": "metodos-de-coccion",
     "description": "<p>¿Quieres presumir ese horno, parrila o simplemente sacarle el mejor provecho a tu estufa? Disfruta de una variedad de receta donde te recomendaremos los metodos de cocción más convenientes para cada platillo.</p>\n",
-    "title": "Método de cocción",
+    "title": "Métodos de cocción",
     "imageKey": "static/es/mx/categories/910821.jpg",
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
     "showOnHomepage": 60,
-    "categoryOrder": 600,
+    "categoryOrder": 500,
     "tags": [
       {
         "id": 1376,
@@ -2087,7 +2087,7 @@
     "inNavigation": true,
     "inFooter": false,
     "showOnHomepage": 70,
-    "categoryOrder": 700,
+    "categoryOrder": 100,
     "tags": [
       {
         "id": 1,
@@ -2398,7 +2398,7 @@
     "inNavigation": true,
     "inFooter": false,
     "showOnHomepage": 80,
-    "categoryOrder": 800,
+    "categoryOrder": 300,
     "tags": [
       {
         "id": 1349,
@@ -2633,6 +2633,37 @@
     ]
   },
   {
+    "id": 818,
+    "parentId": 0,
+    "name": "estación",
+    "description": "<p>Disfruta de las recetas tipicas de cada estación del año disfrutando de ingredientes de temporada. Teniendo a la mano preparaciones sencillas y económicas, disfrutarás en cualquier momento y sin ninguna complicación.</p>\n",
+    "title": "Estación",
+    "imageKey": "static/es/mx/categories/794814.jpg",
+    "recipeDetails": {},
+    "inNavigation": true,
+    "inFooter": false,
+    "showOnHomepage": 90,
+    "categoryOrder": 900,
+    "tags": [
+      {
+        "id": 1458,
+        "name": ""
+      },
+      {
+        "id": 1459,
+        "name": ""
+      },
+      {
+        "id": 1460,
+        "name": ""
+      },
+      {
+        "id": 1457,
+        "name": ""
+      }
+    ]
+  },
+  {
     "id": 9,
     "parentId": 0,
     "name": "dificultad",
@@ -2642,8 +2673,8 @@
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
-    "showOnHomepage": 90,
-    "categoryOrder": 900,
+    "showOnHomepage": 0,
+    "categoryOrder": 200,
     "tags": [
       {
         "id": 1458,
@@ -2748,8 +2779,8 @@
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
-    "showOnHomepage": 100,
-    "categoryOrder": 1000,
+    "showOnHomepage": 0,
+    "categoryOrder": 800,
     "tags": [
       {
         "id": 1370,
@@ -2846,7 +2877,7 @@
     "recipeDetails": {},
     "inNavigation": true,
     "inFooter": false,
-    "showOnHomepage": 110,
+    "showOnHomepage": 0,
     "categoryOrder": 1100,
     "tags": [
       {
