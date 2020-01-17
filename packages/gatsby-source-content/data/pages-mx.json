@@ -1602,7 +1602,7 @@
           {
             "name": "RichText",
             "content": {
-              "text": "<div>No importa si es una cena elegante, un almuerzo rápido para ti o tu familia o cualquier ocasión dónde necesites inspiración en la cocina - Recepedia te comparte increíbles recetas para salir de la rutina.<br>Este es un sitio interactivo lleno de inspiración, hecho para aquellos que aman cocinar y también para quienes están aprendiendo. Todas estas increíbles recetas son hechas por nuestros chefs y tambíen por usuarios de nuestra comunidad.<br>Ahora ya sabes que cuentas con nosotros. Cada vez que estés en duda de qué o cómo preparar ese platillo especial, Recepedia está contigo. Además de deliciosas recetas, encontrarás la exacta dósis de inspiración para preparar eso que estás buscando. ¡Buen provecho!</div>"
+              "text": "<div><p>No importa si es una cena elegante, un almuerzo rápido para ti o tu familia o cualquier ocasión dónde necesites inspiración en la cocina - Recepedia te comparte increíbles recetas para salir de la rutina.</p><p>Este es un sitio interactivo lleno de inspiración, hecho para aquellos que aman cocinar y también para quienes están aprendiendo. Todas estas increíbles recetas son hechas por nuestros chefs y tambíen por usuarios de nuestra comunidad.</p><p>Ahora ya sabes que cuentas con nosotros. Cada vez que estés en duda de qué o cómo preparar ese platillo especial, Recepedia está contigo. Además de deliciosas recetas, encontrarás la exacta dósis de inspiración para preparar eso que estás buscando. ¡Buen provecho!</div>"
             }
           }
         ]
@@ -1656,7 +1656,7 @@
                         "label": {
                           "text": "Aptas para el embarazo",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-1.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/pregnancy_safe.png",
                             "alt": "Aptas para el embarazo"
                           }
                         }
@@ -1667,7 +1667,7 @@
                         "label": {
                           "text": "Dieta cruda",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-2.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/raw_diet.png",
                             "alt": "Dieta cruda"
                           }
                         }
@@ -1678,7 +1678,7 @@
                         "label": {
                           "text": "Dieta Paleo",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-3.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/paleo_diet.png",
                             "alt": "Dieta Paleo"
                           }
                         }
@@ -1689,7 +1689,7 @@
                         "label": {
                           "text": "Sin gluten",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-4.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/gluten_free.png",
                             "alt": "Sin gluten"
                           }
                         }
@@ -1700,7 +1700,7 @@
                         "label": {
                           "text": "Sin huevo",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-5.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/egg_free.png",
                             "alt": "Sin huevo"
                           }
                         }
@@ -1711,7 +1711,7 @@
                         "label": {
                           "text": "Sin lacteos",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-6.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/lactose_free.png",
                             "alt": "Sin lacteos"
                           }
                         }
@@ -1722,7 +1722,7 @@
                         "label": {
                           "text": "Sin nueces",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-7.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/nuts_free.png",
                             "alt": "Sin nueces"
                           }
                         }
@@ -1733,7 +1733,7 @@
                         "label": {
                           "text": "Sin trigo",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-8.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/wheat_free.png",
                             "alt": "Sin trigo"
                           }
                         }
@@ -1744,7 +1744,7 @@
                         "label": {
                           "text": "Veganas",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-9.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/vegan.png",
                             "alt": "Veganas"
                           }
                         }
@@ -1755,7 +1755,7 @@
                         "label": {
                           "text": "Saludable",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-9.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/healthy.png",
                             "alt": "Saludable"
                           }
                         }
@@ -1766,7 +1766,7 @@
                         "label": {
                           "text": "Vegetariana",
                           "image": {
-                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/br/pt/meal-planner-content/meal-planner-images/1-10.jpg",
+                            "url": "https://prod-headless.unileversolutions.com/api/assets/aem-headless-cms/recepedia/mx/es/meal-planner-content/meal-planner-images/question-1/1/vegetarian.png",
                             "alt": "Vegetariana"
                           }
                         }
