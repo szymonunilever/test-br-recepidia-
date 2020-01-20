@@ -363,6 +363,7 @@
     .has-submenu {
       @include respondTo(desktop) {
         .submenu {
+          z-index: 10;
           visibility: hidden;
           opacity: 0;
           max-height: 0;
