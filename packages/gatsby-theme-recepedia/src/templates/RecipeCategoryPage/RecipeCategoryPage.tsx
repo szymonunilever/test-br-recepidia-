@@ -170,6 +170,7 @@ const RecipeCategoryPage = ({
         )}
       >
         <RecipeListing
+          className="_pb--40"
           content={{
             ...recipesListingContent,
             title: recipesListingContent.title.replace(
@@ -215,17 +216,17 @@ const RecipeCategoryPage = ({
               ))
             : []}
         </RecipeListing>
+        {articleCards.length ? (
+          <div className={cx(theme.articleRecent, '_pb--40 _pt--40')}>
+            <Listing
+              content={findPageComponentContent(components, 'RelatedArticles')}
+              titleLevel={2}
+            >
+              {articleCards}
+            </Listing>
+          </div>
+        ) : null}
       </section>
-      {articleCards.length ? (
-        <section className={cx(theme.articleRecent, 'wrapper _pb--40 _pt--40')}>
-          <Listing
-            content={findPageComponentContent(components, 'RelatedArticles')}
-            titleLevel={2}
-          >
-            {articleCards}
-          </Listing>
-        </section>
-      ) : null}
       {categoryTags.length > 0 && (
         <section className={theme.tagList}>
           <Tags

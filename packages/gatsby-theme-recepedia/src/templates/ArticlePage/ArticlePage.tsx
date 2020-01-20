@@ -65,7 +65,6 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
     },
   };
   const next = brandedArticles[0];
-  const video = findPageComponentContent(components, 'Video');
   const nextContent = next && {
     image: {
       localImage: next.localImage,
@@ -163,14 +162,6 @@ const ArticlePage: React.FunctionComponent<ArticlePageProps> = ({
           brand={article.brand}
         />
       </section>
-      {video && (
-        <section className={cx(theme.articleVideo, 'wrapper')}>
-          <VideoPlayer content={video} PlayIcon={PlayIcon} />
-          {video.description ? (
-            <Text tag={TagName.p} text={video.description} />
-          ) : null}
-        </section>
-      )}
       {next && next.fields && next.fields.slug && nextContent.image && (
         <section className={theme.articleNext}>
           <Text

@@ -122,7 +122,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
     SortingOptions.newest,
   );
   const [ filteringValue, setFilteringValue ] = useState<Internal.Tag[]>([]);
-  const [ actualChildren, setActualChildren ] = useState<ReactElement<RecipeCardProps>[] | ReactElement<RecipeCardLinkWrapperProps>[]>(
+  const [ actualChildren, setActualChildren ] = useState<ReactElement<RecipeCardProps>[] | ReactElement[]>(
     getActualChildren(getSlicedList(), cards),
   );
 
@@ -278,7 +278,7 @@ export const RecipeListing: FunctionComponent<RecipeListingProps> = ({
     );
 
   return (
-    <AppContext.Provider value={{ brandLogoLink }}>
+    <AppContext.Provider value={{ brandLogoLink, isExternalItemLink }}>
       <div
         {...getComponentDataAttrs('recipeListing', props.content)}
         className={wrapClasses}
