@@ -406,6 +406,8 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
           onLoadMore: onLoadMoreRecipes,
           allCount: customResultsCount,
         }}
+        brandLogoLink={searchPagePath}
+        isExternalItemLink={true}
       >
         {recipesToSelect.map(recipe => (
           <RecipeCard
@@ -484,6 +486,8 @@ export const MealPlannerResults: FunctionComponent<MealPannerResultsProps> = ({
               viewType={RecipeListViewType.Trivial}
               className="recipe-list--wizard"
               imageSizes={IMAGE_SIZES.RECIPE_LISTINGS.MEAL_PLANNER}
+              brandLogoLink={searchPagePath}
+              isExternalItemLink={true}
             >
               {recipeCards}
             </RecipeListing>

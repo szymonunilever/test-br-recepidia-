@@ -32,6 +32,7 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
     />
   ) : null;
   const searchLink = useContext(AppContext).brandLogoLink;
+  const isExternalItemLink = useContext(AppContext).isExternalItemLink;
   const modifiedChildren = children && React.Children.map(children, child =>{
     return React.isValidElement<ButtonProps>(child) && React.cloneElement<ButtonProps>(
     child,
@@ -82,7 +83,7 @@ export const RecipeCard: FunctionComponent<RecipeCardProps> = ({
           {itemTitle}
           {RatingWidget}
         </div>
-        <BrandLogo brand={brand} linkTo={`${searchLink}?searchQuery=${brand}`} />
+        <BrandLogo brand={brand} linkTo={`${searchLink}?searchQuery=${brand}`} isExternal={isExternalItemLink} />
       </div>
     </div>
   );

@@ -30,6 +30,11 @@ const UserPreferences: FunctionComponent<UserPreferencesProps> = ({
   let enhancedChildren: ReactChild[] = [];
 
   React.Children.forEach(children, (child, index) => {
+    // @ts-ignore
+    child && child.props.questions.forEach(question => {
+      question.type.labelPosition = 'bottom';
+    });
+
     if (React.isValidElement(child)) {
       const newProps = {
         editingKey,
